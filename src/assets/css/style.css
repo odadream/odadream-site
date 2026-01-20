@@ -29,13 +29,63 @@ body {
   box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
+/* Левый блок — теперь ASCII дисплей */
 .frame-left {
-  background: #4b5563;
-  padding: 24px;
+  background: #ffffff; /* белый фон */
+  padding: 0;          /* убираем отступы */
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+
+/* ASCII DISPLAY — белый фон, чёрный текст */
+.ascii-display {
+  background: #F5EEE9;
+  color: #000000;
+  font-family: Consolas, monospace;
+  font-size: 18px;
+  line-height: 1.2;
+
+  /* Растягиваем на весь frame-left */
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 8px;
+
+  /* ASCII-style scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #000 #fff;
+}
+
+
+/* Chrome/Edge scrollbar */
+.ascii-display::-webkit-scrollbar {
+  width: 10px;
+}
+.ascii-display::-webkit-scrollbar-track {
+  background: #fff;
+}
+.ascii-display::-webkit-scrollbar-thumb {
+  background: #000;
+  border: 2px solid #fff;
+}
+
+/* Контейнер текста */
+.ascii-content {
+  margin: 0;
+  white-space: pre-wrap; /* перенос строк */
+  word-wrap: break-word; /* перенос длинных слов */
+  width: 32ch;           /* фиксированная ширина в символах */
+}
+
 
 .frame-right {
   padding: 12px;

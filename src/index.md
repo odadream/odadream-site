@@ -2,8 +2,12 @@
 layout: layout.njk
 title: ODA.Dream
 ---
-# Добро пожаловать
+**ODA.Dream**
+Wellness + Art + Tech
+Ольга и Далер Арабовы
 
-Контент главной страницы.
-Привет, как дела?
-Ну ты крутой перец, да?
+Написать: [hi@odadream.art](mailto:hi@odadream.art)
+Анонсы: [t.me/odadream](https://t.me/odadream)
+Портфолио: [dzen.ru/odadream](https://dzen.ru/odadream)
+
+⌛ Сайт в разработкe…

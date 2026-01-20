@@ -13,13 +13,17 @@
   <div class="page-center">
     <div class="frame-2x1">
 
-      <div class="frame-left">
-        {{ content | safe }}
-      </div>
+		<div class="frame-left">
+		  <div class="ascii-display">
+			<pre class="ascii-content">
+				{{ content | safe }}
+			</pre>
+		  </div>
+		</div>
 
-      <div class="frame-right">
-        {% include "grid.njk" %}
-      </div>
+		<div class="frame-right">
+			{% include "grid.njk" %}
+		</div>
 
     </div>
   </div>
