@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <!-- Primary Meta Tags -->
+    <title>oda.dream | Neural Art Interface</title>
+    <meta name="title" content="oda.dream | Neural Art Interface">
+    <meta name="description" content="Immersive digital art portfolio of oda.dream. Exploring the synthesis of biological wetware and digital hardware through neuroaesthetics.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://oda.dream/">
+    <meta property="og:title" content="oda.dream | Neural Art Interface">
+    <meta property="og:description" content="Immersive digital art portfolio of oda.dream. Exploring the synthesis of biological wetware and digital hardware through neuroaesthetics.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1200&auto=format&fit=crop">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://oda.dream/">
+    <meta property="twitter:title" content="oda.dream | Neural Art Interface">
+    <meta property="twitter:description" content="Immersive digital art portfolio of oda.dream. Exploring the synthesis of biological wetware and digital hardware through neuroaesthetics.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1200&auto=format&fit=crop">
+
+    <!-- Styling (Tailwind CDN kept for portable design system configuration) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Design System Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            colors: {
+              canvas: '#09090b',       // zinc-950
+              surface: '#18181b',      // zinc-900
+              surfaceHighlight: '#27272a', // zinc-800
+              border: '#27272a',       // zinc-800
+              
+              txt: {
+                main: '#e4e4e7',       // zinc-200
+                muted: '#a1a1aa',      // zinc-400
+                dim: '#52525b',        // zinc-600
+              },
+
+              accent: {
+                DEFAULT: '#10b981',    // emerald-500
+                dim: 'rgba(16, 185, 129, 0.3)',
+                glow: 'rgba(16, 185, 129, 0.5)',
+                text: '#34d399',       // emerald-400
+              },
+              
+              warning: {
+                bg: 'rgba(113, 63, 18, 0.2)', // yellow-900/20
+                border: 'rgba(113, 63, 18, 0.5)',
+                text: '#ca8a04',       // yellow-600
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      body {
+        font-family: 'JetBrains Mono', monospace;
+        background-color: #09090b;
+        color: #e4e4e7;
+        overflow: hidden; /* Prevent bounce on mobile */
+      }
+      
+      /* Minimalist Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 4px; /* Even thinner for sleek look */
+        height: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #3f3f46;
+        border-radius: 2px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #52525b;
+      }
+      
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "framer-motion": "https://esm.sh/framer-motion@^12.27.5",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
