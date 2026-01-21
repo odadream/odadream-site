@@ -31,7 +31,7 @@ The Neuromandala project bridges the gap between subjective experience (qualia) 
 3. **Output**: A digital mandala forms in real-time.
 4. **Loop**: The participant sees their own mind, altering their state, changing the image.
 
-![[https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1200&auto=format&fit=crop]]
+![[/images/content/neuromandala-cover.jpg]]
 
 **Result**: A digital fingerprint of a fleeting mental state.`;
 
@@ -74,7 +74,7 @@ export const lectures_art_brain_md = `## ART OF THE BRAIN
 Why do we find symmetry beautiful? Why does the Golden Ratio appear in nature?
 This lecture explores the evolutionary biology behind aesthetic judgment.
 
-![[https://images.unsplash.com/photo-1532153975070-2e9ab71f1b14?q=80&w=800&auto=format&fit=crop]]`;
+![[/images/content/art-brain.jpg]]`;
 
 export const lectures_sound_brain_md = `## SOUND & SYNC
 **Auditory Entrainment**
@@ -164,7 +164,7 @@ export const objects_jewellery_md = `## DATA ARTIFACTS
 
 Your brainwave pattern, recorded during a moment of intense emotion, 3D printed in silver. A memory you can touch.
 
-![[https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop]]`;
+![[/images/content/jewellery.jpg]]`;
 
 export const objects_emomandala_md = `## EMOMANDALA
 **Crystallized Emotions**

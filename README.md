@@ -1,20 +1,70 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# oda.dream | Digital Art Interface
 
-# Run and deploy your AI Studio app
+Interactive immersive platform for the creative duo oda.dream, utilizing the Blossoming Lotus methodology for navigation.
 
-This contains everything you need to run your app locally.
+## 🚀 Getting Started
 
-View your app in AI Studio: https://ai.studio/apps/drive/1Ny-2SPhPsq3-L4Hg2w8Nlu2iOoUNgZRJ
+### Prerequisites
+- Node.js (v18 or v20 recommended)
+- npm
 
-## Run Locally
-
-**Prerequisites:**  Node.js
-
+### Installation
 
 1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+   ```bash
+   npm install
+   ```
+
+2. **Important:** Download local assets (images).
+   The project is configured to use local images located in `public/images`. This command scrapes the placeholder images used in the prototype and saves them locally.
+   ```bash
+   npm run assets:download
+   ```
+
+3. Start development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Build for production:
+   ```bash
+   npm run build
+   ```
+
+## 📂 Project Structure
+
+Currently, the source files are located in the root. A recommended optimization for the future is to move source code into `src/` to separate config from logic.
+
+```
+.
+├── public/              # Static assets (images, fonts)
+│   └── images/          # Created by npm run assets:download
+├── components/          # React UI components
+│   ├── LotusGrid.tsx    # The 3x3 interactive grid
+│   ├── TextPanel.tsx    # The text content viewer
+│   └── ...
+├── utils/               # Helper functions
+├── styles/              # Theme definitions (Tailwind config wrappers)
+├── scripts/             # Maintenance scripts
+│   └── download-assets.js # Fetches placeholder images
+├── constants.ts         # Data structure & Configuration
+├── content.ts           # Markdown content
+├── types.ts             # TypeScript interfaces
+└── App.tsx              # Main entry point
+```
+
+## 🎨 Design System
+
+The project uses a custom Tailwind configuration injected via `index.html` (for portability) and `styles/theme.ts` for centralized class strings.
+
+- **Font**: JetBrains Mono
+- **Primary Color**: Emerald Green (`#10b981`)
+- **Background**: Zinc 950 (`#09090b`)
+
+## 🛠 Tech Stack
+
+- **Vite**: Build tool
+- **React**: UI Library
+- **TypeScript**: Type safety
+- **Framer Motion**: Animations
+- **Lucide React**: Icons
