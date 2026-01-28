@@ -1,8 +1,7 @@
-
-import React, { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { X, Film, AudioLines, Image as ImageIcon } from 'lucide-react';
-import { getMediaType } from '../utils/mediaHelpers';
+import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { X, Film, AudioLines, Image as ImageIcon } from "lucide-react";
+import { getMediaType } from "../utils/mediaHelpers";
 
 // Workaround for TypeScript environment issues with framer-motion types
 const MotionDiv = motion.div as any;
@@ -14,32 +13,57 @@ interface LightboxProps {
   title?: string;
 }
 
-export const Lightbox: React.FC<LightboxProps> = ({ isOpen, onClose, mediaUrl, title }) => {
+export const Lightbox: React.FC<LightboxProps> = ({
+  isOpen,
+  onClose,
+  mediaUrl,
+  title,
+}) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const [imgSrc, setImgSrc] = useState<string | undefined>(mediaUrl);
+
+  const toContentSvgFallback = (url: string): string | null => {
+    const [base, query] = url.split("?");
+    if (!base.includes("/images/content/")) return null;
+    if (base.toLowerCase().endsWith(".svg")) return null;
+
+    const fallbackBase = base.replace(
+      /\.(png|jpe?g|webp|gif|bmp|ico)$/i,
+      ".svg",
+    );
+    if (fallbackBase === base) return null;
+    return query ? `${fallbackBase}?${query}` : fallbackBase;
+  };
 
   // Clean up media sources on unmount to prevent browser errors
   useEffect(() => {
     return () => {
       if (videoRef.current) {
         videoRef.current.pause();
-        videoRef.current.removeAttribute('src');
+        videoRef.current.removeAttribute("src");
         videoRef.current.load();
       }
       if (audioRef.current) {
         audioRef.current.pause();
-        audioRef.current.removeAttribute('src');
+        audioRef.current.removeAttribute("src");
         audioRef.current.load();
       }
     };
   }, []);
 
+  // Reset image src when opening / changing media
+  useEffect(() => {
+    setImgSrc(mediaUrl);
+  }, [mediaUrl, isOpen]);
+
   if (!isOpen || !mediaUrl) return null;
 
   const type = getMediaType(mediaUrl);
-  
+
   // Icon Resolution based on type
-  const TypeIcon = type === 'video' ? Film : type === 'audio' ? AudioLines : ImageIcon;
+  const TypeIcon =
+    type === "video" ? Film : type === "audio" ? AudioLines : ImageIcon;
 
   return (
     <MotionDiv
@@ -68,36 +92,41 @@ export const Lightbox: React.FC<LightboxProps> = ({ isOpen, onClose, mediaUrl, t
       >
         {/* Content Container */}
         <div className="relative flex-1 flex items-center justify-center w-full min-h-0 overflow-hidden">
-            {type === 'video' ? (
-                <video 
-                    ref={videoRef}
-                    src={mediaUrl} 
-                    controls 
-                    autoPlay 
-                    className="max-w-full max-h-[75vh] md:max-h-[85vh] rounded-sm shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-zinc-800"
-                />
-            ) : type === 'audio' ? (
-                <div className="w-full max-w-md bg-zinc-900/50 p-8 rounded border border-white/10 flex flex-col items-center gap-6 backdrop-blur-sm">
-                    <div className="w-24 h-24 rounded-full bg-accent/5 border border-accent/20 flex items-center justify-center animate-pulse-slow">
-                        <AudioLines className="w-10 h-10 text-accent opacity-80" />
-                    </div>
-                    <audio 
-                        ref={audioRef}
-                        src={mediaUrl} 
-                        controls 
-                        autoPlay 
-                        className="w-full invert hue-rotate-180" 
-                    />
-                </div>
-            ) : (
-                <img
-                    src={mediaUrl}
-                    alt={title || 'Media Preview'}
-                    className="max-w-full max-h-[75vh] md:max-h-[85vh] object-contain rounded-sm shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-zinc-800"
-                />
-            )}
+          {type === "video" ? (
+            <video
+              ref={videoRef}
+              src={mediaUrl}
+              controls
+              autoPlay
+              className="max-w-full max-h-[75vh] md:max-h-[85vh] rounded-sm shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-zinc-800"
+            />
+          ) : type === "audio" ? (
+            <div className="w-full max-w-md bg-zinc-900/50 p-8 rounded border border-white/10 flex flex-col items-center gap-6 backdrop-blur-sm">
+              <div className="w-24 h-24 rounded-full bg-accent/5 border border-accent/20 flex items-center justify-center animate-pulse-slow">
+                <AudioLines className="w-10 h-10 text-accent opacity-80" />
+              </div>
+              <audio
+                ref={audioRef}
+                src={mediaUrl}
+                controls
+                autoPlay
+                className="w-full invert hue-rotate-180"
+              />
+            </div>
+          ) : (
+            <img
+              src={imgSrc || mediaUrl}
+              alt={title || "Media Preview"}
+              className="max-w-full max-h-[75vh] md:max-h-[85vh] object-contain rounded-sm shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-zinc-800"
+              onError={() => {
+                const current = imgSrc || mediaUrl;
+                const fallback = toContentSvgFallback(current);
+                if (fallback && fallback !== current) setImgSrc(fallback);
+              }}
+            />
+          )}
         </div>
-        
+
         {/* Footer Caption */}
         {title && (
           <div className="mt-6 flex items-center gap-3 bg-black/80 border border-white/10 px-4 py-2 rounded-sm backdrop-blur-sm">

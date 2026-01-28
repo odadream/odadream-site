@@ -24,9 +24,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          # cache: 'npm' removed because it requires a lock file which is missing
+          cache: "npm"
+          cache-dependency-path: package-lock.json
       - name: Install dependencies
-        run: npm install
+        run: npm ci --no-audit --no-fund
       - name: Build
         run: npm run build
       - name: Upload artifact
