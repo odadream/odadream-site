@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,100 +24,35 @@
     <meta property="twitter:description" content="Immersive digital art portfolio of oda.dream. Exploring the synthesis of biological wetware and digital hardware through neuroaesthetics.">
     <meta property="twitter:image" content="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1200&auto=format&fit=crop">
 
-    <!-- Styling (Tailwind CDN kept for portable design system configuration) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Fonts: Preconnected for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400;500;700&subset=latin,cyrillic&display=swap" rel="stylesheet">
     
-    <!-- Design System Configuration -->
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              mono: ['"JetBrains Mono"', 'monospace'],
-            },
-            colors: {
-              canvas: '#09090b',       // zinc-950
-              surface: '#18181b',      // zinc-900
-              surfaceHighlight: '#27272a', // zinc-800
-              border: '#27272a',       // zinc-800
-              
-              txt: {
-                main: '#e4e4e7',       // zinc-200
-                muted: '#a1a1aa',      // zinc-400
-                dim: '#52525b',        // zinc-600
-              },
-
-              accent: {
-                DEFAULT: '#10b981',    // emerald-500
-                dim: 'rgba(16, 185, 129, 0.3)',
-                glow: 'rgba(16, 185, 129, 0.5)',
-                text: '#34d399',       // emerald-400
-              },
-              
-              warning: {
-                bg: 'rgba(113, 63, 18, 0.2)', // yellow-900/20
-                border: 'rgba(113, 63, 18, 0.5)',
-                text: '#ca8a04',       // yellow-600
-              }
-            }
-          }
-        }
-      }
-    </script>
-
-    <style>
-      body {
-        font-family: 'JetBrains Mono', monospace;
-        background-color: #09090b;
-        color: #e4e4e7;
-        overflow: hidden; /* Prevent bounce on mobile */
-      }
-      
-      /* Minimalist Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 4px; /* Even thinner for sleek look */
-        height: 4px;
-      }
-      ::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #3f3f46;
-        border-radius: 2px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #52525b;
-      }
-      
-      .scrollbar-hide::-webkit-scrollbar {
-        display: none;
-      }
-      .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-    </style>
-<script type="importmap">
+  <script type="importmap">
 {
   "imports": {
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "framer-motion": "https://esm.sh/framer-motion@^12.29.2",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
     "vite": "https://esm.sh/vite@^7.3.1",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "framer-motion": "https://esm.sh/framer-motion@^12.27.5",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "path": "https://esm.sh/path@^0.12.7",
-    "url": "https://esm.sh/url@^0.11.4",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react-markdown": "https://esm.sh/react-markdown@^10.1.0",
     "fs": "https://esm.sh/fs@^0.0.1-security",
-    "https": "https://esm.sh/https@^1.0.0"
+    "remark-gfm": "https://esm.sh/remark-gfm@^4.0.1",
+    "url": "https://esm.sh/url@^0.11.4",
+    "path": "https://esm.sh/path@^0.12.7",
+    "https": "https://esm.sh/https@^1.0.0",
+    "child_process": "https://esm.sh/child_process@^1.0.2"
   }
 }
 </script>
 <link rel="stylesheet" href="/index.css">
 </head>
   <body>
+    <div class="bg-noise"></div>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

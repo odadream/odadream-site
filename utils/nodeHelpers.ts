@@ -7,7 +7,11 @@ import { LotusNode } from '../types';
 export const findNode = (root: LotusNode, query: string): LotusNode | null => {
   const q = query.toLowerCase();
   
-  if (root.id.toLowerCase() === q || root.title.toLowerCase() === q) {
+  if (
+    root.id.toLowerCase() === q || 
+    root.title.en.toLowerCase() === q || 
+    root.title.ru.toLowerCase() === q
+  ) {
     return root;
   }
 
@@ -30,7 +34,11 @@ export const findPathToNode = (root: LotusNode, targetIdOrTitle: string): LotusN
     const q = targetIdOrTitle.toLowerCase();
     
     // Check current node
-    if (root.id.toLowerCase() === q || root.title.toLowerCase() === q) {
+    if (
+        root.id.toLowerCase() === q || 
+        root.title.en.toLowerCase() === q || 
+        root.title.ru.toLowerCase() === q
+    ) {
         return [root];
     }
 
