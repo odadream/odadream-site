@@ -31,7 +31,7 @@ const DEBUG_IMAGES = [
  */
 const getImg = (id: string, keywords: string[] = []) => {
   if (DEBUG_MODE_IMAGES) {
-    const uniqueSig = id
+    const uniqueSig = `${id}:${keywords.join("|")}`
       .split("")
       .reduce((acc, char) => acc + char.charCodeAt(0), 0);
     const imgId = DEBUG_IMAGES[uniqueSig % DEBUG_IMAGES.length];
