@@ -24,28 +24,126 @@
     <meta property="twitter:description" content="Immersive digital art portfolio of oda.dream. Exploring the synthesis of biological wetware and digital hardware through neuroaesthetics.">
     <meta property="twitter:image" content="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1200&auto=format&fit=crop">
 
-    <!-- Fonts: Preconnected for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Styling (Tailwind CDN kept for portable design system configuration) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Update: Added subset=cyrillic for Russian support -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400;500;700&subset=latin,cyrillic&display=swap" rel="stylesheet">
     
-  <script type="importmap">
+    <!-- Design System Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            colors: {
+              canvas: '#050505',       // Slightly lifted from pure black for better shadow depth
+              surface: '#0a0a0a',      
+              surfaceHighlight: '#171717', 
+              border: '#27272a',       
+              
+              txt: {
+                main: '#e4e4e7',       // Zinc 200
+                muted: '#a1a1aa',      // Zinc 400 - Lightened for better readability
+                dim: '#52525b',        // Zinc 600
+              },
+
+              accent: {
+                DEFAULT: '#10b981',    
+                dim: 'rgba(16, 185, 129, 0.05)', 
+                glow: 'rgba(16, 185, 129, 0.2)', 
+                text: '#34d399',       
+              },
+            },
+            boxShadow: {
+                'neon-soft': '0 0 30px -5px theme("colors.accent.glow")', 
+                'neon-text': '0 0 8px rgba(16, 185, 129, 0.3)',
+            },
+            dropShadow: {
+                'neon': '0 0 2px theme("colors.accent.DEFAULT")',
+            },
+            animation: {
+                'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite', 
+                'scan': 'scan 4s linear infinite',
+                'shine-45': 'shine45 1s ease-in-out forwards',
+            },
+            keyframes: {
+                scan: {
+                    '0%': { transform: 'translateY(-100%)' },
+                    '100%': { transform: 'translateY(100%)' }
+                },
+                shine45: {
+                    '0%': { transform: 'translateX(-100%) translateY(-100%)' },
+                    '100%': { transform: 'translateX(100%) translateY(100%)' }
+                }
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      body {
+        font-family: 'JetBrains Mono', monospace;
+        background-color: #050505;
+        color: #e4e4e7;
+        overflow: hidden; 
+      }
+
+      /* NOISE OVERLAY - Tuned for Visibility */
+      .bg-noise {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 9999; 
+        opacity: 0.05; /* Increased from 0.02 to 0.05 for visible grain */
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        mix-blend-mode: overlay; 
+      }
+      
+      /* Minimalist Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 3px; 
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #3f3f46;
+        border-radius: 0px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #52525b;
+      }
+      
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+<script type="importmap">
 {
   "imports": {
-    "framer-motion": "https://esm.sh/framer-motion@^12.29.2",
-    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
-    "vite": "https://esm.sh/vite@^7.3.1",
-    "react": "https://esm.sh/react@^19.2.4",
-    "react/": "https://esm.sh/react@^19.2.4/",
     "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react-markdown": "https://esm.sh/react-markdown@^10.1.0",
-    "fs": "https://esm.sh/fs@^0.0.1-security",
-    "remark-gfm": "https://esm.sh/remark-gfm@^4.0.1",
-    "url": "https://esm.sh/url@^0.11.4",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "framer-motion": "https://esm.sh/framer-motion@^12.27.5",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
     "path": "https://esm.sh/path@^0.12.7",
+    "url": "https://esm.sh/url@^0.11.4",
+    "fs": "https://esm.sh/fs@^0.0.1-security",
     "https": "https://esm.sh/https@^1.0.0",
-    "child_process": "https://esm.sh/child_process@^1.0.2"
+    "remark-gfm": "https://esm.sh/remark-gfm@^4.0.1",
+    "react-markdown": "https://esm.sh/react-markdown@^10.1.0"
   }
 }
 </script>
