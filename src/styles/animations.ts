@@ -1,6 +1,3 @@
-
-import { clsx } from 'clsx';
-
 // Type workarounds for strict framer-motion versions or React 19 conflicts
 type Transition = any;
 type Variants = any;
@@ -22,50 +19,50 @@ export const TRANSITIONS = {
     type: "spring",
     stiffness: 300,
     damping: 30,
-    mass: 1
+    mass: 1,
   } as Transition,
-  
+
   // UI Elements appearing
   appear: {
     duration: 0.4,
-    ease: EASINGS.easeOutExpo
+    ease: EASINGS.easeOutExpo,
   } as Transition,
 
   // Page/Panel transitions
   page: {
     duration: 0.5,
-    ease: EASINGS.easeOutQuart
+    ease: EASINGS.easeOutQuart,
   } as Transition,
-  
+
   // Quick UI feedback (hover, click)
   fast: {
     duration: 0.2,
-    ease: "easeOut"
-  } as Transition
+    ease: "easeOut",
+  } as Transition,
 };
 
 // --- SHARED VARIANTS ---
 
 export const FADE_UP_VARIANTS: Variants = {
-  initial: { opacity: 0, y: 15, filter: 'blur(4px)' },
-  animate: { 
-    opacity: 1, 
-    y: 0, 
-    filter: 'blur(0px)',
-    transition: TRANSITIONS.page 
+  initial: { opacity: 0, y: 15, filter: "blur(4px)" },
+  animate: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: TRANSITIONS.page,
   },
-  exit: { 
-    opacity: 0, 
-    y: -10, 
-    filter: 'blur(2px)',
-    transition: { duration: 0.3, ease: "easeIn" } 
-  }
+  exit: {
+    opacity: 0,
+    y: -10,
+    filter: "blur(2px)",
+    transition: { duration: 0.3, ease: "easeIn" },
+  },
 };
 
 export const SCALE_FADE_VARIANTS: Variants = {
   initial: { opacity: 0, scale: 0.95 },
   animate: { opacity: 1, scale: 1, transition: TRANSITIONS.appear },
-  exit: { opacity: 0, scale: 0.98, transition: { duration: 0.2 } }
+  exit: { opacity: 0, scale: 0.98, transition: { duration: 0.2 } },
 };
 
 export const STAGGER_CONTAINER: Variants = {
@@ -74,11 +71,11 @@ export const STAGGER_CONTAINER: Variants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.05,
-      delayChildren: 0.1
-    }
+      delayChildren: 0.1,
+    },
   },
   exit: {
     opacity: 0,
-    transition: { duration: 0.2 }
-  }
+    transition: { duration: 0.2 },
+  },
 };
