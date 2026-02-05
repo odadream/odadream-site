@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-contacts" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-contacts" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8445191549551851" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-contacts" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-contacts" cx="66.68755319592316%" cy="77.70666806745032%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-contacts" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-contacts)" />
-    <rect x="92" y="484" width="800" height="2" fill="#3f3f46" fill-opacity="0.18763618905904877" /><rect x="369" y="649" width="2" height="800" fill="#3f3f46" fill-opacity="0.22419906276518306" /><circle cx="386" cy="48" r="20.333333333333332" stroke="#27272a" stroke-width="2" fill="none" opacity="0.21654954120258482" /><circle cx="135" cy="11" r="43.5" fill="#10b981" fill-opacity="0.08053363464514406" /><circle cx="496" cy="90" r="129.5" fill="#10b981" fill-opacity="0.0964294662773682" /><circle cx="571" cy="517" r="44.333333333333336" stroke="#27272a" stroke-width="2" fill="none" opacity="0.21882726319581708" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">CONTACTS</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-contacts)" />
+    <rect width="100%" height="100%" fill="url(#glow-contacts)" />
+    <rect width="100%" height="100%" fill="url(#grid-contacts)" opacity="0.5" />
+    <rect x="0" y="63.99691967665863%" width="100%" height="1.7903759859412687" fill="#52525b" opacity="0.08491973549585766" />
+    <rect x="0" y="83.57313851227345%" width="100%" height="0.8844936414477357" fill="#52525b" opacity="0.06846405418446666" />
+    <rect x="64.3534700054242%" y="0" width="0.6969002717611383" height="100%" fill="#52525b" opacity="0.08028776874326893" />
+    <rect x="0" y="68.48507669613238%" width="100%" height="1.5272764675573227" fill="#52525b" opacity="0.0935593935135374" />
+    <rect x="73.95350567433378%" y="0" width="1.9500424251426407" height="100%" fill="#52525b" opacity="0.08630397628182916" />
+    <rect x="12.748300528850686%" y="0" width="0.9980966954008645" height="100%" fill="#52525b" opacity="0.051116744290214726" />
+    <rect x="0" y="96.18753296899379%" width="100%" height="1.6653623726827673" fill="#52525b" opacity="0.12454002979168673" />
+    <rect x="78.22493759749916%" y="0" width="0.8992057248476946" height="100%" fill="#52525b" opacity="0.19506261304026717" />
+    <rect x="94.08970027611562%" y="0" width="0.930909253825349" height="100%" fill="#52525b" opacity="0.07918374091776437" />
+    <rect x="0" y="72.79169845654788%" width="100%" height="0.7191283860887665" fill="#52525b" opacity="0.08907950179565652" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            CONTACTS // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-contacts)" opacity="0.3" pointer-events="none" />
 </svg>

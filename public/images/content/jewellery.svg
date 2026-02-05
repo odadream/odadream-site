@@ -1,12 +1,53 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-content-jewellery.jpg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-jewellery" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.6055437457799387" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-jewellery" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-jewellery" cx="54.74752557906092%" cy="41.66260489417483%" r="60%">
+            <stop offset="0%" stop-color="#4c1d95" stop-opacity="0.25" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-jewellery" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3f3f46" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-content-jewellery.jpg)" />
-    <circle cx="192" cy="157" r="62.5" fill="#10b981" fill-opacity="0.10145712527789784" /><circle cx="718" cy="262" r="113.66666666666667" stroke="#27272a" stroke-width="2" fill="none" opacity="0.2989476198612465" /><circle cx="213" cy="1" r="66" stroke="#27272a" stroke-width="2" fill="none" opacity="0.299439384303696" /><circle cx="715" cy="304" r="82" stroke="#27272a" stroke-width="2" fill="none" opacity="0.32742054696809647" /><rect x="602" y="177" width="2" height="800" fill="#3f3f46" fill-opacity="0.27957555423126906" /><circle cx="675" cy="169" r="139" fill="#10b981" fill-opacity="0.13040823920837286" /><circle cx="143" cy="794" r="37.5" fill="#10b981" fill-opacity="0.1263309879416738" /><rect x="109" y="437" width="2" height="800" fill="#3f3f46" fill-opacity="0.18685075577377575" /><circle cx="21" cy="77" r="52.5" fill="#10b981" fill-opacity="0.05116393244989013" /><circle cx="19" cy="464" r="167" fill="#10b981" fill-opacity="0.07035931279121997" /><circle cx="148" cy="417" r="69.33333333333333" stroke="#27272a" stroke-width="2" fill="none" opacity="0.3499252983237966" /><circle cx="364" cy="467" r="52.5" fill="#10b981" fill-opacity="0.14945137636068467" /><circle cx="789" cy="310" r="67.33333333333333" stroke="#27272a" stroke-width="2" fill="none" opacity="0.40577552045560883" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">CONTENT-JEWELLERY.JPG</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-jewellery)" />
+    <rect width="100%" height="100%" fill="url(#glow-jewellery)" />
+    <rect x="0" y="3.1181313592178106%" width="100%" height="1.170037820627948" fill="#a855f7" opacity="0.14128367208529607" />
+    <rect x="35.88270898524924%" y="3.1181313592178106%" width="12.629423814480589%" height="3.510113461883844" fill="#06b6d4" opacity="0.4238510162558882" />
+    <rect x="0" y="33.89407082823484%" width="100%" height="2.5452215313401276" fill="#a855f7" opacity="0.1769144309469633" />
+    <rect x="0" y="36.392208874590885%" width="100%" height="1.1657410335407974" fill="#a855f7" opacity="0.13047864507462703" />
+    <rect x="0" y="60.813335665327806%" width="100%" height="3.1563069821859773" fill="#a855f7" opacity="0.10257281009347441" />
+    <rect x="0" y="3.36280512005352%" width="100%" height="2.192157422837017" fill="#a855f7" opacity="0.17949098851950002" />
+    <rect x="21.06962854142266%" y="3.36280512005352%" width="11.983879415303356%" height="6.576472268511051" fill="#06b6d4" opacity="0.5384729655585001" />
+    <rect x="0" y="94.14807971953235%" width="100%" height="1.6122791470142819" fill="#a855f7" opacity="0.07878212775455987" />
+    <rect x="0" y="35.31579616043325%" width="100%" height="2.872495026674583" fill="#a855f7" opacity="0.1011961071530321" />
+    <rect x="0" y="85.10690027392181%" width="100%" height="1.6768013124138128" fill="#a855f7" opacity="0.1499837960349245" />
+    <rect x="0" y="83.66846836513697%" width="100%" height="2.453597077125308" fill="#a855f7" opacity="0.1303043673562858" />
+    <rect x="29.631121670483726%" y="83.66846836513697%" width="6.924183123674414%" height="7.3607912313759245" fill="#06b6d4" opacity="0.39091310206885743" />
+    <rect x="0" y="39.83875405028346%" width="100%" height="3.9491723863865924" fill="#a855f7" opacity="0.08701491981001098" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#a855f7" opacity="0.6" letter-spacing="4">
+            JEWELLERY // MEDIA.ASSET
+        </text>
+    
+    
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="monospace" font-size="24" fill="#71717a" opacity="0.8" letter-spacing="2">
+                [MISSING_ASSET]
+            </text>
+            <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="monospace" font-size="12" fill="#3f3f46" opacity="0.8">
+                jewellery
+            </text>
+        
+    <rect width="100%" height="100%" filter="url(#noise-jewellery)" opacity="0.3" pointer-events="none" />
 </svg>

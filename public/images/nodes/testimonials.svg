@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-testimonials" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-testimonials" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8743117667495384" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-testimonials" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-testimonials" cx="71.5727921031162%" cy="43.916943011728065%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-testimonials" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-testimonials)" />
-    <circle cx="68" cy="724" r="23.666666666666668" stroke="#27272a" stroke-width="2" fill="none" opacity="0.3653564021126101" /><rect x="318" y="310" width="2" height="800" fill="#3f3f46" fill-opacity="0.274696134844271" /><circle cx="12" cy="278" r="120.5" fill="#10b981" fill-opacity="0.06225987192592584" /><circle cx="677" cy="311" r="35" stroke="#27272a" stroke-width="2" fill="none" opacity="0.25441594849639837" /><circle cx="630" cy="577" r="74" fill="#10b981" fill-opacity="0.14565811614847918" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">TESTIMONIALS</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-testimonials)" />
+    <rect width="100%" height="100%" fill="url(#glow-testimonials)" />
+    <rect width="100%" height="100%" fill="url(#grid-testimonials)" opacity="0.5" />
+    <rect x="0" y="57.830789040616516%" width="100%" height="1.9325744956103847" fill="#52525b" opacity="0.12795482510976014" />
+    <rect x="0" y="22.032056955650503%" width="100%" height="1.0949219969053958" fill="#52525b" opacity="0.1854009072393188" />
+    <rect x="0" y="6.922756374741677%" width="100%" height="1.7717793234826804" fill="#52525b" opacity="0.1795091559453953" />
+    <rect x="0" y="29.870776720224672%" width="100%" height="1.1444700110186543" fill="#52525b" opacity="0.06074818855686876" />
+    <rect x="22.284108234834026%" y="0" width="0.5164026552964026" height="100%" fill="#52525b" opacity="0.16794391776709253" />
+    <rect x="15.729753315197073%" y="0" width="0.9890040298821442" height="100%" fill="#52525b" opacity="0.06907381410158595" />
+    <rect x="0" y="8.358392918816202%" width="100%" height="1.9325538628572168" fill="#52525b" opacity="0.09327735686048619" />
+    <rect x="0" y="38.49156241723482%" width="100%" height="0.995551666706383" fill="#52525b" opacity="0.12368701950058997" />
+    <rect x="17.577436768987624%" y="0" width="1.794471963583" height="100%" fill="#52525b" opacity="0.06902935474089288" />
+    <rect x="7.313489641354876%" y="0" width="1.0841482380257437" height="100%" fill="#52525b" opacity="0.07794436659006809" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            TESTIMONIALS // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-testimonials)" opacity="0.3" pointer-events="none" />
 </svg>

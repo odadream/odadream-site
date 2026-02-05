@@ -1,309 +1,267 @@
-import fs from "fs";
-import path from "path";
-import https from "https";
-import { fileURLToPath } from "url";
+
+import fs from 'fs';
+import path from 'path';
+import https from 'https';
+import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const PROJECT_ROOT = path.join(__dirname, "..");
-const PUBLIC_DIR = path.join(PROJECT_ROOT, "public", "images");
-const CONTENT_TS_PATH = path.join(PROJECT_ROOT, "content.ts");
+const PROJECT_ROOT = path.join(__dirname, '..');
+const PUBLIC_DIR = path.join(PROJECT_ROOT, 'public'); // Fixed: Look at root public, not just images
+const CONTENT_SRC_DIR = path.join(PROJECT_ROOT, 'src', 'content');
 
-// --- COLORS ---
-const COLORS = {
-  bg: "#09090b", // Zinc 950
-  accent: "#10b981", // Emerald 500
-  dim: "#27272a", // Zinc 800
-  highlight: "#3f3f46", // Zinc 700
+// --- DESIGN SYSTEM TOKENS ---
+const PALETTE = {
+    bg: ['#050505', '#09090b', '#18181b'], // Zinc 950-900
+    
+    // Style A: Nodes (System/Structure)
+    node: {
+        accent: '#10b981',   // Emerald 500
+        accentDim: '#064e3b', // Emerald 900
+        grid: '#27272a',     // Zinc 800
+        text: '#52525b'      // Zinc 600
+    },
+
+    // Style B: Content (Data/Artifacts)
+    content: {
+        accent: '#a855f7',   // Purple 500
+        accentDim: '#4c1d95', // Purple 900
+        secondary: '#06b6d4', // Cyan 500
+        grid: '#3f3f46',     // Zinc 700
+        text: '#71717a'      // Zinc 500
+    }
 };
 
-// --- SVG GENERATOR ---
-const generateSVG = (id, type = "abstract") => {
-  // Deterministic pseudo-random based on string ID
-  let seed = 0;
-  for (let i = 0; i < id.length; i++) seed = (seed + id.charCodeAt(i)) % 1000;
+// --- SEEDED RANDOM ---
+class Random {
+    constructor(seedStr) {
+        this.seed = 0;
+        for (let i = 0; i < seedStr.length; i++) {
+            this.seed = (this.seed + seedStr.charCodeAt(i)) % 2147483647;
+        }
+    }
 
-  const rand = () => {
-    const x = Math.sin(seed++) * 10000;
-    return x - Math.floor(x);
-  };
+    // 0 to 1
+    next() {
+        this.seed = (this.seed * 16807) % 2147483647;
+        return (this.seed - 1) / 2147483646;
+    }
 
-  const width = 800;
-  const height = 800;
+    // min to max
+    range(min, max) {
+        return min + this.next() * (max - min);
+    }
 
-  // Base Styles
-  let elements = "";
+    // true/false
+    bool(chance = 0.5) {
+        return this.next() < chance;
+    }
+}
 
-  // 1. Gradient Background
-  const gradientId = `grad-${id}`;
-  const darkFactor = rand() > 0.5 ? 20 : 0; // Randomly darker
-  elements += `
+// --- SVG GENERATOR ENGINE ---
+const generateRichSVG = (id, type = 'node', width = 1200, height = 800) => {
+    const rng = new Random(id);
+    const theme = type === 'content' ? PALETTE.content : PALETTE.node;
+    
+    // Config based on ID hash
+    const density = Math.floor(rng.range(10, type === 'content' ? 40 : 25));
+    const hasGrid = rng.bool(0.7);
+    const hasOrganic = type === 'node' ? rng.bool(0.6) : rng.bool(0.2);
+    
+    // --- DEFS ---
+    const defs = `
     <defs>
-        <linearGradient id="${gradientId}" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:${COLORS.bg};stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-${id}" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="${rng.range(0.6, 0.9)}" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-${id}" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="${PALETTE.bg[0]}" />
+            <stop offset="50%" stop-color="${PALETTE.bg[1]}" />
+            <stop offset="100%" stop-color="${PALETTE.bg[2]}" />
         </linearGradient>
+        <radialGradient id="glow-${id}" cx="${rng.range(20, 80)}%" cy="${rng.range(20, 80)}%" r="60%">
+            <stop offset="0%" stop-color="${theme.accentDim}" stop-opacity="${type === 'content' ? 0.25 : 0.15}" />
+            <stop offset="100%" stop-color="${PALETTE.bg[0]}" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-${id}" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="${theme.grid}" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#${gradientId})" />
     `;
 
-  // 2. Abstract Shapes (Neural/Tech Vibe)
-  const shapeCount = 5 + Math.floor(rand() * 10);
+    // --- LAYERS ---
+    let layers = [];
 
-  for (let i = 0; i < shapeCount; i++) {
-    const type = rand();
-    const opacity = 0.05 + rand() * 0.1; // Low opacity for subtle background
-    const x = Math.floor(rand() * width);
-    const y = Math.floor(rand() * height);
-    const size = 50 + Math.floor(rand() * 300);
+    // 1. Background
+    layers.push(`<rect width="100%" height="100%" fill="url(#grad-main-${id})" />`);
+    layers.push(`<rect width="100%" height="100%" fill="url(#glow-${id})" />`);
+    if (hasGrid) layers.push(`<rect width="100%" height="100%" fill="url(#grid-${id})" opacity="0.5" />`);
 
-    if (type < 0.33) {
-      // Circle
-      elements += `<circle cx="${x}" cy="${y}" r="${size / 2}" fill="${COLORS.accent}" fill-opacity="${opacity}" />`;
-    } else if (type < 0.66) {
-      // Rect (Grid lines)
-      const w = rand() > 0.5 ? width : 2;
-      const h = w === width ? 2 : height;
-      elements += `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${COLORS.highlight}" fill-opacity="${opacity * 2}" />`;
-    } else {
-      // Stroked Circle (Ring)
-      elements += `<circle cx="${x}" cy="${y}" r="${size / 3}" stroke="${COLORS.dim}" stroke-width="2" fill="none" opacity="${opacity * 3}" />`;
+    // 2. Data Streams
+    for (let i = 0; i < density; i++) {
+        const isVertical = type === 'node' ? rng.bool() : false; 
+        const thickness = type === 'content' ? rng.range(1, 4) : rng.range(0.5, 2);
+        const opacity = rng.range(0.05, 0.2);
+        const pos = rng.range(0, 100);
+        
+        if (isVertical) {
+            layers.push(`<rect x="${pos}%" y="0" width="${thickness}" height="100%" fill="${theme.text}" opacity="${opacity}" />`);
+        } else {
+            layers.push(`<rect x="0" y="${pos}%" width="100%" height="${thickness}" fill="${type === 'content' ? theme.accent : theme.text}" opacity="${opacity}" />`);
+            if (type === 'content' && rng.bool(0.2)) {
+                 const x = rng.range(0, 80);
+                 const w = rng.range(5, 20);
+                 layers.push(`<rect x="${x}%" y="${pos}%" width="${w}%" height="${thickness * 3}" fill="${theme.secondary || theme.accent}" opacity="${opacity * 3}" />`);
+            }
+        }
     }
-  }
 
-  // 3. Add ID text for debugging/aesthetic (very subtle)
-  elements += `<text x="40" y="${height - 40}" font-family="monospace" font-size="24" fill="${COLORS.dim}" opacity="0.5">${id.toUpperCase()}</text>`;
+    // 3. Technical Label (The ID)
+    layers.push(`
+        <text x="30" y="${height - 30}" font-family="monospace" font-size="14" fill="${theme.accent}" opacity="0.6" letter-spacing="4">
+            ${id.toUpperCase()} // ${type === 'content' ? 'MEDIA.ASSET' : 'SYS.NODE'}
+        </text>
+    `);
+    
+    // 4. Center Label for Content Placeholders
+    if (type === 'content') {
+        const shortName = id.length > 15 ? id.substring(0, 12) + '...' : id;
+        layers.push(`
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="monospace" font-size="24" fill="${theme.text}" opacity="0.8" letter-spacing="2">
+                [MISSING_ASSET]
+            </text>
+            <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="monospace" font-size="12" fill="${theme.grid}" opacity="0.8">
+                ${shortName}
+            </text>
+        `);
+    }
 
-  return `
-<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
-    ${elements}
+    // 5. Noise
+    layers.push(`<rect width="100%" height="100%" filter="url(#noise-${id})" opacity="0.3" pointer-events="none" />`);
+
+    return `
+<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    ${defs}
+    ${layers.join('\n    ')}
 </svg>`;
 };
 
+
 // --- UTILS ---
 const ensureDir = (dirPath) => {
-  if (!fs.existsSync(dirPath)) {
-    fs.mkdirSync(dirPath, { recursive: true });
-    console.log(`Created directory: ${dirPath}`);
-  }
-};
-
-const isCI = () =>
-  process.env.CI === "true" || process.env.GITHUB_ACTIONS === "true";
-
-const getReferencedContentFilenames = () => {
-  try {
-    const content = fs.readFileSync(CONTENT_TS_PATH, "utf-8");
-    const re = /\/images\/content\/([^\]\)\s"'`]+)/g;
-    const out = new Set();
-    let m;
-    while ((m = re.exec(content)) !== null) {
-      if (m[1]) out.add(m[1]);
+    if (!fs.existsSync(dirPath)) {
+        fs.mkdirSync(dirPath, { recursive: true });
     }
-    return Array.from(out);
-  } catch (e) {
-    console.warn(
-      `⚠️  Could not read content.ts for image references: ${e?.message || e}`,
-    );
-    return [];
-  }
 };
 
-const toSvgPlaceholderName = (filename) => {
-  const lower = filename.toLowerCase();
-  if (lower.endsWith(".svg")) return filename;
-  return filename.replace(/\.[^/.]+$/, "") + ".svg";
-};
+const getNodesFromContent = () => {
+    if (!fs.existsSync(CONTENT_SRC_DIR)) {
+        console.warn(`Source content directory not found: ${CONTENT_SRC_DIR}`);
+        return { ids: [], assets: new Set() };
+    }
+    
+    const files = fs.readdirSync(CONTENT_SRC_DIR).filter(f => f.endsWith('.md'));
+    const ids = [];
+    const assets = new Set();
 
-const writeSvgIfMissing = (destSvgPath, id) => {
-  if (fs.existsSync(destSvgPath)) return false;
-  const svgContent = generateSVG(id, "abstract");
-  fs.writeFileSync(destSvgPath, svgContent);
-  return true;
-};
+    files.forEach(file => {
+        const content = fs.readFileSync(path.join(CONTENT_SRC_DIR, file), 'utf-8');
+        
+        // 1. Extract ID
+        const idMatch = content.match(/^id:\s*([a-zA-Z0-9-_]+)/m);
+        const id = idMatch ? idMatch[1].trim() : path.parse(file).name;
+        ids.push(id);
 
-const downloadImage = (url, dest) => {
-  return new Promise((resolve, reject) => {
-    // Fallback for content images if download fails
-    const fallback = () => {
-      console.warn(
-        `⚠️  Failed to download ${path.basename(dest)}. Generating fallback SVG.`,
-      );
-      // Create a fallback content image (jpg extension but svg content? No, better to rename or force SVG)
-      // Ideally we'd replace the file. For now, let's try to fetch.
-      reject("Network error");
-    };
+        // 2. Extract Frontmatter Images (image: /path/to/img)
+        const frontImageMatch = content.match(/^(?:image|media):\s*(.+)$/m);
+        if (frontImageMatch) {
+            const cleanPath = frontImageMatch[1].trim();
+            if (cleanPath.startsWith('/') && !cleanPath.endsWith('.svg')) assets.add(cleanPath);
+        }
 
-    const file = fs.createWriteStream(dest);
-    const request = https.get(url, (response) => {
-      if (response.statusCode === 200) {
-        response.pipe(file);
-        file.on("finish", () => {
-          file.close();
-          console.log(`Downloaded: ${path.basename(dest)}`);
-          resolve();
-        });
-      } else if (response.statusCode === 301 || response.statusCode === 302) {
-        downloadImage(response.headers.location, dest)
-          .then(resolve)
-          .catch(reject);
-      } else {
-        file.close();
-        fs.unlink(dest, () => {});
-        reject(`Status ${response.statusCode}`);
-      }
+        // 3. Extract Wiki Links ![[url|...|poster]]
+        const wikiRegex = /!\[\[(.*?)\]\]/g;
+        let match;
+        while ((match = wikiRegex.exec(content)) !== null) {
+            const parts = match[1].split('|').map(s => s.trim());
+            // URL (index 0)
+            if (parts[0] && parts[0].startsWith('/') && !parts[0].endsWith('.svg')) assets.add(parts[0]);
+            // Poster (index 2)
+            if (parts[2] && parts[2].startsWith('/') && !parts[2].endsWith('.svg')) assets.add(parts[2]);
+        }
+        
+        // 4. Extract Standard Markdown Images ![...](url)
+        const mdRegex = /!\[.*?\]\((.*?)\)/g;
+        while ((match = mdRegex.exec(content)) !== null) {
+            const url = match[1].trim().split(' ')[0]; // Handle optional title after space
+            if (url.startsWith('/') && !url.endsWith('.svg')) assets.add(url);
+        }
     });
 
-    request.on("error", (err) => {
-      file.close();
-      fs.unlink(dest, () => {});
-      reject(err.message);
-    });
-  });
+    return { ids: [...new Set(ids)], assets: Array.from(assets) };
 };
-
-// --- DATA ---
-const nodes = [
-  "home",
-  "neuromandala",
-  "works",
-  "events",
-  "collab",
-  "world",
-  "contacts",
-  "games",
-  "neurobattle",
-  "brain-hack",
-  "journey",
-  "lectures",
-  "art-brain",
-  "sound-brain",
-  "taste-brain",
-  "color-brain",
-  "empathy",
-  "neuroaesthetics-lec",
-  "workshops",
-  "neuro-dance",
-  "neurosync",
-  "gong",
-  "coaching",
-  "mindshow",
-  "research",
-  "heritage",
-  "schrodinger",
-  "sync-circle",
-  "dashran",
-  "posustoronniy",
-  "objects",
-  "mom-baby",
-  "jewellery",
-  "emomandala",
-  "chastoti",
-  "terraforming",
-  "portal",
-  "byob",
-  "pleinair",
-  "for-events",
-  "for-business",
-  "for-galleries",
-  "for-artists",
-  "manifesto",
-  "team",
-  "press",
-  "testimonials",
-  "acknowledgments",
-];
-
-const contentImages = [
-  {
-    name: "neuromandala-cover.jpg",
-    url: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1200",
-  },
-  {
-    name: "art-brain.jpg",
-    url: "https://images.unsplash.com/photo-1532153975070-2e9ab71f1b14?q=80&w=800",
-  },
-  {
-    name: "jewellery.jpg",
-    url: "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800",
-  },
-];
 
 // --- MAIN ---
 const run = async () => {
-  console.log("--- GENERATING ASSETS ---");
+    console.log('--- GENERATING ASSETS (CYBER-ORGANIC ENGINE V3) ---');
+    
+    // 1. Structure
+    const nodesDir = path.join(PUBLIC_DIR, 'images', 'nodes');
+    ensureDir(nodesDir);
 
-  // 1. Setup Directories
-  const nodesDir = path.join(PUBLIC_DIR, "nodes");
-  const contentDir = path.join(PUBLIC_DIR, "content");
-  ensureDir(nodesDir);
-  ensureDir(contentDir);
+    const { ids: contentIds, assets: localAssets } = getNodesFromContent();
+    const staticNodes = ['home', 'neuromandala', 'works', 'events', 'collab', 'world', 'contacts', 'changelog', 'navigator', 'debug', 'debug-video', 'debug-audio', 'debug-image', 'debug-hub', 'debug-article'];
+    const allNodes = [...new Set([...staticNodes, ...contentIds])];
 
-  // 2. Generate Abstract Node Backgrounds (SVG)
-  console.log("\nGenerating Abstract Node SVGs...");
-  const force = process.env.FORCE_REGENERATE_ASSETS === "1";
-  let generatedNodes = 0;
-  nodes.forEach((id) => {
-    const filePath = path.join(nodesDir, `${id}.svg`);
-    if (!force && fs.existsSync(filePath)) return;
-    const svgContent = generateSVG(id);
-    fs.writeFileSync(filePath, svgContent);
-    generatedNodes++;
-  });
-  console.log(
-    `✓ Node SVGs: generated ${generatedNodes}, skipped ${nodes.length - generatedNodes}.`,
-  );
+    // 2. Generate Node Backgrounds
+    console.log(`\n> Checking Node Backgrounds (${allNodes.length})...`);
+    allNodes.forEach(id => {
+        const filePath = path.join(nodesDir, `${id}.svg`);
+        if (!fs.existsSync(filePath)) {
+            const svgContent = generateRichSVG(id, 'node');
+            fs.writeFileSync(filePath, svgContent);
+            console.log(`  + Generated node: ${id}.svg`);
+        }
+    });
 
-  // 3. Content images: only create SVG placeholders for missing images.
-  //    On CI we intentionally avoid network downloads for speed/stability.
-  const referenced = getReferencedContentFilenames();
-  if (referenced.length > 0) {
-    console.log(
-      `\nProcessing referenced content images (${referenced.length})...`,
-    );
-  } else {
-    console.log("\nNo referenced content images found in content.ts.");
-  }
+    // 3. Generate Missing Local Assets (Content Placeholders)
+    console.log(`\n> Checking Local Content Assets (${localAssets.length})...`);
+    let missingCount = 0;
 
-  const byName = new Map(contentImages.map((x) => [x.name, x.url]));
-  let downloaded = 0;
-  let placeholders = 0;
-  let okExisting = 0;
+    localAssets.forEach(relPath => {
+        // Remove leading slash for filesystem path
+        const fsRelPath = relPath.startsWith('/') ? relPath.substring(1) : relPath;
+        const absPath = path.join(PUBLIC_DIR, fsRelPath);
+        
+        if (!fs.existsSync(absPath)) {
+            // Target file is missing. 
+            // We do NOT write a .jpg (binary mismatch). We write a .svg alongside it.
+            // The app must be smart enough to look for .svg if .jpg fails.
+            
+            const dir = path.dirname(absPath);
+            ensureDir(dir);
 
-  for (const filename of referenced) {
-    const imagePath = path.join(contentDir, filename);
-    if (fs.existsSync(imagePath)) {
-      okExisting++;
-      continue;
+            const pathObj = path.parse(absPath);
+            const svgPath = path.join(dir, `${pathObj.name}.svg`);
+            
+            if (!fs.existsSync(svgPath)) {
+                // Use the filename as seed
+                const seed = pathObj.name;
+                const svgContent = generateRichSVG(seed, 'content', 1200, 800);
+                fs.writeFileSync(svgPath, svgContent);
+                console.log(`  + Generated fallback for missing: ${relPath} -> ${pathObj.name}.svg`);
+                missingCount++;
+            }
+        }
+    });
+
+    if (missingCount === 0) {
+        console.log("  ✓ All local assets present (or have SVG fallbacks).");
     }
 
-    // If we're not in CI and we have a known URL mapping, try to download the real image.
-    const url = byName.get(filename);
-    if (!isCI() && url) {
-      try {
-        await downloadImage(url, imagePath);
-        downloaded++;
-        continue;
-      } catch (e) {
-        console.warn(
-          `⚠️  Download failed for ${filename}. Will generate SVG placeholder. (${e})`,
-        );
-      }
-    }
-
-    // Generate SVG placeholder next to the missing image
-    const svgName = toSvgPlaceholderName(filename);
-    const svgPath = path.join(contentDir, svgName);
-    const didWrite = writeSvgIfMissing(svgPath, `content-${filename}`);
-    if (didWrite) placeholders++;
-  }
-
-  console.log(
-    `✓ Content images: existing ${okExisting}, downloaded ${downloaded}, placeholders generated ${placeholders}.`,
-  );
-
-  console.log("\n--- COMPLETE ---");
-  console.log(`Assets ready in ${PUBLIC_DIR}`);
+    console.log('\n--- ASSETS COMPLETE ---');
 };
 
 run();

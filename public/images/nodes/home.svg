@@ -1,12 +1,42 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-home" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-home" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8778918202294892" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-home" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-home" cx="45.56455399427987%" cy="23.459251339975047%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-home" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-home)" />
-    <circle cx="328" cy="430" r="126" fill="#10b981" fill-opacity="0.14414863326128396" /><circle cx="317" cy="735" r="81" stroke="#27272a" stroke-width="2" fill="none" opacity="0.29220649662574943" /><rect x="241" y="42" width="2" height="800" fill="#3f3f46" fill-opacity="0.15603422857748228" /><circle cx="134" cy="339" r="101.33333333333333" stroke="#27272a" stroke-width="2" fill="none" opacity="0.195646863579168" /><circle cx="130" cy="141" r="36.666666666666664" stroke="#27272a" stroke-width="2" fill="none" opacity="0.21828489152908334" /><circle cx="317" cy="378" r="130" fill="#10b981" fill-opacity="0.055633357683473154" /><rect x="340" y="174" width="800" height="2" fill="#3f3f46" fill-opacity="0.20189148061108428" /><circle cx="532" cy="654" r="68.33333333333333" stroke="#27272a" stroke-width="2" fill="none" opacity="0.3683787041392179" /><circle cx="543" cy="158" r="94.5" fill="#10b981" fill-opacity="0.12448773067626462" /><circle cx="689" cy="103" r="46.666666666666664" stroke="#27272a" stroke-width="2" fill="none" opacity="0.34281927782121785" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">HOME</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-home)" />
+    <rect width="100%" height="100%" fill="url(#glow-home)" />
+    <rect x="0" y="24.448077449992372%" width="100%" height="1.2762570032163123" fill="#52525b" opacity="0.15514587206313935" />
+    <rect x="0" y="69.3146974028225%" width="100%" height="1.6279371931477797" fill="#52525b" opacity="0.07404081460464822" />
+    <rect x="0" y="27.172913939853117%" width="100%" height="0.6838732505532663" fill="#52525b" opacity="0.08577323487100494" />
+    <rect x="0" y="87.84027531541909%" width="100%" height="1.111926417669213" fill="#52525b" opacity="0.11473087164548308" />
+    <rect x="94.4730474096472%" y="0" width="1.1532653885923936" height="100%" fill="#52525b" opacity="0.14313926989505" />
+    <rect x="0.6002638494598342%" y="0" width="1.8733384654608913" height="100%" fill="#52525b" opacity="0.16995899923607616" />
+    <rect x="0" y="17.241832536870458%" width="100%" height="1.9012502994399987" fill="#52525b" opacity="0.13137834605889243" />
+    <rect x="0" y="47.445652910923265%" width="100%" height="1.2493191575625158" fill="#52525b" opacity="0.18070870282194457" />
+    <rect x="58.387164080876076%" y="0" width="0.9034025870760927" height="100%" fill="#52525b" opacity="0.19872895702601318" />
+    <rect x="89.1500253129285%" y="0" width="0.7643448016739868" height="100%" fill="#52525b" opacity="0.18430914053163416" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            HOME // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-home)" opacity="0.3" pointer-events="none" />
 </svg>

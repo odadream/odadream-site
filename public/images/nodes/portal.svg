@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-portal" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-portal" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8375360416598022" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-portal" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-portal" cx="53.650533020170904%" cy="24.508676207166793%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-portal" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-portal)" />
-    <rect x="128" y="536" width="2" height="800" fill="#3f3f46" fill-opacity="0.24154672371878405" /><rect x="779" y="505" width="2" height="800" fill="#3f3f46" fill-opacity="0.11641635995329125" /><circle cx="569" cy="225" r="82.66666666666667" stroke="#27272a" stroke-width="2" fill="none" opacity="0.40283403219500546" /><circle cx="742" cy="327" r="105.33333333333333" stroke="#27272a" stroke-width="2" fill="none" opacity="0.22084202384803575" /><rect x="644" y="92" width="800" height="2" fill="#3f3f46" fill-opacity="0.11292132525450144" /><circle cx="634" cy="659" r="43.666666666666664" stroke="#27272a" stroke-width="2" fill="none" opacity="0.1840232872078559" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">PORTAL</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-portal)" />
+    <rect width="100%" height="100%" fill="url(#glow-portal)" />
+    <rect width="100%" height="100%" fill="url(#grid-portal)" opacity="0.5" />
+    <rect x="0" y="2.7925528611918473%" width="100%" height="1.5394755488163565" fill="#52525b" opacity="0.19655525607201763" />
+    <rect x="74.84487269524939%" y="0" width="1.663959230914674" height="100%" fill="#52525b" opacity="0.16627966127477556" />
+    <rect x="6.540652649980647%" y="0" width="1.314090821486051" height="100%" fill="#52525b" opacity="0.1424442083970124" />
+    <rect x="89.64447331581681%" y="0" width="1.9732884308074494" height="100%" fill="#52525b" opacity="0.15586567896498899" />
+    <rect x="0" y="71.91356515690084%" width="100%" height="0.8408202958207767" fill="#52525b" opacity="0.1666720931806342" />
+    <rect x="0" y="38.3411144263494%" width="100%" height="0.9180157884657529" fill="#52525b" opacity="0.15913652117283694" />
+    <rect x="0" y="23.16500192802865%" width="100%" height="1.2894651692262526" fill="#52525b" opacity="0.15411047463222455" />
+    <rect x="71.80997559037988%" y="0" width="1.9671811903521244" height="100%" fill="#52525b" opacity="0.09142665045003096" />
+    <rect x="51.808832866893%" y="0" width="1.089268005769018" height="100%" fill="#52525b" opacity="0.13273800872986952" />
+    <rect x="0" y="82.7310980136796%" width="100%" height="1.5622091289257716" fill="#52525b" opacity="0.15488332815457448" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            PORTAL // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-portal)" opacity="0.3" pointer-events="none" />
 </svg>

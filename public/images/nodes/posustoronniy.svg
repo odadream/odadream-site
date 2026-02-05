@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-posustoronniy" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-posustoronniy" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.6895180989890528" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-posustoronniy" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-posustoronniy" cx="26.138271238783627%" cy="45.925131762330544%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-posustoronniy" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-posustoronniy)" />
-    <circle cx="158" cy="371" r="92.66666666666667" stroke="#27272a" stroke-width="2" fill="none" opacity="0.3536842846637683" /><rect x="103" y="242" width="2" height="800" fill="#3f3f46" fill-opacity="0.27248532650919516" /><circle cx="665" cy="23" r="33.666666666666664" stroke="#27272a" stroke-width="2" fill="none" opacity="0.3387866538598246" /><circle cx="154" cy="713" r="78" stroke="#27272a" stroke-width="2" fill="none" opacity="0.4089330781646936" /><rect x="183" y="785" width="800" height="2" fill="#3f3f46" fill-opacity="0.10876186130699353" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">POSUSTORONNIY</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-posustoronniy)" />
+    <rect width="100%" height="100%" fill="url(#glow-posustoronniy)" />
+    <rect width="100%" height="100%" fill="url(#grid-posustoronniy)" opacity="0.5" />
+    <rect x="12.917124072943931%" y="0" width="1.3601065437403568" height="100%" fill="#52525b" opacity="0.0810685651666192" />
+    <rect x="0" y="75.18582541978529%" width="100%" height="1.2548512932889642" fill="#52525b" opacity="0.17856921393291025" />
+    <rect x="30.09373576389042%" y="0" width="1.3998257237484917" height="100%" fill="#52525b" opacity="0.08709437375617621" />
+    <rect x="0" y="18.23417448274249%" width="100%" height="0.6866070152601292" fill="#52525b" opacity="0.1804115755999569" />
+    <rect x="0" y="53.144549627922984%" width="100%" height="1.8211613905813184" fill="#52525b" opacity="0.07594928993000584" />
+    <rect x="34.779264437760474%" y="0" width="1.9295549820452509" height="100%" fill="#52525b" opacity="0.15305837856424823" />
+    <rect x="67.79061226899793%" y="0" width="1.8600833873358402" height="100%" fill="#52525b" opacity="0.09214920480004439" />
+    <rect x="0" y="41.05933764116777%" width="100%" height="1.771765938281795" fill="#52525b" opacity="0.1570126488171636" />
+    <rect x="0" y="38.382016204653326%" width="100%" height="0.9757529373520547" fill="#52525b" opacity="0.14796260918766505" />
+    <rect x="0" y="70.28761684921349%" width="100%" height="1.8895486345417318" fill="#52525b" opacity="0.11439016069228777" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            POSUSTORONNIY // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-posustoronniy)" opacity="0.3" pointer-events="none" />
 </svg>

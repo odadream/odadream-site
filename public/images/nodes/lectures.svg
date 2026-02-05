@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-lectures" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-lectures" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.7452794715252513" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-lectures" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-lectures" cx="22.41582713314875%" cy="62.80707749799553%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-lectures" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-lectures)" />
-    <rect x="746" y="310" width="2" height="800" fill="#3f3f46" fill-opacity="0.26247104987105563" /><rect x="30" y="132" width="2" height="800" fill="#3f3f46" fill-opacity="0.11201071506166045" /><circle cx="149" cy="371" r="118" fill="#10b981" fill-opacity="0.06237357015183989" /><circle cx="622" cy="183" r="132" fill="#10b981" fill-opacity="0.11975070229455015" /><rect x="268" y="234" width="2" height="800" fill="#3f3f46" fill-opacity="0.1558486610525506" /><rect x="247" y="452" width="800" height="2" fill="#3f3f46" fill-opacity="0.11055940387132068" /><circle cx="581" cy="256" r="86.33333333333333" stroke="#27272a" stroke-width="2" fill="none" opacity="0.333932920667553" /><rect x="490" y="482" width="800" height="2" fill="#3f3f46" fill-opacity="0.2761009178437235" /><circle cx="521" cy="797" r="99" fill="#10b981" fill-opacity="0.11157633836446622" /><circle cx="460" cy="121" r="76.33333333333333" stroke="#27272a" stroke-width="2" fill="none" opacity="0.3168671773202732" /><rect x="470" y="534" width="800" height="2" fill="#3f3f46" fill-opacity="0.14438224184705178" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">LECTURES</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-lectures)" />
+    <rect width="100%" height="100%" fill="url(#glow-lectures)" />
+    <rect width="100%" height="100%" fill="url(#grid-lectures)" opacity="0.5" />
+    <rect x="0" y="11.751236404991928%" width="100%" height="0.9367525879635965" fill="#52525b" opacity="0.15007542253013276" />
+    <rect x="11.230826900555591%" y="0" width="1.1174901063716878" height="100%" fill="#52525b" opacity="0.16562246956454824" />
+    <rect x="0" y="70.51201897720995%" width="100%" height="1.053302591949052" fill="#52525b" opacity="0.13566702966174768" />
+    <rect x="0" y="17.90324656097521%" width="100%" height="0.8293833174550751" fill="#52525b" opacity="0.14454256288664655" />
+    <rect x="0" y="95.49652775330145%" width="100%" height="1.1152803614877913" fill="#52525b" opacity="0.05170424487600499" />
+    <rect x="73.70077611291853%" y="0" width="1.3451242431487183" height="100%" fill="#52525b" opacity="0.1003159725343026" />
+    <rect x="0" y="34.159143906234895%" width="100%" height="1.8117388489765476" fill="#52525b" opacity="0.13948362219564955" />
+    <rect x="83.35332636102413%" y="0" width="1.8380164388455604" height="100%" fill="#52525b" opacity="0.05422889443973908" />
+    <rect x="80.129929240914%" y="0" width="0.8149733024788772" height="100%" fill="#52525b" opacity="0.07563040363661051" />
+    <rect x="30.940404795986048%" y="0" width="0.759398405914566" height="100%" fill="#52525b" opacity="0.12090179151473734" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            LECTURES // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-lectures)" opacity="0.3" pointer-events="none" />
 </svg>

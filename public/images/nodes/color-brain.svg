@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-color-brain" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-color-brain" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.6056840095256306" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-color-brain" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-color-brain" cx="46.23008012420505%" cy="48.95691179573248%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-color-brain" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-color-brain)" />
-    <circle cx="491" cy="16" r="64.33333333333333" stroke="#27272a" stroke-width="2" fill="none" opacity="0.25600207431070887" /><circle cx="121" cy="105" r="113" stroke="#27272a" stroke-width="2" fill="none" opacity="0.18355263694293172" /><circle cx="726" cy="240" r="81.5" fill="#10b981" fill-opacity="0.10954081134350419" /><circle cx="772" cy="668" r="123.5" fill="#10b981" fill-opacity="0.14404981323823451" /><circle cx="534" cy="684" r="96.5" fill="#10b981" fill-opacity="0.11868610400143781" /><circle cx="570" cy="39" r="71" stroke="#27272a" stroke-width="2" fill="none" opacity="0.2689783209345478" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">COLOR-BRAIN</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-color-brain)" />
+    <rect width="100%" height="100%" fill="url(#glow-color-brain)" />
+    <rect width="100%" height="100%" fill="url(#grid-color-brain)" opacity="0.5" />
+    <rect x="37.85002859109084%" y="0" width="1.8463477362844607" height="100%" fill="#52525b" opacity="0.10664049350343692" />
+    <rect x="44.41869062783075%" y="0" width="1.3865086090625343" height="100%" fill="#52525b" opacity="0.055019731475058696" />
+    <rect x="56.038306659123215%" y="0" width="0.5399224823712581" height="100%" fill="#52525b" opacity="0.09771726403638467" />
+    <rect x="69.12561447278188%" y="0" width="0.9928521804910639" height="100%" fill="#52525b" opacity="0.08666053950941241" />
+    <rect x="0" y="94.4800675795228%" width="100%" height="1.4680732057598171" fill="#52525b" opacity="0.19063733682561418" />
+    <rect x="72.39410222730982%" y="0" width="0.7368291139014337" height="100%" fill="#52525b" opacity="0.13869272271515126" />
+    <rect x="78.05392428120032%" y="0" width="1.346330195056582" height="100%" fill="#52525b" opacity="0.17715934317294452" />
+    <rect x="0" y="12.846037757439573%" width="100%" height="1.9946891849345427" fill="#52525b" opacity="0.1241131236069958" />
+    <rect x="59.59182699172928%" y="0" width="0.8849027698253308" height="100%" fill="#52525b" opacity="0.15608611812916223" />
+    <rect x="0" y="82.67018388274143%" width="100%" height="1.5975327529921501" fill="#52525b" opacity="0.12329826885675851" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            COLOR-BRAIN // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-color-brain)" opacity="0.3" pointer-events="none" />
 </svg>

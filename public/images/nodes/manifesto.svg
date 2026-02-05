@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-manifesto" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-manifesto" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.616808231283732" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-manifesto" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-manifesto" cx="59.18908039963719%" cy="50.87443956255395%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-manifesto" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-manifesto)" />
-    <circle cx="765" cy="482" r="105.66666666666667" stroke="#27272a" stroke-width="2" fill="none" opacity="0.16217487008270837" /><circle cx="297" cy="186" r="24.333333333333332" stroke="#27272a" stroke-width="2" fill="none" opacity="0.38230502997544136" /><circle cx="107" cy="414" r="87.5" fill="#10b981" fill-opacity="0.12625579650775764" /><rect x="170" y="546" width="2" height="800" fill="#3f3f46" fill-opacity="0.1835404224249942" /><rect x="305" y="756" width="800" height="2" fill="#3f3f46" fill-opacity="0.17001877676812" /><rect x="260" y="214" width="800" height="2" fill="#3f3f46" fill-opacity="0.15070270878773045" /><circle cx="467" cy="44" r="92" stroke="#27272a" stroke-width="2" fill="none" opacity="0.34962592137751475" /><circle cx="667" cy="574" r="89" fill="#10b981" fill-opacity="0.11186620027601749" /><circle cx="338" cy="496" r="54.333333333333336" stroke="#27272a" stroke-width="2" fill="none" opacity="0.17457505542829496" /><circle cx="502" cy="219" r="109" fill="#10b981" fill-opacity="0.053232029219634575" /><circle cx="117" cy="532" r="135" fill="#10b981" fill-opacity="0.12506017810028425" /><circle cx="741" cy="261" r="115.66666666666667" stroke="#27272a" stroke-width="2" fill="none" opacity="0.39662179616052523" /><rect x="409" y="637" width="2" height="800" fill="#3f3f46" fill-opacity="0.1261133508724015" /><circle cx="799" cy="468" r="99.66666666666667" stroke="#27272a" stroke-width="2" fill="none" opacity="0.15703050067531876" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">MANIFESTO</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-manifesto)" />
+    <rect width="100%" height="100%" fill="url(#glow-manifesto)" />
+    <rect width="100%" height="100%" fill="url(#grid-manifesto)" opacity="0.5" />
+    <rect x="91.33374787991283%" y="0" width="1.6749747420428085" height="100%" fill="#52525b" opacity="0.08004920566924775" />
+    <rect x="39.66587692468043%" y="0" width="1.6343231262958824" height="100%" fill="#52525b" opacity="0.15687865166168535" />
+    <rect x="0" y="43.644787970599516%" width="100%" height="1.5355801424342954" fill="#52525b" opacity="0.09954575274563" />
+    <rect x="42.24401399702207%" y="0" width="1.3544021640945245" height="100%" fill="#52525b" opacity="0.09371769888672765" />
+    <rect x="0" y="1.3199147780611318%" width="100%" height="1.7024808604758985" fill="#52525b" opacity="0.10958243465012169" />
+    <rect x="0" y="35.011423318657485%" width="100%" height="1.52857637082094" fill="#52525b" opacity="0.17830680769710505" />
+    <rect x="85.07202415268125%" y="0" width="0.9249595037428285" height="100%" fill="#52525b" opacity="0.12943878190539665" />
+    <rect x="69.25294289295836%" y="0" width="0.6113936618076579" height="100%" fill="#52525b" opacity="0.06932848684427188" />
+    <rect x="14.357648244460716%" y="0" width="1.8757338813745732" height="100%" fill="#52525b" opacity="0.14593452347529542" />
+    <rect x="21.45629280382422%" y="0" width="1.612604891520557" height="100%" fill="#52525b" opacity="0.10504148174546798" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            MANIFESTO // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-manifesto)" opacity="0.3" pointer-events="none" />
 </svg>

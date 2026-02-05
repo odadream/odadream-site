@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-brain-hack" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-brain-hack" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.7927586271360132" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-brain-hack" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-brain-hack" cx="78.84942285609378%" cy="62.24995136470529%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-brain-hack" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-brain-hack)" />
-    <circle cx="107" cy="414" r="87.5" fill="#10b981" fill-opacity="0.12625579650775764" /><rect x="170" y="546" width="2" height="800" fill="#3f3f46" fill-opacity="0.1835404224249942" /><rect x="305" y="756" width="800" height="2" fill="#3f3f46" fill-opacity="0.17001877676812" /><rect x="260" y="214" width="800" height="2" fill="#3f3f46" fill-opacity="0.15070270878773045" /><circle cx="467" cy="44" r="92" stroke="#27272a" stroke-width="2" fill="none" opacity="0.34962592137751475" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">BRAIN-HACK</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-brain-hack)" />
+    <rect width="100%" height="100%" fill="url(#glow-brain-hack)" />
+    <rect width="100%" height="100%" fill="url(#grid-brain-hack)" opacity="0.5" />
+    <rect x="0" y="26.026643790329473%" width="100%" height="1.3579454949199645" fill="#52525b" opacity="0.19899381447955394" />
+    <rect x="74.23798746824077%" y="0" width="1.9255687074508225" height="100%" fill="#52525b" opacity="0.053326670782013495" />
+    <rect x="51.342974185331705%" y="0" width="1.9810830426691874" height="100%" fill="#52525b" opacity="0.056269828841341504" />
+    <rect x="29.016726351358674%" y="0" width="0.8570357266413381" height="100%" fill="#52525b" opacity="0.1199466605856518" />
+    <rect x="0" y="28.248692376770723%" width="100%" height="0.6590282809073369" fill="#52525b" opacity="0.17883277044522838" />
+    <rect x="0" y="36.2020177638177%" width="100%" height="0.8373608049818881" fill="#52525b" opacity="0.052305842914903394" />
+    <rect x="32.536537835874164%" y="0" width="1.8579300994593" height="100%" fill="#52525b" opacity="0.07311827237542559" />
+    <rect x="25.663428824081485%" y="0" width="1.0349070539557441" height="100%" fill="#52525b" opacity="0.11828633869838562" />
+    <rect x="96.90793449702481%" y="0" width="1.3558139420168605" height="100%" fill="#52525b" opacity="0.06649285183892852" />
+    <rect x="94.1421757863296%" y="0" width="0.9129424159535602" height="100%" fill="#52525b" opacity="0.18231934391178134" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            BRAIN-HACK // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-brain-hack)" opacity="0.3" pointer-events="none" />
 </svg>

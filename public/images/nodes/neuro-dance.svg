@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-neuro-dance" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-neuro-dance" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8425187325966719" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-neuro-dance" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-neuro-dance" cx="62.46784041865527%" cy="76.99405355099034%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-neuro-dance" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-neuro-dance)" />
-    <circle cx="340" cy="458" r="65" stroke="#27272a" stroke-width="2" fill="none" opacity="0.20551625335483553" /><circle cx="643" cy="282" r="117" fill="#10b981" fill-opacity="0.0680941067909771" /><circle cx="767" cy="89" r="47.5" fill="#10b981" fill-opacity="0.09783095591646998" /><circle cx="104" cy="476" r="161" fill="#10b981" fill-opacity="0.1465093104087828" /><circle cx="212" cy="752" r="169.5" fill="#10b981" fill-opacity="0.0877105017316353" /><circle cx="198" cy="549" r="83.33333333333333" stroke="#27272a" stroke-width="2" fill="none" opacity="0.3472686427068766" /><circle cx="641" cy="317" r="88" stroke="#27272a" stroke-width="2" fill="none" opacity="0.29322149741642534" /><circle cx="627" cy="361" r="128.5" fill="#10b981" fill-opacity="0.10463912608211104" /><rect x="410" y="188" width="2" height="800" fill="#3f3f46" fill-opacity="0.2332113514469711" /><circle cx="704" cy="123" r="102" fill="#10b981" fill-opacity="0.12966274394268568" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">NEURO-DANCE</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-neuro-dance)" />
+    <rect width="100%" height="100%" fill="url(#glow-neuro-dance)" />
+    <rect width="100%" height="100%" fill="url(#grid-neuro-dance)" opacity="0.5" />
+    <rect x="0" y="83.5650014537992%" width="100%" height="0.7182682086418086" fill="#52525b" opacity="0.14337926739210197" />
+    <rect x="0" y="20.21821324733851%" width="100%" height="1.9326367026033222" fill="#52525b" opacity="0.08250611806987423" />
+    <rect x="50.64957630881069%" y="0" width="0.9780704525560796" height="100%" fill="#52525b" opacity="0.14301041077637153" />
+    <rect x="0" y="88.38471582940286%" width="100%" height="1.791008686917842" fill="#52525b" opacity="0.09830026633413534" />
+    <rect x="0" y="25.629923237143014%" width="100%" height="0.6984900107593183" fill="#52525b" opacity="0.05216210172712999" />
+    <rect x="0" y="81.56068612035428%" width="100%" height="1.3706800100586192" fill="#52525b" opacity="0.1518933980277678" />
+    <rect x="0" y="44.828764670369%" width="100%" height="0.8432507781249012" fill="#52525b" opacity="0.0515836997670901" />
+    <rect x="83.35869762427983%" y="0" width="1.548229810361033" height="100%" fill="#52525b" opacity="0.059842627295146354" />
+    <rect x="71.8066266475307%" y="0" width="1.548846727515428" height="100%" fill="#52525b" opacity="0.19669528826763416" />
+    <rect x="0" y="31.790065794987665%" width="100%" height="1.1872964854699526" fill="#52525b" opacity="0.18920376539621858" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            NEURO-DANCE // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-neuro-dance)" opacity="0.3" pointer-events="none" />
 </svg>

@@ -1,0 +1,42 @@
+
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    
+    <defs>
+        <filter id="noise-navigator" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.7047834292098726" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-navigator" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
+        </linearGradient>
+        <radialGradient id="glow-navigator" cx="39.01925161389564%" cy="56.56219546362962%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-navigator" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
+    </defs>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-navigator)" />
+    <rect width="100%" height="100%" fill="url(#glow-navigator)" />
+    <rect x="0" y="58.68019583512116%" width="100%" height="0.7664601181321407" fill="#52525b" opacity="0.13952151007440083" />
+    <rect x="56.9519321964606%" y="0" width="1.0299459165241065" height="100%" fill="#52525b" opacity="0.18010266125677404" />
+    <rect x="0" y="47.49388107796561%" width="100%" height="1.0083315922024956" fill="#52525b" opacity="0.15290779082841036" />
+    <rect x="85.63037019747344%" y="0" width="1.8557189457171774" height="100%" fill="#52525b" opacity="0.10683217973618972" />
+    <rect x="0" y="64.78430360069899%" width="100%" height="1.1807545706916178" fill="#52525b" opacity="0.144207602547675" />
+    <rect x="85.60672056452066%" y="0" width="1.93296858825066" height="100%" fill="#52525b" opacity="0.19030632534092884" />
+    <rect x="0" y="8.804280970994645%" width="100%" height="0.6414448012518182" fill="#52525b" opacity="0.1762785271753357" />
+    <rect x="0" y="47.45818585851992%" width="100%" height="1.573150358230947" fill="#52525b" opacity="0.09380741277132874" />
+    <rect x="5.632791347459696%" y="0" width="1.6157739116957168" height="100%" fill="#52525b" opacity="0.18121368769203655" />
+    <rect x="0" y="57.79923429507691%" width="100%" height="1.2627736537370584" fill="#52525b" opacity="0.14368041282862465" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            NAVIGATOR // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-navigator)" opacity="0.3" pointer-events="none" />
+</svg>

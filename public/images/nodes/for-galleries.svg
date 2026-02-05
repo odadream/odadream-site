@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-for-galleries" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-for-galleries" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.6758323998896707" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-for-galleries" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-for-galleries" cx="43.02934000550708%" cy="74.11776190075815%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-for-galleries" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-for-galleries)" />
-    <circle cx="677" cy="311" r="35" stroke="#27272a" stroke-width="2" fill="none" opacity="0.25441594849639837" /><circle cx="630" cy="577" r="74" fill="#10b981" fill-opacity="0.14565811614847918" /><rect x="86" y="204" width="2" height="800" fill="#3f3f46" fill-opacity="0.28569749869129735" /><rect x="77" y="33" width="800" height="2" fill="#3f3f46" fill-opacity="0.10328962287258037" /><rect x="537" y="137" width="2" height="800" fill="#3f3f46" fill-opacity="0.21111643123595059" /><rect x="101" y="120" width="2" height="800" fill="#3f3f46" fill-opacity="0.2397112932810231" /><circle cx="725" cy="369" r="38" fill="#10b981" fill-opacity="0.13655435956989095" /><rect x="379" y="44" width="2" height="800" fill="#3f3f46" fill-opacity="0.28014537312592436" /><circle cx="538" cy="743" r="88.5" fill="#10b981" fill-opacity="0.05578606364833832" /><rect x="291" y="524" width="2" height="800" fill="#3f3f46" fill-opacity="0.2629049177577002" /><circle cx="451" cy="215" r="40" fill="#10b981" fill-opacity="0.0732289465946451" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">FOR-GALLERIES</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-for-galleries)" />
+    <rect width="100%" height="100%" fill="url(#glow-for-galleries)" />
+    <rect width="100%" height="100%" fill="url(#grid-for-galleries)" opacity="0.5" />
+    <rect x="53.33942254384926%" y="0" width="1.7253277003535328" height="100%" fill="#52525b" opacity="0.10826619910846111" />
+    <rect x="0" y="77.34743382534704%" width="100%" height="1.5609149267533002" fill="#52525b" opacity="0.07971773785978345" />
+    <rect x="0" y="19.239854318313164%" width="100%" height="0.9845839631600156" fill="#52525b" opacity="0.14026767771250354" />
+    <rect x="0" y="28.707116496476452%" width="100%" height="1.248683711512651" fill="#52525b" opacity="0.1627145273030871" />
+    <rect x="0" y="65.37015239276937%" width="100%" height="1.8468785293836878" fill="#52525b" opacity="0.09874445495544418" />
+    <rect x="0" y="37.63470443676664%" width="100%" height="1.6830591253778517" fill="#52525b" opacity="0.16747227058976172" />
+    <rect x="84.30161488643067%" y="0" width="0.7253068147462856" height="100%" fill="#52525b" opacity="0.12316454166841186" />
+    <rect x="0" y="48.74833994428472%" width="100%" height="1.3731730940036226" fill="#52525b" opacity="0.14201958243923224" />
+    <rect x="89.65789474515049%" y="0" width="1.5626000608900563" height="100%" fill="#52525b" opacity="0.06192268017858517" />
+    <rect x="0" y="23.610902366797347%" width="100%" height="1.1646882776773426" fill="#52525b" opacity="0.14158894602822975" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            FOR-GALLERIES // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-for-galleries)" opacity="0.3" pointer-events="none" />
 </svg>

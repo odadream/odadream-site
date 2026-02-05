@@ -1,12 +1,42 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-sync-circle" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-sync-circle" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8560641679503621" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-sync-circle" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-sync-circle" cx="54.09421710678769%" cy="41.50711651100509%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-sync-circle" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-sync-circle)" />
-    <rect x="89" y="121" width="800" height="2" fill="#3f3f46" fill-opacity="0.2917971238195605" /><circle cx="726" cy="240" r="81.5" fill="#10b981" fill-opacity="0.10954081134350419" /><circle cx="772" cy="668" r="123.5" fill="#10b981" fill-opacity="0.14404981323823451" /><circle cx="534" cy="684" r="96.5" fill="#10b981" fill-opacity="0.11868610400143781" /><circle cx="570" cy="39" r="71" stroke="#27272a" stroke-width="2" fill="none" opacity="0.2689783209345478" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">SYNC-CIRCLE</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-sync-circle)" />
+    <rect width="100%" height="100%" fill="url(#glow-sync-circle)" />
+    <rect x="0" y="11.727186955257492%" width="100%" height="1.4195360372956247" fill="#52525b" opacity="0.06421833698564985" />
+    <rect x="0" y="58.247534845254876%" width="100%" height="1.5030068415245106" fill="#52525b" opacity="0.10359893916509948" />
+    <rect x="0" y="59.11758114501608%" width="100%" height="0.7181236424652149" fill="#52525b" opacity="0.050406894460699424" />
+    <rect x="0" y="43.834699405203295%" width="100%" height="1.393905605789186" fill="#52525b" opacity="0.18715212423089161" />
+    <rect x="5.2515785724405%" y="0" width="1.0506921739323922" height="100%" fill="#52525b" opacity="0.09833747108777752" />
+    <rect x="0" y="52.87033999606068%" width="100%" height="1.6603428881246065" fill="#52525b" opacity="0.08829233680227058" />
+    <rect x="0" y="97.03972977310394%" width="100%" height="1.4195184332034723" fill="#52525b" opacity="0.18463113937492592" />
+    <rect x="15.410232139202051%" y="0" width="0.9640945412349837" height="100%" fill="#52525b" opacity="0.05369626430673177" />
+    <rect x="0" y="52.611941474128464%" width="100%" height="1.5769347945013408" fill="#52525b" opacity="0.15430944948858533" />
+    <rect x="11.744537029177451%" y="0" width="1.6176677629050498" height="100%" fill="#52525b" opacity="0.06420941368137432" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            SYNC-CIRCLE // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-sync-circle)" opacity="0.3" pointer-events="none" />
 </svg>

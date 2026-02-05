@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-team" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-team" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.6027017409472742" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-team" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-team" cx="41.63248550298855%" cy="57.184148996308586%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-team" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-team)" />
-    <circle cx="46" cy="753" r="57.666666666666664" stroke="#27272a" stroke-width="2" fill="none" opacity="0.3139874041273288" /><rect x="646" y="379" width="800" height="2" fill="#3f3f46" fill-opacity="0.23502884819081374" /><rect x="224" y="241" width="800" height="2" fill="#3f3f46" fill-opacity="0.1851805782498559" /><circle cx="121" cy="134" r="88.5" fill="#10b981" fill-opacity="0.12157182102047842" /><circle cx="182" cy="130" r="34.333333333333336" stroke="#27272a" stroke-width="2" fill="none" opacity="0.3677164684759191" /><circle cx="45" cy="317" r="95.5" fill="#10b981" fill-opacity="0.056568644281287564" /><circle cx="407" cy="340" r="38.333333333333336" stroke="#27272a" stroke-width="2" fill="none" opacity="0.2548460551618519" /><circle cx="598" cy="582" r="83" stroke="#27272a" stroke-width="2" fill="none" opacity="0.36052652790531287" /><circle cx="7" cy="595" r="84.33333333333333" stroke="#27272a" stroke-width="2" fill="none" opacity="0.30571253965875944" /><circle cx="608" cy="514" r="154" fill="#10b981" fill-opacity="0.09646741385931819" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">TEAM</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-team)" />
+    <rect width="100%" height="100%" fill="url(#glow-team)" />
+    <rect width="100%" height="100%" fill="url(#grid-team)" opacity="0.5" />
+    <rect x="0" y="37.509498267909045%" width="100%" height="0.7396628523614843" fill="#52525b" opacity="0.10135695028710828" />
+    <rect x="62.40027529411043%" y="0" width="1.5696880769167916" height="100%" fill="#52525b" opacity="0.12475121079455244" />
+    <rect x="0" y="25.63327669690668%" width="100%" height="0.594772670506288" fill="#52525b" opacity="0.18442841969377216" />
+    <rect x="50.485732825925325%" y="0" width="0.9113997050201518" height="100%" fill="#52525b" opacity="0.13948507931966808" />
+    <rect x="89.08729188990527%" y="0" width="1.3619559045061058" height="100%" fill="#52525b" opacity="0.18928920276396838" />
+    <rect x="0" y="60.362144988367476%" width="100%" height="1.4115815783493049" fill="#52525b" opacity="0.19515919219251648" />
+    <rect x="7.74892979091865%" y="0" width="1.1146561800173076" height="100%" fill="#52525b" opacity="0.052642447922977106" />
+    <rect x="96.16355574332509%" y="0" width="1.7646164794122954" height="100%" fill="#52525b" opacity="0.140917132437152" />
+    <rect x="61.877106839676486%" y="0" width="1.3073865750873337" height="100%" fill="#52525b" opacity="0.12461729131137701" />
+    <rect x="0" y="74.61284871642742%" width="100%" height="1.5042772970667828" fill="#52525b" opacity="0.13885356808440164" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            TEAM // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-team)" opacity="0.3" pointer-events="none" />
 </svg>

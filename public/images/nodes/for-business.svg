@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-for-business" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-for-business" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.7186093920549466" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-for-business" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-for-business" cx="73.610737420256%" cy="35.66387222675967%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-for-business" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-for-business)" />
-    <circle cx="97" cy="189" r="115.33333333333333" stroke="#27272a" stroke-width="2" fill="none" opacity="0.16841912248855806" /><circle cx="342" cy="285" r="164.5" fill="#10b981" fill-opacity="0.1419658929373327" /><rect x="66" y="422" width="2" height="800" fill="#3f3f46" fill-opacity="0.13758183611435015" /><rect x="519" y="424" width="2" height="800" fill="#3f3f46" fill-opacity="0.23635451235209076" /><rect x="708" y="117" width="2" height="800" fill="#3f3f46" fill-opacity="0.10030974133978816" /><circle cx="724" cy="388" r="100" fill="#10b981" fill-opacity="0.13278770604410967" /><rect x="572" y="681" width="800" height="2" fill="#3f3f46" fill-opacity="0.22793622517092446" /><circle cx="113" cy="207" r="115.66666666666667" stroke="#27272a" stroke-width="2" fill="none" opacity="0.2869017662444094" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">FOR-BUSINESS</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-for-business)" />
+    <rect width="100%" height="100%" fill="url(#glow-for-business)" />
+    <rect width="100%" height="100%" fill="url(#grid-for-business)" opacity="0.5" />
+    <rect x="0" y="49.67341339185221%" width="100%" height="0.8347499769504647" fill="#52525b" opacity="0.16428717259716913" />
+    <rect x="0" y="14.599393787420723%" width="100%" height="0.8474485106742462" fill="#52525b" opacity="0.056712792168103904" />
+    <rect x="0" y="60.73363913291473%" width="100%" height="0.5987619227718207" fill="#52525b" opacity="0.13916469923142782" />
+    <rect x="0" y="9.234502547638959%" width="100%" height="1.12866863434079" fill="#52525b" opacity="0.05337441843317302" />
+    <rect x="60.71144273570873%" y="0" width="0.7771181299138052" height="100%" fill="#52525b" opacity="0.052441903136150825" />
+    <rect x="0" y="8.586186644235799%" width="100%" height="0.6362974228209792" fill="#52525b" opacity="0.0750796024455499" />
+    <rect x="23.57131067996035%" y="0" width="0.8347302906538642" height="100%" fill="#52525b" opacity="0.13120041390061418" />
+    <rect x="0" y="0.028646690797663008%" width="100%" height="1.4544713152148492" fill="#52525b" opacity="0.129939908515606" />
+    <rect x="0" y="22.27571948643375%" width="100%" height="1.9139915983322928" fill="#52525b" opacity="0.09567938434954676" />
+    <rect x="0" y="71.19819197915326%" width="100%" height="0.7821230893322482" fill="#52525b" opacity="0.06427719380173572" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            FOR-BUSINESS // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-for-business)" opacity="0.3" pointer-events="none" />
 </svg>

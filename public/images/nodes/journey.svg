@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-journey" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-journey" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8241308700518039" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-journey" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-journey" cx="53.50671087718263%" cy="67.28992014870971%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-journey" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-journey)" />
-    <rect x="512" y="591" width="2" height="800" fill="#3f3f46" fill-opacity="0.26732047155146577" /><circle cx="37" cy="470" r="154" fill="#10b981" fill-opacity="0.08331516999078303" /><circle cx="520" cy="147" r="33" stroke="#27272a" stroke-width="2" fill="none" opacity="0.297963011248612" /><rect x="557" y="220" width="2" height="800" fill="#3f3f46" fill-opacity="0.10032432723455714" /><circle cx="614" cy="415" r="128" fill="#10b981" fill-opacity="0.05573471403840813" /><circle cx="636" cy="263" r="58" stroke="#27272a" stroke-width="2" fill="none" opacity="0.4090437001736973" /><circle cx="791" cy="327" r="86.5" fill="#10b981" fill-opacity="0.10019111688725389" /><circle cx="146" cy="255" r="142" fill="#10b981" fill-opacity="0.1470923225413742" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">JOURNEY</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-journey)" />
+    <rect width="100%" height="100%" fill="url(#glow-journey)" />
+    <rect width="100%" height="100%" fill="url(#grid-journey)" opacity="0.5" />
+    <rect x="0" y="6.0458833408037975%" width="100%" height="1.2717187355940405" fill="#52525b" opacity="0.1776794828732307" />
+    <rect x="96.62462114042101%" y="0" width="0.7171553189094694" height="100%" fill="#52525b" opacity="0.07294549508760265" />
+    <rect x="0" y="0.45852442314710884%" width="100%" height="0.749226201557765" fill="#52525b" opacity="0.1244779370021801" />
+    <rect x="68.27156410391588%" y="0" width="0.7054178961137476" height="100%" fill="#52525b" opacity="0.14585901153819544" />
+    <rect x="0.44465167489336027%" y="0" width="1.610698831370751" height="100%" fill="#52525b" opacity="0.05152618943390082" />
+    <rect x="0" y="92.86636667593044%" width="100%" height="0.5851858890011775" fill="#52525b" opacity="0.1219247515284687" />
+    <rect x="2.2320691516921567%" y="0" width="1.271706431658665" height="100%" fill="#52525b" opacity="0.15700025868788386" />
+    <rect x="0.017904164286241087%" y="0" width="0.534044571485412" height="100%" fill="#52525b" opacity="0.11871244280479146" />
+    <rect x="38.92232467320033%" y="0" width="1.946244748957683" height="100%" fill="#52525b" opacity="0.1535496152271979" />
+    <rect x="0" y="69.49886998115002%" width="100%" height="1.4263269309199667" fill="#52525b" opacity="0.07767324610862253" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            JOURNEY // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-journey)" opacity="0.3" pointer-events="none" />
 </svg>

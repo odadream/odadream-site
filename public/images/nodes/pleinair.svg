@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-pleinair" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-pleinair" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8309737196014949" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-pleinair" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-pleinair" cx="75.06117650779073%" cy="53.19360507949591%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-pleinair" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-pleinair)" />
-    <circle cx="593" cy="769" r="39.5" fill="#10b981" fill-opacity="0.14844817476305253" /><rect x="71" y="337" width="2" height="800" fill="#3f3f46" fill-opacity="0.23145719360363728" /><rect x="92" y="484" width="800" height="2" fill="#3f3f46" fill-opacity="0.18763618905904877" /><rect x="369" y="649" width="2" height="800" fill="#3f3f46" fill-opacity="0.22419906276518306" /><circle cx="386" cy="48" r="20.333333333333332" stroke="#27272a" stroke-width="2" fill="none" opacity="0.21654954120258482" /><circle cx="135" cy="11" r="43.5" fill="#10b981" fill-opacity="0.08053363464514406" /><circle cx="496" cy="90" r="129.5" fill="#10b981" fill-opacity="0.0964294662773682" /><circle cx="571" cy="517" r="44.333333333333336" stroke="#27272a" stroke-width="2" fill="none" opacity="0.21882726319581708" /><rect x="565" y="26" width="2" height="800" fill="#3f3f46" fill-opacity="0.1587360077957783" /><circle cx="107" cy="405" r="129" fill="#10b981" fill-opacity="0.10658526398374307" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">PLEINAIR</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-pleinair)" />
+    <rect width="100%" height="100%" fill="url(#glow-pleinair)" />
+    <rect width="100%" height="100%" fill="url(#grid-pleinair)" opacity="0.5" />
+    <rect x="35.834734128634196%" y="0" width="1.0891081572874524" height="100%" fill="#52525b" opacity="0.16408066590230974" />
+    <rect x="0" y="45.54381691435708%" width="100%" height="1.3141235025265474" fill="#52525b" opacity="0.19737123315909066" />
+    <rect x="0" y="55.885465169218804%" width="100%" height="0.9568470818520031" fill="#52525b" opacity="0.17289128505894105" />
+    <rect x="0" y="13.035093073765832%" width="100%" height="1.9243795486859787" fill="#52525b" opacity="0.15470753568663034" />
+    <rect x="0" y="94.3318503390363%" width="100%" height="1.5978402619695666" fill="#52525b" opacity="0.19012860699103085" />
+    <rect x="41.43864665314429%" y="0" width="0.7084338173348772" height="100%" fill="#52525b" opacity="0.11471780551571195" />
+    <rect x="0" y="43.976567866258854%" width="100%" height="1.0890947176041963" fill="#52525b" opacity="0.14149259025370015" />
+    <rect x="46.17340303601083%" y="0" width="1.483340993973744" height="100%" fill="#52525b" opacity="0.05120897595883252" />
+    <rect x="13.284385402951749%" y="0" width="0.9028211868394364" height="100%" fill="#52525b" opacity="0.12156957969681322" />
+    <rect x="0" y="92.83722722235808%" width="100%" height="1.7887571093521613" fill="#52525b" opacity="0.06407385344065154" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            PLEINAIR // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-pleinair)" opacity="0.3" pointer-events="none" />
 </svg>

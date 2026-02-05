@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-emomandala" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-emomandala" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.7612461204745304" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-emomandala" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-emomandala" cx="52.70958026192112%" cy="49.91567567914322%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-emomandala" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-emomandala)" />
-    <circle cx="202" cy="15" r="20" stroke="#27272a" stroke-width="2" fill="none" opacity="0.38535625309887106" /><circle cx="362" cy="378" r="41.666666666666664" stroke="#27272a" stroke-width="2" fill="none" opacity="0.36936823567202737" /><circle cx="201" cy="87" r="92" fill="#10b981" fill-opacity="0.07759204048525135" /><rect x="581" y="304" width="800" height="2" fill="#3f3f46" fill-opacity="0.22951049564981077" /><circle cx="208" cy="229" r="98" fill="#10b981" fill-opacity="0.10570030280691754" /><circle cx="121" cy="725" r="71" stroke="#27272a" stroke-width="2" fill="none" opacity="0.3669579321262063" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">EMOMANDALA</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-emomandala)" />
+    <rect width="100%" height="100%" fill="url(#glow-emomandala)" />
+    <rect width="100%" height="100%" fill="url(#grid-emomandala)" opacity="0.5" />
+    <rect x="0" y="14.591888212218777%" width="100%" height="1.0106612388143885" fill="#52525b" opacity="0.16834484962126695" />
+    <rect x="92.04228379953865%" y="0" width="1.5104158676792083" height="100%" fill="#52525b" opacity="0.10594919156837203" />
+    <rect x="0" y="99.84154733814444%" width="100%" height="1.0377513124027766" fill="#52525b" opacity="0.09863150839100733" />
+    <rect x="55.68481423490198%" y="0" width="1.1736271722927942" height="100%" fill="#52525b" opacity="0.16518911923299462" />
+    <rect x="0" y="47.899991178791964%" width="100%" height="1.5852770331178578" fill="#52525b" opacity="0.07510988570294333" />
+    <rect x="0" y="53.70276277298365%" width="100%" height="1.1327027423611868" fill="#52525b" opacity="0.08349976517120355" />
+    <rect x="0" y="31.562974193657723%" width="100%" height="1.8856448497489513" fill="#52525b" opacity="0.15329906253917058" />
+    <rect x="0" y="91.04949034848204%" width="100%" height="0.5530414230218543" fill="#52525b" opacity="0.09672080522563384" />
+    <rect x="0" y="86.97473764137807%" width="100%" height="1.380318325599952" fill="#52525b" opacity="0.15101032080222884" />
+    <rect x="0" y="52.063238343282826%" width="100%" height="1.6050688222563536" fill="#52525b" opacity="0.18916987533603785" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            EMOMANDALA // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-emomandala)" opacity="0.3" pointer-events="none" />
 </svg>

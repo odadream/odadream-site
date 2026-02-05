@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-mom-baby" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-mom-baby" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.7248911866218701" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-mom-baby" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-mom-baby" cx="69.2349848423479%" cy="52.39032957925492%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-mom-baby" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-mom-baby)" />
-    <circle cx="688" cy="636" r="98.5" fill="#10b981" fill-opacity="0.10883226364358052" /><rect x="132" y="468" width="800" height="2" fill="#3f3f46" fill-opacity="0.13684398238983705" /><circle cx="295" cy="51" r="33.5" fill="#10b981" fill-opacity="0.1461642751904037" /><circle cx="549" cy="764" r="103" stroke="#27272a" stroke-width="2" fill="none" opacity="0.3058871674677448" /><circle cx="331" cy="164" r="66.66666666666667" stroke="#27272a" stroke-width="2" fill="none" opacity="0.24874206341428362" /><circle cx="329" cy="62" r="113.66666666666667" stroke="#27272a" stroke-width="2" fill="none" opacity="0.2729842044477664" /><circle cx="624" cy="141" r="48.5" fill="#10b981" fill-opacity="0.08188703821106175" /><circle cx="473" cy="415" r="115" fill="#10b981" fill-opacity="0.10840543453505234" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">MOM-BABY</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-mom-baby)" />
+    <rect width="100%" height="100%" fill="url(#glow-mom-baby)" />
+    <rect width="100%" height="100%" fill="url(#grid-mom-baby)" opacity="0.5" />
+    <rect x="53.800200115703234%" y="0" width="1.9180953383148605" height="100%" fill="#52525b" opacity="0.0928351698376566" />
+    <rect x="24.28230952870316%" y="0" width="0.9501517838334215" height="100%" fill="#52525b" opacity="0.1701039104676842" />
+    <rect x="6.617073394932853%" y="0" width="1.1056285217456785" height="100%" fill="#52525b" opacity="0.17985719792065885" />
+    <rect x="17.68973396875871%" y="0" width="1.507524746709992" height="100%" fill="#52525b" opacity="0.19684218091130462" />
+    <rect x="21.987673753861035%" y="0" width="0.7759367677159019" height="100%" fill="#52525b" opacity="0.16692645809792583" />
+    <rect x="53.81884221343216%" y="0" width="0.9322134367490312" height="100%" fill="#52525b" opacity="0.17112397977255656" />
+    <rect x="40.20368013549939%" y="0" width="1.4180829079524455" height="100%" fill="#52525b" opacity="0.1719438510918467" />
+    <rect x="5.146292927811195%" y="0" width="1.4728552854832777" height="100%" fill="#52525b" opacity="0.12787872427411262" />
+    <rect x="0" y="24.962553637998695%" width="100%" height="1.8303087976112113" fill="#52525b" opacity="0.14999627794604403" />
+    <rect x="27.647576320588197%" y="0" width="1.4665969507457661" height="100%" fill="#52525b" opacity="0.10949553582770336" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            MOM-BABY // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-mom-baby)" opacity="0.3" pointer-events="none" />
 </svg>

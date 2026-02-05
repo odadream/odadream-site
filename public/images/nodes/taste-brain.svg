@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-taste-brain" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-taste-brain" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8808740888078457" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-taste-brain" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-taste-brain" cx="50.16214861549637%" cy="75.23201416733862%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-taste-brain" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-taste-brain)" />
-    <rect x="382" y="767" width="2" height="800" fill="#3f3f46" fill-opacity="0.10411812922193349" /><circle cx="104" cy="476" r="161" fill="#10b981" fill-opacity="0.1465093104087828" /><circle cx="212" cy="752" r="169.5" fill="#10b981" fill-opacity="0.0877105017316353" /><circle cx="198" cy="549" r="83.33333333333333" stroke="#27272a" stroke-width="2" fill="none" opacity="0.3472686427068766" /><circle cx="641" cy="317" r="88" stroke="#27272a" stroke-width="2" fill="none" opacity="0.29322149741642534" /><circle cx="627" cy="361" r="128.5" fill="#10b981" fill-opacity="0.10463912608211104" /><rect x="410" y="188" width="2" height="800" fill="#3f3f46" fill-opacity="0.2332113514469711" /><circle cx="704" cy="123" r="102" fill="#10b981" fill-opacity="0.12966274394268568" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">TASTE-BRAIN</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-taste-brain)" />
+    <rect width="100%" height="100%" fill="url(#glow-taste-brain)" />
+    <rect width="100%" height="100%" fill="url(#grid-taste-brain)" opacity="0.5" />
+    <rect x="24.788607773174167%" y="0" width="0.8829418864407966" height="100%" fill="#52525b" opacity="0.16042941527946802" />
+    <rect x="51.333112736542816%" y="0" width="1.4447577252935224" height="100%" fill="#52525b" opacity="0.15430933535500369" />
+    <rect x="0" y="57.57794390206965%" width="100%" height="0.6290230624182365" fill="#52525b" opacity="0.14906207928346665" />
+    <rect x="6.480156915709523%" y="0" width="1.193378893140125" height="100%" fill="#52525b" opacity="0.0619063318352274" />
+    <rect x="99.8658230992647%" y="0" width="1.2593826898461047" height="100%" fill="#52525b" opacity="0.14448740395669585" />
+    <rect x="12.63222108840218%" y="0" width="1.19858600101302" height="100%" fill="#52525b" opacity="0.11349252975871092" />
+    <rect x="87.54682702715213%" y="0" width="0.6329243137807812" height="100%" fill="#52525b" opacity="0.10589524123901059" />
+    <rect x="0" y="64.12813497160388%" width="100%" height="1.4793918630847631" fill="#52525b" opacity="0.1639046939917884" />
+    <rect x="56.10188423292887%" y="0" width="1.9809187825125818" height="100%" fill="#52525b" opacity="0.08019778377394918" />
+    <rect x="97.2073604792425%" y="0" width="0.857600257599354" height="100%" fill="#52525b" opacity="0.16875384130399101" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            TASTE-BRAIN // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-taste-brain)" opacity="0.3" pointer-events="none" />
 </svg>

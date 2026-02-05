@@ -1,12 +1,52 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-content-neuromandala-cover.jpg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-neuromandala-cover" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.7891785736560621" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-neuromandala-cover" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-neuromandala-cover" cx="44.85766093699044%" cy="22.70764300851863%" r="60%">
+            <stop offset="0%" stop-color="#4c1d95" stop-opacity="0.25" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-neuromandala-cover" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3f3f46" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-content-neuromandala-cover.jpg)" />
-    <circle cx="548" cy="763" r="44.5" fill="#10b981" fill-opacity="0.11186664300048506" /><circle cx="202" cy="15" r="20" stroke="#27272a" stroke-width="2" fill="none" opacity="0.38535625309887106" /><circle cx="362" cy="378" r="41.666666666666664" stroke="#27272a" stroke-width="2" fill="none" opacity="0.36936823567202737" /><circle cx="201" cy="87" r="92" fill="#10b981" fill-opacity="0.07759204048525135" /><rect x="581" y="304" width="800" height="2" fill="#3f3f46" fill-opacity="0.22951049564981077" /><circle cx="208" cy="229" r="98" fill="#10b981" fill-opacity="0.10570030280691754" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">CONTENT-NEUROMANDALA-COVER.JPG</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-neuromandala-cover)" />
+    <rect width="100%" height="100%" fill="url(#glow-neuromandala-cover)" />
+    <rect width="100%" height="100%" fill="url(#grid-neuromandala-cover)" opacity="0.5" />
+    <rect x="0" y="81.20184501744978%" width="100%" height="2.3678246274290835" fill="#a855f7" opacity="0.051426298661554515" />
+    <rect x="0" y="76.45784227778934%" width="100%" height="3.791086160848929" fill="#a855f7" opacity="0.1392553511208439" />
+    <rect x="0" y="66.67049994382123%" width="100%" height="2.155538642458188" fill="#a855f7" opacity="0.15689891149001095" />
+    <rect x="0" y="10.642651664691654%" width="100%" height="3.309084259727117" fill="#a855f7" opacity="0.08895793199907796" />
+    <rect x="0" y="2.424945498281108%" width="100%" height="3.722737212407158" fill="#a855f7" opacity="0.1522165548309838" />
+    <rect x="0" y="34.28043856684159%" width="100%" height="3.8881957548560537" fill="#a855f7" opacity="0.14530263701016333" />
+    <rect x="0" y="90.01152216457903%" width="100%" height="1.8592716398269604" fill="#a855f7" opacity="0.18892336628765183" />
+    <rect x="0" y="7.50977025135399%" width="100%" height="2.1286703316761835" fill="#a855f7" opacity="0.07811395630996112" />
+    <rect x="27.07997659880666%" y="7.50977025135399%" width="7.4688331782527575%" height="6.386010995028551" fill="#06b6d4" opacity="0.23434186892988337" />
+    <rect x="0" y="42.56850415148633%" width="100%" height="1.7358649924731488" fill="#a855f7" opacity="0.13414731077770453" />
+    <rect x="0" y="20.894094995124355%" width="100%" height="1.5190913994043054" fill="#a855f7" opacity="0.06845846017213396" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#a855f7" opacity="0.6" letter-spacing="4">
+            NEUROMANDALA-COVER // MEDIA.ASSET
+        </text>
+    
+    
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="monospace" font-size="24" fill="#71717a" opacity="0.8" letter-spacing="2">
+                [MISSING_ASSET]
+            </text>
+            <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="monospace" font-size="12" fill="#3f3f46" opacity="0.8">
+                neuromandala...
+            </text>
+        
+    <rect width="100%" height="100%" filter="url(#noise-neuromandala-cover)" opacity="0.3" pointer-events="none" />
 </svg>

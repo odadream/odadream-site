@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-neuromandala" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-neuromandala" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8832953024034345" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-neuromandala" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-neuromandala" cx="28.829525028196652%" cy="37.82754936053189%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-neuromandala" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-neuromandala)" />
-    <circle cx="117" cy="114" r="31" fill="#10b981" fill-opacity="0.1385933150386336" /><circle cx="724" cy="388" r="100" fill="#10b981" fill-opacity="0.13278770604410967" /><rect x="572" y="681" width="800" height="2" fill="#3f3f46" fill-opacity="0.22793622517092446" /><circle cx="113" cy="207" r="115.66666666666667" stroke="#27272a" stroke-width="2" fill="none" opacity="0.2869017662444094" /><circle cx="490" cy="552" r="54" stroke="#27272a" stroke-width="2" fill="none" opacity="0.2042667290911595" /><circle cx="287" cy="422" r="73.5" fill="#10b981" fill-opacity="0.09416009885044332" /><circle cx="306" cy="517" r="29.5" fill="#10b981" fill-opacity="0.14605813833613868" /><circle cx="574" cy="68" r="160.5" fill="#10b981" fill-opacity="0.13768865585952883" /><circle cx="698" cy="318" r="83" fill="#10b981" fill-opacity="0.08326455741271274" /><circle cx="66" cy="98" r="27" fill="#10b981" fill-opacity="0.09457191554847669" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">NEUROMANDALA</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-neuromandala)" />
+    <rect width="100%" height="100%" fill="url(#glow-neuromandala)" />
+    <rect width="100%" height="100%" fill="url(#grid-neuromandala)" opacity="0.5" />
+    <rect x="0" y="99.46707407894272%" width="100%" height="1.7555827093362646" fill="#52525b" opacity="0.10785977270720506" />
+    <rect x="94.1152480376095%" y="0" width="0.7673133469813628" height="100%" fill="#52525b" opacity="0.07354323626360226" />
+    <rect x="0" y="78.43946742679874%" width="100%" height="0.8734185929628262" fill="#52525b" opacity="0.05463007425854921" />
+    <rect x="88.81174101383587%" y="0" width="1.9347258291065002" height="100%" fill="#52525b" opacity="0.1437010303546684" />
+    <rect x="0" y="72.64763118945773%" width="100%" height="1.3771771983030971" fill="#52525b" opacity="0.12171767542298668" />
+    <rect x="0" y="21.3245538727609%" width="100%" height="0.6965016221595012" fill="#52525b" opacity="0.1602773836211091" />
+    <rect x="32.739692211840016%" y="0" width="1.6305626601731058" height="100%" fill="#52525b" opacity="0.13666324204454502" />
+    <rect x="0" y="39.77276439757344%" width="100%" height="0.7785521163871065" fill="#52525b" opacity="0.06254296769624854" />
+    <rect x="0" y="82.14137780679518%" width="100%" height="1.018175737949252" fill="#52525b" opacity="0.19796353971861635" />
+    <rect x="0" y="38.37572274578337%" width="100%" height="1.2728993965060444" fill="#52525b" opacity="0.06201627670043733" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            NEUROMANDALA // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-neuromandala)" opacity="0.3" pointer-events="none" />
 </svg>

@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-gong" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-gong" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8530818993720057" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-gong" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-gong" cx="49.49662248557119%" cy="49.734353711581186%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-gong" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-gong)" />
-    <rect x="540" y="646" width="2" height="800" fill="#3f3f46" fill-opacity="0.20769927452238335" /><circle cx="340" cy="224" r="46.666666666666664" stroke="#27272a" stroke-width="2" fill="none" opacity="0.34374387473562823" /><circle cx="5" cy="572" r="47.5" fill="#10b981" fill-opacity="0.12001292600289162" /><circle cx="679" cy="580" r="59" fill="#10b981" fill-opacity="0.0924628611090384" /><circle cx="161" cy="52" r="33" fill="#10b981" fill-opacity="0.06769397175958147" /><rect x="561" y="279" width="2" height="800" fill="#3f3f46" fill-opacity="0.19464823405996867" /><circle cx="561" cy="598" r="134" fill="#10b981" fill-opacity="0.13863026829094452" /><circle cx="415" cy="7" r="91" stroke="#27272a" stroke-width="2" fill="none" opacity="0.39557720599914326" /><circle cx="371" cy="608" r="80.66666666666667" stroke="#27272a" stroke-width="2" fill="none" opacity="0.20930419138494472" /><circle cx="242" cy="718" r="33.333333333333336" stroke="#27272a" stroke-width="2" fill="none" opacity="0.18892339099438687" /><circle cx="665" cy="23" r="33.666666666666664" stroke="#27272a" stroke-width="2" fill="none" opacity="0.3387866538598246" /><circle cx="154" cy="713" r="78" stroke="#27272a" stroke-width="2" fill="none" opacity="0.4089330781646936" /><rect x="183" y="785" width="800" height="2" fill="#3f3f46" fill-opacity="0.10876186130699353" /><circle cx="762" cy="225" r="67" fill="#10b981" fill-opacity="0.09362704388549901" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">GONG</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-gong)" />
+    <rect width="100%" height="100%" fill="url(#glow-gong)" />
+    <rect width="100%" height="100%" fill="url(#grid-gong)" opacity="0.5" />
+    <rect x="11.386656632075699%" y="0" width="1.8128511540711403" height="100%" fill="#52525b" opacity="0.05893479376932122" />
+    <rect x="0" y="76.22911951153458%" width="100%" height="1.6861863093787677" fill="#52525b" opacity="0.17333041848459324" />
+    <rect x="0" y="28.712551182799555%" width="100%" height="0.7729738306002447" fill="#52525b" opacity="0.13711805011808692" />
+    <rect x="0" y="25.194817758346737%" width="100%" height="1.3124531303182738" fill="#52525b" opacity="0.08997666397129807" />
+    <rect x="99.85880292938911%" y="0" width="0.9445748726786811" height="100%" fill="#52525b" opacity="0.09698933702613166" />
+    <rect x="40.83838275711833%" y="0" width="0.8350953518739859" height="100%" fill="#52525b" opacity="0.14475880627963583" />
+    <rect x="0" y="26.734735282822264%" width="100%" height="1.1878444181641978" fill="#52525b" opacity="0.06011424412495853" />
+    <rect x="98.72775012508757%" y="0" width="0.7340218357127364" height="100%" fill="#52525b" opacity="0.07050027313688796" />
+    <rect x="54.89722132207567%" y="0" width="1.9994185997633438" height="100%" fill="#52525b" opacity="0.12284062267080009" />
+    <rect x="0" y="3.687201862863453%" width="100%" height="1.5244123069796827" fill="#52525b" opacity="0.07976471290901743" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            GONG // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-gong)" opacity="0.3" pointer-events="none" />
 </svg>

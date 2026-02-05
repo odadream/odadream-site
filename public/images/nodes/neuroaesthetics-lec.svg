@@ -1,12 +1,42 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-neuroaesthetics-lec" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-neuroaesthetics-lec" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8502031646205142" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-neuroaesthetics-lec" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-neuroaesthetics-lec" cx="32.9176333201282%" cy="46.663579863182804%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-neuroaesthetics-lec" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-neuroaesthetics-lec)" />
-    <circle cx="610" cy="107" r="102.5" fill="#10b981" fill-opacity="0.08064246350149916" /><rect x="334" y="170" width="800" height="2" fill="#3f3f46" fill-opacity="0.18579778413450188" /><circle cx="280" cy="305" r="166.5" fill="#10b981" fill-opacity="0.0830877786266683" /><circle cx="267" cy="202" r="73.5" fill="#10b981" fill-opacity="0.1325952363544275" /><circle cx="636" cy="724" r="124.5" fill="#10b981" fill-opacity="0.08924726293587355" /><rect x="604" y="61" width="800" height="2" fill="#3f3f46" fill-opacity="0.11114972570067039" /><circle cx="687" cy="65" r="58.666666666666664" stroke="#27272a" stroke-width="2" fill="none" opacity="0.27848921751647143" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">NEUROAESTHETICS-LEC</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-neuroaesthetics-lec)" />
+    <rect width="100%" height="100%" fill="url(#glow-neuroaesthetics-lec)" />
+    <rect x="0" y="1.8469482677494624%" width="100%" height="1.6367237222257291" fill="#52525b" opacity="0.14156022906914376" />
+    <rect x="27.991829140104198%" y="0" width="1.771002251208762" height="100%" fill="#52525b" opacity="0.07348378572937454" />
+    <rect x="0" y="20.391776664547415%" width="100%" height="0.7368227548308882" fill="#52525b" opacity="0.12800503284950282" />
+    <rect x="37.610691168914265%" y="0" width="0.5201286480483865" height="100%" fill="#52525b" opacity="0.130219933092799" />
+    <rect x="68.43357325385657%" y="0" width="1.4181156309024576" height="100%" fill="#52525b" opacity="0.07694131310744334" />
+    <rect x="0" y="85.14240280272662%" width="100%" height="1.23492581000079" fill="#52525b" opacity="0.13980946707521516" />
+    <rect x="0" y="74.24145725019412%" width="100%" height="1.0116925677393493" fill="#52525b" opacity="0.10169937296463119" />
+    <rect x="0" y="91.07097540150487%" width="100%" height="0.8938949097822373" fill="#52525b" opacity="0.11917573664726294" />
+    <rect x="53.681527267844906%" y="0" width="1.3158120243491718" height="100%" fill="#52525b" opacity="0.1852698591167758" />
+    <rect x="55.4618823392893%" y="0" width="1.8166611397794086" height="100%" fill="#52525b" opacity="0.16237777072226423" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            NEUROAESTHETICS-LEC // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-neuroaesthetics-lec)" opacity="0.3" pointer-events="none" />
 </svg>

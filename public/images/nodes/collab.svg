@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-collab" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-collab" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8465195773136984" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-collab" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-collab" cx="70.90726597319103%" cy="78.4192825839103%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-collab" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-collab)" />
-    <rect x="130" y="549" width="2" height="800" fill="#3f3f46" fill-opacity="0.17062528558781198" /><rect x="469" y="558" width="2" height="800" fill="#3f3f46" fill-opacity="0.2639940259025025" /><rect x="220" y="146" width="2" height="800" fill="#3f3f46" fill-opacity="0.2132225886667584" /><rect x="710" y="727" width="800" height="2" fill="#3f3f46" fill-opacity="0.208429422030531" /><circle cx="17" cy="425" r="48" fill="#10b981" fill-opacity="0.07130018162642955" /><rect x="19" y="452" width="2" height="800" fill="#3f3f46" fill-opacity="0.2789947040755578" /><rect x="264" y="566" width="800" height="2" fill="#3f3f46" fill-opacity="0.13113778273454957" /><circle cx="466" cy="65" r="114" stroke="#27272a" stroke-width="2" fill="none" opacity="0.23444398675692357" /><rect x="165" y="712" width="800" height="2" fill="#3f3f46" fill-opacity="0.19326408322540375" /><circle cx="698" cy="188" r="164" fill="#10b981" fill-opacity="0.1161556371082952" /><rect x="289" y="51" width="2" height="800" fill="#3f3f46" fill-opacity="0.2775671718143713" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">COLLAB</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-collab)" />
+    <rect width="100%" height="100%" fill="url(#glow-collab)" />
+    <rect width="100%" height="100%" fill="url(#grid-collab)" opacity="0.5" />
+    <rect x="44.42883789951805%" y="0" width="1.3624837625422364" height="100%" fill="#52525b" opacity="0.17646020366946258" />
+    <rect x="46.92806373064226%" y="0" width="1.3363505809906409" height="100%" fill="#52525b" opacity="0.05442199029905907" />
+    <rect x="78.0573637020377%" y="0" width="1.9157300916646889" height="100%" fill="#52525b" opacity="0.16756512678001556" />
+    <rect x="48.58543756286189%" y="0" width="1.2635442481968033" height="100%" fill="#52525b" opacity="0.08881852069293944" />
+    <rect x="0" y="22.277088064958424%" width="100%" height="1.701594838827471" fill="#52525b" opacity="0.12044585083652834" />
+    <rect x="43.93591498391322%" y="0" width="0.6255133807431099" height="100%" fill="#52525b" opacity="0.10034009062251086" />
+    <rect x="47.54630122105247%" y="0" width="0.9874739665421415" height="100%" fill="#52525b" opacity="0.19749635981628333" />
+    <rect x="73.0911775707185%" y="0" width="1.750181640032848" height="100%" fill="#52525b" opacity="0.18028259871553876" />
+    <rect x="16.372773858134423%" y="0" width="1.8129717808337618" height="100%" fill="#52525b" opacity="0.11167219363774378" />
+    <rect x="0" y="13.793331071541953%" width="100%" height="1.7509602874060723" fill="#52525b" opacity="0.13895523826494371" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            COLLAB // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-collab)" opacity="0.3" pointer-events="none" />
 </svg>

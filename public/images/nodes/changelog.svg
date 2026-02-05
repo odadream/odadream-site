@@ -1,0 +1,43 @@
+
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    
+    <defs>
+        <filter id="noise-changelog" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.6889570440062853" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-changelog" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
+        </linearGradient>
+        <radialGradient id="glow-changelog" cx="60.208053058207085%" cy="76.74790418403958%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-changelog" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
+    </defs>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-changelog)" />
+    <rect width="100%" height="100%" fill="url(#glow-changelog)" />
+    <rect width="100%" height="100%" fill="url(#grid-changelog)" opacity="0.5" />
+    <rect x="87.25506005553069%" y="0" width="1.1260624827128485" height="100%" fill="#52525b" opacity="0.17321537944787685" />
+    <rect x="0" y="35.94954534056554%" width="100%" height="0.7605863828310616" fill="#52525b" opacity="0.16753459416100253" />
+    <rect x="20.550229326402984%" y="0" width="1.6990714424281115" height="100%" fill="#52525b" opacity="0.07937352438864627" />
+    <rect x="0" y="81.9258769340123%" width="100%" height="1.3465014757555922" fill="#52525b" opacity="0.1650308138598044" />
+    <rect x="20.533582028498483%" y="0" width="1.8328385977845998" height="100%" fill="#52525b" opacity="0.05183142733465082" />
+    <rect x="31.439639983176846%" y="0" width="0.6022230669411114" height="100%" fill="#52525b" opacity="0.10630970183416244" />
+    <rect x="42.678483009970265%" y="0" width="1.126047717990398" height="100%" fill="#52525b" opacity="0.14840031042546065" />
+    <rect x="0" y="0.021485006456715063%" width="100%" height="0.840853486061891" fill="#52525b" opacity="0.0724549313517799" />
+    <rect x="0" y="66.70678962646684%" width="100%" height="1.9354936987492197" fill="#52525b" opacity="0.08425953824469778" />
+    <rect x="3.398643949440349%" y="0" width="0.7115923168245631" height="100%" fill="#52525b" opacity="0.17320789538622638" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            CHANGELOG // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-changelog)" opacity="0.3" pointer-events="none" />
+</svg>

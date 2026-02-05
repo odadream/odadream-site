@@ -1,12 +1,54 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-content-art-brain.jpg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-art-brain" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.885155461016256" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-art-brain" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-art-brain" cx="41.56668326032039%" cy="31.245856975434215%" r="60%">
+            <stop offset="0%" stop-color="#4c1d95" stop-opacity="0.25" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-art-brain" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3f3f46" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-content-art-brain.jpg)" />
-    <circle cx="146" cy="61" r="55" fill="#10b981" fill-opacity="0.10373953175258066" /><circle cx="90" cy="96" r="45.333333333333336" stroke="#27272a" stroke-width="2" fill="none" opacity="0.41199387747501537" /><rect x="195" y="332" width="800" height="2" fill="#3f3f46" fill-opacity="0.2806401465844829" /><circle cx="700" cy="271" r="34.333333333333336" stroke="#27272a" stroke-width="2" fill="none" opacity="0.4399908016734116" /><rect x="701" y="61" width="800" height="2" fill="#3f3f46" fill-opacity="0.22342947224187812" /><rect x="214" y="709" width="800" height="2" fill="#3f3f46" fill-opacity="0.15157435670116684" /><rect x="148" y="340" width="2" height="800" fill="#3f3f46" fill-opacity="0.2634891213348965" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">CONTENT-ART-BRAIN.JPG</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-art-brain)" />
+    <rect width="100%" height="100%" fill="url(#glow-art-brain)" />
+    <rect x="0" y="64.95796294413317%" width="100%" height="1.4559283833540309" fill="#a855f7" opacity="0.08941794705057327" />
+    <rect x="0" y="54.49501164676157%" width="100%" height="2.8535842922083887" fill="#a855f7" opacity="0.10956040589097926" />
+    <rect x="0" y="34.98481329063402%" width="100%" height="3.7048749995463295" fill="#a855f7" opacity="0.14170598421870356" />
+    <rect x="0" y="6.7433113760718255%" width="100%" height="2.621269228515466" fill="#a855f7" opacity="0.18359672248698466" />
+    <rect x="0" y="16.55338952928166%" width="100%" height="3.169215998769939" fill="#a855f7" opacity="0.1506648913963371" />
+    <rect x="32.0433694795178%" y="16.55338952928166%" width="18.670853295988266%" height="9.507647996309817" fill="#06b6d4" opacity="0.4519946741890113" />
+    <rect x="0" y="64.74641185695903%" width="100%" height="3.206271215068429" fill="#a855f7" opacity="0.09001589330380401" />
+    <rect x="0" y="52.936858826258096%" width="100%" height="1.4736469681129298" fill="#a855f7" opacity="0.12923064227609957" />
+    <rect x="67.5325461733458%" y="52.936858826258096%" width="16.15693118530971%" height="4.4209409043387895" fill="#06b6d4" opacity="0.38769192682829867" />
+    <rect x="0" y="34.68414976697802%" width="100%" height="3.908492315475356" fill="#a855f7" opacity="0.10151734547830872" />
+    <rect x="0" y="76.06429790711431%" width="100%" height="2.5111572840354937" fill="#a855f7" opacity="0.051024221769556614" />
+    <rect x="75.57659349923637%" y="76.06429790711431%" width="15.463808051276773%" height="7.533471852106481" fill="#06b6d4" opacity="0.15307266530866984" />
+    <rect x="0" y="77.93209769570464%" width="100%" height="2.044390661217636" fill="#a855f7" opacity="0.05369291943841886" />
+    <rect x="3.6714060638764927%" y="77.93209769570464%" width="9.74793367297196%" height="6.133171983652908" fill="#06b6d4" opacity="0.1610787583152566" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#a855f7" opacity="0.6" letter-spacing="4">
+            ART-BRAIN // MEDIA.ASSET
+        </text>
+    
+    
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="monospace" font-size="24" fill="#71717a" opacity="0.8" letter-spacing="2">
+                [MISSING_ASSET]
+            </text>
+            <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="monospace" font-size="12" fill="#3f3f46" opacity="0.8">
+                art-brain
+            </text>
+        
+    <rect width="100%" height="100%" filter="url(#noise-art-brain)" opacity="0.3" pointer-events="none" />
 </svg>

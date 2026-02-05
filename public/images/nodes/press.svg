@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-press" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-press" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.7404370443340735" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-press" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-press" cx="65.0810743077482%" cy="77.61600708366932%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-press" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-press)" />
-    <circle cx="281" cy="613" r="37" fill="#10b981" fill-opacity="0.06858525674952035" /><rect x="592" y="390" width="800" height="2" fill="#3f3f46" fill-opacity="0.1162515692456509" /><rect x="87" y="276" width="800" height="2" fill="#3f3f46" fill-opacity="0.2263103348288496" /><rect x="612" y="308" width="2" height="800" fill="#3f3f46" fill-opacity="0.22816114227425716" /><circle cx="528" cy="703" r="147" fill="#10b981" fill-opacity="0.13394315496443598" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">PRESS</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-press)" />
+    <rect width="100%" height="100%" fill="url(#glow-press)" />
+    <rect width="100%" height="100%" fill="url(#grid-press)" opacity="0.5" />
+    <rect x="62.39430388658709%" y="0" width="0.6914709428711523" height="100%" fill="#52525b" opacity="0.10521470760480942" />
+    <rect x="0" y="25.666556344988344%" width="100%" height="0.9723788622975152" fill="#52525b" opacity="0.17715466767750188" />
+    <rect x="0" y="28.78897192775176%" width="100%" height="0.5645115308598723" fill="#52525b" opacity="0.17453103964173333" />
+    <rect x="0" y="53.24007845785476%" width="100%" height="0.8466894462208165" fill="#52525b" opacity="0.1309531659176137" />
+    <rect x="49.93291152634929%" y="0" width="0.8796913445738064" height="100%" fill="#52525b" opacity="0.09724370194342333" />
+    <rect x="56.316110544201095%" y="0" width="0.849293000157264" height="100%" fill="#52525b" opacity="0.15674626487935547" />
+    <rect x="43.773413490293%" y="0" width="1.3164621568903905" height="100%" fill="#52525b" opacity="0.0779476205845807" />
+    <rect x="0" y="32.06406746251888%" width="100%" height="1.7396959315423817" fill="#52525b" opacity="0.1069523469609696" />
+    <rect x="28.05094209318137%" y="0" width="1.240459390907045" height="100%" fill="#52525b" opacity="0.1400988918869746" />
+    <rect x="0" y="48.603680216338184%" width="100%" height="1.428800128799677" fill="#52525b" opacity="0.1843769206519955" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            PRESS // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-press)" opacity="0.3" pointer-events="none" />
 </svg>

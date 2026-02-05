@@ -1,12 +1,42 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-mindshow" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-mindshow" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.720469550667768" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-mindshow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-mindshow" cx="26.347895624440067%" cy="29.082179841661993%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-mindshow" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-mindshow)" />
-    <circle cx="774" cy="177" r="64.66666666666667" stroke="#27272a" stroke-width="2" fill="none" opacity="0.26634759417929676" /><circle cx="132" cy="244" r="50" fill="#10b981" fill-opacity="0.053834587200799436" /><circle cx="149" cy="371" r="118" fill="#10b981" fill-opacity="0.06237357015183989" /><circle cx="622" cy="183" r="132" fill="#10b981" fill-opacity="0.11975070229455015" /><rect x="268" y="234" width="2" height="800" fill="#3f3f46" fill-opacity="0.1558486610525506" /><rect x="247" y="452" width="800" height="2" fill="#3f3f46" fill-opacity="0.11055940387132068" /><circle cx="581" cy="256" r="86.33333333333333" stroke="#27272a" stroke-width="2" fill="none" opacity="0.333932920667553" /><rect x="490" y="482" width="800" height="2" fill="#3f3f46" fill-opacity="0.2761009178437235" /><circle cx="521" cy="797" r="99" fill="#10b981" fill-opacity="0.11157633836446622" /><circle cx="460" cy="121" r="76.33333333333333" stroke="#27272a" stroke-width="2" fill="none" opacity="0.3168671773202732" /><rect x="470" y="534" width="800" height="2" fill="#3f3f46" fill-opacity="0.14438224184705178" /><rect x="122" y="2" width="2" height="800" fill="#3f3f46" fill-opacity="0.1545377908376395" /><circle cx="614" cy="732" r="36" stroke="#27272a" stroke-width="2" fill="none" opacity="0.21422165498297546" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">MINDSHOW</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-mindshow)" />
+    <rect width="100%" height="100%" fill="url(#glow-mindshow)" />
+    <rect x="98.68981563364139%" y="0" width="1.4733467388184245" height="100%" fill="#52525b" opacity="0.05386434423631462" />
+    <rect x="0" y="18.14524900926766%" width="100%" height="1.175739222602676" fill="#52525b" opacity="0.114912073374644" />
+    <rect x="0" y="72.05165622015637%" width="100%" height="1.1424031719960301" fill="#52525b" opacity="0.18701184490882966" />
+    <rect x="0" y="55.25778905046897%" width="100%" height="1.0299100301041362" fill="#52525b" opacity="0.11978835521246155" />
+    <rect x="0.882283226477246%" y="0" width="0.9065898455740788" height="100%" fill="#52525b" opacity="0.15555431207693587" />
+    <rect x="13.938894974010898%" y="0" width="1.8068811302603047" height="100%" fill="#52525b" opacity="0.07511577957786228" />
+    <rect x="0" y="43.652046652186705%" width="100%" height="1.0983329677007467" fill="#52525b" opacity="0.06821952026171565" />
+    <rect x="0" y="34.6354235286223%" width="100%" height="1.3227191169957808" fill="#52525b" opacity="0.09402046482453166" />
+    <rect x="76.63998648211358%" y="0" width="1.9109893151661281" height="100%" fill="#52525b" opacity="0.14974206935124668" />
+    <rect x="0" y="45.477581392487124%" width="100%" height="1.5194659112202618" fill="#52525b" opacity="0.16635736396196987" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            MINDSHOW // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-mindshow)" opacity="0.3" pointer-events="none" />
 </svg>

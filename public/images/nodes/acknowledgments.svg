@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-acknowledgments" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-acknowledgments" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.7776335606608853" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-acknowledgments" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-acknowledgments" cx="57.4509970261259%" cy="58.90719456496387%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-acknowledgments" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-acknowledgments)" />
-    <circle cx="141" cy="73" r="49" stroke="#27272a" stroke-width="2" fill="none" opacity="0.2339743893209743" /><rect x="658" y="83" width="2" height="800" fill="#3f3f46" fill-opacity="0.10275686951317767" /><rect x="490" y="495" width="2" height="800" fill="#3f3f46" fill-opacity="0.25264849068080364" /><circle cx="404" cy="227" r="77" fill="#10b981" fill-opacity="0.11868352211267848" /><circle cx="558" cy="623" r="58.666666666666664" stroke="#27272a" stroke-width="2" fill="none" opacity="0.3259529123360153" /><rect x="220" y="146" width="2" height="800" fill="#3f3f46" fill-opacity="0.2132225886667584" /><rect x="710" y="727" width="800" height="2" fill="#3f3f46" fill-opacity="0.208429422030531" /><circle cx="17" cy="425" r="48" fill="#10b981" fill-opacity="0.07130018162642955" /><rect x="19" y="452" width="2" height="800" fill="#3f3f46" fill-opacity="0.2789947040755578" /><rect x="264" y="566" width="800" height="2" fill="#3f3f46" fill-opacity="0.13113778273454957" /><circle cx="466" cy="65" r="114" stroke="#27272a" stroke-width="2" fill="none" opacity="0.23444398675692357" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">ACKNOWLEDGMENTS</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-acknowledgments)" />
+    <rect width="100%" height="100%" fill="url(#glow-acknowledgments)" />
+    <rect width="100%" height="100%" fill="url(#grid-acknowledgments)" opacity="0.5" />
+    <rect x="0" y="11.67908805578862%" width="100%" height="0.8851029352611889" fill="#52525b" opacity="0.19250416603638248" />
+    <rect x="0" y="52.28095068808734%" width="100%" height="0.7740403111316639" fill="#52525b" opacity="0.1295518784360512" />
+    <rect x="0" y="36.32870548062837%" width="100%" height="1.5477657441960329" fill="#52525b" opacity="0.17988662419830137" />
+    <rect x="0" y="95.69760509365946%" width="100%" height="1.0229501817589162" fill="#52525b" opacity="0.12237124684953249" />
+    <rect x="0" y="24.761680303850845%" width="100%" height="0.9215157988215943" fill="#52525b" opacity="0.19160392351132255" />
+    <rect x="0" y="11.209467762344952%" width="100%" height="0.790780177377891" fill="#52525b" opacity="0.06424506533820654" />
+    <rect x="0" y="22.800901413709767%" width="100%" height="0.6350776016573213" fill="#52525b" opacity="0.1249261736636294" />
+    <rect x="79.52404378869016%" y="0" width="0.716250746712322" height="100%" fill="#52525b" opacity="0.052631004040717154" />
+    <rect x="0" y="97.57596598712351%" width="100%" height="1.600857777847776" fill="#52525b" opacity="0.16166754112268572" />
+    <rect x="0" y="73.35280154212639%" width="100%" height="1.8342064761875256" fill="#52525b" opacity="0.10082465808449748" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            ACKNOWLEDGMENTS // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-acknowledgments)" opacity="0.3" pointer-events="none" />
 </svg>

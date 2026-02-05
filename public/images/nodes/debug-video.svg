@@ -1,0 +1,43 @@
+
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    
+    <defs>
+        <filter id="noise-debug-video" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.6169484950294238" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-debug-video" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
+        </linearGradient>
+        <radialGradient id="glow-debug-video" cx="50.67163494478132%" cy="58.16874646411161%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-debug-video" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
+    </defs>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-debug-video)" />
+    <rect width="100%" height="100%" fill="url(#glow-debug-video)" />
+    <rect width="100%" height="100%" fill="url(#grid-debug-video)" opacity="0.5" />
+    <rect x="0" y="22.74926386098309%" width="100%" height="0.6084857567758166" fill="#52525b" opacity="0.13201250213385796" />
+    <rect x="99.47494696776843%" y="0" width="1.757889353910358" height="100%" fill="#52525b" opacity="0.08463730656973767" />
+    <rect x="0" y="46.03066457997138%" width="100%" height="0.7107687124151445" fill="#52525b" opacity="0.13897596510497479" />
+    <rect x="76.3210884074877%" y="0" width="1.1894285489706589" height="100%" fill="#52525b" opacity="0.1725628893566904" />
+    <rect x="9.472656677917257%" y="0" width="1.3245615585004553" height="100%" fill="#52525b" opacity="0.19061190033388503" />
+    <rect x="60.846329443944924%" y="0" width="1.485409349422352" height="100%" fill="#52525b" opacity="0.0774939768272396" />
+    <rect x="16.350056432513576%" y="0" width="1.483468421253812" height="100%" fill="#52525b" opacity="0.11537600549904259" />
+    <rect x="0" y="29.512406028353055%" width="100%" height="1.5941217752118797" fill="#52525b" opacity="0.09046791621061781" />
+    <rect x="82.27645492393194%" y="0" width="1.260798690850659" height="100%" fill="#52525b" opacity="0.12436029119357496" />
+    <rect x="88.17853605205057%" y="0" width="1.9070939709498491" height="100%" fill="#52525b" opacity="0.05283704805452102" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            DEBUG-VIDEO // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-debug-video)" opacity="0.3" pointer-events="none" />
+</svg>

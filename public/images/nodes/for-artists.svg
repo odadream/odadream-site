@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-for-artists" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-for-artists" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.734295513512842" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-for-artists" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-for-artists" cx="60.939381430800424%" cy="68.18385663273172%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-for-artists" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-for-artists)" />
-    <circle cx="637" cy="704" r="48" fill="#10b981" fill-opacity="0.05058077548628717" /><rect x="157" y="202" width="2" height="800" fill="#3f3f46" fill-opacity="0.14819305491037085" /><circle cx="778" cy="732" r="66.33333333333333" stroke="#27272a" stroke-width="2" fill="none" opacity="0.2483340696256164" /><circle cx="395" cy="726" r="113.5" fill="#10b981" fill-opacity="0.05013232239543868" /><circle cx="523" cy="417" r="106.33333333333333" stroke="#27272a" stroke-width="2" fill="none" opacity="0.26407724636046626" /><circle cx="378" cy="388" r="35.333333333333336" stroke="#27272a" stroke-width="2" fill="none" opacity="0.21650171697373255" /><circle cx="169" cy="608" r="45.333333333333336" stroke="#27272a" stroke-width="2" fill="none" opacity="0.4031498718881266" /><circle cx="794" cy="68" r="78" stroke="#27272a" stroke-width="2" fill="none" opacity="0.20386100388805062" /><rect x="437" y="240" width="2" height="800" fill="#3f3f46" fill-opacity="0.12734146301572766" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">FOR-ARTISTS</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-for-artists)" />
+    <rect width="100%" height="100%" fill="url(#glow-for-artists)" />
+    <rect width="100%" height="100%" fill="url(#grid-for-artists)" opacity="0.5" />
+    <rect x="89.68303319037243%" y="0" width="1.5416365976367485" height="100%" fill="#52525b" opacity="0.07863000675908291" />
+    <rect x="75.7927106467939%" y="0" width="0.9932418167528154" height="100%" fill="#52525b" opacity="0.14152220435582308" />
+    <rect x="85.2914142751055%" y="0" width="0.7328335025653555" height="100%" fill="#52525b" opacity="0.17326875331184713" />
+    <rect x="0" y="78.86192144720063%" width="100%" height="1.8028597194262406" fill="#52525b" opacity="0.06633059390944485" />
+    <rect x="96.80942240805311%" y="0" width="0.5029534047962664" height="100%" fill="#52525b" opacity="0.06378861266541166" />
+    <rect x="0" y="36.91836110029217%" width="100%" height="0.5102099648306239" fill="#52525b" opacity="0.10988905675233256" />
+    <rect x="0" y="58.41907636115241%" width="100%" height="1.2916184571027927" fill="#52525b" opacity="0.17314140705684333" />
+    <rect x="87.20588440746617%" y="0" width="1.2040400739796833" height="100%" fill="#52525b" opacity="0.13015296056880893" />
+    <rect x="0" y="93.28291462108764%" width="100%" height="0.7092070011042124" fill="#52525b" opacity="0.06420776600875684" />
+    <rect x="58.876539076563475%" y="0" width="1.0388153468154515" height="100%" fill="#52525b" opacity="0.08695414493508093" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            FOR-ARTISTS // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-for-artists)" opacity="0.3" pointer-events="none" />
 </svg>

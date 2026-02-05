@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-research" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-research" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.7678084425328378" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-research" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-research" cx="31.298936774301282%" cy="21.2307468068141%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-research" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-research)" />
-    <circle cx="187" cy="221" r="47.5" fill="#10b981" fill-opacity="0.0564409461264404" /><rect x="247" y="787" width="800" height="2" fill="#3f3f46" fill-opacity="0.21621538664767287" /><circle cx="525" cy="71" r="88" fill="#10b981" fill-opacity="0.08786462427906372" /><rect x="469" y="350" width="800" height="2" fill="#3f3f46" fill-opacity="0.1389796761891148" /><circle cx="394" cy="496" r="62.666666666666664" stroke="#27272a" stroke-width="2" fill="none" opacity="0.3493156522510617" /><circle cx="310" cy="774" r="38.666666666666664" stroke="#27272a" stroke-width="2" fill="none" opacity="0.4298348052965593" /><rect x="30" y="132" width="2" height="800" fill="#3f3f46" fill-opacity="0.11201071506166045" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">RESEARCH</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-research)" />
+    <rect width="100%" height="100%" fill="url(#glow-research)" />
+    <rect width="100%" height="100%" fill="url(#grid-research)" opacity="0.5" />
+    <rect x="0" y="81.54970699134255%" width="100%" height="1.4610286303432924" fill="#52525b" opacity="0.05081943972112559" />
+    <rect x="21.343339533864835%" y="0" width="1.860251596067335" height="100%" fill="#52525b" opacity="0.07485761968405696" />
+    <rect x="50.496734818906276%" y="0" width="1.3949950520368246" height="100%" fill="#52525b" opacity="0.0681844317290787" />
+    <rect x="0" y="32.29419443038683%" width="100%" height="1.222536054414265" fill="#52525b" opacity="0.1663472625113533" />
+    <rect x="0" y="25.48170599665652%" width="100%" height="0.8282570669690679" fill="#52525b" opacity="0.05165337189254665" />
+    <rect x="0" y="50.60523054618875%" width="100%" height="1.3422847134920626" fill="#52525b" opacity="0.12791848082832852" />
+    <rect x="10.751408255427524%" y="0" width="0.5860153006725156" height="100%" fill="#52525b" opacity="0.16591694691769499" />
+    <rect x="0" y="16.686062856284963%" width="100%" height="1.0368816194002344" fill="#52525b" opacity="0.13693847971683226" />
+    <rect x="25.499185058753177%" y="0" width="1.5667651445295336" height="100%" fill="#52525b" opacity="0.16217874983528513" />
+    <rect x="0" y="41.95710913460432%" width="100%" height="1.378520841829964" fill="#52525b" opacity="0.12997934998011157" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            RESEARCH // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-research)" opacity="0.3" pointer-events="none" />
 </svg>

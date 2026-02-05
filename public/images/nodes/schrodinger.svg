@@ -1,12 +1,43 @@
 
-<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
     
     <defs>
-        <linearGradient id="grad-schrodinger" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#09090b;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+        <filter id="noise-schrodinger" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.7117665425052555" numOctaves="3" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-main-schrodinger" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050505" />
+            <stop offset="50%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
         </linearGradient>
+        <radialGradient id="glow-schrodinger" cx="52.056271789647894%" cy="49.76018729597348%" r="60%">
+            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
+        </radialGradient>
+        <pattern id="grid-schrodinger" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grad-schrodinger)" />
-    <circle cx="378" cy="388" r="35.333333333333336" stroke="#27272a" stroke-width="2" fill="none" opacity="0.21650171697373255" /><circle cx="169" cy="608" r="45.333333333333336" stroke="#27272a" stroke-width="2" fill="none" opacity="0.4031498718881266" /><circle cx="794" cy="68" r="78" stroke="#27272a" stroke-width="2" fill="none" opacity="0.20386100388805062" /><rect x="437" y="240" width="2" height="800" fill="#3f3f46" fill-opacity="0.12734146301572766" /><circle cx="77" cy="147" r="39.5" fill="#10b981" fill-opacity="0.052702786005284" /><circle cx="464" cy="759" r="126.5" fill="#10b981" fill-opacity="0.05249223223572699" /><circle cx="417" cy="423" r="46" stroke="#27272a" stroke-width="2" fill="none" opacity="0.20555502827683086" /><circle cx="467" cy="147" r="92" stroke="#27272a" stroke-width="2" fill="none" opacity="0.2868658716673963" /><circle cx="310" cy="406" r="70" stroke="#27272a" stroke-width="2" fill="none" opacity="0.4461374625944586" /><circle cx="449" cy="468" r="39.666666666666664" stroke="#27272a" stroke-width="2" fill="none" opacity="0.16536598642396713" /><rect x="126" y="186" width="2" height="800" fill="#3f3f46" fill-opacity="0.17159189327103377" /><circle cx="337" cy="191" r="107.33333333333333" stroke="#27272a" stroke-width="2" fill="none" opacity="0.3537316892321542" /><rect x="704" y="725" width="800" height="2" fill="#3f3f46" fill-opacity="0.22342655280663168" /><text x="40" y="760" font-family="monospace" font-size="24" fill="#27272a" opacity="0.5">SCHRODINGER</text>
+    
+    <rect width="100%" height="100%" fill="url(#grad-main-schrodinger)" />
+    <rect width="100%" height="100%" fill="url(#glow-schrodinger)" />
+    <rect width="100%" height="100%" fill="url(#grid-schrodinger)" opacity="0.5" />
+    <rect x="19.884562604021806%" y="0" width="1.0173605552570528" height="100%" fill="#52525b" opacity="0.1778859895680901" />
+    <rect x="0" y="65.68019801348466%" width="100%" height="1.7504803277556602" fill="#52525b" opacity="0.08228705416646512" />
+    <rect x="0" y="5.306698386843036%" width="100%" height="1.8911410431760747" fill="#52525b" opacity="0.09075135117466687" />
+    <rect x="0" y="64.47097357778901%" width="100%" height="1.4097069824670507" fill="#52525b" opacity="0.19452589435458734" />
+    <rect x="0" y="66.82424411813193%" width="100%" height="0.7899766993149898" fill="#52525b" opacity="0.06383948564886999" />
+    <rect x="60.01390666702194%" y="0" width="0.5130494944872795" height="100%" fill="#52525b" opacity="0.08228654845830663" />
+    <rect x="0" y="81.82681201195979%" width="100%" height="1.017342004708333" fill="#52525b" opacity="0.14670808233479793" />
+    <rect x="0" y="53.873147865639204%" width="100%" height="0.5051748927265172" fill="#52525b" opacity="0.19744337536156492" />
+    <rect x="47.91365875668233%" y="0" width="1.4574151597520477" height="100%" fill="#52525b" opacity="0.12765941987993146" />
+    <rect x="0" y="47.85983473794519%" width="100%" height="1.9196929115985455" fill="#52525b" opacity="0.0778765864697067" />
+    
+        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
+            SCHRODINGER // SYS.NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-schrodinger)" opacity="0.3" pointer-events="none" />
 </svg>
