@@ -1,7 +1,8 @@
-import { LotusNode } from "./types";
-import { getDefaultNodeImage } from "./utils/mediaHelpers";
-import { buildUnifiedGraph } from "./utils/contentLoader";
-import { findNode } from "./utils/nodeHelpers";
+
+import { LotusNode } from './types';
+import { getDefaultNodeImage } from './utils/mediaHelpers';
+import { buildUnifiedGraph } from './utils/contentLoader';
+import { findNode } from './utils/nodeHelpers';
 
 // --- CONFIGURATION ---
 
@@ -14,27 +15,23 @@ export const SITE_VERSION = "v0.5.2";
 export const ENABLE_THEME_SWITCHER = true;
 
 // --- ROOT SKELETON ---
-// The skeleton provides the entry point ('home').
+// The skeleton provides the entry point ('home'). 
 // All other nodes are attached via 'parent' fields in their .md files.
 // The buildUnifiedGraph function merges the files into this structure.
 
-const createSkeleton = (
-  id: string,
-  titleEn: string,
-  titleRu: string,
-): LotusNode => {
-  return {
-    id,
-    title: { en: titleEn, ru: titleRu },
-    shortTitle: { en: titleEn, ru: titleRu },
-    description: { en: "Loading...", ru: "Загрузка..." },
-    type: "hub",
-    mediaUrl: getDefaultNodeImage(id),
-    children: [], // Children are populated by contentLoader
-  };
+const createSkeleton = (id: string, titleEn: string, titleRu: string): LotusNode => {
+    return {
+        id,
+        title: { en: titleEn, ru: titleRu },
+        shortTitle: { en: titleEn, ru: titleRu },
+        description: { en: 'Loading...', ru: 'Загрузка...' },
+        type: 'hub',
+        mediaUrl: getDefaultNodeImage(id),
+        children: [] // Children are populated by contentLoader
+    };
 };
 
-const STATIC_ROOT = createSkeleton("home", "oda.dream", "oda.dream");
+const STATIC_ROOT = createSkeleton('home', 'oda.dream', 'oda.dream');
 
 // --- UNIFIED GRAPH ---
 // Merges static skeleton with file-based nodes from src/content/*.md
@@ -45,17 +42,17 @@ export const ROOT_NODE = buildUnifiedGraph(STATIC_ROOT);
 // You can include deep links (children of children) here.
 // The order in this array determines the display order.
 const HEADER_TABS_ORDER = [
-  "home",
-  "neuromandala", // Deep link example (child of home? actually child of home in md)
-  "works",
-  "events",
-  "collab",
-  "world",
-  "contacts",
+    'home',
+    'neuromandala', // Deep link example (child of home? actually child of home in md)
+    'works',
+    'events',
+    'collab',
+    'world',
+    'contacts'
 ];
 
 // --- QUICK ACCESS ---
 // Resolves the IDs from HEADER_TABS_ORDER to actual node objects.
-export const QUICK_ACCESS = HEADER_TABS_ORDER.map((id) =>
-  findNode(ROOT_NODE, id),
-).filter((node): node is LotusNode => !!node);
+export const QUICK_ACCESS = HEADER_TABS_ORDER
+    .map(id => findNode(ROOT_NODE, id))
+    .filter((node): node is LotusNode => !!node);

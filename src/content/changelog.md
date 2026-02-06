@@ -1,3 +1,4 @@
+
 ---
 id: changelog
 parent: home
@@ -27,15 +28,18 @@ Major code refactoring. Improved loading speeds, reliability, and graph traversa
 
 ### v0.3.0
 **Tech Noir**
-Visual overhaul. Adoption of the high-contrast, laser-illuminated design language. Transition from standard UI to "Projected Interface" aesthetic.
+Visual overhaul. Adoption of the high-contrast, laser-illuminated design language.
+Transition from standard UI to "Projected Interface" aesthetic.
 
 ### v0.2.0
 **The Core Shift**
-Migration to Google AI Studio, TypeScript, and React. Abandonment of static generation in favor of a dynamic Single Page Application (SPA).
+Migration to Google AI Studio, TypeScript, and React.
+Abandonment of static generation in favor of a dynamic Single Page Application (SPA).
 
 ### v0.1.0
 **Genesis**
-Initial prototype built on Eleventy.js using raw WebGL shaders. The birth of the digital subconscious.
+Initial prototype built on Eleventy.js using raw WebGL shaders.
+The birth of the digital subconscious.
 
 ---RU---
 
@@ -62,8 +66,10 @@ Initial prototype built on Eleventy.js using raw WebGL shaders. The birth of the
 
 ### v0.2.0
 **Сдвиг Ядра**
-Миграция на Google AI Studio, TypeScript и React. Отказ от статической генерации в пользу динамического SPA (Single Page Application).
+Миграция на Google AI Studio, TypeScript и React.
+Отказ от статической генерации в пользу динамического SPA (Single Page Application).
 
 ### v0.1.0
 **Генезис**
-Первоначальный прототип, созданный на Eleventy.js с использованием сырых WebGL шейдеров. Рождение цифрового подсознания.
+Первоначальный прототип, созданный на Eleventy.js с использованием сырых WebGL шейдеров.
+Рождение цифрового подсознания.
