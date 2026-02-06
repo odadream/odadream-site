@@ -20,7 +20,7 @@ import {
 
 import { LotusNode } from "../types";
 import { THEME } from "../styles/theme";
-import { TRANSITIONS, MotionDiv } from "../styles/animations";
+import { TRANSITIONS, MotionDiv, CELL_VARIANTS } from "../styles/animations";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { CyberText } from "./CyberText";
 import { LotusSidebar } from "./LotusSidebar";
@@ -45,22 +45,7 @@ const ARROW_ROTATIONS = [
   "rotate-[135deg]",
 ];
 
-const cellVariants = {
-  initial: {
-    opacity: 0,
-    zIndex: 10, // Incoming sits ON TOP
-  },
-  animate: {
-    opacity: 1,
-    zIndex: 10,
-    transition: { duration: 0.4, ease: "easeOut" },
-  },
-  exit: {
-    opacity: 0,
-    zIndex: 0, // Outgoing sits BELOW
-    transition: { duration: 0.4, ease: "easeIn" },
-  },
-};
+// Using centralized CELL_VARIANTS from animations.ts
 
 const CornerBrackets = React.memo(
   ({ show, accent }: { show: boolean; accent: boolean }) => {
@@ -143,7 +128,7 @@ const GridCell = React.memo(
     if (!cell) {
       return (
         <MotionDiv
-          variants={cellVariants}
+          variants={CELL_VARIANTS}
           initial="initial"
           animate="animate"
           exit="exit"
@@ -205,18 +190,31 @@ const GridCell = React.memo(
     };
 
     const displayTitle = cell.shortTitle?.[lang] || cell.title[lang];
+    
+    // Check if this cell is adjacent to center (indices 1, 3, 5, 7 in 3x3 grid)
+    const isAdjacentToCenter = !cell.isCenter && [1, 3, 5, 7].includes(index);
+    // Shadow/glow gradient position: edge of THIS cell that faces center gets darker (1=bottom, 3=right, 5=left, 7=top)
+    const shadowFromCenter =
+      index === 1 ? "50% 100%" : index === 3 ? "100% 50%" : index === 5 ? "0% 50%" : index === 7 ? "50% 0%" : "50% 50%";
 
     return (
       <MotionDiv
         key={cell.id}
-        variants={cellVariants}
+        variants={CELL_VARIANTS}
         initial="initial"
         animate="animate"
         exit="exit"
-        // ADDED: bg-surface to prevent seeing through to body during cross-dissolve
+        // Center cell: outward shadow so it appears raised; LED glow is outward only
+        style={
+          cell.isCenter
+            ? {
+                boxShadow: `0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 var(--center-shadow-blur) var(--center-shadow-spread) rgba(0, 0, 0, var(--center-shadow-opacity))`,
+              }
+            : undefined
+        }
         className={cn(
           THEME.lotus.cell,
-          "bg-surface",
+          "bg-surface will-change-transform",
           cell.isCenter ? THEME.lotus.cellActive : THEME.lotus.cellInteractive,
           className,
         )}
@@ -233,18 +231,48 @@ const GridCell = React.memo(
         }}
       >
         <CornerBrackets show={true} accent={cell.isCenter} />
+        
+        {/* LED strip effect - subtle glow around the perimeter of center cell */}
+        {/* Simulates LED strip in the gap behind the raised panel, emitting faint light OUTWARD */}
+        {cell.isCenter && (
+          <div 
+            className="absolute inset-0 pointer-events-none z-[35]"
+            style={{
+              boxShadow: `
+                /* Outer glow spreading OUTWARD from LED strip around perimeter */
+                0 0 var(--led-strip-blur) var(--led-strip-spread) rgb(var(--color-accent) / var(--led-strip-opacity)),
+                0 0 calc(var(--led-strip-blur) * 2) var(--led-strip-spread) rgb(var(--color-accent) / calc(var(--led-strip-opacity) * 0.5))
+              `,
+            }}
+          />
+        )}
+        
+        {/* Shadow cast OUTWARD by raised center cell onto adjacent cells + subtle LED glow spillover */}
+        {isAdjacentToCenter && (
+          <>
+            {/* Soft shadow falling FROM center ONTO this cell - darker at edge facing center */}
+            <div 
+              className="absolute inset-0 pointer-events-none z-[5]"
+              style={{
+                background: `radial-gradient(circle at ${shadowFromCenter}, rgba(0, 0, 0, var(--center-shadow-opacity)) 0%, transparent 55%)`,
+              }}
+            />
+            {/* Subtle LED glow spillover OUTWARD from center cell's LED strip - very faint */}
+            <div 
+              className="absolute inset-0 pointer-events-none z-[6] transition-opacity duration-700 ease-out"
+              style={{
+                background: `radial-gradient(circle at ${shadowFromCenter}, rgb(var(--color-accent) / var(--led-strip-opacity)) 0%, transparent 55%)`,
+                opacity: 0.4,
+              }}
+            />
+          </>
+        )}
 
         {/* BACKGROUND LAYER */}
         <div
           className={cn(
-            "absolute inset-0 z-0 overflow-hidden transition-all duration-700 ease-out",
+            "absolute inset-0 z-0 overflow-hidden bg-surface",
             // Ensure a base color is always present behind the image
-            "bg-surface",
-            cell.isCenter
-              ? "opacity-100 grayscale-0"
-              : isVisualNode
-                ? "opacity-60 hover:opacity-90 grayscale hover:grayscale-0"
-                : "opacity-30 hover:opacity-80 grayscale hover:grayscale-0",
           )}
         >
           {activeSrc && !isDead && (
@@ -255,10 +283,14 @@ const GridCell = React.memo(
               loading="eager"
               draggable={false}
               className={cn(
-                "w-full h-full object-cover transition-transform duration-1000 pointer-events-none select-none",
+                "w-full h-full object-cover pointer-events-none select-none",
+                "will-change-[opacity,filter]",
+                // Apply grayscale and opacity effects based on cell type (transitions included in classes)
                 cell.isCenter
-                  ? "mix-blend-normal"
-                  : "mix-blend-luminosity hover:mix-blend-normal",
+                  ? THEME.lotus.image.center + " mix-blend-normal"
+                  : isVisualNode
+                    ? THEME.lotus.image.visual + " mix-blend-luminosity group-hover:mix-blend-normal"
+                    : THEME.lotus.image.default + " mix-blend-luminosity group-hover:mix-blend-normal",
               )}
               alt=""
             />
@@ -403,7 +435,11 @@ export const LotusGrid: React.FC = () => {
                   key={index}
                   className="relative w-full h-full isolate overflow-hidden bg-surface"
                 >
-                  <AnimatePresence mode="popLayout" initial={false}>
+                  <AnimatePresence 
+                    mode="popLayout" 
+                    initial={false}
+                    // Optimized for smooth cross-dissolve transitions
+                  >
                     <GridCell
                       key={cell ? cell.id : `empty-${index}`}
                       cell={cell}

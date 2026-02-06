@@ -102,5 +102,31 @@ export const THEME = {
         cellInteractive: "hover:bg-overlay/5 cursor-pointer z-10 hover:z-30",
         cellEmpty: "border-transparent bg-transparent flex items-center justify-center",
         scrim: "absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-canvas via-canvas/60 to-transparent pointer-events-none",
+        
+        // Animation timing constants
+        transitions: {
+            cellFade: "duration-500 ease-out",
+            imageGrayscale: "duration-700 ease-out transition-all",
+            hover: "duration-300 ease-out",
+        },
+        
+        // Image effects - optimized for smooth grayscale transitions
+        image: {
+            // Center cell: always color, full opacity
+            center: "opacity-100 grayscale-0",
+            // Visual nodes (with images): start grayscale, color on hover
+            // Using transition-all to ensure filter and opacity animate smoothly
+            visual: "opacity-60 group-hover:opacity-90 grayscale group-hover:grayscale-0 transition-all duration-700 ease-out",
+            // Non-visual nodes: subtle grayscale, more opacity on hover
+            default: "opacity-30 group-hover:opacity-80 grayscale group-hover:grayscale-0 transition-all duration-700 ease-out",
+        },
+        
+        // Glow effects from center cell
+        glow: {
+            // Green glow that spreads from center to neighbors
+            centerGlow: "shadow-[0_0_60px_-10px_rgb(var(--color-accent)/0.25),0_0_30px_-5px_rgb(var(--color-accent)/0.15)]",
+            // Subtle ambient glow on neighboring cells when center is active
+            neighborGlow: "group-has-[:is(.cell-active)]:shadow-[0_0_20px_-5px_rgb(var(--color-accent)/0.1)]",
+        },
     }
 };

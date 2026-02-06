@@ -24,6 +24,35 @@
     /* --- GLOBAL DEFAULTS --- */
     --opacity-border: 0.1;
     --opacity-border-dim: 0.05;
+    
+    /* --- CENTER CELL EFFECTS --- */
+    /* 
+     * Center cell is raised above others, casting a shadow and emitting LED glow.
+     * All parameters are centralized here for easy adjustment.
+     */
+    
+    /* LED strip glow intensity (very subtle, barely visible) */
+    /* Adjust this value (0.0 - 1.0) to control LED brightness */
+    --led-strip-opacity: 0.08;
+    
+    /* LED strip blur radius - controls how soft the glow appears */
+    --led-strip-blur: 8px;
+    
+    /* LED strip spread - controls how far the glow extends */
+    --led-strip-spread: 4px;
+    
+    /* Shadow cast by raised center cell on adjacent cells */
+    /* Adjust opacity (0.0 - 1.0) to control shadow intensity */
+    --center-shadow-opacity: 0.15;
+    
+    /* Shadow blur radius - controls shadow softness */
+    --center-shadow-blur: 20px;
+    
+    /* Shadow spread (negative values create inset effect) */
+    --center-shadow-spread: -5px;
+    
+    /* Glow radius from LED strip - how far the light spreads */
+    --led-glow-radius: 30px;
   }
   
   @media (min-width: 768px) {
