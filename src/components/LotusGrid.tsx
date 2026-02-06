@@ -46,14 +46,19 @@ const ARROW_ROTATIONS = [
 ];
 
 const cellVariants = {
-  initial: { opacity: 0 },
+  initial: {
+    opacity: 0,
+    zIndex: 10, // Incoming sits ON TOP
+  },
   animate: {
     opacity: 1,
-    transition: { duration: 0.4, ease: "easeOut" }, // Slightly slower for smoother blending
+    zIndex: 10,
+    transition: { duration: 0.4, ease: "easeOut" },
   },
   exit: {
     opacity: 0,
-    transition: { duration: 0.3, ease: "easeIn" },
+    zIndex: 0, // Outgoing sits BELOW
+    transition: { duration: 0.4, ease: "easeIn" },
   },
 };
 
@@ -134,6 +139,7 @@ const GridCell = React.memo(
       isDead,
     } = useImageFallback(cell?.imageUrl, cell?.id);
 
+    // Empty Cell State
     if (!cell) {
       return (
         <MotionDiv
@@ -143,7 +149,7 @@ const GridCell = React.memo(
           exit="exit"
           className={cn(
             THEME.lotus.cellEmpty,
-            "group w-full h-full",
+            "group w-full h-full bg-surface",
             className,
           )}
           aria-hidden="true"
@@ -207,8 +213,10 @@ const GridCell = React.memo(
         initial="initial"
         animate="animate"
         exit="exit"
+        // ADDED: bg-surface to prevent seeing through to body during cross-dissolve
         className={cn(
           THEME.lotus.cell,
+          "bg-surface",
           cell.isCenter ? THEME.lotus.cellActive : THEME.lotus.cellInteractive,
           className,
         )}
@@ -230,7 +238,8 @@ const GridCell = React.memo(
         <div
           className={cn(
             "absolute inset-0 z-0 overflow-hidden transition-all duration-700 ease-out",
-            "bg-transparent",
+            // Ensure a base color is always present behind the image
+            "bg-surface",
             cell.isCenter
               ? "opacity-100 grayscale-0"
               : isVisualNode
@@ -242,7 +251,8 @@ const GridCell = React.memo(
             <img
               src={activeSrc}
               onError={handleError}
-              loading={cell.isCenter ? "eager" : "lazy"}
+              // CRITICAL FIX: 'eager' loading prevents blank flash during navigation
+              loading="eager"
               draggable={false}
               className={cn(
                 "w-full h-full object-cover transition-transform duration-1000 pointer-events-none select-none",
@@ -386,11 +396,12 @@ export const LotusGrid: React.FC = () => {
                         FIX: AnimatePresence moved inside the map loop. 
                         This allows the cell content to cross-dissolve within the static grid slot.
                         'popLayout' combined with 'absolute inset-0' on the cell ensures they stack.
+                        Added 'bg-surface' to parent slot to prevent transparency during transitions.
                     */}
               {gridCells.map((cell, index) => (
                 <div
                   key={index}
-                  className="relative w-full h-full isolate overflow-hidden"
+                  className="relative w-full h-full isolate overflow-hidden bg-surface"
                 >
                   <AnimatePresence mode="popLayout" initial={false}>
                     <GridCell
