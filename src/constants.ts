@@ -12,7 +12,7 @@ export const SITE_VERSION = "v0.5.2";
  * Global feature flags.
  * Set to 'false' to hide the theme toggle while themes are under construction.
  */
-export const ENABLE_THEME_SWITCHER = true;
+export const ENABLE_THEME_SWITCHER = false;
 
 // --- ROOT SKELETON ---
 // The skeleton provides the entry point ('home'). 
