@@ -42,11 +42,15 @@ const Layout: React.FC = () => {
   );
 };
 
+const AppContent: React.FC = () => {
+  return <Layout />;
+};
+
 const App: React.FC = () => {
   return (
     <ErrorBoundary>
         <NavigationProvider>
-           <Layout />
+           <AppContent />
         </NavigationProvider>
     </ErrorBoundary>
   );

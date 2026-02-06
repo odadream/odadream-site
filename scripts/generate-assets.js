@@ -1,36 +1,27 @@
 
 import fs from 'fs';
 import path from 'path';
-import https from 'https';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PROJECT_ROOT = path.join(__dirname, '..');
-const PUBLIC_DIR = path.join(PROJECT_ROOT, 'public'); // Fixed: Look at root public, not just images
+const PUBLIC_DIR = path.join(PROJECT_ROOT, 'public');
 const CONTENT_SRC_DIR = path.join(PROJECT_ROOT, 'src', 'content');
 
-// --- DESIGN SYSTEM TOKENS ---
-const PALETTE = {
-    bg: ['#050505', '#09090b', '#18181b'], // Zinc 950-900
-    
-    // Style A: Nodes (System/Structure)
-    node: {
-        accent: '#10b981',   // Emerald 500
-        accentDim: '#064e3b', // Emerald 900
-        grid: '#27272a',     // Zinc 800
-        text: '#52525b'      // Zinc 600
-    },
-
-    // Style B: Content (Data/Artifacts)
-    content: {
-        accent: '#a855f7',   // Purple 500
-        accentDim: '#4c1d95', // Purple 900
-        secondary: '#06b6d4', // Cyan 500
-        grid: '#3f3f46',     // Zinc 700
-        text: '#71717a'      // Zinc 500
-    }
-};
+// --- VIBRANT DESIGN SYSTEM TOKENS ---
+const PALETTES = [
+    // Cyberpunk Neon
+    ['#FF0055', '#0038A8', '#00FF99', '#FFFF00', '#121212'],
+    // Sunset Synth
+    ['#F72585', '#7209B7', '#3A0CA3', '#4361EE', '#4CC9F0'],
+    // Toxic Jungle
+    ['#D9ED92', '#B5E48C', '#99D98C', '#168AAD', '#184E77'],
+    // Magma
+    ['#FF4800', '#FF0000', '#FFD300', '#1A1A1A', '#4A0404'],
+    // Matrix Glitch
+    ['#00FF41', '#008F11', '#003B00', '#0D0208', '#FFFFFF']
+];
 
 // --- SEEDED RANDOM ---
 class Random {
@@ -56,37 +47,41 @@ class Random {
     bool(chance = 0.5) {
         return this.next() < chance;
     }
+
+    pick(arr) {
+        return arr[Math.floor(this.next() * arr.length)];
+    }
 }
 
-// --- SVG GENERATOR ENGINE ---
+// --- HIGH-FIDELITY SVG ENGINE ---
 const generateRichSVG = (id, type = 'node', width = 1200, height = 800) => {
     const rng = new Random(id);
-    const theme = type === 'content' ? PALETTE.content : PALETTE.node;
+    const palette = rng.pick(PALETTES);
     
-    // Config based on ID hash
-    const density = Math.floor(rng.range(10, type === 'content' ? 40 : 25));
-    const hasGrid = rng.bool(0.7);
-    const hasOrganic = type === 'node' ? rng.bool(0.6) : rng.bool(0.2);
+    // Background color (usually dark from palette)
+    const bg = palette[palette.length - 1]; 
+    const accent1 = palette[0];
+    const accent2 = palette[1];
+    const accent3 = palette[2];
+
+    const density = Math.floor(rng.range(30, 80)); // Much higher density
     
-    // --- DEFS ---
+    // --- DEFS (Noise & Gradients) ---
     const defs = `
     <defs>
         <filter id="noise-${id}" x="0%" y="0%" width="100%" height="100%">
-            <feTurbulence type="fractalNoise" baseFrequency="${rng.range(0.6, 0.9)}" numOctaves="3" result="noise"/>
-            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feTurbulence type="fractalNoise" baseFrequency="${rng.range(0.5, 1.5)}" numOctaves="4" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.1 0" in="noise" result="coloredNoise"/>
             <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
         </filter>
-        <linearGradient id="grad-main-${id}" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="${PALETTE.bg[0]}" />
-            <stop offset="50%" stop-color="${PALETTE.bg[1]}" />
-            <stop offset="100%" stop-color="${PALETTE.bg[2]}" />
+        <linearGradient id="grad-${id}" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="${accent2}" stop-opacity="0.2" />
+            <stop offset="50%" stop-color="${bg}" stop-opacity="0" />
+            <stop offset="100%" stop-color="${accent1}" stop-opacity="0.3" />
         </linearGradient>
-        <radialGradient id="glow-${id}" cx="${rng.range(20, 80)}%" cy="${rng.range(20, 80)}%" r="60%">
-            <stop offset="0%" stop-color="${theme.accentDim}" stop-opacity="${type === 'content' ? 0.25 : 0.15}" />
-            <stop offset="100%" stop-color="${PALETTE.bg[0]}" stop-opacity="0" />
-        </radialGradient>
-        <pattern id="grid-${id}" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="${theme.grid}" stroke-width="0.5" stroke-opacity="0.3"/>
+        <pattern id="grid-${id}" width="50" height="50" patternUnits="userSpaceOnUse">
+             <path d="M 50 0 L 0 0 0 50" fill="none" stroke="${accent3}" stroke-width="0.5" stroke-opacity="0.2"/>
+             ${rng.bool(0.3) ? `<circle cx="25" cy="25" r="1" fill="${accent1}" fill-opacity="0.4"/>` : ''}
         </pattern>
     </defs>
     `;
@@ -94,52 +89,101 @@ const generateRichSVG = (id, type = 'node', width = 1200, height = 800) => {
     // --- LAYERS ---
     let layers = [];
 
-    // 1. Background
-    layers.push(`<rect width="100%" height="100%" fill="url(#grad-main-${id})" />`);
-    layers.push(`<rect width="100%" height="100%" fill="url(#glow-${id})" />`);
-    if (hasGrid) layers.push(`<rect width="100%" height="100%" fill="url(#grid-${id})" opacity="0.5" />`);
+    // 1. Base Fill
+    layers.push(`<rect width="100%" height="100%" fill="${bg}" />`);
+    
+    // 2. Large Abstract Gradients
+    layers.push(`<rect width="100%" height="100%" fill="url(#grad-${id})" />`);
+    
+    // 3. Grid Pattern
+    if (rng.bool(0.8)) {
+        layers.push(`<rect width="100%" height="100%" fill="url(#grid-${id})" />`);
+    }
 
-    // 2. Data Streams
+    // 4. Geometric Chaos
     for (let i = 0; i < density; i++) {
-        const isVertical = type === 'node' ? rng.bool() : false; 
-        const thickness = type === 'content' ? rng.range(1, 4) : rng.range(0.5, 2);
-        const opacity = rng.range(0.05, 0.2);
-        const pos = rng.range(0, 100);
+        const shapeType = rng.range(0, 10);
+        const color = rng.pick([accent1, accent2, accent3, '#FFFFFF']);
+        const opacity = rng.range(0.1, 0.7);
+        const x = rng.range(0, 100);
+        const y = rng.range(0, 100);
+        const size = rng.range(1, 20);
         
-        if (isVertical) {
-            layers.push(`<rect x="${pos}%" y="0" width="${thickness}" height="100%" fill="${theme.text}" opacity="${opacity}" />`);
-        } else {
-            layers.push(`<rect x="0" y="${pos}%" width="100%" height="${thickness}" fill="${type === 'content' ? theme.accent : theme.text}" opacity="${opacity}" />`);
-            if (type === 'content' && rng.bool(0.2)) {
-                 const x = rng.range(0, 80);
-                 const w = rng.range(5, 20);
-                 layers.push(`<rect x="${x}%" y="${pos}%" width="${w}%" height="${thickness * 3}" fill="${theme.secondary || theme.accent}" opacity="${opacity * 3}" />`);
+        // Rectangles
+        if (shapeType < 4) {
+            const w = rng.range(2, 40);
+            const h = rng.range(2, 40);
+            if (rng.bool(0.2)) {
+                // Outlined
+                layers.push(`<rect x="${x}%" y="${y}%" width="${w}%" height="${h}%" fill="none" stroke="${color}" stroke-width="${rng.range(1, 3)}" opacity="${opacity}" />`);
+            } else {
+                // Filled
+                layers.push(`<rect x="${x}%" y="${y}%" width="${w}%" height="${h}%" fill="${color}" opacity="${opacity * 0.5}" />`);
             }
+        } 
+        // Circles
+        else if (shapeType < 7) {
+            const r = rng.range(1, 25);
+            if (rng.bool(0.5)) {
+                 // Ring
+                 layers.push(`<circle cx="${x}%" cy="${y}%" r="${r}%" fill="none" stroke="${color}" stroke-width="${rng.range(1, 4)}" opacity="${opacity}" />`);
+            } else {
+                 // Dot
+                 layers.push(`<circle cx="${x}%" cy="${y}%" r="${r}%" fill="${color}" opacity="${opacity * 0.3}" />`);
+            }
+        }
+        // Crosses / Plus signs
+        else if (shapeType < 9) {
+            const crossSize = rng.range(10, 50);
+            const cx = (x / 100) * width;
+            const cy = (y / 100) * height;
+            layers.push(`
+                <g stroke="${color}" stroke-width="2" opacity="${opacity}">
+                    <line x1="${cx - crossSize}" y1="${cy}" x2="${cx + crossSize}" y2="${cy}" />
+                    <line x1="${cx}" y1="${cy - crossSize}" x2="${cx}" y2="${cy + crossSize}" />
+                </g>
+            `);
+        }
+        // Diagonal Lines
+        else {
+             const x2 = x + rng.range(-20, 20);
+             const y2 = y + rng.range(-20, 20);
+             layers.push(`<line x1="${x}%" y1="${y}%" x2="${x2}%" y2="${y2}%" stroke="${color}" stroke-width="${rng.range(1,5)}" opacity="${opacity}" />`);
         }
     }
 
-    // 3. Technical Label (The ID)
+    // 5. Tech Overlays (Scanlines)
+    if (rng.bool(0.5)) {
+        for(let j=0; j<height; j+=4) {
+             layers.push(`<rect x="0" y="${j}" width="100%" height="1" fill="#000" opacity="0.1" />`);
+        }
+    }
+
+    // 6. Labeling
+    const labelColor = '#FFFFFF';
     layers.push(`
-        <text x="30" y="${height - 30}" font-family="monospace" font-size="14" fill="${theme.accent}" opacity="0.6" letter-spacing="4">
-            ${id.toUpperCase()} // ${type === 'content' ? 'MEDIA.ASSET' : 'SYS.NODE'}
+        <rect x="0" y="${height - 60}" width="100%" height="60" fill="#000" opacity="0.7" />
+        <text x="30" y="${height - 25}" font-family="monospace" font-weight="bold" font-size="24" fill="${labelColor}" letter-spacing="4">
+            ${id.toUpperCase()}
+        </text>
+        <text x="${width - 30}" y="${height - 25}" text-anchor="end" font-family="monospace" font-size="14" fill="${labelColor}" opacity="0.7">
+            GEN.ASSET.V2 // ${type.toUpperCase()}
         </text>
     `);
     
-    // 4. Center Label for Content Placeholders
     if (type === 'content') {
-        const shortName = id.length > 15 ? id.substring(0, 12) + '...' : id;
         layers.push(`
-            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="monospace" font-size="24" fill="${theme.text}" opacity="0.8" letter-spacing="2">
-                [MISSING_ASSET]
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="72" fill="#FFF" opacity="0.9" letter-spacing="10" stroke="#000" stroke-width="2">
+                ASSET
             </text>
-            <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="monospace" font-size="12" fill="${theme.grid}" opacity="0.8">
-                ${shortName}
+            <text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" font-family="monospace" font-size="20" fill="#FFF" opacity="0.8">
+                [${id}]
             </text>
         `);
     }
 
-    // 5. Noise
-    layers.push(`<rect width="100%" height="100%" filter="url(#noise-${id})" opacity="0.3" pointer-events="none" />`);
+    // 7. Global Noise Texture
+    layers.push(`<rect width="100%" height="100%" filter="url(#noise-${id})" opacity="0.15" pointer-events="none" />`);
 
     return `
 <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
@@ -203,9 +247,10 @@ const getNodesFromContent = () => {
     return { ids: [...new Set(ids)], assets: Array.from(assets) };
 };
 
-// --- MAIN ---
-const run = async () => {
-    console.log('--- GENERATING ASSETS (CYBER-ORGANIC ENGINE V3) ---');
+// --- MODES ---
+
+const generate = () => {
+    console.log('--- GENERATING ASSETS (VIBRANT ART ENGINE) ---');
     
     // 1. Structure
     const nodesDir = path.join(PUBLIC_DIR, 'images', 'nodes');
@@ -219,49 +264,81 @@ const run = async () => {
     console.log(`\n> Checking Node Backgrounds (${allNodes.length})...`);
     allNodes.forEach(id => {
         const filePath = path.join(nodesDir, `${id}.svg`);
-        if (!fs.existsSync(filePath)) {
-            const svgContent = generateRichSVG(id, 'node');
-            fs.writeFileSync(filePath, svgContent);
-            console.log(`  + Generated node: ${id}.svg`);
-        }
+        // Always overwrite to apply new style
+        const svgContent = generateRichSVG(id, 'node');
+        fs.writeFileSync(filePath, svgContent);
+        console.log(`  + Generated vibrant node: ${id}.svg`);
     });
 
     // 3. Generate Missing Local Assets (Content Placeholders)
     console.log(`\n> Checking Local Content Assets (${localAssets.length})...`);
-    let missingCount = 0;
-
+    
     localAssets.forEach(relPath => {
-        // Remove leading slash for filesystem path
         const fsRelPath = relPath.startsWith('/') ? relPath.substring(1) : relPath;
         const absPath = path.join(PUBLIC_DIR, fsRelPath);
         
         if (!fs.existsSync(absPath)) {
-            // Target file is missing. 
-            // We do NOT write a .jpg (binary mismatch). We write a .svg alongside it.
-            // The app must be smart enough to look for .svg if .jpg fails.
-            
             const dir = path.dirname(absPath);
             ensureDir(dir);
 
             const pathObj = path.parse(absPath);
             const svgPath = path.join(dir, `${pathObj.name}.svg`);
             
-            if (!fs.existsSync(svgPath)) {
-                // Use the filename as seed
-                const seed = pathObj.name;
-                const svgContent = generateRichSVG(seed, 'content', 1200, 800);
-                fs.writeFileSync(svgPath, svgContent);
-                console.log(`  + Generated fallback for missing: ${relPath} -> ${pathObj.name}.svg`);
-                missingCount++;
-            }
+            // Generate even if svg exists to update style
+            const seed = pathObj.name;
+            const svgContent = generateRichSVG(seed, 'content', 1200, 800);
+            fs.writeFileSync(svgPath, svgContent);
+            console.log(`  + Generated vibrant fallback: ${pathObj.name}.svg`);
         }
     });
 
-    if (missingCount === 0) {
-        console.log("  ✓ All local assets present (or have SVG fallbacks).");
-    }
-
-    console.log('\n--- ASSETS COMPLETE ---');
+    console.log('\n--- VIBRANT ASSETS COMPLETE ---');
 };
 
-run();
+const clean = () => {
+    console.log('--- CLEANING GENERATED ASSETS ---');
+    
+    const nodesDir = path.join(PUBLIC_DIR, 'images', 'nodes');
+    const { ids: contentIds, assets: localAssets } = getNodesFromContent();
+    const staticNodes = ['home', 'neuromandala', 'works', 'events', 'collab', 'world', 'contacts', 'changelog', 'navigator', 'debug', 'debug-video', 'debug-audio', 'debug-image', 'debug-hub', 'debug-article'];
+    const allNodes = [...new Set([...staticNodes, ...contentIds])];
+
+    let removedCount = 0;
+
+    // 1. Remove Node Backgrounds
+    allNodes.forEach(id => {
+        const filePath = path.join(nodesDir, `${id}.svg`);
+        if (fs.existsSync(filePath)) {
+            fs.unlinkSync(filePath);
+            console.log(`  - Removed node: ${id}.svg`);
+            removedCount++;
+        }
+    });
+
+    // 2. Remove Content Fallbacks
+    localAssets.forEach(relPath => {
+        const fsRelPath = relPath.startsWith('/') ? relPath.substring(1) : relPath;
+        const absPath = path.join(PUBLIC_DIR, fsRelPath);
+        
+        // We need to look for the SVG version of the requested asset
+        const dir = path.dirname(absPath);
+        const pathObj = path.parse(absPath);
+        const svgPath = path.join(dir, `${pathObj.name}.svg`);
+
+        if (fs.existsSync(svgPath)) {
+            fs.unlinkSync(svgPath);
+            console.log(`  - Removed fallback: ${pathObj.name}.svg`);
+            removedCount++;
+        }
+    });
+
+    console.log(`\n--- CLEAN COMPLETE (${removedCount} files removed) ---`);
+};
+
+// --- RUNNER ---
+const args = process.argv.slice(2);
+if (args.includes('--clean') || args.includes('clean')) {
+    clean();
+} else {
+    generate();
+}

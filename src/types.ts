@@ -1,9 +1,13 @@
 
-
 /**
  * Supported UI languages.
  */
 export type Language = 'en' | 'ru';
+
+/**
+ * Supported Visual Themes.
+ */
+export type Theme = 'dark' | 'light' | 'ocean' | 'matrix';
 
 /**
  * Interface for bilingual strings used throughout the application.

@@ -1,6 +1,6 @@
 
-import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
-import { LotusNode, Language } from '../types';
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo, ReactNode } from 'react';
+import { LotusNode, Language, Theme } from '../types';
 import { ROOT_NODE } from '../constants';
 import { findPathToNode } from '../utils/nodeHelpers';
 
@@ -8,6 +8,7 @@ interface NavigationContextType {
   path: LotusNode[];
   currentNode: LotusNode;
   lang: Language;
+  theme: Theme;
   isDesktop: boolean;
   isGridCollapsed: boolean;
   lightboxMedia: LotusNode | null;
@@ -19,6 +20,7 @@ interface NavigationContextType {
   jumpToId: (id: string) => void;
   jumpToLevel: (index: number) => void;
   toggleLang: () => void;
+  cycleTheme: () => void;
   toggleGrid: (collapsed: boolean) => void;
   openLightbox: (mediaNode: LotusNode) => void;
   closeLightbox: () => void;
@@ -53,37 +55,36 @@ const getPathFromUrl = (): LotusNode[] => {
 
 // --- HELPER: LANG DETECTION ---
 const getInitialLang = (): Language => {
-    if (typeof window === 'undefined') return 'en'; // Default fallback
-
-    // 1. Check LocalStorage (User Preference)
+    if (typeof window === 'undefined') return 'en'; 
     try {
         const saved = localStorage.getItem('oda_lang');
         if (saved === 'en' || saved === 'ru') return saved;
-    } catch (e) {
-        // LocalStorage is unavailable (Private mode or restricted)
-    }
-
-    // 2. Check Browser Settings
+    } catch (e) {}
     try {
-        // Safe access to navigator properties
         const nav = window.navigator;
         const browserLang = nav.language || (nav.languages && nav.languages.length > 0 ? nav.languages[0] : null);
-        
-        if (browserLang && browserLang.toLowerCase().startsWith('ru')) {
-            return 'ru';
-        }
-    } catch (e) {
-        // Ignore errors
-    }
-
-    // 3. Default
+        if (browserLang && browserLang.toLowerCase().startsWith('ru')) return 'ru';
+    } catch (e) {}
     return 'en';
+};
+
+// --- HELPER: THEME DETECTION ---
+const getInitialTheme = (): Theme => {
+    if (typeof window === 'undefined') return 'dark';
+    try {
+        const saved = localStorage.getItem('oda_theme');
+        if (saved && ['dark', 'light', 'ocean', 'matrix'].includes(saved)) {
+            return saved as Theme;
+        }
+    } catch (e) {}
+    return 'dark';
 };
 
 export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   // State
   const [path, setPath] = useState<LotusNode[]>(getPathFromUrl);
   const [lang, setLang] = useState<Language>(getInitialLang);
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
   const [isGridCollapsed, setIsGridCollapsed] = useState(true);
   const [lightboxMedia, setLightboxMedia] = useState<LotusNode | null>(null);
   const [navigatorHighlight, setNavigatorHighlight] = useState(false);
@@ -103,24 +104,16 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
     if (node.type === 'media') {
         setLightboxMedia(node);
     } else {
-        // Calculate the canonical path from the root to the target node
-        // This prevents infinite appending of breadcrumbs when navigating between siblings
         const canonicalPath = findPathToNode(ROOT_NODE, node.id);
-        
-        if (canonicalPath) {
-            setPath(canonicalPath);
-        } else {
-            // Fallback: If not found in tree (e.g. detached node), append to current path
-            // Check if node is already in path to prevent duplicates
-            setPath(prev => {
-                if (prev.some(n => n.id === node.id)) {
-                    // If cycling, just cut to that node
-                    const idx = prev.findIndex(n => n.id === node.id);
-                    return prev.slice(0, idx + 1);
-                }
-                return [...prev, node];
-            });
-        }
+        setPath(prev => {
+            if (canonicalPath) return canonicalPath;
+            // Fallback for orphaned nodes
+            if (prev.some(n => n.id === node.id)) {
+                const idx = prev.findIndex(n => n.id === node.id);
+                return prev.slice(0, idx + 1);
+            }
+            return [...prev, node];
+        });
     }
   }, []);
 
@@ -139,12 +132,14 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
 
   const jumpToId = useCallback((targetId: string) => {
      if (!targetId) return;
-     if (targetId.toLowerCase() === 'navigator') {
+     const id = targetId.toLowerCase();
+     
+     if (id === 'navigator') {
          triggerNavigatorHighlight();
          if (!isDesktop) setIsGridCollapsed(false);
          return;
      }
-     if (['home', 'root'].includes(targetId.toLowerCase())) {
+     if (id === 'home' || id === 'root') {
          setPath([ROOT_NODE]);
          return;
      }
@@ -155,18 +150,23 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
   const toggleLang = useCallback(() => {
     setLang(prev => {
         const next = prev === 'en' ? 'ru' : 'en';
-        try {
-            localStorage.setItem('oda_lang', next); // Persist preference
-        } catch (e) {
-            // Ignore storage errors
-        }
+        try { localStorage.setItem('oda_lang', next); } catch (e) {}
         return next;
     });
   }, []);
 
+  const cycleTheme = useCallback(() => {
+      setTheme(prev => {
+          const sequence: Theme[] = ['dark', 'light', 'ocean', 'matrix'];
+          const nextIndex = (sequence.indexOf(prev) + 1) % sequence.length;
+          const next = sequence[nextIndex];
+          try { localStorage.setItem('oda_theme', next); } catch (e) {}
+          return next;
+      });
+  }, []);
+
   // --- EFFECTS ---
 
-  // 1. Layout Listener
   useEffect(() => {
     const mediaQuery = window.matchMedia('(min-width: 768px), (orientation: landscape)');
     const handleChange = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
@@ -174,7 +174,6 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
-  // 2. URL Sync
   useEffect(() => {
     const currentId = currentNode.id;
     try {
@@ -188,28 +187,35 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({ children
     } catch (e) { /* ignore */ }
   }, [currentNode]);
 
-  // 3. Document Title Sync (SEO/UX)
   useEffect(() => {
       const title = currentNode.title[lang];
-      // Keep "oda.dream" clean if on home, otherwise append context
       document.title = currentNode.id === 'home' 
           ? 'oda.dream | Neural Art Interface' 
           : `${title} | oda.dream`;
   }, [currentNode, lang]);
 
-  // 4. Browser Back Button
   useEffect(() => {
     const handlePopState = () => setPath(getPathFromUrl());
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  return (
-    <NavigationContext.Provider value={{
-      path, currentNode, lang, isDesktop, isGridCollapsed, lightboxMedia, navigatorHighlight,
-      navigate, goBack, jumpToId, jumpToLevel, toggleLang, toggleGrid: setIsGridCollapsed,
+  useEffect(() => {
+      document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
+  // --- MEMOIZED CONTEXT VALUE ---
+  const contextValue = useMemo(() => ({
+      path, currentNode, lang, theme, isDesktop, isGridCollapsed, lightboxMedia, navigatorHighlight,
+      navigate, goBack, jumpToId, jumpToLevel, toggleLang, cycleTheme, toggleGrid: setIsGridCollapsed,
       openLightbox: setLightboxMedia, closeLightbox: () => setLightboxMedia(null), triggerNavigatorHighlight
-    }}>
+  }), [
+      path, currentNode, lang, theme, isDesktop, isGridCollapsed, lightboxMedia, navigatorHighlight,
+      navigate, goBack, jumpToId, jumpToLevel, toggleLang, cycleTheme, setIsGridCollapsed, setLightboxMedia, triggerNavigatorHighlight
+  ]);
+
+  return (
+    <NavigationContext.Provider value={contextValue}>
       {children}
     </NavigationContext.Provider>
   );

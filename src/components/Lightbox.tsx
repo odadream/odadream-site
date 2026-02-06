@@ -1,14 +1,10 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { X, Film, AudioLines, Image as ImageIcon, Loader2, AlertTriangle } from 'lucide-react';
 import { getMediaType } from '../utils/mediaHelpers';
 import { useImageFallback } from '../hooks/useImageFallback';
-import { SCALE_FADE_VARIANTS } from '../styles/animations';
-
-// NOTE: Framer Motion types can be strict with React 19 / Vite.
-// Casting to 'any' here is a stable workaround for production builds to avoid type mismatches.
-const MotionDiv = motion.div as any;
+import { SCALE_FADE_VARIANTS, MotionDiv } from '../styles/animations';
 
 interface LightboxProps {
   isOpen: boolean;
@@ -42,18 +38,14 @@ export const Lightbox: React.FC<LightboxProps> = ({ isOpen, onClose, mediaUrl, t
   const cleanUrl = mediaUrl?.trim() || '';
   const type = getMediaType(cleanUrl);
 
-  // Use fallback hook only for images. 
-  // We don't pass nodeId here, so it falls back to Local SVG -> Dead.
   const { src: imageSrc, handleError: onImageError, isDead } = useImageFallback(
       type === 'image' ? cleanUrl : undefined
   );
 
-  // Reset loading state when media changes
   useEffect(() => {
       setIsLoading(true);
   }, [mediaUrl]);
 
-  // Clean up media sources on unmount
   useEffect(() => {
     return () => {
       if (videoRef.current) {
@@ -73,12 +65,8 @@ export const Lightbox: React.FC<LightboxProps> = ({ isOpen, onClose, mediaUrl, t
 
   const TypeIcon = type === 'video' ? Film : type === 'audio' ? AudioLines : ImageIcon;
   
-  // Detect if it's a direct file or an embed page. 
-  // Improved regex: Allows query params after extension (e.g. video.mp4?token=123)
   const isDirectFile = cleanUrl.match(/\.(mp4|webm|mov|m4v)(\?.*)?$/i);
   const isExternalVideo = type === 'video' && !isDirectFile;
-  
-  // Logic Check: Is this an invalid embed that we block?
   const isInvalidEmbed = isExternalVideo && !cleanUrl.startsWith('http');
 
   const handleLoaded = () => setIsLoading(false);
@@ -114,7 +102,6 @@ export const Lightbox: React.FC<LightboxProps> = ({ isOpen, onClose, mediaUrl, t
         <div className="relative flex-1 flex items-center justify-center w-full min-h-0 overflow-hidden">
             
             <AnimatePresence>
-                {/* Hide loader if we are logically blocking the render (isInvalidEmbed) or if dead */}
                 {isLoading && !isInvalidEmbed && !isDead && <LoadingOverlay />}
             </AnimatePresence>
 

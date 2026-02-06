@@ -3,41 +3,112 @@
     
     <defs>
         <filter id="noise-changelog" x="0%" y="0%" width="100%" height="100%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.6889570440062853" numOctaves="3" result="noise"/>
-            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feTurbulence type="fractalNoise" baseFrequency="0.7465815742002628" numOctaves="4" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.1 0" in="noise" result="coloredNoise"/>
             <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
         </filter>
-        <linearGradient id="grad-main-changelog" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#050505" />
-            <stop offset="50%" stop-color="#09090b" />
-            <stop offset="100%" stop-color="#18181b" />
+        <linearGradient id="grad-changelog" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0038A8" stop-opacity="0.2" />
+            <stop offset="50%" stop-color="#121212" stop-opacity="0" />
+            <stop offset="100%" stop-color="#FF0055" stop-opacity="0.3" />
         </linearGradient>
-        <radialGradient id="glow-changelog" cx="60.208053058207085%" cy="76.74790418403958%" r="60%">
-            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
-            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
-        </radialGradient>
-        <pattern id="grid-changelog" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        <pattern id="grid-changelog" width="50" height="50" patternUnits="userSpaceOnUse">
+             <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#00FF99" stroke-width="0.5" stroke-opacity="0.2"/>
+             <circle cx="25" cy="25" r="1" fill="#FF0055" fill-opacity="0.4"/>
         </pattern>
     </defs>
     
-    <rect width="100%" height="100%" fill="url(#grad-main-changelog)" />
-    <rect width="100%" height="100%" fill="url(#glow-changelog)" />
-    <rect width="100%" height="100%" fill="url(#grid-changelog)" opacity="0.5" />
-    <rect x="87.25506005553069%" y="0" width="1.1260624827128485" height="100%" fill="#52525b" opacity="0.17321537944787685" />
-    <rect x="0" y="35.94954534056554%" width="100%" height="0.7605863828310616" fill="#52525b" opacity="0.16753459416100253" />
-    <rect x="20.550229326402984%" y="0" width="1.6990714424281115" height="100%" fill="#52525b" opacity="0.07937352438864627" />
-    <rect x="0" y="81.9258769340123%" width="100%" height="1.3465014757555922" fill="#52525b" opacity="0.1650308138598044" />
-    <rect x="20.533582028498483%" y="0" width="1.8328385977845998" height="100%" fill="#52525b" opacity="0.05183142733465082" />
-    <rect x="31.439639983176846%" y="0" width="0.6022230669411114" height="100%" fill="#52525b" opacity="0.10630970183416244" />
-    <rect x="42.678483009970265%" y="0" width="1.126047717990398" height="100%" fill="#52525b" opacity="0.14840031042546065" />
-    <rect x="0" y="0.021485006456715063%" width="100%" height="0.840853486061891" fill="#52525b" opacity="0.0724549313517799" />
-    <rect x="0" y="66.70678962646684%" width="100%" height="1.9354936987492197" fill="#52525b" opacity="0.08425953824469778" />
-    <rect x="3.398643949440349%" y="0" width="0.7115923168245631" height="100%" fill="#52525b" opacity="0.17320789538622638" />
+    <rect width="100%" height="100%" fill="#121212" />
+    <rect width="100%" height="100%" fill="url(#grad-changelog)" />
+    <rect width="100%" height="100%" fill="url(#grid-changelog)" />
+    <line x1="82.14358629858455%" y1="87.25506005553069%" x2="69.09255650741287%" y2="98.5976184984647%" stroke="#FF0055" stroke-width="2.4379818136226215" opacity="0.3504249930851394" />
+    <rect x="20.550229326402984%" y="87.70491065243716%" width="31.141139511150435%" height="33.13183323492467%" fill="#FFFFFF" opacity="0.10874704877729252" />
     
-        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
-            CHANGELOG // SYS.NODE
+                <g stroke="#FF0055" stroke-width="2" opacity="0.2232014921709909">
+                    <line x1="72.38944238274306" y1="54.518969035259424" x2="117.54115436928453" y2="54.518969035259424" />
+                    <line x1="94.96529837601379" y1="31.943113041988685" x2="94.96529837601379" y2="77.09482502853017" />
+                </g>
+            
+    <rect x="42.678483009970265%" y="97.26439718833603%" width="7.6885826091175735%" height="2.008164302453552%" fill="#0038A8" opacity="0.24680062085092125" />
+    <line x1="41.01351256576694%" y1="14.106154454970877%" x2="22.37297014554308%" y2="2.5100001529883613%" stroke="#FF0055" stroke-width="1.3434893845985545" opacity="0.5002407377588011" />
+    <rect x="15.693204398912568%" y="55.686992319009256%" width="12.336783952393368%" height="34.32810437523583%" fill="#0038A8" opacity="0.18173362755378114" />
+    <rect x="75.52944265820966%" y="23.342948009579395%" width="25.36365124803376%" height="20.886640244057997%" fill="#FF0055" opacity="0.2564631753195666" />
+    <rect x="2.913439835341126%" y="66.18407239782071%" width="15.245472635371119%" height="14.65877640867492%" fill="#FFFFFF" opacity="0.08220138860140125" />
+    
+                <g stroke="#FFFFFF" stroke-width="2" opacity="0.6271652531131777">
+                    <line x1="909.1396238646838" y1="729.1646096195695" x2="956.4989487328556" y2="729.1646096195695" />
+                    <line x1="932.8192862987697" y1="705.4849471854836" x2="932.8192862987697" y2="752.8442720536555" />
+                </g>
+            
+    
+                <g stroke="#0038A8" stroke-width="2" opacity="0.5075891939062525">
+                    <line x1="273.46398666823654" y1="84.91631456177339" x2="332.869965548506" y2="84.91631456177339" />
+                    <line x1="303.1669761083713" y1="55.213325121638675" x2="303.1669761083713" y2="114.6193040019081" />
+                </g>
+            
+    
+                <g stroke="#0038A8" stroke-width="2" opacity="0.5303403440214138">
+                    <line x1="616.7769806708926" y1="339.34823865010236" x2="703.876201709617" y2="339.34823865010236" />
+                    <line x1="660.3265911902548" y1="295.7986281307401" x2="660.3265911902548" y2="382.8978491694646" />
+                </g>
+            
+    
+                <g stroke="#00FF99" stroke-width="2" opacity="0.14858009233007216">
+                    <line x1="928.0010254289964" y1="733.2169051591463" x2="1014.4634029124522" y2="733.2169051591463" />
+                    <line x1="971.2322141707243" y1="689.9857164174184" x2="971.2322141707243" y2="776.4480939008743" />
+                </g>
+            
+    <line x1="5.176047519944652%" y1="93.8314098341683%" x2="8.27170449148091%" y2="82.53826272910298%" stroke="#FFFFFF" stroke-width="2.60768500678957" opacity="0.14134176544970067" />
+    <rect x="14.907731269400317%" y="54.240110753327706%" width="38.804131423872086%" height="5.036850361187803%" fill="none" stroke="#00FF99" stroke-width="1.029012627926667" opacity="0.615362018547358" />
+    
+                <g stroke="#FFFFFF" stroke-width="2" opacity="0.19372491696265054">
+                    <line x1="446.6238805806487" y1="697.4977812706472" x2="492.1095329915262" y2="697.4977812706472" />
+                    <line x1="469.36670678608743" y1="674.7549550652085" x2="469.36670678608743" y2="720.240607476086" />
+                </g>
+            
+    <rect x="71.36157585434762%" y="74.00560814329013%" width="36.614790802462764%" height="30.789043481265235%" fill="none" stroke="#FF0055" stroke-width="2.21335857847087" opacity="0.29615803928687984" />
+    <circle cx="55.27857356265054%" cy="66.9862174587196%" r="15.53500560907182%" fill="#0038A8" opacity="0.07727908016860399" />
+    
+                <g stroke="#FFFFFF" stroke-width="2" opacity="0.24977090149165215">
+                    <line x1="350.18024323524935" y1="468.04140328247234" x2="447.99933144636395" y2="468.04140328247234" />
+                    <line x1="399.08978734080665" y1="419.13185917691504" x2="399.08978734080665" y2="516.9509473880296" />
+                </g>
+            
+    
+                <g stroke="#FFFFFF" stroke-width="2" opacity="0.46154840836445654">
+                    <line x1="639.0070641497216" y1="679.5585802565874" x2="737.397925897872" y2="679.5585802565874" />
+                    <line x1="688.2024950237968" y1="630.3631493825122" x2="688.2024950237968" y2="728.7540111306627" />
+                </g>
+            
+    <line x1="55.91697739988284%" y1="96.63950483933044%" x2="73.1844198360894%" y2="110.54455154626122%" stroke="#0038A8" stroke-width="1.2120051069296944" opacity="0.24538796324784679" />
+    
+                <g stroke="#FFFFFF" stroke-width="2" opacity="0.2647105791277351">
+                    <line x1="936.9459213381131" y1="412.3975642140932" x2="1025.8813047743229" y2="412.3975642140932" />
+                    <line x1="981.413613056218" y1="367.92987249598826" x2="981.413613056218" y2="456.8652559321982" />
+                </g>
+            
+    <circle cx="15.459944974128106%" cy="35.295841782629346%" r="2.133728613270194%" fill="#FF0055" opacity="0.06017122786508056" />
+    <circle cx="11.755606589611252%" cy="76.48064221859038%" r="14.792779488296043%" fill="#FF0055" opacity="0.1651592288773127" />
+    <rect x="47.99335645324863%" y="24.34231673771731%" width="36.83665574419932%" height="35.67311751346394%" fill="#0038A8" opacity="0.24839019332862478" />
+    <line x1="79.99661148525459%" y1="3.0493891826359456%" x2="92.56287710979849%" y2="4.275799062359891%" stroke="#0038A8" stroke-width="4.227099544580187" opacity="0.5730457534762525" />
+    <circle cx="63.08586435679893%" cy="84.12253361579268%" r="8.612893782195535%" fill="none" stroke="#FFFFFF" stroke-width="3.611469945508493" opacity="0.12629728748118252" />
+    <rect x="2.146506125243852%" y="76.32921279997491%" width="38.008991674528446%" height="17.123089371363715%" fill="#0038A8" opacity="0.25102376621311884" />
+    <line x1="13.561530982667144%" y1="28.65190215283251%" x2="-4.706481327029394%" y2="38.16931257785234%" stroke="#0038A8" stroke-width="2.911709533922104" opacity="0.13449047211044513" />
+    <circle cx="58.312665818550315%" cy="60.97473861740412%" r="19.910665902225922%" fill="#00FF99" opacity="0.045813944279974275" />
+    <rect x="90.39422240144967%" y="55.695976322233655%" width="34.58450948315161%" height="31.850925708982093%" fill="#FFFFFF" opacity="0.0911061569965502" />
+    <line x1="12.511983106389627%" y1="88.90075379880216%" x2="19.33770495405207%" y2="88.80795055889334%" stroke="#FFFFFF" stroke-width="3.0256104097008802" opacity="0.10361010693349886" />
+    <rect x="87.98044211043086%" y="87.29064407506087%" width="10.415081961467006%" height="36.282757916751095%" fill="#0038A8" opacity="0.09969143448368781" />
+    <line x1="14.64091047145511%" y1="69.78296178372852%" x2="-1.4427367052461388%" y2="71.92514536150279%" stroke="#FFFFFF" stroke-width="3.3679531406312746" opacity="0.6140767444987565" />
+    <circle cx="26.362359827721825%" cy="72.1822008231489%" r="14.09105970812129%" fill="#0038A8" opacity="0.1082595020795795" />
+    <rect x="70.98618934022839%" y="64.88446827501475%" width="15.997836003077994%" height="5.629891565656188%" fill="#00FF99" opacity="0.2627097612830901" />
+    
+        <rect x="0" y="740" width="100%" height="60" fill="#000" opacity="0.7" />
+        <text x="30" y="775" font-family="monospace" font-weight="bold" font-size="24" fill="#FFFFFF" letter-spacing="4">
+            CHANGELOG
+        </text>
+        <text x="1170" y="775" text-anchor="end" font-family="monospace" font-size="14" fill="#FFFFFF" opacity="0.7">
+            GEN.ASSET.V2 // NODE
         </text>
     
-    <rect width="100%" height="100%" filter="url(#noise-changelog)" opacity="0.3" pointer-events="none" />
+    <rect width="100%" height="100%" filter="url(#noise-changelog)" opacity="0.15" pointer-events="none" />
 </svg>

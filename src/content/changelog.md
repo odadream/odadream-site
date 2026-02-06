@@ -7,44 +7,63 @@ type: content
 tags: [system, version]
 order: 7
 ---
+<!-- DO NOT EDIT MANUALLY. GENERATED FROM versions.json via npm run version:sync -->
 ## SYSTEM CHANGELOG
 **Interface Evolution Log**
 
-Tracking the updates and architectural refinements of the oda.dream neural interface.
+Tracking the architectural metamorphosis of the oda.dream neural interface.
 
-### v5.3.0 (Current)
-**Performance & UX Update**
+### v0.5.2 (Current)
+**Polishing the Prism**
+Refinement of the multi-theme engine and stabilization of global settings.
 
-*   **Theme Optimization**: Static layout variables moved from TypeScript to native CSS `:root` for reduced JS overhead and smoother rendering.
-*   **Auto-Localization**: Implemented intelligent language detection (Browser/System) with persistent user preference via LocalStorage.
-*   **Navigation Logic**: Added automatic scroll-to-top behavior on mobile view transitions for better readability.
-*   **Architecture**: Full migration to file-system based content loading strategy.
+### v0.5.0
+**The Prism Update**
+Transition to a multi-theme architecture. Introduction of dynamic CSS variable injection and context-aware styling.
 
-### v5.0.0
-**The "Lotus" Core**
+### v0.4.0
+**Optimization Protocol**
+Major code refactoring. Improved loading speeds, reliability, and graph traversal logic.
 
-*   Introduced the 3x3 interactive grid system.
-*   Implemented "Blossoming Lotus" navigation methodology.
-*   Added procedural SVG generation for node backgrounds.
+### v0.3.0
+**Tech Noir**
+Visual overhaul. Adoption of the high-contrast, laser-illuminated design language. Transition from standard UI to "Projected Interface" aesthetic.
+
+### v0.2.0
+**The Core Shift**
+Migration to Google AI Studio, TypeScript, and React. Abandonment of static generation in favor of a dynamic Single Page Application (SPA).
+
+### v0.1.0
+**Genesis**
+Initial prototype built on Eleventy.js using raw WebGL shaders. The birth of the digital subconscious.
 
 ---RU---
 
 ## ИСТОРИЯ ИЗМЕНЕНИЙ
 **Лог Эволюции Интерфейса**
 
-Отслеживание обновлений и архитектурных улучшений нейроинтерфейса oda.dream.
+Отслеживание архитектурных метаморфоз нейроинтерфейса oda.dream.
 
-### v5.3.0 (Текущая)
-**Производительность и UX**
+### v0.5.2 (Текущая)
+**Полировка Призмы**
+Улучшение движка мульти-тем и стабилизация глобальных настроек.
 
-*   **Оптимизация Темы**: Статические переменные макета (Layout Vars) перенесены из TypeScript в нативный CSS `:root` для снижения нагрузки на JS и более плавного рендеринга.
-*   **Авто-локализация**: Внедрено интеллектуальное определение языка (Браузер/Система) с запоминанием выбора пользователя через LocalStorage.
-*   **Логика Навигации**: Добавлен автоматический скролл вверх при переходах между разделами на мобильных устройствах.
-*   **Архитектура**: Полная миграция на файловую систему загрузки контента.
+### v0.5.0
+**Обновление "Призма"**
+Переход к архитектуре мульти-тем (Multi-theme). Внедрение динамической инъекции CSS-переменных и контекстно-зависимой стилизации.
 
-### v5.0.0
-**Ядро "Лотос"**
+### v0.4.0
+**Протокол Оптимизации**
+Масштабный рефакторинг кода. Повышение скорости загрузки, надежности и логики обхода графа.
 
-*   Внедрена интерактивная сетка 3x3.
-*   Реализована методология навигации "Цветущий Лотос".
-*   Добавлена процедурная генерация SVG фонов для узлов.
+### v0.3.0
+**Tech Noir**
+Визуальная переработка. Принятие высококонтрастного дизайн-языка "Tech Noir" с лазерной подсветкой. Переход от стандартного UI к эстетике "Проекционного Интерфейса".
+
+### v0.2.0
+**Сдвиг Ядра**
+Миграция на Google AI Studio, TypeScript и React. Отказ от статической генерации в пользу динамического SPA (Single Page Application).
+
+### v0.1.0
+**Генезис**
+Первоначальный прототип, созданный на Eleventy.js с использованием сырых WebGL шейдеров. Рождение цифрового подсознания.

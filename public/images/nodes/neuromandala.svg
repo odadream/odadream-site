@@ -3,41 +3,106 @@
     
     <defs>
         <filter id="noise-neuromandala" x="0%" y="0%" width="100%" height="100%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.8832953024034345" numOctaves="3" result="noise"/>
-            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+            <feTurbulence type="fractalNoise" baseFrequency="0.8743645095958975" numOctaves="4" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.1 0" in="noise" result="coloredNoise"/>
             <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
         </filter>
-        <linearGradient id="grad-main-neuromandala" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#050505" />
-            <stop offset="50%" stop-color="#09090b" />
-            <stop offset="100%" stop-color="#18181b" />
+        <linearGradient id="grad-neuromandala" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0038A8" stop-opacity="0.2" />
+            <stop offset="50%" stop-color="#121212" stop-opacity="0" />
+            <stop offset="100%" stop-color="#FF0055" stop-opacity="0.3" />
         </linearGradient>
-        <radialGradient id="glow-neuromandala" cx="28.829525028196652%" cy="37.82754936053189%" r="60%">
-            <stop offset="0%" stop-color="#064e3b" stop-opacity="0.15" />
-            <stop offset="100%" stop-color="#050505" stop-opacity="0" />
-        </radialGradient>
-        <pattern id="grid-neuromandala" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="0.5" stroke-opacity="0.3"/>
+        <pattern id="grid-neuromandala" width="50" height="50" patternUnits="userSpaceOnUse">
+             <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#00FF99" stroke-width="0.5" stroke-opacity="0.2"/>
+             
         </pattern>
     </defs>
     
-    <rect width="100%" height="100%" fill="url(#grad-main-neuromandala)" />
-    <rect width="100%" height="100%" fill="url(#glow-neuromandala)" />
-    <rect width="100%" height="100%" fill="url(#grid-neuromandala)" opacity="0.5" />
-    <rect x="0" y="99.46707407894272%" width="100%" height="1.7555827093362646" fill="#52525b" opacity="0.10785977270720506" />
-    <rect x="94.1152480376095%" y="0" width="0.7673133469813628" height="100%" fill="#52525b" opacity="0.07354323626360226" />
-    <rect x="0" y="78.43946742679874%" width="100%" height="0.8734185929628262" fill="#52525b" opacity="0.05463007425854921" />
-    <rect x="88.81174101383587%" y="0" width="1.9347258291065002" height="100%" fill="#52525b" opacity="0.1437010303546684" />
-    <rect x="0" y="72.64763118945773%" width="100%" height="1.3771771983030971" fill="#52525b" opacity="0.12171767542298668" />
-    <rect x="0" y="21.3245538727609%" width="100%" height="0.6965016221595012" fill="#52525b" opacity="0.1602773836211091" />
-    <rect x="32.739692211840016%" y="0" width="1.6305626601731058" height="100%" fill="#52525b" opacity="0.13666324204454502" />
-    <rect x="0" y="39.77276439757344%" width="100%" height="0.7785521163871065" fill="#52525b" opacity="0.06254296769624854" />
-    <rect x="0" y="82.14137780679518%" width="100%" height="1.018175737949252" fill="#52525b" opacity="0.19796353971861635" />
-    <rect x="0" y="38.37572274578337%" width="100%" height="1.2728993965060444" fill="#52525b" opacity="0.06201627670043733" />
+    <rect width="100%" height="100%" fill="#121212" />
+    <rect width="100%" height="100%" fill="url(#grad-neuromandala)" />
+    <rect width="100%" height="100%" fill="url(#grid-neuromandala)" />
+    <rect x="38.57318180480337%" y="99.46707407894272%" width="8.771938123527857%" height="7.964286520112573%" fill="#FFFFFF" opacity="0.3011165418672529" />
+    <line x1="78.43946742679874%" y1="32.12921091553682%" x2="83.42640885471032%" y2="47.653907321071166%" stroke="#FF0055" stroke-width="3.3572522833545246" opacity="0.11852029703419684" />
+    <circle cx="88.73761528054031%" cy="13.100108143966747%" r="6.1178929294626165%" fill="none" stroke="#0038A8" stroke-width="3.2611253203462116" opacity="0.5358857871367464" />
+    <circle cx="18.570141092473772%" cy="8.361978464165682%" r="15.604408326190345%" fill="none" stroke="#0038A8" stroke-width="3.9592707943723267" opacity="0.4360451846719209" />
     
-        <text x="30" y="770" font-family="monospace" font-size="14" fill="#10b981" opacity="0.6" letter-spacing="4">
-            NEUROMANDALA // SYS.NODE
+                <g stroke="#00FF99" stroke-width="2" opacity="0.4091597586024178">
+                    <line x1="67.6197968401199" y1="307.00578196626697" x2="124.6406303668773" y2="307.00578196626697" />
+                    <line x1="96.1302136034986" y1="278.49536520288825" x2="96.1302136034986" y2="335.5161987296457" />
+                </g>
+            
+    <circle cx="19.707332057605807%" cy="21.130520544136427%" r="16.018928754161045%" fill="#00FF99" opacity="0.06867528244729645" />
+    <rect x="97.72603129756267%" y="81.40803592410687%" width="9.869259996217917%" height="20.652992239830077%" fill="none" stroke="#FFFFFF" stroke-width="2.688733226329771" opacity="0.462098313460218" />
+    <rect x="73.50745948358202%" y="39.87174787546671%" width="8.496790299654744%" height="19.554812843496737%" fill="#0038A8" opacity="0.2325085096363989" />
+    <rect x="88.46272373428822%" y="92.99789247382236%" width="14.896910694331778%" height="8.378236085528727%" fill="none" stroke="#FFFFFF" stroke-width="2.084208922539101" opacity="0.4940459793378096" />
+    <rect x="31.09641981413255%" y="37.528355361454516%" width="14.73179831330832%" height="7.334449515989469%" fill="#00FF99" opacity="0.349595007393132" />
+    <rect x="56.00227434747133%" y="30.22530226057889%" width="36.70741197346469%" height="29.473063785092034%" fill="none" stroke="#FF0055" stroke-width="2.3090233936058575" opacity="0.5527956216156442" />
+    <rect x="1.1321814741307696%" y="28.574809458642093%" width="12.01398454421571%" height="5.038453646040013%" fill="#00FF99" opacity="0.3073037065633607" />
+    <rect x="6.452116189945597%" y="40.71753652833173%" width="31.375894044876%" height="26.65127972015299%" fill="none" stroke="#FF0055" stroke-width="2.6249856293434144" opacity="0.2394085029507135" />
+    <circle cx="6.746752100760818%" cy="92.66328731799804%" r="15.226022673981284%" fill="none" stroke="#FF0055" stroke-width="3.299769594613248" opacity="0.20842151940653242" />
+    <rect x="79.89034837101619%" y="17.085229015988514%" width="13.939525971132822%" height="29.61320078336932%" fill="none" stroke="#FFFFFF" stroke-width="1.6492368342813446" opacity="0.3222930528431135" />
+    
+                <g stroke="#0038A8" stroke-width="2" opacity="0.5684670363259194">
+                    <line x1="622.8546100788326" y1="202.34360527465455" x2="679.067626026522" y2="202.34360527465455" />
+                    <line x1="650.9611180526773" y1="174.2370973008099" x2="650.9611180526773" y2="230.4501132484992" />
+                </g>
+            
+    <line x1="18.515448289472097%" y1="89.14003888064998%" x2="30.5593613074714%" y2="71.18619464448298%" stroke="#FFFFFF" stroke-width="3.9740219777208026" opacity="0.4311543458431534" />
+    <rect x="54.482169965731146%" y="81.83097027412705%" width="4.464510404937444%" height="3.0266538802782574%" fill="none" stroke="#00FF99" stroke-width="2.017463639394812" opacity="0.10412488179665515" />
+    <rect x="65.90797097041083%" y="15.26836647211422%" width="14.228068317499076%" height="15.144413896039513%" fill="#00FF99" opacity="0.2721870484502865" />
+    
+                <g stroke="#0038A8" stroke-width="2" opacity="0.5173348670986806">
+                    <line x1="277.89900195589195" y1="698.812093491491" x2="310.55202571726596" y2="698.812093491491" />
+                    <line x1="294.22551383657895" y1="682.485581610804" x2="294.22551383657895" y2="715.1386053721781" />
+                </g>
+            
+    <rect x="23.97161673193017%" y="90.96300857231302%" width="39.02794412153582%" height="4.656858243659938%" fill="none" stroke="#00FF99" stroke-width="1.241289596298048" opacity="0.5571395149986628" />
+    <circle cx="21.088765581221104%" cy="38.883741143051296%" r="17.673773520322307%" fill="#00FF99" opacity="0.06384530009128646" />
+    <circle cx="72.08941580922288%" cy="6.811724004160356%" r="12.14854077170467%" fill="none" stroke="#FF0055" stroke-width="1.0205476922174428" opacity="0.6782490948012555" />
+    <rect x="83.42108291892436%" y="58.140748094898406%" width="2.2503358202523884%" height="29.394426419767015%" fill="#0038A8" opacity="0.20279051955117894" />
+    <rect x="86.14124929173035%" y="75.97695456443071%" width="25.563491894457016%" height="35.60838312246686%" fill="#0038A8" opacity="0.3149585543805347" />
+    <rect x="35.82981399803405%" y="91.68436717398872%" width="20.23000913414174%" height="37.76367224637761%" fill="#00FF99" opacity="0.11412253749009457" />
+    <rect x="89.11901525139717%" y="23.289415355109995%" width="6.403994903344656%" height="33.94260344555843%" fill="#FF0055" opacity="0.16752051857069183" />
+    <rect x="75.62989948841734%" y="11.720892518498834%" width="18.825348901399735%" height="27.639151540248797%" fill="#0038A8" opacity="0.16439441234282628" />
+    <circle cx="8.966728680736132%" cy="3.8096495473847254%" r="5.116696845848762%" fill="#FFFFFF" opacity="0.18981294341367944" />
+    <rect x="41.79822853002532%" y="2.8273595989005265%" width="9.407659377351084%" height="14.531394554796996%" fill="#FF0055" opacity="0.2918352706747458" />
+    <rect x="39.64593721520709%" y="29.267248305740996%" width="25.564957511206117%" height="22.241003806927246%" fill="#00FF99" opacity="0.052559584428146094" />
+    
+                <g stroke="#00FF99" stroke-width="2" opacity="0.2157686151710978">
+                    <line x1="1000.8840645206011" y1="347.38100203441553" x2="1091.5918169930499" y2="347.38100203441553" />
+                    <line x1="1046.2379407568255" y1="302.0271257981911" x2="1046.2379407568255" y2="392.73487827063997" />
+                </g>
+            
+    
+                <g stroke="#FFFFFF" stroke-width="2" opacity="0.38579762921277216">
+                    <line x1="784.268982796249" y1="689.0892877141846" x2="818.7575693323813" y2="689.0892877141846" />
+                    <line x1="801.5132760643152" y1="671.8449944461184" x2="801.5132760643152" y2="706.3335809822507" />
+                </g>
+            
+    
+                <g stroke="#00FF99" stroke-width="2" opacity="0.47517055140358444">
+                    <line x1="134.4889600989306" y1="739.6911888752982" x2="231.3478375238812" y2="739.6911888752982" />
+                    <line x1="182.9183988114059" y1="691.2617501628229" x2="182.9183988114059" y2="788.1206275877735" />
+                </g>
+            
+    <rect x="52.68142251547558%" y="16.66858789200763%" width="11.969098620087932%" height="10.640727184378287%" fill="#00FF99" opacity="0.15000345348380828" />
+    <rect x="49.954248359384245%" y="81.05256783874013%" width="34.235329362782956%" height="15.18064539803252%" fill="#0038A8" opacity="0.051793887095333904" />
+    
+                <g stroke="#0038A8" stroke-width="2" opacity="0.4871960698507689">
+                    <line x1="-21.28086871586821" y1="627.8788170105581" x2="38.671457030504435" y2="627.8788170105581" />
+                    <line x1="8.695294157318115" y1="597.9026541373718" x2="8.695294157318115" y2="657.8549798837445" />
+                </g>
+            
+    <circle cx="55.759655922427456%" cy="52.53743445737048%" r="21.738406822773076%" fill="#00FF99" opacity="0.20804607409801895" />
+    <line x1="73.52197093285804%" y1="83.76567576431266%" x2="62.04713598084369%" y2="66.21488357541605%" stroke="#0038A8" stroke-width="1.383597508430106" opacity="0.6652550206196075" />
+    
+        <rect x="0" y="740" width="100%" height="60" fill="#000" opacity="0.7" />
+        <text x="30" y="775" font-family="monospace" font-weight="bold" font-size="24" fill="#FFFFFF" letter-spacing="4">
+            NEUROMANDALA
+        </text>
+        <text x="1170" y="775" text-anchor="end" font-family="monospace" font-size="14" fill="#FFFFFF" opacity="0.7">
+            GEN.ASSET.V2 // NODE
         </text>
     
-    <rect width="100%" height="100%" filter="url(#noise-neuromandala)" opacity="0.3" pointer-events="none" />
+    <rect width="100%" height="100%" filter="url(#noise-neuromandala)" opacity="0.15" pointer-events="none" />
 </svg>

@@ -1,5 +1,16 @@
 
 /** @type {import('tailwindcss').Config} */
+
+// Helper to support opacity with CSS vars
+function withOpacityValue(variable) {
+  return ({ opacityValue }) => {
+    if (opacityValue === undefined) {
+      return `rgb(var(${variable}))`
+    }
+    return `rgb(var(${variable}) / ${opacityValue})`
+  }
+}
+
 export default {
   content: [
     "./index.html",
@@ -11,43 +22,52 @@ export default {
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       colors: {
-        // The Wall: Deep warm grey, almost brown/black.
-        canvas: '#161514', 
+        canvas: withOpacityValue('--color-canvas'),
+        surface: withOpacityValue('--color-surface'),
+        overlay: withOpacityValue('--color-overlay'),
         
-        // Surface is transparent usually, but if needed, a darker shade of the wall
-        surface: '#161514',      
-        surfaceHighlight: '#1f1e1d', 
-        
-        // Faint grid lines projected on the wall
-        border: 'rgba(255, 255, 255, 0.08)',       
+        // The Projector Light (White in dark, Ink in light)
+        hud: withOpacityValue('--color-hud'),
+
+        // FIXED: Use modern slash syntax for alpha with space-separated vars
+        // UPDATED: Added 'dim' variant for internal content separators
+        border: {
+          DEFAULT: `rgb(var(--color-border) / var(--opacity-border))`,       
+          dim: `rgb(var(--color-border) / var(--opacity-border-dim))`,
+        },
         
         txt: {
-          // Projector White: slightly off-white to look realistic, high brightness
-          main: '#e4e4e7',       // Zinc 200
-          muted: '#a1a1aa',      // Zinc 400
-          dim: '#52525b',        // Zinc 600
+          main: withOpacityValue('--color-txt-main'),
+          muted: withOpacityValue('--color-txt-muted'),
+          dim: withOpacityValue('--color-txt-dim'),
         },
 
         accent: {
-          // Laser Green: Sharper, more synthetic
-          DEFAULT: '#00ff9d',    
-          dim: 'rgba(0, 255, 157, 0.05)', 
-          // Reduced glow opacity (0.4 -> 0.2)
-          glow: 'rgba(0, 255, 157, 0.2)', 
-          text: '#00ff9d',       
+          DEFAULT: withOpacityValue('--color-accent'),
+          // FIXED: Modern syntax
+          dim: 'rgb(var(--color-accent) / 0.05)', 
+          glow: 'rgb(var(--color-accent) / 0.2)', 
+          text: withOpacityValue('--color-accent'),       
         },
       },
       boxShadow: {
-          // Soft white glow for projector elements (Reduced intensity)
-          'projector': '0 0 10px rgba(255, 255, 255, 0.05)',
-          // Sharp green glow for laser elements - Reduced blur (10px -> 6px)
-          'laser': '0 0 3px theme("colors.accent.DEFAULT"), 0 0 6px theme("colors.accent.glow")',
+          // Layer 5: Projector Bloom
+          'projector': '0 0 15px rgb(var(--color-hud) / 0.1)',
+          
+          // Layer 6: Laser Sharp Glow
+          'laser': '0 0 5px rgb(var(--color-accent)), 0 0 10px rgb(var(--color-accent) / 0.4)',
+          
+          // Layer 2 & 3: Physical Panel Shadow (The Plate)
+          'plate': '0 10px 30px -10px rgba(0, 0, 0, 0.5)',
+          
+          // Layer 3: Diode Ambient Glow
+          'diode': '0 0 40px -5px rgb(var(--color-accent) / 0.15)',
       },
       dropShadow: {
-          // Bloom effects for text/icons (Significantly reduced for subtle readability)
-          'projector': '0 0 4px rgba(228, 228, 231, 0.15)',
-          // Toned down laser drop shadow
-          'laser': '0 0 2px theme("colors.accent.DEFAULT")',
+          // Text Projection
+          'projector': '0 0 8px rgb(var(--color-hud) / 0.3)',
+          // Laser Text
+          'laser': '0 0 4px rgb(var(--color-accent))',
       },
       animation: {
           'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite', 

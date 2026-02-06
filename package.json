@@ -1,13 +1,17 @@
+
 {
   "name": "oda-dream-interface",
   "private": true,
-  "version": "2.0.0",
+  "version": "0.5.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "npm run assets:generate && tsc && vite build",
     "preview": "vite preview",
-    "assets:generate": "node scripts/generate-assets.js"
+    "assets:generate": "node scripts/generate-assets.js",
+    "assets:clean": "node scripts/generate-assets.js --clean",
+    "assets:map": "node scripts/generate-map.js",
+    "version:sync": "node scripts/update-version.js"
   },
   "dependencies": {
     "clsx": "^2.1.0",

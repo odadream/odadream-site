@@ -5,23 +5,108 @@
 
 @layer base {
   :root {
-    /* Desktop: 38% Text / 62% Visuals */
+    /* --- METRICS & MODULAR GRID --- */
+    
+    /* 
+     * THE GOLDEN MODULE (GUTTER)
+     * Synchronizes padding and bar widths.
+     */
+    --layout-gutter: 1.25rem; /* Mobile: 20px */
+    
+    /* Max width for readable text paragraphs */
+    --reading-width: 65ch; 
+
     --desktop-text-width: 38%;
-    
-    /* Grid Mobile Height */
     --mobile-grid-height: 49%;
-    
-    /* UNIFIED BAR HEIGHT */
-    /* 2.75rem = 44px (matches h-11 tailwind class) */
     --bar-height: 2.75rem;
-    
     --mobile-header-height: 2.75rem;
+
+    /* --- GLOBAL DEFAULTS --- */
+    --opacity-border: 0.1;
+    --opacity-border-dim: 0.05;
+  }
+  
+  @media (min-width: 768px) {
+    :root {
+      /* Desktop Module: 3rem (48px) */
+      --layout-gutter: 3rem; 
+    }
+  }
+
+  /* 
+   * PHYSICS ENGINE: LIGHTING & MATERIALS
+   */
+
+  /* THEME: DARK (Projector + Laser + Diode + Moonlight) */
+  :root, [data-theme='dark'] {
+    --color-canvas: 22 21 20;       /* #161514 */
+    --color-surface: 22 21 20;      
+    --color-hud: 240 240 240;       /* E-ink white */
+    --color-accent: 0 255 157;      /* #00ff9d */
+    --color-txt-main: 240 240 240;  
+    --color-txt-muted: 113 113 122; 
+    --color-txt-dim: 63 63 70;      
+    --color-border: 255 255 255;    
+    --opacity-border: 0.1;
+    --opacity-border-dim: 0.05;     
+    --color-overlay: 255 255 255;   
+  }
+
+  /* THEME: LIGHT (Sun + Ink + Paper) */
+  [data-theme='light'] {
+    --color-canvas: 245 245 244;    /* Stone 100 */
+    --color-surface: 245 245 244;   
+    --color-hud: 28 25 23;          /* Stone 900 */
+    --color-accent: 234 88 12;      /* Orange 600 */
+    --color-txt-main: 28 25 23;     
+    --color-txt-muted: 87 83 78;    
+    --color-txt-dim: 168 162 158;   
+    --color-border: 0 0 0;          
+    --opacity-border: 0.08;
+    --opacity-border-dim: 0.04;
+    --color-overlay: 0 0 0;         
+  }
+
+  /* THEME: OCEAN */
+  [data-theme='ocean'] {
+    --color-canvas: 2 6 23;
+    --color-surface: 2 6 23;        
+    --color-hud: 203 213 225;       
+    --color-accent: 56 189 248;     
+    --color-txt-main: 226 232 240;
+    --color-txt-muted: 100 116 139;
+    --color-txt-dim: 51 65 85;
+    --color-border: 56 189 248;
+    --opacity-border: 0.15;
+    --opacity-border-dim: 0.08;
+    --color-overlay: 148 163 184;
+  }
+
+  /* THEME: MATRIX */
+  [data-theme='matrix'] {
+    --color-canvas: 0 0 0;
+    --color-surface: 0 0 0;         
+    --color-hud: 74 222 128;        
+    --color-accent: 0 255 0;        
+    --color-txt-main: 74 222 128;
+    --color-txt-muted: 22 163 74;
+    --color-txt-dim: 20 83 45;
+    --color-border: 0 255 0;
+    --opacity-border: 0.2;
+    --opacity-border-dim: 0.1;
+    --color-overlay: 0 255 0;
   }
 
   body {
-    @apply bg-canvas text-txt-main font-mono overflow-hidden antialiased;
-    /* Prevents pull-to-refresh/elastic bounce on mobile, critical for app-like feel */
+    background-color: rgb(var(--color-canvas)); 
+    color: rgb(var(--color-txt-main));
+    font-family: "JetBrains Mono", monospace;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-tap-highlight-color: transparent;
     overscroll-behavior-y: none;
+    transition: background-color 0.5s ease, color 0.5s ease;
   }
 }
 
@@ -34,16 +119,17 @@
       scrollbar-width: none;
   }
   
-  /* Performance Utilities */
   .will-change-transform {
     will-change: transform;
   }
-  .will-change-opacity {
-    will-change: opacity;
+  
+  /* Optimization for layout shifting layers */
+  .optimize-layers {
+      will-change: transform, opacity;
+      transform: translateZ(0);
   }
 }
 
-/* WALL TEXTURE (NOISE) */
 .bg-noise {
   position: fixed;
   top: 0;
@@ -51,14 +137,17 @@
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 50; 
-  opacity: 0.15; 
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay; 
+  z-index: 60; 
+  opacity: 0.35; 
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* CUSTOM SCROLLBAR */
+[data-theme='light'] .bg-noise { mix-blend-mode: multiply; opacity: 0.15; }
+[data-theme='dark'] .bg-noise { mix-blend-mode: overlay; opacity: 0.2; }
+[data-theme='ocean'] .bg-noise { mix-blend-mode: overlay; opacity: 0.25; }
+[data-theme='matrix'] .bg-noise { mix-blend-mode: overlay; opacity: 0.3; }
+
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #27272a; border-radius: 0px; }
-::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+::-webkit-scrollbar-thumb { background: rgb(var(--color-surface)); border-radius: 0px; }
+::-webkit-scrollbar-thumb:hover { background: rgb(var(--color-txt-dim)); }

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { 
@@ -10,7 +10,7 @@ import {
 
 import { LotusNode } from '../types';
 import { THEME } from '../styles/theme';
-import { TRANSITIONS } from '../styles/animations';
+import { TRANSITIONS, MotionDiv } from '../styles/animations';
 import { Breadcrumbs } from './Breadcrumbs';
 import { CyberText } from './CyberText';
 import { LotusSidebar } from './LotusSidebar';
@@ -20,10 +20,6 @@ import { useLotusLogic } from '../hooks/useLotusLogic';
 
 const cn = (...inputs: (string | undefined | null | false)[]) => twMerge(clsx(inputs));
 
-// Fix for framer-motion types
-type Variants = any;
-const MotionDiv = motion.div as any;
-
 type GridNode = LotusNode & { isCenter: boolean };
 
 const ARROW_ROTATIONS = [
@@ -32,10 +28,7 @@ const ARROW_ROTATIONS = [
     'rotate-[-135deg]','rotate-180', 'rotate-[135deg]' 
 ];
 
-// --- ANIMATION CONFIG ---
-
-// Simple fade for cell content updates, no scaling to avoid layout jitter
-const cellVariants: Variants = {
+const cellVariants = {
     initial: { opacity: 0 },
     animate: { 
         opacity: 1, 
@@ -47,20 +40,19 @@ const cellVariants: Variants = {
     }
 };
 
-const CornerBrackets = ({ show, accent }: { show: boolean; accent: boolean }) => {
-    const borderColor = accent ? 'border-accent' : 'border-zinc-700';
-    const glowClass = accent ? 'drop-shadow-laser' : '';
+const CornerBrackets = React.memo(({ show, accent }: { show: boolean; accent: boolean }) => {
+    const borderColor = accent ? 'border-accent' : 'border-txt-dim';
     const opacityClass = accent ? 'opacity-100' : (show ? 'opacity-30 group-hover:opacity-100 transition-opacity duration-300' : 'opacity-0');
     
     return (
         <div className={cn("absolute inset-0 pointer-events-none z-30 mix-blend-screen", opacityClass)}>
-            <div className={cn("absolute top-0 left-0 border-t-[1px] border-l-[1px] w-1.5 h-1.5 md:w-2 md:h-2 transition-colors duration-300", borderColor, glowClass)} />
-            <div className={cn("absolute top-0 right-0 border-t-[1px] border-r-[1px] w-1.5 h-1.5 md:w-2 md:h-2 transition-colors duration-300", borderColor, glowClass)} />
-            <div className={cn("absolute bottom-0 left-0 border-b-[1px] border-l-[1px] w-1.5 h-1.5 md:w-2 md:h-2 transition-colors duration-300", borderColor, glowClass)} />
-            <div className={cn("absolute bottom-0 right-0 border-b-[1px] border-r-[1px] w-1.5 h-1.5 md:w-2 md:h-2 transition-colors duration-300", borderColor, glowClass)} />
+            <div className={cn("absolute top-0 left-0 border-t-[1px] border-l-[1px] w-1.5 h-1.5 md:w-2 md:h-2 transition-colors duration-300", borderColor)} />
+            <div className={cn("absolute top-0 right-0 border-t-[1px] border-r-[1px] w-1.5 h-1.5 md:w-2 md:h-2 transition-colors duration-300", borderColor)} />
+            <div className={cn("absolute bottom-0 left-0 border-b-[1px] border-l-[1px] w-1.5 h-1.5 md:w-2 md:h-2 transition-colors duration-300", borderColor)} />
+            <div className={cn("absolute bottom-0 right-0 border-b-[1px] border-r-[1px] w-1.5 h-1.5 md:w-2 md:h-2 transition-colors duration-300", borderColor)} />
         </div>
     );
-};
+});
 
 const NoSignal = () => (
     <div className="absolute inset-0 flex flex-col items-center justify-center bg-transparent overflow-hidden mix-blend-screen pointer-events-none">
@@ -73,19 +65,12 @@ const NoSignal = () => (
 const GridCell = React.memo(({ cell, index }: { cell: GridNode | null; index: number }) => {
     const { navigate, goBack, lang, path } = useNavigation();
     const [isHovered, setIsHovered] = useState(false);
-    
-    // We force re-render/animate on cell ID change
     const { src: activeSrc, handleError, isDead } = useImageFallback(cell?.imageUrl, cell?.id);
 
     if (!cell) {
         return (
-            <div 
-                // Added w-full h-full to ensure the empty cell container fills the grid area,
-                // enabling centering and full-cell hover area.
-                className={cn(THEME.lotus.cellEmpty, "group w-full h-full")} 
-                aria-hidden="true"
-            >
-                <Plus className="w-3 h-3 text-zinc-700 transition-all duration-500 group-hover:text-zinc-500 group-hover:rotate-90 group-hover:scale-125" strokeWidth={1.5} />
+            <div className={cn(THEME.lotus.cellEmpty, "group w-full h-full")} aria-hidden="true">
+                <Plus className="w-3 h-3 text-txt-dim transition-all duration-500 group-hover:text-txt-muted group-hover:rotate-90 group-hover:scale-125" strokeWidth={1.5} />
             </div>
         );
     }
@@ -117,9 +102,6 @@ const GridCell = React.memo(({ cell, index }: { cell: GridNode | null; index: nu
         TypeIcon = cell.mediaType === 'video' ? Film : cell.mediaType === 'audio' ? AudioLines : ImageIcon;
     }
 
-    const showMediaFallback = isMedia && (!activeSrc || isDead);
-    const FallbackIcon = TypeIcon; 
-
     const handleClick = () => {
         if (cell.isCenter) {
             if (canGoBack) goBack();
@@ -134,21 +116,17 @@ const GridCell = React.memo(({ cell, index }: { cell: GridNode | null; index: nu
 
     return (
         <MotionDiv
-            key={cell.id} // Forces animation when cell identity changes
+            key={cell.id} 
             variants={cellVariants}
             initial="initial"
             animate="animate"
             exit="exit"
-            className={cn(
-                THEME.lotus.cell, 
-                cell.isCenter ? THEME.lotus.cellActive : THEME.lotus.cellInteractive
-            )}
+            className={cn(THEME.lotus.cell, cell.isCenter ? THEME.lotus.cellActive : THEME.lotus.cellInteractive)}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onClick={handleClick}
             role="button"
             tabIndex={0}
-            aria-label={cell.isCenter && canGoBack ? "Go Back" : `Navigate to ${displayTitle}`}
             onKeyDown={(e: React.KeyboardEvent) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -158,10 +136,15 @@ const GridCell = React.memo(({ cell, index }: { cell: GridNode | null; index: nu
         >
             <CornerBrackets show={true} accent={cell.isCenter} />
 
+            {/* BACKGROUND LAYER */}
             <div className={cn(
                 "absolute inset-0 z-0 overflow-hidden transition-all duration-700 ease-out",
                 "bg-transparent",
-                cell.isCenter ? "opacity-100 grayscale-0" : isVisualNode ? "opacity-60 hover:opacity-100 grayscale hover:grayscale-0" : "opacity-30 hover:opacity-80 grayscale hover:grayscale-0"
+                cell.isCenter 
+                    ? "opacity-100 grayscale-0" 
+                    : isVisualNode 
+                        ? "opacity-60 hover:opacity-90 grayscale hover:grayscale-0" 
+                        : "opacity-30 hover:opacity-80 grayscale hover:grayscale-0" 
             )}>
                 {activeSrc && !isDead && (
                     <img 
@@ -171,38 +154,47 @@ const GridCell = React.memo(({ cell, index }: { cell: GridNode | null; index: nu
                         draggable={false}
                         className={cn(
                             "w-full h-full object-cover transition-transform duration-1000 pointer-events-none select-none", 
-                            cell.isCenter ? "mix-blend-normal" : "mix-blend-lighten"
+                            cell.isCenter ? "mix-blend-normal" : "mix-blend-luminosity hover:mix-blend-normal"
                         )}
                         alt="" 
                     />
                 )}
-
                 {isDead && <NoSignal />}
                 
-                {showMediaFallback && !isDead && (
-                     <div className="absolute inset-0 flex items-center justify-center opacity-30 mix-blend-screen pointer-events-none">
-                         <FallbackIcon className="w-16 h-16 text-zinc-600 stroke-[0.5px]" />
+                {/* Fallback Icon if no image and no signal */}
+                {isMedia && (!activeSrc || isDead) && (
+                     <div className="absolute inset-0 flex items-center justify-center opacity-30 mix-blend-multiply pointer-events-none">
+                         <TypeIcon className="w-16 h-16 text-txt-muted stroke-[0.5px]" />
                      </div>
                 )}
                 
-                {!activeSrc && !showMediaFallback && !isDead && (
-                     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent mix-blend-overlay pointer-events-none" />
+                {/* Glare & Vignette */}
+                {!activeSrc && !isDead && (
+                     <div className="absolute inset-0 bg-gradient-to-br from-overlay/10 to-transparent pointer-events-none" />
                 )}
-                
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(22,21,20,0.8)_120%)] pointer-events-none z-10 backdrop-blur-[1px]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_120%)] pointer-events-none z-10" />
             </div>
 
-            <div className={cn("relative z-20 flex flex-col items-center justify-between w-full h-full p-2 md:p-4 text-center pointer-events-none transition-opacity duration-300 mix-blend-screen", cell.isCenter || isHovered ? "opacity-100" : "opacity-50")}>
+            {/* HUD LAYER */}
+            <div className={cn(
+                "relative z-20 flex flex-col items-center justify-between w-full h-full p-2 md:p-4 text-center pointer-events-none transition-opacity duration-300 mix-blend-screen", 
+                cell.isCenter || isHovered ? THEME.navigation.opacity.active : THEME.navigation.opacity.inactive
+            )}>
                 <div className="flex-1" />
-
-                <div className={cn("flex-shrink-0 mb-1 md:mb-2 transition-all duration-300 transform", actionRotation, cell.isCenter ? "text-accent drop-shadow-laser group-hover:scale-110" : "text-zinc-500 group-hover:text-zinc-300 group-hover:scale-110")}>
+                <div className={cn(
+                    "flex-shrink-0 mb-1 md:mb-2 transition-all duration-300 transform", 
+                    actionRotation, 
+                    cell.isCenter ? THEME.navigation.icon.active + " group-hover:scale-110" : THEME.navigation.icon.base + " group-hover:scale-110"
+                )}>
                     <ActionIcon strokeWidth={1.5} className="w-4 h-4 md:w-6 md:h-6 transition-all" />
                 </div>
-
                 <div className="flex-1 flex flex-col justify-end w-full">
                     <div className="flex items-center justify-center gap-1.5 md:gap-2 w-full">
-                        <TypeIcon strokeWidth={1} className={cn("w-2.5 h-2.5 md:w-3 md:h-3 flex-shrink-0", cell.isCenter ? "text-accent drop-shadow-laser" : "text-zinc-500 group-hover:text-zinc-300")} />
-                        <span className={cn(THEME.typography.ui, "transition-all duration-300 line-clamp-1 break-all", cell.isCenter ? "text-zinc-100 drop-shadow-projector" : "text-zinc-500 group-hover:text-zinc-300")}>
+                        <TypeIcon strokeWidth={1} className={cn("w-2.5 h-2.5 md:w-3 md:h-3 flex-shrink-0", cell.isCenter ? THEME.navigation.icon.active : THEME.navigation.icon.base)} />
+                        <span className={cn(
+                            THEME.typography.ui, "transition-all duration-300 line-clamp-1 break-all", 
+                            cell.isCenter ? THEME.navigation.text.active : THEME.navigation.text.base
+                        )}>
                             <CyberText text={displayTitle} triggerKey={cell.id + (isHovered ? 'hover' : '')} />
                         </span>
                     </div>
@@ -213,10 +205,7 @@ const GridCell = React.memo(({ cell, index }: { cell: GridNode | null; index: nu
 });
 
 export const LotusGrid: React.FC = () => {
-  const { 
-      currentNode, lang, isDesktop, isGridCollapsed, toggleGrid, navigatorHighlight 
-  } = useNavigation();
-
+  const { currentNode, lang, isDesktop, isGridCollapsed, toggleGrid, navigatorHighlight } = useNavigation();
   const { gridCells } = useLotusLogic(currentNode, lang);
 
   const currentState = isDesktop ? "desktop" : (isGridCollapsed ? "mobileCollapsed" : "mobileExpanded");
@@ -228,14 +217,8 @@ export const LotusGrid: React.FC = () => {
         animate={currentState}
         variants={{
             desktop: { height: '100%' },
-            mobileExpanded: { 
-                height: 'var(--mobile-grid-height)', 
-                transition: TRANSITIONS.layout
-            },
-            mobileCollapsed: { 
-                height: 'var(--bar-height)', 
-                transition: TRANSITIONS.layout
-            }
+            mobileExpanded: { height: 'var(--mobile-grid-height)', transition: TRANSITIONS.layout },
+            mobileCollapsed: { height: 'var(--bar-height)', transition: TRANSITIONS.layout }
         }}
         style={{ touchAction: "none" }} 
     >
@@ -247,14 +230,10 @@ export const LotusGrid: React.FC = () => {
             toggleGrid={toggleGrid}
             navigatorHighlight={navigatorHighlight}
         />
-        
         <div className={cn(
             "flex-1 relative transition-opacity duration-300 min-h-0 flex flex-col",
             !isDesktop && isGridCollapsed ? "opacity-0 pointer-events-none" : "opacity-100"
         )}>
-            {/* 
-               Grid frame fills available vertical space minus breadcrumbs.
-            */}
             <div className={cn(THEME.lotus.frame, "flex-1 min-h-0")}>
                 <div className={THEME.lotus.gridWrapper}>
                     <AnimatePresence mode="popLayout">
@@ -266,8 +245,7 @@ export const LotusGrid: React.FC = () => {
                     </AnimatePresence>
                 </div>
             </div>
-            
-            <div className="shrink-0 z-50 w-full bg-canvas/80 backdrop-blur-sm">
+            <div className="shrink-0 z-50 w-full bg-transparent">
                 <Breadcrumbs />
             </div>
         </div>

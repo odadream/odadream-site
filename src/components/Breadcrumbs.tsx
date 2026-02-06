@@ -61,14 +61,14 @@ export const Breadcrumbs: React.FC = () => {
                               // Updated padding to px-2 py-1.5 to fill vertical space better and align horizontally with grid cell starts.
                               className={`
                                   group flex items-center gap-2 px-2 py-1.5 rounded-sm transition-all duration-300 shrink-0
-                                  ${isLast ? 'text-zinc-100 cursor-default' : 'text-zinc-600 hover:text-zinc-300'}
+                                  ${isLast ? 'cursor-default' : THEME.navigation.text.base}
                               `}
                           >
                               {/* Added strokeWidth={1.5} for better weight balance with text */}
-                              <Icon className={`w-3 h-3 ${isLast ? 'text-accent drop-shadow-laser' : 'group-hover:text-accent transition-colors'}`} strokeWidth={1.5} />
+                              <Icon className={`w-3 h-3 ${isLast ? THEME.navigation.icon.active : THEME.navigation.icon.base}`} strokeWidth={1.5} />
                               
                               {/* Added leading-none to remove vertical line-height offsets */}
-                              <span className={`${THEME.typography.meta} leading-none ${isLast ? 'text-zinc-100' : 'text-zinc-600 group-hover:text-zinc-300'}`}>
+                              <span className={`${THEME.typography.meta} leading-none ${isLast ? 'text-zinc-100' : ''}`}>
                                   {node.shortTitle?.[lang] || node.title[lang]}
                               </span>
                           </button>
