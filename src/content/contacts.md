@@ -1,4 +1,3 @@
-
 ---
 id: contacts
 parent: home
@@ -6,26 +5,37 @@ title_en: Contacts
 title_ru: Контакты
 type: action
 tags: [signal, antenna]
-order: 5
+date: 2026.02.07
 ---
-## CONTACTS
-**Signal**
 
-Ready to collaborate?
+**Signal**: Ready to collaborate?
 
-**Email**: hello@odadream.art
-**Social**: @oda.dream
+**Direct Messages**
 
-*Transmission Ends.*
+- Email: [hi@odadream.art](mailto:hi@adream.art)
+- Telegram: [@odadream_info](https://t.me/odadream_info)
+
+**Information Channels**
+
+- Announcement Channel (Telegram): [@odadream](https://t.me/odadream)
+- Blog & Portfolio (Dzen): [@odadream](https://dzen.ru/odadream)
+- Archive (Instagram): [@odadream](https://instagram.com/odadream)
+
+_End of transmission._
 
 ---RU---
 
-## КОНТАКТЫ
-**Сигнал**
+**Сигнал**: Готовы к сотрудничеству?
 
-Готовы к сотрудничеству?
+**Личные сообщения**
 
-**Email**: hello@odadream.art
-**Соцсети**: @oda.dream
+- Email: [hi@odadream.art](mailto:hi@odadream.art)
+- Telegram: [@odadream_info](https://t.me/odadream_info)
 
-*Конец Связи.*
+**Каналы информации**
+
+- Канал анонсов (Telegram): [@odadream](https://t.me/odadream)
+- Блог-портфолио (Dzen): [@odadream](https://dzen.ru/odadream)
+- Архив (Instagram): [@odadream](https://instagram.com/odadream)
+
+_Конец передачи._
