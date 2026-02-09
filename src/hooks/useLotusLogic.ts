@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { LotusNode } from "../types";
 import {
   parseContentAndExtractMedia,
-  generateMediaNode,
+  //generateMediaNode,
 } from "../utils/contentProcessor";
 
 export const useLotusLogic = (currentNode: LotusNode, lang: "en" | "ru") => {
