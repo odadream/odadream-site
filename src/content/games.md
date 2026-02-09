@@ -1,4 +1,3 @@
-
 ---
 id: games
 parent: works
@@ -7,25 +6,23 @@ title_ru: Игры
 type: hub
 tags: [gaming, neon]
 order: 0
+date: 2026.02.09
 ---
-## WORKS
-**Archive of Artifacts & Experiences**
 
-Our portfolio spans from physical installations to purely digital realms. We categorize our output by the mode of interaction.
+Active systems where the interaction protocol is built on **neurofeedback**.
 
-- **Games**: Active participation.
-- **Lectures**: Knowledge transfer.
-- **Research**: The "Why" behind the "How".
-- **Objects**: Crystallized moments.
+**Neurobattle**: A duel of mental states in real time. Two participants compete by controlling a virtual object through concentration or relaxation -> [[neurobattle]].
+
+**Brainhack**: A solo protocol for exploring cognitive patterns and training focus -> _(in progress)_.
+
+**Path to Self**: A deep narrative protocol exploring the connection between mental state and personal meaning -> _(in progress)_.
 
 ---RU---
 
-## РАБОТЫ
-**Архив Артефактов и Опытов**
+Активные системы, где протокол взаимодействия строится на **нейробиологической обратной связи** (нейроБОС).
 
-Наше портфолио простирается от физических инсталляций до чисто цифровых миров. Мы категоризируем работы по типу взаимодействия.
+**Нейробитва**: Дуэль ментальных состояний в реальном времени. Два участника соревнуются, управляя виртуальным объектом через концентрацию или расслабление -> [[neurobattle]].
 
-- **Игры**: Активное участие.
-- **Лекции**: Передача знаний.
-- **Исследования**: "Почему" стоящее за "Как".
-- **Объекты**: Кристаллизованные моменты.
+**Взлом Мозга**: Сольный протокол для исследования когнитивных паттернов и тренировки фокуса -> _(в наполнении)_.
+
+**Путь к Себе**: Глубинный нарративный протокол, исследующий связь ментального состояния с персональными смыслами -> _(в наполнении)_.

@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,15 +5,15 @@
 @layer base {
   :root {
     /* --- METRICS & MODULAR GRID --- */
-    
+
     /* 
      * THE GOLDEN MODULE (GUTTER)
      * Synchronizes padding and bar widths.
      */
     --layout-gutter: 1.25rem; /* Mobile: 20px */
-    
+
     /* Max width for readable text paragraphs */
-    --reading-width: 65ch; 
+    --reading-width: 65ch;
 
     --desktop-text-width: 38%;
     --mobile-grid-height: 49%;
@@ -24,41 +23,41 @@
     /* --- GLOBAL DEFAULTS --- */
     --opacity-border: 0.1;
     --opacity-border-dim: 0.05;
-    
+
     /* --- CENTER CELL EFFECTS --- */
     /* 
      * Center cell is raised above others, casting a shadow and emitting LED glow.
      * All parameters are centralized here for easy adjustment.
      */
-    
+
     /* LED strip glow intensity (very subtle, barely visible) */
     /* Adjust this value (0.0 - 1.0) to control LED brightness */
     --led-strip-opacity: 0.08;
-    
+
     /* LED strip blur radius - controls how soft the glow appears */
     --led-strip-blur: 8px;
-    
+
     /* LED strip spread - controls how far the glow extends */
     --led-strip-spread: 4px;
-    
+
     /* Shadow cast by raised center cell on adjacent cells */
     /* Adjust opacity (0.0 - 1.0) to control shadow intensity */
     --center-shadow-opacity: 0.15;
-    
+
     /* Shadow blur radius - controls shadow softness */
     --center-shadow-blur: 20px;
-    
+
     /* Shadow spread (negative values create inset effect) */
     --center-shadow-spread: -5px;
-    
+
     /* Glow radius from LED strip - how far the light spreads */
     --led-glow-radius: 30px;
   }
-  
+
   @media (min-width: 768px) {
     :root {
       /* Desktop Module: 3rem (48px) */
-      --layout-gutter: 3rem; 
+      --layout-gutter: 3rem;
     }
   }
 
@@ -67,46 +66,47 @@
    */
 
   /* THEME: DARK (Projector + Laser + Diode + Moonlight) */
-  :root, [data-theme='dark'] {
-    --color-canvas: 22 21 20;       /* #161514 - Deep warm charcoal */
-    --color-surface: 22 21 20;      
-    --color-hud: 250 250 250;       /* Bright White for active elements */
-    --color-accent: 0 255 157;      /* #00ff9d - Toxic Green */
-    
+  :root,
+  [data-theme="dark"] {
+    --color-canvas: 22 21 20; /* #161514 - Deep warm charcoal */
+    --color-surface: 22 21 20;
+    --color-hud: 250 250 250; /* Bright White for active elements */
+    --color-accent: 0 255 157; /* #00ff9d - Toxic Green */
+
     /* ACCESSIBILITY UPDATE: High Contrast Text */
-    --color-txt-main: 245 245 245;  /* Main reading text */
+    --color-txt-main: 245 245 245; /* Main reading text */
     --color-txt-muted: 161 161 170; /* Zinc-400 (Was 500) - Much better readability */
-    --color-txt-dim: 82 82 91;      /* Zinc-600 - Visible meta info */
-    
-    --color-border: 255 255 255;    
+    --color-txt-dim: 82 82 91; /* Zinc-600 - Visible meta info 82 82 91 */
+
+    --color-border: 255 255 255;
     --opacity-border: 0.1;
-    --opacity-border-dim: 0.05;     
-    --color-overlay: 255 255 255;   
+    --opacity-border-dim: 0.05;
+    --color-overlay: 255 255 255;
   }
 
   /* THEME: LIGHT (Sun + Ink + Paper) */
-  [data-theme='light'] {
-    --color-canvas: 245 245 244;    /* Stone 100 */
-    --color-surface: 245 245 244;   
-    --color-hud: 12 10 9;           /* Stone 950 - Ink Black */
-    --color-accent: 234 88 12;      /* Orange 600 */
-    
-    --color-txt-main: 28 25 23;     /* Stone 900 */
-    --color-txt-muted: 68 64 60;    /* Stone 700 - High contrast grey */
-    --color-txt-dim: 120 113 108;   /* Stone 500 */
-    
-    --color-border: 0 0 0;          
+  [data-theme="light"] {
+    --color-canvas: 245 245 244; /* Stone 100 */
+    --color-surface: 245 245 244;
+    --color-hud: 12 10 9; /* Stone 950 - Ink Black */
+    --color-accent: 234 88 12; /* Orange 600 */
+
+    --color-txt-main: 28 25 23; /* Stone 900 */
+    --color-txt-muted: 68 64 60; /* Stone 700 - High contrast grey */
+    --color-txt-dim: 120 113 108; /* Stone 500 */
+
+    --color-border: 0 0 0;
     --opacity-border: 0.08;
     --opacity-border-dim: 0.04;
-    --color-overlay: 0 0 0;         
+    --color-overlay: 0 0 0;
   }
 
   /* THEME: OCEAN */
-  [data-theme='ocean'] {
+  [data-theme="ocean"] {
     --color-canvas: 2 6 23;
-    --color-surface: 2 6 23;        
-    --color-hud: 226 232 240;       
-    --color-accent: 56 189 248;     
+    --color-surface: 2 6 23;
+    --color-hud: 226 232 240;
+    --color-accent: 56 189 248;
     --color-txt-main: 241 245 249;
     --color-txt-muted: 148 163 184;
     --color-txt-dim: 71 85 105;
@@ -117,11 +117,11 @@
   }
 
   /* THEME: MATRIX */
-  [data-theme='matrix'] {
+  [data-theme="matrix"] {
     --color-canvas: 0 0 0;
-    --color-surface: 0 0 0;         
-    --color-hud: 74 222 128;        
-    --color-accent: 0 255 0;        
+    --color-surface: 0 0 0;
+    --color-hud: 74 222 128;
+    --color-accent: 0 255 0;
     --color-txt-main: 74 222 128;
     --color-txt-muted: 34 197 94;
     --color-txt-dim: 21 128 61;
@@ -132,7 +132,7 @@
   }
 
   body {
-    background-color: rgb(var(--color-canvas)); 
+    background-color: rgb(var(--color-canvas));
     color: rgb(var(--color-txt-main));
     font-family: "JetBrains Mono", monospace;
     overflow: hidden;
@@ -140,27 +140,29 @@
     text-rendering: optimizeLegibility;
     -webkit-tap-highlight-color: transparent;
     overscroll-behavior-y: none;
-    transition: background-color 0.5s ease, color 0.5s ease;
+    transition:
+      background-color 0.5s ease,
+      color 0.5s ease;
   }
 }
 
 @layer utilities {
   .scrollbar-hide::-webkit-scrollbar {
-      display: none;
+    display: none;
   }
   .scrollbar-hide {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
-  
+
   .will-change-transform {
     will-change: transform;
   }
-  
+
   /* Optimization for layout shifting layers */
   .optimize-layers {
-      will-change: transform, opacity;
-      transform: translateZ(0);
+    will-change: transform, opacity;
+    transform: translateZ(0);
   }
 }
 
@@ -171,17 +173,38 @@
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 60; 
-  opacity: 0.35; 
+  z-index: 60;
+  opacity: 0.35;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-[data-theme='light'] .bg-noise { mix-blend-mode: multiply; opacity: 0.15; }
-[data-theme='dark'] .bg-noise { mix-blend-mode: overlay; opacity: 0.2; }
-[data-theme='ocean'] .bg-noise { mix-blend-mode: overlay; opacity: 0.25; }
-[data-theme='matrix'] .bg-noise { mix-blend-mode: overlay; opacity: 0.3; }
+[data-theme="light"] .bg-noise {
+  mix-blend-mode: multiply;
+  opacity: 0.15;
+}
+[data-theme="dark"] .bg-noise {
+  mix-blend-mode: overlay;
+  opacity: 0.2;
+}
+[data-theme="ocean"] .bg-noise {
+  mix-blend-mode: overlay;
+  opacity: 0.25;
+}
+[data-theme="matrix"] .bg-noise {
+  mix-blend-mode: overlay;
+  opacity: 0.3;
+}
 
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgb(var(--color-surface)); border-radius: 0px; }
-::-webkit-scrollbar-thumb:hover { background: rgb(var(--color-txt-dim)); }
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-surface));
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-txt-dim));
+}

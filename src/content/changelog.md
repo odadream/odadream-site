@@ -1,4 +1,3 @@
-
 ---
 id: changelog
 parent: home
@@ -14,7 +13,11 @@ order: 7
 
 Tracking the architectural metamorphosis of the oda.dream neural interface.
 
-### v0.5.2 (Current)
+### v0.5.3 (Current)
+**Protocol Integration: Neurobattle**
+Integration of the core interactive artifact into the system catalog. The Neurobattle protocol (gen 9 'Flow') is now documented as a primary interaction interface, bridging neural states with generative visualization. Check -> [[neurobattle]]
+
+### v0.5.2
 **Polishing the Prism**
 Refinement of the multi-theme engine and stabilization of global settings.
 
@@ -28,18 +31,15 @@ Major code refactoring. Improved loading speeds, reliability, and graph traversa
 
 ### v0.3.0
 **Tech Noir**
-Visual overhaul. Adoption of the high-contrast, laser-illuminated design language.
-Transition from standard UI to "Projected Interface" aesthetic.
+Visual overhaul. Adoption of the high-contrast, laser-illuminated design language. Transition from standard UI to "Projected Interface" aesthetic.
 
 ### v0.2.0
 **The Core Shift**
-Migration to Google AI Studio, TypeScript, and React.
-Abandonment of static generation in favor of a dynamic Single Page Application (SPA).
+Migration to Google AI Studio, TypeScript, and React. Abandonment of static generation in favor of a dynamic Single Page Application (SPA).
 
 ### v0.1.0
 **Genesis**
-Initial prototype built on Eleventy.js using raw WebGL shaders.
-The birth of the digital subconscious.
+Initial prototype built on Eleventy.js using raw WebGL shaders. The birth of the digital subconscious.
 
 ---RU---
 
@@ -48,7 +48,11 @@ The birth of the digital subconscious.
 
 Отслеживание архитектурных метаморфоз нейроинтерфейса oda.dream.
 
-### v0.5.2 (Текущая)
+### v0.5.3 (Текущая)
+**Интеграция Протокола: Нейробитва**
+Интеграция ключевого интерактивного артефакта в каталог системы. Протокол Нейробитва (gen 9 'Flow') документирован как первичный интерфейс взаимодействия, связывающий нейронные состояния с генеративной визуализацией. См -> [[neurobattle]]
+
+### v0.5.2
 **Полировка Призмы**
 Улучшение движка мульти-тем и стабилизация глобальных настроек.
 
@@ -66,10 +70,8 @@ The birth of the digital subconscious.
 
 ### v0.2.0
 **Сдвиг Ядра**
-Миграция на Google AI Studio, TypeScript и React.
-Отказ от статической генерации в пользу динамического SPA (Single Page Application).
+Миграция на Google AI Studio, TypeScript и React. Отказ от статической генерации в пользу динамического SPA (Single Page Application).
 
 ### v0.1.0
 **Генезис**
-Первоначальный прототип, созданный на Eleventy.js с использованием сырых WebGL шейдеров.
-Рождение цифрового подсознания.
+Первоначальный прототип, созданный на Eleventy.js с использованием сырых WebGL шейдеров. Рождение цифрового подсознания.

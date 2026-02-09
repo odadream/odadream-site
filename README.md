@@ -1,13 +1,12 @@
+# ODA.dream | Neural Art Interface
 
-# oda.dream | Neural Art Interface
-
-![Version](https://img.shields.io/badge/version-0.5.2-emerald)
+![Version](https://img.shields.io/badge/version-0.5.3-emerald)
 ![Status](https://img.shields.io/badge/status-production-blue)
 ![Engine](https://img.shields.io/badge/engine-react_19-cyan)
 
 **The Interface for the Digital Subconscious.**
 
-oda.dream is an immersive portfolio and interactive art installation built for the web. It explores the synthesis of biological wetware and digital hardware through a unique "Blossoming Lotus" spatial navigation system.
+ODA.dream is an immersive portfolio and interactive art installation built for the web. It explores the synthesis of biological wetware and digital hardware through a unique "Blossoming Lotus" spatial navigation system.
 
 ---
 
@@ -15,12 +14,12 @@ oda.dream is an immersive portfolio and interactive art installation built for t
 
 1.  [Quick Start](#-quick-start)
 2.  [Content Management (CMS)](#-content-management-cms)
-    *   [Creating Nodes](#creating-nodes)
-    *   [Media Syntax](#media-syntax)
-    *   [Project Structure](#project-structure)
+    - [Creating Nodes](#creating-nodes)
+    - [Media Syntax](#media-syntax)
+    - [Project Structure](#project-structure)
 3.  [Theming System](#-theming-system)
-    *   [Architecture](#architecture)
-    *   [How to Add a Theme](#how-to-add-a-theme)
+    - [Architecture](#architecture)
+    - [How to Add a Theme](#how-to-add-a-theme)
 4.  [Scripts & Utilities](#-scripts--utilities)
 5.  [Deployment](#-deployment)
 
@@ -29,8 +28,9 @@ oda.dream is an immersive portfolio and interactive art installation built for t
 ## 🚀 Quick Start
 
 ### Prerequisites
-*   Node.js v18+
-*   npm
+
+- Node.js v18+
+- npm
 
 ### Installation
 
@@ -84,24 +84,26 @@ Write your content here using Markdown.
 ```
 
 ### Node Types
-*   **`hub`**: A navigation folder. Displays its children in the Lotus Grid. Icon: Layers.
-*   **`content`**: A leaf node. Displays text in the reading panel. Icon: FileText.
-*   **`media`**: Opens a full-screen Lightbox immediately. Icon: Film/Image.
-*   **`action`**: A node that executes a script or opens an external link.
+
+- **`hub`**: A navigation folder. Displays its children in the Lotus Grid. Icon: Layers.
+- **`content`**: A leaf node. Displays text in the reading panel. Icon: FileText.
+- **`media`**: Opens a full-screen Lightbox immediately. Icon: Film/Image.
+- **`action`**: A node that executes a script or opens an external link.
 
 ### Media Syntax
 
 We support standard Markdown images and a custom "Wiki-Link" syntax for advanced media embedding (Video, Audio, YouTube).
 
-| Type | Syntax | Description |
-| :--- | :--- | :--- |
-| **Standard** | `![Alt Text](/path/to/image.jpg)` | Standard image embedding. |
+| Type              | Syntax                              | Description                              |
+| :---------------- | :---------------------------------- | :--------------------------------------- |
+| **Standard**      | `![Alt Text](/path/to/image.jpg)`   | Standard image embedding.                |
 | **Wiki (Simple)** | `![[ https://site.com/video.mp4 ]]` | Embeds video/audio player automatically. |
-| **Wiki (Poster)** | `![[ url \| title \| poster_url ]]` | Embeds video with a custom cover image. |
+| **Wiki (Poster)** | `![[ url \| title \| poster_url ]]` | Embeds video with a custom cover image.  |
 
 **Example:**
+
 ```markdown
-![[ https://my-bucket.com/video.mp4 | My Art Piece | /images/covers/cover.jpg ]]
+![[https://my-bucket.com/video.mp4 | My Art Piece | /images/covers/cover.jpg]]
 ```
 
 ---
@@ -111,30 +113,40 @@ We support standard Markdown images and a custom "Wiki-Link" syntax for advanced
 The interface uses a CSS Variables approach for theming, controlled by `src/index.css` and React Context.
 
 ### Architecture
+
 Themes are defined as data attributes on the `<html>` tag (e.g., `data-theme="dark"`).
 The colors are semantic variables (e.g., `--color-canvas`, `--color-hud`).
 
 ### How to Add a Theme
 
 1.  **Define Colors**: Open `src/index.css` and add a new block:
+
     ```css
-    [data-theme='my-new-theme'] {
-      --color-canvas: 20 20 20;       /* Background RGB */
-      --color-surface: 30 30 30;      /* Grid Cell RGB */
-      --color-hud: 255 255 255;       /* Primary Text RGB */
-      --color-accent: 255 0 128;      /* Highlight/Laser RGB */
+    [data-theme="my-new-theme"] {
+      --color-canvas: 20 20 20; /* Background RGB */
+      --color-surface: 30 30 30; /* Grid Cell RGB */
+      --color-hud: 255 255 255; /* Primary Text RGB */
+      --color-accent: 255 0 128; /* Highlight/Laser RGB */
       /* ... copy other vars from existing themes ... */
     }
     ```
 
 2.  **Register Type**: Open `src/types.ts` and add the name to the `Theme` type:
+
     ```typescript
-    export type Theme = 'dark' | 'light' | 'ocean' | 'matrix' | 'my-new-theme';
+    export type Theme = "dark" | "light" | "ocean" | "matrix" | "my-new-theme";
     ```
 
 3.  **Update Logic**: Open `src/context/NavigationContext.tsx` and add it to the cycle array:
+
     ```typescript
-    const sequence: Theme[] = ['dark', 'light', 'ocean', 'matrix', 'my-new-theme'];
+    const sequence: Theme[] = [
+      "dark",
+      "light",
+      "ocean",
+      "matrix",
+      "my-new-theme",
+    ];
     ```
 
 4.  **Enable Switcher**: Ensure the toggle button is visible in `src/constants.ts`:
@@ -149,16 +161,19 @@ The colors are semantic variables (e.g., `--color-canvas`, `--color-hud`).
 Automation tools located in `scripts/`.
 
 ### `npm run assets:generate`
-*   **Purpose**: Procedurally generates SVG backgrounds for all nodes defined in `src/content`.
-*   **Why**: Ensures every node has a unique, high-fidelity cover image even if you haven't designed one manually.
-*   **Style**: Uses the "Vibrant Art Engine" (Noise, gradients, geometric primitives).
+
+- **Purpose**: Procedurally generates SVG backgrounds for all nodes defined in `src/content`.
+- **Why**: Ensures every node has a unique, high-fidelity cover image even if you haven't designed one manually.
+- **Style**: Uses the "Vibrant Art Engine" (Noise, gradients, geometric primitives).
 
 ### `npm run assets:clean`
-*   **Purpose**: Deletes all generated assets. Use this if you want to regenerate the visual style from scratch.
+
+- **Purpose**: Deletes all generated assets. Use this if you want to regenerate the visual style from scratch.
 
 ### `npm run assets:map`
-*   **Purpose**: Generates a `CONTENT_TREE.md` file in the `scripts/` folder.
-*   **Why**: Provides a visual tree of your site structure and a manifest of all used media files. Useful for debugging "Orphaned" nodes (nodes with invalid parents).
+
+- **Purpose**: Generates a `CONTENT_TREE.md` file in the `scripts/` folder.
+- **Why**: Provides a visual tree of your site structure and a manifest of all used media files. Useful for debugging "Orphaned" nodes (nodes with invalid parents).
 
 ---
 
@@ -167,23 +182,30 @@ Automation tools located in `scripts/`.
 The project is configured for static hosting (GitHub Pages, Vercel, Netlify).
 
 ### Build for Production
+
 ```bash
 npm run build
 ```
+
 This command:
+
 1.  Generates assets.
 2.  Compiles TypeScript.
 3.  Builds the Vite bundle to the `dist/` folder.
 
 ### GitHub Pages (Automated)
+
 A workflow is included in `.github/workflows/deploy.yml`.
+
 1.  Push code to the `main` branch.
 2.  GitHub Actions will automatically build and deploy to your Pages URL.
 
 ### Manual Deployment
+
 Upload the contents of the `dist/` folder to any static file server.
-*   **Note**: Ensure your server handles `index.html` fallback for SPA routing if you use deep links (though this app relies primarily on query params `?id=`, which works universally).
+
+- **Note**: Ensure your server handles `index.html` fallback for SPA routing if you use deep links (though this app relies primarily on query params `?id=`, which works universally).
 
 ---
 
-**© 2024 oda.dream** | *Silicon & Synapse*
+**© 2018 - 2026 ODA.dream** | _Wellness Art Tech_
