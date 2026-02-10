@@ -1,4 +1,3 @@
-
 ---
 id: objects
 parent: works
@@ -7,8 +6,11 @@ title_ru: Объекты
 type: hub
 tags: [object, artifact]
 order: 4
+visible: false
 ---
+
 ## MOM AND BABY
+
 **The First Bond**
 
 Visualizing the neural synchronization between a mother and child during breastfeeding.
@@ -16,6 +18,7 @@ Visualizing the neural synchronization between a mother and child during breastf
 ---RU---
 
 ## МАМА И МАЛЫШ
+
 **Первая Связь**
 
 Визуализация нейронной синхронизации между матерью и ребенком во время грудного вскармливания.

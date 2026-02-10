@@ -1,62 +1,83 @@
 import { useMemo } from "react";
 import { LotusNode } from "../types";
-import {
-  parseContentAndExtractMedia,
-  //generateMediaNode,
-} from "../utils/contentProcessor";
+import { parseContentAndExtractMedia } from "../utils/contentProcessor";
 
+/**
+ * Comparator function for sorting LotusNode objects with fallback logic
+ *
+ * @param a - First node to compare
+ * @param b - Second node to compare
+ * @returns Negative if a comes before b, positive if after, zero if equal
+ */
+const createNodeComparator =
+  () =>
+  (a: LotusNode, b: LotusNode): number => {
+    const orderA = a.order ?? Infinity;
+    const orderB = b.order ?? Infinity;
+
+    if (orderA !== orderB) {
+      return orderA - orderB;
+    }
+
+    return a.id.localeCompare(b.id);
+  };
+
+/**
+ * Custom hook that processes the current LotusNode and prepares a 3x3 grid layout
+ *
+ * @remarks
+ * This hook is responsible for:
+ * - Filtering nodes by visibility (`visible !== false`)
+ * - Sorting nodes using order → id priority
+ * - Parsing media nodes from markdown content
+ * - Limiting display to 8 neighboring cells
+ * - Preventing frontmatter media duplication
+ *
+ * @param currentNode - The currently active/focused node
+ * @param lang - Current interface language ('en' or 'ru')
+ * @returns Object containing `gridCells` array for 3x3 grid rendering
+ *
+ * @example
+ * ```tsx
+ * const { gridCells } = useLotusLogic(currentNode, 'en');
+ * // gridCells[4] is always the center cell with currentNode
+ * ```
+ */
 export const useLotusLogic = (currentNode: LotusNode, lang: "en" | "ru") => {
-  // Extract display children (static children + media nodes parsed from text)
+  const nodeComparator = useMemo(createNodeComparator, []);
+
   const displayChildren = useMemo(() => {
     const rawText = currentNode.description[lang] || "";
-
-    // 1. Get media from Text (Deduplicated inside parser)
     const { mediaNodes } = parseContentAndExtractMedia(rawText);
 
-    // 2. Get static children from graph
-    const staticChildren = currentNode.children || [];
+    const staticChildren = (currentNode.children || [])
+      .filter((child) => child.visible !== false)
+      .sort(nodeComparator);
 
-    // 3. Smart Merge: Check if Frontmatter Media should be included as a petal
-    const mergedMedia = [...mediaNodes];
+    const filteredMediaNodes = mediaNodes
+      .filter((media) => media.visible !== false)
+      .sort(nodeComparator);
 
-    // if (currentNode.mediaUrl) {
-    //     // Is this a default generated asset? (e.g., /images/nodes/home.svg)
-    //     // If so, we don't want it as a clickable petal.
-    //     const isDefaultAsset = currentNode.mediaUrl.includes('/nodes/') && currentNode.mediaUrl.endsWith('.svg');
-
-    //     if (!isDefaultAsset) {
-    //         // DEDUPLICATION:
-    //         // Check if the Frontmatter media is ALREADY used in the text.
-    //         const existsInText = mediaNodes.some(n =>
-    //             n.mediaUrl === currentNode.mediaUrl ||
-    //             n.imageUrl === currentNode.mediaUrl
-    //         );
-
-    //         if (!existsInText) {
-    //             const frontmatterNode = generateMediaNode(currentNode.mediaUrl, -1, 'COVER');
-    //             mergedMedia.unshift(frontmatterNode);
-    //         }
-    //     }
-    // }
-
-    const allChildren = [...staticChildren, ...mergedMedia];
-    return allChildren.slice(0, 8); // Max 8 neighbors
-  }, [currentNode, lang]);
+    return [...staticChildren, ...filteredMediaNodes].slice(0, 8);
+  }, [currentNode, lang, nodeComparator]);
 
   // Map to 3x3 Grid
   // [0, 1, 2]
   // [3, C, 5]  <-- C is Center (Index 4)
   // [6, 7, 8]
+
   const gridCells = useMemo(() => {
     return Array(9)
       .fill(null)
-      .map((_, index) => {
-        if (index === 4) return { ...currentNode, isCenter: true };
-        // Adjust index to skip center for children
-        let childIndex = index < 4 ? index : index - 1;
-        return displayChildren[childIndex]
-          ? { ...displayChildren[childIndex], isCenter: false }
-          : null;
+      .map((_, gridIndex) => {
+        if (gridIndex === 4) {
+          return { ...currentNode, isCenter: true };
+        }
+
+        const childIndex = gridIndex < 4 ? gridIndex : gridIndex - 1;
+        const child = displayChildren[childIndex];
+
+        return child ? { ...child, isCenter: false } : null;
       });
   }, [currentNode, displayChildren]);
 

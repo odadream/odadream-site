@@ -6,6 +6,7 @@ title_ru: Контакты
 type: action
 tags: [signal, antenna]
 date: 2026.02.07
+order: 1
 ---
 
 **Signal**: Ready to collaborate?

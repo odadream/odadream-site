@@ -1,4 +1,3 @@
-
 ---
 id: events
 parent: home
@@ -7,8 +6,11 @@ title_ru: События
 type: hub
 tags: [concert, crowd]
 order: 2
+visible: false
 ---
+
 ## EVENTS
+
 **Space & Time**
 
 Where the digital manifests in the physical.
@@ -20,6 +22,7 @@ Check our latest visual essay:
 ---RU---
 
 ## СОБЫТИЯ
+
 **Пространство и Время**
 
 Где цифровое проявляется в физическом.

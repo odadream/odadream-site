@@ -1,4 +1,3 @@
-
 ---
 id: mindshow
 parent: workshops
@@ -8,7 +7,9 @@ type: content
 tags: [stage, light]
 order: 4
 ---
+
 ## MINDSHOW
+
 **Improvisation**
 
 An interactive performance where the lighting of the stage is controlled by the actor's emotional valence.
@@ -16,6 +17,7 @@ An interactive performance where the lighting of the stage is controlled by the 
 ---RU---
 
 ## МАЙНД-ШОУ
+
 **Импровизация**
 
 Интерактивный спектакль, где освещение сцены управляется эмоциональной валентностью актера в реальном времени.

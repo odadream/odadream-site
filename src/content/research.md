@@ -1,4 +1,3 @@
-
 ---
 id: research
 parent: works
@@ -7,8 +6,11 @@ title_ru: Исследования
 type: hub
 tags: [lab, science]
 order: 3
+visible: false
 ---
+
 ## CULTURAL HERITAGE
+
 **Preserving the Intangible**
 
 Mapping the neural patterns of traditional craftspeople to preserve not just the object, but the state of mind required to create it.
@@ -16,6 +18,7 @@ Mapping the neural patterns of traditional craftspeople to preserve not just the
 ---RU---
 
 ## КУЛЬТУРНОЕ НАСЛЕДИЕ
+
 **Сохранение Нематериального**
 
 Картирование нейронных паттернов традиционных ремесленников для сохранения не просто объекта, а состояния ума, необходимого для его создания.
