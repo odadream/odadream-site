@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy and Release
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -15,6 +15,41 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Сначала проверяем версию
+  check-version:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      changed: ${{ steps.version.outputs.changed }}
+      tag: ${{ steps.version.outputs.tag }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Check version change
+        id: version
+        run: |
+          VERSION=$(node -p "require('./versions.json').current")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=v$VERSION" >> $GITHUB_OUTPUT
+
+          # Проверяем изменился ли versions.json в последнем коммите
+          if git diff HEAD^ HEAD --name-only | grep -q "versions.json"; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "✅ versions.json changed, will create release"
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "ℹ️  versions.json not changed, skipping release"
+          fi
+
+  # Deploy всегда
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
@@ -29,17 +64,15 @@ jobs:
           node-version: "20"
           cache: "npm"
 
-      # Кэшируем node_modules - при частых деплоях это окупается
       - name: Cache node_modules
         uses: actions/cache@v4
         id: npm-cache
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-npm-
 
-      # Устанавливаем только если кэш промахнулся
       - name: Install dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci --prefer-offline --no-audit
@@ -55,3 +88,63 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  # Release только если версия изменилась
+  create-release:
+    needs: [check-version, build-and-deploy]
+    if: needs.check-version.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Check if tag exists
+        id: tag-check
+        run: |
+          if git ls-remote --tags origin | grep -q "refs/tags/${{ needs.check-version.outputs.tag }}"; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "⚠️  Tag already exists, skipping"
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "✅ Creating new release"
+          fi
+
+      - name: Generate release notes
+        if: steps.tag-check.outputs.exists == 'false'
+        run: |
+          node << 'SCRIPT'
+          const fs = require('fs');
+          const versions = require('./versions.json');
+          const latest = versions.history[0];
+
+          const notes = `## 🎯 ${latest.title_en} / ${latest.title_ru}
+
+          ### 🇬🇧 English
+          ${latest.desc_en}
+
+          ### 🇷🇺 Русский  
+          ${latest.desc_ru}
+
+          ---
+
+          **🌐 Live Demo:** [View on GitHub Pages](https://${process.env.GITHUB_REPOSITORY_OWNER}.github.io/${process.env.GITHUB_REPOSITORY.split('/')[1]}/)
+          `;
+
+          fs.writeFileSync('release_notes.md', notes);
+          SCRIPT
+
+      - name: Create Release
+        if: steps.tag-check.outputs.exists == 'false'
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ needs.check-version.outputs.tag }}
+          name: "${{ needs.check-version.outputs.version }}"
+          bodyFile: release_notes.md
+          draft: false
+          prerelease: false
+          token: ${{ secrets.GITHUB_TOKEN }}
