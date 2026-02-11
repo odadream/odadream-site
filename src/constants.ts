@@ -46,11 +46,14 @@ export const ROOT_NODE = buildUnifiedGraph(STATIC_ROOT);
 // The order in this array determines the display order.
 const HEADER_TABS_ORDER = [
   "home",
-  "neuromandala", // Deep link example (child of home? actually child of home in md)
-  "works",
-  "events",
-  "collab",
-  "world",
+  "neurobattle",
+  "mindshow",
+  //"neuromandala", // Deep link example (child of home? actually child of home in md)
+  //"works",
+  //"events",
+  //"collab",
+  //"world",
+  "changelog",
   "contacts",
 ];
 
