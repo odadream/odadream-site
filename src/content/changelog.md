@@ -13,7 +13,11 @@ order: 7
 
 Tracking the architectural metamorphosis of the oda.dream neural interface.
 
-### v0.5.3 (Current)
+### v0.5.4 (Current)
+**Hidden Depths**
+Incomplete sections are now hidden — discoverable only through an undocumented gesture. Revised Neurobattle and MindShow protocols: sharper descriptions, cleaner specs, stronger focus on participant insight.
+
+### v0.5.3
 **Protocol Integration: Neurobattle**
 Integration of the core interactive artifact into the system catalog. The Neurobattle protocol (gen 9 'Flow') is now documented as a primary interaction interface, bridging neural states with generative visualization. Check -> [[neurobattle]]
 
@@ -48,7 +52,11 @@ Initial prototype built on Eleventy.js using raw WebGL shaders. The birth of the
 
 Отслеживание архитектурных метаморфоз нейроинтерфейса oda.dream.
 
-### v0.5.3 (Текущая)
+### v0.5.4 (Текущая)
+**Скрытые глубины**
+Незаполненные разделы скрыты — найти их можно только через незадокументированный жест. Обновлены протоколы Нейробитвы и MindShow: чёткие описания, чистые спецификации, фокус на инсайтах участника.
+
+### v0.5.3
 **Интеграция Протокола: Нейробитва**
 Интеграция ключевого интерактивного артефакта в каталог системы. Протокол Нейробитва (gen 9 'Flow') документирован как первичный интерфейс взаимодействия, связывающий нейронные состояния с генеративной визуализацией. См -> [[neurobattle]]
 

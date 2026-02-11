@@ -5,7 +5,7 @@ import { findNode } from "./utils/nodeHelpers";
 
 // --- CONFIGURATION ---
 
-export const SITE_VERSION = "v0.5.3";
+export const SITE_VERSION = "v0.5.4";
 
 /**
  * Global feature flags.
