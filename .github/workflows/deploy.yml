@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages (npm version)
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -29,37 +29,23 @@ jobs:
           node-version: "20"
           cache: "npm"
 
+      # Кэшируем node_modules - при частых деплоях это окупается
       - name: Cache node_modules
         uses: actions/cache@v4
-        id: cache-node-modules
+        id: npm-cache
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node-modules-
+            ${{ runner.os }}-node-
 
+      # Устанавливаем только если кэш промахнулся
       - name: Install dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci --prefer-offline --no-audit
-
-      - name: Cache Vite build
-        uses: actions/cache@v4
-        with:
-          path: |
-            .vite
-            node_modules/.vite
-          key: ${{ runner.os }}-vite-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.vue', '**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx') }}
-          restore-keys: |
-            ${{ runner.os }}-vite-${{ hashFiles('**/package-lock.json') }}-
-            ${{ runner.os }}-vite-
 
       - name: Build
         run: npm run build
-        env:
-          NODE_ENV: production
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
