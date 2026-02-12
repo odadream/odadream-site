@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Сначала проверяем версию
+  # Проверяем версию
   check-version:
     runs-on: ubuntu-latest
     outputs:
@@ -114,28 +114,70 @@ jobs:
             echo "✅ Creating new release"
           fi
 
-      - name: Generate release notes
+      - name: Generate release notes with wiki-link conversion
         if: steps.tag-check.outputs.exists == 'false'
         run: |
           node << 'SCRIPT'
           const fs = require('fs');
           const versions = require('./versions.json');
           const latest = versions.history[0];
+          const baseUrl = 'https://odadream.art';
 
+          /**
+           * Конвертирует wiki-style ссылки в markdown ссылки
+           * 
+           * Форматы:
+           *   [[lectures]] → [Lectures](https://odadream.art/?id=lectures)
+           *   [[lectures|Лекции]] → [Лекции](https://odadream.art/?id=lectures)
+           *   [[neurobattle|MindBattle Protocol]] → [MindBattle Protocol](https://odadream.art/?id=neurobattle)
+           * 
+           * @param {string} text - Текст с wiki-ссылками
+           * @param {string} baseUrl - Базовый URL сайта
+           * @returns {string} Текст с markdown ссылками
+           */
+          function convertWikiLinks(text, baseUrl) {
+            if (!text) return text;
+            
+            // [[link|custom text]] → [custom text](url?id=link)
+            text = text.replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, (match, id, title) => {
+              const cleanId = id.trim();
+              const cleanTitle = title.trim();
+              return `[${cleanTitle}](${baseUrl}/?id=${cleanId})`;
+            });
+            
+            // [[link]] → [Link](url?id=link) (первая буква заглавная)
+            text = text.replace(/\[\[([^\]]+)\]\]/g, (match, id) => {
+              const cleanId = id.trim();
+              const title = cleanId.charAt(0).toUpperCase() + cleanId.slice(1);
+              return `[${title}](${baseUrl}/?id=${cleanId})`;
+            });
+            
+            return text;
+          }
+
+          // Конвертируем описания
+          const descEn = convertWikiLinks(latest.desc_en, baseUrl);
+          const descRu = convertWikiLinks(latest.desc_ru, baseUrl);
+
+          // Формируем красивые release notes
           const notes = `## 🎯 ${latest.title_en} / ${latest.title_ru}
 
-          ### 🇬🇧 English
-          ${latest.desc_en}
+          ### English
+          ${descEn}
 
-          ### 🇷🇺 Русский  
-          ${latest.desc_ru}
+          ### Русский  
+          ${descRu}
 
           ---
 
-          **🌐 Live Demo:** [View on GitHub Pages](https://${process.env.GITHUB_REPOSITORY_OWNER}.github.io/${process.env.GITHUB_REPOSITORY.split('/')[1]}/)
+          **🌐 Live Demo:** [odadream.art](${baseUrl}/)
           `;
 
           fs.writeFileSync('release_notes.md', notes);
+          console.log('✅ Release notes generated');
+          console.log('   📝 Wiki-links converted:', {
+            found: (latest.desc_en + latest.desc_ru).match(/\[\[/g)?.length || 0
+          });
           SCRIPT
 
       - name: Create Release
