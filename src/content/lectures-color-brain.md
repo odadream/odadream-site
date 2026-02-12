@@ -1,4 +1,3 @@
-
 ---
 id: color-brain
 parent: lectures
@@ -7,8 +6,11 @@ title_ru: Цвет
 type: content
 tags: [spectrum, color]
 order: 3
+visible: false
 ---
+
 ## COLOR & BRAIN
+
 **The Visual Spectrum**
 
 How wavelengths affect hormonal production and emotional regulation.
@@ -16,6 +18,7 @@ How wavelengths affect hormonal production and emotional regulation.
 ---RU---
 
 ## ЦВЕТ И МОЗГ
+
 **Визуальный Спектр**
 
 Как длина световой волны влияет на выработку гормонов и эмоциональную регуляцию.

@@ -71,7 +71,7 @@ An interactive installation-performance where a participant creates and experien
 
 ---
 
-Ready to create a space for your event where the inner state becomes visible? → [discuss the concept](https://t.me/m/A-FlFs_ZZmU1)
+Ready to create a space for your event where the inner state becomes visible? → [discuss the concept](https://t.me/m/6ytmN4eMYzY9)
 
 ---RU---
 
@@ -137,4 +137,4 @@ Ready to create a space for your event where the inner state becomes visible? �
 
 ---
 
-Готовы создать для вашего события пространство, где внутреннее состояние становится видимым? → [обсудить концепцию](https://t.me/m/A-FlFs_ZZmU1)
+Готовы создать для вашего события пространство, где внутреннее состояние становится видимым? → [обсудить концепцию](https://t.me/m/6ytmN4eMYzY9)

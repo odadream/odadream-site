@@ -1,4 +1,3 @@
-
 ---
 id: sound-brain
 parent: lectures
@@ -7,8 +6,11 @@ title_ru: Звук
 type: content
 tags: [wave, sound]
 order: 1
+visible: false
 ---
+
 ## SOUND & SYNC
+
 **Auditory Entrainment**
 
 The impact of binaural beats and isochronic tones on neural synchronization. We demonstrate live how sound frequencies can shift the collective state of an audience.
@@ -19,6 +21,7 @@ Sample Audio:
 ---RU---
 
 ## ЗВУК И СИНХРОНИЗАЦИЯ
+
 **Аудио-вовлечение**
 
 Влияние бинауральных ритмов и изохронных тонов на нейронную синхронизацию. Мы демонстрируем в прямом эфире, как звуковые частоты могут смещать коллективное состояние аудитории.
