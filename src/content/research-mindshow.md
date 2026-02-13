@@ -1,6 +1,6 @@
 ---
 id: mindshow
-parent: workshops
+parent: research
 title_en: Mindshow
 title_ru: Майнд-шоу
 type: content
@@ -63,7 +63,7 @@ An interactive installation-performance where a participant creates and experien
 
 1. Projection onto the ![[https://dzen.ru/embed/vL3M-cNgfSVo?from_block=partner&from=zen&mute=1&autoplay=1&tv=0 | Hypercube | /images/content/mindshow_portal.webp]] building in Skolkovo at the "Portal 2030–2050" festival (2024);
 2. Booth at the ![[/images/content/mindshow_tpp.webp | CCI RF]] at the International Interindustry Summit Russian Digital Creative 2025;
-3. Booth at the ![[https://dzen.ru/embed/vY9PlkGfKPUc?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | RusUrbanForum | /images/content/mindshow_urban_forum.webp]] in 2024;
+3. Booth at the ![[https://dzen.ru/embed/vYcLmkD5bAxE?from_block=partner&from=zen&mute=1&autoplay=1&tv=0 | RusUrbanForum | /images/content/mindshow_urban_forum.webp]] in 2024;
 4. Lecture and performance at the ![[https://dzen.ru/embed/o21sOdHQIAAA?from_block=partner&from=zen&mute=1&autoplay=1&tv=0 | Wild Mint | /images/content/mindshow_myata.webp]] festival in 2025;
 5. Practices at Ashram ![[https://dzen.ru/embed/o21s_fHQIAAA?from_block=partner&from=zen&mute=1&autoplay=1&tv=0 | Nataly Osman | /images/content/mindshow_ashram.webp]];
 6. First digital plein air in the Moscow ![[/images/content/mindshow_metro_2.webp | metro]] → [NTV story](https://www.ntv.ru/novosti/2887676/);
@@ -129,7 +129,7 @@ Ready to create a space for your event where the inner state becomes visible? �
 
 1. Проекция на здание ![[https://dzen.ru/embed/vL3M-cNgfSVo?from_block=partner&from=zen&mute=1&autoplay=1&tv=0 | Гиперкуб | /images/content/mindshow_portal.webp]] в Сколково на фестивале «Портал 2030–2050» (2024 г.);
 2. Стенд в ![[/images/content/mindshow_tpp.webp | ТПП РФ]] на Международном межотраслевом саммите Russian Digital Creative 2025;
-3. Стенд на ![[https://dzen.ru/embed/vY9PlkGfKPUc?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | РосУрбанФорум | /images/content/mindshow_urban_forum.webp]] в 2024 г.;
+3. Стенд на ![[https://dzen.ru/embed/vYcLmkD5bAxE?from_block=partner&from=zen&mute=1&autoplay=1&tv=0 | РосУрбанФорум | /images/content/mindshow_urban_forum.webp]] в 2024 г.;
 4. Лекция и перформанс на фестивале ![[https://dzen.ru/embed/o21sOdHQIAAA?from_block=partner&from=zen&mute=1&autoplay=1&tv=0 | Дикая Мята | /images/content/mindshow_myata.webp]] в 2025 г.;
 5. Практики в Ashram ![[https://dzen.ru/embed/o21s_fHQIAAA?from_block=partner&from=zen&mute=1&autoplay=1&tv=0 | Натали Осман | /images/content/mindshow_ashram.webp]];
 6. Первый цифровой пленэр в московском ![[/images/content/mindshow_metro_2.webp | метро]] → [Сюжет на НТВ](https://www.ntv.ru/novosti/2887676/);

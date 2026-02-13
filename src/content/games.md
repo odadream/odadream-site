@@ -5,7 +5,7 @@ title_en: Games
 title_ru: Игры
 type: hub
 tags: [gaming, neon]
-order: 0
+order: 2
 date: 2026.02.09
 ---
 

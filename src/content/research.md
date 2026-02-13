@@ -5,8 +5,8 @@ title_en: Research
 title_ru: Исследования
 type: hub
 tags: [lab, science]
-order: 3
-visible: false
+order: 1
+visible: visible
 ---
 
 ## CULTURAL HERITAGE

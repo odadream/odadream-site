@@ -5,7 +5,7 @@ title_en: Lectures
 title_ru: Лекции
 type: content
 tags: [lecture, hall]
-order: 1
+order: 3
 visible: true
 date: 2026.02.12
 ---

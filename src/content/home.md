@@ -7,40 +7,60 @@ tags: [lotus, galaxy]
 date: 2026.02.07
 ---
 
-**Interface for the Digital Subconscious**
+## Interface to the Digital Subconscious
 
-The website of the creative duo ODA.dream is an interactive platform for exploring the boundaries between biological "wetware" and silicon logic.
+You are at the center of ODA.dream creative duo's interface—a research space where **artistic, technological, and educational** projects converge into a unified architecture of experience.
 
-**Methodology:** Our works are structured according to the principle of the _Blossoming Lotus_. You are currently at its center. Around you are eight paths into our universe. Some lead to static objects, others to fluid experiences.
+Here, _interface_ is understood not as an instrumental shell, but as a _way of organizing perception_. It connects biological attention and machine processes, forming a field for questions about boundaries: **where does your consciousness end and code begin? Where lies the border between observer and observed, between tool and extension of the body?**
 
-> "The screen is not a window, but a mirror of the nervous system."
+> "The screen is not a window, but a mirror of the nervous system".
 
-Navigation is performed through the [[navigator]] grid. You can return back via the central cell or breadcrumbs.
+We explore _human—human, human—computer, and human—computer—human_ connections through the lens of consciousness and attention, embodiment and perception, empathy and communication. Our tools are neurointerfaces and biointerfaces. **Our themes are the relationships between past, present, and possible future scenarios.**
 
-**Please note:** The site is under active development and content is being populated. Texts, images in the lotus, and other elements will appear gradually. You can follow the project's development in the [[changelog]] section.
+## Architecture
 
-If you, as a traveler, discover any errors, bugs, or oddities in the site's behavior—please report them to us on [Telegram](https://t.me/odadream_info). And if something particularly resonated with you—we would be glad to hear about that as well.
+The space is organized according to the fractal principle of the **Blooming Lotus**. You are at its center. At each level—one to eight directions; some active, some hidden and will open over time.
 
-To contact us and learn about the "earthly" projects that haven't made it onto the site yet, visit the [[contacts]] section.
+This structure defines both the **logic of navigation and the logic of meanings**. Moving through directions is a shift in the level of observation and engagement. Some directions lead to completed objects, others to processes unfolding in time.
 
-_The journey is non-linear._
+Navigation is via the lotus grid [[navigator|navigator]]. Return to the previous level—through the central cell or the path at the bottom of the page. At the top is a panel of key nodes.
+
+## Development
+
+The interface is in active development. Elements appear gradually—current changes in [[changelog|change log]].
+
+Feedback is part of this space. Found errors? Message us on [Telegram](https://t.me/odadream_info). Something resonated? We'd love to hear about it.
+
+Contact with the duo and other information channels—in the [[contacts|contacts]] section.
+
+_The journey is nonlinear._
 
 ---RU---
 
-**Интерфейс Цифрового Подсознания**
+## Интерфейс Цифрового Подсознания
 
-Сайт творческого дуэта ODA.dream представляет собой интерактивную платформу для исследования границ между биологической «wetware» и кремниевой логикой.
+Вы находитесь в центре интерфейса творческого дуэта ODA.dream — исследовательского пространства, где **художественные, технологические и образовательные** проекты собраны в единую архитектуру опыта.
 
-**Методология:** Наши работы структурированы по принципу _Цветущего Лотоса_. Сейчас вы находитесь в его центре. Вокруг — восемь путей в нашу вселенную. Одни ведут к статичным объектам, другие — к текучим переживаниям.
+Здесь _интерфейс_ понимается не как инструментальная оболочка, а как _способ организации восприятия_. Он соединяет биологическое внимание и машинные процессы, формируя поле для вопросов о границах: **где заканчивается ваше сознание и начинается код? Где проходит граница между наблюдателем и наблюдаемым, между инструментом и продолжением тела?**
 
 > "Экран — это не окно, а зеркало нервной системы".
 
-Навигация осуществляется через сетку [[navigator|навигатор]]. Вернуться назад можно через центральную ячейку или хлебные крошки.
+Мы исследуем связи _человек—человек, человек—компьютер, человек—компьютер—человек_ через призму сознания и внимания, телесности и восприятия, эмпатии и коммуникации. Наши инструменты — нейроинтерфейсы и биоинтерфейсы. **Наши темы — отношения прошлого, настоящего и возможных сценариев будущего.**
 
-**Обратите внимание:** сайт находится в активной разработке и наполнении контентом. Тексты, изображения в лотосе и другие элементы будут появляться постепенно. Следить за развитием проекта можно в разделе [[changelog|история изменений]].
+## Архитектура
 
-Если вы, как путешественник, обнаружили ошибки, баги или странности в работе — сообщите нам в [Telegram](https://t.me/odadream_info). А если что-то особенно отозвалось — будем рады услышать и об этом.
+Пространство организовано по фрактальному принципу **Цветущего Лотоса**. Вы находитесь в его центре. На каждом уровне — от одного до восьми направлений; часть активны, часть скрыты и откроются со временем.
 
-Связаться с нами и узнать о "земных" проектах, которые пока не попали на сайт, можно в разделе [[contacts|контакты]].
+Эта структура задаёт **логику навигации и логику смыслов**. Перемещение по направлениям — это смена уровня наблюдения и вовлечённости. Одни направления ведут к завершённым объектам, другие — к процессам, разворачивающимся во времени.
+
+Навигация осуществляется через сетку лотоса [[navigator|навигатор]]. Возврат на предыдущий уровень — через центральную ячейку или путь в нижней части страницы. В верхней части страницы находится панель ключевых узлов.
+
+## Развитие
+
+Интерфейс в активной разработке. Элементы появляются постепенно — актуальные изменения в разделе [[changelog|лог изменений]].
+
+Обратная связь — часть этого пространства. Обнаружили ошибки? Напишите в [Telegram](https://t.me/odadream_info). Что-то отозвалось? Будем рады резонансу.
+
+Связь с дуэтом и другие каналы информации — в разделе [[contacts|контакты]].
 
 _Путешествие нелинейно._

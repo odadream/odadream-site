@@ -1,14 +1,15 @@
-
 ---
-id: workshops
+id: practices
 parent: works
-title_en: Workshops
-title_ru: Воркшопы
+title_en: Practices
+title_ru: Практики
 type: hub
 tags: [workshop, people]
-order: 2
+order: 4
 ---
+
 ## WORKS
+
 **Archive of Artifacts & Experiences**
 
 Our portfolio spans from physical installations to purely digital realms. We categorize our output by the mode of interaction.
@@ -21,6 +22,7 @@ Our portfolio spans from physical installations to purely digital realms. We cat
 ---RU---
 
 ## РАБОТЫ
+
 **Архив Артефактов и Опытов**
 
 Наше портфолио простирается от физических инсталляций до чисто цифровых миров. Мы категоризируем работы по типу взаимодействия.

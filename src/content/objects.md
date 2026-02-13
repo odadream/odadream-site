@@ -5,7 +5,7 @@ title_en: Objects
 title_ru: Объекты
 type: hub
 tags: [object, artifact]
-order: 4
+order: 5
 visible: false
 ---
 
