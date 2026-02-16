@@ -92,7 +92,7 @@ type: content
 tags: [system, version]
 order: 7
 ---
-<!-- DO NOT EDIT MANUALLY. GENERATED FROM versions.json via npm run version:sync -->
+
 ## SYSTEM CHANGELOG
 **Interface Evolution Log**
 

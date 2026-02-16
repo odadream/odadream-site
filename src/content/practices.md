@@ -6,6 +6,7 @@ title_ru: Практики
 type: hub
 tags: [workshop, people]
 order: 4
+visible: false
 ---
 
 ## WORKS
