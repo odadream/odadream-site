@@ -7,6 +7,7 @@ type: content
 tags: [wave, sound]
 order: 1
 visible: false
+date: 2026.02.12
 ---
 
 ## SOUND & SYNC

@@ -7,6 +7,7 @@ type: content
 tags: [quantum, box]
 order: 1
 visible: false
+date: 2026.02.13
 ---
 
 ## PROJECT SCHRODINGER

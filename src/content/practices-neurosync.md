@@ -7,6 +7,7 @@ type: content
 tags: [group, meditation]
 order: 1
 visible: false
+date: 2026.02.10
 ---
 
 ## NEUROSYNC

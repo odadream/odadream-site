@@ -7,6 +7,7 @@ type: content
 tags: [gong, sound]
 order: 2
 visible: false
+date: 2026.02.10
 ---
 
 ## GONG THEATER

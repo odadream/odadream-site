@@ -7,6 +7,7 @@ type: content
 tags: [focus, business]
 order: 3
 visible: false
+date: 2026.02.10
 ---
 
 ## NEURO COACHING

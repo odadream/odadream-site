@@ -5,7 +5,7 @@ title_en: Art of Brain
 title_ru: Искусство Мозга
 type: content
 tags: [brain, art]
-date: 2024.01.20
+date: 2026.02.12
 order: 0
 visible: false
 ---

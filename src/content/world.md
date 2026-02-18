@@ -7,6 +7,7 @@ type: hub
 tags: [globe, network]
 order: 4
 visible: false
+date: 2026.02.10
 ---
 
 ## THE WORLD

@@ -7,6 +7,7 @@ type: hub
 tags: [concert, crowd]
 order: 2
 visible: false
+date: 2026.02.10
 ---
 
 ## EVENTS

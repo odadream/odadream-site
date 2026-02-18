@@ -7,6 +7,7 @@ type: content
 tags: [gallery, white]
 order: 2
 visible: false
+date: 2026.02.17
 ---
 
 ## FOR GALLERIES

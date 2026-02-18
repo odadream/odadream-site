@@ -7,6 +7,7 @@ type: content
 tags: [dance, motion]
 order: 0
 visible: false
+date: 2026.02.10
 ---
 
 ## NEURO DANCE

@@ -7,6 +7,7 @@ type: content
 tags: [food, abstract]
 order: 2
 visible: false
+date: 2026.02.12
 ---
 
 ## TASTE & BRAIN

@@ -7,6 +7,7 @@ type: content
 tags: [office, future]
 order: 1
 visible: false
+date: 2026.02.17
 ---
 
 ## FOR BUSINESS

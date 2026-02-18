@@ -7,6 +7,7 @@ type: content
 tags: [studio, paint]
 order: 3
 visible: false
+date: 2026.02.17
 ---
 
 ## FOR ARTISTS

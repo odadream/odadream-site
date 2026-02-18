@@ -7,6 +7,7 @@ type: hub
 tags: [code, screen]
 order: 6
 visible: false
+date: 2026.02.12
 ---
 
 ## DEBUG STATION

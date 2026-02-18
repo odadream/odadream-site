@@ -5,7 +5,7 @@ title_en: Brain Hack
 title_ru: Взлом Мозга
 type: content
 tags: [illusion, mind]
-date: 2023.11.02
+date: 2026.02.10
 order: 1
 visible: false
 ---

@@ -6,7 +6,7 @@ title_ru: Игры
 type: hub
 tags: [gaming, neon]
 order: 2
-date: 2026.02.09
+date: 2026.02.13
 ---
 
 Active systems where the interaction protocol is built on **neurofeedback**.

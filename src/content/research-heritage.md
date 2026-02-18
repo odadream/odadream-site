@@ -6,6 +6,7 @@ title_ru: Наследие
 type: content
 tags: [history, craft]
 visible: false
+date: 2026.02.13
 ---
 
 ## CULTURAL HERITAGE

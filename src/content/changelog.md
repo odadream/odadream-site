@@ -6,6 +6,7 @@ title_ru: Лог измменений
 type: content
 tags: [system, version]
 order: 7
+date: 2026.02.18
 ---
 
 ## SYSTEM CHANGELOG

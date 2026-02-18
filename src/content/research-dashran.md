@@ -7,6 +7,7 @@ type: content
 tags: [spark, idea]
 order: 3
 visible: false
+date: 2026.02.13
 ---
 
 ## DASHRAN

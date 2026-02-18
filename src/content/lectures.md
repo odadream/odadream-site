@@ -7,7 +7,7 @@ type: content
 tags: [lecture, hall]
 order: 3
 visible: true
-date: 2026.02.12
+date: 2026.02.13
 ---
 
 ## Brain, Aesthetics, and Attention

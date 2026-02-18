@@ -6,7 +6,7 @@ title_ru: Нейромандала
 type: content
 tags: [geometry, brainwave]
 image: /images/content/neuromandala-cover.jpg
-date: 2023.12.12
+date: 2026.02.10
 order: 0
 visible: false
 ---

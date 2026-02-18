@@ -7,6 +7,7 @@ type: hub
 tags: [object, artifact]
 order: 5
 visible: false
+date: 2026.02.13
 ---
 
 ## MOM AND BABY

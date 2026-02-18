@@ -9,6 +9,7 @@ type: content
 tags: [connection, people]
 order: 4
 visible: false
+date: 2026.02.12
 ---
 
 ## EMPATHY PROTOCOL

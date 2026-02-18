@@ -6,7 +6,7 @@ title_ru: Майнд-шоу
 type: content
 tags: [stage, light]
 order: 4
-date: 2026.02.11
+date: 2026.02.13
 ---
 
 An interactive installation-performance where a participant creates and experiences a **personal audiovisual animation** generated directly from their neural signals and verbal narrative. Watch demo -> ![[https://dzen.ru/embed/o20aog1YJAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | oda.mdsh v5 | /images/content/mindshow_mdsh_v5.webp]].

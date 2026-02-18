@@ -7,6 +7,7 @@ type: content
 tags: [gallery, white]
 order: 3
 visible: true
+date: 2026.02.18
 ---
 
 ## Recognition & Awards

@@ -10,7 +10,8 @@
     "assets:generate": "node scripts/generate-assets.js",
     "assets:clean": "node scripts/generate-assets.js --clean",
     "assets:map": "node scripts/generate-map.js",
-    "version:sync": "node scripts/update-version.js"
+    "version:sync": "node scripts/update-version.js",
+    "dates:sync": "node scripts/sync-dates.js"
   },
   "dependencies": {
     "clsx": "^2.1.0",

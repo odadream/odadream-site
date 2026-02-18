@@ -7,6 +7,7 @@ type: hub
 tags: [lab, science]
 order: 1
 visible: visible
+date: 2026.02.16
 ---
 
 Artistic Research ODA.dream is an ongoing process at the boundary between human and system. This section brings together projects that use **art as a research tool** to engage with states and meanings. Some works are completed and available for exhibition, while others remain open and continue to evolve.

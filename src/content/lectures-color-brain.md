@@ -7,6 +7,7 @@ type: content
 tags: [spectrum, color]
 order: 3
 visible: false
+date: 2026.02.12
 ---
 
 ## COLOR & BRAIN

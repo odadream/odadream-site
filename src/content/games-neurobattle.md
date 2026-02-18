@@ -6,7 +6,7 @@ title_ru: Нейробитва
 type: content
 tags: [esports, brain]
 image: /images/nodes/neurobattle.webp
-date: 2026.02.09
+date: 2026.02.11
 order: 0
 ---
 

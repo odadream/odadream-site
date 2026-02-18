@@ -7,6 +7,7 @@ type: content
 tags: [darkness, light]
 order: 4
 visible: false
+date: 2026.02.13
 ---
 
 ## POSUSTORONNIY
