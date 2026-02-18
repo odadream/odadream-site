@@ -1,9 +1,4 @@
 ---
-date: 2026.02.06
----
-
-
----
 id: manifesto
 parent: world
 title_en: Manifesto
@@ -12,8 +7,11 @@ type: content
 tags: [text, manifesto]
 date: 2024.02.01
 order: 0
+date: 2026.02.06
 ---
+
 ## MANIFESTO
+
 **Silicon & Synapse**
 
 1. We reject the dualism of mind and machine.
@@ -24,6 +22,7 @@ order: 0
 ---RU---
 
 ## МАНИФЕСТ
+
 **Кремний и Синапс**
 
 1. Мы отвергаем дуализм разума и машины.

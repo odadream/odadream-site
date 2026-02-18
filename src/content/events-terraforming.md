@@ -1,9 +1,4 @@
 ---
-date: 2026.02.06
----
-
-
----
 id: terraforming
 parent: events
 title_en: Terraforming
@@ -11,8 +6,11 @@ title_ru: Терраформинг
 type: content
 tags: [projection, building]
 order: 1
+date: 2026.02.06
 ---
+
 ## TERRAFORMING
+
 **Digital Ecology**
 
 A projection mapping installation turning urban concrete into living, breathing biological textures.
@@ -20,6 +18,7 @@ A projection mapping installation turning urban concrete into living, breathing 
 ---RU---
 
 ## ТЕРРАФОРМИРОВАНИЕ
+
 **Цифровая Экология**
 
 Инсталляция видео-мэппинга, превращающая городской бетон в живые, дышащие биологические текстуры.

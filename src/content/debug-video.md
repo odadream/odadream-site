@@ -1,9 +1,4 @@
 ---
-date: 2026.02.06
----
-
-
----
 id: debug-video
 parent: debug
 title_en: Video Page
@@ -13,11 +8,15 @@ short_ru: СТР
 type: content
 media: https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
 order: 2
+date: 2026.02.06
 ---
+
 ## VIDEO TEST
+
 Standard video playback (mp4).
 
 ### Dzen Embed Test
+
 Testing third-party embed integration via wiki-link with custom thumbnail syntax.
 Syntax: `![[ url | title | poster ]]`
 
@@ -26,9 +25,11 @@ Syntax: `![[ url | title | poster ]]`
 ---RU---
 
 ## ТЕСТ ВИДЕО
+
 Стандартное воспроизведение видео (mp4).
 
 ### Тест Дзен
+
 Тестирование встраивания сторонних сервисов через вики-ссылку с кастомной обложкой.
 Синтаксис: `![[ url | заголовок | обложка ]]`
 

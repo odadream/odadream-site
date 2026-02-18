@@ -1,9 +1,4 @@
 ---
-date: 2026.02.06
----
-
-
----
 id: debug-action
 parent: debug
 title_en: Action
@@ -13,11 +8,15 @@ short_ru: ДЕЙСТВ
 type: action
 tags: [lightning, zap]
 order: 5
+date: 2026.02.06
 ---
+
 ## ACTION TEST
+
 Action node description.
 
 ---RU---
 
 ## ТЕСТ ДЕЙСТВИЯ
+
 Описание узла действия.

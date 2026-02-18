@@ -1,9 +1,4 @@
 ---
-date: 2026.02.06
----
-
-
----
 id: press
 parent: world
 title_en: Press
@@ -11,8 +6,11 @@ title_ru: Пресса
 type: content
 tags: [newspaper, digital]
 order: 2
+date: 2026.02.06
 ---
+
 ## PRESS
+
 **Featured In**
 
 - Wired Magazine: "The Future of Art is Biological"
@@ -22,6 +20,7 @@ order: 2
 ---RU---
 
 ## ПРЕССА
+
 **О Нас Пишут**
 
 - Wired Magazine: "Будущее искусства биологично"

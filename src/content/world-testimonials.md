@@ -1,9 +1,4 @@
 ---
-date: 2026.02.06
----
-
-
----
 id: testimonials
 parent: world
 title_en: Testimonials
@@ -11,8 +6,11 @@ title_ru: Отзывы
 type: content
 tags: [quote, speech]
 order: 3
+date: 2026.02.06
 ---
+
 ## ECHOES
+
 **What They Say**
 
 > "A transformative experience. I saw my own calm."
@@ -24,6 +22,7 @@ order: 3
 ---RU---
 
 ## ЭХО
+
 **Отзывы**
 
 > "Трансформирующий опыт. Я увидел собственное спокойствие."
