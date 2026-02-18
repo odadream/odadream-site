@@ -1,4 +1,3 @@
-
 ---
 id: for-artists
 parent: collab
@@ -7,8 +6,11 @@ title_ru: Художники
 type: content
 tags: [studio, paint]
 order: 3
+visible: false
 ---
+
 ## FOR ARTISTS
+
 **Mentorship**
 
 We support emerging artists in bridging the gap between traditional mediums and creative coding.
@@ -16,6 +18,7 @@ We support emerging artists in bridging the gap between traditional mediums and 
 ---RU---
 
 ## ДЛЯ ХУДОЖНИКОВ
+
 **Менторство**
 
 Мы поддерживаем начинающих художников в преодолении разрыва между традиционными медиа и креативным кодингом.

@@ -1,4 +1,3 @@
-
 ---
 id: for-business
 parent: collab
@@ -7,8 +6,11 @@ title_ru: Бизнес
 type: content
 tags: [office, future]
 order: 1
+visible: false
 ---
+
 ## FOR BUSINESS
+
 **Innovation Labs**
 
 R&D for companies looking to integrate neuro-tech into consumer experiences.
@@ -16,6 +18,7 @@ R&D for companies looking to integrate neuro-tech into consumer experiences.
 ---RU---
 
 ## ДЛЯ БИЗНЕСА
+
 **Лаборатории Инноваций**
 
 R&D для компаний, желающих интегрировать нейротехнологии в пользовательский опыт.

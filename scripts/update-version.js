@@ -87,7 +87,7 @@ const changelogHeader = `---
 id: changelog
 parent: home
 title_en: Changelog
-title_ru: Летопись
+title_ru: Лог измменений
 type: content
 tags: [system, version]
 order: 7
