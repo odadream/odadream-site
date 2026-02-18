@@ -1,6 +1,5 @@
 ---
-
-## id: letters
+id: letters
 parent: collab
 title_en: Recognition & Awards
 title_ru: Признание и награды
@@ -8,6 +7,7 @@ type: content
 tags: [gallery, white]
 order: 3
 visible: true
+---
 
 ## Recognition & Awards
 
@@ -52,7 +52,9 @@ Documentation of ODA.dream's engagement with institutions, festivals, and profes
 
 **Project "Voice of Society" — Letter of Appreciation (2025)**: Recognition of professional contribution and expert participation in the educational and public project → ![[\images\content\collab_2025_ODA_Khaskel.webp | Voice of Society]]
 
----RU---
+---
+
+RU---
 
 Зафиксированные артефакты признания: награды, дипломы, благодарственные письма.
 Документы взаимодействия ODA.dream с институциями, фестивалями и профессиональными сообществами.

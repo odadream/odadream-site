@@ -1,6 +1,6 @@
 # ODA.dream | Neural Art Interface
 
-![Version](https://img.shields.io/badge/version-0.5.6-emerald)
+![Version](https://img.shields.io/badge/version-1.0.0-emerald)
 ![Status](https://img.shields.io/badge/status-production-blue)
 ![Engine](https://img.shields.io/badge/engine-react_19-cyan)
 
