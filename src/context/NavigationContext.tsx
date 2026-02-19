@@ -250,8 +250,8 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
     const title = currentNode.title[lang];
     document.title =
       currentNode.id === "home"
-        ? "oda.dream | Neural Art Interface"
-        : `${title} | oda.dream`;
+        ? "ODA.dream | Wellness Art Tech"
+        : `${title} | ODA.dream`;
   }, [currentNode, lang]);
 
   useEffect(() => {

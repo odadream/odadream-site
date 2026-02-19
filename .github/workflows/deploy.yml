@@ -168,9 +168,7 @@ jobs:
           ### Русский  
           ${descRu}
 
-          ---
-
-          **🌐 Live Demo:** [odadream.art](${baseUrl}/)
+          **🌐 Live:** [odadream.art](${baseUrl}/)
           `;
 
           fs.writeFileSync('release_notes.md', notes);

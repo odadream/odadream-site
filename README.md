@@ -1,4 +1,4 @@
-# ODA.dream | Neural Art Interface
+# ODA.dream | Wellness Art Tech
 
 ![Version](https://img.shields.io/badge/version-1.0.0-emerald)
 ![Status](https://img.shields.io/badge/status-production-blue)
