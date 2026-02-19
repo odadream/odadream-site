@@ -21,9 +21,16 @@ interface NavigationContextType {
   isGridCollapsed: boolean;
   lightboxMedia: LotusNode | null;
   navigatorHighlight: boolean;
+  nodeRegistry: Map<string, LotusNode>;
+  /** Nodes to return to after embedded (![[nodeId]]) navigation */
+  historyStack: LotusNode[];
 
   // Actions
   navigate: (node: LotusNode) => void;
+  /** Navigate to embedded node, pushing current onto historyStack */
+  navigateHistory: (node: LotusNode) => void;
+  /** Return to previous node in historyStack */
+  goBackHistory: () => void;
   goBack: () => void;
   jumpToId: (id: string) => void;
   jumpToLevel: (index: number) => void;
@@ -125,6 +132,11 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
   const [isGridCollapsed, setIsGridCollapsed] = useState(true);
   const [lightboxMedia, setLightboxMedia] = useState<LotusNode | null>(null);
   const [navigatorHighlight, setNavigatorHighlight] = useState(false);
+  /**
+   * History stack for context-aware back navigation from embedded nodes.
+   * Separate from path (structural hierarchy). Stores the node we LEFT FROM.
+   */
+  const [historyStack, setHistoryStack] = useState<LotusNode[]>([]);
 
   const [isDesktop, setIsDesktop] = useState(() => {
     if (typeof window !== "undefined") {
@@ -135,6 +147,17 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
   });
 
   const currentNode = path[path.length - 1];
+
+  // Flat registry of all nodes by ID for O(1) lookup
+  const nodeRegistry = useMemo<Map<string, LotusNode>>(() => {
+    const map = new Map<string, LotusNode>();
+    const walk = (node: LotusNode) => {
+      map.set(node.id, node);
+      node.children?.forEach(walk);
+    };
+    walk(ROOT_NODE);
+    return map;
+  }, []);
 
   // --- ACTIONS ---
 
@@ -155,11 +178,40 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
     }
   }, []);
 
+  /**
+   * Embedded navigation: records the node we are leaving in historyStack,
+   * then navigates to target. Center cell becomes "back to origin".
+   */
+  const navigateHistory = useCallback((node: LotusNode) => {
+    if (node.type === "media") {
+      setLightboxMedia(node);
+      return;
+    }
+    setPath((prevPath) => {
+      const origin = prevPath[prevPath.length - 1];
+      setHistoryStack((prev) => [...prev, origin]);
+      const canonicalPath = findPathToNode(ROOT_NODE, node.id);
+      if (canonicalPath) return canonicalPath;
+      return [...prevPath, node];
+    });
+  }, []);
+
+  const goBackHistory = useCallback(() => {
+    setHistoryStack((prevHistory) => {
+      if (prevHistory.length === 0) return prevHistory;
+      const origin = prevHistory[prevHistory.length - 1];
+      const canonicalPath = findPathToNode(ROOT_NODE, origin.id);
+      if (canonicalPath) setPath(canonicalPath);
+      return prevHistory.slice(0, -1);
+    });
+  }, []);
+
   const goBack = useCallback(() => {
     setPath((prev) => (prev.length > 1 ? prev.slice(0, -1) : prev));
   }, []);
 
   const jumpToLevel = useCallback((index: number) => {
+    setHistoryStack([]); // Hierarchy jump resets context history
     setPath((prev) => prev.slice(0, index + 1));
   }, []);
 
@@ -183,7 +235,10 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
         return;
       }
       const newPath = findPathToNode(ROOT_NODE, targetId);
-      if (newPath) setPath(newPath);
+      if (newPath) {
+        setHistoryStack([]); // Direct jump resets context history
+        setPath(newPath);
+      }
     },
     [isDesktop, triggerNavigatorHighlight],
   );
@@ -275,7 +330,11 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
       isGridCollapsed,
       lightboxMedia,
       navigatorHighlight,
+      nodeRegistry,
+      historyStack,
       navigate,
+      navigateHistory,
+      goBackHistory,
       goBack,
       jumpToId,
       jumpToLevel,
@@ -295,7 +354,11 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
       isGridCollapsed,
       lightboxMedia,
       navigatorHighlight,
+      nodeRegistry,
+      historyStack,
       navigate,
+      navigateHistory,
+      goBackHistory,
       goBack,
       jumpToId,
       jumpToLevel,

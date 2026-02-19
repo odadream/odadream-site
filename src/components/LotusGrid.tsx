@@ -4,6 +4,7 @@ import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import {
   Undo2,
+  ArrowLeft,
   Maximize2,
   ArrowUp,
   ExternalLink,
@@ -116,13 +117,42 @@ const GridCell = React.memo(
     index: number;
     className?: string;
   }) => {
-    const { navigate, goBack, lang, path } = useNavigation();
+    const {
+      navigate,
+      navigateHistory,
+      goBack,
+      goBackHistory,
+      lang,
+      path,
+      historyStack,
+    } = useNavigation();
     const [isHovered, setIsHovered] = useState(false);
+
+    // --- DISPLAY DATA ---
+    // Computed before hooks and early returns (React rules).
+    // In history mode the center cell shows origin node data (where to return).
+    // We preserve isCenter:true for LED/elevation styles.
+    const hasHistory = historyStack.length > 0;
+    const canGoBack = path.length > 1;
+    const originNode =
+      cell && hasHistory && cell.isCenter
+        ? historyStack[historyStack.length - 1]
+        : null;
+    // When cell is null (empty slot), displayCell is also null.
+    // After the empty-cell early return below, displayCell is always non-null.
+    const displayCell = originNode
+      ? { ...originNode, isCenter: true as const }
+      : cell;
+
+    // TypeScript helper: non-null assertion safe after empty-cell guard below
+    const dc = displayCell!;
+
+    // Hook must be called unconditionally (React rules of hooks)
     const {
       src: activeSrc,
       handleError,
       isDead,
-    } = useImageFallback(cell?.imageUrl, cell?.id);
+    } = useImageFallback(displayCell?.imageUrl, displayCell?.id);
 
     // Empty Cell State
     if (!cell) {
@@ -151,13 +181,13 @@ const GridCell = React.memo(
     const isAction = cell.type === "action";
     const isMedia = cell.type === "media";
     const isVisualNode = isMedia || !!cell.imageUrl;
-    const canGoBack = path.length > 1;
 
     let ActionIcon = ArrowUp;
     let actionRotation = ARROW_ROTATIONS[index] || "rotate-0";
 
     if (cell.isCenter) {
-      ActionIcon = canGoBack ? Undo2 : Disc;
+      // ArrowLeft = "back to origin context", Undo2 = "up in hierarchy", Disc = root
+      ActionIcon = hasHistory ? ArrowLeft : canGoBack ? Undo2 : Disc;
       actionRotation = "rotate-0";
     } else if (isAction && cell.externalLink) {
       ActionIcon = ExternalLink;
@@ -168,34 +198,53 @@ const GridCell = React.memo(
     }
 
     let TypeIcon = FileText;
-    if (isHub) TypeIcon = Layers;
-    else if (isAction) TypeIcon = Zap;
-    else if (isMedia) {
+    const displayType = dc.type;
+    const displayIsHub = displayType === "hub";
+    const displayIsAction = displayType === "action";
+    const displayIsMedia = displayType === "media";
+    if (displayIsHub) TypeIcon = Layers;
+    else if (displayIsAction) TypeIcon = Zap;
+    else if (displayIsMedia) {
       TypeIcon =
-        cell.mediaType === "video"
+        dc.mediaType === "video"
           ? Film
-          : cell.mediaType === "audio"
+          : dc.mediaType === "audio"
             ? AudioLines
             : ImageIcon;
     }
 
     const handleClick = () => {
       if (cell.isCenter) {
-        if (canGoBack) goBack();
+        if (hasHistory) {
+          goBackHistory();
+        } else if (canGoBack) {
+          goBack();
+        }
       } else if (isAction && cell.externalLink) {
         window.open(cell.externalLink, "_blank");
+      } else if (cell._isEmbedded) {
+        // Embedded node from ![[nodeId]] — use history navigation
+        navigateHistory(cell);
       } else {
         navigate(cell);
       }
     };
 
-    const displayTitle = cell.shortTitle?.[lang] || cell.title[lang];
-    
+    const displayTitle = dc.shortTitle?.[lang] || dc.title[lang];
+
     // Check if this cell is adjacent to center (indices 1, 3, 5, 7 in 3x3 grid)
     const isAdjacentToCenter = !cell.isCenter && [1, 3, 5, 7].includes(index);
     // Shadow/glow gradient position: edge of THIS cell that faces center gets darker (1=bottom, 3=right, 5=left, 7=top)
     const shadowFromCenter =
-      index === 1 ? "50% 100%" : index === 3 ? "100% 50%" : index === 5 ? "0% 50%" : index === 7 ? "50% 0%" : "50% 50%";
+      index === 1
+        ? "50% 100%"
+        : index === 3
+          ? "100% 50%"
+          : index === 5
+            ? "0% 50%"
+            : index === 7
+              ? "50% 0%"
+              : "50% 50%";
 
     return (
       <MotionDiv
@@ -231,11 +280,11 @@ const GridCell = React.memo(
         }}
       >
         <CornerBrackets show={true} accent={cell.isCenter} />
-        
+
         {/* LED strip effect - subtle glow around the perimeter of center cell */}
         {/* Simulates LED strip in the gap behind the raised panel, emitting faint light OUTWARD */}
         {cell.isCenter && (
-          <div 
+          <div
             className="absolute inset-0 pointer-events-none z-[35]"
             style={{
               boxShadow: `
@@ -246,19 +295,19 @@ const GridCell = React.memo(
             }}
           />
         )}
-        
+
         {/* Shadow cast OUTWARD by raised center cell onto adjacent cells + subtle LED glow spillover */}
         {isAdjacentToCenter && (
           <>
             {/* Soft shadow falling FROM center ONTO this cell - darker at edge facing center */}
-            <div 
+            <div
               className="absolute inset-0 pointer-events-none z-[5]"
               style={{
                 background: `radial-gradient(circle at ${shadowFromCenter}, rgba(0, 0, 0, var(--center-shadow-opacity)) 0%, transparent 55%)`,
               }}
             />
             {/* Subtle LED glow spillover OUTWARD from center cell's LED strip - very faint */}
-            <div 
+            <div
               className="absolute inset-0 pointer-events-none z-[6] transition-opacity duration-700 ease-out"
               style={{
                 background: `radial-gradient(circle at ${shadowFromCenter}, rgb(var(--color-accent) / var(--led-strip-opacity)) 0%, transparent 55%)`,
@@ -289,8 +338,10 @@ const GridCell = React.memo(
                 cell.isCenter
                   ? THEME.lotus.image.center + " mix-blend-normal"
                   : isVisualNode
-                    ? THEME.lotus.image.visual + " mix-blend-luminosity group-hover:mix-blend-normal"
-                    : THEME.lotus.image.default + " mix-blend-luminosity group-hover:mix-blend-normal",
+                    ? THEME.lotus.image.visual +
+                      " mix-blend-luminosity group-hover:mix-blend-normal"
+                    : THEME.lotus.image.default +
+                      " mix-blend-luminosity group-hover:mix-blend-normal",
               )}
               alt=""
             />
@@ -435,8 +486,8 @@ export const LotusGrid: React.FC = () => {
                   key={index}
                   className="relative w-full h-full isolate overflow-hidden bg-surface"
                 >
-                  <AnimatePresence 
-                    mode="popLayout" 
+                  <AnimatePresence
+                    mode="popLayout"
                     initial={false}
                     // Optimized for smooth cross-dissolve transitions
                   >

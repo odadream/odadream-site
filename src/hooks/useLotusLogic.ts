@@ -1,13 +1,10 @@
 import { useMemo } from "react";
 import { LotusNode } from "../types";
 import { parseContentAndExtractMedia } from "../utils/contentProcessor";
+import { useNavigation } from "../context/NavigationContext";
 
 /**
  * Comparator function for sorting LotusNode objects with fallback logic
- *
- * @param a - First node to compare
- * @param b - Second node to compare
- * @returns Negative if a comes before b, positive if after, zero if equal
  */
 const createNodeComparator =
   () =>
@@ -30,36 +27,33 @@ const createNodeComparator =
  * - Filtering nodes by visibility (`visible !== false`)
  * - Sorting nodes using order → id priority
  * - Parsing media nodes from markdown content
+ * - Resolving ![[nodeId|Label]] wiki links to actual graph nodes (Obsidian-style)
  * - Limiting display to 8 neighboring cells
- * - Preventing frontmatter media duplication
  *
  * @param currentNode - The currently active/focused node
  * @param lang - Current interface language ('en' or 'ru')
  * @returns Object containing `gridCells` array for 3x3 grid rendering
- *
- * @example
- * ```tsx
- * const { gridCells } = useLotusLogic(currentNode, 'en');
- * // gridCells[4] is always the center cell with currentNode
- * ```
  */
 export const useLotusLogic = (currentNode: LotusNode, lang: "en" | "ru") => {
+  const { nodeRegistry } = useNavigation();
   const nodeComparator = useMemo(createNodeComparator, []);
 
   const displayChildren = useMemo(() => {
     const rawText = currentNode.description[lang] || "";
-    const { mediaNodes } = parseContentAndExtractMedia(rawText);
+    const { mediaNodes } = parseContentAndExtractMedia(rawText, nodeRegistry);
 
     const staticChildren = (currentNode.children || [])
       .filter((child) => child.visible !== false)
       .sort(nodeComparator);
 
+    // Mark embedded nodes so LotusGrid can use history navigation for them
     const filteredMediaNodes = mediaNodes
       .filter((media) => media.visible !== false)
+      .map((media) => ({ ...media, _isEmbedded: true }))
       .sort(nodeComparator);
 
     return [...staticChildren, ...filteredMediaNodes].slice(0, 8);
-  }, [currentNode, lang, nodeComparator]);
+  }, [currentNode, lang, nodeComparator, nodeRegistry]);
 
   // Map to 3x3 Grid
   // [0, 1, 2]
