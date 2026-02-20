@@ -13,6 +13,35 @@ export const SITE_VERSION = "v1.0.0";
  */
 export const ENABLE_THEME_SWITCHER = false;
 
+// --- LOTUS GRID CONFIGURATION ---
+
+/**
+ * Sort mode for nodes displayed in the Lotus Grid.
+ *
+ * 'by-type':
+ *   1. Static children (structural hierarchy) — sorted by frontmatter `order`
+ *   2. Embedded nodes (![[nodeId]]) — sorted by frontmatter `order`
+ *   3. Media files (![[url]]) — in order of appearance in text
+ *   Use when you want the grid to always show structural children first.
+ *
+ * 'by-mention':
+ *   1. Static children (structural hierarchy) — sorted by frontmatter `order`, always first
+ *   2. Embedded nodes + media files — interleaved in order of appearance in text
+ *   Use when the narrative flow of the page should drive what appears in the grid.
+ *
+ * Future: this value may be exposed as a UI toggle per-node or globally.
+ */
+export const LOTUS_SORT_MODE: "by-type" | "by-mention" = "by-mention";
+
+/**
+ * Maximum number of nodes displayed in the Lotus Grid (excluding center cell).
+ * The grid is 3x3, center is always current node, so max surrounding = 8.
+ * If resolved nodes exceed this limit:
+ *   - A console event is fired (future: UI notification system)
+ *   - The list is trimmed to the first LOTUS_GRID_LIMIT nodes (respecting sort order)
+ */
+export const LOTUS_GRID_LIMIT = 8;
+
 // --- ROOT SKELETON ---
 // The skeleton provides the entry point ('home').
 // All other nodes are attached via 'parent' fields in their .md files.

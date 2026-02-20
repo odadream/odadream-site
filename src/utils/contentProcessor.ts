@@ -100,22 +100,32 @@ export const parseContentAndExtractMedia = (
     // Check registry first: if value matches a known node ID — use that node
     if (nodeRegistry && nodeRegistry.has(cleanValue)) {
       const registryNode = nodeRegistry.get(cleanValue)!;
-      // Use the registry node as-is; optionally override title if provided
-      const node: LotusNode = title
-        ? {
-            ...registryNode,
-            title: { ...registryNode.title },
-            shortTitle: { en: title, ru: title },
-          }
-        : registryNode;
+      // Mark as embedded so useLotusLogic can distinguish from media files
+      // and apply correct sort group + history navigation
+      const node: LotusNode = {
+        ...(title
+          ? {
+              ...registryNode,
+              title: { ...registryNode.title },
+              shortTitle: { en: title, ru: title },
+            }
+          : registryNode),
+        _isEmbedded: true,
+      };
       mediaNodes.push(node);
       return;
     }
 
-    // Fallback: treat as media URL (original behavior)
-    mediaNodes.push(
-      generateMediaNode(cleanValue, counter++, title?.trim(), poster?.trim()),
-    );
+    // Fallback: treat as media URL — explicitly NOT embedded
+    mediaNodes.push({
+      ...generateMediaNode(
+        cleanValue,
+        counter++,
+        title?.trim(),
+        poster?.trim(),
+      ),
+      _isEmbedded: false,
+    });
   };
 
   // 1. Wiki Style ![[Value|Title|Poster]]
