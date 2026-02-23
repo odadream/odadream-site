@@ -21,12 +21,7 @@ import {
 
 import { LotusNode } from "../types";
 import { THEME } from "../styles/theme";
-import {
-  TRANSITIONS,
-  DRAWER,
-  MotionDiv,
-  CELL_VARIANTS,
-} from "../styles/animations";
+import { TRANSITIONS, MotionDiv, CELL_VARIANTS } from "../styles/animations";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { CyberText } from "./CyberText";
 import { LotusSidebar } from "./LotusSidebar";
@@ -121,7 +116,7 @@ const GridCell = React.memo(
       index: number;
       className?: string;
     }
-  >(({ cell, index, className }, ref) => {
+  >(({ cell, index, className }, _ref) => {
     const {
       navigate,
       navigateHistory,

@@ -26,7 +26,6 @@ export const LotusSidebar: React.FC<LotusSidebarProps> = ({
   lang,
   isDesktop,
   isGridCollapsed,
-  toggleGrid,
   navigatorHighlight,
   handleRef,
   handlePulse,
