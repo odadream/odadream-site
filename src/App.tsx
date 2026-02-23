@@ -11,7 +11,7 @@ import { LotusGrid } from "./components/LotusGrid";
 import { Lightbox } from "./components/Lightbox";
 
 const Layout: React.FC = () => {
-  const { lang, lightboxMedia, closeLightbox, isDesktop } = useNavigation();
+  const { lang, lightboxMedia, closeLightbox } = useNavigation();
 
   return (
     <div className={THEME.layout.fullScreen}>
@@ -29,20 +29,7 @@ const Layout: React.FC = () => {
       <HeaderTabs />
 
       <main className={THEME.layout.mainContent}>
-        <section
-          className={THEME.layout.textSection}
-          style={
-            // On mobile: paddingBottom tracks drawer position via CSS var
-            // Updated frame-by-frame by LotusGrid effect, so animation is in sync
-            !isDesktop
-              ? {
-                  paddingBottom: "var(--drawer-open-px, 0px)",
-                  transition:
-                    "padding-bottom 380ms cubic-bezier(0.32, 0.72, 0, 1)",
-                }
-              : undefined
-          }
-        >
+        <section className={THEME.layout.textSection}>
           <TextPanel />
         </section>
 

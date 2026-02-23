@@ -67,8 +67,8 @@
     /* translateY offset when closed: panel slides down so only bar is visible */
     --lotus-closed-y: calc(var(--lotus-panel-height) - var(--lotus-bar-height));
 
-    /* Set by LotusGrid JS effect — tracks how many px the drawer is open */
-    /* 0 = fully closed, lotus-panel-height = fully open */
+    /* Set by LotusGrid JS — updated ONCE on snap, not during drag */
+    /* 0 = fully closed, lotus-panel-height - bar-height = fully open */
     --drawer-open-px: 0px;
   }
 
@@ -231,4 +231,16 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(var(--color-txt-dim));
+}
+
+/* ─── Mobile text section: padding tracks lotus drawer position ─────────────
+   --drawer-open-px is set by LotusGrid on snap (not during drag).
+   Single reflow per snap, zero reflow during drag.
+   Transition matches drawer spring for visual continuity.
+   On desktop this var is not set so padding stays 0.             ────────── */
+@media (max-width: 767px), (max-height: 767px) and (orientation: landscape) {
+  .lotus-text-section {
+    padding-bottom: var(--drawer-open-px, 0px);
+    transition: padding-bottom 380ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
 }

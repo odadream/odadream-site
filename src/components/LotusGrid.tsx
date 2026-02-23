@@ -586,13 +586,12 @@ export const LotusGrid: React.FC = () => {
       const clamped = Math.max(0, Math.min(closed, base + dy));
       dragYRef.current = clamped;
 
-      // Direct DOM — zero React, zero lag
+      // ONLY move the panel — pure compositor transform, zero reflow.
+      // --drawer-open-px is NOT updated here: padding-bottom causes layout
+      // reflow on every frame which is the source of jitter.
+      // It will be updated once on snap (pointerup).
       panel.style.transition = "none";
       panel.style.transform = `translateY(${clamped}px)`;
-      document.documentElement.style.setProperty(
-        "--drawer-open-px",
-        `${Math.max(0, closed - clamped)}px`,
-      );
     };
 
     const onUp = (e: PointerEvent) => {
@@ -624,15 +623,18 @@ export const LotusGrid: React.FC = () => {
       // Re-enable transition before snap
       panel.style.transition = SNAP_TRANSITION;
 
-      // Snap to final position directly on DOM first (instant visual snap start)
+      // Snap panel to final position
       const snapY = shouldOpen ? 0 : closed;
       panel.style.transform = `translateY(${snapY}px)`;
+
+      // Update padding ONCE to final value — animates via CSS transition in App.tsx.
+      // Single layout reflow on snap, not on every drag frame.
       document.documentElement.style.setProperty(
         "--drawer-open-px",
         `${shouldOpen ? closed : 0}px`,
       );
 
-      // Then sync React state (updates isGridCollapsed for rest of app)
+      // Sync React state (updates isGridCollapsed for rest of app)
       toggleGridRef.current(!shouldOpen);
     };
 
@@ -642,8 +644,14 @@ export const LotusGrid: React.FC = () => {
       isDragging.current = false;
       // Snap back to current logical state
       const closed = closedOffsetRef.current;
+      const isCollapsed = isCollapsedRef.current;
       panel.style.transition = SNAP_TRANSITION;
-      panel.style.transform = `translateY(${isCollapsedRef.current ? closed : 0}px)`;
+      panel.style.transform = `translateY(${isCollapsed ? closed : 0}px)`;
+      // Restore padding to match logical state
+      document.documentElement.style.setProperty(
+        "--drawer-open-px",
+        `${isCollapsed ? 0 : closed}px`,
+      );
     };
 
     handle.addEventListener("pointerdown", onDown);

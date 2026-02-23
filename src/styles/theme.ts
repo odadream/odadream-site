@@ -13,6 +13,7 @@ export const THEME = {
 
     // LAYER 5 (Projector) hitting Layer 1 (Wall)
     textSection: `
+            lotus-text-section
             relative flex flex-col bg-transparent z-10 min-h-0 
             border-b border-border md:border-b-0 md:border-r landscape:border-b-0 landscape:border-r
             flex-1 md:flex-none md:w-[var(--desktop-text-width)] landscape:flex-none landscape:w-[var(--desktop-text-width)] md:h-full landscape:h-full
