@@ -438,103 +438,196 @@ export const LotusGrid: React.FC = () => {
   } = useNavigation();
   const { gridCells } = useLotusLogic(currentNode, lang);
 
-  // Live drag offset from swipe gesture (px). 0 = snapped to state position.
-  // Positive = dragged toward closed, negative = dragged toward open.
-  const [dragOffset, setDragOffset] = React.useState(0);
+  // --- SINGLE SOURCE OF TRUTH: drawerY ---
+  // On mobile, this is the ONLY thing that controls the panel position.
+  // 0 = fully open. closedOffset = only bar visible.
+  // During drag: set instantly (no transition).
+  // On snap: spring animates to 0 or closedOffset.
+  const closedOffsetRef = React.useRef(0);
+  const [drawerY, setDrawerY] = React.useState<number | null>(null); // null = not yet measured
 
-  // On mobile: panel is absolutely positioned, slides via translateY
-  // translateY(0) = fully open, translateY(closedY) = only bar visible
-  // --lotus-closed-y is set in CSS: calc(panel-height - bar-height)
-  const mobileStyle: React.CSSProperties = !isDesktop
+  // Measure panel height from CSS var on first render and on resize
+  React.useEffect(() => {
+    if (isDesktop) return;
+    const measure = () => {
+      const raw = getComputedStyle(document.documentElement)
+        .getPropertyValue("--lotus-panel-height")
+        .trim();
+      const barRaw = getComputedStyle(document.documentElement)
+        .getPropertyValue("--lotus-bar-height")
+        .trim();
+      const toPixels = (v: string) => {
+        const m = v.match(/([\d.]+)(dvh|vh|rem|px)/);
+        if (!m) return parseFloat(v) || 0;
+        if (m[2] === "dvh" || m[2] === "vh")
+          return (parseFloat(m[1]) / 100) * window.innerHeight;
+        if (m[2] === "rem") return parseFloat(m[1]) * 16;
+        return parseFloat(m[1]);
+      };
+      const panelH = toPixels(raw);
+      const barH = toPixels(barRaw);
+      closedOffsetRef.current = panelH - barH;
+      // Snap to correct position without animation on measure
+      setDrawerY(isGridCollapsed ? closedOffsetRef.current : 0);
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [isDesktop]);
+
+  // Sync drawerY when isGridCollapsed changes (click/tap toggle)
+  // Uses spring via CSS transition (not instant)
+  const isSnapping = React.useRef(false);
+  React.useEffect(() => {
+    if (isDesktop || closedOffsetRef.current === 0) return;
+    isSnapping.current = true;
+    setDrawerY(isGridCollapsed ? closedOffsetRef.current : 0);
+    // Clear snapping flag after transition completes
+    const t = setTimeout(() => {
+      isSnapping.current = false;
+    }, 450);
+    return () => clearTimeout(t);
+  }, [isGridCollapsed, isDesktop]);
+
+  // --- DRAG HANDLERS ---
+  // These are called by LotusSidebar via onDragOffset
+  // We convert raw offset to absolute drawerY to keep logic in one place
+  const isDragging = React.useRef(false);
+
+  const handleDragOffset = React.useCallback(
+    (offset: number) => {
+      if (isDesktop) return;
+      const closed = closedOffsetRef.current;
+      if (offset === 0) {
+        // Pointer released — LotusSidebar already called toggleGrid
+        // Just clear dragging flag; useEffect above will spring to final position
+        isDragging.current = false;
+        return;
+      }
+      isDragging.current = true;
+      // offset > 0: dragging down (toward closed)
+      // offset < 0: dragging up (toward open)
+      const base = isGridCollapsed ? closed : 0;
+      const raw = base + offset;
+      // Hard clamp: can't go above open (0) or below closed (closedOffset)
+      setDrawerY(Math.max(0, Math.min(closed, raw)));
+    },
+    [isDesktop, isGridCollapsed],
+  );
+
+  // How open is the drawer? 0 = closed, 1 = fully open
+  // Used for syncing text panel padding smoothly
+  const openFraction = React.useMemo(() => {
+    if (isDesktop || drawerY === null || closedOffsetRef.current === 0)
+      return 0;
+    return 1 - drawerY / closedOffsetRef.current;
+  }, [isDesktop, drawerY]);
+
+  // Mobile style: absolute overlay, GPU-only transform
+  const mobileStyle: React.CSSProperties =
+    !isDesktop && drawerY !== null
+      ? {
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: "var(--lotus-panel-height)",
+          transform: `translateY(${drawerY}px)`,
+          // Instant during drag, spring on snap
+          transition: isDragging.current
+            ? "none"
+            : "transform 380ms cubic-bezier(0.32, 0.72, 0, 1)",
+          willChange: "transform",
+          zIndex: 30,
+        }
+      : {};
+
+  // Content opacity: always 1 — content is ALWAYS rendered
+  // We rely on the panel being off-screen when closed, not on hiding content
+  // This is what makes the "physical body" feel correct during drag
+  const contentStyle: React.CSSProperties = !isDesktop
     ? {
-        position: "absolute",
-        bottom: 0,
-        left: 0,
-        right: 0,
-        height: "var(--lotus-panel-height)",
-        // translateY: closed = slide down by closedY, open = 0
-        // dragOffset adjusts the snap position during drag
-        transform: isGridCollapsed
-          ? `translateY(calc(var(--lotus-closed-y) + ${dragOffset}px))`
-          : `translateY(${Math.max(0, dragOffset)}px)`,
-        // Use spring transition only when not dragging
-        transition: dragOffset !== 0 ? "none" : undefined,
-        willChange: "transform",
-        zIndex: 30,
+        opacity: 1,
+        pointerEvents: isGridCollapsed && !isDragging.current ? "none" : "auto",
       }
     : {};
 
   return (
-    <MotionDiv
-      className={cn(
-        THEME.layout.gridSection,
-        // Desktop: normal flow. Mobile: taken out of flow (absolute).
-        isDesktop ? "shrink-0 overflow-hidden" : "overflow-hidden",
-      )}
-      // Desktop uses framer for layout, mobile uses CSS transform above
-      animate={isDesktop ? { height: "100%" } : undefined}
-      transition={isDesktop ? TRANSITIONS.layout : TRANSITIONS.drawer}
-      style={{
-        touchAction: "none",
-        ...mobileStyle,
-        // When drag is active, override framer transition with instant response
-        ...(dragOffset !== 0 && !isDesktop ? { transition: "none" } : {}),
-      }}
-    >
-      <div className="flex flex-col md:flex-row landscape:flex-row w-full h-full">
-        <LotusSidebar
-          lang={lang}
-          isDesktop={isDesktop}
-          isGridCollapsed={isGridCollapsed}
-          toggleGrid={toggleGrid}
-          navigatorHighlight={navigatorHighlight}
-          onDragOffset={setDragOffset}
-        />
+    <>
+      {/* On mobile: spacer so TextPanel has correct height (not covered by absolute panel) */}
+      {/* Shrinks/grows in sync with drawer position */}
+      {!isDesktop && (
         <div
-          className={cn(
-            "flex-1 relative min-h-0 flex flex-col",
-            // Grid content is always rendered (drawer pattern).
-            // On mobile collapsed: pointer-events off so taps pass through to text.
-            // Opacity: fade out slightly when collapsed but keep rendered for perf.
-            !isDesktop && isGridCollapsed
-              ? "opacity-0 pointer-events-none"
-              : "opacity-100 transition-opacity duration-200",
-          )}
-        >
-          <div className={cn(THEME.lotus.frame, "flex-1 min-h-0")}>
-            <div className={THEME.lotus.gridWrapper}>
-              {/* 
-                        FIX: AnimatePresence moved inside the map loop. 
-                        This allows the cell content to cross-dissolve within the static grid slot.
-                        'popLayout' combined with 'absolute inset-0' on the cell ensures they stack.
-                        Added 'bg-surface' to parent slot to prevent transparency during transitions.
-                    */}
-              {gridCells.map((cell, index) => (
-                <div
-                  key={index}
-                  className="relative w-full h-full isolate overflow-hidden bg-surface"
-                >
-                  <AnimatePresence
-                    mode="popLayout"
-                    initial={false}
-                    // Optimized for smooth cross-dissolve transitions
+          aria-hidden="true"
+          style={{
+            flexShrink: 0,
+            height: `var(--lotus-bar-height)`,
+            // When drawer opens, extra space appears below text for scrolling
+            // This transitions in sync with the drawer spring
+            marginBottom:
+              drawerY !== null
+                ? `${openFraction * closedOffsetRef.current}px`
+                : 0,
+            transition: isDragging.current
+              ? "none"
+              : "margin-bottom 380ms cubic-bezier(0.32, 0.72, 0, 1)",
+          }}
+        />
+      )}
+
+      <MotionDiv
+        className={cn(
+          THEME.layout.gridSection,
+          isDesktop ? "shrink-0 overflow-hidden" : "overflow-hidden",
+        )}
+        // Desktop: framer manages layout height
+        animate={isDesktop ? { height: "100%" } : undefined}
+        transition={isDesktop ? TRANSITIONS.layout : undefined}
+        style={{
+          touchAction: "none",
+          // Remove box-shadow during drag to prevent double-shadow artifact
+          // Shadow is on the element itself via Tailwind, which stays static
+          ...mobileStyle,
+        }}
+      >
+        <div className="flex flex-col md:flex-row landscape:flex-row w-full h-full">
+          <LotusSidebar
+            lang={lang}
+            isDesktop={isDesktop}
+            isGridCollapsed={isGridCollapsed}
+            toggleGrid={toggleGrid}
+            navigatorHighlight={navigatorHighlight}
+            onDragOffset={handleDragOffset}
+          />
+          <div
+            className="flex-1 relative min-h-0 flex flex-col"
+            style={contentStyle}
+          >
+            <div className={cn(THEME.lotus.frame, "flex-1 min-h-0")}>
+              <div className={THEME.lotus.gridWrapper}>
+                {gridCells.map((cell, index) => (
+                  <div
+                    key={index}
+                    className="relative w-full h-full isolate overflow-hidden bg-surface"
                   >
-                    <GridCell
-                      key={cell ? cell.id : `empty-${index}`}
-                      cell={cell}
-                      index={index}
-                      className="absolute inset-0" // Force absolute to allow overlap during transition
-                    />
-                  </AnimatePresence>
-                </div>
-              ))}
+                    <AnimatePresence mode="popLayout" initial={false}>
+                      <GridCell
+                        key={cell ? cell.id : `empty-${index}`}
+                        cell={cell}
+                        index={index}
+                        className="absolute inset-0"
+                      />
+                    </AnimatePresence>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="shrink-0 z-50 w-full bg-transparent">
+              <Breadcrumbs />
             </div>
           </div>
-          <div className="shrink-0 z-50 w-full bg-transparent">
-            <Breadcrumbs />
-          </div>
         </div>
-      </div>
-    </MotionDiv>
+      </MotionDiv>
+    </>
   );
 };

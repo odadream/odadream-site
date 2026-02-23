@@ -5,8 +5,7 @@ import { twMerge } from "tailwind-merge";
 import { Layers, ChevronUp, GripHorizontal } from "lucide-react";
 import { THEME } from "../styles/theme";
 import { CyberText } from "./CyberText";
-import { MotionDiv } from "../styles/animations";
-import { DRAWER } from "../styles/animations";
+import { MotionDiv, DRAWER } from "../styles/animations";
 
 const cn = (...inputs: (string | undefined | null | false)[]) =>
   twMerge(clsx(inputs));
@@ -34,6 +33,7 @@ export const LotusSidebar: React.FC<LotusSidebarProps> = ({
   // --- SWIPE STATE ---
   const dragStart = useRef<{ y: number; time: number } | null>(null);
   const currentOffset = useRef(0);
+  const wasDrag = useRef(false);
 
   const getPanelHeight = useCallback((): number => {
     // Read from CSS variable at runtime
@@ -53,6 +53,7 @@ export const LotusSidebar: React.FC<LotusSidebarProps> = ({
       e.currentTarget.setPointerCapture(e.pointerId);
       dragStart.current = { y: e.clientY, time: Date.now() };
       currentOffset.current = 0;
+      wasDrag.current = false;
     },
     [isDesktop],
   );
@@ -61,6 +62,7 @@ export const LotusSidebar: React.FC<LotusSidebarProps> = ({
     (e: React.PointerEvent) => {
       if (isDesktop || !dragStart.current) return;
       const dy = e.clientY - dragStart.current.y;
+      if (Math.abs(dy) > 5) wasDrag.current = true;
 
       // Constrain: can't drag above open position or too far below closed
       const panelH = getPanelHeight();
@@ -133,10 +135,13 @@ export const LotusSidebar: React.FC<LotusSidebarProps> = ({
         "landscape:h-full landscape:w-[var(--layout-gutter)] landscape:py-8 landscape:border-b-0 landscape:px-0 landscape:cursor-default landscape:bg-canvas",
       )}
       onClick={() => {
-        // Only trigger click-toggle if not a drag (dragStart was reset in pointerUp)
-        if (!isDesktop && !dragStart.current) {
-          toggleGrid(!isGridCollapsed);
+        if (isDesktop) return;
+        // Skip if pointer was a drag — pointerUp already called toggleGrid
+        if (wasDrag.current) {
+          wasDrag.current = false;
+          return;
         }
+        toggleGrid(!isGridCollapsed);
       }}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
