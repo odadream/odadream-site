@@ -2,7 +2,7 @@ import React from "react";
 import { AnimatePresence } from "framer-motion";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { Layers, ChevronUp, GripHorizontal } from "lucide-react";
+import { Layers, ChevronUp } from "lucide-react";
 import { THEME } from "../styles/theme";
 import { CyberText } from "./CyberText";
 import { MotionDiv } from "../styles/animations";
@@ -18,6 +18,8 @@ interface LotusSidebarProps {
   navigatorHighlight: boolean;
   /** Ref attached to the draggable handle div — LotusGrid binds native pointer events here */
   handleRef: React.RefObject<HTMLDivElement>;
+  /** When true: pulse the handle bar to attract attention after peek animation */
+  handlePulse?: boolean;
 }
 
 export const LotusSidebar: React.FC<LotusSidebarProps> = ({
@@ -27,6 +29,7 @@ export const LotusSidebar: React.FC<LotusSidebarProps> = ({
   toggleGrid,
   navigatorHighlight,
   handleRef,
+  handlePulse,
 }) => {
   const layoutKey = isDesktop ? "desktop" : "mobile";
 
@@ -91,12 +94,33 @@ export const LotusSidebar: React.FC<LotusSidebarProps> = ({
           </div>
 
           {!isDesktop && (
-            <div className="md:hidden landscape:hidden text-zinc-500 flex items-center justify-center w-8 h-8 rounded-full active:bg-white/5 transition-colors relative z-20">
-              {isGridCollapsed ? (
-                <ChevronUp className="w-4 h-4 animate-pulse-slow" />
-              ) : (
-                <GripHorizontal className="w-4 h-4 opacity-70" />
+            <div
+              className={cn(
+                "md:hidden landscape:hidden flex items-center justify-center w-8 h-8 rounded-full active:bg-white/5 transition-colors relative z-20",
+                handlePulse && isGridCollapsed
+                  ? "text-accent"
+                  : "text-zinc-500",
               )}
+            >
+              <ChevronUp
+                className={cn(
+                  "w-4 h-4 transition-all duration-500",
+                  // Points up when closed (invite to open),
+                  // flips to point down when open (invite to close)
+                  isGridCollapsed ? "rotate-0" : "rotate-180",
+                  isGridCollapsed && handlePulse
+                    ? "opacity-100 drop-shadow-[0_0_6px_rgb(var(--color-accent))]"
+                    : "opacity-50",
+                )}
+                style={
+                  isGridCollapsed && handlePulse
+                    ? {
+                        animation:
+                          "lotus-handle-pulse 1.8s ease-in-out infinite",
+                      }
+                    : undefined
+                }
+              />
             </div>
           )}
         </MotionDiv>

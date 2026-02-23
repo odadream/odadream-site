@@ -668,6 +668,63 @@ export const LotusGrid: React.FC = () => {
     // Intentionally minimal deps — handlers read live values via refs
   }, [isDesktop]);
 
+  // ── ATTENTION: PEEK + HANDLE PULSE ─────────────────────────────────────────
+  // After 4s of inactivity (panel closed, user hasn't interacted):
+  //   1. Panel peeks up ~28% of its height, then springs back. One time only.
+  //   2. Handle pulses until first open interaction.
+  // Both stop immediately if user opens the panel themselves.
+  // ──────────────────────────────────────────────────────────────────────────
+  const [handlePulse, setHandlePulse] = React.useState(false);
+  const peekFiredRef = React.useRef(false);
+  const peekTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  React.useEffect(() => {
+    // Only on mobile, only when collapsed, only once per session
+    if (isDesktop || !isGridCollapsed) {
+      // User opened the panel — cancel pending peek, stop pulse
+      if (peekTimerRef.current) clearTimeout(peekTimerRef.current);
+      setHandlePulse(false);
+      return;
+    }
+
+    // Already fired this session — don't repeat
+    if (peekFiredRef.current) return;
+
+    peekTimerRef.current = setTimeout(() => {
+      const panel = panelRef.current;
+      if (!panel || !isCollapsedRef.current) return; // user may have opened meanwhile
+
+      peekFiredRef.current = true;
+      const closed = closedOffsetRef.current;
+      // Peek distance: 30% of panel height (enough to show top row of cells)
+      const peekY = closed * 0.3;
+
+      // PEEK IN — fast ease-out (feels like a knock)
+      panel.style.transition = "transform 420ms cubic-bezier(0.22, 1, 0.36, 1)";
+      panel.style.transform = `translateY(${closed - peekY}px)`;
+
+      // PEEK OUT — spring back after 600ms pause
+      const backTimer = setTimeout(() => {
+        if (!isCollapsedRef.current) return; // user opened it during peek
+        panel.style.transition =
+          "transform 500ms cubic-bezier(0.32, 0.72, 0, 1)";
+        panel.style.transform = `translateY(${closed}px)`;
+
+        // Start handle pulse after peek completes
+        const pulseTimer = setTimeout(() => {
+          if (isCollapsedRef.current) setHandlePulse(true);
+        }, 520);
+        peekTimerRef.current = pulseTimer;
+      }, 700);
+
+      peekTimerRef.current = backTimer;
+    }, 4000);
+
+    return () => {
+      if (peekTimerRef.current) clearTimeout(peekTimerRef.current);
+    };
+  }, [isDesktop, isGridCollapsed]);
+
   // Mobile style: absolute overlay, GPU-only transform.
   // Transition is always "on" here — during drag it gets disabled
   // directly on panelRef.style, bypassing React entirely for zero-lag response.
@@ -720,6 +777,7 @@ export const LotusGrid: React.FC = () => {
             toggleGrid={toggleGrid}
             navigatorHighlight={navigatorHighlight}
             handleRef={handleRef}
+            handlePulse={handlePulse}
           />
           <div
             className="flex-1 relative min-h-0 flex flex-col"
