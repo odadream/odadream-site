@@ -1,11 +1,11 @@
-import React, { useRef, useCallback } from "react";
+import React from "react";
 import { AnimatePresence } from "framer-motion";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { Layers, ChevronUp, GripHorizontal } from "lucide-react";
 import { THEME } from "../styles/theme";
 import { CyberText } from "./CyberText";
-import { MotionDiv, DRAWER } from "../styles/animations";
+import { MotionDiv } from "../styles/animations";
 
 const cn = (...inputs: (string | undefined | null | false)[]) =>
   twMerge(clsx(inputs));
@@ -16,8 +16,8 @@ interface LotusSidebarProps {
   isGridCollapsed: boolean;
   toggleGrid: (collapsed: boolean) => void;
   navigatorHighlight: boolean;
-  /** Called during drag with current drag offset (px, positive = dragging down) */
-  onDragOffset?: (offset: number) => void;
+  /** Ref attached to the draggable handle div — LotusGrid binds native pointer events here */
+  handleRef: React.RefObject<HTMLDivElement>;
 }
 
 export const LotusSidebar: React.FC<LotusSidebarProps> = ({
@@ -26,106 +26,13 @@ export const LotusSidebar: React.FC<LotusSidebarProps> = ({
   isGridCollapsed,
   toggleGrid,
   navigatorHighlight,
-  onDragOffset,
+  handleRef,
 }) => {
   const layoutKey = isDesktop ? "desktop" : "mobile";
 
-  // --- SWIPE STATE ---
-  const dragStart = useRef<{ y: number; time: number } | null>(null);
-  const currentOffset = useRef(0);
-  const wasDrag = useRef(false);
-
-  const getPanelHeight = useCallback((): number => {
-    // Read from CSS variable at runtime
-    const raw = getComputedStyle(document.documentElement)
-      .getPropertyValue("--lotus-panel-height")
-      .trim();
-    // Parse dvh/vh values against window height
-    const match = raw.match(/([\d.]+)(dvh|vh)/);
-    if (match) return (parseFloat(match[1]) / 100) * window.innerHeight;
-    // Fallback: parse px
-    return parseFloat(raw) || window.innerHeight * 0.49;
-  }, []);
-
-  const handlePointerDown = useCallback(
-    (e: React.PointerEvent) => {
-      if (isDesktop) return;
-      e.currentTarget.setPointerCapture(e.pointerId);
-      dragStart.current = { y: e.clientY, time: Date.now() };
-      currentOffset.current = 0;
-      wasDrag.current = false;
-    },
-    [isDesktop],
-  );
-
-  const handlePointerMove = useCallback(
-    (e: React.PointerEvent) => {
-      if (isDesktop || !dragStart.current) return;
-      const dy = e.clientY - dragStart.current.y;
-      if (Math.abs(dy) > 5) wasDrag.current = true;
-
-      // Constrain: can't drag above open position or too far below closed
-      const panelH = getPanelHeight();
-      const barH = parseFloat(
-        getComputedStyle(document.documentElement).getPropertyValue(
-          "--lotus-bar-height",
-        ) || "44",
-      );
-      const maxDown = panelH - barH;
-
-      // When open: drag down closes (positive dy), clamp 0..maxDown
-      // When closed: drag up opens (negative dy), clamp -maxDown..0
-      if (isGridCollapsed) {
-        currentOffset.current = Math.max(-maxDown, Math.min(0, dy));
-      } else {
-        currentOffset.current = Math.max(0, Math.min(maxDown, dy));
-      }
-
-      onDragOffset?.(currentOffset.current);
-    },
-    [isDesktop, isGridCollapsed, getPanelHeight, onDragOffset],
-  );
-
-  const handlePointerUp = useCallback(
-    (e: React.PointerEvent) => {
-      if (isDesktop || !dragStart.current) return;
-
-      const dy = e.clientY - dragStart.current.y;
-      const dt = Date.now() - dragStart.current.time;
-      const velocity = Math.abs(dy) / dt; // px/ms
-      const panelH = getPanelHeight();
-      const threshold = panelH * DRAWER.snapThreshold;
-
-      let shouldOpen: boolean;
-
-      if (velocity >= DRAWER.velocityThreshold) {
-        // Fast flick: direction decides
-        shouldOpen = dy < 0; // dragging up = open
-      } else {
-        // Slow drag: distance decides
-        if (isGridCollapsed) {
-          shouldOpen = Math.abs(dy) >= threshold && dy < 0;
-        } else {
-          shouldOpen = !(Math.abs(dy) >= threshold && dy > 0);
-        }
-      }
-
-      dragStart.current = null;
-      onDragOffset?.(0); // reset drag offset — spring snaps
-      toggleGrid(!shouldOpen); // toggleGrid(true) = collapsed
-    },
-    [isDesktop, isGridCollapsed, getPanelHeight, toggleGrid, onDragOffset],
-  );
-
-  const handlePointerCancel = useCallback(() => {
-    if (!dragStart.current) return;
-    dragStart.current = null;
-    onDragOffset?.(0);
-    // Don't change state — snap back to current position
-  }, [onDragOffset]);
-
   return (
     <div
+      ref={handleRef}
       className={cn(
         "relative flex-shrink-0 z-30 select-none overflow-hidden group transition-colors duration-300",
         THEME.panel.navigatorSlab,
@@ -134,19 +41,6 @@ export const LotusSidebar: React.FC<LotusSidebarProps> = ({
         "md:h-full md:w-[var(--layout-gutter)] md:py-8 md:border-b-0 md:px-0 md:cursor-default md:bg-canvas md:shadow-none",
         "landscape:h-full landscape:w-[var(--layout-gutter)] landscape:py-8 landscape:border-b-0 landscape:px-0 landscape:cursor-default landscape:bg-canvas",
       )}
-      onClick={() => {
-        if (isDesktop) return;
-        // Skip if pointer was a drag — pointerUp already called toggleGrid
-        if (wasDrag.current) {
-          wasDrag.current = false;
-          return;
-        }
-        toggleGrid(!isGridCollapsed);
-      }}
-      onPointerDown={handlePointerDown}
-      onPointerMove={handlePointerMove}
-      onPointerUp={handlePointerUp}
-      onPointerCancel={handlePointerCancel}
       style={{ touchAction: "none" }}
     >
       <AnimatePresence mode="wait">
@@ -179,7 +73,7 @@ export const LotusSidebar: React.FC<LotusSidebarProps> = ({
                   : "text-accent drop-shadow-none scale-100",
               )}
             >
-              <Layers className="w-4 h-4 md:w-4 md:h-4" />
+              <Layers className="w-4 h-4" />
             </span>
             <span
               className={cn(

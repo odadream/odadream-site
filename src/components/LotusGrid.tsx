@@ -533,58 +533,132 @@ export const LotusGrid: React.FC = () => {
     };
   }, [isDesktop]);
 
-  // --- DRAG HANDLERS ---
-  // These are called by LotusSidebar via onDragOffset
-  // We convert raw offset to absolute drawerY to keep logic in one place
+  // --- NATIVE POINTER EVENTS (no React event system) ---
+  // Attached directly to the LotusSidebar handle via handleRef.
+  // Zero overhead: no useCallback, no synthetic events, no re-renders during drag.
+  const handleRef = React.useRef<HTMLDivElement>(null);
   const isDragging = React.useRef(false);
-
-  // Tracks current visual position during drag (ref — no re-render)
   const dragYRef = React.useRef(0);
+  const dragStartRef = React.useRef<{ y: number; time: number } | null>(null);
+  const wasDragRef = React.useRef(false);
 
-  const handleDragOffset = React.useCallback(
-    (offset: number) => {
-      if (isDesktop) return;
+  // Keep a ref to current isGridCollapsed for use inside native event handlers
+  // (closures capture the ref, not the stale state value)
+  const isCollapsedRef = React.useRef(isGridCollapsed);
+  React.useEffect(() => {
+    isCollapsedRef.current = isGridCollapsed;
+  }, [isGridCollapsed]);
 
-      // Block new drag while snap animation is in progress
-      if (isSnapping.current && offset !== 0) return;
+  const toggleGridRef = React.useRef(toggleGrid);
+  React.useEffect(() => {
+    toggleGridRef.current = toggleGrid;
+  }, [toggleGrid]);
+
+  React.useEffect(() => {
+    const handle = handleRef.current;
+    const panel = panelRef.current;
+    if (!handle || !panel || isDesktop) return;
+
+    const SNAP_TRANSITION = "transform 380ms cubic-bezier(0.32, 0.72, 0, 1)";
+
+    const onDown = (e: PointerEvent) => {
+      if (isSnapping.current) return;
+      handle.setPointerCapture(e.pointerId);
+      dragStartRef.current = { y: e.clientY, time: Date.now() };
+      dragYRef.current =
+        closedOffsetRef.current > 0 && isCollapsedRef.current
+          ? closedOffsetRef.current
+          : 0;
+      wasDragRef.current = false;
+      isDragging.current = false;
+    };
+
+    const onMove = (e: PointerEvent) => {
+      if (!dragStartRef.current || isSnapping.current) return;
+      const dy = e.clientY - dragStartRef.current.y;
+      if (Math.abs(dy) < 4) return; // dead zone — ignore micro-jitter
+
+      isDragging.current = true;
+      wasDragRef.current = true;
 
       const closed = closedOffsetRef.current;
+      const base = isCollapsedRef.current ? closed : 0;
+      const clamped = Math.max(0, Math.min(closed, base + dy));
+      dragYRef.current = clamped;
 
-      if (offset === 0) {
-        // Pointer released — LotusSidebar already called toggleGrid.
-        // Re-enable CSS transition on panel, then let snap effect set final position.
-        isDragging.current = false;
-        if (panelRef.current) {
-          panelRef.current.style.transition =
-            "transform 380ms cubic-bezier(0.32, 0.72, 0, 1)";
-        }
-        // Sync React state to current visual position so snap effect has correct base
-        setDrawerY(dragYRef.current);
+      // Direct DOM — zero React, zero lag
+      panel.style.transition = "none";
+      panel.style.transform = `translateY(${clamped}px)`;
+      document.documentElement.style.setProperty(
+        "--drawer-open-px",
+        `${Math.max(0, closed - clamped)}px`,
+      );
+    };
+
+    const onUp = (e: PointerEvent) => {
+      if (!dragStartRef.current) return;
+      const dy = e.clientY - dragStartRef.current.y;
+      const dt = Date.now() - dragStartRef.current.time;
+      const velocity = Math.abs(dy) / Math.max(dt, 1);
+      dragStartRef.current = null;
+
+      if (!wasDragRef.current) {
+        // Pure tap — toggle
+        toggleGridRef.current(!isCollapsedRef.current);
         return;
       }
 
-      // --- ACTIVE DRAG: pure DOM, zero React overhead ---
-      isDragging.current = true;
-      const base = isGridCollapsed ? closed : 0;
-      const raw = base + offset;
-      const clamped = Math.max(0, Math.min(closed, raw));
-      dragYRef.current = clamped;
+      isDragging.current = false;
+      const closed = closedOffsetRef.current;
+      const threshold = closed * 0.3;
 
-      // Move panel directly — no React state, no re-render, no lag
-      if (panelRef.current) {
-        panelRef.current.style.transition = "none";
-        panelRef.current.style.transform = `translateY(${clamped}px)`;
+      let shouldOpen: boolean;
+      if (velocity >= 0.5) {
+        shouldOpen = dy < 0;
+      } else {
+        shouldOpen = isCollapsedRef.current
+          ? Math.abs(dy) >= threshold && dy < 0
+          : !(Math.abs(dy) >= threshold && dy > 0);
       }
 
-      // Sync text padding directly too
-      const openPx = closed - clamped;
+      // Re-enable transition before snap
+      panel.style.transition = SNAP_TRANSITION;
+
+      // Snap to final position directly on DOM first (instant visual snap start)
+      const snapY = shouldOpen ? 0 : closed;
+      panel.style.transform = `translateY(${snapY}px)`;
       document.documentElement.style.setProperty(
         "--drawer-open-px",
-        `${Math.max(0, openPx)}px`,
+        `${shouldOpen ? closed : 0}px`,
       );
-    },
-    [isDesktop, isGridCollapsed],
-  );
+
+      // Then sync React state (updates isGridCollapsed for rest of app)
+      toggleGridRef.current(!shouldOpen);
+    };
+
+    const onCancel = () => {
+      if (!dragStartRef.current) return;
+      dragStartRef.current = null;
+      isDragging.current = false;
+      // Snap back to current logical state
+      const closed = closedOffsetRef.current;
+      panel.style.transition = SNAP_TRANSITION;
+      panel.style.transform = `translateY(${isCollapsedRef.current ? closed : 0}px)`;
+    };
+
+    handle.addEventListener("pointerdown", onDown);
+    handle.addEventListener("pointermove", onMove);
+    handle.addEventListener("pointerup", onUp);
+    handle.addEventListener("pointercancel", onCancel);
+
+    return () => {
+      handle.removeEventListener("pointerdown", onDown);
+      handle.removeEventListener("pointermove", onMove);
+      handle.removeEventListener("pointerup", onUp);
+      handle.removeEventListener("pointercancel", onCancel);
+    };
+    // Intentionally minimal deps — handlers read live values via refs
+  }, [isDesktop]);
 
   // Mobile style: absolute overlay, GPU-only transform.
   // Transition is always "on" here — during drag it gets disabled
@@ -637,7 +711,7 @@ export const LotusGrid: React.FC = () => {
             isGridCollapsed={isGridCollapsed}
             toggleGrid={toggleGrid}
             navigatorHighlight={navigatorHighlight}
-            onDragOffset={handleDragOffset}
+            handleRef={handleRef}
           />
           <div
             className="flex-1 relative min-h-0 flex flex-col"
