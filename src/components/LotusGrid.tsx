@@ -446,97 +446,149 @@ export const LotusGrid: React.FC = () => {
   const closedOffsetRef = React.useRef(0);
   const [drawerY, setDrawerY] = React.useState<number | null>(null); // null = not yet measured
 
-  // Measure panel height from CSS var on first render and on resize
+  // Ref to the panel DOM element — used for reliable pixel measurement
+  const panelRef = React.useRef<HTMLDivElement>(null);
+
+  // Measure panel height via getBoundingClientRect (reliable on all browsers/devices)
+  // Called on mount, resize, and orientation change
+  const measure = React.useCallback(() => {
+    if (isDesktop) return;
+
+    // Use the actual rendered height of the panel element if available
+    // Fallback: compute from CSS var via window.innerHeight
+    let panelH = 0;
+    if (panelRef.current) {
+      panelH = panelRef.current.getBoundingClientRect().height;
+    }
+    // If element not yet rendered or has 0 height, fall back to CSS var
+    if (panelH === 0) {
+      panelH = window.innerHeight * 0.49; // matches --lotus-panel-height: 49dvh
+    }
+
+    const barRaw = getComputedStyle(document.documentElement)
+      .getPropertyValue("--lotus-bar-height")
+      .trim();
+    // bar height is a fixed rem value — safe to parse
+    const barH = parseFloat(barRaw) * 16 || 44;
+
+    const newOffset = panelH - barH;
+
+    // On orientation change: reposition drawer to correct snap point
+    const wasOpen =
+      closedOffsetRef.current > 0 && drawerY !== null
+        ? drawerY < closedOffsetRef.current * 0.5
+        : !isGridCollapsed;
+
+    closedOffsetRef.current = newOffset;
+
+    // Snap to correct position immediately (no animation on remeasure)
+    setDrawerY(wasOpen ? 0 : newOffset);
+  }, [isDesktop, isGridCollapsed, drawerY]);
+
   React.useEffect(() => {
     if (isDesktop) return;
-    const measure = () => {
-      const raw = getComputedStyle(document.documentElement)
-        .getPropertyValue("--lotus-panel-height")
-        .trim();
-      const barRaw = getComputedStyle(document.documentElement)
-        .getPropertyValue("--lotus-bar-height")
-        .trim();
-      const toPixels = (v: string) => {
-        const m = v.match(/([\d.]+)(dvh|vh|rem|px)/);
-        if (!m) return parseFloat(v) || 0;
-        if (m[2] === "dvh" || m[2] === "vh")
-          return (parseFloat(m[1]) / 100) * window.innerHeight;
-        if (m[2] === "rem") return parseFloat(m[1]) * 16;
-        return parseFloat(m[1]);
-      };
-      const panelH = toPixels(raw);
-      const barH = toPixels(barRaw);
-      closedOffsetRef.current = panelH - barH;
-      // Snap to correct position without animation on measure
-      setDrawerY(isGridCollapsed ? closedOffsetRef.current : 0);
-    };
     measure();
     window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-  }, [isDesktop]);
+    window.addEventListener("orientationchange", measure);
+    return () => {
+      window.removeEventListener("resize", measure);
+      window.removeEventListener("orientationchange", measure);
+    };
+  }, [isDesktop, measure]);
 
   // Sync drawerY when isGridCollapsed changes (click/tap toggle)
   // Uses spring via CSS transition (not instant)
   const isSnapping = React.useRef(false);
+  const snapDebounceRef = React.useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
   React.useEffect(() => {
     if (isDesktop || closedOffsetRef.current === 0) return;
+    // Debounce: ignore rapid double-taps during animation
+    if (isSnapping.current) return;
     isSnapping.current = true;
-    setDrawerY(isGridCollapsed ? closedOffsetRef.current : 0);
-    // Clear snapping flag after transition completes
-    const t = setTimeout(() => {
-      isSnapping.current = false;
-    }, 450);
-    return () => clearTimeout(t);
-  }, [isGridCollapsed, isDesktop]);
-
-  // Sync --drawer-open-px CSS var so TextPanel can add matching paddingBottom
-  // This runs on every drawerY change — TextPanel uses it via inline style
-  React.useEffect(() => {
-    if (isDesktop) return;
-    const closed = closedOffsetRef.current;
-    // openPx: 0 when fully closed, closedOffset when fully open
-    const openPx = closed > 0 && drawerY !== null ? closed - drawerY : 0;
+    isDragging.current = false; // ensure transition applies
+    const target = isGridCollapsed ? closedOffsetRef.current : 0;
+    setDrawerY(target);
+    // Update CSS var for text padding
+    const openPx = isGridCollapsed ? 0 : closedOffsetRef.current;
     document.documentElement.style.setProperty(
       "--drawer-open-px",
-      `${Math.max(0, openPx)}px`,
+      `${openPx}px`,
     );
-  }, [drawerY, isDesktop]);
+    // Clear snapping after transition + buffer
+    if (snapDebounceRef.current) clearTimeout(snapDebounceRef.current);
+    snapDebounceRef.current = setTimeout(() => {
+      isSnapping.current = false;
+    }, 500);
+  }, [isGridCollapsed, isDesktop]);
+
+  // Init --drawer-open-px on first mount (drag and snap set it directly for perf)
+  React.useEffect(() => {
+    if (isDesktop) return;
+    document.documentElement.style.setProperty("--drawer-open-px", "0px");
+    return () => {
+      // Cleanup on unmount
+      document.documentElement.style.removeProperty("--drawer-open-px");
+    };
+  }, [isDesktop]);
 
   // --- DRAG HANDLERS ---
   // These are called by LotusSidebar via onDragOffset
   // We convert raw offset to absolute drawerY to keep logic in one place
   const isDragging = React.useRef(false);
 
+  // Tracks current visual position during drag (ref — no re-render)
+  const dragYRef = React.useRef(0);
+
   const handleDragOffset = React.useCallback(
     (offset: number) => {
       if (isDesktop) return;
+
+      // Block new drag while snap animation is in progress
+      if (isSnapping.current && offset !== 0) return;
+
       const closed = closedOffsetRef.current;
+
       if (offset === 0) {
-        // Pointer released — LotusSidebar already called toggleGrid
-        // Just clear dragging flag; useEffect above will spring to final position
+        // Pointer released — LotusSidebar already called toggleGrid.
+        // Re-enable CSS transition on panel, then let snap effect set final position.
         isDragging.current = false;
+        if (panelRef.current) {
+          panelRef.current.style.transition =
+            "transform 380ms cubic-bezier(0.32, 0.72, 0, 1)";
+        }
+        // Sync React state to current visual position so snap effect has correct base
+        setDrawerY(dragYRef.current);
         return;
       }
+
+      // --- ACTIVE DRAG: pure DOM, zero React overhead ---
       isDragging.current = true;
-      // offset > 0: dragging down (toward closed)
-      // offset < 0: dragging up (toward open)
       const base = isGridCollapsed ? closed : 0;
       const raw = base + offset;
-      // Hard clamp: can't go above open (0) or below closed (closedOffset)
-      setDrawerY(Math.max(0, Math.min(closed, raw)));
+      const clamped = Math.max(0, Math.min(closed, raw));
+      dragYRef.current = clamped;
+
+      // Move panel directly — no React state, no re-render, no lag
+      if (panelRef.current) {
+        panelRef.current.style.transition = "none";
+        panelRef.current.style.transform = `translateY(${clamped}px)`;
+      }
+
+      // Sync text padding directly too
+      const openPx = closed - clamped;
+      document.documentElement.style.setProperty(
+        "--drawer-open-px",
+        `${Math.max(0, openPx)}px`,
+      );
     },
     [isDesktop, isGridCollapsed],
   );
 
-  // How open is the drawer? 0 = closed, 1 = fully open
-  // Used for syncing text panel padding smoothly
-  const openFraction = React.useMemo(() => {
-    if (isDesktop || drawerY === null || closedOffsetRef.current === 0)
-      return 0;
-    return 1 - drawerY / closedOffsetRef.current;
-  }, [isDesktop, drawerY]);
-
-  // Mobile style: absolute overlay, GPU-only transform
+  // Mobile style: absolute overlay, GPU-only transform.
+  // Transition is always "on" here — during drag it gets disabled
+  // directly on panelRef.style, bypassing React entirely for zero-lag response.
   const mobileStyle: React.CSSProperties =
     !isDesktop && drawerY !== null
       ? {
@@ -546,10 +598,7 @@ export const LotusGrid: React.FC = () => {
           right: 0,
           height: "var(--lotus-panel-height)",
           transform: `translateY(${drawerY}px)`,
-          // Instant during drag, spring on snap
-          transition: isDragging.current
-            ? "none"
-            : "transform 380ms cubic-bezier(0.32, 0.72, 0, 1)",
+          transition: "transform 380ms cubic-bezier(0.32, 0.72, 0, 1)",
           willChange: "transform",
           zIndex: 30,
         }
@@ -568,6 +617,7 @@ export const LotusGrid: React.FC = () => {
   return (
     <>
       <MotionDiv
+        ref={panelRef}
         className={cn(
           THEME.layout.gridSection,
           isDesktop ? "shrink-0 overflow-hidden" : "overflow-hidden",
@@ -577,8 +627,6 @@ export const LotusGrid: React.FC = () => {
         transition={isDesktop ? TRANSITIONS.layout : undefined}
         style={{
           touchAction: "none",
-          // Remove box-shadow during drag to prevent double-shadow artifact
-          // Shadow is on the element itself via Tailwind, which stays static
           ...mobileStyle,
         }}
       >
