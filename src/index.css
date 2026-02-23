@@ -52,6 +52,20 @@
 
     /* Glow radius from LED strip - how far the light spreads */
     --led-glow-radius: 30px;
+
+    /* --- LOTUS DRAWER (MOBILE) --- */
+
+    /* Height of the lotus panel when fully open */
+    --lotus-panel-height: 49vh;
+    /* Supports dvh for modern browsers (accounts for browser chrome) */
+    --lotus-panel-height: 49dvh;
+
+    /* Height of the handle bar (collapsed state shows only this) */
+    /* Must match THEME.layout.barHeight (h-11 = 2.75rem) */
+    --lotus-bar-height: 2.75rem;
+
+    /* translateY offset when closed: panel slides down so only bar is visible */
+    --lotus-closed-y: calc(var(--lotus-panel-height) - var(--lotus-bar-height));
   }
 
   @media (min-width: 768px) {
@@ -153,6 +167,12 @@
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  /* Applied to TextPanel when drawer is open on mobile */
+  /* Prevents content from being hidden behind the drawer */
+  .text-panel-drawer-open {
+    padding-bottom: var(--lotus-panel-height) !important;
   }
 
   .will-change-transform {

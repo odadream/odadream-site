@@ -21,7 +21,12 @@ import {
 
 import { LotusNode } from "../types";
 import { THEME } from "../styles/theme";
-import { TRANSITIONS, MotionDiv, CELL_VARIANTS } from "../styles/animations";
+import {
+  TRANSITIONS,
+  DRAWER,
+  MotionDiv,
+  CELL_VARIANTS,
+} from "../styles/animations";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { CyberText } from "./CyberText";
 import { LotusSidebar } from "./LotusSidebar";
@@ -107,16 +112,16 @@ const NoSignal = () => (
 );
 
 // Updated Prop Interface to accept className for positioning
+// forwardRef required for AnimatePresence popLayout mode in React 19
 const GridCell = React.memo(
-  ({
-    cell,
-    index,
-    className,
-  }: {
-    cell: GridNode | null;
-    index: number;
-    className?: string;
-  }) => {
+  React.forwardRef<
+    HTMLDivElement,
+    {
+      cell: GridNode | null;
+      index: number;
+      className?: string;
+    }
+  >(({ cell, index, className }, ref) => {
     const {
       navigate,
       navigateHistory,
@@ -419,7 +424,7 @@ const GridCell = React.memo(
         </div>
       </MotionDiv>
     );
-  },
+  }),
 );
 
 export const LotusGrid: React.FC = () => {
@@ -433,29 +438,48 @@ export const LotusGrid: React.FC = () => {
   } = useNavigation();
   const { gridCells } = useLotusLogic(currentNode, lang);
 
-  const currentState = isDesktop
-    ? "desktop"
-    : isGridCollapsed
-      ? "mobileCollapsed"
-      : "mobileExpanded";
+  // Live drag offset from swipe gesture (px). 0 = snapped to state position.
+  // Positive = dragged toward closed, negative = dragged toward open.
+  const [dragOffset, setDragOffset] = React.useState(0);
+
+  // On mobile: panel is absolutely positioned, slides via translateY
+  // translateY(0) = fully open, translateY(closedY) = only bar visible
+  // --lotus-closed-y is set in CSS: calc(panel-height - bar-height)
+  const mobileStyle: React.CSSProperties = !isDesktop
+    ? {
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        height: "var(--lotus-panel-height)",
+        // translateY: closed = slide down by closedY, open = 0
+        // dragOffset adjusts the snap position during drag
+        transform: isGridCollapsed
+          ? `translateY(calc(var(--lotus-closed-y) + ${dragOffset}px))`
+          : `translateY(${Math.max(0, dragOffset)}px)`,
+        // Use spring transition only when not dragging
+        transition: dragOffset !== 0 ? "none" : undefined,
+        willChange: "transform",
+        zIndex: 30,
+      }
+    : {};
 
   return (
     <MotionDiv
-      className={cn(THEME.layout.gridSection, "shrink-0 overflow-hidden")}
-      initial={currentState}
-      animate={currentState}
-      variants={{
-        desktop: { height: "100%" },
-        mobileExpanded: {
-          height: "var(--mobile-grid-height)",
-          transition: TRANSITIONS.layout,
-        },
-        mobileCollapsed: {
-          height: "var(--bar-height)",
-          transition: TRANSITIONS.layout,
-        },
+      className={cn(
+        THEME.layout.gridSection,
+        // Desktop: normal flow. Mobile: taken out of flow (absolute).
+        isDesktop ? "shrink-0 overflow-hidden" : "overflow-hidden",
+      )}
+      // Desktop uses framer for layout, mobile uses CSS transform above
+      animate={isDesktop ? { height: "100%" } : undefined}
+      transition={isDesktop ? TRANSITIONS.layout : TRANSITIONS.drawer}
+      style={{
+        touchAction: "none",
+        ...mobileStyle,
+        // When drag is active, override framer transition with instant response
+        ...(dragOffset !== 0 && !isDesktop ? { transition: "none" } : {}),
       }}
-      style={{ touchAction: "none" }}
     >
       <div className="flex flex-col md:flex-row landscape:flex-row w-full h-full">
         <LotusSidebar
@@ -464,13 +488,17 @@ export const LotusGrid: React.FC = () => {
           isGridCollapsed={isGridCollapsed}
           toggleGrid={toggleGrid}
           navigatorHighlight={navigatorHighlight}
+          onDragOffset={setDragOffset}
         />
         <div
           className={cn(
-            "flex-1 relative transition-opacity duration-300 min-h-0 flex flex-col",
+            "flex-1 relative min-h-0 flex flex-col",
+            // Grid content is always rendered (drawer pattern).
+            // On mobile collapsed: pointer-events off so taps pass through to text.
+            // Opacity: fade out slightly when collapsed but keep rendered for perf.
             !isDesktop && isGridCollapsed
               ? "opacity-0 pointer-events-none"
-              : "opacity-100",
+              : "opacity-100 transition-opacity duration-200",
           )}
         >
           <div className={cn(THEME.lotus.frame, "flex-1 min-h-0")}>
