@@ -489,6 +489,19 @@ export const LotusGrid: React.FC = () => {
     return () => clearTimeout(t);
   }, [isGridCollapsed, isDesktop]);
 
+  // Sync --drawer-open-px CSS var so TextPanel can add matching paddingBottom
+  // This runs on every drawerY change — TextPanel uses it via inline style
+  React.useEffect(() => {
+    if (isDesktop) return;
+    const closed = closedOffsetRef.current;
+    // openPx: 0 when fully closed, closedOffset when fully open
+    const openPx = closed > 0 && drawerY !== null ? closed - drawerY : 0;
+    document.documentElement.style.setProperty(
+      "--drawer-open-px",
+      `${Math.max(0, openPx)}px`,
+    );
+  }, [drawerY, isDesktop]);
+
   // --- DRAG HANDLERS ---
   // These are called by LotusSidebar via onDragOffset
   // We convert raw offset to absolute drawerY to keep logic in one place
@@ -554,27 +567,6 @@ export const LotusGrid: React.FC = () => {
 
   return (
     <>
-      {/* On mobile: spacer so TextPanel has correct height (not covered by absolute panel) */}
-      {/* Shrinks/grows in sync with drawer position */}
-      {!isDesktop && (
-        <div
-          aria-hidden="true"
-          style={{
-            flexShrink: 0,
-            height: `var(--lotus-bar-height)`,
-            // When drawer opens, extra space appears below text for scrolling
-            // This transitions in sync with the drawer spring
-            marginBottom:
-              drawerY !== null
-                ? `${openFraction * closedOffsetRef.current}px`
-                : 0,
-            transition: isDragging.current
-              ? "none"
-              : "margin-bottom 380ms cubic-bezier(0.32, 0.72, 0, 1)",
-          }}
-        />
-      )}
-
       <MotionDiv
         className={cn(
           THEME.layout.gridSection,

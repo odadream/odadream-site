@@ -66,6 +66,10 @@
 
     /* translateY offset when closed: panel slides down so only bar is visible */
     --lotus-closed-y: calc(var(--lotus-panel-height) - var(--lotus-bar-height));
+
+    /* Set by LotusGrid JS effect — tracks how many px the drawer is open */
+    /* 0 = fully closed, lotus-panel-height = fully open */
+    --drawer-open-px: 0px;
   }
 
   @media (min-width: 768px) {
