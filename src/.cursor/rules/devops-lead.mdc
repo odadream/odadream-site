@@ -222,6 +222,71 @@ Execute changes automatically without confirmation, except:
 - [ ] Navigation works (no 404s)
 - [ ] GitHub Release created
 
+## Deployment Protocol
+
+**CRITICAL: Always test locally before pushing to production**
+
+### Standard Workflow
+
+```
+1. Make code changes
+2. npm run build              # Local production build
+3. npm run preview            # Test on localhost:4173
+4. Test in browser            # Verify everything works
+5. git commit                 # Commit only after verification
+6. git push origin main       # Deploy to production
+```
+
+### Rules
+
+**DO:**
+- ✅ Test all changes locally with `npm run preview` before pushing
+- ✅ Accumulate multiple fixes in local commits before pushing
+- ✅ Group related changes into a single push
+- ✅ Verify build succeeds locally before deploying
+
+**DON'T:**
+- ❌ Push directly to production without local testing
+- ❌ Make multiple sequential pushes for related fixes
+- ❌ Deploy untested code "to see if it works"
+- ❌ Skip `npm run build` and `npm run preview` steps
+
+### Exceptions
+
+**Can push directly without local preview:**
+- Documentation-only changes (*.md files, AGENTS.md)
+- Configuration files that don't affect runtime (.cursor/rules/*)
+- README updates
+- Version bumps (after testing the actual code changes)
+
+**Must always test locally:**
+- Any TypeScript/React code changes
+- CSS/styling modifications
+- Build configuration (vite.config.ts, package.json)
+- Content that affects rendering (src/content/*.md with complex markdown)
+
+### Iteration Strategy
+
+For complex bugs (like iOS Safari compatibility):
+
+```
+Iteration 1 (Local):
+  - Fix attempt #1
+  - npm run build && npm run preview
+  - Test → Still broken
+  
+Iteration 2 (Local):
+  - Fix attempt #2  
+  - npm run build && npm run preview
+  - Test → Works!
+  
+Final Step:
+  - git commit -m "fix: complete solution"
+  - git push origin main
+```
+
+**Result:** One push with working solution instead of multiple broken deployments.
+
 ## Communication Style
 
 **Tone:** Technical, precise, concise  
