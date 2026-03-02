@@ -50,21 +50,10 @@ if (constantsContent.match(versionRegex)) {
 }
 
 // 3. UPDATE METADATA.JSON
-// Generate description from the last 3 versions
-const metaDesc =
-  history
-    .slice(0, 3)
-    .map((h) => {
-      // Extract short tag from title (e.g. "Tech Noir") or use version logic
-      // We will stick to the format: "Feature (vX.X)."
-      const shortDesc = h.desc_ru.split(".")[0]; // Take first sentence
-      return `${shortDesc} (v${h.version.split(".").slice(0, 2).join(".")})`;
-    })
-    .join(". ") + ".";
-
+// Use static project description instead of auto-generated from versions
 const metadata = {
   name: `odadream-site-v${currentVersion}`,
-  description: metaDesc,
+  description: "ODA.dream - интерфейс для цифрового подсознания. Иммерсивное портфолио и интерактивная арт-инсталляция с уникальной системой навигации «Цветущий Лотос».",
   requestFramePermissions: [],
 };
 fs.writeFileSync(METADATA_PATH, JSON.stringify(metadata, null, 2));
@@ -101,9 +90,10 @@ Tracking the architectural metamorphosis of the ODA.dream.
 
 const changelogEn = history
   .map((h) => {
+    const dateStr = h.date ? `\n**Date:** ${h.date}\n` : "";
     return `
 ### v${h.version}${h.version === currentVersion ? " (Current)" : ""}
-**${h.title_en}**
+**${h.title_en}**${dateStr}
 ${h.desc_en}`;
   })
   .join("\n");
@@ -117,9 +107,10 @@ const divider = `\n\n---RU---\n
 
 const changelogRu = history
   .map((h) => {
+    const dateStr = h.date ? `\n**Дата:** ${h.date}\n` : "";
     return `
 ### v${h.version}${h.version === currentVersion ? " (Текущая)" : ""}
-**${h.title_ru}**
+**${h.title_ru}**${dateStr}
 ${h.desc_ru}`;
   })
   .join("\n");
