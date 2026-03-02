@@ -1,0 +1,771 @@
+---
+description: Lotus CMS - Detailed guide for working with the file-based CMS, graph structure, and content management specifics.
+globs: src/content/**/*.md
+alwaysApply: false
+---
+
+# Lotus CMS
+
+Specialized knowledge for working with the Lotus Graph content management system.
+
+## CMS Overview
+
+**Type:** File-based CMS using Markdown with YAML frontmatter
+
+**Location:** `src/content/*.md`
+
+**Philosophy:** Content as code - version controlled, human-readable, editor-agnostic
+
+**Compatibility:** Obsidian-compatible (can edit in Obsidian or any text editor)
+
+## Graph Structure
+
+### The Lotus Metaphor
+
+The navigation system is inspired by a blooming lotus flower:
+- **Center:** Current node (you are here)
+- **Petals:** Child nodes (up to 8)
+- **Bloom:** Navigate to a child (new center)
+- **Return:** Navigate back to parent
+
+### Hierarchy Rules
+
+**Root:**
+- ID: `home`
+- No parent
+- Entry point for all navigation
+
+**Children:**
+- Every node (except home) has a parent
+- Parent must exist (no orphaned nodes)
+- Maximum 8 children displayed per node
+
+**Depth:**
+- Unlimited nesting supported
+- Recommended: 3-4 levels for UX
+- Example: `home → lectures → lectures-neuroplasticity`
+
+## Frontmatter Schema
+
+### Required Fields
+
+```yaml
+---
+id: unique-node-id
+parent: parent-node-id
+title_en: English Title
+title_ru: Русский Заголовок
+type: content
+date: 2024.03.20
+---
+```
+
+### Optional Fields
+
+```yaml
+tags: [tag1, tag2]
+order: 1
+image: /images/custom-cover.jpg
+media: /videos/demo.mp4
+```
+
+### Field Reference
+
+**id** (required)
+- Unique identifier
+- Format: kebab-case (lowercase, hyphens)
+- Used in URLs: `?id=node-id`
+- Examples: `lectures-neuroplasticity`, `events-pleinair`
+
+**parent** (required)
+- ID of parent node
+- Must be `home` or existing node ID
+- Defines position in hierarchy
+- Example: `parent: lectures`
+
+**title_en** (required)
+- English title
+- Keep concise (2-5 words ideal)
+- Used in grid cells, breadcrumbs, sidebar
+- Example: `Neuroplasticity and Art`
+
+**title_ru** (required)
+- Russian title
+- Translation of title_en
+- Keep semantic equivalence
+- Example: `Нейропластичность и искусство`
+
+**type** (required)
+- Node behavior type
+- Values: `hub`, `content`, `media`, `action`
+- See "Node Types" section below
+
+**date** (required)
+- Last modified date
+- Format: YYYY.MM.DD (dots, not dashes)
+- Example: `2024.03.20`
+- Can be synced with `npm run dates:sync`
+
+**tags** (optional)
+- Array of keywords
+- Lowercase, English
+- Used for search/categorization
+- Displayed in footer
+- Example: `[neuroscience, art, interactive]`
+
+**order** (optional)
+- Sort position in parent's grid
+- Range: 0-8
+- Lower numbers appear first
+- If omitted, uses order of mention in parent's content
+
+**image** (optional)
+- Custom cover image path
+- Overrides procedurally generated SVG
+- Path relative to `public/`
+- Example: `/images/content/custom-cover.jpg`
+
+**media** (optional)
+- Direct media URL for media nodes
+- Video, audio, or image
+- Example: `/videos/demo.mp4`
+
+## Node Types
+
+### hub - Container Node
+
+**Purpose:** Navigation folder that displays children
+
+**Behavior:**
+- Shows children in Lotus Grid (3x3)
+- Center cell: current hub
+- Surrounding cells: children (max 8)
+- Click child to navigate
+
+**Icon:** Layers
+
+**Example:**
+```yaml
+---
+id: lectures
+parent: home
+title_en: Lectures
+title_ru: Лекции
+type: hub
+tags: [education, talks]
+date: 2024.03.20
+---
+
+## Lectures
+
+A collection of talks and presentations exploring the intersection of neuroscience, art, and consciousness.
+
+---RU---
+
+## Лекции
+
+Коллекция выступлений и презентаций, исследующих пересечение нейронауки, искусства и сознания.
+```
+
+### content - Article Node
+
+**Purpose:** Text content page
+
+**Behavior:**
+- Displays text in reading panel
+- Can include images, videos (embedded)
+- Supports markdown formatting
+- Can have children (displayed in grid)
+
+**Icon:** FileText
+
+**Example:**
+```yaml
+---
+id: lectures-neuroplasticity
+parent: lectures
+title_en: Neuroplasticity and Art
+title_ru: Нейропластичность и искусство
+type: content
+tags: [neuroscience, brain, art]
+date: 2024.03.20
+order: 1
+---
+
+## How Art Shapes the Brain
+
+Neuroplasticity is the brain's ability to reorganize itself...
+
+---RU---
+
+## Как искусство формирует мозг
+
+Нейропластичность — это способность мозга реорганизовывать себя...
+```
+
+### media - Media Node
+
+**Purpose:** Full-screen media display
+
+**Behavior:**
+- Opens lightbox immediately
+- No text panel
+- Supports video, audio, images
+- Can have poster/thumbnail
+
+**Icon:** Film / Image / AudioLines (based on media type)
+
+**Example:**
+```yaml
+---
+id: demo-video
+parent: works
+title_en: Demo Video
+title_ru: Демо Видео
+type: media
+tags: [video, demo]
+date: 2024.03.20
+---
+
+![[https://example.com/demo.mp4 | Demo Video | /images/covers/demo.jpg]]
+```
+
+### action - Action Node
+
+**Purpose:** External link or special action
+
+**Behavior:**
+- Executes action on click
+- Opens external URL
+- Triggers email client
+- No children
+
+**Icon:** Zap
+
+**Example:**
+```yaml
+---
+id: contact-email
+parent: contacts
+title_en: Email Us
+title_ru: Напишите нам
+type: action
+tags: [contact]
+date: 2024.03.20
+---
+
+mailto:hello@odadream.art
+```
+
+## Content Format
+
+### Bilingual Structure
+
+**Template:**
+```markdown
+---
+[frontmatter]
+---
+
+## English Heading
+
+English content here...
+
+You can use:
+- **Bold** and *italic*
+- [Links](https://example.com)
+- Lists
+- Images: ![alt](/path/to/image.jpg)
+- Code blocks
+
+---RU---
+
+## Русский Заголовок
+
+Русский контент здесь...
+
+Вы можете использовать:
+- **Жирный** и *курсив*
+- [Ссылки](https://example.com)
+- Списки
+- Изображения: ![alt](/path/to/image.jpg)
+- Блоки кода
+```
+
+**Critical:** The separator `---RU---` MUST be present to split EN/RU content.
+
+### Markdown Support
+
+**Supported:**
+- Headings (##, ###, ####)
+- Bold, italic, strikethrough
+- Lists (ordered, unordered)
+- Links
+- Images
+- Code blocks
+- Blockquotes
+- Tables (via remark-gfm)
+
+**Not Supported:**
+- HTML tags (sanitized)
+- Scripts
+- Iframes (use wiki-link syntax instead)
+
+## Media Embedding
+
+### Standard Markdown Images
+
+```markdown
+![Alt text](/images/content/photo.jpg)
+```
+
+**Use for:**
+- Static images
+- Simple embedding
+- When no custom poster needed
+
+### Wiki-Link Syntax
+
+**Format:** `![[url | title | poster]]`
+
+**Simple:**
+```markdown
+![[https://example.com/video.mp4]]
+```
+
+**With Title:**
+```markdown
+![[https://example.com/video.mp4 | My Video]]
+```
+
+**With Title and Poster:**
+```markdown
+![[https://example.com/video.mp4 | My Video | /images/covers/video-poster.jpg]]
+```
+
+**Use for:**
+- Videos with custom thumbnails
+- Audio with cover art
+- External media URLs
+- Advanced media control
+
+### Media Types
+
+**Video:**
+- Formats: `.mp4`, `.webm`, `.mov`
+- Displays as video player in lightbox
+- Supports poster images
+
+**Audio:**
+- Formats: `.mp3`, `.wav`, `.ogg`
+- Displays as audio player
+- Supports cover art
+
+**Images:**
+- Formats: `.jpg`, `.png`, `.gif`, `.webp`
+- Displays in lightbox
+- Supports zoom/pan
+
+## Grid Sorting
+
+### Sort Modes
+
+**Configuration:** `src/constants.ts` → `LOTUS_SORT_MODE`
+
+**by-mention** (current):
+1. Structural children (by `order` field)
+2. Embedded nodes + media (by order of mention in text)
+
+**by-type** (alternative):
+1. Structural children (by `order` field)
+2. Embedded nodes (by `order` field)
+3. Media files (by order of mention)
+
+### Order Field
+
+**Purpose:** Control display sequence in grid
+
+**Range:** 0-8 (matches grid limit)
+
+**Behavior:**
+- Lower numbers appear first
+- If omitted, uses default ordering
+- Only affects nodes with same parent
+
+**Example:**
+```yaml
+# lectures-intro.md
+order: 0  # Appears first
+
+# lectures-advanced.md
+order: 1  # Appears second
+
+# lectures-expert.md
+order: 2  # Appears third
+```
+
+## Embedded Nodes
+
+### Wiki-Link for Nodes
+
+You can embed other nodes in content using wiki-link syntax:
+
+```markdown
+Check out our [[lectures]] section for more information.
+
+Specifically, see [[lectures-neuroplasticity|this lecture on neuroplasticity]].
+```
+
+**Behavior:**
+- Embedded nodes appear in Lotus Grid
+- Sorted according to `LOTUS_SORT_MODE`
+- Marked with `_isEmbedded: true` flag (runtime)
+
+**Use Cases:**
+- Cross-references between content
+- Featured content
+- Related articles
+- Dynamic grid composition
+
+## Asset Management
+
+### Procedural SVG Backgrounds
+
+**Automatic Generation:**
+```bash
+npm run assets:generate
+```
+
+**What it does:**
+- Reads all node IDs from `src/content/*.md`
+- Generates unique SVG for each node
+- Uses seeded random (same ID = same output)
+- Saves to `public/images/nodes/{id}.svg`
+
+**Algorithm:**
+- Vibrant Art Engine
+- Cyberpunk/neon aesthetic
+- Geometric primitives
+- Noise textures
+- Custom palettes
+
+**When to run:**
+- After creating new nodes
+- After renaming nodes
+- When regenerating visual style
+
+### Custom Images
+
+**Override procedural generation:**
+
+```yaml
+---
+id: my-node
+image: /images/content/custom-cover.jpg
+---
+```
+
+**Image requirements:**
+- Aspect ratio: 16:9 or 4:3
+- Resolution: 1200x800 minimum
+- Format: JPG, PNG, WebP
+- Location: `public/images/content/`
+
+## Content Validation
+
+### Check for Orphaned Nodes
+
+```bash
+npm run assets:map
+```
+
+**Output:** `scripts/CONTENT_TREE.md`
+
+**Shows:**
+- Full content hierarchy
+- Orphaned nodes (invalid parents)
+- Media file references
+- Node counts
+
+**Example output:**
+```
+📊 CONTENT STATISTICS
+Total Nodes: 84
+Hubs: 12
+Content: 68
+Media: 3
+Actions: 1
+
+⚠️ ORPHANED NODES:
+- broken-node (parent: non-existent)
+```
+
+### Validation Checklist
+
+Before committing:
+
+- [ ] Frontmatter is valid YAML
+- [ ] All required fields present
+- [ ] ID is unique
+- [ ] Parent exists
+- [ ] Bilingual content complete
+- [ ] Separator `---RU---` present
+- [ ] Media links are valid
+- [ ] No orphaned nodes
+- [ ] Assets generated
+
+## Common Patterns
+
+### Creating Hub with Children
+
+**1. Create hub:**
+```yaml
+# new-hub.md
+---
+id: new-hub
+parent: home
+title_en: New Hub
+title_ru: Новый Хаб
+type: hub
+---
+```
+
+**2. Create children:**
+```yaml
+# child1.md
+---
+id: child1
+parent: new-hub  # References hub
+title_en: Child 1
+title_ru: Ребёнок 1
+type: content
+order: 0
+---
+```
+
+**3. Generate assets:**
+```bash
+npm run assets:generate
+```
+
+### Adding Media Gallery
+
+```markdown
+## Gallery
+
+![[/images/gallery/photo1.jpg]]
+![[/images/gallery/photo2.jpg]]
+![[/images/gallery/photo3.jpg]]
+```
+
+**Result:** 3 media nodes in grid
+
+### Cross-Referencing Content
+
+```markdown
+## Related Content
+
+For more information, see:
+- [[lectures-neuroplasticity|Neuroplasticity lecture]]
+- [[research-dashran|Dashran research]]
+- [[events-pleinair|Pleinair event]]
+```
+
+**Result:** 3 embedded nodes in grid
+
+### External Links
+
+```markdown
+## External Resources
+
+- [Wikipedia](https://wikipedia.org)
+- [Research Paper](https://doi.org/...)
+```
+
+**Result:** Standard markdown links (not nodes)
+
+## Obsidian Integration
+
+### Why Obsidian?
+
+- Visual graph view
+- Wiki-link support
+- Markdown editor
+- Tag management
+- Search functionality
+
+### Setup
+
+1. Open `src/content/` folder in Obsidian
+2. Obsidian detects `.obsidian/` config
+3. Edit files in Obsidian
+4. Changes sync via git
+
+### Obsidian Features
+
+**Graph View:**
+- Visualize node connections
+- See orphaned nodes
+- Explore structure
+
+**Wiki Links:**
+- `[[node-id]]` syntax works
+- Auto-completion
+- Link preview
+
+**Tags:**
+- Tag pane shows all tags
+- Click to filter
+- Organize content
+
+### Limitations
+
+- Frontmatter editing is manual
+- No bilingual preview
+- No procedural SVG preview
+- Must run `npm run assets:generate` separately
+
+## Best Practices
+
+### Content Writing
+
+**Titles:**
+- Concise (2-5 words)
+- Descriptive
+- Bilingual consistency
+
+**Descriptions:**
+- Clear and engaging
+- Use active voice
+- Break into paragraphs
+- Include media where relevant
+
+**Tags:**
+- 2-5 tags per node
+- Lowercase
+- Consistent terminology
+- English only
+
+### Structure
+
+**Hierarchy:**
+- Logical grouping
+- Consistent depth
+- Clear parent-child relationships
+
+**Grid Composition:**
+- Max 8 children per hub
+- Use `order` for important items
+- Balance content types
+
+**Cross-References:**
+- Link related content
+- Create discovery paths
+- Avoid circular references
+
+### Maintenance
+
+**Regular Tasks:**
+- Run `npm run assets:map` to check structure
+- Validate no orphaned nodes
+- Update dates (`npm run dates:sync`)
+- Regenerate assets after changes
+
+**Version Control:**
+- Commit content changes
+- Write descriptive commit messages
+- Keep content and code separate
+
+## Troubleshooting
+
+### Orphaned Node
+
+**Symptom:** Node doesn't appear in navigation
+
+**Cause:** Invalid parent ID
+
+**Fix:**
+1. Run `npm run assets:map`
+2. Find orphaned node in output
+3. Update `parent` field to valid ID
+4. Regenerate assets
+
+### Missing Separator
+
+**Symptom:** Russian content not displayed
+
+**Cause:** Missing `---RU---` separator
+
+**Fix:**
+1. Open `.md` file
+2. Add `---RU---` between EN and RU content
+3. Save file
+
+### Broken Media Link
+
+**Symptom:** Media doesn't load
+
+**Cause:** Invalid path or missing file
+
+**Fix:**
+1. Check file exists at path
+2. Verify path starts with `/`
+3. Check file extension
+4. Regenerate assets
+
+### Grid Overflow
+
+**Symptom:** Warning in console about too many children
+
+**Cause:** More than 8 children
+
+**Fix:**
+1. Reduce number of children
+2. Create intermediate hubs
+3. Use `order` to prioritize important items
+
+## Integration with Scripts
+
+### generate-assets.js
+
+**Reads:**
+- All `.md` files in `src/content/`
+- Extracts node IDs
+- Extracts media references
+
+**Generates:**
+- SVG backgrounds for nodes
+- Fallback SVGs for media
+
+### generate-map.js
+
+**Reads:**
+- All `.md` files
+- Parses frontmatter
+- Builds graph structure
+
+**Outputs:**
+- `scripts/CONTENT_TREE.md`
+- Hierarchy visualization
+- Orphaned node detection
+
+### sync-dates.js
+
+**Reads:**
+- Git history for each `.md` file
+- Last commit date
+
+**Updates:**
+- `date` field in frontmatter
+- Syncs with git history
+
+## Success Criteria
+
+- All nodes have valid parents
+- Bilingual content complete
+- Assets generated
+- No orphaned nodes
+- Media links valid
+- Structure logical
+- Tags consistent
+- Dates accurate

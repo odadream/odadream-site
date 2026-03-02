@@ -1,0 +1,648 @@
+---
+description: Project Architecture - Core knowledge about ODA.dream architecture, Lotus Graph system, design patterns, and technical conventions. Always active.
+alwaysApply: true
+---
+
+# Project Architecture
+
+Core architectural knowledge for the ODA.dream project. This rule is always active and provides foundational understanding for all agents.
+
+## Project Overview
+
+**ODA.dream** is an immersive portfolio and interactive art installation for the web, featuring a unique "Blossoming Lotus" spatial navigation system.
+
+**Tagline:** "The Interface for the Digital Subconscious"
+
+**Tech Stack:**
+- React 18.2 (Functional components only)
+- TypeScript 5.2 (Strict mode)
+- Vite 5.2 (Build tool)
+- Tailwind CSS 3.4 (Custom design system)
+- Framer Motion 11.0 (Animations)
+
+**Architecture:** Single Page Application (SPA)
+
+## Lotus Graph System
+
+### Core Concept
+
+The Lotus Graph is a **directed graph** where content is organized as interconnected nodes. Users navigate by "blooming" through the graph, with each node revealing its children in a 3x3 grid.
+
+### Node Structure
+
+**Interface:** `LotusNode` (defined in `src/types.ts`)
+
+```typescript
+interface LotusNode {
+  // Identity
+  id: string;              // Unique identifier (kebab-case)
+  parentId?: string;       // Parent node ID (defines hierarchy)
+  
+  // Display
+  title: LocalizedString;  // {en: "...", ru: "..."}
+  shortTitle?: LocalizedString;
+  description: LocalizedString;
+  
+  // Behavior
+  type: "hub" | "content" | "action" | "media";
+  
+  // Media
+  imageUrl?: string;       // Thumbnail/background
+  mediaUrl?: string;       // Full resolution media
+  mediaType?: MediaType;   // image|video|audio|unknown
+  
+  // Structure
+  children?: LotusNode[];  // Child nodes (max 8 displayed)
+  
+  // Metadata
+  tags?: string[];
+  externalLink?: string;   // For action nodes
+  visible?: boolean;
+  lastModified?: string;   // YYYY.MM.DD format
+  order?: number;          // Sort order (0-8)
+  
+  // Runtime
+  _isEmbedded?: boolean;   // Flag for embedded nodes
+}
+```
+
+### Node Types
+
+**hub** - Container node
+- Displays children in Lotus Grid
+- Icon: Layers
+- Example: `lectures`, `works`, `events`
+
+**content** - Article/page node
+- Displays text in reading panel
+- Icon: FileText
+- Example: `lectures-neuroplasticity`
+
+**media** - Media node
+- Opens lightbox immediately
+- Icon: Film/Image/AudioLines (based on mediaType)
+- Example: video, audio, image galleries
+
+**action** - Action node
+- Executes action or opens external link
+- Icon: Zap
+- Example: email link, external URL
+
+### Graph Rules
+
+1. **Root Node:** `home` (defined in `src/constants.ts`)
+2. **Hierarchy:** Every node (except home) MUST have a parent
+3. **Grid Limit:** Maximum 8 children displayed (3x3 grid minus center)
+4. **Depth:** Unlimited (but keep reasonable for UX)
+5. **Orphaned Nodes:** Nodes with invalid parents won't appear in navigation
+
+## File-Based CMS
+
+### Content Storage
+
+**Location:** `src/content/*.md`
+
+**Format:** Markdown with YAML frontmatter
+
+**Example:**
+```markdown
+---
+id: lectures-neuroplasticity
+parent: lectures
+title_en: Neuroplasticity
+title_ru: Нейропластичность
+type: content
+tags: [neuroscience, brain]
+date: 2024.03.20
+order: 1
+---
+
+## English Content
+
+Content here...
+
+---RU---
+
+## Русский Контент
+
+Контент здесь...
+```
+
+### Content Loading
+
+**Flow:**
+1. `contentLoader.ts` reads all `.md` files from `src/content/`
+2. `frontmatter.ts` parses YAML frontmatter
+3. `contentProcessor.ts` processes markdown and extracts media
+4. `buildUnifiedGraph()` constructs the Lotus Graph
+5. Graph stored in `constants.ts` as `ROOT_NODE`
+
+**Key Files:**
+- `src/utils/contentLoader.ts` - Graph builder
+- `src/utils/frontmatter.ts` - YAML parser
+- `src/utils/contentProcessor.ts` - Markdown processor
+- `src/utils/nodeHelpers.ts` - Graph traversal utilities
+
+## Bilingual Architecture
+
+### Language Support
+
+**Languages:** English (en) and Russian (ru)
+
+**Type:** `LocalizedString`
+```typescript
+interface LocalizedString {
+  en: string;
+  ru: string;
+}
+```
+
+### Content Separation
+
+**Markdown files:**
+- English content first
+- Separator: `---RU---`
+- Russian content after separator
+
+**Frontmatter:**
+- `title_en` / `title_ru`
+- `desc_en` / `desc_ru` (in versions.json)
+
+**UI:**
+- All user-facing strings use `LocalizedString`
+- Language toggle in header
+- Stored in `NavigationContext`
+
+## Design System
+
+### Theme Architecture
+
+**Themes:** 4 visual themes (dark, light, ocean, matrix)
+
+**Implementation:**
+- CSS variables in `src/index.css`
+- Theme attribute on `<html>` tag: `data-theme="dark"`
+- Context-based theme switching
+
+**Semantic Tokens:**
+```css
+--color-canvas    /* Background */
+--color-surface   /* Grid cells, cards */
+--color-hud       /* Primary text, UI elements */
+--color-accent    /* Highlights, laser effects */
+--color-border    /* Borders, dividers */
+--color-txt       /* Body text */
+```
+
+### Custom Shadows
+
+**Tech Noir aesthetic:**
+```css
+--shadow-projector  /* Soft bloom effect */
+--shadow-laser      /* Sharp neon glow */
+--shadow-plate      /* Physical depth */
+--shadow-diode      /* Ambient glow */
+```
+
+### Typography
+
+**Font:** JetBrains Mono (monospace)
+
+**Hierarchy:**
+- Headings: Bold, uppercase, letter-spacing
+- Body: Regular, readable line-height
+- Code: Monospace (same font)
+
+## Component Architecture
+
+### File Structure
+
+```
+src/
+├── components/
+│   ├── LotusGrid.tsx       # Main navigation grid (809 lines)
+│   ├── LotusSidebar.tsx    # Sidebar navigation
+│   ├── TextPanel.tsx       # Content display panel
+│   ├── Lightbox.tsx        # Media viewer
+│   ├── HeaderTabs.tsx      # Language/theme switcher
+│   ├── Breadcrumbs.tsx     # Navigation breadcrumbs
+│   ├── CyberText.tsx       # Styled text component
+│   └── ErrorBoundary.tsx   # Error handling
+```
+
+### Component Patterns
+
+**Functional Components Only:**
+```typescript
+export const Component: React.FC<Props> = ({ prop1, prop2 }) => {
+  return <div>{/* JSX */}</div>;
+};
+```
+
+**Custom Hooks:**
+```typescript
+// src/hooks/useLotusLogic.ts
+export const useLotusLogic = (node: LotusNode) => {
+  // Logic here
+  return { visibleNodes, handleClick };
+};
+```
+
+**Context for Global State:**
+```typescript
+// src/context/NavigationContext.tsx
+export const NavigationContext = createContext<NavigationContextType>(/* ... */);
+```
+
+## State Management
+
+### Global State (Context)
+
+**NavigationContext** (`src/context/NavigationContext.tsx`)
+
+**Provides:**
+- `path: LotusNode[]` - Navigation history
+- `language: Language` - Current language (en/ru)
+- `theme: Theme` - Current theme
+- `navigateTo(node)` - Navigate to node
+- `setLanguage(lang)` - Change language
+- `setTheme(theme)` - Change theme
+
+### Local State
+
+**useState** for simple state:
+```typescript
+const [isOpen, setIsOpen] = useState(false);
+```
+
+**useReducer** for complex state:
+```typescript
+const [state, dispatch] = useReducer(reducer, initialState);
+```
+
+## Data Flow
+
+```
+.md files (src/content/)
+  ↓
+contentLoader.ts (parse frontmatter)
+  ↓
+buildUnifiedGraph() (construct graph)
+  ↓
+ROOT_NODE (constants.ts)
+  ↓
+App.tsx (initialize)
+  ↓
+NavigationContext (global state)
+  ↓
+Components (LotusGrid, Sidebar, TextPanel)
+```
+
+## Routing
+
+**Type:** Query parameter-based (no React Router)
+
+**URL Format:** `?id=node-id`
+
+**Examples:**
+- `https://odadream.art/` → home
+- `https://odadream.art/?id=lectures` → lectures hub
+- `https://odadream.art/?id=lectures-neuroplasticity` → specific lecture
+
+**Implementation:**
+- Read `?id` from URL
+- Find node in graph
+- Update navigation context
+- Render appropriate view
+
+## Asset Generation
+
+### Procedural SVG Backgrounds
+
+**Script:** `scripts/generate-assets.js`
+
+**Algorithm:**
+- Seeded random based on node ID
+- Vibrant Art Engine (cyberpunk, neon, geometry)
+- Consistent output for same ID
+
+**Output:** `public/images/nodes/{node-id}.svg`
+
+**Palettes:**
+- Cyberpunk Neon
+- Sunset Synth
+- Toxic Jungle
+- Magma
+- Matrix Glitch
+
+**Execution:** `npm run assets:generate`
+
+## Build System
+
+### Vite Configuration
+
+**File:** `vite.config.ts`
+
+**Features:**
+- React plugin
+- Path aliases (`@/*` → `src/*`)
+- Base path: `./` (for GitHub Pages)
+- Server: `0.0.0.0:5173` (cloud IDE compatible)
+
+### Build Process
+
+```bash
+npm run build
+```
+
+**Steps:**
+1. `npm run assets:generate` - Generate SVG backgrounds
+2. `tsc` - Compile TypeScript
+3. `vite build` - Bundle application
+4. Output to `dist/`
+
+## Version Management
+
+### Centralized System
+
+**Source of Truth:** `versions.json`
+
+**Format:**
+```json
+{
+  "current": "1.0.1",
+  "history": [
+    {
+      "version": "1.0.1",
+      "title_en": "...",
+      "title_ru": "...",
+      "desc_en": "...",
+      "desc_ru": "..."
+    }
+  ]
+}
+```
+
+**Synchronization:** `npm run version:sync`
+
+**Updates:**
+- `package.json` → version
+- `src/constants.ts` → SITE_VERSION
+- `README.md` → badge
+- `metadata.json` → name, description
+- `src/content/changelog.md` → full changelog
+
+## CI/CD Pipeline
+
+### GitHub Actions
+
+**File:** `.github/workflows/deploy.yml`
+
+**Jobs:**
+1. **check-version** - Detect version changes
+2. **build-and-deploy** - Build and deploy to GitHub Pages
+3. **create-release** - Create GitHub Release (if version changed)
+
+**Triggers:**
+- Push to `main` branch
+- Manual workflow dispatch
+
+**Caching:**
+- npm cache (node_modules)
+- Speeds up builds significantly
+
+## Configuration
+
+### Critical Constants
+
+**File:** `src/constants.ts`
+
+```typescript
+export const SITE_VERSION = "v1.0.1";
+export const ENABLE_THEME_SWITCHER = false;
+export const LOTUS_SORT_MODE: "by-type" | "by-mention" = "by-mention";
+export const LOTUS_GRID_LIMIT = 8;
+export const ROOT_NODE = buildUnifiedGraph(STATIC_ROOT);
+export const QUICK_ACCESS = [/* favorite nodes */];
+```
+
+### Environment
+
+**Development:**
+- Port: 5173
+- Host: 0.0.0.0 (for cloud IDEs)
+- HMR enabled
+
+**Production:**
+- Static build in `dist/`
+- Deployed to GitHub Pages
+- URL: https://odadream.art
+
+## Performance Optimizations
+
+### React Optimizations
+
+**Memoization:**
+```typescript
+// Expensive computations
+const sorted = useMemo(() => sort(nodes), [nodes]);
+
+// Callbacks
+const handleClick = useCallback((id) => {}, []);
+
+// Components
+const Memo = React.memo(Component);
+```
+
+**Lazy Loading:**
+```typescript
+const Lightbox = lazy(() => import('./Lightbox'));
+
+<Suspense fallback={<Spinner />}>
+  <Lightbox />
+</Suspense>
+```
+
+### Asset Optimizations
+
+- SVG backgrounds (vector, scalable)
+- Image lazy loading
+- Fallback images
+- Framer Motion animations (GPU-accelerated)
+
+## Error Handling
+
+### Error Boundary
+
+**Component:** `src/components/ErrorBoundary.tsx`
+
+**Usage:**
+```typescript
+<ErrorBoundary fallback={<ErrorMessage />}>
+  <App />
+</ErrorBoundary>
+```
+
+### Fallbacks
+
+- Image fallback (useImageFallback hook)
+- Default node images
+- Graceful degradation
+
+## Accessibility
+
+### Standards
+
+- Semantic HTML
+- ARIA labels where needed
+- Keyboard navigation
+- Focus management
+- Color contrast (WCAG AA)
+
+### Implementation
+
+```typescript
+<button aria-label="Close" onClick={onClose}>
+  <X />
+</button>
+
+<nav role="navigation">
+  <ul>...</ul>
+</nav>
+```
+
+## Browser Support
+
+**Target:**
+- Modern browsers (Chrome, Firefox, Safari, Edge)
+- ES2020+ features
+- CSS Grid, Flexbox
+- CSS Custom Properties
+
+**Not Supported:**
+- IE11
+- Very old mobile browsers
+
+## Deployment
+
+### GitHub Pages
+
+**URL:** https://odadream.art
+
+**Configuration:**
+- Source: GitHub Actions
+- Branch: gh-pages (auto-created)
+- CNAME: odadream.art
+
+**Process:**
+1. Push to main
+2. GitHub Actions builds
+3. Deploys to gh-pages branch
+4. Site updates automatically
+
+## Naming Conventions
+
+### Files
+
+- Components: PascalCase (`LotusGrid.tsx`)
+- Hooks: camelCase with `use` prefix (`useLotusLogic.ts`)
+- Utils: camelCase (`nodeHelpers.ts`)
+- Types: PascalCase (`types.ts`)
+
+### Code
+
+- Components: PascalCase (`LotusGrid`)
+- Functions: camelCase (`findNode`)
+- Constants: SCREAMING_SNAKE_CASE (`SITE_VERSION`)
+- Types: PascalCase (`LotusNode`)
+
+### Content
+
+- Node IDs: kebab-case (`lectures-neuroplasticity`)
+- Files: kebab-case (`lectures-neuroplasticity.md`)
+- Tags: lowercase (`neuroscience`, `art`)
+
+## Dependencies
+
+### Core
+
+- react, react-dom
+- typescript
+- vite
+
+### UI
+
+- tailwindcss
+- framer-motion
+- lucide-react (icons)
+- clsx, tailwind-merge
+
+### Content
+
+- react-markdown
+- remark-gfm
+
+### Dev
+
+- @types/react, @types/react-dom, @types/node
+- @vitejs/plugin-react
+- postcss, autoprefixer
+
+## Scripts Reference
+
+```bash
+# Development
+npm run dev              # Start dev server
+
+# Build
+npm run build            # Full build with assets
+npm run preview          # Preview production build
+
+# Assets
+npm run assets:generate  # Generate SVG backgrounds
+npm run assets:clean     # Remove generated assets
+npm run assets:map       # Visualize content tree
+
+# Sync
+npm run version:sync     # Sync version across files
+npm run dates:sync       # Sync dates in content
+```
+
+## Key Abstractions
+
+### LotusNode
+Core content unit with type, hierarchy, and metadata
+
+### LocalizedString
+Bilingual string container (en/ru)
+
+### NavigationState
+Current navigation path through graph
+
+### MediaType
+Type of media (image/video/audio/unknown)
+
+### Theme
+Visual theme (dark/light/ocean/matrix)
+
+## Design Philosophy
+
+**"Tech Noir Intelligence"**
+
+- Minimalist, high-contrast aesthetic
+- Procedurally generated art
+- Graph-based navigation (non-linear)
+- Bilingual by design
+- Accessibility-first
+- Performance-optimized
+- Content-driven architecture
+
+## Success Metrics
+
+- Fast load times (< 3s)
+- Smooth animations (60fps)
+- No broken links or orphaned nodes
+- Bilingual consistency
+- Accessible to all users
+- Mobile-responsive
+- SEO-optimized

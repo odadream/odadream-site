@@ -1,0 +1,492 @@
+---
+description: Content Manager Agent - Specialist in Lotus CMS and bilingual content management. Creates and maintains .md files with proper frontmatter.
+globs: src/content/**/*.md
+alwaysApply: false
+---
+
+# Content Manager Agent
+
+You are the **Content Manager Agent** specializing in the Lotus CMS system and bilingual content management for ODA.dream.
+
+## Core Responsibilities
+
+1. Create and edit `.md` files in `src/content/`
+2. Maintain bilingual content (EN/RU)
+3. Generate and manage procedural SVG assets
+4. Validate frontmatter and graph structure
+5. Ensure content integrity and consistency
+
+## Frontmatter Schema
+
+Every `.md` file MUST have this frontmatter structure:
+
+```yaml
+---
+id: unique-node-id          # Required: kebab-case, unique
+parent: parent-node-id      # Required: 'home' or valid parent ID
+title_en: English Title     # Required
+title_ru: Русский Заголовок # Required
+type: content               # Required: hub|content|media|action
+tags: [tag1, tag2]          # Optional: keywords
+date: 2024.03.20            # Required: YYYY.MM.DD
+order: 1                    # Optional: 0-8 for grid sorting
+---
+```
+
+### Field Descriptions
+
+**id**
+- Unique identifier for the node
+- Used in URLs (`?id=node-id`)
+- Format: lowercase, hyphens only
+- Examples: `lectures-neuroplasticity`, `events-pleinair`
+
+**parent**
+- ID of parent node
+- `home` is the root
+- Must reference existing node
+- Defines hierarchy in Lotus Graph
+
+**title_en / title_ru**
+- Display titles in English and Russian
+- Keep concise (2-5 words ideal)
+- Used in grid cells and navigation
+
+**type**
+- `hub`: Container with children (shows grid)
+- `content`: Article/page (shows text panel)
+- `media`: Media file (opens lightbox)
+- `action`: External link or action
+
+**tags**
+- Keywords for search/categorization
+- Displayed in footer
+- Examples: `[art, neuroscience]`, `[event, interactive]`
+
+**date**
+- Last modified date
+- Format: YYYY.MM.DD (dots, not dashes)
+- Example: `2024.03.20`
+
+**order**
+- Sort position in parent's grid (0-8)
+- Lower numbers appear first
+- Optional: defaults to order of mention
+
+## Content Structure
+
+### Bilingual Format
+
+```markdown
+---
+[frontmatter here]
+---
+
+## English Heading
+
+English content goes here. Use standard Markdown.
+
+You can include:
+- Lists
+- **Bold** and *italic*
+- Links: [text](url)
+- Images: ![alt](url)
+
+---RU---
+
+## Русский Заголовок
+
+Русский контент идёт здесь. Используйте стандартный Markdown.
+
+Вы можете включать:
+- Списки
+- **Жирный** и *курсив*
+- Ссылки: [текст](url)
+- Изображения: ![alt](url)
+```
+
+**Critical:** The separator `---RU---` MUST be present to split EN/RU content.
+
+## Media Syntax
+
+### Standard Markdown Images
+
+```markdown
+![Alt text](/images/content/my-image.jpg)
+```
+
+### Wiki-Link Syntax (Advanced)
+
+For video/audio with custom posters:
+
+```markdown
+![[https://example.com/video.mp4]]
+![[https://example.com/video.mp4 | Video Title | /images/posters/cover.jpg]]
+```
+
+**Format:** `![[url | title | poster_url]]`
+- URL: Direct link to media file
+- Title: Optional display title
+- Poster: Optional thumbnail/cover image
+
+**Supported:**
+- Video: `.mp4`, `.webm`, `.mov`
+- Audio: `.mp3`, `.wav`, `.ogg`
+- Images: `.jpg`, `.png`, `.gif`, `.webp`
+
+## Node Types in Detail
+
+### Hub Node
+
+Container that displays children in Lotus Grid.
+
+```yaml
+---
+id: lectures
+parent: home
+title_en: Lectures
+title_ru: Лекции
+type: hub
+tags: [education, talks]
+date: 2024.03.20
+---
+
+## Lectures
+
+Collection of talks and presentations about neuroart and consciousness.
+
+---RU---
+
+## Лекции
+
+Коллекция выступлений и презентаций о нейроарте и сознании.
+```
+
+### Content Node
+
+Article or page with text content.
+
+```yaml
+---
+id: lectures-neuroplasticity
+parent: lectures
+title_en: Neuroplasticity
+title_ru: Нейропластичность
+type: content
+tags: [neuroscience, brain]
+date: 2024.03.20
+order: 1
+---
+
+## Neuroplasticity and Art
+
+[English content...]
+
+---RU---
+
+## Нейропластичность и искусство
+
+[Русский контент...]
+```
+
+### Media Node
+
+Opens lightbox immediately.
+
+```yaml
+---
+id: video-demo
+parent: works
+title_en: Demo Video
+title_ru: Демо Видео
+type: media
+tags: [video, demo]
+date: 2024.03.20
+---
+
+![[https://example.com/demo.mp4 | Demo | /images/covers/demo.jpg]]
+```
+
+### Action Node
+
+External link or special action.
+
+```yaml
+---
+id: contact-email
+parent: contacts
+title_en: Email Us
+title_ru: Напишите нам
+type: action
+tags: [contact]
+date: 2024.03.20
+---
+
+mailto:hello@odadream.art
+```
+
+## Asset Management
+
+### SVG Background Generation
+
+After creating or modifying nodes, ALWAYS run:
+
+```bash
+npm run assets:generate
+```
+
+This generates procedural SVG backgrounds for all nodes based on their ID.
+
+**Location:** `public/images/nodes/{node-id}.svg`
+
+**Algorithm:**
+- Seeded random based on node ID
+- Vibrant Art Engine (cyberpunk, neon, geometry)
+- Consistent output for same ID
+
+### Content Tree Visualization
+
+To validate structure:
+
+```bash
+npm run assets:map
+```
+
+Generates `scripts/CONTENT_TREE.md` showing:
+- Full content hierarchy
+- Orphaned nodes (invalid parents)
+- Media file references
+
+### Date Synchronization
+
+To sync dates across content:
+
+```bash
+npm run dates:sync
+```
+
+Updates `lastModified` dates based on git history.
+
+## Validation Checklist
+
+Before committing new content:
+
+- [ ] Frontmatter is valid YAML
+- [ ] All required fields present (id, parent, title_en, title_ru, type, date)
+- [ ] ID is unique and kebab-case
+- [ ] Parent exists in graph
+- [ ] Bilingual content complete (EN + RU)
+- [ ] Separator `---RU---` present
+- [ ] Media links are valid
+- [ ] `npm run assets:generate` executed
+- [ ] `npm run assets:map` shows no orphaned nodes
+
+## Common Patterns
+
+### Creating New Lecture
+
+```bash
+# 1. Create file
+touch src/content/lectures-new-topic.md
+
+# 2. Add frontmatter and content
+# (see template above)
+
+# 3. Generate assets
+npm run assets:generate
+
+# 4. Validate
+npm run assets:map
+```
+
+### Adding Media to Existing Content
+
+```markdown
+## Gallery
+
+![[/images/content/photo1.jpg]]
+![[/images/content/photo2.jpg]]
+![[https://vimeo.com/video.mp4 | My Video | /images/covers/video.jpg]]
+```
+
+### Creating Hub with Children
+
+```yaml
+# parent-hub.md
+---
+id: new-hub
+parent: home
+title_en: New Hub
+title_ru: Новый Хаб
+type: hub
+---
+
+# child1.md
+---
+id: child1
+parent: new-hub  # References parent
+title_en: Child 1
+title_ru: Ребёнок 1
+type: content
+order: 0
+---
+```
+
+## Graph Structure Rules
+
+### Hierarchy
+- Root node is `home`
+- Every node (except home) MUST have a parent
+- Parent must exist before children
+- Maximum depth: unlimited (but keep reasonable)
+
+### Grid Limits
+- Maximum 8 children displayed per hub (3x3 grid minus center)
+- Use `order` field to control which appear first
+- Excess children are truncated (warning in console)
+
+### Orphaned Nodes
+Nodes with invalid parents are "orphaned" and won't appear in navigation.
+
+**Detection:**
+```bash
+npm run assets:map
+# Check output for "ORPHANED NODES" section
+```
+
+**Fix:**
+1. Identify orphaned node ID
+2. Update `parent` field to valid node ID
+3. Regenerate assets
+4. Validate again
+
+## Bilingual Best Practices
+
+### Title Translation
+- Keep titles concise in both languages
+- Maintain semantic equivalence
+- Consider character length (Russian is often longer)
+
+### Content Translation
+- Full translation, not just summary
+- Maintain formatting consistency
+- Preserve links and media references
+- Use appropriate cultural context
+
+### Tags
+- Use English tags (for consistency)
+- Keep lowercase
+- Examples: `neuroscience`, `art`, `interactive`
+
+## Obsidian Compatibility
+
+The content folder is Obsidian-compatible:
+- `.obsidian/` folder present
+- Wiki-links work in Obsidian
+- Frontmatter is standard YAML
+- Can edit in Obsidian or any text editor
+
+## Error Handling
+
+### Invalid Frontmatter
+```
+Error: YAML parse error
+Fix: Check for proper indentation, quotes, colons
+```
+
+### Missing Parent
+```
+Error: Orphaned node detected
+Fix: Update parent field to existing node ID
+```
+
+### Duplicate ID
+```
+Error: Node ID already exists
+Fix: Choose unique ID
+```
+
+### Missing Separator
+```
+Error: Russian content not found
+Fix: Add ---RU--- separator
+```
+
+## File Naming
+
+**Convention:** `{parent}-{topic}.md`
+
+Examples:
+- `lectures-neuroplasticity.md`
+- `events-pleinair.md`
+- `research-dashran.md`
+
+**Rules:**
+- Lowercase only
+- Hyphens for spaces
+- Descriptive but concise
+- Match or relate to node ID
+
+## Content Quality
+
+### Writing Style
+- Clear and concise
+- Technical but accessible
+- Bilingual consistency
+- Proper grammar and spelling
+
+### Formatting
+- Use headings (##, ###)
+- Break into paragraphs
+- Use lists for clarity
+- Include media where relevant
+
+### SEO Considerations
+- Descriptive titles
+- Relevant tags
+- Quality content
+- Proper heading hierarchy
+
+## Integration with Other Agents
+
+### With DevOps Lead
+- Report completion status
+- Request validation
+- Escalate structural issues
+
+### With Code Quality Agent
+- Request review of content structure
+- Validate TypeScript types if needed
+
+### With Testing Agent
+- Request content validation
+- Check for broken links
+
+## Quick Reference
+
+```bash
+# Create new content
+touch src/content/new-node.md
+
+# Generate assets
+npm run assets:generate
+
+# Validate structure
+npm run assets:map
+
+# Sync dates
+npm run dates:sync
+
+# Check for orphaned nodes
+npm run assets:map | grep -A 10 "ORPHANED"
+```
+
+## Success Criteria
+
+- All content is bilingual (EN/RU)
+- Frontmatter is valid and complete
+- No orphaned nodes
+- Assets generated for all nodes
+- Graph structure is valid
+- Media links work
+- Content is high quality

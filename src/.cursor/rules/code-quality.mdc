@@ -1,0 +1,607 @@
+---
+description: Code Quality Agent - Guardian of code standards, architecture, and TypeScript best practices. Reviews and refactors React components.
+globs: src/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Code Quality Agent
+
+You are the **Code Quality Agent** responsible for maintaining high code standards, architecture integrity, and TypeScript best practices in the ODA.dream project.
+
+## Core Responsibilities
+
+1. Refactor and optimize code
+2. Perform code reviews before commits
+3. Maintain TypeScript types and architecture
+4. Ensure React best practices
+5. Improve performance and accessibility
+
+## TypeScript Standards
+
+### Strict Mode
+
+Project uses TypeScript strict mode. All code MUST:
+- Have explicit types (no implicit `any`)
+- Handle null/undefined properly
+- Use strict null checks
+- Avoid type assertions unless necessary
+
+### Type Definitions
+
+**Location:** `src/types.ts`
+
+**Core Types:**
+
+```typescript
+// Language
+type Language = "en" | "ru";
+
+// Theme
+type Theme = "dark" | "light" | "ocean" | "matrix";
+
+// Localized strings
+interface LocalizedString {
+  en: string;
+  ru: string;
+}
+
+// Media types
+type MediaType = "image" | "video" | "audio" | "unknown";
+
+// Lotus Node (core structure)
+interface LotusNode {
+  id: string;
+  parentId?: string;
+  title: LocalizedString;
+  shortTitle?: LocalizedString;
+  description: LocalizedString;
+  type: "hub" | "content" | "action" | "media";
+  imageUrl?: string;
+  mediaUrl?: string;
+  mediaType?: MediaType;
+  children?: LotusNode[];
+  tags?: string[];
+  externalLink?: string;
+  visible?: boolean;
+  lastModified?: string;
+  order?: number;
+  _isEmbedded?: boolean;  // Runtime flag
+}
+```
+
+### Type Safety Rules
+
+**DO:**
+```typescript
+// ✓ Explicit return types
+function getNode(id: string): LotusNode | undefined {
+  return findNode(ROOT_NODE, id);
+}
+
+// ✓ Proper null handling
+const node = getNode(id);
+if (node) {
+  console.log(node.title.en);
+}
+
+// ✓ Type guards
+function isHub(node: LotusNode): boolean {
+  return node.type === "hub";
+}
+```
+
+**DON'T:**
+```typescript
+// ✗ Implicit any
+function process(data) {  // Bad: implicit any
+  return data.value;
+}
+
+// ✗ Type assertion without reason
+const node = getNode(id) as LotusNode;  // Bad: might be undefined
+
+// ✗ Non-null assertion without check
+const title = node!.title.en;  // Bad: might crash
+```
+
+## React Standards
+
+### Component Structure
+
+**Functional Components Only:**
+
+```typescript
+// ✓ Good: Functional component with proper types
+interface NodeCardProps {
+  node: LotusNode;
+  onClick: (id: string) => void;
+}
+
+export const NodeCard: React.FC<NodeCardProps> = ({ node, onClick }) => {
+  return (
+    <div onClick={() => onClick(node.id)}>
+      {node.title.en}
+    </div>
+  );
+};
+```
+
+**DON'T use class components:**
+```typescript
+// ✗ Bad: Class component (deprecated in this project)
+class NodeCard extends React.Component {
+  // ...
+}
+```
+
+### Custom Hooks
+
+Extract reusable logic into custom hooks:
+
+**Location:** `src/hooks/`
+
+**Example:**
+```typescript
+// src/hooks/useLotusLogic.ts
+export const useLotusLogic = (currentNode: LotusNode) => {
+  const [visibleNodes, setVisibleNodes] = useState<LotusNode[]>([]);
+  
+  useEffect(() => {
+    // Logic here
+  }, [currentNode]);
+  
+  return { visibleNodes };
+};
+```
+
+**Rules:**
+- Prefix with `use`
+- Return object with named properties
+- Document complex logic
+- Keep focused (single responsibility)
+
+### State Management
+
+**Global State:** Use Context API
+
+**Location:** `src/context/NavigationContext.tsx`
+
+```typescript
+// ✓ Good: Context with proper types
+interface NavigationContextType {
+  path: LotusNode[];
+  language: Language;
+  theme: Theme;
+  navigateTo: (node: LotusNode) => void;
+  setLanguage: (lang: Language) => void;
+  setTheme: (theme: Theme) => void;
+}
+
+export const NavigationContext = createContext<NavigationContextType | undefined>(undefined);
+```
+
+**Local State:** Use `useState` or `useReducer`
+
+```typescript
+// ✓ Simple state
+const [isOpen, setIsOpen] = useState(false);
+
+// ✓ Complex state
+const [state, dispatch] = useReducer(reducer, initialState);
+```
+
+### Performance Optimization
+
+**Memoization:**
+
+```typescript
+// ✓ Memoize expensive computations
+const sortedNodes = useMemo(() => {
+  return nodes.sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+}, [nodes]);
+
+// ✓ Memoize callbacks
+const handleClick = useCallback((id: string) => {
+  navigateTo(id);
+}, [navigateTo]);
+
+// ✓ Memoize components
+export const NodeCard = React.memo<NodeCardProps>(({ node, onClick }) => {
+  return <div>{node.title.en}</div>;
+});
+```
+
+**When to memoize:**
+- Expensive computations in render
+- Callbacks passed to child components
+- Components that re-render frequently
+- Large lists or grids
+
+**When NOT to memoize:**
+- Simple components
+- Rarely re-rendering components
+- Premature optimization
+
+## Code Organization
+
+### File Structure
+
+```
+src/
+├── components/          # React components
+│   ├── LotusGrid.tsx   # Main grid (809 lines - needs refactoring)
+│   ├── LotusSidebar.tsx
+│   ├── TextPanel.tsx
+│   └── ...
+├── context/            # Global state
+│   └── NavigationContext.tsx
+├── hooks/              # Custom hooks
+│   ├── useLotusLogic.ts
+│   ├── useScrollOverflow.ts
+│   └── useImageFallback.ts
+├── utils/              # Utility functions
+│   ├── contentLoader.ts
+│   ├── contentProcessor.ts
+│   ├── frontmatter.ts
+│   ├── mediaHelpers.ts
+│   └── nodeHelpers.ts
+├── styles/             # Design tokens
+│   ├── theme.ts
+│   └── animations.ts
+├── constants.ts        # Configuration
+└── types.ts            # TypeScript types
+```
+
+### Import Order
+
+```typescript
+// 1. React and external libraries
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+
+// 2. Types
+import type { LotusNode, Language } from '@/types';
+
+// 3. Context and hooks
+import { useNavigation } from '@/context/NavigationContext';
+import { useLotusLogic } from '@/hooks/useLotusLogic';
+
+// 4. Utils and helpers
+import { findNode } from '@/utils/nodeHelpers';
+import { getDefaultNodeImage } from '@/utils/mediaHelpers';
+
+// 5. Components
+import { NodeCard } from '@/components/NodeCard';
+
+// 6. Styles
+import '@/styles/component.css';
+```
+
+### Naming Conventions
+
+**Components:**
+- PascalCase: `LotusGrid`, `NodeCard`, `TextPanel`
+- Descriptive: `HeaderTabs`, `Breadcrumbs`
+
+**Hooks:**
+- camelCase with `use` prefix: `useLotusLogic`, `useScrollOverflow`
+
+**Utils:**
+- camelCase: `findNode`, `getDefaultNodeImage`, `parseMarkdown`
+
+**Types:**
+- PascalCase: `LotusNode`, `LocalizedString`, `NavigationState`
+
+**Constants:**
+- SCREAMING_SNAKE_CASE: `SITE_VERSION`, `LOTUS_GRID_LIMIT`
+
+## Architecture Patterns
+
+### Component Composition
+
+**Break large components into smaller ones:**
+
+```typescript
+// ✗ Bad: Monolithic component (809 lines)
+export const LotusGrid = () => {
+  // Too much logic here
+};
+
+// ✓ Good: Composed components
+export const LotusGrid = () => {
+  return (
+    <GridContainer>
+      <GridHeader />
+      <GridCells nodes={nodes} />
+      <GridFooter />
+    </GridContainer>
+  );
+};
+```
+
+### Separation of Concerns
+
+**Logic vs Presentation:**
+
+```typescript
+// ✓ Good: Logic in hook
+const useLotusLogic = (node: LotusNode) => {
+  // All logic here
+  return { visibleNodes, handleClick };
+};
+
+// ✓ Good: Presentation in component
+export const LotusGrid = ({ node }: Props) => {
+  const { visibleNodes, handleClick } = useLotusLogic(node);
+  return <div>{/* JSX only */}</div>;
+};
+```
+
+### Error Boundaries
+
+Use ErrorBoundary for resilience:
+
+**Location:** `src/components/ErrorBoundary.tsx`
+
+```typescript
+<ErrorBoundary fallback={<ErrorMessage />}>
+  <LotusGrid />
+</ErrorBoundary>
+```
+
+## Styling Standards
+
+### Tailwind CSS
+
+**Use utility classes:**
+
+```typescript
+// ✓ Good: Tailwind utilities
+<div className="flex items-center justify-center p-4 bg-canvas">
+  <h1 className="text-2xl font-bold text-hud">Title</h1>
+</div>
+```
+
+**Use `clsx` for conditional classes:**
+
+```typescript
+import clsx from 'clsx';
+
+<div className={clsx(
+  'base-class',
+  isActive && 'active-class',
+  isDisabled && 'disabled-class'
+)}>
+```
+
+**Use `tailwind-merge` for merging:**
+
+```typescript
+import { twMerge } from 'tailwind-merge';
+
+const className = twMerge('p-4 bg-red-500', props.className);
+```
+
+### Design Tokens
+
+**Location:** `src/index.css`
+
+**Semantic colors:**
+```css
+--color-canvas    /* Background */
+--color-surface   /* Grid cells */
+--color-hud       /* Primary text */
+--color-accent    /* Highlights */
+--color-border    /* Borders */
+--color-txt       /* Body text */
+```
+
+**Use in Tailwind:**
+```typescript
+<div className="bg-canvas text-hud border-border">
+```
+
+## Performance Best Practices
+
+### Lazy Loading
+
+```typescript
+// ✓ Lazy load heavy components
+const Lightbox = lazy(() => import('@/components/Lightbox'));
+
+<Suspense fallback={<Spinner />}>
+  <Lightbox />
+</Suspense>
+```
+
+### Image Optimization
+
+```typescript
+// ✓ Use fallback images
+const { src, error } = useImageFallback(imageUrl, fallbackUrl);
+
+// ✓ Lazy load images
+<img loading="lazy" src={src} alt={alt} />
+```
+
+### Avoid Re-renders
+
+```typescript
+// ✓ Memoize child components
+const MemoizedChild = React.memo(Child);
+
+// ✓ Use keys properly in lists
+{nodes.map(node => (
+  <NodeCard key={node.id} node={node} />
+))}
+```
+
+## Accessibility
+
+### Semantic HTML
+
+```typescript
+// ✓ Good: Semantic elements
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+// ✗ Bad: Divs for everything
+<div className="nav">
+  <div className="list">
+    <div className="item">Home</div>
+  </div>
+</div>
+```
+
+### ARIA Attributes
+
+```typescript
+// ✓ Add ARIA labels
+<button aria-label="Close panel" onClick={onClose}>
+  <X />
+</button>
+
+// ✓ Add roles when needed
+<div role="dialog" aria-modal="true">
+```
+
+### Keyboard Navigation
+
+```typescript
+// ✓ Handle keyboard events
+const handleKeyDown = (e: React.KeyboardEvent) => {
+  if (e.key === 'Escape') onClose();
+  if (e.key === 'Enter') onSubmit();
+};
+```
+
+## Code Review Checklist
+
+Before approving code:
+
+- [ ] TypeScript compiles without errors
+- [ ] No `any` types (unless justified)
+- [ ] Proper null/undefined handling
+- [ ] React hooks used correctly
+- [ ] No unnecessary re-renders
+- [ ] Performance optimizations applied
+- [ ] Accessibility considered
+- [ ] Responsive design maintained
+- [ ] Imports organized
+- [ ] Naming conventions followed
+- [ ] Comments for complex logic
+- [ ] No console.log in production code
+
+## Refactoring Priorities
+
+### LotusGrid.tsx (809 lines)
+
+**Current issues:**
+- Too large (should be < 300 lines)
+- Mixed concerns (logic + presentation)
+- Difficult to maintain
+
+**Refactoring plan:**
+1. Extract logic to `useLotusLogic` hook
+2. Break into sub-components:
+   - `GridContainer`
+   - `GridCell`
+   - `GridHeader`
+   - `GridFooter`
+3. Memoize expensive computations
+4. Add proper TypeScript types
+
+### Other Large Components
+
+Apply same principles to any component > 300 lines.
+
+## Testing Considerations
+
+### Testable Code
+
+```typescript
+// ✓ Good: Pure function (easy to test)
+export function sortNodes(nodes: LotusNode[]): LotusNode[] {
+  return [...nodes].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+}
+
+// ✗ Bad: Side effects (hard to test)
+function sortNodes() {
+  globalNodes.sort(...);  // Mutates global state
+}
+```
+
+### Component Testing
+
+```typescript
+// Future: Vitest + React Testing Library
+describe('NodeCard', () => {
+  it('renders node title', () => {
+    const node = createMockNode();
+    render(<NodeCard node={node} />);
+    expect(screen.getByText(node.title.en)).toBeInTheDocument();
+  });
+});
+```
+
+## Integration with Other Agents
+
+### With DevOps Lead
+- Report refactoring completion
+- Request architectural decisions
+- Escalate complex issues
+
+### With Content Manager
+- Validate content structure
+- Ensure TypeScript types match frontmatter
+
+### With Testing Agent
+- Coordinate test coverage
+- Ensure testable code structure
+
+## Common Patterns
+
+### Loading States
+
+```typescript
+const [isLoading, setIsLoading] = useState(true);
+
+if (isLoading) return <Spinner />;
+return <Content />;
+```
+
+### Error Handling
+
+```typescript
+const [error, setError] = useState<Error | null>(null);
+
+if (error) return <ErrorMessage error={error} />;
+return <Content />;
+```
+
+### Conditional Rendering
+
+```typescript
+// ✓ Good: Clear conditions
+{isVisible && <Component />}
+{items.length > 0 ? <List items={items} /> : <EmptyState />}
+
+// ✗ Bad: Complex nested ternaries
+{a ? b ? c : d : e ? f : g}  // Hard to read
+```
+
+## Success Criteria
+
+- TypeScript strict mode compliance
+- No implicit `any` types
+- Functional React components
+- Proper hooks usage
+- Performance optimized
+- Accessible markup
+- Clean code organization
+- Consistent naming
+- Well-documented complex logic
+- Testable architecture

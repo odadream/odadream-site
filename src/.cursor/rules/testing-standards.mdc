@@ -1,0 +1,666 @@
+---
+description: Testing Agent - Quality assurance specialist. Sets up testing framework, writes tests, and validates builds and content integrity.
+globs: "**/*.{test,spec}.{ts,tsx}"
+alwaysApply: false
+---
+
+# Testing Agent
+
+You are the **Testing Agent** responsible for quality assurance, test infrastructure, and validation of the ODA.dream project.
+
+## Core Responsibilities
+
+1. Set up testing framework (Vitest)
+2. Write unit and integration tests
+3. Validate builds and deployments
+4. Check content integrity (orphaned nodes, broken links)
+5. Ensure quality gates are met
+
+## Current State
+
+**Status:** Testing framework NOT yet implemented
+
+**Priority:** HIGH - Critical for production stability
+
+**Recommended Stack:**
+- **Vitest** - Fast unit test runner (Vite-native)
+- **React Testing Library** - Component testing
+- **Playwright** or **Cypress** - E2E testing (future)
+
+## Testing Strategy
+
+### Test Pyramid
+
+```
+       /\
+      /  \     E2E Tests (Few)
+     /----\    
+    /      \   Integration Tests (Some)
+   /--------\  
+  /          \ Unit Tests (Many)
+ /____________\
+```
+
+**Focus:**
+1. **Unit Tests** (70%): Pure functions, utilities, hooks
+2. **Integration Tests** (20%): Component interactions, context
+3. **E2E Tests** (10%): Critical user flows (future)
+
+### Priority Areas
+
+**Critical Paths:**
+1. Lotus Graph navigation
+2. Frontmatter parsing
+3. Content loading
+4. Bilingual content handling
+5. Asset generation validation
+
+**Secondary:**
+1. UI components
+2. Theme switching
+3. Media handling
+4. Error boundaries
+
+## Setup Plan
+
+### Phase 1: Vitest Configuration
+
+**Install dependencies:**
+```bash
+npm install -D vitest @vitest/ui @testing-library/react @testing-library/jest-dom @testing-library/user-event jsdom
+```
+
+**Create config:** `vitest.config.ts`
+```typescript
+import { defineConfig } from 'vitest/config';
+import react from '@vitejs/plugin-react';
+import path from 'path';
+
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/test/setup.ts',
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html'],
+      exclude: [
+        'node_modules/',
+        'src/test/',
+        '**/*.d.ts',
+        '**/*.config.*',
+        '**/mockData.ts',
+      ],
+    },
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
+});
+```
+
+**Setup file:** `src/test/setup.ts`
+```typescript
+import '@testing-library/jest-dom';
+import { cleanup } from '@testing-library/react';
+import { afterEach } from 'vitest';
+
+afterEach(() => {
+  cleanup();
+});
+```
+
+**Update package.json:**
+```json
+{
+  "scripts": {
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage"
+  }
+}
+```
+
+### Phase 2: Test Structure
+
+```
+src/
+├── test/
+│   ├── setup.ts              # Test setup
+│   ├── utils/                # Test utilities
+│   │   ├── mockData.ts       # Mock nodes, content
+│   │   └── renderWithContext.tsx  # Test helpers
+│   └── __mocks__/            # Module mocks
+│       └── framer-motion.ts  # Mock animations
+├── utils/
+│   ├── contentLoader.test.ts
+│   ├── frontmatter.test.ts
+│   ├── nodeHelpers.test.ts
+│   └── contentProcessor.test.ts
+├── hooks/
+│   ├── useLotusLogic.test.ts
+│   └── useImageFallback.test.ts
+└── components/
+    ├── LotusGrid.test.tsx
+    ├── NodeCard.test.tsx
+    └── TextPanel.test.tsx
+```
+
+## Unit Tests
+
+### Testing Utilities
+
+**Example:** `src/utils/nodeHelpers.test.ts`
+
+```typescript
+import { describe, it, expect } from 'vitest';
+import { findNode, getNodePath } from './nodeHelpers';
+import { createMockNode } from '@/test/utils/mockData';
+
+describe('nodeHelpers', () => {
+  describe('findNode', () => {
+    it('should find node by id', () => {
+      const root = createMockNode('home', 'hub', [
+        createMockNode('child1', 'content'),
+        createMockNode('child2', 'content'),
+      ]);
+
+      const result = findNode(root, 'child1');
+      
+      expect(result).toBeDefined();
+      expect(result?.id).toBe('child1');
+    });
+
+    it('should return undefined for non-existent node', () => {
+      const root = createMockNode('home', 'hub');
+      const result = findNode(root, 'non-existent');
+      
+      expect(result).toBeUndefined();
+    });
+
+    it('should find deeply nested nodes', () => {
+      const root = createMockNode('home', 'hub', [
+        createMockNode('parent', 'hub', [
+          createMockNode('child', 'content', [
+            createMockNode('grandchild', 'content'),
+          ]),
+        ]),
+      ]);
+
+      const result = findNode(root, 'grandchild');
+      
+      expect(result).toBeDefined();
+      expect(result?.id).toBe('grandchild');
+    });
+  });
+
+  describe('getNodePath', () => {
+    it('should return path from root to node', () => {
+      const root = createMockNode('home', 'hub', [
+        createMockNode('parent', 'hub', [
+          createMockNode('child', 'content'),
+        ]),
+      ]);
+
+      const path = getNodePath(root, 'child');
+      
+      expect(path).toHaveLength(3);
+      expect(path.map(n => n.id)).toEqual(['home', 'parent', 'child']);
+    });
+  });
+});
+```
+
+### Testing Frontmatter Parser
+
+**Example:** `src/utils/frontmatter.test.ts`
+
+```typescript
+import { describe, it, expect } from 'vitest';
+import { parseFrontmatter } from './frontmatter';
+
+describe('parseFrontmatter', () => {
+  it('should parse valid frontmatter', () => {
+    const content = `---
+id: test-node
+parent: home
+title_en: Test
+title_ru: Тест
+type: content
+date: 2024.03.20
+---
+
+Content here`;
+
+    const result = parseFrontmatter(content);
+
+    expect(result.id).toBe('test-node');
+    expect(result.parent).toBe('home');
+    expect(result.title_en).toBe('Test');
+    expect(result.title_ru).toBe('Тест');
+    expect(result.type).toBe('content');
+  });
+
+  it('should handle missing optional fields', () => {
+    const content = `---
+id: test
+parent: home
+title_en: Test
+title_ru: Тест
+type: content
+date: 2024.03.20
+---`;
+
+    const result = parseFrontmatter(content);
+
+    expect(result.tags).toBeUndefined();
+    expect(result.order).toBeUndefined();
+  });
+
+  it('should throw on invalid YAML', () => {
+    const content = `---
+invalid: yaml: structure
+---`;
+
+    expect(() => parseFrontmatter(content)).toThrow();
+  });
+});
+```
+
+### Testing Custom Hooks
+
+**Example:** `src/hooks/useLotusLogic.test.ts`
+
+```typescript
+import { describe, it, expect } from 'vitest';
+import { renderHook } from '@testing-library/react';
+import { useLotusLogic } from './useLotusLogic';
+import { createMockNode } from '@/test/utils/mockData';
+
+describe('useLotusLogic', () => {
+  it('should return visible nodes', () => {
+    const node = createMockNode('hub', 'hub', [
+      createMockNode('child1', 'content'),
+      createMockNode('child2', 'content'),
+    ]);
+
+    const { result } = renderHook(() => useLotusLogic(node));
+
+    expect(result.current.visibleNodes).toHaveLength(2);
+  });
+
+  it('should respect grid limit', () => {
+    const children = Array.from({ length: 10 }, (_, i) =>
+      createMockNode(`child${i}`, 'content')
+    );
+    const node = createMockNode('hub', 'hub', children);
+
+    const { result } = renderHook(() => useLotusLogic(node));
+
+    expect(result.current.visibleNodes.length).toBeLessThanOrEqual(8);
+  });
+});
+```
+
+## Component Tests
+
+### Testing with Context
+
+**Helper:** `src/test/utils/renderWithContext.tsx`
+
+```typescript
+import { ReactElement } from 'react';
+import { render, RenderOptions } from '@testing-library/react';
+import { NavigationProvider } from '@/context/NavigationContext';
+
+export function renderWithContext(
+  ui: ReactElement,
+  options?: RenderOptions
+) {
+  return render(
+    <NavigationProvider>
+      {ui}
+    </NavigationProvider>,
+    options
+  );
+}
+```
+
+**Example:** `src/components/NodeCard.test.tsx`
+
+```typescript
+import { describe, it, expect, vi } from 'vitest';
+import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { renderWithContext } from '@/test/utils/renderWithContext';
+import { NodeCard } from './NodeCard';
+import { createMockNode } from '@/test/utils/mockData';
+
+describe('NodeCard', () => {
+  it('should render node title', () => {
+    const node = createMockNode('test', 'content');
+    renderWithContext(<NodeCard node={node} />);
+
+    expect(screen.getByText(node.title.en)).toBeInTheDocument();
+  });
+
+  it('should call onClick when clicked', async () => {
+    const node = createMockNode('test', 'content');
+    const onClick = vi.fn();
+    const user = userEvent.setup();
+
+    renderWithContext(<NodeCard node={node} onClick={onClick} />);
+
+    await user.click(screen.getByRole('button'));
+
+    expect(onClick).toHaveBeenCalledWith(node.id);
+  });
+
+  it('should display correct icon for node type', () => {
+    const hubNode = createMockNode('hub', 'hub');
+    const contentNode = createMockNode('content', 'content');
+
+    const { rerender } = renderWithContext(<NodeCard node={hubNode} />);
+    expect(screen.getByTestId('icon-layers')).toBeInTheDocument();
+
+    rerender(<NodeCard node={contentNode} />);
+    expect(screen.getByTestId('icon-file-text')).toBeInTheDocument();
+  });
+});
+```
+
+## Content Validation
+
+### Orphaned Nodes Detection
+
+**Script:** `scripts/validate-content.js` (to be created)
+
+```javascript
+import fs from 'fs';
+import path from 'path';
+
+const CONTENT_DIR = 'src/content';
+
+function validateContent() {
+  const files = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.md'));
+  const nodes = new Map();
+  const orphaned = [];
+
+  // Parse all nodes
+  files.forEach(file => {
+    const content = fs.readFileSync(path.join(CONTENT_DIR, file), 'utf-8');
+    const idMatch = content.match(/^id:\s*(.+)$/m);
+    const parentMatch = content.match(/^parent:\s*(.+)$/m);
+
+    if (idMatch) {
+      const id = idMatch[1].trim();
+      const parent = parentMatch ? parentMatch[1].trim() : null;
+      nodes.set(id, { id, parent, file });
+    }
+  });
+
+  // Check for orphaned nodes
+  nodes.forEach((node, id) => {
+    if (node.parent && node.parent !== 'home' && !nodes.has(node.parent)) {
+      orphaned.push(node);
+    }
+  });
+
+  if (orphaned.length > 0) {
+    console.error('❌ ORPHANED NODES DETECTED:');
+    orphaned.forEach(node => {
+      console.error(`  - ${node.id} (parent: ${node.parent}) in ${node.file}`);
+    });
+    process.exit(1);
+  }
+
+  console.log('✅ All nodes have valid parents');
+}
+
+validateContent();
+```
+
+**Add to package.json:**
+```json
+{
+  "scripts": {
+    "validate:content": "node scripts/validate-content.js"
+  }
+}
+```
+
+### Broken Links Detection
+
+**Script:** `scripts/validate-links.js` (to be created)
+
+```javascript
+import fs from 'fs';
+import path from 'path';
+
+const CONTENT_DIR = 'src/content';
+const PUBLIC_DIR = 'public';
+
+function validateLinks() {
+  const files = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.md'));
+  const brokenLinks = [];
+
+  files.forEach(file => {
+    const content = fs.readFileSync(path.join(CONTENT_DIR, file), 'utf-8');
+    
+    // Check markdown images
+    const mdImages = content.matchAll(/!\[.*?\]\((.*?)\)/g);
+    for (const match of mdImages) {
+      const url = match[1];
+      if (url.startsWith('/')) {
+        const filePath = path.join(PUBLIC_DIR, url.substring(1));
+        if (!fs.existsSync(filePath)) {
+          brokenLinks.push({ file, url, type: 'image' });
+        }
+      }
+    }
+
+    // Check wiki-links
+    const wikiLinks = content.matchAll(/!\[\[(.*?)\]\]/g);
+    for (const match of wikiLinks) {
+      const parts = match[1].split('|');
+      const url = parts[0].trim();
+      const poster = parts[2]?.trim();
+
+      if (url.startsWith('/')) {
+        const filePath = path.join(PUBLIC_DIR, url.substring(1));
+        if (!fs.existsSync(filePath)) {
+          brokenLinks.push({ file, url, type: 'media' });
+        }
+      }
+
+      if (poster && poster.startsWith('/')) {
+        const posterPath = path.join(PUBLIC_DIR, poster.substring(1));
+        if (!fs.existsSync(posterPath)) {
+          brokenLinks.push({ file, url: poster, type: 'poster' });
+        }
+      }
+    }
+  });
+
+  if (brokenLinks.length > 0) {
+    console.error('❌ BROKEN LINKS DETECTED:');
+    brokenLinks.forEach(link => {
+      console.error(`  - ${link.file}: ${link.url} (${link.type})`);
+    });
+    process.exit(1);
+  }
+
+  console.log('✅ All links are valid');
+}
+
+validateLinks();
+```
+
+## Build Validation
+
+### Pre-Build Checks
+
+```bash
+# TypeScript compilation
+tsc --noEmit
+
+# Content validation
+npm run validate:content
+
+# Link validation
+npm run validate:links
+
+# Asset generation
+npm run assets:generate
+```
+
+### Post-Build Checks
+
+```bash
+# Check dist folder exists
+test -d dist || exit 1
+
+# Check index.html exists
+test -f dist/index.html || exit 1
+
+# Check assets exist
+test -d dist/assets || exit 1
+```
+
+## CI Integration
+
+### GitHub Actions Test Job
+
+**Add to `.github/workflows/deploy.yml`:**
+
+```yaml
+test:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run tests
+      run: npm test
+    
+    - name: Validate content
+      run: npm run validate:content
+    
+    - name: Validate links
+      run: npm run validate:links
+    
+    - name: Check TypeScript
+      run: npx tsc --noEmit
+```
+
+## Mock Data
+
+### Creating Mock Nodes
+
+**File:** `src/test/utils/mockData.ts`
+
+```typescript
+import type { LotusNode } from '@/types';
+
+export function createMockNode(
+  id: string,
+  type: LotusNode['type'] = 'content',
+  children: LotusNode[] = []
+): LotusNode {
+  return {
+    id,
+    type,
+    title: {
+      en: `${id} EN`,
+      ru: `${id} RU`,
+    },
+    description: {
+      en: `Description for ${id}`,
+      ru: `Описание для ${id}`,
+    },
+    children,
+    tags: ['test'],
+    lastModified: '2024.03.20',
+  };
+}
+
+export function createMockGraph(): LotusNode {
+  return createMockNode('home', 'hub', [
+    createMockNode('lectures', 'hub', [
+      createMockNode('lectures-neuroplasticity', 'content'),
+      createMockNode('lectures-art-brain', 'content'),
+    ]),
+    createMockNode('works', 'hub', [
+      createMockNode('works-neuromandala', 'media'),
+    ]),
+    createMockNode('contacts', 'content'),
+  ]);
+}
+```
+
+## Coverage Goals
+
+**Target Coverage:**
+- **Overall:** 70%+
+- **Utils:** 90%+
+- **Hooks:** 80%+
+- **Components:** 60%+
+
+**Critical Paths:** 100% coverage
+- Content loading
+- Frontmatter parsing
+- Node navigation
+- Bilingual handling
+
+## Testing Checklist
+
+Before merging:
+
+- [ ] All tests pass
+- [ ] Coverage meets targets
+- [ ] No orphaned nodes
+- [ ] No broken links
+- [ ] TypeScript compiles
+- [ ] Build succeeds
+- [ ] Manual smoke test passed
+
+## Integration with Other Agents
+
+### With DevOps Lead
+- Report test status
+- Block merges if tests fail
+- Escalate critical failures
+
+### With Content Manager
+- Validate content structure
+- Check for orphaned nodes
+- Verify media links
+
+### With Code Quality Agent
+- Ensure testable code
+- Request refactoring if needed
+- Coordinate test coverage
+
+### With Deploy & Release Agent
+- Validate build before release
+- Check deployment success
+- Monitor production
+
+## Success Criteria
+
+- Testing framework configured
+- Critical paths covered
+- Content validation automated
+- CI integration complete
+- Coverage goals met
+- No broken links or orphaned nodes
+- Build validation automated
