@@ -57,8 +57,6 @@
 
     /* Height of the lotus panel when fully open */
     --lotus-panel-height: 49vh;
-    /* Supports dvh for modern browsers (accounts for browser chrome) */
-    --lotus-panel-height: 49dvh;
 
     /* Height of the handle bar (collapsed state shows only this) */
     /* Must match THEME.layout.barHeight (h-11 = 2.75rem) */
@@ -76,6 +74,13 @@
     :root {
       /* Desktop Module: 3rem (48px) */
       --layout-gutter: 3rem;
+    }
+  }
+
+  /* Dynamic viewport height support for modern browsers (iOS Safari 15.4+) */
+  @supports (height: 100dvh) {
+    :root {
+      --lotus-panel-height: 49dvh;
     }
   }
 

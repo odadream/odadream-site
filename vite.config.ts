@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import legacy from '@vitejs/plugin-legacy'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -8,7 +9,13 @@ const __dirname = path.dirname(__filename);
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    legacy({
+      targets: ['iOS >= 13', 'Safari >= 13'],
+      modernPolyfills: true,
+    }),
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -22,6 +29,7 @@ export default defineConfig({
     strictPort: false,
   },
   build: {
+    target: 'es2019', // iOS Safari 13+ compatibility
     outDir: 'dist',
     assetsDir: 'assets',
     emptyOutDir: true,

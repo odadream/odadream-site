@@ -649,10 +649,10 @@ export const LotusGrid: React.FC = () => {
       );
     };
 
-    handle.addEventListener("pointerdown", onDown);
-    handle.addEventListener("pointermove", onMove);
-    handle.addEventListener("pointerup", onUp);
-    handle.addEventListener("pointercancel", onCancel);
+    handle.addEventListener("pointerdown", onDown, { passive: false });
+    handle.addEventListener("pointermove", onMove, { passive: false });
+    handle.addEventListener("pointerup", onUp, { passive: false });
+    handle.addEventListener("pointercancel", onCancel, { passive: false });
 
     return () => {
       handle.removeEventListener("pointerdown", onDown);
