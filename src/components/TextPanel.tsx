@@ -223,7 +223,7 @@ export const TextPanel: React.FC = () => {
               className={`${THEME.typography.body} max-w-[var(--reading-width)]`}
             >
               <Markdown
-                remarkPlugins={[remarkGfm]}
+                remarkPlugins={[remarkGfm as any]}
                 components={markdownComponents}
               >
                 {content}

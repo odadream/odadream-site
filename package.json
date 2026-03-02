@@ -11,7 +11,8 @@
     "assets:clean": "node scripts/generate-assets.js --clean",
     "assets:map": "node scripts/generate-map.js",
     "version:sync": "node scripts/update-version.js",
-    "dates:sync": "node scripts/sync-dates.js"
+    "dates:sync": "node scripts/sync-dates.js",
+    "deploy:check": "powershell -ExecutionPolicy Bypass -File scripts/check-deployment.ps1"
   },
   "dependencies": {
     "clsx": "^2.1.0",
