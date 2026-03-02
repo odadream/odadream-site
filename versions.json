@@ -1,6 +1,14 @@
 {
-  "current": "1.0.1",
+  "current": "1.1.0",
   "history": [
+    {
+      "version": "1.1.0",
+      "date": "2026.03.02",
+      "title_en": "iOS Compatibility",
+      "title_ru": "Совместимость с iOS",
+      "desc_en": "Full iOS Safari support achieved. Critical fixes for Safari 15.6+: downgraded remark-gfm to v3 for regex compatibility, replaced modern regex patterns with ES2019-compatible alternatives, added legacy browser polyfills. Introduced Tech Noir diagnostics system in [[changelog|ErrorBoundary]] with iOS/Safari detection, one-click copy, and comprehensive device metrics. The interface now runs smoothly on iPhone SE and older iOS devices.",
+      "desc_ru": "Достигнута полная поддержка iOS Safari. Критические исправления для Safari 15.6+: понижена версия remark-gfm до v3 для совместимости regex, заменены современные regex-паттерны на ES2019-совместимые альтернативы, добавлены полифиллы для старых браузеров. Представлена система диагностики Tech Noir в [[changelog|ErrorBoundary]] с детекцией iOS/Safari, копированием в один клик и полными метриками устройства. Интерфейс теперь плавно работает на iPhone SE и старых iOS-устройствах."
+    },
     {
       "version": "1.0.1",
       "date": "2026.02.23",

@@ -1,5 +1,16 @@
 # Version History | История Версий
 
+## v1.1.0 - iOS Compatibility | Совместимость с iOS
+**Date:** 2026.03.02
+
+Full iOS Safari support achieved. Critical fixes for Safari 15.6+: downgraded remark-gfm to v3 for regex compatibility, replaced modern regex patterns with ES2019-compatible alternatives, added legacy browser polyfills. Introduced Tech Noir diagnostics system in ErrorBoundary with iOS/Safari detection, one-click copy, and comprehensive device metrics. The interface now runs smoothly on iPhone SE and older iOS devices.
+
+---
+
+Достигнута полная поддержка iOS Safari. Критические исправления для Safari 15.6+: понижена версия remark-gfm до v3 для совместимости regex, заменены современные regex-паттерны на ES2019-совместимые альтернативы, добавлены полифиллы для старых браузеров. Представлена система диагностики Tech Noir в ErrorBoundary с детекцией iOS/Safari, копированием в один клик и полными метриками устройства. Интерфейс теперь плавно работает на iPhone SE и старых iOS-устройствах.
+
+---
+
 ## v1.0.1 - Lotus Reborn | Лотос Перерождён
 **Date:** 2026.02.23
 
