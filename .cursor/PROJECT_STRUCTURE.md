@@ -7,19 +7,20 @@
 ```
 D:\YandexDisk\_ODA2\Сайт\odadream-site\  ← ROOT (always work from here!)
 │
+├── .cursor/                      # AI Agent rules (Cursor IDE config)
+│   ├── rules/
+│   │   ├── devops-lead.mdc
+│   │   ├── content-manager.mdc
+│   │   ├── code-quality.mdc
+│   │   ├── deploy-release.mdc
+│   │   ├── testing-standards.mdc
+│   │   ├── project-architecture.mdc
+│   │   └── lotus-cms.mdc
+│   ├── ONBOARDING.md
+│   ├── README.md
+│   └── PROJECT_STRUCTURE.md
+│
 ├── src/                          # Source code
-│   ├── .cursor/                  # AI Agent rules (versioned in git)
-│   │   ├── rules/
-│   │   │   ├── devops-lead.mdc
-│   │   │   ├── content-manager.mdc
-│   │   │   ├── code-quality.mdc
-│   │   │   ├── deploy-release.mdc
-│   │   │   ├── testing-standards.mdc
-│   │   │   ├── project-architecture.mdc
-│   │   │   └── lotus-cms.mdc
-│   │   ├── ONBOARDING.md
-│   │   └── README.md
-│   │
 │   ├── components/               # React components
 │   │   ├── LotusGrid.tsx        # Main navigation (809 lines)
 │   │   ├── LotusSidebar.tsx
@@ -110,7 +111,7 @@ Shell({
 
 **Root:** `d:\YandexDisk\_ODA2\Сайт\odadream-site`
 
-**Agent Rules:** `src\.cursor\rules\*.mdc`
+**Agent Rules:** `.cursor\rules\*.mdc`
 
 **Content:** `src\content\*.md`
 
@@ -126,7 +127,7 @@ Shell({
 
 1. ❌ Running commands without `working_directory` → drifts to `src/`
 2. ❌ Using `cd` in commands → state persists, causes confusion
-3. ❌ Editing files in wrong location (src/.cursor vs .cursor)
+3. ❌ Using relative paths without verifying current directory
 
 ## Solution
 
