@@ -19,7 +19,8 @@ export const parseFrontmatter = (text: string): FrontmatterData => {
     const cleanText = text.trimStart();
     
     // Regex now handles potential trailing spaces after '---'
-    const match = cleanText.match(/^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n([\s\S]*)$/);
+    // iOS Safari compatibility: avoid [\s\S]*? which can cause issues in older versions
+    const match = cleanText.match(/^---\s*\r?\n((?:.|\r?\n)*?)\r?\n---\s*\r?\n((?:.|\r?\n)*)$/);
     
     if (!match) {
         return { attributes: {}, body: text };

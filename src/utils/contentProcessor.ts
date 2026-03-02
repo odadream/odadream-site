@@ -23,7 +23,8 @@ const maskCodeBlocks = (
     return key;
   };
 
-  let masked = text.replace(/```[\s\S]*?```/g, store);
+  // iOS Safari compatibility: use (?:.|\r?\n) instead of [\s\S]
+  let masked = text.replace(/```(?:.|\r?\n)*?```/g, store);
   masked = masked.replace(/`[^`]+`/g, store);
 
   return { masked, placeholders };
