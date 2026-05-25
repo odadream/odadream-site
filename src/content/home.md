@@ -19,8 +19,9 @@ We explore _human—human, human—computer, and human—computer—human_ conne
 
 ## Work with us
 
-**Event agencies and production companies** — [[for-agents|Partnership]]: you bring the client, we handle equipment, content, and performance.  
-**Corporate and brand events** — [[for-events|Format overview]]: what we deliver, how it works, real examples.
+**Institutions, collectors, festivals, residencies** — [[for-institutions|Exhibition & residency inquiries]]  
+**Education programs, schools, youth** — [[for-education|Lectures, workshops, summer schools]]  
+**Corporate events for top audiences** — [[for-business|A format that elevates your event]]
 
 ## Architecture
 
@@ -54,8 +55,9 @@ _The journey is nonlinear._
 
 ## Сотрудничество
 
-**Ивент-агентствам и продакшн-компаниям** — [[for-agents|Партнёрство]]: вы приводите клиента, мы берём на себя оборудование, контент и перформанс.  
-**Корпоративным мероприятиям и брендам** — [[for-events|Обзор форматов]]: что делаем, как работает, реальные примеры.
+**Институциям, коллекционерам, фестивалям, резидентурам** — [[for-institutions|Выставки и резидентуры]]  
+**Образованию, школам, работе с молодёжью** — [[for-education|Лекции, воркшопы, летние школы]]  
+**Корпоративным событиям топ-уровня** — [[for-business|Формат, который поднимает статус события]]
 
 ## Архитектура
 

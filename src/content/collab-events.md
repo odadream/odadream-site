@@ -5,18 +5,15 @@ title_en: Events
 title_ru: Ивенты
 type: content
 tags: [installation, party]
-order: 0
+order: 6
 visible: true
-date: 2026.02.17
+date: 2026.05.25
 ---
 
 ## FOR EVENTS
 
 > Event interface initialization request.
 > Available protocols: stage, booth, immersive zone.
-
-> **Event agency or production company?**  
-> See [[for-agents|the partnership page]] — ready client materials, full tech support, 24h brief response.
 
 This section provides a quick overview of ODA.dream's ready-to-use formats for events. Below are key products with a focus on **mechanics, scalability, and engagement**. Details, concepts, and visual materials are available in the respective thematic sections.
 
@@ -85,13 +82,10 @@ _Communication session terminated._
 
 ---RU---
 
-## Для ивент-агентств
+## Форматы для событий
 
 > Запрос на инициализацию интерфейса событий.
 > Доступные протоколы: сцена, стенд, иммерсивная зона.
-
-> **Ивент-агентство или продакшн-компания?**  
-> Смотрите [[for-agents|страницу для партнёров]] — готовые материалы для клиента, полный техсаппорт, ответ на бриф в течение 24 часов.
 
 Этот раздел — быстрый обзор готовых форматов ODA.dream для событий. Ниже — ключевые продукты с фокусом на **механику, масштабируемость и вовлечение**. Детали, концепции и визуальные материалы доступны в тематических разделах.
 

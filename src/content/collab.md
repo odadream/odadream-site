@@ -7,93 +7,87 @@ type: hub
 tags: [handshake, network]
 order: 4
 visible: true
-date: 2026.02.17
+date: 2026.05.25
 ---
 
-## Co-Creation of Experience
+## COLLABORATION
 
-ODA.dream works through an **art-technology partnership** model.  
-We adapt proven formats to concrete contexts (event, company, gallery, or creative team) while preserving conceptual integrity and production quality.
+**ODA.dream works through partnership — artistic, educational, and contextual.**
 
-> context → adaptation → shared experience
+We adapt the work to the space, the audience, and the story.
 
-**Working as an event agency or production company?** → [[for-agents|Partnership page]]
+## For Institutions & Collectors
 
-## For Agencies
+[[for-institutions|Exhibition · Acquisition · Residency · Commission]]  
+For gallery curators, museum programmers, contemporary art collectors, festival directors, and residency programs.
 
-[[for-agents | Agency partnership]]: you bring the client — we handle equipment, content, setup, and performance. Full technical self-sufficiency, ready-to-use client materials, 24h brief response.
+## For Education
 
-## Event Agencies
+[[for-education|Lectures · Workshops · Youth Programs · Summer Schools]]  
+For universities, schools, and anyone building the next generation's relationship with science, art, and the inner life.
 
-[[for-events | Interactive formats]] for stage, booth, and immersive zones.  
-Focus: throughput, engagement mechanics, and clarity of technical setup.
+## For Corporate & Brands
 
-## Business & Companies
+[[for-business|A format that elevates your event]]  
+For companies that invite only what is genuinely meaningful — and want their guests to know it.
 
-[[for-business | Team and innovation formats]].  
-Focus: communication quality, group attention, strategic sessions, and human-centered innovation practices.
+## For Galleries & Art Spaces
 
-## Festivals & Galleries
+[[for-galleries|Curatorial collaboration]]  
+Site-specific installation, co-curated public programs, mediation, and production support.
 
-[[for-galleries | Curatorial and exhibition collaboration]].  
-Focus: site-specific adaptation, audience flow, mediation, and institutional framing.
+## For Artists & Creative Teams
 
-## Artists & Creative Teams
+[[for-artists|Co-production and interdisciplinary labs]]  
+Hybrid team projects where artistic concept, technology, and facilitation develop together.
 
-[[for-artists | Co-production and labs]].  
-Focus: interdisciplinary co-creation where artistic concept, technology, and facilitation develop together.
+## For Event Agencies
 
-## How collaboration starts
-
-1. Brief call (goals, audience, timeline, constraints).
-2. Format proposal (scenario, team, tech stack, budget range).
-3. Production and delivery (prep, implementation, post-summary).
+[[for-agents|Agency partnership]]  
+You bring the client — we handle equipment, content, setup, and performance.
 
 ---
 
-If you want to **discuss collaboration**, request a media kit, or estimate adaptation for your context, contact us via [[contacts]].
+If you are not sure which section fits — write to us directly: [[contacts|contacts]]
 
 ---RU---
 
-## Совместное создание опыта
+## СОТРУДНИЧЕСТВО
 
-ODA.dream работает в модели **художественно-технологического партнёрства**.  
-Мы адаптируем проверенные форматы под конкретный контекст (событие, компания, галерея, креативная команда), сохраняя концептуальную цельность и качество продакшна.
+**ODA.dream работает через партнёрство — художественное, образовательное и контекстуальное.**
 
-> context → adaptation → shared experience
+Мы адаптируем работу под пространство, аудиторию и историю.
 
-**Ивент-агентство или продакшн-компания?** → [[for-agents|Страница для партнёров]]
+## Институциям и коллекционерам
 
-## Агентствам
+[[for-institutions|Выставка · Приобретение · Резидентура · Комиссионная работа]]  
+Для кураторов галерей, музейных программистов, коллекционеров современного искусства, директоров фестивалей и программ резидентур.
 
-[[for-agents | Партнёрство с агентствами]]: вы приводите клиента — мы обеспечиваем оборудование, контент, монтаж и перформанс. Полная техническая самодостаточность, готовые материалы для клиента, ответ на бриф в течение 24 часов.
+## Образованию
 
-## Ивент-агентства
+[[for-education|Лекции · Воркшопы · Программы для молодёжи · Летние школы]]  
+Для университетов, школ и всех, кто формирует отношение следующего поколения к науке, искусству и внутренней жизни.
 
-[[for-events | Интерактивные форматы]] для сцены, стенда и иммерсивной зоны.  
-Фокус: проходимость, механика вовлечения и понятная техническая сборка.
+## Корпоративным клиентам и брендам
 
-## Бизнес и компании
+[[for-business|Формат, который поднимает статус события]]  
+Для компаний, которые приглашают только то, что по-настоящему значимо — и хотят, чтобы гости это почувствовали.
 
-[[for-business | Командные и инновационные форматы]].  
-Фокус: качество коммуникации, коллективное внимание, стратегические сессии и human-centered подход в инновациях.
+## Галереям и арт-пространствам
 
-## Фестивали и галереи
+[[for-galleries|Кураторское сотрудничество]]  
+Сайт-специфические инсталляции, совместные публичные программы, медиация и производственная поддержка.
 
-[[for-galleries | Кураторские и выставочные коллаборации]].  
-Фокус: site-specific адаптация, поток аудитории, медиация и институциональная рамка показа.
+## Художникам и креативным командам
 
-## Художники и креативные команды
+[[for-artists|Копродакшн и междисциплинарные лаборатории]]  
+Гибридные проекты, где художественная идея, технология и фасилитация развиваются вместе.
 
-[[for-artists | Копродакшн и лаборатории]].  
-Фокус: междисциплинарное сотворчество, где художественная идея, технология и фасилитация развиваются вместе.
+## Ивент-агентствам
 
-## Как начинается сотрудничество
-
-1. Бриф-созвон (цель, аудитория, сроки, ограничения).
-2. Предложение формата (сценарий, команда, техконтур, вилки бюджета).
-3. Продакшн и реализация (подготовка, внедрение, пост-резюме).
+[[for-agents|Партнёрство]]  
+Вы приводите клиента — мы обеспечиваем оборудование, контент, монтаж и перформанс.
 
 ---
 
-Если хотите **обсудить сотрудничество**, запросить медиакит или оценить адаптацию под ваш контекст, напишите нам через [[contacts | контакты]].
+Не уверены, какой раздел подходит — напишите напрямую: [[contacts|контакты]]
