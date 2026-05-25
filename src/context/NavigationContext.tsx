@@ -269,10 +269,17 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
 
   // Image Preloading Effect
   useEffect(() => {
-    // Small timeout to not block the main thread during the immediate render phase
+    // Defer until browser is idle (or after animations settle at 500ms).
+    // 100ms was too close to the render/transition cycle — in Firefox it caused
+    // visible compositing repaints while grid transitions were still in progress.
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      const id = (window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number })
+        .requestIdleCallback(() => preloadNodeAssets(currentNode), { timeout: 500 });
+      return () => (window as Window & { cancelIdleCallback: (id: number) => void }).cancelIdleCallback(id);
+    }
     const t = setTimeout(() => {
       preloadNodeAssets(currentNode);
-    }, 100);
+    }, 500);
     return () => clearTimeout(t);
   }, [currentNode]);
 

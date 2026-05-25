@@ -333,15 +333,16 @@ const GridCell = React.memo(
               draggable={false}
               className={cn(
                 "w-full h-full object-cover pointer-events-none select-none",
-                "will-change-[opacity,filter]",
-                // Apply grayscale and opacity effects based on cell type (transitions included in classes)
+                // NOTE: will-change-[opacity,filter] removed — causes Firefox compositing-layer
+                // repaints when combined with mix-blend-mode, producing visible cell flicker.
+                // NOTE: mix-blend-luminosity removed — blend-mode switching triggers expensive
+                // stacking-context recomposition in Firefox. grayscale() filter (in theme classes)
+                // already achieves the desaturation effect without blend-mode changes.
                 cell.isCenter
-                  ? THEME.lotus.image.center + " mix-blend-normal"
+                  ? THEME.lotus.image.center
                   : isVisualNode
-                    ? THEME.lotus.image.visual +
-                      " mix-blend-luminosity group-hover:mix-blend-normal"
-                    : THEME.lotus.image.default +
-                      " mix-blend-luminosity group-hover:mix-blend-normal",
+                    ? THEME.lotus.image.visual
+                    : THEME.lotus.image.default,
               )}
               alt=""
             />
