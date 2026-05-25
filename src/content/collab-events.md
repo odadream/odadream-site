@@ -35,6 +35,8 @@ Participants put on neurointerfaces, speak associations — and the system trans
 
 **Project example:** interactive booth at the International Interindustry Summit Russian Digital Creative (Moscow, 2025) at the Chamber of Commerce and Industry of the Russian Federation — photo: ![[/images/content/mindshow_tpp.webp | CCI RF]]
 
+**Project example 2:** MindShow at **TechFriendly Weekend / CIPR** (Nizhny Novgorod, 2026) — co-presentation with Natali Osman (wellness influencer, founder of Ashram Studio, Moscow). Audience: 300+ participants from Sber, Yandex, Rostelecom, government digital agencies.
+
 **Format:** booth · installation · photo zone
 
 **Rhythm:** ~1.5 minutes per person, 15–20 people per hour
@@ -47,15 +49,26 @@ Popular science presentations on the brain, perception, communication, and atten
 
 **Project example:** lecture on techno-empathy at a **private neuro-show** by Nata Gonchar (Moscow, 2024) — teaser: ![[https://dzen.ru/embed/vZ6STYjxZhHk?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | techno-empathy | /images/content/lectures-gonchar.webp]]
 
+**Project example 2:** lecture at **Sberbank** corporate event (Moscow, 2025) — science-art format for one of Russia's largest companies.
+
 **Format:** stage / educational zone · direct dialogue with audience · **live experiment**
 
 **Requirements:** stage or area with screen/projector, microphone, laptop connection
 
 ---
 
+## Selected clients and partners
+
+Corporate: **Sberbank · EkoNiva · Lamborghini · Audi · T-Bank / HSE**  
+Cultural: **Tavrida.ART · VK Fest · Wild Mint Festival · Tsiolkovsky Festival**  
+Institutional: **Ministry of Culture (Kaluga) · CCI of Russian Federation · MIPT · HSE University**  
+Wellness: **Ashram Studio (Natali Osman) · International Meditation Day**
+
+---
+
 Review **client feedback** in the [[letters | thank you letters]] section.
 
-**Request a media kit, discuss adaptation, or ask questions:** [t.me/odadream_info](https://t.me/odadream_info)
+Ready to discuss adaptation for your event? Request a media kit or contact us via [[contacts]].
 
 _Communication session terminated._.
 
@@ -70,7 +83,7 @@ _Communication session terminated._.
 
 ## Игра «Нейробитва»
 
-Интерактивное соревнование: участники **перетягивают виртуальный канат «силой мысли»**. Побеждает тот, кто лучше управляет своим состоянием — расслаблением или концентрацией. Это парная игра: одновременно участвуют два человека, при необходимости разворачивается **турнирная сетка**. Механика и технические параметры описаны в разделе ![[neurobattle|Нейробитва]].
+Интерактивное соревнование: участники **перетягивают виртуальный канат «силой мысли»**. Побеждает тот, кто лучше управляет своим состоянием — расслаблением или концентрацией. Это парная игра: одновременно участвуют два человека, при необходимости разворачивается **турнирная сетка**. Механика и технические параметры описаны в разделе [[neurobattle|Нейробитва]].
 
 **Пример реализации:** Нейробатл на стенде компании «ЭкоНива» в рамках Олимпиады DANO (организаторы ВШЭ и Т‑Банк, 2025) — посмотреть видео: ![[https://dzen.ru/embed/o20ZleGMJAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | Олимпиада DANO | /images/content/neurobattle_dano.webp]]
 
@@ -82,9 +95,11 @@ _Communication session terminated._.
 
 ## «Майнд-шоу» — перформанс / стенд
 
-Участники надевают нейроинтерфейсы, говорят ассоциации — и система в реальном времени превращает мозговую активность в **аудиовизуальные образы-метафоры с помощью ИИ**. Каждый составляет свой цифровой нейроавтопортрет; данные всех участников соединяются в **общее визуальное поле**. Подробнее об активности — в разделе ![[mindshow|Майнд-шоу]].
+Участники надевают нейроинтерфейсы, говорят ассоциации — и система в реальном времени превращает мозговую активность в **аудиовизуальные образы-метафоры с помощью ИИ**. Каждый составляет свой цифровой нейроавтопортрет; данные всех участников соединяются в **общее визуальное поле**. Подробнее об активности — в разделе [[mindshow|Майнд-шоу]].
 
 **Пример реализации:** интерактивный стенд на Международном межотраслевом саммите Russian Digital Creative (Москва, 2025) в Торгово-промышленной палате РФ — фото: ![[/images/content/mindshow_tpp.webp | ТПП РФ]]
+
+**Пример реализации 2:** Майнд-шоу на **TechFriendly Weekend / ЦИПР** (Нижний Новгород, 2026) — совместное выступление с Натали Осман (велнес-инфлюенсер, основатель студии Ашрам, Москва). Аудитория: 300+ участников из Сбера, Яндекса, Ростелекома, государственных цифровых ведомств.
 
 **Формат:** стенд · инсталляция · фотозона
 
@@ -94,9 +109,11 @@ _Communication session terminated._.
 
 ## Интерактивные лекции
 
-Научно-популярные выступления о мозге, восприятии, коммуникации и внимании. Зрители вовлекаются в процесс и могут **наблюдать изменения состояний в реальном времени**. Длительность лекции адаптируется под ваш тайминг: от 30 до 90 минут. Темы и описание — в разделе ![[lectures|Лекции]].
+Научно-популярные выступления о мозге, восприятии, коммуникации и внимании. Зрители вовлекаются в процесс и могут **наблюдать изменения состояний в реальном времени**. Длительность лекции адаптируется под ваш тайминг: от 30 до 90 минут. Темы и описание — в разделе [[lectures|Лекции]].
 
 **Пример реализации:** лекция про техно-эмпатию на **частном нейрошоу** от Наты Гончар (Москва, 2024) — тизер: ![[https://dzen.ru/embed/vZ6STYjxZhHk?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | Нейрошоу | /images/content/lectures-gonchar.webp]]
+
+**Пример реализации 2:** лекция на корпоративном мероприятии **Сбербанка** (Москва, 2025) — science-art формат для одной из крупнейших компаний России.
 
 **Формат:** сцена / образовательная зона · прямой диалог с аудиторией · **живой эксперимент**
 
@@ -104,8 +121,17 @@ _Communication session terminated._.
 
 ---
 
+## Клиенты и партнёры
+
+Корпоративные: **Сбербанк · ЭкоНива · Lamborghini · Audi · Т-Банк / ВШЭ**  
+Культурные: **Таврида.АРТ · VK Fest · Дикая мята · Фестиваль Циолковского**  
+Институциональные: **Министерство культуры (Калуга) · ТПП РФ · МФТИ · НИУ ВШЭ**  
+Велнес: **Студия Ашрам (Натали Осман) · Международный день медитации**
+
+---
+
 Ознакомиться с **отзывами клиентов** можно в разделе [[letters | благодарственные письма]].
 
-**Запросить медиакит, обсудить адаптацию или задать вопросы:** [t.me/odadream_info](https://t.me/odadream_info)
+Готовы обсудить адаптацию под ваше событие? Запросите медиакит или свяжитесь с нами через [[contacts|контакты]].
 
 _Сеанс связи завершён._
