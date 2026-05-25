@@ -9,34 +9,64 @@ date: 2026.02.10
 order: 1
 ---
 
-**Signal**: Ready to collaborate?
+## CONTACTS
 
-**Direct Messages**
+**Ready to collaborate?**
 
-- Email: [hi@odadream.art](mailto:hi@adream.art)
-- Telegram: [@odadream_info](https://t.me/odadream_info)
+**Telegram:** [t.me/odadream_info](https://t.me/odadream_info) ← fastest response  
+**Email:** [hi@odadream.art](mailto:hi@odadream.art)
 
-**Information Channels**
+## What to include in your first message
 
-- Announcement Channel (Telegram): [@odadream](https://t.me/odadream)
-- Blog & Portfolio (Dzen): [@odadream](https://dzen.ru/odadream)
-- Archive (Instagram): [@odadream](https://instagram.com/odadream)
+- Event date and city
+- Audience size and profile
+- Format interest — or just "not sure yet, let's talk"
+- If through an agency: agency name
+
+We respond within 24 hours.
+
+## For event agencies and production companies
+
+Same contacts. Mention you're an agency — we'll switch to the partner brief format.  
+→ [[for-agents|Agency partnership page]]
+
+## Media and info channels
+
+- Telegram news: [t.me/odadream](https://t.me/odadream)
+- YouTube: [@odadreamart](https://www.youtube.com/@odadreamart)
+- Portfolio: [dzen.ru/odadream](https://dzen.ru/odadream)
+- Behance: [behance.net/chudodey](https://www.behance.net/chudodey)
 
 _End of transmission._
 
 ---RU---
 
-**Сигнал**: Готовы к сотрудничеству?
+## КОНТАКТЫ
 
-**Личные сообщения**
+**Готовы к сотрудничеству?**
 
-- Email: [hi@odadream.art](mailto:hi@odadream.art)
-- Telegram: [@odadream_info](https://t.me/odadream_info)
+**Telegram:** [t.me/odadream_info](https://t.me/odadream_info) ← быстрее всего  
+**Email:** [hi@odadream.art](mailto:hi@odadream.art)
 
-**Каналы информации**
+## Что включить в первое сообщение
 
-- Канал анонсов (Telegram): [@odadream](https://t.me/odadream)
-- Блог-портфолио (Dzen): [@odadream](https://dzen.ru/odadream)
-- Архив (Instagram): [@odadream](https://instagram.com/odadream)
+- Дата и город мероприятия
+- Размер и профиль аудитории
+- Интерес к формату — или просто «пока не знаю, давайте поговорим»
+- Если через агентство: название агентства
+
+Отвечаем в течение 24 часов.
+
+## Ивент-агентствам и продакшн-компаниям
+
+Те же контакты. Напишите, что вы агентство — перейдём на партнёрский бриф-формат.  
+→ [[for-agents|Страница для агентств]]
+
+## Медиа и информационные каналы
+
+- Telegram-новости: [t.me/odadream](https://t.me/odadream)
+- YouTube: [@odadreamart](https://www.youtube.com/@odadreamart)
+- Портфолио: [dzen.ru/odadream](https://dzen.ru/odadream)
+- Behance: [behance.net/chudodey](https://www.behance.net/chudodey)
 
 _Конец передачи._

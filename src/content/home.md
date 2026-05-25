@@ -17,6 +17,11 @@ Here, _interface_ is understood not as an instrumental shell, but as a _way of o
 
 We explore _human—human, human—computer, and human—computer—human_ connections through the lens of consciousness and attention, embodiment and perception, empathy and communication. Our tools are neurointerfaces and biointerfaces. **Our themes are the relationships between past, present, and possible future scenarios.**
 
+## Work with us
+
+**Event agencies and production companies** — [[for-agents|Partnership]]: you bring the client, we handle equipment, content, and performance.  
+**Corporate and brand events** — [[for-events|Format overview]]: what we deliver, how it works, real examples.
+
 ## Architecture
 
 The space is organized according to the fractal principle of the **Blooming Lotus**. You are at its center. At each level—one to eight directions; some active, some hidden and will open over time.
@@ -46,6 +51,11 @@ _The journey is nonlinear._
 > "Экран — это не окно, а зеркало нервной системы".
 
 Мы исследуем связи _человек—человек, человек—компьютер, человек—компьютер—человек_ через призму сознания и внимания, телесности и восприятия, эмпатии и коммуникации. Наши инструменты — нейроинтерфейсы и биоинтерфейсы. **Наши темы — отношения прошлого, настоящего и возможных сценариев будущего.**
+
+## Сотрудничество
+
+**Ивент-агентствам и продакшн-компаниям** — [[for-agents|Партнёрство]]: вы приводите клиента, мы берём на себя оборудование, контент и перформанс.  
+**Корпоративным мероприятиям и брендам** — [[for-events|Обзор форматов]]: что делаем, как работает, реальные примеры.
 
 ## Архитектура
 

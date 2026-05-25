@@ -15,6 +15,9 @@ date: 2026.02.17
 > Event interface initialization request.
 > Available protocols: stage, booth, immersive zone.
 
+> **Event agency or production company?**  
+> See [[for-agents|the partnership page]] — ready client materials, full tech support, 24h brief response.
+
 This section provides a quick overview of ODA.dream's ready-to-use formats for events. Below are key products with a focus on **mechanics, scalability, and engagement**. Details, concepts, and visual materials are available in the respective thematic sections.
 
 ## Neurobattle Game
@@ -68,9 +71,17 @@ Wellness: **Ashram Studio (Natali Osman) · International Meditation Day**
 
 Review **client feedback** in the [[letters | thank you letters]] section.
 
-Ready to discuss adaptation for your event? Request a media kit or contact us via [[contacts]].
+## Send a brief
 
-_Communication session terminated._.
+**Telegram:** [t.me/odadream_info](https://t.me/odadream_info) ← fastest response  
+**Email:** [hi@odadream.art](mailto:hi@odadream.art)
+
+Include: event date · city · audience size · format interest (or "not sure yet")  
+We respond within 24 hours.
+
+Working through an agency? Ask them to contact us directly — [[for-agents|partner info here]].
+
+_Communication session terminated._
 
 ---RU---
 
@@ -78,6 +89,9 @@ _Communication session terminated._.
 
 > Запрос на инициализацию интерфейса событий.
 > Доступные протоколы: сцена, стенд, иммерсивная зона.
+
+> **Ивент-агентство или продакшн-компания?**  
+> Смотрите [[for-agents|страницу для партнёров]] — готовые материалы для клиента, полный техсаппорт, ответ на бриф в течение 24 часов.
 
 Этот раздел — быстрый обзор готовых форматов ODA.dream для событий. Ниже — ключевые продукты с фокусом на **механику, масштабируемость и вовлечение**. Детали, концепции и визуальные материалы доступны в тематических разделах.
 
@@ -132,6 +146,14 @@ _Communication session terminated._.
 
 Ознакомиться с **отзывами клиентов** можно в разделе [[letters | благодарственные письма]].
 
-Готовы обсудить адаптацию под ваше событие? Запросите медиакит или свяжитесь с нами через [[contacts|контакты]].
+## Отправьте бриф
+
+**Telegram:** [t.me/odadream_info](https://t.me/odadream_info) ← быстрее всего  
+**Email:** [hi@odadream.art](mailto:hi@odadream.art)
+
+Укажите: дата и город · размер аудитории · интерес к формату (или «пока не знаю»)  
+Отвечаем в течение 24 часов.
+
+Работаете через агентство? Попросите их связаться с нами напрямую — [[for-agents|информация для партнёров]].
 
 _Сеанс связи завершён._
