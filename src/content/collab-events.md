@@ -6,7 +6,7 @@ title_ru: Ивенты
 type: content
 tags: [installation, party]
 order: 6
-visible: true
+visible: false
 date: 2026.05.25
 ---
 

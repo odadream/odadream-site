@@ -1,19 +1,21 @@
 ---
 id: letters
-parent: collab
+parent: world
 title_en: Recognition & Awards
 title_ru: Признание и награды
 type: content
 tags: [gallery, white]
-order: 3
+order: 5
 visible: true
-date: 2026.02.18
+date: 2026.05.25
 ---
 
 ## Recognition & Awards
 
-Recorded artifacts of recognition: awards, certificates, letters of appreciation.
-Documentation of ODA.dream's engagement with institutions, festivals, and professional communities.
+Gratitude and institutional trust — this page records the ecosystem that confirms ODA.dream's public relevance: festival teams, educational institutions, curators, and professional communities.
+
+Recorded artifacts: awards, diplomas, letters of appreciation — with documentary evidence.
+These are not only trophies. They confirm that our methods are relevant across art, education, and innovation programs.
 
 > Event — Type (year): fact / essence → document
 
@@ -55,8 +57,10 @@ Documentation of ODA.dream's engagement with institutions, festivals, and profes
 
 ---RU---
 
-Зафиксированные артефакты признания: награды, дипломы, благодарственные письма.
-Документы взаимодействия ODA.dream с институциями, фестивалями и профессиональными сообществами.
+Признательность и институциональное доверие — эта страница фиксирует экосистему, подтверждающую публичную релевантность ODA.dream: команды фестивалей, образовательные институции, кураторы и профессиональные сообщества.
+
+Зафиксированные артефакты: награды, дипломы, благодарственные письма — с документальными подтверждениями.
+Это не просто трофеи. Они показывают, что наши методы работают в контексте искусства, образования и инноваций.
 
 > Событие — Тип (год): факт / суть → документ
 
