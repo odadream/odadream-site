@@ -24,7 +24,8 @@ Selected references that document projects, broadcasts, and institutional visibi
 
 ## International
 
-- **Prix Ars Electronica & STARTS Prize submission** (2026): official entry to the world's most prestigious media-art and science-technology-art award (Ars Electronica, Linz, Austria). Confirms international-level positioning of the neuro-art research line.
+- **Prix Ars Electronica & STARTS Prize** submission (2026): official entry to the world's most prestigious media-art and science-technology-art award (Ars Electronica, Linz, Austria). Confirms international-level positioning of the neuro-art research line.
+- **CultTech Lab 2026** (Vienna, 2026): selected with participation grant for the CultTech Lab international residency (CultTech Association, Austria). Joint project *"Ancestors in the Noise"* with Elena Kovylina — Memory Track (Memory and Identity / AI). Studio production grant. Showcase: CultTech Summit, Vienna, November 2026 — [culttech.at/lab/memory-track](https://culttech.at/lab/memory-track)
 - **CYENS Centre of Excellence, Cyprus** (2026): international collaboration inquiry confirming cross-border interest in the neuro-art methodology.
 
 ## Festival and institutional publications
@@ -36,6 +37,7 @@ Selected references that document projects, broadcasts, and institutional visibi
 - **Вечерняя Москва** coverage of ODA.dream public event (2025): confirms mainstream Moscow media visibility.
 - **TechFriendly @ CIPR forum** co-presentation materials (2026): confirms presence at Russia's largest digital-economy forum.
 - **"Unique Russia" national exhibition opening** (January 2026): participation confirming institutional cultural recognition.
+- **Technopark ART × TECHNOLOGY** competition, Skolkovo (2026): 1st place in category "Art Objects and Interactive Installations" — confirms recognition at Russia's leading innovation hub.
 
 ## Open media channels
 
@@ -61,6 +63,7 @@ Selected references that document projects, broadcasts, and institutional visibi
 ## Международное
 
 - **Заявка на Prix Ars Electronica & STARTS Prize** (2026): официальное участие в наиболее престижной в мире премии в области медиаискусства и science-technology-art (Ars Electronica, Линц, Австрия). Подтверждает международный уровень позиционирования нейро-арт-линии.
+- **CultTech Lab 2026** (Вена, 2026): отбор с грантом на участие в международной резиденции CultTech Lab (CultTech Association, Австрия). Совместный проект *«Ancestors in the Noise»* с Еленой Ковылиной — трек «Память и идентичность / ИИ». Грант на продакшн. Показ: CultTech Summit, Вена, ноябрь 2026 — [culttech.at/lab/memory-track](https://culttech.at/lab/memory-track)
 - **CYENS Centre of Excellence, Кипр** (2026): запрос на международное сотрудничество, подтверждающий трансграничный интерес к нейро-арт-методологии.
 
 ## Фестивальные и институциональные публикации
@@ -72,6 +75,7 @@ Selected references that document projects, broadcasts, and institutional visibi
 - **«Вечерняя Москва»** — публикация о публичном событии ODA.dream (2025): подтверждает выход в мейнстримное московское медиапространство.
 - **Материалы TechFriendly @ ЦИПР** (2026): подтверждают присутствие на крупнейшем цифровом форуме России.
 - **Открытие выставки «Уникальная Россия»** (январь 2026): участие, подтверждающее институциональное культурное признание на федеральном уровне.
+- **Конкурс «Технопарт ART × TECHNOLOGY»**, Сколково (2026): 1-е место в номинации «Арт-объекты и интерактивные инсталляции внутри здания» — подтверждает признание на ведущей российской инновационной площадке.
 
 ## Открытые медиаканалы
 
