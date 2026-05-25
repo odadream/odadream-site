@@ -39,6 +39,11 @@ Selected references that document projects, broadcasts, and institutional visibi
 - **"Unique Russia" national exhibition opening** (January 2026): participation confirming institutional cultural recognition.
 - **Technopark ART × TECHNOLOGY** competition, Skolkovo (2026): 1st place in category "Art Objects and Interactive Installations" — confirms recognition at Russia's leading innovation hub.
 
+## Intellectual Property
+
+- **ODA.Dream® registered trademark** (2026): official registration with Rospatent (Russian Federal Service for Intellectual Property). The brand name and identity are legally protected — a formal confirmation of institutional maturity and long-term commitment to the project.
+- **Neuromandala patent application filed** (2026): patent application submitted for the Neuromandala system — the core method of real-time EEG-to-generative-visual translation. Confirms the system's technological novelty and original R&D status.
+
 ## Open media channels
 
 - **Dzen portfolio channel:** [dzen.ru/odadream](https://dzen.ru/odadream)
@@ -76,6 +81,11 @@ Selected references that document projects, broadcasts, and institutional visibi
 - **Материалы TechFriendly @ ЦИПР** (2026): подтверждают присутствие на крупнейшем цифровом форуме России.
 - **Открытие выставки «Уникальная Россия»** (январь 2026): участие, подтверждающее институциональное культурное признание на федеральном уровне.
 - **Конкурс «Технопарт ART × TECHNOLOGY»**, Сколково (2026): 1-е место в номинации «Арт-объекты и интерактивные инсталляции внутри здания» — подтверждает признание на ведущей российской инновационной площадке.
+
+## Интеллектуальная собственность
+
+- **Товарный знак ODA.Dream® зарегистрирован** (2026): официальная регистрация в Роспатенте (Федеральная служба по интеллектуальной собственности). Название и идентичность бренда юридически защищены — формальное подтверждение институциональной зрелости и долгосрочной приверженности проекту.
+- **Патентная заявка на систему Нейромандалы подана** (2026): подана патентная заявка на систему Нейромандалы — ключевой метод преобразования ЭЭГ в реальном времени в генеративную визуализацию. Подтверждает технологическую новизну и оригинальный R&D-статус метода.
 
 ## Открытые медиаканалы
 

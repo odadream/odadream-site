@@ -15,7 +15,8 @@ date: 2026.04.07
 
 ODA.dream works at the intersection of neurotechnology, generative art, and embodied practices. Since 2019, we have been developing a line of works where biosignals become artistic material, and interface design becomes a method of dialogue between person, system, and collective context.
 
-**7 years on market · 80+ events · 1 500+ participants · 10+ cities**
+**7 years on market · 80+ events · 1 500+ participants · 10+ cities**  
+**ODA.Dream® registered trademark · Neuromandala patent pending**
 
 ## Method and Focus
 
@@ -36,6 +37,8 @@ Our approach combines artistic direction, engineering implementation, and facili
 - **TechFriendly @ CIPR** (2026): co-presentation with wellness influencer Natali Osman at the Digital Industry of Industrial Russia forum — one of Russia's largest state digital-economy events.
 - **Technopark ART × TECHNOLOGY, Skolkovo** (2026): 1st place in the open design competition for Skolkovo Innovation Center. Category: Art Objects and Interactive Installations. Project: "Neuro Honor Board". Prize: 80,000 RUB. Jury: Skolkovo, Stroganov Academy, NUST MISIS.
 - **CultTech Lab 2026, Vienna** (2026): selected with a participation grant for the international CultTech Lab program (CultTech Association, Austria). Joint project *"Ancestors in the Noise"* with Elena Kovylina — Memory Track (Memory and Identity / AI). Studio production grant available (up to EUR 2,500). Showcase: CultTech Summit, Vienna, November 2026.
+- **ODA.Dream® trademark registered** (2026): official trademark registration with Rospatent. Legally protected brand name and identity — confirms institutional seriousness and investment in IP.
+- **Neuromandala patent application filed** (2026): patent application submitted for the Neuromandala system. Confirms the technological novelty and original R&D status of the core neuro-art method.
 
 ## Members
 
@@ -59,7 +62,8 @@ Both are members of the Creative Union of Artists of Russia (TSKhR): Multimedia 
 
 ODA.dream работает на пересечении нейротехнологий, генеративного искусства и практик телесного внимания. С 2019 года мы развиваем линейку работ, в которой биосигналы становятся художественным материалом, а интерфейс - способом диалога между человеком, системой и коллективным контекстом.
 
-**7 лет на рынке · 80+ событий · 1 500+ участников · 10+ городов**
+**7 лет на рынке · 80+ событий · 1 500+ участников · 10+ городов**  
+**ODA.Dream® зарегистрированный товарный знак · Нейромандала — патентная заявка подана**
 
 ## Метод и фокус
 
@@ -80,6 +84,8 @@ ODA.dream работает на пересечении нейротехноло�
 - **TechFriendly @ ЦИПР** (2026): совместное выступление с wellness-инфлюенсером Натали Осман на форуме «Цифровая индустрия промышленной России» — одном из крупнейших государственных цифровых форумов России.
 - **Технопарт ART × TECHNOLOGY, Сколково** (2026): 1-е место в открытом конкурсе дизайнерских решений для Технопарка «Сколково». Номинация: Арт-объекты и интерактивные инсталляции внутри здания. Проект: «Нейродоска почёта». Приз: 80 000 ₽. Жюри: Сколково, Строгановская академия, НИТУ МИСИС.
 - **CultTech Lab 2026, Вена** (2026): отбор с грантом на обучение в международной программе CultTech Lab (CultTech Association, Австрия). Совместный проект *«Ancestors in the Noise»* с Еленой Ковылиной — трек «Память и идентичность / ИИ». Грант на продакшн (до EUR 2 500). Показ: CultTech Summit, Вена, ноябрь 2026.
+- **Товарный знак ODA.Dream® зарегистрирован** (2026): официальная регистрация в Роспатенте. Юридически защищённое название и идентичность бренда — подтверждает институциональную серьёзность и инвестицию в интеллектуальную собственность.
+- **Патентная заявка на Нейромандалу подана** (2026): подача патентной заявки на систему Нейромандалы. Подтверждает технологическую новизну и оригинальный R&D-статус ключевого нейро-арт-метода.
 
 ## Участники
 
