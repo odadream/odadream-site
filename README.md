@@ -1,6 +1,6 @@
 # ODA.dream | Wellness Art Tech
 
-![Version](https://img.shields.io/badge/version-1.1.0-emerald)
+![Version](https://img.shields.io/badge/version-1.2.0-emerald)
 ![Status](https://img.shields.io/badge/status-production-blue)
 ![Engine](https://img.shields.io/badge/engine-react_19-cyan)
 

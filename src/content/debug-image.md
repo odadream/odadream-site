@@ -13,22 +13,26 @@ date: 2026.02.06
 
 ## IMAGE TEST
 
-Standard image lightbox.
+Service page for validating image rendering in `content` nodes.
 
-### High-Load Asset Test
+### What is checked
 
-Testing loading indicators with a heavy remote file and complex URL parameters.
+- local image embed rendering;
+- lightbox behavior;
+- loading/fallback state for missing asset.
 
-![[https://s662vla.storage.yandex.net/rdisk/fe9ae9994e2ea46c208ae417f60fe1a835636227a37b894db0b26cdc78bf4c72/69814273/LkHz-i27zRjnrcgKR5Gf882_UfMdm5r76oTUUidK_annW5CNX3Qh4gz5bJMEer8RllUQf7QXSWwHcdIkC-0klA==?uid=94354112&filename=_Snap.1.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=94354112&fsize=822410&hid=37be66e7dc2673a57f9d862a51bd262f&media_type=image&tknv=v3&etag=0aeb47ad8f91ec0de16abf059d030cf7&ts=649e0982f42c0&s=8608769eebd6076c26a3d2b7805b2ffc7ebe1cb6abed691ee1d682967097f576&pb=U2FsdGVkX1_8CV3oMaPCg_AMl0BRVM__U_xBMfukWnpSQ68x4tYZ0Hscx4EFSV7Tc1wiBpXmoKA7aSWWOofe8TyNuJRpqXzkf94v75bBpVQ | Yandex High-Res | /images/content/art-brain.jpg]]
+![[/images/content/art-brain.jpg | Debug Image Local]]
 
 ---RU---
 
 ## ТЕСТ ФОТО
 
-Стандартный лайтбокс изображения.
+Сервисная страница для проверки рендера изображений в `content`-нодах.
 
-### Тест Тяжелого Файла
+### Что проверяется
 
-Проверка индикаторов загрузки на удаленном файле со сложными параметрами URL.
+- рендер локального image embed;
+- поведение лайтбокса;
+- состояние загрузки/fallback при отсутствии файла.
 
-![[https://s662vla.storage.yandex.net/rdisk/fe9ae9994e2ea46c208ae417f60fe1a835636227a37b894db0b26cdc78bf4c72/69814273/LkHz-i27zRjnrcgKR5Gf882_UfMdm5r76oTUUidK_annW5CNX3Qh4gz5bJMEer8RllUQf7QXSWwHcdIkC-0klA==?uid=94354112&filename=_Snap.1.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=94354112&fsize=822410&hid=37be66e7dc2673a57f9d862a51bd262f&media_type=image&tknv=v3&etag=0aeb47ad8f91ec0de16abf059d030cf7&ts=649e0982f42c0&s=8608769eebd6076c26a3d2b7805b2ffc7ebe1cb6abed691ee1d682967097f576&pb=U2FsdGVkX1_8CV3oMaPCg_AMl0BRVM__U_xBMfukWnpSQ68x4tYZ0Hscx4EFSV7Tc1wiBpXmoKA7aSWWOofe8TyNuJRpqXzkf94v75bBpVQ | Yandex High-Res | /images/content/art-brain.jpg]]
+![[/images/content/art-brain.jpg | Debug Image Local]]

@@ -12,14 +12,42 @@ date: 2026.02.12
 
 ## NEUROAESTHETICS
 
-**The Science of Beauty**
+**Advanced Lecture for Art Contexts**
 
-A deep dive into Semir Zeki's laws of visual brain and how contemporary digital art exploits these neural pathways.
+Neuroaesthetics is an advanced lecture for curators, artists, and interdisciplinary audiences.
+It links theories of visual cognition with contemporary media-art practice and discusses how aesthetic decisions can be treated as cognitive design.
+
+## Lecture Focus
+
+- Key concepts of neuroaesthetics (selection, salience, prediction, reward).
+- Visual brain principles in contemporary art and immersive media.
+- How to read audience response without oversimplifying neuroscience.
+- Ethical boundaries between aesthetic influence and manipulation.
+
+## Suitable Formats
+
+- Curatorial and museum programs.
+- Festival discourse blocks.
+- Educational tracks for art-tech communities.
 
 ---RU---
 
 ## НЕЙРОЭСТЕТИКА
 
-**Наука о Красоте**
+**Продвинутая лекция для арт-контекстов**
 
-Глубокое погружение в законы зрительного мозга Семира Зеки и то, как современное цифровое искусство эксплуатирует эти нейронные пути.
+`Нейроэстетика` — углублённая лекция для кураторов, художников и междисциплинарной аудитории.
+Она связывает теории зрительного восприятия с современной медиа-арт практикой и показывает, как эстетическое решение может рассматриваться как когнитивный дизайн.
+
+## Фокус лекции
+
+- Базовые понятия нейроэстетики (выделение, значимость, предсказание, reward).
+- Принципы работы зрительного мозга в современном искусстве и иммерсивных медиа.
+- Как обсуждать отклик аудитории без псевдонаучного упрощения.
+- Этические границы между эстетическим воздействием и манипуляцией.
+
+## Подходящие форматы
+
+- Кураторские и музейные программы.
+- Дискурсивные блоки фестивалей.
+- Образовательные треки для art-tech сообществ.

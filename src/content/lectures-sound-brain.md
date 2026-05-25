@@ -12,9 +12,23 @@ date: 2026.02.12
 
 ## SOUND & SYNC
 
-**Auditory Entrainment**
+**Auditory Entrainment and State Shifts**
 
-The impact of binaural beats and isochronic tones on neural synchronization. We demonstrate live how sound frequencies can shift the collective state of an audience.
+This lecture explores how rhythm, tone density, and resonance affect attention, arousal, and collective dynamics.
+The focus is practical: how to design sound environments for regulation, concentration, and immersive experience.
+
+## What We Cover
+
+- Basic auditory pathways and attention mechanisms.
+- Entrainment logic (without exaggerated claims).
+- Differences between passive listening and intentional listening protocols.
+- Cases from ODA.dream lecture-practice formats.
+
+## Live Component
+
+- Guided listening blocks.
+- Short before/after reflection.
+- Optional neuroreactive demonstration for audience engagement.
 
 Sample Audio:
 ![[https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3]]
@@ -23,9 +37,23 @@ Sample Audio:
 
 ## ЗВУК И СИНХРОНИЗАЦИЯ
 
-**Аудио-вовлечение**
+**Аудиальная синхронизация и переходы состояний**
 
-Влияние бинауральных ритмов и изохронных тонов на нейронную синхронизацию. Мы демонстрируем в прямом эфире, как звуковые частоты могут смещать коллективное состояние аудитории.
+Лекция о том, как ритм, плотность звука и резонанс влияют на внимание, возбуждение и групповую динамику.
+Фокус прикладной: как проектировать звуковую среду для регуляции состояния, концентрации и иммерсивного опыта.
+
+## Что разбираем
+
+- Базовую логику слуховой обработки и внимания.
+- Принципы entrainment без гиперобещаний и «магического» языка.
+- Разницу между пассивным слушанием и управляемыми практиками слушания.
+- Кейсы ODA.dream из лекционно-практических форматов.
+
+## Живой компонент
+
+- Блоки направленного слушания.
+- Короткая рефлексия до/после.
+- При необходимости — демонстрационный нейровизуальный слой для вовлечения аудитории.
 
 Пример аудио:
 ![[https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3]]

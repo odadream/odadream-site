@@ -13,10 +13,22 @@ date: 2026.02.06
 
 ## ACTION TEST
 
-Action node description.
+Service action-node descriptor used for validating action-type routing and UI affordance.
+
+### What is checked
+
+- rendering of `type: action` node in navigation grid;
+- click/dispatch behavior in client action handler;
+- fallback messaging when no runtime action is bound.
 
 ---RU---
 
 ## ТЕСТ ДЕЙСТВИЯ
 
-Описание узла действия.
+Сервисный descriptor action-ноды для проверки маршрутизации и UI-поведения узлов типа action.
+
+### Что проверяется
+
+- рендер `type: action` в навигационной сетке;
+- поведение click/dispatch в клиентском action-handler;
+- fallback-сообщение при отсутствии связанного runtime-действия.

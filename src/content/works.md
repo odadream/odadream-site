@@ -11,34 +11,34 @@ date: 2026.02.13
 
 ## Catalog of Artifacts & Experiences
 
-Our works explore the boundaries between physical and digital, material and immaterial. From installations you can touch to semantic metaphors existing only in perception. **Each project is a way of organizing experience at the intersection of human, technology, and meaning.**
+Works is a map of ODA.dream formats from foundational research to public applications.
+If `Events` answers "where we showed it", `Works` answers "what exactly we build and why it matters".
 
-We categorize our work by the mode of interaction and level of engagement:
+Navigation logic:
 
-- [[research|Research]] — The "Why" behind the "How". Theoretical and experimental work investigating the mechanisms of perception, interaction interfaces, and the boundaries of human experience.
+- [[research|Research]] — core R&D protocols and concepts (start here for method and context).
+- [[practices|Practices]] — participatory formats for attention, synchronization, and embodied exploration.
+- [[lectures|Lectures]] — educational programs translating neuroscience + art into structured learning.
+- [[games|Games]] — playable neuro-formats for rapid engagement and measurable group dynamics.
+- [[objects|Objects]] — material and collectible artifacts derived from process and data aesthetics.
 
-- [[games|Games]] — Immersion through play. Active participation where exploration happens through action, and understanding emerges from the experience of engaging with the system.
-
-- [[lectures|Lectures]] — Knowledge transfer through structured presentation. Educational formats where we share research at the intersection of neuroscience, art, and technology.
-
-- **Practices (coming soon)** — Methods for actively exploring one's own experience. Somatic and cognitive practices working with attention, perception, and the connection between consciousness and action.
-
-- **Objects (coming later)** — Crystallized moments of consciousness. Material artifacts (jewelry, small-scale forms) that carry the trace of process and invite contemplation.
+Recommended route for first-time visitors:
+1. [[research|Research]] -> 2. [[games|Games]] or [[lectures|Lectures]] -> 3. [[events|Events]] for real deployment cases.
 
 ---RU---
 
 ## Каталог Артефактов и Опыта
 
-Наши работы исследуют границы между физическим и цифровым, материальным и нематериальным. От инсталляций, которые можно коснуться, до смысловых метафор, существующих только в восприятии. **Каждый проект — это способ организации опыта на пересечении человека, технологии и смысла.**
+`Works` — это карта форматов ODA.dream: от исследовательского ядра до прикладных публичных форм.
+Если раздел `События` отвечает на вопрос «где это было показано», то `Работы` отвечает на вопрос «что именно мы создаём и зачем».
 
-Мы категоризируем работы по типу взаимодействия и уровню вовлечённости:
+Логика навигации:
 
-- [[research|Исследования]] — "Почему" стоящее за "Как". Теоретические и экспериментальные работы, в которых мы изучаем механизмы восприятия, интерфейсы взаимодействия и границы человеческого опыта.
+- [[research|Исследования]] — методологическое ядро, гипотезы и R&D-кейсы (лучший вход для понимания подхода).
+- [[practices|Практики]] — форматы с активным участием: внимание, синхронизация, телесно-сенсорный опыт.
+- [[lectures|Лекции]] — образовательные программы на стыке нейронауки, искусства и технологий.
+- [[games|Игры]] — игровые нейро-форматы для быстрого вовлечения и наблюдаемой групповой динамики.
+- [[objects|Объекты]] — материальные артефакты и предметные формы, возникающие из процесса и data aesthetics.
 
-- [[games|Игры]] — Погружение в тему через игровые форматы. Активное участие, где исследование происходит через действие, а понимание возникает из опыта взаимодействия с системой.
-
-- [[lectures|Лекции]] — Передача знаний через структурированное изложение. Образовательные форматы, в которых мы делимся исследованиями на стыке нейронаук, искусства и технологий.
-
-- **Практики (скоро)** — Методы активного исследования собственного опыта. Телесные и когнитивные практики работы с вниманием, восприятием и связью между сознанием и действием.
-
-- **Объекты (позже)** — Кристаллизованные моменты сознания. Материальные артефакты (ювелирные изделия, объекты малых форм), которые несут в себе след процесса и приглашают к созерцанию.
+Рекомендуемый маршрут для первого знакомства:
+1. [[research|Исследования]] -> 2. [[games|Игры]] или [[lectures|Лекции]] -> 3. [[events|События]] для просмотра реализованных кейсов.

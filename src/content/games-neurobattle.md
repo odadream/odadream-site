@@ -50,11 +50,11 @@ No training is required — participants learn the mechanics on the fly. This ad
 
 ## Featured Projects
 
-- Neurobattle at the EkoNiva stand during the ![[https://dzen.ru/embed/o20ZleGMJAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0" | DANO Olympiad | /images/content/neurobattle_dano.webp]] by HSE and T-Bank;
+- Neurobattle at the EkoNiva stand during the ![[https://dzen.ru/embed/o20ZleGMJAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | DANO Olympiad | /images/content/neurobattle_dano.webp]] by HSE and T-Bank;
 - Neurobattle at the ![[https://dzen.ru/embed/v1ftBaZRQUXU?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | Wind of Change | /images/content/neurobattle_veter.webp]] charity gala;
 - TV feature on TNT’s ![[https://dzen.ru/embed/vY9PlkGfKPUc?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | You Like Me | /images/content/neurobattle_tnt.webp]] show.
 
-Ready to create a scenario for your event where technology, human, and audience function as a single organism? → [Discuss the concept](https://t.me/m/A-FlFs_ZZmU1)
+Ready to create a scenario for your event where technology, people, and audience function as a single organism? Contact us via [[contacts]] to discuss the concept.
 
 ---RU---
 
@@ -90,7 +90,7 @@ Ready to create a scenario for your event where technology, human, and audience 
 
 ## Контексты применения
 
-- **Корпоративный ивент:** не просто тимбилдинг, а сессия по осознанности в оболочке зрелищного состязания. Кто в команде сохраняет спокойствие под давлением? Как он это делает? Чему можно у них поучиться?
+- **Корпоративный ивент:** не просто тимбилдинг, а сессия по осознанности в оболочке зрелищного состязания. Кто в команде сохраняет спокойствие под давлением? Как это получается? Чему у них можно поучиться?
 - **Публичная площадка** (фестиваль, выставка): живая научно-популярная демонстрация, превращённая в увлекательный поединок. Притягивает аудиторию, ценящую технологичную эстетику.
 - **Закрытое событие:** элемент интеллектуального перформанса и точка притяжения для вдумчивых гостей. Формат, о котором говорят и который хочется обсудить.
 
@@ -98,8 +98,8 @@ Ready to create a scenario for your event where technology, human, and audience 
 
 ## Реализованные кейсы
 
-- Нейробатл на стенде компании «ЭкоНива» в рамках ![[https://dzen.ru/embed/o20ZleGMJAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0" | Олимпиада DANO | /images/content/neurobattle_dano.webp]] от ВШЭ и Т-Банка;
+- Нейробатл на стенде компании «ЭкоНива» в рамках ![[https://dzen.ru/embed/o20ZleGMJAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | Олимпиада DANO | /images/content/neurobattle_dano.webp]] от ВШЭ и Т-Банка;
 - Нейробатл на благотворительном вечере ![[https://dzen.ru/embed/v1ftBaZRQUXU?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | Ветер Перемен | /images/content/neurobattle_veter.webp]];
 - Шоу на телеканале ТНТ ![[https://dzen.ru/embed/vY9PlkGfKPUc?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | Ты как Я | /images/content/neurobattle_tnt.webp]].
 
-Готовы спроектировать для вашего события ситуацию, где технология, человек и зритель работают как единое целое? → [Обсудить концепцию](https://t.me/m/A-FlFs_ZZmU1)
+Готовы спроектировать для вашего события ситуацию, где технология, человек и зритель работают как единое целое? Свяжитесь с нами через [[contacts|контакты]], чтобы обсудить концепцию.

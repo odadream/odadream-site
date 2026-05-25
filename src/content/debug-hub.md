@@ -13,16 +13,22 @@ date: 2026.02.06
 
 ## NESTED HUB
 
-**Deep Structure**
+**Nested routing checkpoint**
 
-You have navigated into a sub-category.
-Notice the icon change to 'Layers'.
+This node validates second-level hub behavior inside the debug branch:
+
+- inherited navigation from parent `debug`;
+- hub-to-child traversal rules;
+- consistency of icon and label rendering for nested structures.
 
 ---RU---
 
 ## ВЛОЖЕННЫЙ ХАБ
 
-**Глубокая Структура**
+**Контрольная точка вложенной маршрутизации**
 
-Вы перешли в подкатегорию.
-Обратите внимание на иконку 'Layers'.
+Эта нода проверяет поведение хаба второго уровня внутри debug-ветки:
+
+- наследование навигации от родителя `debug`;
+- правила переходов между hub и дочерними узлами;
+- консистентность рендера иконки и ярлыка во вложенной структуре.

@@ -12,30 +12,32 @@ date: 2026.02.12
 
 ## DEBUG STATION
 
-**Visual Classification System**
+**Internal service branch**
 
-This node tests the iconography and behavior of the Lotus Grid cells.
-Neighbors include:
+This hidden branch is used for technical validation of content-node behavior and renderer compatibility.
 
-1. Nested Hub (Folder)
-2. Pure Article (Text)
-3. Video Node
-4. Audio Node
-5. Image Node
-6. External Action
+## What is verified here
+
+1. Node type routing (hub/content/media/action).
+2. Metadata parsing and icon mapping.
+3. Rendering stability for local media references.
+4. Internal links and action semantics.
+
+The branch is non-editorial and not part of the public narrative layer.
 
 ---RU---
 
 ## ОТЛАДОЧНАЯ СТАНЦИЯ
 
-**Система Визуальной Классификации**
+**Внутренняя сервисная ветка**
 
-Этот узел тестирует иконографику и поведение ячеек сетки Лотоса.
-Соседи включают:
+Этот скрытый раздел используется для технической валидации поведения контент-нод и совместимости рендера.
 
-1. Вложенный Хаб (Папка)
-2. Чистая Статья (Текст)
-3. Видео Узел
-4. Аудио Узел
-5. Изображение
-6. Внешнее Действие
+## Что здесь проверяется
+
+1. Роутинг по типам нод (hub/content/media/action).
+2. Парсинг метаданных и маппинг иконок.
+3. Стабильность рендера локальных медиа-ссылок.
+4. Внутренние ссылки и семантика action-узлов.
+
+Ветка не является частью публичного нарратива сайта и служит только для сервисных тестов.

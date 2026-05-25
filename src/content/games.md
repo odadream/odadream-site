@@ -9,20 +9,44 @@ order: 2
 date: 2026.02.13
 ---
 
-Active systems where the interaction protocol is built on **neurofeedback**.
+Games is the high-engagement branch of ODA.dream where neurofeedback mechanics are translated into playable formats.
+These nodes are built for fast participation, observable dynamics, and strong audience involvement.
 
-**Neurobattle**: A duel of mental states in real time. Two participants compete by controlling a virtual object through concentration or relaxation -> [[neurobattle]].
+## Format Status Map
 
-**Brainhack**: A solo protocol for exploring cognitive patterns and training focus -> _(in progress)_.
+- [[neurobattle|Neurobattle]] `[status: active / production]`  
+  Competitive one-on-one format with proven deployment at public and corporate events.
 
-**Path to Self**: A deep narrative protocol exploring the connection between mental state and personal meaning -> _(in progress)_.
+- [[brain-hack|Brain Hack]] `[status: concept / P2 expansion]`  
+  Cognitive challenge line focused on perception biases, rapid attention shifts, and reflective debrief.
+
+- [[journey|Journey]] `[status: concept / P2 expansion]`  
+  Narrative-regulation format for deeper inner-state exploration via guided progression.
+
+## How to navigate
+
+- Start with [[neurobattle|Neurobattle]] for a production-ready case.
+- Use [[brain-hack|Brain Hack]] for workshop-like cognitive challenge contexts.
+- Use [[journey|Journey]] when the goal is a longer reflective trajectory.
 
 ---RU---
 
-Активные системы, где протокол взаимодействия строится на **нейробиологической обратной связи** (нейроБОС).
+`Games` — ветка высокововлекаемых форматов ODA.dream, где механики нейробиофидбэка переводятся в игровой опыт.
+Форматы рассчитаны на быстрый вход, наблюдаемую динамику и активное вовлечение аудитории.
 
-**Нейробитва**: Дуэль ментальных состояний в реальном времени. Два участника соревнуются, управляя виртуальным объектом через концентрацию или расслабление -> [[neurobattle]].
+## Карта форматов и статусов
 
-**Взлом Мозга**: Сольный протокол для исследования когнитивных паттернов и тренировки фокуса -> _(в наполнении)_.
+- [[neurobattle|Нейробитва]] `[status: active / production]`  
+  Соревновательный 1v1 формат с подтверждёнными кейсами на публичных и корпоративных событиях.
 
-**Путь к Себе**: Глубинный нарративный протокол, исследующий связь ментального состояния с персональными смыслами -> _(в наполнении)_.
+- [[brain-hack|Взлом Мозга]] `[status: concept / P2 expansion]`  
+  Линия когнитивных челленджей про искажения восприятия, быстрые переключения внимания и рефлексивный разбор.
+
+- [[journey|Путешествие]] `[status: concept / P2 expansion]`  
+  Нарративно-регуляционный формат для более глубокой работы с внутренними состояниями по шаговому протоколу.
+
+## Как читать раздел
+
+- Для production-кейса начинайте с [[neurobattle|Нейробитвы]].
+- Для воркшопного когнитивного формата переходите в [[brain-hack|Взлом Мозга]].
+- Для длительной рефлексивной траектории используйте [[journey|Путешествие]].

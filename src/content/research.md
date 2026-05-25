@@ -6,50 +6,66 @@ title_ru: Исследования
 type: hub
 tags: [lab, science]
 order: 1
-visible: visible
+visible: true
 date: 2026.02.16
 ---
 
-Artistic Research ODA.dream is an ongoing process at the boundary between human and system. This section brings together projects that use **art as a research tool** to engage with states and meanings. Some works are completed and available for exhibition, while others remain open and continue to evolve.
+Artistic Research at ODA.dream is a working lab at the boundary between human attention and technological systems.
+This section maps our research nodes by maturity and application status: from production-ready formats to active R&D hypotheses.
 
-We work with sci-tech art, where **biofeedback** is employed as a means to engage with human emotions, attention, and physical states. Here, consciousness is treated as an artistic material, and the individual as a carrier of a unique cultural code.
+We use **biofeedback and media systems** not as decoration, but as instruments to observe, translate, and discuss internal states in public artistic contexts.
 
 > Consciousness is an interface that is always running.
 
-## // research.log()
+## // research.map()
 
-- [[mindshow | MindShow]] `[status: active]` Performance / installation. Neural network and audiovisual systems generate metaphorical imagery and sound structures in real time based on a person's biosignals and narrative.
+- [[mindshow | MindShow]] `[status: active / production]` Performance-installation where neural data and personal narrative are translated into audiovisual compositions. Mature format with repeated public deployment.
 
-- **Cultural Heritage** `[status: open]` A container project. Cultural patterns of different peoples are translated into the language of neurogenerative art, where culture functions as a living, evolving digital organism.
+- [[cultural-neuro-code | Cultural Neuro Code]] `[status: active / R&D]` Research line connecting personal memory, cultural artifacts, and EEG response in participatory neurofeedback artworks.
 
-- **"Schrödinger" Project** `[status: experimental]` A performance where the dramaturgy is shaped by the states of the actors and the audience. The viewer is integrated into the process and influences the unfolding events.
+- [[schrodinger | "Schrödinger" Project]] `[status: experimental]` A performance where dramaturgy is shaped by the states of actors and audience. The viewer is integrated into the process and influences unfolding events.
 
-- **Darshan Moment** `[status: concept]` An exploration of cyber-Buddhism and contemplative states, establishing a dialogue between ancient spiritual practices and contemporary digital and AI systems.
+- [[dashran | Darshan Moment]] `[status: concept]` An exploration of contemplative states, establishing dialogue between spiritual practice and contemporary neuro-digital systems.
 
-- **Circle of Synchronization** `[status: concept]` A performance about collective attunement and neural synchronization. Participants explore a shared state through biofeedback data.
+- [[sync-circle | Sync Circle]] `[status: active / R&D]` Group synchronization protocol based on MultiSync: collective state dynamics are rendered in real time and analyzed through guided reflection.
 
-- **The Immanent Side / This-Worldly** `[status: concept]` A project exploring shamanic practices and liminal states of consciousness arising between rational, mythological, and embodied experience.
+- [[heritage | Heritage]] `[status: active / in progress]` Research framework for documenting intangible cultural practice: not only artifacts, but process states (attention, rhythm, performative context).
 
-  _Note: "Посюсторонний" implies "of this side/world", contrasting with the "otherworldly". "The Immanent Side" captures the philosophical sense well._
+- [[posustoronniy | Posustoronniy]] `[status: active / in progress]` Boundary states protocol with public-safe methodology: controlled sensory conditions, transparent limits, and evidence-aware interpretation.
+
+## How to navigate
+
+- Start with [[mindshow | MindShow]] for a production-level reference.
+- Continue with [[sync-circle | Sync Circle]] and [[heritage | Heritage]] for current R&D trajectories.
+- Use [[events | Events]] to see where research moved into public deployment.
 
 ---RU---
 
-Художественные исследования ODA.dream — это непрерывный процесс на границе человека и системы. В этом разделе собраны проекты, в которых **искусство используется как исследовательский инструмент** для работы с состояниями и смыслами. Часть работ завершена и доступна для показа, часть остаётся открытой и продолжает развиваться.
+Художественные исследования ODA.dream — это рабочая лаборатория на границе внимания человека и технологических систем.
+Раздел показывает исследовательские ноды по уровню зрелости: от production-форматов до активных R&D-гипотез.
 
-Мы работаем с научно-технологическим искусством, в котором **биологическая обратная связь** является одним из способов работы с эмоциями, вниманием и телесным состоянием человека. Сознание здесь рассматривается как художественный материал, а человек — как носитель уникального культурного кода.
+Мы используем **биофидбэк и медиа-системы** не как декоративный эффект, а как инструменты наблюдения, перевода и обсуждения внутренних состояний в публичном художественном контексте.
 
 > Сознание — это интерфейс, который всегда запущен.
 
-## // research.log()
+## // research.map()
 
-- [[mindshow | MindShow]] `[status: active]` Перформанс / инсталляция. Нейросетевые и аудиовизуальные системы в реальном времени формируют метафорические образы и звуковые структуры на основе биосигналов и нарратива человека.
+- [[mindshow | MindShow]] `[status: active / production]` Перформанс-инсталляция, где нейроданные и личный нарратив переводятся в аудиовизуальные композиции. Зрелый формат с повторяемыми публичными кейсами.
 
-- **Культурное наследие** `[status: open]` Проект-контейнер. Культурные паттерны разных народов переводятся в язык нейрогенеративного искусства, где культура функционирует как живой, изменяющийся цифровой организм.
+- [[cultural-neuro-code | Культурный нейрокод]] `[status: active / R&D]` Исследовательская линия, где личная память, культурные артефакты и ЭЭГ-отклик соединяются в партисипаторные нейрофидбек-форматы.
 
-- **Проект "Шрёдингер"** `[status: experimental]` Спектакль, в котором драматургия формируется из состояний актёров и зрителей. Зритель включён в процесс и влияет на развитие происходящего.
+- [[schrodinger | Проект "Шрёдингер"]] `[status: experimental]` Спектакль, в котором драматургия формируется из состояний актёров и зрителей. Зритель включён в процесс и влияет на развитие происходящего.
 
-- **Момент Даршана** `[status: concept]` Исследование кибербуддизма и состояний созерцания, выстраивающее диалог между древними духовными практиками и современными цифровыми и AI-системами.
+- [[dashran | Момент Даршана]] `[status: concept]` Исследование состояний созерцания, выстраивающее диалог между духовными практиками и современными нейро-цифровыми системами.
 
-- **Круг синхронизации** `[status: concept]` Перформанс о коллективной сонастройке и нейросинхронизации. Участники исследуют совместное состояние через данные биологической обратной связи.
+- [[sync-circle | Круг синхронизации]] `[status: active / R&D]` Протокол групповой синхронизации на базе MultiSync: динамика общего состояния визуализируется в реальном времени и разбирается в рефлексии.
 
-- **Посюсторонний** `[status: concept]` Проект о шаманских практиках и пограничных состояниях сознания, возникающих между рациональным, мифологическим и телесным опытом.
+- [[heritage | Наследие]] `[status: active / in progress]` Исследовательская рамка по фиксации нематериальной культурной практики: не только объекта, но и состояния процесса (внимание, ритм, контекст исполнения).
+
+- [[posustoronniy | Потусторонний]] `[status: active / in progress]` Протокол пограничных состояний с публично-безопасной методологией: контролируемая сенсорная среда, прозрачные ограничения и проверяемые формулировки.
+
+## Как читать раздел
+
+- Начните с [[mindshow | MindShow]] как production-эталона.
+- Затем откройте [[sync-circle | Круг синхронизации]] и [[heritage | Наследие]] как текущие R&D-линии.
+- Для публичных развёртываний и кейсов переходите в [[events | События]].

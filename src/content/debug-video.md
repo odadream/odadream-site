@@ -6,31 +6,33 @@ title_ru: Видео Страница
 short_en: PAGE
 short_ru: СТР
 type: content
-media: https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+media: /media/debug/video-placeholder.mp4
 order: 2
 date: 2026.02.06
 ---
 
 ## VIDEO TEST
 
-Standard video playback (mp4).
+Service page for validating video-node behavior with controlled media reference.
 
-### Dzen Embed Test
+### What is checked
 
-Testing third-party embed integration via wiki-link with custom thumbnail syntax.
-Syntax: `![[ url | title | poster ]]`
+- frontmatter `media` parsing for local path;
+- fallback behavior when file is unavailable;
+- poster/title rendering in embedded wiki-media syntax.
 
-![[https://dzen.ru/embed/o20aog1YJAAA?from_block=partner&from=zen&mute=1&autoplay=1&tv=0 | Dzen Video | /images/content/neuromandala-cover.jpg]]
+![[/media/debug/video-placeholder.mp4 | Debug Video Placeholder | /images/content/neuromandala-cover.jpg]]
 
 ---RU---
 
 ## ТЕСТ ВИДЕО
 
-Стандартное воспроизведение видео (mp4).
+Сервисная страница для проверки поведения видео-ноды с контролируемой ссылкой на медиа.
 
-### Тест Дзен
+### Что проверяется
 
-Тестирование встраивания сторонних сервисов через вики-ссылку с кастомной обложкой.
-Синтаксис: `![[ url | заголовок | обложка ]]`
+- парсинг frontmatter `media` для локального пути;
+- fallback-поведение при недоступном файле;
+- рендер заголовка и обложки в wiki-media синтаксисе.
 
-![[https://dzen.ru/embed/o20aog1YJAAA?from_block=partner&from=zen&mute=1&autoplay=1&tv=0 | Дзен Видео | /images/content/neuromandala-cover.jpg]]
+![[/media/debug/video-placeholder.mp4 | Debug Video Placeholder | /images/content/neuromandala-cover.jpg]]

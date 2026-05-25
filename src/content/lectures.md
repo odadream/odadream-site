@@ -12,7 +12,8 @@ date: 2026.02.13
 
 ## Brain, Aesthetics, and Attention
 
-A series of immersive presentations dedicated to rethinking knowledge about the brain, body, consciousness, art, and attention through **practical and aesthetic experience**. Scientific concepts familiar from books, research, and medical contexts are translated into the space of **live perception**.
+A series of immersive lecture-performances where neuroscience is translated into **live aesthetic experience**.
+This hub connects educational formats with real cases from festivals, institutions, and corporate programs.
 
 The focus shifts from theoretical explanation to experiencing processes in real time. Neurophysiology becomes part of a cultural experience—both visual and bodily.
 
@@ -26,13 +27,19 @@ As the narrative progresses, viewers gradually learn the logic behind interpreti
 
 The visual component is enhanced with generative graphics, media art, sound feedback, and interactive elements. **The format merges a lecture, a hands-on practice, and an artistic statement into a unified temporal experience.**
 
-## Topics
+## Topic Map
 
-- **"The Beautiful Brain"** — an introductory lecture on brain anatomy and physiology, methods of recording activity, and biofeedback.
-- **"The Brain and… (Light/Sound/Smell/Taste/Body)"** — a series of lectures on the perception of external signals through each sense.
-- **Thematic lectures**: neuroaesthetics, the phenomenon of creativity, the brain and meditation, techno-empathy.
+- [[art-brain|Art of Brain]] — foundational lecture on neuroaesthetics and visual perception.
+- [[sound-brain|Sound & Brain]] — auditory entrainment, rhythm, and collective state modulation.
+- [[taste-brain|Taste & Brain]] — multisensory food perception, context, and cognitive framing.
+- [[color-brain|Color & Brain]] — light, spectrum, and emotional/cognitive regulation.
+- [[empathy|Empathy Protocol]] — interpersonal attunement and neural coupling as a discussion framework.
+- [[neuroaesthetics-lec|Neuroaesthetics]] — advanced conceptual lecture for art and curatorial audiences.
 
-Topics are adapted to fit the event format and the audience.
+Topics are modular and can be assembled as:
+- a single keynote;
+- a lecture + live demo;
+- a mini-cycle (2-3 topics for one program).
 
 ## Why It’s Engaging
 
@@ -41,6 +48,12 @@ Topics are adapted to fit the event format and the audience.
 3. The climax is a practical exercise where the audience **witnesses a sharp shift in a person’s state live**.
 4. The lecture leaves more questions than answers — and that’s precisely what ignites **interest in the topic, the technologies**, and further exploration.
 5. The duo format and personal anecdotes build trust and **the feeling of a genuine, human conversation**.
+
+## How to navigate
+
+- Start with [[art-brain|Art of Brain]] for first-time audiences.
+- Add [[sound-brain|Sound & Brain]] or [[color-brain|Color & Brain]] for applied sensory focus.
+- Use [[empathy|Empathy Protocol]] and [[neuroaesthetics-lec|Neuroaesthetics]] for advanced discussion contexts.
 
 ## Contexts
 
@@ -93,7 +106,8 @@ Ready to integrate a lecture into your festival or event — one that doesn’t 
 
 ## О мозге, эстетике и внимании
 
-Серия иммерсивных выступлений, посвященная переосмыслению знаний о мозге, теле, сознании, искусстве и внимании через **практический и эстетический опыт**. Научные концепции, знакомые по книгам, исследованиям и медицинским контекстам, переводятся в пространство **живого восприятия**.
+Серия иммерсивных лекций-перформансов, где нейронаука переводится в **живой эстетический опыт**.
+Этот хаб связывает образовательные форматы с реальными кейсами на фестивалях, институциональных площадках и в корпоративных программах.
 
 Фокус смещается с теоретического объяснения на переживание процессов в реальном времени. Нейрофизиология становится частью культурного опыта — визуального и телесного.
 
@@ -107,13 +121,19 @@ Ready to integrate a lecture into your festival or event — one that doesn’t 
 
 Визуальный ряд дополняется генеративной графикой, медиаискусством, звуковой обратной связью и интерактивными элементами. **Формат объединяет лекцию, практику и художественное высказывание в едином временно́м опыте.**
 
-## Темы
+## Карта тем
 
-- **«Красиво про мозг»** — вводная лекция про анатомию и физиологию мозга, способы регистрации активности и биологическую обратную связь.
-- **«Мозг и… (свет/звук/запах/вкус/тело)»** — серия лекций про восприятие внешних сигналов по каждому из органов чувств.
-- **Тематические лекции**: нейроэстетика, феномен креативности, мозг и медитация, техно-эмпатия.
+- [[art-brain|Искусство мозга]] — базовая лекция по нейроэстетике и визуальному восприятию.
+- [[sound-brain|Звук и мозг]] — аудиальная синхронизация, ритм и управление коллективным состоянием.
+- [[taste-brain|Вкус и мозг]] — мультисенсорное восприятие еды, контекст и когнитивные эффекты.
+- [[color-brain|Цвет и мозг]] — свет, спектр и эмоционально-когнитивная регуляция.
+- [[empathy|Протокол эмпатии]] — межличностная сонастройка и нейронная связность как рамка обсуждения.
+- [[neuroaesthetics-lec|Нейроэстетика]] — углублённая лекция для арт- и кураторских аудиторий.
 
-Темы адаптируются под формат события и состав аудитории.
+Темы собираются модульно:
+- как одиночный ключевой доклад;
+- как лекция + живая демонстрация;
+- как мини-цикл (2-3 темы в одной программе).
 
 ## Почему это вовлекает
 
@@ -122,6 +142,12 @@ Ready to integrate a lecture into your festival or event — one that doesn’t 
 3. Кульминацией становится практическое упражнение, где аудитория **вживую видит резкую смену состояния человека**.
 4. После лекции остаётся больше вопросов, чем ответов, — и именно это запускает **интерес к теме, технологиям** и дальнейшему изучению.
 5. Формат дуэта и личные примеры из жизни создают доверие и **ощущение живого человеческого разговора**.
+
+## Как читать раздел
+
+- Для первого знакомства начните с [[art-brain|Искусство мозга]].
+- Для прикладного сенсорного фокуса добавляйте [[sound-brain|Звук и мозг]] или [[color-brain|Цвет и мозг]].
+- Для продвинутой дискуссии открывайте [[empathy|Протокол эмпатии]] и [[neuroaesthetics-lec|Нейроэстетику]].
 
 ## Контексты проведения
 
@@ -162,8 +188,8 @@ Ready to integrate a lecture into your festival or event — one that doesn’t 
 5. Мастер-класс про нейротехнологии для инновационного театра балета в ![[https://dzen.ru/embed/v2Wb3fVoWW1A?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | ИКЦ | /images/content/lectures-ikc.webp]], г. Калуга, 2024 г.
 6. Лекция про нейроэстетику для членов ![[https://dzen.ru/embed/veLb095NOWiA?from_block=partner&from=zen&mute=1&autoplay=1&tv=0 | ТСХР | /images/content/lectures-tshr.webp]] секции мультимедиа, 2025 г.
 7. Лекция «Красиво про мозг» на благотворительном вечере ![[/images/content/lectures-veter.webp | Ветер перемен]], 2024 г.
-8. Public Talk в ![[/images/content/lectures-ashram.webp | Ashram]] Натали Осман
+8. Публичный talk в ![[/images/content/lectures-ashram.webp | Ashram]] Натали Осман
 
 ---
 
-Готовы встроить в ваш фестиваль или событие лекцию, которая не объясняет, а показывает и оставляет след? → [Напишите нам](https://t.me/m/XTR2TqNlNTM1), обсудим формат и адаптируем его под вашу аудиторию.
+Готовы встроить в ваш фестиваль или событие лекцию, которая не объясняет, а показывает и оставляет след? Свяжитесь с нами через [[contacts|контакты]] — обсудим формат и адаптируем его под вашу аудиторию.

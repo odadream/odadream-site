@@ -6,51 +6,89 @@ title_ru: Нейромандала
 type: content
 tags: [geometry, brainwave]
 image: /images/content/neuromandala-cover.jpg
-date: 2026.02.10
+date: 2026.04.07
 order: 0
-visible: false
+visible: true
 ---
 
 ## NEUROMANDALA
 
-**The Art of Brainwaves**
+**Base Technology and Artistic Method**
 
-Our signature research project transforming EEG data into real-time generative art.
-
-### Concept
-
-The Neuromandala project bridges the gap between subjective experience (qualia) and objective data (quantifiable brainwaves). By utilizing 14-channel EEG headsets, we capture the raw electrical activity of the cortex and map it to generative visual algorithms.
+Neuromandala is ODA.dream's core platform where biosignals are translated into a living audiovisual form.  
+It connects engineering precision with artistic dramaturgy and allows inner states to become visible in real time.
 
 ![[/images/content/neuromandala-cover.jpg]]
 
-### The Feedback Loop
+## Base Technology
 
-1. **Input**: Participant wears an EEG headset.
-2. **Process**: Alpha, Beta, and Theta waves drive the geometry.
-3. **Output**: A digital mandala forms in real-time.
-4. **Loop**: The participant sees their own mind, altering their state, changing the image.
+- **Signal layer:** EEG stream capture and preprocessing.
+- **Mapping layer:** rhythm features are converted into visual and temporal parameters.
+- **Render layer:** real-time generative engine forms responsive composition.
+- **Interaction layer:** participant perception feeds back into state, closing the loop.
 
-**Result**: A digital fingerprint of a fleeting mental state.
+This architecture is modular and can be adapted for exhibition, performance, lab sessions, and educational formats.
+
+## Artistic Logic
+
+- Consciousness is treated as material, not metaphor.
+- The interface acts as translator, not decoration.
+- Visual form is built as a process, not a static image.
+- The participant is a co-author of the work, not a passive source of data.
+
+## Exhibition and Performance Cases
+
+- **Chastoti 6.0:** exhibition framing for neuroreactive visual practice.
+- **Terraforming:** institutional presentation of Neuromandala as public artwork.
+- **MindShow lineage:** expanded performative format with narrative and AI modules.
+
+## Practical Value
+
+Neuromandala works simultaneously as:
+
+1. an art object,
+2. a participatory protocol,
+3. a research tool for observing attention and state dynamics,
+4. a communication medium between subjective experience and shared visual language.
 
 ---RU---
 
 ## НЕЙРОМАНДАЛА
 
-**Искусство Мозговых Волн**
+**Базовая технология и художественный метод**
 
-Наш ключевой исследовательский проект, трансформирующий ЭЭГ-данные в генеративное искусство реального времени.
-
-### Концепция
-
-Нейромандала — это мост между субъективным опытом (квалиа) и объективными данными (измеримые ритмы мозга). Используя 14-канальные ЭЭГ-гарнитуры, мы захватываем сырую электрическую активность коры и переводим её на язык визуальных алгоритмов.
+Нейромандала - это ключевая платформа ODA.dream, где биосигналы переводятся в живую аудиовизуальную форму.  
+Она соединяет инженерную точность и художественную драматургию, позволяя сделать внутренние состояния видимыми в реальном времени.
 
 ![[/images/content/neuromandala-cover.jpg]]
 
-### Петля Обратной Связи
+## Базовая технология
 
-1. **Вход**: Участник надевает нейроинтерфейс.
-2. **Процесс**: Альфа, Бета и Тета ритмы управляют геометрией.
-3. **Выход**: Цифровая мандала формируется здесь и сейчас.
-4. **Цикл**: Участник видит работу своего ума, что меняет его состояние и, следовательно, изображение.
+- **Сигнальный слой:** считывание и предобработка ЭЭГ-потока.
+- **Слой маппинга:** параметры ритмов переводятся в визуальные и временные характеристики.
+- **Слой рендера:** real-time генеративный движок формирует отзывчивую композицию.
+- **Интерактивный слой:** восприятие участника меняет состояние, замыкая петлю обратной связи.
 
-**Итог**: Цифровой отпечаток ускользающего ментального состояния.
+Эта архитектура модульна и масштабируется под выставку, перформанс, лабораторную сессию и образовательный формат.
+
+## Художественная логика
+
+- Сознание рассматривается как материал, а не как метафора.
+- Интерфейс выступает переводчиком, а не декоративным эффектом.
+- Визуальная форма строится как процесс, а не как статичная картинка.
+- Участник является соавтором работы, а не пассивным источником данных.
+
+## Выставочные и перформативные кейсы
+
+- **Частоты 6.0:** выставочная рамка для нейрореактивной визуальной практики.
+- **Терраформинг:** институциональная презентация Нейромандалы как публичной арт-работы.
+- **Линия MindShow:** расширенный перформативный формат с нарративом и AI-модулями.
+
+## Практическая ценность
+
+Нейромандала одновременно работает как:
+
+1. художественный объект,
+2. партисипаторный протокол,
+3. исследовательский инструмент наблюдения внимания и динамики состояний,
+4. язык коммуникации между субъективным опытом и общим визуальным полем.

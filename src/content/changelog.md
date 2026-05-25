@@ -13,7 +13,13 @@ order: 7
 
 Tracking the architectural metamorphosis of the ODA.dream.
 
-### v1.1.0 (Current)
+### v1.2.0 (Current)
+**Content Expansion**
+**Date:** 2026.05.25
+
+New sections [[practices-workshops|Workshops]] and [[research-cultural-neuro-code|Cultural Neuro Code]] integrated into the Lotus graph. Refreshed copy across [[practices|Practices]], [[research|Research]], [[lectures|Lectures]], [[games|Games]], [[events|Events]], and [[objects|Objects]]. New procedural node artwork and media assets added to the catalog.
+
+### v1.1.0
 **iOS Compatibility**
 **Date:** 2026.03.02
 
@@ -98,7 +104,13 @@ Initial prototype built on Eleventy.js using raw WebGL shaders. The birth of the
 
 Отслеживание архитектурных метаморфоз ODA.dream.
 
-### v1.1.0 (Текущая)
+### v1.2.0 (Текущая)
+**Расширение контента**
+**Дата:** 2026.05.25
+
+В граф Лотоса интегрированы новые разделы [[practices-workshops|Воркшопы]] и [[research-cultural-neuro-code|Культурный нейрокод]]. Обновлены тексты в [[practices|Практиках]], [[research|Исследованиях]], [[lectures|Лекциях]], [[games|Играх]], [[events|Событиях]] и [[objects|Объектах]]. Добавлены процедурные фоны узлов и медиафайлы в каталог.
+
+### v1.1.0
 **Совместимость с iOS**
 **Дата:** 2026.03.02
 

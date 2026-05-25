@@ -12,14 +12,50 @@ visible: false
 
 ## BRAIN HACK
 
-**Perception Vulnerabilities**
+**Perception vulnerabilities as a playable lab**
 
-An interactive puzzle series designed to demonstrate the limits of the visual cortex. Using optical illusions and latency tricks, we show how easily reality is constructed and deconstructed by the brain.
+`Brain Hack` is an interactive game series where participants test how attention, expectation, and cognitive bias shape what they think they perceive.
+
+## Core mechanics
+
+- short puzzle rounds built on perceptual conflicts;
+- state switching between fast intuition and reflective reasoning;
+- debrief moments where participants map their own cognitive patterns.
+
+## Why this format works
+
+- turns abstract neuroscience concepts into lived experience;
+- supports educational, corporate, and festival contexts;
+- creates discussion-rich interaction rather than passive entertainment.
+
+## Typical deployment
+
+- pop-up zone inside events and conferences;
+- educational block in lectures and workshops;
+- team format for communication and decision-making reflection.
 
 ---RU---
 
 ## ВЗЛОМ МОЗГА
 
-**Уязвимости Восприятия**
+**Уязвимости восприятия как игровая лаборатория**
 
-Серия интерактивных головоломок, демонстрирующая пределы зрительной коры. Используя оптические иллюзии и задержки восприятия, мы показываем, как легко мозг конструирует и деконструирует реальность.
+`Brain Hack` — серия интерактивных игровых задач, в которых участники проверяют, как внимание, ожидания и когнитивные искажения формируют «картину реальности».
+
+## Ядро механики
+
+- короткие раунды-головоломки на конфликте восприятия;
+- переключение между быстрой интуицией и рефлексивным мышлением;
+- разбор после раунда, где участники считывают собственные когнитивные паттерны.
+
+## Почему формат работает
+
+- превращает абстрактные идеи нейронауки в личный проживаемый опыт;
+- подходит для образовательного, корпоративного и фестивального контекста;
+- создаёт среду обсуждения и совместного анализа, а не пассивный аттракцион.
+
+## Типовые сценарии внедрения
+
+- pop-up зона внутри конференций и событий;
+- образовательный блок в лекциях и воркшопах;
+- командный формат для рефлексии коммуникации и принятия решений.

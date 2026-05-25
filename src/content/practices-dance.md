@@ -12,14 +12,40 @@ date: 2026.02.10
 
 ## NEURO DANCE
 
-**Motion from Stillness**
+**Attention-to-Motion Protocol**
 
-A performance where the music is generated not by instruments, but by the dancers' focus levels. If they lose concentration, the music stops.
+Neuro Dance is a movement practice where attention quality directly affects the audiovisual environment.
+Participants do not just "dance to music" - they co-regulate rhythm, pause, and expressive intensity through state work.
+
+## Core Mechanics
+
+- Guided movement tasks shift between stillness, impulse, and coordinated interaction.
+- Focus and regulation markers are translated into adaptive audiovisual feedback.
+- The session alternates between action blocks and short reflective checkpoints.
+
+## Value
+
+- Develops embodied attention and state switching.
+- Trains co-presence and non-verbal coordination in pairs/groups.
+- Bridges performative expression and self-regulation practice.
 
 ---RU---
 
 ## НЕЙРО ТАНЕЦ
 
-**Движение из Тишины**
+**Протокол «внимание -> движение»**
 
-Перформанс, где музыка генерируется не инструментами, а уровнем концентрации танцоров. Если они теряют фокус, музыка останавливается.
+Нейро Танец — это практика движения, где качество внимания напрямую влияет на аудиовизуальную среду.
+Участник здесь не просто «двигается под музыку», а сонастраивает ритм, паузу и выразительность через работу с состоянием.
+
+## Базовая механика
+
+- Фасилитатор задаёт последовательность задач: тишина, импульс, движение, парное/групповое взаимодействие.
+- Маркеры внимания и саморегуляции переводятся в адаптивную аудиовизуальную обратную связь.
+- Сессия строится как чередование практических блоков и короткой рефлексии.
+
+## Ценность формата
+
+- Развивает телесную осознанность и управление вниманием в движении.
+- Усиливает навыки невербальной координации в паре и группе.
+- Соединяет художественную выразительность и прикладную саморегуляцию.
