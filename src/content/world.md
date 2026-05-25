@@ -24,6 +24,7 @@ date: 2026.02.10
 - [[press | Press]] - selected media and institutional references.
 - [[testimonials | Testimonials]] - verified quotes and social proof.
 - [[letters | Recognition & Awards]] - awards, diplomas, and letters of appreciation with documentary evidence.
+- [[registry | Experience Registry]] - centralized log of commercial engagements and expert appearances (single source of truth).
 
 ## How to read this branch
 
@@ -45,6 +46,7 @@ Start with `Manifesto` for worldview, move to `Team` and `CV` for execution capa
 - [[press | Пресса]] - выбранные медийные и институциональные подтверждения.
 - [[testimonials | Отзывы]] - верифицированные цитаты и социальное доказательство.
 - [[letters | Признание и награды]] - награды, дипломы и благодарственные письма с документальными подтверждениями.
+- [[registry | Реестр опыта]] - единый журнал коммерческих заказов и экспертных приглашений (source of truth).
 
 ## Как читать эту ветку
 

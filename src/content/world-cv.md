@@ -33,8 +33,8 @@ Our approach combines artistic direction, engineering implementation, and facili
 - **Cultural Neuro Code** (2024-2025): field and exhibition research connecting cultural artifacts with neurofeedback.
 - **Neuromandala** exhibitions (2025): "Chastoti 6.0" and "Terraforming", Moscow.
 - **Prix Ars Electronica & STARTS Prize** (2026): international submission to the world's most prestigious media-art award (Linz, Austria). Recognition of the neuro-art line in the global science-art context.
-- **"Interference of Realities"** (2026): neuro-theater premiere at XIV Tsiolkovsky Festival (Kaluga). 12 live neurointerfaces, 150 attendees, unique non-repeatable performance.
-- **TechFriendly @ CIPR** (2026): co-presentation with wellness influencer Natali Osman at the Digital Industry of Industrial Russia forum — one of Russia's largest state digital-economy events.
+- **[[eng-2026-interference-tsiolkovsky|Interference of Realities]]** (2026): neuro-theater premiere at XIV Tsiolkovsky Festival (Kaluga).
+- **[[eng-2026-cipr-mindshow|TechFriendly @ CIPR]]** (2026): MindShow with Natali Osman at the Digital Industry of Industrial Russia forum.
 - **Technopark ART × TECHNOLOGY, Skolkovo** (2026): 1st place in the open design competition for Skolkovo Innovation Center. Category: Art Objects and Interactive Installations. Project: "Neuro Honor Board". Prize: 80,000 RUB. Jury: Skolkovo, Stroganov Academy, NUST MISIS.
 - **CultTech Lab 2026, Vienna** (2026): selected with a participation grant for the international CultTech Lab program (CultTech Association, Austria). Joint project *"Ancestors in the Noise"* with Elena Kovylina — Memory Track (Memory and Identity / AI). Studio production grant available (up to EUR 2,500). Showcase: CultTech Summit, Vienna, November 2026.
 - **ODA.Dream® trademark registered** (2026): official trademark registration with Rospatent. Legally protected brand name and identity — confirms institutional seriousness and investment in IP.
@@ -80,8 +80,8 @@ ODA.dream работает на пересечении нейротехноло�
 - **Cultural Neuro Code** (2024-2025): полевые и выставочные исследования на стыке культурных артефактов и нейрофидбека.
 - **Выставки Нейромандалы** (2025): "Частоты 6.0" и "Терраформинг", Москва.
 - **Prix Ars Electronica & STARTS Prize** (2026): международная заявка на наиболее престижную в мире премию в области медиаискусства (Линц, Австрия). Признание нейро-арт-линии в глобальном контексте science-art.
-- **«Интерференция реальностей»** (2026): нейротеатральная премьера на XIV Фестивале Циолковского (Калуга). 12 живых нейроинтерфейсов, 150 зрителей, уникальное неповторимое исполнение.
-- **TechFriendly @ ЦИПР** (2026): совместное выступление с wellness-инфлюенсером Натали Осман на форуме «Цифровая индустрия промышленной России» — одном из крупнейших государственных цифровых форумов России.
+- **[[eng-2026-interference-tsiolkovsky|«Интерференция реальностей»]]** (2026): нейротеатральная премьера на XIV Фестивале Циолковского (Калуга).
+- **[[eng-2026-cipr-mindshow|TechFriendly @ ЦИПР]]** (2026): MindShow с Натали Осман на форуме «Цифровая индустрия промышленной России».
 - **Технопарт ART × TECHNOLOGY, Сколково** (2026): 1-е место в открытом конкурсе дизайнерских решений для Технопарка «Сколково». Номинация: Арт-объекты и интерактивные инсталляции внутри здания. Проект: «Нейродоска почёта». Приз: 80 000 ₽. Жюри: Сколково, Строгановская академия, НИТУ МИСИС.
 - **CultTech Lab 2026, Вена** (2026): отбор с грантом на обучение в международной программе CultTech Lab (CultTech Association, Австрия). Совместный проект *«Ancestors in the Noise»* с Еленой Ковылиной — трек «Память и идентичность / ИИ». Грант на продакшн (до EUR 2 500). Показ: CultTech Summit, Вена, ноябрь 2026.
 - **Товарный знак ODA.Dream® зарегистрирован** (2026): официальная регистрация в Роспатенте. Юридически защищённое название и идентичность бренда — подтверждает институциональную серьёзность и инвестицию в интеллектуальную собственность.

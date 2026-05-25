@@ -57,12 +57,13 @@ Popular science presentations on the brain, perception, communication, and atten
 
 ---
 
-## Selected clients and partners
+## Commercial clients
 
-Corporate: **Sberbank · EkoNiva · Lamborghini · Audi · T-Bank / HSE**  
-Cultural: **Tavrida.ART · VK Fest · Wild Mint Festival · Tsiolkovsky Festival**  
-Institutional: **Ministry of Culture (Kaluga) · CCI of Russian Federation · MIPT · HSE University**  
-Wellness: **Ashram Studio (Natali Osman) · International Meditation Day**
+See [[registry-commercial|Commercial registry]] (updated via `npm run registry:sync`).
+
+## Expert appearances (invited)
+
+See [[registry-expert|Expert registry]] · [[letters|Recognition & awards]]
 
 ---
 
@@ -129,12 +130,13 @@ _Communication session terminated._
 
 ---
 
-## Клиенты и партнёры
+## Коммерческие заказы
 
-Корпоративные: **Сбербанк · ЭкоНива · Lamborghini · Audi · Т-Банк / ВШЭ**  
-Культурные: **Таврида.АРТ · VK Fest · Дикая мята · Фестиваль Циолковского**  
-Институциональные: **Министерство культуры (Калуга) · ТПП РФ · МФТИ · НИУ ВШЭ**  
-Велнес: **Студия Ашрам (Натали Осман) · Международный день медитации**
+См. [[registry-commercial|Реестр коммерции]] (обновляется через `npm run registry:sync`).
+
+## Экспертные приглашения
+
+См. [[registry-expert|Реестр экспертизы]] · [[letters|Признание и награды]]
 
 ---
 

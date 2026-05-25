@@ -15,7 +15,7 @@ date: 2026.05.25
 Our practice is built at the boundary between live biology and generative image.  
 The viewer here is not a spectator — they are a co-author of the work.
 
-We collaborate with galleries, cultural centers, festivals, and museums working with new media, participatory formats, and art/science narratives. Our practice is documented, internationally contextualized, and technically self-sufficient.
+We collaborate with galleries, cultural centers, festivals, and museums working with new media, participatory formats, and art/science narratives. Our practice is documented and internationally contextualized. For booth and lecture formats we bring the neuro stack and software; the institution provides projection, space, and infrastructure. Site-specific installations are scoped separately.
 
 ## Recent exhibition precedents
 
@@ -61,7 +61,7 @@ We respond to curatorial inquiries within 48 hours.
 Наша практика строится на границе живой биологии и генеративного изображения.  
 Зритель здесь — не наблюдатель, а соавтор произведения.
 
-Мы сотрудничаем с галереями, культурными центрами, фестивалями и музеями, работающими с new media, партисипаторными форматами и art/science-повесткой. Наша практика задокументирована, вписана в международный контекст и технически самодостаточна.
+Мы сотрудничаем с галереями, культурными центрами, фестивалями и музеями, работающими с new media, партисипаторными форматами и art/science-повесткой. Практика задокументирована и вписана в международный контекст. Для стендов и лекций привозим нейро-контур и ПО; институция обеспечивает проекцию, пространство и инфраструктуру. Сайт-специфические инсталляции — отдельный бриф.
 
 ## Недавние выставочные прецеденты
 

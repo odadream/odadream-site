@@ -45,7 +45,7 @@ Adapted formats focused on curiosity, body awareness, and making inner experienc
 
 - **HSE University** (Institute for Creative Industries Development) — immersive lecture "Beautiful About the Brain"
 - **MIPT (Phystech)** — Terraforming exhibition with workshops, November–December 2025
-- **Sberbank** — science-art lecture for corporate audience, Moscow 2025
+- **Sberbank** — invited expert: science-art lecture for corporate audience, Moscow 2025 (not a booth commission)
 - Educational programs at **Tavrida.ART**, **Wild Mint Festival**, **Tsiolkovsky Festival**
 - **International Meditation Day 2026** — co-presentation with Natali Osman (Ashram Studio)
 
@@ -95,7 +95,7 @@ We respond within 24 hours.
 
 - **НИУ ВШЭ** (Институт развития творческих индустрий) — иммерсивная лекция «Красиво о мозге»
 - **МФТИ (Физтех)** — выставка «Терраформинг» с воркшопами, ноябрь–декабрь 2025
-- **Сбербанк** — science-art лекция для корпоративной аудитории, Москва 2025
+- **Сбербанк** — приглашённый эксперт: science-art лекция для корпоративной аудитории, Москва 2025 (не заказ стенда)
 - Образовательные программы **Таврида.АРТ**, **Дикая мята**, **Фестиваль Циолковского**
 - **Международный день медитации 2026** — совместное выступление с Натали Осман (студия Ашрам)
 

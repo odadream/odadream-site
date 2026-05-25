@@ -42,11 +42,9 @@ An interactive installation-performance where a participant creates and experien
   2. _VJ accompaniment:_ Generative visuals run in real time as a visual scene for a DJ set.
   3. _Solo performance:_ A participant takes the stage and creates a live audiovisual show.
 - **Duration:** 7 ± 2 minutes per participant (briefing, immersion, result capture).
-- **Equipment:** EEG headset, smartphone, laptop, charging station, MIDI controller.
-- **Software stack:** Generative engine `oda.mdsh v5`, text AI module (`DeepSeek` or equivalent), visual AI module (`Stream Diffusion` or equivalent).
-- **On-site team:**
-  - _Media artist / neuro-operator_ — visuals, sound, calibration, signal monitoring;
-  - _Host / moderator_ — process facilitation, audience engagement, briefing.
+- **From ODA.dream:** EEG headset, laptop, charging station, MIDI controller, software stack (`oda.mdsh v5`, text AI, visual AI); media artist / neuro-operator and host / moderator.
+- **From the venue (booth format):** zone from 6 m², screen or TV 65″+, HDMI, table, chair, 220 V power; sound output from laptop if needed.
+- **Not turnkey** — see [[collab|Collaboration hub]].
 
 ## Application Contexts
 
@@ -108,11 +106,9 @@ Ready to create a space for your event where the inner state becomes visible? �
   2. _VJ-сопровождение:_ генеративный видеоряд работает в реальном времени как визуальная сцена для DJ-сета.
   3. _Самостоятельный перформанс:_ участник выходит на сцену и создаёт сольное аудиовизуальное шоу.
 - **Хронометраж:** 7 ± 2 минуты на участника (инструктаж, погружение, фиксация результата).
-- **Оборудование:** ЭЭГ-гарнитура, смартфон, ноутбук, зарядная станция, MIDI-контроллер.
-- **Программный стек:** генеративный движок `oda.mdsh v5`, текстовый ИИ-модуль (`DeepSeek` или аналог), визуальный ИИ-модуль (`Stream Diffusion` или аналог).
-- **Команда на площадке:**
-  - _медиахудожник / нейрооператор_ — визуал, звук, калибровка, контроль сигнала;
-  - _ведущий / модератор_ — сопровождение процесса, работа с аудиторией, инструктаж.
+- **От ODA.dream:** ЭЭГ-гарнитура, ноутбук, зарядная станция, MIDI-контроллер, стек ПО (`oda.mdsh v5`, текстовый и визуальный ИИ); медиахудожник / нейрооператор и ведущий / модератор.
+- **От площадки (стенд):** зона от 6 м², экран или TV от 65″, HDMI, стол, стул, розетка 220 В; при необходимости — звук с ноутбука.
+- **Не «под ключ»** — см. [[collab|хаб «Сотрудничество»]].
 
 ## Контексты применения
 

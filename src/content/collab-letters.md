@@ -12,16 +12,20 @@ date: 2026.05.25
 
 ## Recognition & Awards
 
-Gratitude and institutional trust — this page records the ecosystem that confirms ODA.dream's public relevance: festival teams, educational institutions, curators, and professional communities.
+This page is an **archive of expert invitations and institutional recognition** — forums, universities, festivals, and public programs where ODA.dream was invited as a speaker or artist, not a commercial vendor list.
+
+For **paid brand commissions** → [[for-business|Corporate & brands]].
 
 Recorded artifacts: awards, diplomas, letters of appreciation — with documentary evidence.
-These are not only trophies. They confirm that our methods are relevant across art, education, and innovation programs.
+These confirm that our methods are relevant across art, education, and innovation programs.
+
+**Expert appearances** (forums, universities, festivals) → [[registry-expert|Expert registry]]. Letters below link to the same engagements where recorded in `data/registry/`.
 
 > Event — Type (year): fact / essence → document
 
 ## Awards & Victories
 
-**Portal 2030–2050 — Victory (2025)**: First place and a prize of 200,000 RUB in the media art competition "Visioning" as part of the forum-festival "Territory of the Future. Moscow 2030" → ![[\images\content\collab_2025_ODA_Portal.webp | Portal 2030]]
+**[[eng-2025-moscow2030-portal|Portal 2030–2050 — Victory (2025)]]**: First place and a prize of 200,000 RUB in the media art competition "Visioning" → ![[\images\content\collab_2025_ODA_Portal.webp | Portal 2030]]
 
 ## Federal & Institutional Projects
 
@@ -57,16 +61,20 @@ These are not only trophies. They confirm that our methods are relevant across a
 
 ---RU---
 
-Признательность и институциональное доверие — эта страница фиксирует экосистему, подтверждающую публичную релевантность ODA.dream: команды фестивалей, образовательные институции, кураторы и профессиональные сообщества.
+Эта страница — **архив экспертных приглашений и институционального признания**: форумы, вузы, фестивали и публичные программы, куда ODA.dream приглашали как спикеров или художников. Это не список коммерческих заказчиков.
+
+**Платные брендовые заказы** → [[for-business|Корпоративным клиентам]].
 
 Зафиксированные артефакты: награды, дипломы, благодарственные письма — с документальными подтверждениями.
-Это не просто трофеи. Они показывают, что наши методы работают в контексте искусства, образования и инноваций.
+Они показывают, что наши методы работают в контексте искусства, образования и инноваций.
+
+**Экспертные приглашения** (форумы, вузы, фестивали) → [[registry-expert|Реестр экспертизы]]. Письма ниже относятся к тем же участиям, где они зафиксированы в `data/registry/`.
 
 > Событие — Тип (год): факт / суть → документ
 
 ## Награды и победы
 
-**Портал 2030–2050 — Победа (2025)**: первое место и денежный приз 200 000 ₽ в конкурсе медиа-арта «Видженинг» в рамках форума-фестиваля «Территория будущего. Москва 2030» → ![[\images\content\collab_2025_ODA_Portal.webp | Портал 2030]]
+**[[eng-2025-moscow2030-portal|Портал 2030–2050 — Победа (2025)]]**: первое место и приз 200 000 ₽ в конкурсе «Видженинг» → ![[\images\content\collab_2025_ODA_Portal.webp | Портал 2030]]
 
 ## Федеральные и институциональные проекты
 

@@ -31,17 +31,32 @@ Participants put on EEG neurointerfaces. In real time, the screen shows their ow
 
 This is not a party trick. It is a moment of genuine experience that most people remember for years.
 
-## Who has done this
+## Commercial clients
 
-**Sberbank · EkoNiva · Lamborghini · T-Bank / HSE · CCI of Russian Federation**
+Full registry (single source of truth) → [[registry-commercial|Commercial engagements]] · [[registry|Experience Registry]]
+
+<!-- registry:commercial-list -->
+- [[eng-2025-dano-ekoniva|Neurobattle at DANO Olympiad]] — EkoNiva
+- [[eng-2025-tavrida-ai|AI festival Cultural Code of Russia]] — Tavrida.ART
+- [[eng-merck-corporate|Merck corporate science-art format]] — Merck
+- [[eng-2024-ashram-birthday|Ashram Studio birthday celebration]] — Ashram Studio (Natali Osman)
+- [[eng-lamborghini-brand|Lamborghini brand activation]] — Lamborghini
+- [[eng-audi-brand|Audi brand activation]] — Audi
+<!-- /registry:commercial-list -->
 
 Used at: annual galas · leadership retreats · innovation days · brand launches · anniversary events
+
+Expert invitations (not paid commissions) → [[registry-expert|Expert appearances]] · [[letters|Recognition & awards]]
+
+## Technical coordination
+
+We bring neurointerfaces, laptop, proprietary software, art works, and operators. Your team or venue provides screens, furniture, power, and AV — see [[collab|Technical scope]] on the Collaboration hub.
 
 ## Why it works at the top level
 
 - **Nothing comparable exists in the Russian market** — your guests cannot have had this before
 - **Credentials that speak**: Skolkovo Innovation Center 1st place, Prix Ars Electronica official submission, CultTech Lab Vienna production grant, 7 years and 80+ events, ODA.Dream® registered trademark, Neuromandala patent pending
-- **Fully self-sufficient**: we arrive with all equipment, set up independently, deliver the experience, depart — zero technical coordination required on your side
+- **Clear production boundary**: not turnkey — we own the neuro-art stack; you or the venue own infrastructure (screens, cables, tables, chairs, outlets)
 
 ## The right conversation
 
@@ -78,17 +93,32 @@ _ODA.dream — это тот опыт._
 
 Это не аттракцион. Это момент подлинного опыта, который большинство людей помнят годами.
 
-## Кто уже это сделал
+## Коммерческие заказы
 
-**Сбербанк · ЭкоНива · Lamborghini · Т-Банк / ВШЭ · ТПП РФ**
+Полный реестр (единый источник правды) → [[registry-commercial|Коммерческие заказы]] · [[registry|Реестр опыта]]
 
-Форматы применения: ежегодные галы · стратегические сессии для топ-менеджмента · дни инноваций · запуски брендов · юбилейные мероприятия
+<!-- registry:commercial-list-ru -->
+- [[eng-2025-dano-ekoniva|Нейробитва на Олимпиаде DANO]] — ЭкоНива
+- [[eng-2025-tavrida-ai|Фестиваль ИИ «Культурный код России»]] — Таврида.АРТ
+- [[eng-merck-corporate|Корпоративный science-art формат Merck]] — Merck (Мерц)
+- [[eng-2024-ashram-birthday|День рождения студии Ashram]] — Студия Ashram (Натали Осман)
+- [[eng-lamborghini-brand|Брендовая активация Lamborghini]] — Lamborghini
+- [[eng-audi-brand|Брендовая активация Audi]] — Audi
+<!-- /registry:commercial-list-ru -->
+
+Форматы применения: ежегодные галы · стратегические сессии · дни инноваций · запуски брендов · юбилейные мероприятия
+
+Экспертные приглашения (без оплаты) → [[registry-expert|Экспертные приглашения]] · [[letters|Признание и награды]]
+
+## Техническая координация
+
+Мы привозим нейроинтерфейсы, ноутбук, авторское ПО, арт-работы и операторов. Экраны, мебель, питание и AV обеспечивает ваша команда или площадка — см. [[collab|Технический контур]] на хабе «Сотрудничество».
 
 ## Почему это работает на высшем уровне
 
 - **Ничего сопоставимого на российском рынке нет** — ваши гости не могли видеть этого прежде
 - **Credentials, которые говорят сами за себя**: 1-е место в Технопарке «Сколково», официальная заявка на Prix Ars Electronica, производственный грант CultTech Lab (Вена), 7 лет и 80+ событий, ODA.Dream® зарегистрированный товарный знак, Нейромандала — патентная заявка подана
-- **Полная самодостаточность**: мы приезжаем с оборудованием, устанавливаемся самостоятельно, проводим формат, уезжаем — никакой технической координации с вашей стороны не требуется
+- **Понятная граница продакшена**: не «под ключ» — нейро-арт ядро на нас; инфраструктура (экраны, кабели, столы, стулья, розетки) — на площадке
 
 ## Правильный разговор
 

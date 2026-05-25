@@ -36,9 +36,9 @@ No training is required — participants learn the mechanics on the fly. This ad
 - **Format:** one-on-one duels or tournament bracket.
 - **Round duration:** 90 seconds.
 - **Throughput:** 5–8 pairs per 30 minutes per station; two parallel setups can increase the flow.
-- **Equipment:** 2 wireless neurointerfaces, laptop, charging station.
-- **Software:** proprietary platform; watch video -> ![[https://dzen.ru/embed/o20YLsWwKAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | oda.nrbt v9 | /images/content/neurobattle_gameplay.webp]]
-- **Team:** two operators — a technician and a host.
+- **From ODA.dream:** 2 wireless neurointerfaces, laptop, charging station, proprietary software; watch video -> ![[https://dzen.ru/embed/o20YLsWwKAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | oda.nrbt v9 | /images/content/neurobattle_gameplay.webp]]; two operators (technician and host).
+- **From the venue:** screen or projector 65″+, HDMI; table for laptop, 2 chairs for participants; power (typically 5 outlets, up to ~200 W); optional PA for host commentary and laptop audio.
+- **Not turnkey** — see [[collab|Collaboration hub]] for the full technical scope.
 
 ## Application Contexts
 
@@ -50,7 +50,7 @@ No training is required — participants learn the mechanics on the fly. This ad
 
 ## Featured Projects
 
-- Neurobattle at the EkoNiva stand during the ![[https://dzen.ru/embed/o20ZleGMJAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | DANO Olympiad | /images/content/neurobattle_dano.webp]] by HSE and T-Bank;
+- [[eng-2025-dano-ekoniva|DANO Olympiad / EkoNiva]] — ![[https://dzen.ru/embed/o20ZleGMJAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | video | /images/content/neurobattle_dano.webp]];
 - Neurobattle at the ![[https://dzen.ru/embed/v1ftBaZRQUXU?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | Wind of Change | /images/content/neurobattle_veter.webp]] charity gala;
 - TV feature on TNT’s ![[https://dzen.ru/embed/vY9PlkGfKPUc?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | You Like Me | /images/content/neurobattle_tnt.webp]] show.
 
@@ -84,9 +84,9 @@ Ready to create a scenario for your event where technology, people, and audience
 - **Формат:** одиночные дуэли или турнирная сетка.
 - **Длительность раунда:** 90 секунд.
 - **Пропускная способность:** 5–8 пар за 30 минут на одну точку; возможна параллельная работа двух столов для увеличения потока.
-- **Оборудование:** 2 беспроводных нейроинтерфейса, ноутбук, зарядная станция.
-- **Программное обеспечение:** авторская платформа; посмотреть видео -> ![[https://dzen.ru/embed/o20YLsWwKAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | oda.nrbt v9 | /images/content/neurobattle_gameplay.webp]].
-- **Команда:** два оператора — технический специалист и ведущий.
+- **От ODA.dream:** 2 беспроводных нейроинтерфейса, ноутбук, зарядная станция, авторское ПО; видео -> ![[https://dzen.ru/embed/o20YLsWwKAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | oda.nrbt v9 | /images/content/neurobattle_gameplay.webp]]; два оператора (техник и ведущий).
+- **От площадки:** экран или проектор от 65″, HDMI; стол под ноутбук, 2 стула для участников; розетки (обычно 5 гнёзд, до ~200 Вт); при необходимости — звук для комментариев и вывода с ноутбука.
+- **Не «под ключ»** — полный контур: [[collab|хаб «Сотрудничество»]].
 
 ## Контексты применения
 
@@ -98,7 +98,7 @@ Ready to create a scenario for your event where technology, people, and audience
 
 ## Реализованные кейсы
 
-- Нейробатл на стенде компании «ЭкоНива» в рамках ![[https://dzen.ru/embed/o20ZleGMJAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | Олимпиада DANO | /images/content/neurobattle_dano.webp]] от ВШЭ и Т-Банка;
+- [[eng-2025-dano-ekoniva|Олимпиада DANO / ЭкоНива]] — ![[https://dzen.ru/embed/o20ZleGMJAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | видео | /images/content/neurobattle_dano.webp]];
 - Нейробатл на благотворительном вечере ![[https://dzen.ru/embed/v1ftBaZRQUXU?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | Ветер Перемен | /images/content/neurobattle_veter.webp]];
 - Шоу на телеканале ТНТ ![[https://dzen.ru/embed/vY9PlkGfKPUc?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | Ты как Я | /images/content/neurobattle_tnt.webp]].
 

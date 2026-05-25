@@ -87,14 +87,16 @@ The format works equally well with diverse audiences — **from young people to 
 
 ## Examples of Presentations
 
-1. Lecture on techno-empathy and biofeedback at the ![[https://dzen.ru/embed/vZ6STYjxZhHk?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | Neuroshow | /images/content/lectures-gonchar.webp]] by Nata Gonchar, 2024.
-2. Lecture on brain hacking at the ![[https://dzen.ru/embed/o20b-pOkIAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | Moscow 2030 | /images/content/lectures-moscow2030.webp]] festival at Bauman Moscow State Technical University, 2025.
-3. Experimental lecture on the brain and taste at ![[/images/content/lectures-tavrida.webp | Tavrida.Art]], 2025.
-4. Webinar on biofeedback at ![[/images/content/lectures-sber.webp | Sberbank]], as part of a corporate program on human-centricity and AI skills development.
+1. [[eng-2024-gonchar-private|Private neuro-show — Nata Gonchar]] — ![[https://dzen.ru/embed/vZ6STYjxZhHk?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | video | /images/content/lectures-gonchar.webp]]
+2. [[eng-2025-bauman-moscow2030|Brain-hacking lecture — Bauman / Moscow 2030]] — ![[https://dzen.ru/embed/o20b-pOkIAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | video | /images/content/lectures-moscow2030.webp]]
+3. [[eng-2025-tavrida-ai|AI festival — Tavrida.ART]] — ![[/images/content/lectures-tavrida.webp | photo]]
+4. [[eng-2025-sber-lecture|Science-art lecture for Sberbank]] — ![[/images/content/lectures-sber.webp | photo]]
 5. Masterclass on neurotechnologies for an innovative ballet theater at ![[https://dzen.ru/embed/v2Wb3fVoWW1A?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | IKC | /images/content/lectures-ikc.webp]], Kaluga, 2024.
 6. Lecture on neuroaesthetics for members of the ![[https://dzen.ru/embed/veLb095NOWiA?from_block=partner&from=zen&mute=1&autoplay=1&tv=0 | TCA | /images/content/lectures-tshr.webp]] multimedia section, 2025.
-7. Lecture "The Beautiful Brain" at the ![[/images/content/lectures-veter.webp | Wind of Change]] charity evening, 2024.
-8. Public Talk at ![[/images/content/lectures-ashram.webp | Ashram]] by Natalie Osman.
+7. [[eng-2025-hse-beautiful-brain|Beautiful About the Brain — HSE University]] (also charity formats).
+8. [[eng-2024-ashram-birthday|Ashram Studio — public talk]] — ![[/images/content/lectures-ashram.webp | photo]]
+
+Full log → [[registry-expert|Expert registry]]
 
 ---
 
@@ -181,14 +183,16 @@ Ready to integrate a lecture into your festival or event — one that doesn’t 
 
 ## Примеры выступлений
 
-1. Лекция про техно-эмпатию и БОС на ![[https://dzen.ru/embed/vZ6STYjxZhHk?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | нейрошоу | /images/content/lectures-gonchar.webp]] от Наты Гончар, 2024 г.
-2. Лекция про брейнхакинг на фестивале ![[https://dzen.ru/embed/o20b-pOkIAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | Москва 2030 | /images/content/lectures-moscow2030.webp]] в МГТУ им. Баумана, 2025 г.
-3. Лекция-эксперимент про мозг и вкус на ![[/images/content/lectures-tavrida.webp | Таврида.Арт]], 2025 г.
-4. Вебинар про БОС в ![[/images/content/lectures-sber.webp | Сбер]], в рамках корпоративной программы по развитию человекоцентричности и навыков AI.
+1. [[eng-2024-gonchar-private|Частное нейрошоу — Ната Гончар]] — ![[https://dzen.ru/embed/vZ6STYjxZhHk?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | видео | /images/content/lectures-gonchar.webp]]
+2. [[eng-2025-bauman-moscow2030|Лекция про брейнхакинг — Бауман / Москва 2030]] — ![[https://dzen.ru/embed/o20b-pOkIAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | видео | /images/content/lectures-moscow2030.webp]]
+3. [[eng-2025-tavrida-ai|Фестиваль ИИ — Таврида.АРТ]] — ![[/images/content/lectures-tavrida.webp | фото]]
+4. [[eng-2025-sber-lecture|Science-art лекция для Сбербанка]] — ![[/images/content/lectures-sber.webp | фото]]
 5. Мастер-класс про нейротехнологии для инновационного театра балета в ![[https://dzen.ru/embed/v2Wb3fVoWW1A?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | ИКЦ | /images/content/lectures-ikc.webp]], г. Калуга, 2024 г.
 6. Лекция про нейроэстетику для членов ![[https://dzen.ru/embed/veLb095NOWiA?from_block=partner&from=zen&mute=1&autoplay=1&tv=0 | ТСХР | /images/content/lectures-tshr.webp]] секции мультимедиа, 2025 г.
-7. Лекция «Красиво про мозг» на благотворительном вечере ![[/images/content/lectures-veter.webp | Ветер перемен]], 2024 г.
-8. Публичный talk в ![[/images/content/lectures-ashram.webp | Ashram]] Натали Осман
+7. [[eng-2025-hse-beautiful-brain|«Красиво про мозг» — НИУ ВШЭ]] (также благотворительные форматы).
+8. [[eng-2024-ashram-birthday|Ashram Studio — публичный talk]] — ![[/images/content/lectures-ashram.webp | фото]]
+
+Полный журнал → [[registry-expert|Реестр экспертизы]]
 
 ---
 
