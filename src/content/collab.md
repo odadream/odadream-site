@@ -12,9 +12,8 @@ date: 2026.05.25
 
 ## COLLABORATION
 
-**ODA.dream works through partnership — artistic, educational, and contextual.**
-
-We adapt the work to the space, the audience, and the story.
+Collaboration here is not a service — it is a form of co-presence.  
+We adapt the work to space, audience, and story.
 
 ## For Institutions & Collectors
 
@@ -54,8 +53,7 @@ If you are not sure which section fits — write to us directly: [[contacts|cont
 
 ## СОТРУДНИЧЕСТВО
 
-**ODA.dream работает через партнёрство — художественное, образовательное и контекстуальное.**
-
+Сотрудничество здесь — не услуга, а форма соучастия.  
 Мы адаптируем работу под пространство, аудиторию и историю.
 
 ## Институциям и коллекционерам

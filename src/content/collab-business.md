@@ -12,6 +12,13 @@ date: 2026.05.25
 
 ## FOR CORPORATE & BRANDS
 
+Some come for the network. Some for the content.  
+Those who are remembered — came for the experience that cannot be captured in a deck.
+
+_ODA.dream is that experience._
+
+---
+
 **When the event should say something important about your company**
 
 There are events that entertain. And there are events that leave an impression — because something genuinely meaningful happened.
@@ -51,6 +58,13 @@ Working through an event agency? Ask them to include ODA.dream in the program �
 ---RU---
 
 ## КОРПОРАТИВНЫМ КЛИЕНТАМ И БРЕНДАМ
+
+Кто-то приходит на мероприятие ради нетворкинга. Кто-то — ради контента.  
+Те, кого помнят — приходили ради опыта, который нельзя передать слайдами.
+
+_ODA.dream — это тот опыт._
+
+---
 
 **Когда событие должно сказать что-то важное о вашей компании**
 

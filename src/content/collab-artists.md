@@ -12,9 +12,10 @@ date: 2026.05.25
 
 ## FOR ARTISTS & CREATIVE TEAMS
 
-**Co-production · Interdisciplinary labs · Hybrid practice**
+Technology here is not a tool — it is a participant.  
+We look for partners for whom this distinction matters.
 
-We collaborate with artists, curators, performers, and creative technologists who want to build projects at the intersection of body, data, image, and participation. Our method: genuine co-authorship — the technology serves the artistic concept, not the other way around.
+We collaborate with artists, curators, performers, and creative technologists building projects at the intersection of body, data, image, and participation. Our method: genuine co-authorship — the technology serves the artistic concept, not the other way around.
 
 ## Recent co-productions
 
@@ -54,9 +55,10 @@ Tell us about your project — concept, where it stands, and what kind of collab
 
 ## ХУДОЖНИКАМ И КРЕАТИВНЫМ КОМАНДАМ
 
-**Копродакшн · Междисциплинарные лаборатории · Гибридная практика**
+Технология у нас не инструмент — она участник.  
+Мы ищем партнёров, для которых это различие имеет значение.
 
-Мы сотрудничаем с художниками, кураторами, перформерами и креативными технологами, которые строят проекты на пересечении тела, данных, изображения и участия зрителя. Наш метод: подлинное соавторство — технология служит художественному замыслу, а не наоборот.
+Мы сотрудничаем с художниками, кураторами, перформерами и креативными технологами, строящими проекты на пересечении тела, данных, изображения и участия зрителя. Наш метод: подлинное соавторство — технология служит художественному замыслу, а не наоборот.
 
 ## Недавние копродукции
 

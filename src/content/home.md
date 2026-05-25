@@ -17,11 +17,13 @@ Here, _interface_ is understood not as an instrumental shell, but as a _way of o
 
 We explore _human—human, human—computer, and human—computer—human_ connections through the lens of consciousness and attention, embodiment and perception, empathy and communication. Our tools are neurointerfaces and biointerfaces. **Our themes are the relationships between past, present, and possible future scenarios.**
 
-## Work with us
+## Open Space
 
-**Institutions, collectors, festivals, residencies** — [[for-institutions|Exhibition & residency inquiries]]  
-**Education programs, schools, youth** — [[for-education|Lectures, workshops, summer schools]]  
-**Corporate events for top audiences** — [[for-business|A format that elevates your event]]
+If any of this resonated — the [[collab|collaboration space]] is here.
+
+→ Institutions, collections, residencies: [[for-institutions|exhibitions & residencies]]  
+→ Education, outreach, youth: [[for-education|lectures, workshops, summer schools]]  
+→ Corporate events that matter: [[for-business|a format that leaves a mark]]
 
 ## Architecture
 
@@ -53,11 +55,13 @@ _The journey is nonlinear._
 
 Мы исследуем связи _человек—человек, человек—компьютер, человек—компьютер—человек_ через призму сознания и внимания, телесности и восприятия, эмпатии и коммуникации. Наши инструменты — нейроинтерфейсы и биоинтерфейсы. **Наши темы — отношения прошлого, настоящего и возможных сценариев будущего.**
 
-## Сотрудничество
+## Пространство открыто
 
-**Институциям, коллекционерам, фестивалям, резидентурам** — [[for-institutions|Выставки и резидентуры]]  
-**Образованию, школам, работе с молодёжью** — [[for-education|Лекции, воркшопы, летние школы]]  
-**Корпоративным событиям топ-уровня** — [[for-business|Формат, который поднимает статус события]]
+Если что-то откликнулось — [[collab|пространство здесь]].
+
+→ Институциям, коллекциям, резидентурам: [[for-institutions|выставки и резидентуры]]  
+→ Образованию, просветительству, молодёжи: [[for-education|лекции, воркшопы, летние школы]]  
+→ Корпоративным событиям с содержанием: [[for-business|формат, который оставляет след]]
 
 ## Архитектура
 
