@@ -14,6 +14,8 @@ const CONTENT_DIR = path.join(ROOT, "src", "content");
 
 const ORGS_PATH = path.join(DATA_DIR, "organizations.yaml");
 const ENG_PATH = path.join(DATA_DIR, "engagements.yaml");
+const WORKS_PATH = path.join(DATA_DIR, "works.yaml");
+const AWARDS_PATH = path.join(DATA_DIR, "awards.yaml");
 
 const REL_LABELS = {
   commercial: { en: "Commercial", ru: "Коммерческий заказ" },
@@ -337,6 +339,26 @@ function buildExpertList(engagements, omap, lang) {
     .join("\n");
 }
 
+// Resolve content file by its frontmatter `id` (filenames are often prefixed,
+// e.g. work id `neurobattle` lives in `games-neurobattle.md`).
+function buildIdToFileMap() {
+  const map = new Map();
+  for (const f of fs.readdirSync(CONTENT_DIR)) {
+    if (!f.endsWith(".md")) continue;
+    const raw = fs.readFileSync(path.join(CONTENT_DIR, f), "utf-8");
+    const m = raw.match(/^---\s*\r?\n([\s\S]*?)\r?\n---/);
+    if (!m) continue;
+    const idm = m[1].match(/^id:\s*(.+)$/m);
+    if (idm) map.set(idm[1].trim(), f);
+  }
+  return map;
+}
+
+function fileHasMarker(filePath, markerId) {
+  if (!fs.existsSync(filePath)) return false;
+  return fs.readFileSync(filePath, "utf-8").includes(`<!-- registry:${markerId} -->`);
+}
+
 function patchMarkers(filePath, markerId, content) {
   if (!fs.existsSync(filePath)) return;
   let text = fs.readFileSync(filePath, "utf-8");
@@ -369,10 +391,52 @@ function cleanupOldGenerated() {
   }
 }
 
+// --- WORKS PROVENANCE (auto-attach engagements + awards to each work page) ---
+
+function buildWorkCases(work, engagements, omap, lang) {
+  const keys = work.format_keys || [];
+  if (!keys.length) return "";
+  const rows = engagements
+    .filter((e) => keys.includes(e.format))
+    .sort((a, b) => String(b.date).localeCompare(String(a.date)))
+    .map((e) => {
+      const t = lang === "ru" ? e.title_ru : e.title_en;
+      const org = orgNames(e.orgs, omap, lang);
+      const orgPart = org && org !== "—" ? ` — ${org}` : "";
+      return `- [[${e.id}|${t}]]${orgPart} · ${formatDate(e.date)}`;
+    });
+  return rows.join("\n");
+}
+
+function awardLine(a, lang) {
+  const title = lang === "ru" ? a.title_ru : a.title_en;
+  const prize = lang === "ru" ? a.prize_ru : a.prize_en;
+  const tail = prize ? ` — ${prize}` : "";
+  return `- **${title}** (${a.year})${tail}`;
+}
+
+function buildWorkAwards(work, awards, lang) {
+  return awards
+    .filter((a) => a.scope === "work" && a.work === work.id)
+    .sort((a, b) => (a.order ?? 99) - (b.order ?? 99))
+    .map((a) => awardLine(a, lang))
+    .join("\n");
+}
+
+function buildCredentials(awards, lang) {
+  return awards
+    .slice()
+    .sort((a, b) => (a.order ?? 99) - (b.order ?? 99))
+    .map((a) => awardLine(a, lang))
+    .join("\n");
+}
+
 console.log("\n🔄 REGISTRY SYNC\n");
 
 const orgs = loadYaml(ORGS_PATH);
 const engagements = loadYaml(ENG_PATH);
+const works = fs.existsSync(WORKS_PATH) ? loadYaml(WORKS_PATH) : [];
+const awards = fs.existsSync(AWARDS_PATH) ? loadYaml(AWARDS_PATH) : [];
 const omap = orgMap(orgs);
 const tables = buildRegistryTables(engagements, omap);
 
@@ -446,5 +510,36 @@ patchMarkers(path.join(CONTENT_DIR, "collab-agents.md"), "commercial-list", comm
 patchMarkers(path.join(CONTENT_DIR, "collab-agents.md"), "commercial-list-ru", commListRu);
 patchMarkers(path.join(CONTENT_DIR, "collab-agents.md"), "expert-list", expListEn);
 patchMarkers(path.join(CONTENT_DIR, "collab-agents.md"), "expert-list-ru", expListRu);
+
+// --- Per-work provenance injection (cases + awards) ---
+const idToFile = buildIdToFileMap();
+for (const work of works) {
+  const fname = idToFile.get(work.id);
+  if (!fname) continue;
+  const file = path.join(CONTENT_DIR, fname);
+  let touched = false;
+  const variants = [
+    [`work-cases:${work.id}`, buildWorkCases(work, engagements, omap, "en")],
+    [`work-cases:${work.id}-ru`, buildWorkCases(work, engagements, omap, "ru")],
+    [`work-awards:${work.id}`, buildWorkAwards(work, awards, "en")],
+    [`work-awards:${work.id}-ru`, buildWorkAwards(work, awards, "ru")],
+  ];
+  for (const [markerId, content] of variants) {
+    if (fileHasMarker(file, markerId)) {
+      patchMarkers(file, markerId, content);
+      touched = true;
+    }
+  }
+  if (touched) console.log(`  🎨 provenance → ${fname}`);
+}
+
+// --- Studio credentials dedup (single source: awards.yaml) ---
+const credEn = buildCredentials(awards, "en");
+const credRu = buildCredentials(awards, "ru");
+for (const page of ["world-cv.md", "collab-institutions.md", "collab-business.md", "collab-agents.md"]) {
+  const file = path.join(CONTENT_DIR, page);
+  if (fileHasMarker(file, "credentials")) patchMarkers(file, "credentials", credEn);
+  if (fileHasMarker(file, "credentials-ru")) patchMarkers(file, "credentials-ru", credRu);
+}
 
 console.log("\n✨ REGISTRY SYNC COMPLETE\n");

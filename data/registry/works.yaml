@@ -1,0 +1,177 @@
+# ODA.dream works registry — single source of truth for the catalog.
+#
+# Positioning: we are artists. Every product/service falls into ONE of three categories:
+#   art        — Художественные работы (performances, installations, spectacles, games, objects)
+#   education  — Просветительская деятельность (lectures, practices, demonstrations, measurements)
+#   tech       — Технологические разработки (Neuromandala platform, hyperscanning — where patents live)
+#
+# status: production | rnd | concept | patent
+# node:        id of the src/content/*.md page this work renders on (provenance is injected there)
+# format_keys: values of `format` in engagements.yaml that belong to this work (drives auto-provenance)
+# funnel:      collab page a producer should be routed to from this work
+#
+# Canonical anchor (Chudodeystvo "Продукты и услуги"): Перформанс, Игры, Инсталляция,
+# Ювелирка, MindShow, Bio-IMAG → art · Лекции/МК/Лабы, Практики, Нейро-замеры → education ·
+# Нейромандала (система) → tech.
+
+- id: neurobattle
+  node: neurobattle
+  category: art
+  status: production
+  title_ru: Парадокс Победы
+  title_en: Paradox of Victory
+  format_keys: [neurobattle]
+  funnel: for-business
+
+- id: mindshow
+  node: mindshow
+  category: art
+  status: production
+  title_ru: MindShow
+  title_en: MindShow
+  format_keys: [mindshow]
+  funnel: for-institutions
+
+- id: interference
+  node: interference
+  category: art
+  status: production
+  title_ru: Интерференция реальностей
+  title_en: Interference of Realities
+  format_keys: [performance]
+  funnel: for-institutions
+
+- id: schrodinger
+  node: schrodinger
+  category: art
+  status: rnd
+  title_ru: Проект «Шрёдингер»
+  title_en: Project Schrödinger
+  format_keys: []
+  funnel: for-institutions
+
+- id: sync-circle
+  node: sync-circle
+  category: art
+  status: rnd
+  title_ru: Круг синхронизации
+  title_en: Sync Circle
+  format_keys: []
+  funnel: for-institutions
+
+- id: cultural-neuro-code
+  node: cultural-neuro-code
+  category: art
+  status: rnd
+  title_ru: Культурный нейрокод
+  title_en: Cultural Neuro Code
+  format_keys: []
+  funnel: for-institutions
+
+- id: heritage
+  node: heritage
+  category: art
+  status: rnd
+  title_ru: Наследие
+  title_en: Heritage
+  format_keys: []
+  funnel: for-institutions
+
+- id: posustoronniy
+  node: posustoronniy
+  category: art
+  status: rnd
+  title_ru: Потусторонний
+  title_en: Posustoronniy
+  format_keys: []
+  funnel: for-institutions
+
+- id: dashran
+  node: dashran
+  category: art
+  status: concept
+  title_ru: Момент Даршана
+  title_en: Darshan Moment
+  format_keys: []
+  funnel: for-institutions
+
+- id: brain-hack
+  node: brain-hack
+  category: art
+  status: concept
+  title_ru: Взлом мозга
+  title_en: Brain Hack
+  format_keys: []
+  funnel: for-business
+
+- id: journey
+  node: journey
+  category: art
+  status: concept
+  title_ru: Путешествие к себе
+  title_en: Journey to Yourself
+  format_keys: []
+  funnel: for-business
+
+- id: emomandala
+  node: emomandala
+  category: art
+  status: rnd
+  title_ru: Эмомандала
+  title_en: Emomandala
+  format_keys: []
+  funnel: for-galleries
+
+- id: jewellery
+  node: jewellery
+  category: art
+  status: rnd
+  title_ru: Ювелирные объекты
+  title_en: Jewellery Objects
+  format_keys: []
+  funnel: for-galleries
+
+- id: mom-baby
+  node: mom-baby
+  category: art
+  status: concept
+  title_ru: Мама и малыш
+  title_en: Mom and Baby
+  format_keys: []
+  funnel: for-galleries
+
+- id: lectures
+  node: lectures
+  category: education
+  status: production
+  title_ru: Лекции-перформансы
+  title_en: Lecture-Performances
+  format_keys: [lecture]
+  funnel: for-education
+
+- id: practices
+  node: practices
+  category: education
+  status: rnd
+  title_ru: Практики
+  title_en: Practices
+  format_keys: [practice]
+  funnel: for-education
+
+- id: neuromandala
+  node: neuromandala
+  category: tech
+  status: patent
+  title_ru: Нейромандала
+  title_en: Neuromandala
+  format_keys: [installation]
+  funnel: for-institutions
+
+- id: multisync
+  node: multisync
+  category: tech
+  status: rnd
+  title_ru: Гиперсканирование (MultiSync)
+  title_en: Hyperscanning (MultiSync)
+  format_keys: []
+  funnel: for-institutions
