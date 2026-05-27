@@ -1,0 +1,374 @@
+# ODA.dream proof ledger — single source of truth for the whole "digital footprint".
+# Awards, letters/certificates, testimonials, and press in one place. No duplication:
+# each record LINKS to existing ids (work / eng / org) instead of restating their facts.
+#
+# kind:   award | letter | testimonial | press
+# tier:   flagship | strong | standard   (weight; Forbes / federal TV / Ars Electronica = flagship)
+# scope:  studio | work
+# work:   id from works.yaml            (when scope: work → attaches to that work's page)
+# eng:    id from engagements.yaml       (date / org / venue are pulled from there, not restated)
+# org:    id from organizations.yaml     (issuer / outlet, when it exists as an org)
+# source_ru/source_en: free-text issuer or outlet when not an org (magazines, committees, people)
+# title_*: award wording / letter subject / article headline
+# quote_*: testimonial text          url: press link          media: scan / thumbnail
+
+# ============================ AWARDS & IP ============================
+
+- id: award-skolkovo-arttech
+  kind: award
+  tier: flagship
+  scope: work
+  work: neuromandala
+  date: 2026.01.01
+  org: org-skolkovo
+  title_ru: 1-е место — конкурс «ART × TECHNOLOGY», Технопарк «Сколково»
+  title_en: 1st place — ART × TECHNOLOGY competition, Skolkovo Innovation Center
+  source_ru: жюри — Сколково, Строгановка, НИТУ МИСИС
+  source_en: jury — Skolkovo, Stroganov Academy, NUST MISIS
+  note_ru: проект «Нейродоска почёта» · 80 000 ₽
+  note_en: '"Neuro Honor Board" project · 80,000 RUB'
+
+- id: award-ars-electronica
+  kind: award
+  tier: flagship
+  scope: studio
+  date: 2026.01.01
+  source_ru: Ars Electronica, Линц, Австрия
+  source_en: Ars Electronica, Linz, Austria
+  title_ru: Официальная заявка — Prix Ars Electronica & STARTS Prize
+  title_en: Official submission — Prix Ars Electronica & STARTS Prize
+
+- id: award-culttech-vienna
+  kind: award
+  tier: flagship
+  scope: studio
+  date: 2026.01.01
+  source_ru: CultTech Association, Австрия
+  source_en: CultTech Association, Austria
+  title_ru: Грант CultTech Lab 2026, Вена — проект «Ancestors in the Noise» с Еленой Ковылиной
+  title_en: CultTech Lab 2026 grant, Vienna — "Ancestors in the Noise" with Elena Kovylina
+  url: https://culttech.at/lab/memory-track
+  note_ru: грант на продакшн до EUR 2 500 · показ на CultTech Summit, ноябрь 2026
+  note_en: production grant up to EUR 2,500 · showcase at CultTech Summit, Nov 2026
+
+- id: award-portal-visioning
+  kind: award
+  tier: flagship
+  scope: work
+  work: mindshow
+  eng: eng-2025-moscow2030-portal
+  date: 2025.01.01
+  title_ru: 1-е место — VJ-конкурс «Видженинг», Портал 2030–2050
+  title_en: 1st place — VJ competition "Visioning", Portal 2030–2050
+  note_ru: приз 200 000 ₽
+  note_en: 200,000 RUB prize
+
+- id: ip-trademark
+  kind: award
+  tier: strong
+  scope: studio
+  date: 2026.01.01
+  title_ru: ODA.Dream® — зарегистрированный товарный знак (Роспатент)
+  title_en: ODA.Dream® — registered trademark (Rospatent)
+
+- id: ip-patent
+  kind: award
+  tier: strong
+  scope: work
+  work: neuromandala
+  date: 2026.01.01
+  title_ru: Нейромандала — патентная заявка подана
+  title_en: Neuromandala — patent application filed
+
+- id: cred-tskhr
+  kind: award
+  tier: standard
+  scope: studio
+  date: 2025.01.01
+  title_ru: Члены Творческого союза художников России (ТСХР) — секции мультимедиа и научного искусства
+  title_en: Members of the Creative Union of Artists of Russia (TSKhR) — Multimedia & Scientific Art sections
+
+- id: cred-track-record
+  kind: award
+  tier: standard
+  scope: studio
+  date: 2026.01.01
+  title_ru: 7 лет на рынке · 80+ событий · 1 500+ участников · 10+ городов
+  title_en: 7 years on market · 80+ events · 1,500+ participants · 10+ cities
+
+# ============================ PRESS ============================
+
+- id: press-ntv-metro
+  kind: press
+  tier: flagship
+  scope: work
+  work: mindshow
+  date: 2024.01.01
+  source_ru: НТВ
+  source_en: NTV
+  title_ru: Сюжет НТВ о цифровом пленэре в московском метро
+  title_en: NTV news feature on the digital plein air in the Moscow metro
+  url: https://www.ntv.ru/novosti/2887676/
+
+- id: press-tnt-tykakya
+  kind: press
+  tier: flagship
+  scope: work
+  work: neurobattle
+  date: 2020.01.01
+  source_ru: ТНТ, «Ты как Я»
+  source_en: TNT, "Ty kak Ya"
+  title_ru: Сегмент Нейробитвы в шоу на федеральном ТВ
+  title_en: Neurobattle segment on mainstream entertainment TV
+  url: https://dzen.ru/embed/vY9PlkGfKPUc?from_block=partner&from=zen&mute=0&autoplay=0&tv=0
+
+- id: press-tskhr-bashkiria
+  kind: press
+  tier: strong
+  scope: work
+  work: mindshow
+  date: 2025.01.01
+  source_ru: ТСХР
+  source_en: TSKhR
+  title_ru: Публикация ТСХР о первом цифровом пленэре в Башкирии
+  title_en: TSKhR publication on the first digital plein air in Bashkiria
+  url: https://tcxp.ru/news/regions/v-bashkirii-proshel-pervyy-cifrovoy-plener
+
+- id: press-vecherka
+  kind: press
+  tier: strong
+  scope: studio
+  date: 2025.01.01
+  source_ru: Вечерняя Москва
+  source_en: Vechernyaya Moskva
+  title_ru: Публикация о публичном событии ODA.dream
+  title_en: Coverage of an ODA.dream public event
+
+- id: press-cyens-cyprus
+  kind: press
+  tier: standard
+  scope: studio
+  date: 2026.01.01
+  source_ru: CYENS Centre of Excellence, Кипр
+  source_en: CYENS Centre of Excellence, Cyprus
+  title_ru: Запрос на международное сотрудничество по нейро-арт-методологии
+  title_en: International collaboration inquiry on the neuro-art methodology
+
+# ============================ TESTIMONIALS ============================
+
+- id: tst-hse-brain
+  kind: testimonial
+  tier: strong
+  scope: work
+  work: lectures
+  eng: eng-2025-hse-beautiful-brain
+  org: org-hse
+  date: 2025.01.01
+  quote_ru: за проведение иммерсивной лекции «Красиво про мозг», объединившей нейрофизиологию, ЭЭГ-технологии и science-art
+  quote_en: for conducting an immersive lecture "Beautiful About the Brain" that united neurophysiology, EEG technologies, and science-art
+
+- id: tst-ashram-osman
+  kind: testimonial
+  tier: strong
+  scope: work
+  work: mindshow
+  eng: eng-2024-ashram-birthday
+  org: org-ashram
+  date: 2024.06.25
+  source_ru: Натали Осман, основатель студии Ашрам (Патриаршие пруды)
+  source_en: Natali Osman, founder of Ashram Studio (Patriarch's Ponds)
+  quote_ru: за нейро-арт-опыт на праздновании дня рождения студии Ашрам, который глубоко отозвался в нашем велнес-сообществе
+  quote_en: for the birthday celebration of Ashram studio — a neuro-art experience that resonated deeply with our wellness community
+
+- id: tst-cipr-techfriendly
+  kind: testimonial
+  tier: strong
+  scope: work
+  work: mindshow
+  eng: eng-2026-cipr-mindshow
+  org: org-cipr
+  date: 2026.05.01
+  quote_ru: за совместное выступление на TechFriendly Weekend в рамках форума ЦИПР — Цифровая индустрия промышленной России
+  quote_en: for co-presentation at TechFriendly Weekend, part of CIPR — Digital Industry of Industrial Russia forum
+
+- id: tst-tavrida-ai
+  kind: testimonial
+  tier: strong
+  scope: work
+  work: neuromandala
+  eng: eng-2025-tavrida-ai
+  org: org-tavrida
+  date: 2025.08.01
+  quote_ru: за участие в первом фестивале ИИ «Культурный код России», интерес к проекту и создание своей работы
+  quote_en: for participation in the first AI festival "Cultural Code of Russia", interest in the project, and creation of your work
+
+- id: tst-bitva-milliard
+  kind: testimonial
+  tier: standard
+  scope: work
+  work: neuromandala
+  date: 2024.01.01
+  source_ru: Оргкомитет III форума «Битва за миллиард»
+  source_en: Organizing committee of the III forum "Bitva za Milliard"
+  quote_ru: за арт-инсталляцию «Нейромандала», объединившую искусство, науку и технологии
+  quote_en: for the art installation "Neuromandala" that united art, science, and technology
+
+- id: tst-meditation-day
+  kind: testimonial
+  tier: standard
+  scope: work
+  work: neuromandala
+  date: 2026.01.01
+  source_ru: Оргкомитет III Международного дня медитации
+  source_en: Organizing committee, 3rd International Meditation Day
+  quote_ru: за живую визуализацию нейромандалы на III Международном дне медитации
+  quote_en: for live neuro-mandala visualization at the 3rd International Meditation Day
+
+# ============================ LETTERS / CERTIFICATES ============================
+
+- id: let-portal
+  kind: letter
+  tier: strong
+  scope: work
+  work: mindshow
+  eng: eng-2025-moscow2030-portal
+  date: 2025.01.01
+  title_ru: Диплом — Портал 2030–2050 (победа в «Видженинг»)
+  title_en: Diploma — Portal 2030–2050 (Visioning win)
+  media: /images/content/collab_2025_ODA_Portal.webp
+
+- id: let-unique-russia
+  kind: letter
+  tier: strong
+  scope: studio
+  date: 2026.01.01
+  source_ru: Уникальная Россия (Гостиный двор, Москва)
+  source_en: Unique Russia (Gostiny Dvor, Moscow)
+  title_ru: Диплом — панель «Цифровое искусство и ИИ», VI выставка-форум
+  title_en: Diploma — "Digital Art & AI" panel, 6th exhibition-forum
+  media: /images/content/collab_2026_ODA_Gostinyy_dvor.webp
+
+- id: let-moscow2030
+  kind: letter
+  tier: standard
+  scope: studio
+  org: org-moscow2030
+  date: 2025.01.01
+  title_ru: Благодарность — Москва 2030, участие в подготовке форума-фестиваля
+  title_en: Letter of appreciation — Moscow 2030, forum-festival participation
+  media: /images/content/collab_2025_ODA_Moskva_2030_Olga.webp
+
+- id: let-hse
+  kind: letter
+  tier: strong
+  scope: work
+  work: lectures
+  eng: eng-2025-hse-beautiful-brain
+  org: org-hse
+  date: 2025.01.01
+  title_ru: Благодарность — НИУ ВШЭ, лекция «Красиво про мозг»
+  title_en: Letter of appreciation — HSE University, "Beautiful About the Brain"
+  media: /images/content/collab_2025_ODA_VShE_ch2.webp
+
+- id: let-media-experts
+  kind: letter
+  tier: standard
+  scope: studio
+  date: 2025.01.01
+  source_ru: Медиа Эксперты — проект «Великая Россия»
+  source_en: Media Experts — "Great Russia" project
+  title_ru: Благодарность — выставка «Культурный код Северной Осетии»
+  title_en: Letter of appreciation — "Cultural Code of North Ossetia" exhibition
+  media: /images/content/collab_2025_ODA_Severnaya_Osetiya_Media_Eksperty.webp
+
+- id: let-wildmint
+  kind: letter
+  tier: standard
+  scope: work
+  work: neuromandala
+  eng: eng-2025-wildmint
+  org: org-wildmint
+  date: 2025.01.01
+  title_ru: Благодарность — Дикая Мята, лекция и перформанс «Нейромандала»
+  title_en: Letter of appreciation — Wild Mint, "Neuromandala" lecture & performance
+  media: /images/content/collab_2025_ODA_Dikaya_myata.webp
+
+- id: let-tavrida
+  kind: letter
+  tier: strong
+  scope: work
+  work: neuromandala
+  eng: eng-2025-tavrida-ai
+  org: org-tavrida
+  date: 2025.01.01
+  title_ru: Благодарность — Таврида.АРТ, фестиваль «Культурный код России»
+  title_en: Letter of appreciation — Tavrida.ART, "Cultural Code of Russia"
+  media: /images/content/collab_2025_ODA_Tavrida_II.webp
+
+- id: let-bashkiria
+  kind: letter
+  tier: standard
+  scope: work
+  work: mindshow
+  date: 2025.01.01
+  source_ru: ТСХР — первый цифровой пленэр, Шульган-Таш
+  source_en: TSKhR — first digital plein air, Shulgan-Tash
+  title_ru: Участие — первый цифровой пленэр в Башкирии
+  title_en: Participation — first digital plein air in Bashkiria
+  media: /images/content/collab_2025_ODA_Shulgan_Tash.webp
+
+- id: let-tpp-techinno
+  kind: letter
+  tier: standard
+  scope: studio
+  date: 2025.01.01
+  source_ru: Технологии и Инновации (Национальная бизнес-премия)
+  source_en: Technologies & Innovations (National Business Award)
+  title_ru: Благодарность — вклад в организацию премии
+  title_en: Letter of appreciation — contribution to the award
+  media: /images/content/collab_2025_ODA_TPP.webp
+
+- id: let-techweek
+  kind: letter
+  tier: standard
+  scope: studio
+  date: 2024.01.01
+  source_ru: Tech Week
+  source_en: Tech Week
+  title_ru: Благодарность — участие в конференции
+  title_en: Letter of appreciation — conference participation
+  media: /images/content/collab_2024_ODA_TechWeek_Olya.webp
+
+- id: let-bitva-milliard
+  kind: letter
+  tier: standard
+  scope: work
+  work: neuromandala
+  date: 2024.01.01
+  source_ru: Форум «Битва за миллиард»
+  source_en: Forum "Battle for a Billion"
+  title_ru: Благодарность — арт-инсталляция «Нейромандала»
+  title_en: Letter of appreciation — "Neuromandala" art installation
+  media: /images/content/collab_2024_ODA_Bitva_za_milliard.webp
+
+- id: let-kod-provincii
+  kind: letter
+  tier: standard
+  scope: studio
+  date: 2024.01.01
+  source_ru: 'Конференция «КОД: Провинции», Калуга'
+  source_en: 'Conference "CODE: Provinces", Kaluga'
+  title_ru: Благодарность — выступление спикером
+  title_en: Letter of appreciation — speaker participation
+  media: /images/content/collab_2024_ODA_Kod_provintsii_Daler.webp
+
+- id: let-golos-obshchestva
+  kind: letter
+  tier: standard
+  scope: studio
+  date: 2025.01.01
+  source_ru: Проект «Голос Общества»
+  source_en: '"Voice of Society" project'
+  title_ru: Благодарность — экспертное участие
+  title_en: Letter of appreciation — expert participation
+  media: /images/content/collab_2025_ODA_Khaskel.webp
