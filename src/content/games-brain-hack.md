@@ -7,7 +7,8 @@ type: content
 tags: [illusion, mind]
 date: 2026.02.10
 order: 1
-visible: false
+visible: true
+status: concept
 ---
 
 ## BRAIN HACK

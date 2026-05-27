@@ -8,6 +8,7 @@ tags: [contemplation, ritual]
 order: 3
 visible: true
 date: 2026.04.07
+status: concept
 ---
 
 ## DARSHAN MOMENT

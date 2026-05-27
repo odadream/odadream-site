@@ -6,7 +6,7 @@ title_ru: Нейроэстетика
 type: content
 tags: [sculpture, geometry]
 order: 5
-visible: false
+visible: true
 date: 2026.02.12
 ---
 

@@ -1,13 +1,14 @@
 ---
 id: practices
-parent: works
+parent: works-education
 title_en: Practices
 title_ru: Практики
 type: hub
 tags: [workshop, people]
-order: 4
+order: 1
 visible: true
 date: 2026.02.15
+status: rnd
 ---
 
 ## PRACTICES

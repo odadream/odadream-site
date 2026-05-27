@@ -6,7 +6,7 @@ title_ru: Цвет
 type: content
 tags: [spectrum, color]
 order: 3
-visible: false
+visible: true
 date: 2026.02.12
 ---
 

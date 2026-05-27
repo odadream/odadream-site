@@ -6,39 +6,31 @@ title_ru: Работы
 type: hub
 tags: [archive, library]
 order: 2
-date: 2026.02.13
+date: 2026.05.27
 ---
 
-## Catalog of Artifacts & Experiences
+## WHAT WE MAKE
 
-Works is a map of ODA.dream formats from foundational research to public applications.
-If `Events` answers "where we showed it", `Works` answers "what exactly we build and why it matters".
+We are an art-science duo. Everything we make falls into three categories:
 
-Navigation logic:
+- 🎨 [[works-art|Artistic works]] — performances, installations, neuro-theater, games, objects.
+- 📚 [[works-education|Education & outreach]] — lectures, practices, demonstrations, measurements.
+- ⚙️ [[works-tech|Technology]] — Neuromandala platform and hyperscanning, where our patents live.
 
-- [[research|Research]] — core R&D protocols and concepts (start here for method and context).
-- [[practices|Practices]] — participatory formats for attention, synchronization, and embodied exploration.
-- [[lectures|Lectures]] — educational programs translating neuroscience + art into structured learning.
-- [[games|Games]] — playable neuro-formats for rapid engagement and measurable group dynamics.
-- [[objects|Objects]] — material and collectible artifacts derived from process and data aesthetics.
+Education is built on the art; the art is built on the technology. Open any work to see its provenance — events, clients, and awards — gathered automatically.
 
-Recommended route for first-time visitors:
-1. [[research|Research]] -> 2. [[games|Games]] or [[lectures|Lectures]] -> 3. [[events|Events]] for real deployment cases.
+→ Where it was shown: [[events|Events]] · Who we worked with: [[registry|Experience Registry]]
 
 ---RU---
 
-## Каталог Артефактов и Опыта
+## ЧТО МЫ СОЗДАЁМ
 
-`Works` — это карта форматов ODA.dream: от исследовательского ядра до прикладных публичных форм.
-Если раздел `События` отвечает на вопрос «где это было показано», то `Работы` отвечает на вопрос «что именно мы создаём и зачем».
+Мы — арт-научный дуэт. Всё, что мы создаём, делится на три категории:
 
-Логика навигации:
+- 🎨 [[works-art|Художественные работы]] — перформансы, инсталляции, нейротеатр, игры, объекты.
+- 📚 [[works-education|Просвещение]] — лекции, практики, демонстрации, замеры.
+- ⚙️ [[works-tech|Технологические разработки]] — платформа Нейромандала и гиперсканирование, где живут наши патенты.
 
-- [[research|Исследования]] — методологическое ядро, гипотезы и R&D-кейсы (лучший вход для понимания подхода).
-- [[practices|Практики]] — форматы с активным участием: внимание, синхронизация, телесно-сенсорный опыт.
-- [[lectures|Лекции]] — образовательные программы на стыке нейронауки, искусства и технологий.
-- [[games|Игры]] — игровые нейро-форматы для быстрого вовлечения и наблюдаемой групповой динамики.
-- [[objects|Объекты]] — материальные артефакты и предметные формы, возникающие из процесса и data aesthetics.
+Просвещение строится на искусстве; искусство — на технологии. Откройте любую работу — её провенанс (события, заказчики, награды) подтянется сам.
 
-Рекомендуемый маршрут для первого знакомства:
-1. [[research|Исследования]] -> 2. [[games|Игры]] или [[lectures|Лекции]] -> 3. [[events|События]] для просмотра реализованных кейсов.
+→ Где показывали: [[events|События]] · С кем работали: [[registry|Реестр опыта]]

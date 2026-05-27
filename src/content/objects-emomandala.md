@@ -7,6 +7,8 @@ type: content
 tags: [mandala, 3d]
 order: 2
 date: 2026.02.06
+visible: true
+status: rnd
 ---
 
 ## EMOMANDALA

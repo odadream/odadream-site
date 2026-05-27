@@ -7,6 +7,8 @@ type: content
 tags: [love, statue]
 order: 0
 date: 2026.02.06
+visible: true
+status: concept
 ---
 
 ## MOM AND BABY

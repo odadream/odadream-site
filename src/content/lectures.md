@@ -1,13 +1,14 @@
 ---
 id: lectures
-parent: works
+parent: works-education
 title_en: Lectures
 title_ru: Лекции
-type: content
+type: hub
 tags: [lecture, hall]
-order: 3
+order: 0
 visible: true
 date: 2026.02.13
+status: production
 ---
 
 ## Brain, Aesthetics, and Attention
@@ -97,6 +98,18 @@ The format works equally well with diverse audiences — **from young people to 
 8. [[eng-2024-ashram-birthday|Ashram Studio — public talk]] — ![[/images/content/lectures-ashram.webp | photo]]
 
 Full log → [[registry-expert|Expert registry]]
+
+## Where it was delivered
+
+<!-- registry:work-cases:lectures -->
+- [[eng-merck-corporate|Merck corporate science-art format]] — Merck · 2025.01.01
+- [[eng-2025-sber-lecture|Science-art lecture for Sberbank]] — Sberbank · 2025.01.01
+- [[eng-2025-hse-beautiful-brain|Beautiful About the Brain — HSE University]] — HSE University · 2025.01.01
+- [[eng-2025-bauman-moscow2030|Brain-hacking lecture — Bauman MSTU]] · 2025.01.01
+- [[eng-2024-gonchar-private|Private neuro-show — Nata Gonchar]] · 2024.01.01
+<!-- /registry:work-cases:lectures -->
+
+**Bring a lecture to your program →** [[for-education|Education]]
 
 ---
 
@@ -193,6 +206,18 @@ Ready to integrate a lecture into your festival or event — one that doesn’t 
 8. [[eng-2024-ashram-birthday|Ashram Studio — публичный talk]] — ![[/images/content/lectures-ashram.webp | фото]]
 
 Полный журнал → [[registry-expert|Реестр экспертизы]]
+
+## Где проводили
+
+<!-- registry:work-cases:lectures-ru -->
+- [[eng-merck-corporate|Корпоративный science-art формат Merck]] — Merck (Мерц) · 2025.01.01
+- [[eng-2025-sber-lecture|Science-art лекция для Сбербанка]] — Сбербанк · 2025.01.01
+- [[eng-2025-hse-beautiful-brain|«Красиво про мозг» — НИУ ВШЭ]] — НИУ ВШЭ · 2025.01.01
+- [[eng-2025-bauman-moscow2030|Лекция про брейнхакинг — МГТУ им. Баумана]] · 2025.01.01
+- [[eng-2024-gonchar-private|Частное нейрошоу — Ната Гончар]] · 2024.01.01
+<!-- /registry:work-cases:lectures-ru -->
+
+**Привести лекцию в вашу программу →** [[for-education|Образованию]]
 
 ---
 

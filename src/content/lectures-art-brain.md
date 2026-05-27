@@ -7,7 +7,7 @@ type: content
 tags: [brain, art]
 date: 2026.02.12
 order: 0
-visible: false
+visible: true
 ---
 
 ## ART OF THE BRAIN

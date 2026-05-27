@@ -1,12 +1,12 @@
 ---
 id: objects
-parent: works
+parent: works-art
 title_en: Objects
 title_ru: Объекты
 type: hub
 tags: [object, artifact]
-order: 5
-visible: false
+order: 2
+visible: true
 date: 2026.02.13
 ---
 

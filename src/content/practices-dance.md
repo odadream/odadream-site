@@ -1,12 +1,12 @@
 ---
 id: neuro-dance
-parent: workshops
+parent: practices
 title_en: Neuro Dance
 title_ru: Нейро Танец
 type: content
 tags: [dance, motion]
 order: 0
-visible: false
+visible: true
 date: 2026.02.10
 ---
 

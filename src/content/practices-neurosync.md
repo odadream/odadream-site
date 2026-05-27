@@ -1,12 +1,12 @@
 ---
 id: neurosync
-parent: workshops
+parent: practices
 title_en: Neurosync
 title_ru: Нейросинк
 type: content
 tags: [group, meditation]
 order: 1
-visible: false
+visible: true
 date: 2026.02.10
 ---
 

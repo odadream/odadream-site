@@ -6,7 +6,7 @@ title_ru: Вкус
 type: content
 tags: [food, abstract]
 order: 2
-visible: false
+visible: true
 date: 2026.02.12
 ---
 

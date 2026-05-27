@@ -1,11 +1,11 @@
 ---
 id: research
-parent: works
-title_en: Research
-title_ru: Исследования
+parent: works-art
+title_en: Art Research
+title_ru: Художественные исследования
 type: hub
 tags: [lab, science]
-order: 1
+order: 0
 visible: true
 date: 2026.02.16
 ---

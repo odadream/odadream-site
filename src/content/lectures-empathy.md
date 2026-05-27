@@ -8,7 +8,7 @@ short_ru: Эмпатия
 type: content
 tags: [connection, people]
 order: 4
-visible: false
+visible: true
 date: 2026.02.12
 ---
 

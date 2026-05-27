@@ -7,6 +7,7 @@ type: content
 tags: [concert, lotus, experiment]
 order: 0
 date: 2026.05.16
+status: production
 ---
 
 ## INTERFERENCE OF REALITIES
@@ -48,6 +49,14 @@ The space — a contemporary cultural infrastructure opened in 2015 — allowed 
 - [[events|Events]] — full public timeline.
 - [[portal|Portal 2030]] — the previous milestone in the competitive/institutional trajectory.
 
+## Where it was shown
+
+<!-- registry:work-cases:interference -->
+- [[eng-2026-interference-tsiolkovsky|Interference of Realities — Tsiolkovsky Festival]] — Neiry Group · 2026.05.16
+<!-- /registry:work-cases:interference -->
+
+**Commission a performance →** [[for-institutions|Institutions & Collectors]]
+
 ---RU---
 
 ## ИНТЕРФЕРЕНЦИЯ РЕАЛЬНОСТЕЙ
@@ -88,3 +97,11 @@ The space — a contemporary cultural infrastructure opened in 2015 — allowed 
 - [[mindshow|Майнд-шоу]] — визуальная система в основе нейротеатрального интерфейса.
 - [[events|События]] — полная публичная лента.
 - [[portal|Портал 2030]] — предыдущий этап конкурсно-институциональной траектории.
+
+## Где показывали
+
+<!-- registry:work-cases:interference-ru -->
+- [[eng-2026-interference-tsiolkovsky|«Интерференция реальностей» — Фестиваль Циолковского]] — Neiry Group · 2026.05.16
+<!-- /registry:work-cases:interference-ru -->
+
+**Заказать спектакль →** [[for-institutions|Институциям и коллекционерам]]

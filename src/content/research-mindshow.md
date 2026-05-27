@@ -7,6 +7,7 @@ type: content
 tags: [stage, light]
 order: 4
 date: 2026.02.13
+status: production
 ---
 
 An interactive installation-performance where a participant creates and experiences a **personal audiovisual animation** generated directly from their neural signals and verbal narrative. Watch demo -> ![[https://dzen.ru/embed/o20aog1YJAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | oda.mdsh v5 | /images/content/mindshow_mdsh_v5.webp]].
@@ -68,6 +69,24 @@ An interactive installation-performance where a participant creates and experien
 7. First digital plein air in Bashkiria, at the ![[https://dzen.ru/embed/o21tvvnYKAAA?from_block=partner&from=zen&mute=1&autoplay=1&tv=0 | Shulgan-Tash | /images/content/mindshow_ufa.webp]] museum → [TCXP article](https://tcxp.ru/news/regions/v-bashkirii-proshel-pervyy-cifrovoy-plener).
 
 ---
+
+## Where it was shown
+
+<!-- registry:work-cases:mindshow -->
+- [[eng-2026-cipr-mindshow|MindShow at TechFriendly / CIPR]] — Ashram Studio (Natali Osman) · 2026.05.01
+- [[eng-2025-moscow2030-portal|Visioning competition win — Portal 2030–2050]] · 2025.01.01
+- [[eng-2025-tpp-mindshow|MindShow — Russian Digital Creative summit]] · 2025.01.01
+- [[eng-2025-wildmint|Neuromandala — Wild Mint Festival]] · 2025.01.01
+- [[eng-2024-ashram-birthday|Ashram Studio birthday celebration]] — Ashram Studio (Natali Osman) · 2024.06.25
+<!-- /registry:work-cases:mindshow -->
+
+## Recognition
+
+<!-- registry:work-awards:mindshow -->
+- **1st place — VJ competition "Visioning", Portal 2030–2050** (2025) — 200,000 RUB prize
+<!-- /registry:work-awards:mindshow -->
+
+**Exhibit / commission →** [[for-institutions|Institutions & Collectors]]
 
 Ready to create a space for your event where the inner state becomes visible? → [discuss the concept](https://t.me/m/6ytmN4eMYzY9)
 
@@ -132,5 +151,23 @@ Ready to create a space for your event where the inner state becomes visible? �
 7. Первый цифровой пленэр в Башкирии, музее ![[https://dzen.ru/embed/o21tvvnYKAAA?from_block=partner&from=zen&mute=1&autoplay=1&tv=0 | Шульган-Таш | /images/content/mindshow_ufa.webp]] → [Статья ТСХР](https://tcxp.ru/news/regions/v-bashkirii-proshel-pervyy-cifrovoy-plener).
 
 ---
+
+## Где показывали
+
+<!-- registry:work-cases:mindshow-ru -->
+- [[eng-2026-cipr-mindshow|MindShow на TechFriendly / ЦИПР]] — Студия Ashram (Натали Осман) · 2026.05.01
+- [[eng-2025-moscow2030-portal|Победа «Видженинг» — Портал 2030–2050]] · 2025.01.01
+- [[eng-2025-tpp-mindshow|MindShow — саммит Russian Digital Creative]] · 2025.01.01
+- [[eng-2025-wildmint|Нейромандала — Дикая Мята]] · 2025.01.01
+- [[eng-2024-ashram-birthday|День рождения студии Ashram]] — Студия Ashram (Натали Осман) · 2024.06.25
+<!-- /registry:work-cases:mindshow-ru -->
+
+## Признание
+
+<!-- registry:work-awards:mindshow-ru -->
+- **1-е место — VJ-конкурс «Видженинг», Портал 2030–2050** (2025) — приз 200 000 ₽
+<!-- /registry:work-awards:mindshow-ru -->
+
+**Показать / заказать →** [[for-institutions|Институциям и коллекционерам]]
 
 Готовы создать для вашего события пространство, где внутреннее состояние становится видимым? Свяжитесь с нами через [[contacts|контакты]] — обсудим концепцию и формат.

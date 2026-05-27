@@ -6,8 +6,9 @@ title_ru: Путешествие
 type: content
 tags: [vr, meditation]
 order: 2
-visible: false
+visible: true
 date: 2026.02.10
+status: concept
 ---
 
 ## JOURNEY TO YOURSELF

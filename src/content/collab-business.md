@@ -55,8 +55,20 @@ We bring neurointerfaces, laptop, proprietary software, art works, and operators
 ## Why it works at the top level
 
 - **Nothing comparable exists in the Russian market** — your guests cannot have had this before
-- **Credentials that speak**: Skolkovo Innovation Center 1st place, Prix Ars Electronica official submission, CultTech Lab Vienna production grant, 7 years and 80+ events, ODA.Dream® registered trademark, Neuromandala patent pending
 - **Clear production boundary**: not turnkey — we own the neuro-art stack; you or the venue own infrastructure (screens, cables, tables, chairs, outlets)
+
+**Credentials that speak:**
+
+<!-- registry:credentials -->
+- **1st place — ART × TECHNOLOGY competition, Skolkovo Innovation Center** (2026) — "Neuro Honor Board" project · 80,000 RUB
+- **Official submission — Prix Ars Electronica & STARTS Prize** (2026)
+- **CultTech Lab 2026 grant, Vienna — "Ancestors in the Noise" with Elena Kovylina** (2026) — production grant up to EUR 2,500 · showcase at CultTech Summit, Nov 2026
+- **1st place — VJ competition "Visioning", Portal 2030–2050** (2025) — 200,000 RUB prize
+- **ODA.Dream® — registered trademark (Rospatent)** (2026)
+- **Neuromandala — patent application filed** (2026)
+- **Members of the Creative Union of Artists of Russia (TSKhR) — Multimedia & Scientific Art sections** (2025)
+- **7 years on market · 80+ events · 1,500+ participants · 10+ cities** (2026)
+<!-- /registry:credentials -->
 
 ## The right conversation
 
@@ -117,8 +129,20 @@ _ODA.dream — это тот опыт._
 ## Почему это работает на высшем уровне
 
 - **Ничего сопоставимого на российском рынке нет** — ваши гости не могли видеть этого прежде
-- **Credentials, которые говорят сами за себя**: 1-е место в Технопарке «Сколково», официальная заявка на Prix Ars Electronica, производственный грант CultTech Lab (Вена), 7 лет и 80+ событий, ODA.Dream® зарегистрированный товарный знак, Нейромандала — патентная заявка подана
 - **Понятная граница продакшена**: не «под ключ» — нейро-арт ядро на нас; инфраструктура (экраны, кабели, столы, стулья, розетки) — на площадке
+
+**Регалии, которые говорят сами за себя:**
+
+<!-- registry:credentials-ru -->
+- **1-е место — конкурс «ART × TECHNOLOGY», Технопарк «Сколково»** (2026) — проект «Нейродоска почёта» · 80 000 ₽
+- **Официальная заявка — Prix Ars Electronica & STARTS Prize** (2026)
+- **Грант CultTech Lab 2026, Вена — проект «Ancestors in the Noise» с Еленой Ковылиной** (2026) — производственный грант до EUR 2 500 · показ на CultTech Summit, ноябрь 2026
+- **1-е место — VJ-конкурс «Видженинг», Портал 2030–2050** (2025) — приз 200 000 ₽
+- **ODA.Dream® — зарегистрированный товарный знак (Роспатент)** (2026)
+- **Нейромандала — патентная заявка подана** (2026)
+- **Члены Творческого союза художников России (ТСХР) — секции мультимедиа и научного искусства** (2025)
+- **7 лет на рынке · 80+ событий · 1 500+ участников · 10+ городов** (2026)
+<!-- /registry:credentials-ru -->
 
 ## Правильный разговор
 

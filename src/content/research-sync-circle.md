@@ -6,8 +6,9 @@ title_ru: Круг Синхронизации
 type: content
 tags: [circle, social]
 order: 2
-visible: false
+visible: true
 date: 2026.02.13
+status: rnd
 ---
 
 ## SYNC CIRCLE

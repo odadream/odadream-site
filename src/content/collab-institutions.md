@@ -37,11 +37,17 @@ The core artistic research line is **Neuromandala** — a system for translating
 
 ## Institutional context
 
-- Members of the **Creative Union of Artists of Russia** (TSKhR), Multimedia and Scientific Art sections
-- **Prix Ars Electronica & STARTS Prize** official submission (2026)
-- **CultTech Lab 2026** (Vienna) — production grant, joint project *Ancestors in the Noise* with **Elena Kovylina**
-- **1st place**, ART × TECHNOLOGY competition at **Skolkovo Innovation Center** (2026)
-- **ODA.Dream® registered trademark · Neuromandala patent pending**
+<!-- registry:credentials -->
+- **1st place — ART × TECHNOLOGY competition, Skolkovo Innovation Center** (2026) — "Neuro Honor Board" project · 80,000 RUB
+- **Official submission — Prix Ars Electronica & STARTS Prize** (2026)
+- **CultTech Lab 2026 grant, Vienna — "Ancestors in the Noise" with Elena Kovylina** (2026) — production grant up to EUR 2,500 · showcase at CultTech Summit, Nov 2026
+- **1st place — VJ competition "Visioning", Portal 2030–2050** (2025) — 200,000 RUB prize
+- **ODA.Dream® — registered trademark (Rospatent)** (2026)
+- **Neuromandala — patent application filed** (2026)
+- **Members of the Creative Union of Artists of Russia (TSKhR) — Multimedia & Scientific Art sections** (2025)
+- **7 years on market · 80+ events · 1,500+ participants · 10+ cities** (2026)
+<!-- /registry:credentials -->
+
 - Full documentation: catalog texts, technical riders, installation specs, bilingual EN/RU
 
 ## Inquiries
@@ -81,11 +87,17 @@ We respond to institutional inquiries within 48 hours.
 
 ## Институциональный контекст
 
-- Члены **Творческого союза художников России** (ТСХР), секции мультимедиа и научного искусства
-- Официальная заявка на **Prix Ars Electronica & STARTS Prize** (2026)
-- **CultTech Lab 2026** (Вена) — производственный грант, совместный проект *Ancestors in the Noise* с **Еленой Ковылиной**
-- **1-е место**, конкурс «ART × TECHNOLOGY» в **Технопарке «Сколково»** (2026)
-- **ODA.Dream® зарегистрированный товарный знак · Нейромандала — патентная заявка подана**
+<!-- registry:credentials-ru -->
+- **1-е место — конкурс «ART × TECHNOLOGY», Технопарк «Сколково»** (2026) — проект «Нейродоска почёта» · 80 000 ₽
+- **Официальная заявка — Prix Ars Electronica & STARTS Prize** (2026)
+- **Грант CultTech Lab 2026, Вена — проект «Ancestors in the Noise» с Еленой Ковылиной** (2026) — производственный грант до EUR 2 500 · показ на CultTech Summit, ноябрь 2026
+- **1-е место — VJ-конкурс «Видженинг», Портал 2030–2050** (2025) — приз 200 000 ₽
+- **ODA.Dream® — зарегистрированный товарный знак (Роспатент)** (2026)
+- **Нейромандала — патентная заявка подана** (2026)
+- **Члены Творческого союза художников России (ТСХР) — секции мультимедиа и научного искусства** (2025)
+- **7 лет на рынке · 80+ событий · 1 500+ участников · 10+ городов** (2026)
+<!-- /registry:credentials-ru -->
+
 - Полная документация: каталожные тексты, технические райдеры, инсталляционные спецификации, EN/RU
 
 ## Запросы

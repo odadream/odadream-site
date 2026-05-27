@@ -1,12 +1,12 @@
 ---
 id: gong
-parent: workshops
+parent: practices
 title_en: Gong Theater
 title_ru: Гонг Театр
 type: content
 tags: [gong, sound]
 order: 2
-visible: false
+visible: true
 date: 2026.02.10
 ---
 

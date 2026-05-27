@@ -1,12 +1,12 @@
 ---
 id: coaching
-parent: workshops
+parent: practices
 title_en: Coaching
 title_ru: Коучинг
 type: content
 tags: [focus, business]
 order: 3
-visible: false
+visible: true
 date: 2026.02.10
 ---
 

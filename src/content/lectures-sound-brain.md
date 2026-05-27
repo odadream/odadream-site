@@ -6,7 +6,7 @@ title_ru: Звук
 type: content
 tags: [wave, sound]
 order: 1
-visible: false
+visible: true
 date: 2026.02.12
 ---
 

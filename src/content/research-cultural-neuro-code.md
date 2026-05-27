@@ -7,6 +7,7 @@ type: content
 tags: [culture, neurofeedback]
 order: 2
 date: 2026.04.07
+status: rnd
 ---
 
 ## CULTURAL NEURO CODE

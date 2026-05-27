@@ -1,11 +1,11 @@
 ---
 id: games
-parent: works
+parent: works-art
 title_en: Games
 title_ru: Игры
 type: hub
 tags: [gaming, neon]
-order: 2
+order: 1
 date: 2026.02.13
 ---
 

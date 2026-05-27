@@ -22,10 +22,16 @@ You source the event, manage the client relationship, and coordinate the program
 
 **The credentials are strong.** Use these as proof of level when presenting to your client:
 
-- **Skolkovo Innovation Center** — 1st place, open design competition "ART × TECHNOLOGY" (2026)
-- **CIPR / TechFriendly** — co-presentation with Natali Osman at Russia's largest state digital-economy forum (2026)
-- **Prix Ars Electronica** — official submission to the world's most prestigious media-art award (Linz, 2026)
-- **Portal 2030–2050** — 1st place, media-art competition "Visioning" (200,000 RUB prize, 2025)
+<!-- registry:credentials -->
+- **1st place — ART × TECHNOLOGY competition, Skolkovo Innovation Center** (2026) — "Neuro Honor Board" project · 80,000 RUB
+- **Official submission — Prix Ars Electronica & STARTS Prize** (2026)
+- **CultTech Lab 2026 grant, Vienna — "Ancestors in the Noise" with Elena Kovylina** (2026) — production grant up to EUR 2,500 · showcase at CultTech Summit, Nov 2026
+- **1st place — VJ competition "Visioning", Portal 2030–2050** (2025) — 200,000 RUB prize
+- **ODA.Dream® — registered trademark (Rospatent)** (2026)
+- **Neuromandala — patent application filed** (2026)
+- **Members of the Creative Union of Artists of Russia (TSKhR) — Multimedia & Scientific Art sections** (2025)
+- **7 years on market · 80+ events · 1,500+ participants · 10+ cities** (2026)
+<!-- /registry:credentials -->
 
 **Commercial clients** → [[registry-commercial|Commercial registry]]:
 
@@ -52,9 +58,6 @@ You source the event, manage the client relationship, and coordinate the program
 - [[eng-2025-wildmint|Neuromandala — Wild Mint Festival]]
 - [[eng-2024-gonchar-private|Private neuro-show — Nata Gonchar]]
 <!-- /registry:expert-list -->
-
-- **ODA.Dream® registered trademark · Neuromandala patent pending**
-- 7 years on market · 80+ events · 1 500+ participants
 
 **Logistics are structured.** We bring: EEG neurointerfaces, laptop, generative software, facilitation. Not included (venue / organizer): screen 65″+, HDMI, tables, chairs, power outlets, sound for laptop output. Setup, operation, and breakdown of our stack — on us. Full rider → [[collab|Collaboration hub]].
 
@@ -95,12 +98,18 @@ We don't touch your client relationship. You own the account.
 
 **Формат уникален.** Живые ЭЭГ-нейроинтерфейсы, генерирующие визуализацию в реальном времени — прямых конкурентов с таким форматом на российском рынке мероприятий нет. Ваш клиент получает то, что не может заказать больше нигде.
 
-**Credentials сильные.** Используйте их как подтверждение уровня при презентации клиенту:
+**Регалии сильные.** Используйте их как подтверждение уровня при презентации клиенту:
 
-- **Технопарк «Сколково»** — 1-е место, открытый конкурс «ART × TECHNOLOGY» (2026)
-- **ЦИПР / TechFriendly** — совместное выступление с Натали Осман на крупнейшем государственном цифровом форуме России (2026)
-- **Prix Ars Electronica** — официальная заявка на наиболее престижную в мире медиаарт-премию (Линц, 2026)
-- **Портал 2030–2050** — 1-е место, конкурс медиаарта «Видженинг» (приз 200 000 ₽, 2025)
+<!-- registry:credentials-ru -->
+- **1-е место — конкурс «ART × TECHNOLOGY», Технопарк «Сколково»** (2026) — проект «Нейродоска почёта» · 80 000 ₽
+- **Официальная заявка — Prix Ars Electronica & STARTS Prize** (2026)
+- **Грант CultTech Lab 2026, Вена — проект «Ancestors in the Noise» с Еленой Ковылиной** (2026) — производственный грант до EUR 2 500 · показ на CultTech Summit, ноябрь 2026
+- **1-е место — VJ-конкурс «Видженинг», Портал 2030–2050** (2025) — приз 200 000 ₽
+- **ODA.Dream® — зарегистрированный товарный знак (Роспатент)** (2026)
+- **Нейромандала — патентная заявка подана** (2026)
+- **Члены Творческого союза художников России (ТСХР) — секции мультимедиа и научного искусства** (2025)
+- **7 лет на рынке · 80+ событий · 1 500+ участников · 10+ городов** (2026)
+<!-- /registry:credentials-ru -->
 
 **Коммерческие заказы** → [[registry-commercial|Реестр коммерции]]:
 
@@ -127,9 +136,6 @@ We don't touch your client relationship. You own the account.
 - [[eng-2025-wildmint|Нейромандала — Дикая Мята]]
 - [[eng-2024-gonchar-private|Частное нейрошоу — Ната Гончар]]
 <!-- /registry:expert-list-ru -->
-
-- **ODA.Dream® зарегистрированный товарный знак · Нейромандала — патентная заявка подана**
-- 7 лет на рынке · 80+ событий · 1 500+ участников
 
 **Логистика прозрачна.** Мы привозим: ЭЭГ-нейроинтерфейсы, ноутбук, генеративное ПО, фасилитацию. Не входит (площадка / организатор): экран от 65″, HDMI, столы, стулья, розетки, звук с ноутбука. Монтаж, работа и демонтаж нашего контура — на нас. Полный райдер → [[collab|Хаб «Сотрудничество»]].
 

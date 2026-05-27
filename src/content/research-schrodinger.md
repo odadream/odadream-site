@@ -8,6 +8,7 @@ tags: [theater, collective]
 order: 1
 visible: true
 date: 2026.04.07
+status: rnd
 ---
 
 ## PROJECT SCHRODINGER

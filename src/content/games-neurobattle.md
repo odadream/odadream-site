@@ -8,6 +8,7 @@ tags: [esports, brain]
 image: /images/nodes/neurobattle.webp
 date: 2026.02.11
 order: 0
+status: production
 ---
 
 Two participants control a single virtual object in real time. In form — tug of war. In essence — **a duel of mental states**. The system reads brain rhythms (EEG) and translates them into generative graphics on the screen.
@@ -53,6 +54,14 @@ No training is required — participants learn the mechanics on the fly. This ad
 - [[eng-2025-dano-ekoniva|DANO Olympiad / EkoNiva]] — ![[https://dzen.ru/embed/o20ZleGMJAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | video | /images/content/neurobattle_dano.webp]];
 - Neurobattle at the ![[https://dzen.ru/embed/v1ftBaZRQUXU?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | Wind of Change | /images/content/neurobattle_veter.webp]] charity gala;
 - TV feature on TNT’s ![[https://dzen.ru/embed/vY9PlkGfKPUc?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | You Like Me | /images/content/neurobattle_tnt.webp]] show.
+
+## Where it was shown
+
+<!-- registry:work-cases:neurobattle -->
+- [[eng-2025-dano-ekoniva|Neurobattle at DANO Olympiad]] — EkoNiva · 2025.06.01
+<!-- /registry:work-cases:neurobattle -->
+
+**Book for your event →** [[for-business|Corporate & Brands]] · [[for-agents|Agencies]]
 
 Ready to create a scenario for your event where technology, people, and audience function as a single organism? Contact us via [[contacts]] to discuss the concept.
 
@@ -101,5 +110,13 @@ Ready to create a scenario for your event where technology, people, and audience
 - [[eng-2025-dano-ekoniva|Олимпиада DANO / ЭкоНива]] — ![[https://dzen.ru/embed/o20ZleGMJAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | видео | /images/content/neurobattle_dano.webp]];
 - Нейробатл на благотворительном вечере ![[https://dzen.ru/embed/v1ftBaZRQUXU?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | Ветер Перемен | /images/content/neurobattle_veter.webp]];
 - Шоу на телеканале ТНТ ![[https://dzen.ru/embed/vY9PlkGfKPUc?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | Ты как Я | /images/content/neurobattle_tnt.webp]].
+
+## Где показывали
+
+<!-- registry:work-cases:neurobattle-ru -->
+- [[eng-2025-dano-ekoniva|Нейробитва на Олимпиаде DANO]] — ЭкоНива · 2025.06.01
+<!-- /registry:work-cases:neurobattle-ru -->
+
+**Заказать на событие →** [[for-business|Корпоративным клиентам]] · [[for-agents|Агентствам]]
 
 Готовы спроектировать для вашего события ситуацию, где технология, человек и зритель работают как единое целое? Свяжитесь с нами через [[contacts|контакты]], чтобы обсудить концепцию.

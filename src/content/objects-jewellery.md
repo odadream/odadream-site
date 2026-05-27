@@ -7,6 +7,8 @@ type: content
 tags: [silver, ring]
 order: 1
 date: 2026.02.06
+visible: true
+status: rnd
 ---
 
 ## DATA ARTIFACTS
