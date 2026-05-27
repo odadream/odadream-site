@@ -116,6 +116,7 @@ export const fileToNode = (rawContent: string, filename: string): Partial<LotusN
         mediaUrl: attributes.media || attributes.image,
         externalLink: attributes.external_link,
         visible: attributes.visible !== false,
+        status: attributes.status,
         lastModified: attributes.date,
         order: attributes.order,
     };

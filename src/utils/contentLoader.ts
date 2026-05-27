@@ -37,6 +37,7 @@ const loadFileNodes = (): LotusNode[] => {
                 mediaType: getMediaType(resolvedMediaUrl),
                 externalLink: partialNode.externalLink,
                 visible: partialNode.visible !== undefined ? partialNode.visible : true,
+                status: partialNode.status,
                 children: [],
                 lastModified: partialNode.lastModified,
                 order: partialNode.order

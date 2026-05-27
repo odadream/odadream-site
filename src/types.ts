@@ -82,6 +82,9 @@ export interface LotusNode {
   /** Controls visibility in the grid */
   visible?: boolean;
 
+  /** Maturity status of a work, shown as a badge: production | rnd | concept | patent */
+  status?: "production" | "rnd" | "concept" | "patent";
+
   /** Date string (YYYY.MM.DD) representing when this specific node was last updated */
   lastModified?: string;
 

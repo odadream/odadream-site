@@ -75,9 +75,9 @@ export const ROOT_NODE = buildUnifiedGraph(STATIC_ROOT);
 // The order in this array determines the display order.
 const HEADER_TABS_ORDER = [
   "home",
-  "neuromandala",
   "works",
   "collab",
+  "events",
   "world",
   "contacts",
 ];

@@ -22,6 +22,17 @@ const isSafeUrl = (url?: string) => {
   return /^(https?:\/\/|mailto:|tel:|\/|#)/.test(url);
 };
 
+// Maturity badge for works. Bilingual label + accent colour.
+const STATUS_BADGE: Record<
+  string,
+  { ru: string; en: string; cls: string }
+> = {
+  production: { ru: "В РЕПЕРТУАРЕ", en: "IN REPERTOIRE", cls: "text-emerald-400/90" },
+  patent: { ru: "ПАТЕНТ / ТЕХНОЛОГИЯ", en: "PATENT / TECH", cls: "text-sky-400/90" },
+  rnd: { ru: "R&D", en: "R&D", cls: "text-amber-400/90" },
+  concept: { ru: "КОНЦЕПТ", en: "CONCEPT", cls: "text-txt-dim" },
+};
+
 export const TextPanel: React.FC = () => {
   const { currentNode, lang, jumpToId, openLightbox, nodeRegistry } =
     useNavigation();
@@ -205,12 +216,19 @@ export const TextPanel: React.FC = () => {
                     triggerKey={currentNode.id}
                   />
                 </h1>
-                <div className="flex flex-col items-end shrink-0 text-right opacity-50 ml-4 pb-1">
-                  <span className={`${THEME.typography.meta} text-accent/80`}>
+                <div className="flex flex-col items-end shrink-0 text-right ml-4 pb-1">
+                  {currentNode.status && STATUS_BADGE[currentNode.status] && (
+                    <span
+                      className={`${THEME.typography.meta} ${STATUS_BADGE[currentNode.status].cls} font-bold mb-0.5`}
+                    >
+                      {STATUS_BADGE[currentNode.status][lang]}
+                    </span>
+                  )}
+                  <span className={`${THEME.typography.meta} text-accent/80 opacity-50`}>
                     {currentNode.type}
                   </span>
                   <span
-                    className={`${THEME.typography.meta} text-txt-dim mt-0.5`}
+                    className={`${THEME.typography.meta} text-txt-dim mt-0.5 opacity-50`}
                   >
                     #{currentNode.id.toUpperCase().substring(0, 4)}
                   </span>
