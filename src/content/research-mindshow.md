@@ -70,25 +70,27 @@ An interactive installation-performance where a participant creates and experien
 
 ---
 
-## Where it was shown
 
-<!-- registry:work-cases:mindshow -->
-- [[eng-2026-cipr-mindshow|MindShow at TechFriendly / CIPR]] — Ashram Studio (Natali Osman) · 2026.05.01
-- [[eng-2025-moscow2030-portal|Visioning competition win — Portal 2030–2050]] · 2025.01.01
-- [[eng-2025-tpp-mindshow|MindShow — Russian Digital Creative summit]] · 2025.01.01
-- [[eng-2025-wildmint|Neuromandala — Wild Mint Festival]] · 2025.01.01
-- [[eng-2024-ashram-birthday|Ashram Studio birthday celebration]] — Ashram Studio (Natali Osman) · 2024.06.25
-<!-- /registry:work-cases:mindshow -->
-
-## Recognition
-
-<!-- registry:work-awards:mindshow -->
-- **1st place — VJ competition "Visioning", Portal 2030–2050** (2025) — 200,000 RUB prize
-<!-- /registry:work-awards:mindshow -->
 
 **Exhibit / commission →** [[for-institutions|Institutions & Collectors]]
 
 Ready to create a space for your event where the inner state becomes visible? → [discuss the concept](https://t.me/m/6ytmN4eMYzY9)
+
+## Track record
+
+<!-- registry:dossier:mindshow -->
+*Track record at a glance:*
+
+**Shown at:** [[eng-2026-cipr-mindshow|MindShow at TechFriendly / CIPR]] (Ashram Studio (Natali Osman), 2026) · [[eng-2025-moscow2030-portal|Visioning competition win — Portal 2030–2050]] (2025) · [[eng-2025-tpp-mindshow|MindShow — Russian Digital Creative summit]] (2025)
+
+**Recognition:** 1st place — VJ competition "Visioning", Portal 2030–2050 (2025)
+
+**Press:** [NTV](https://www.ntv.ru/novosti/2887676/) · [TSKhR](https://tcxp.ru/news/regions/v-bashkirii-proshel-pervyy-cifrovoy-plener)
+
+> «for co-presentation at TechFriendly Weekend, part of CIPR — Digital Industry of Industrial Russia forum» — CIPR (2026)
+
+Full footprint → [[press|Press]] · [[testimonials|Testimonials]] · [[letters|Recognition]]
+<!-- /registry:dossier:mindshow -->
 
 ---RU---
 
@@ -152,22 +154,24 @@ Ready to create a space for your event where the inner state becomes visible? �
 
 ---
 
-## Где показывали
 
-<!-- registry:work-cases:mindshow-ru -->
-- [[eng-2026-cipr-mindshow|MindShow на TechFriendly / ЦИПР]] — Студия Ashram (Натали Осман) · 2026.05.01
-- [[eng-2025-moscow2030-portal|Победа «Видженинг» — Портал 2030–2050]] · 2025.01.01
-- [[eng-2025-tpp-mindshow|MindShow — саммит Russian Digital Creative]] · 2025.01.01
-- [[eng-2025-wildmint|Нейромандала — Дикая Мята]] · 2025.01.01
-- [[eng-2024-ashram-birthday|День рождения студии Ashram]] — Студия Ashram (Натали Осман) · 2024.06.25
-<!-- /registry:work-cases:mindshow-ru -->
-
-## Признание
-
-<!-- registry:work-awards:mindshow-ru -->
-- **1-е место — VJ-конкурс «Видженинг», Портал 2030–2050** (2025) — приз 200 000 ₽
-<!-- /registry:work-awards:mindshow-ru -->
 
 **Показать / заказать →** [[for-institutions|Институциям и коллекционерам]]
 
 Готовы создать для вашего события пространство, где внутреннее состояние становится видимым? Свяжитесь с нами через [[contacts|контакты]] — обсудим концепцию и формат.
+
+## Признание и след
+
+<!-- registry:dossier:mindshow-ru -->
+*След и признание вкратце:*
+
+**Показывали:** [[eng-2026-cipr-mindshow|MindShow на TechFriendly / ЦИПР]] (Студия Ashram (Натали Осман), 2026) · [[eng-2025-moscow2030-portal|Победа «Видженинг» — Портал 2030–2050]] (2025) · [[eng-2025-tpp-mindshow|MindShow — саммит Russian Digital Creative]] (2025)
+
+**Награды:** 1-е место — VJ-конкурс «Видженинг», Портал 2030–2050 (2025)
+
+**Пресса:** [НТВ](https://www.ntv.ru/novosti/2887676/) · [ТСХР](https://tcxp.ru/news/regions/v-bashkirii-proshel-pervyy-cifrovoy-plener)
+
+> «за совместное выступление на TechFriendly Weekend в рамках форума ЦИПР — Цифровая индустрия промышленной России» — ЦИПР (2026)
+
+Весь след → [[press|Пресса]] · [[testimonials|Отзывы]] · [[letters|Признание]]
+<!-- /registry:dossier:mindshow-ru -->

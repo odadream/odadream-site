@@ -99,15 +99,6 @@ The format works equally well with diverse audiences — **from young people to 
 
 Full log → [[registry-expert|Expert registry]]
 
-## Where it was delivered
-
-<!-- registry:work-cases:lectures -->
-- [[eng-merck-corporate|Merck corporate science-art format]] — Merck · 2025.01.01
-- [[eng-2025-sber-lecture|Science-art lecture for Sberbank]] — Sberbank · 2025.01.01
-- [[eng-2025-hse-beautiful-brain|Beautiful About the Brain — HSE University]] — HSE University · 2025.01.01
-- [[eng-2025-bauman-moscow2030|Brain-hacking lecture — Bauman MSTU]] · 2025.01.01
-- [[eng-2024-gonchar-private|Private neuro-show — Nata Gonchar]] · 2024.01.01
-<!-- /registry:work-cases:lectures -->
 
 **Bring a lecture to your program →** [[for-education|Education]]
 
@@ -116,6 +107,18 @@ Full log → [[registry-expert|Expert registry]]
 Ready to integrate a lecture into your festival or event — one that doesn’t just explain, but shows and leaves a lasting impression? → [Write to us](https://t.me/m/XTR2TqNlNTM1), and we’ll discuss the format and tailor it to your audience.
 
 ![[/images/content/art-brain.jpg]]
+
+## Track record
+
+<!-- registry:dossier:lectures -->
+*Track record at a glance:*
+
+**Shown at:** [[eng-merck-corporate|Merck corporate science-art format]] (Merck, 2025) · [[eng-2025-sber-lecture|Science-art lecture for Sberbank]] (Sberbank, 2025) · [[eng-2025-hse-beautiful-brain|Beautiful About the Brain — HSE University]] (HSE University, 2025)
+
+> «for conducting an immersive lecture "Beautiful About the Brain" that united neurophysiology, EEG technologies, and science-art» — HSE University (2025)
+
+Full footprint → [[press|Press]] · [[testimonials|Testimonials]] · [[letters|Recognition]]
+<!-- /registry:dossier:lectures -->
 
 ---RU---
 
@@ -207,18 +210,21 @@ Ready to integrate a lecture into your festival or event — one that doesn’t 
 
 Полный журнал → [[registry-expert|Реестр экспертизы]]
 
-## Где проводили
-
-<!-- registry:work-cases:lectures-ru -->
-- [[eng-merck-corporate|Корпоративный science-art формат Merck]] — Merck (Мерц) · 2025.01.01
-- [[eng-2025-sber-lecture|Science-art лекция для Сбербанка]] — Сбербанк · 2025.01.01
-- [[eng-2025-hse-beautiful-brain|«Красиво про мозг» — НИУ ВШЭ]] — НИУ ВШЭ · 2025.01.01
-- [[eng-2025-bauman-moscow2030|Лекция про брейнхакинг — МГТУ им. Баумана]] · 2025.01.01
-- [[eng-2024-gonchar-private|Частное нейрошоу — Ната Гончар]] · 2024.01.01
-<!-- /registry:work-cases:lectures-ru -->
 
 **Привести лекцию в вашу программу →** [[for-education|Образованию]]
 
 ---
 
 Готовы встроить в ваш фестиваль или событие лекцию, которая не объясняет, а показывает и оставляет след? Свяжитесь с нами через [[contacts|контакты]] — обсудим формат и адаптируем его под вашу аудиторию.
+
+## Признание и след
+
+<!-- registry:dossier:lectures-ru -->
+*След и признание вкратце:*
+
+**Показывали:** [[eng-merck-corporate|Корпоративный science-art формат Merck]] (Merck (Мерц), 2025) · [[eng-2025-sber-lecture|Science-art лекция для Сбербанка]] (Сбербанк, 2025) · [[eng-2025-hse-beautiful-brain|«Красиво про мозг» — НИУ ВШЭ]] (НИУ ВШЭ, 2025)
+
+> «за проведение иммерсивной лекции «Красиво про мозг», объединившей нейрофизиологию, ЭЭГ-технологии и science-art» — НИУ ВШЭ (2025)
+
+Весь след → [[press|Пресса]] · [[testimonials|Отзывы]] · [[letters|Признание]]
+<!-- /registry:dossier:lectures-ru -->

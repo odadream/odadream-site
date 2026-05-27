@@ -44,8 +44,8 @@ The core artistic research line is **Neuromandala** — a system for translating
 - **1st place — VJ competition "Visioning", Portal 2030–2050** (2025) — 200,000 RUB prize
 - **ODA.Dream® — registered trademark (Rospatent)** (2026)
 - **Neuromandala — patent application filed** (2026)
-- **Members of the Creative Union of Artists of Russia (TSKhR) — Multimedia & Scientific Art sections** (2025)
 - **7 years on market · 80+ events · 1,500+ participants · 10+ cities** (2026)
+- **Members of the Creative Union of Artists of Russia (TSKhR) — Multimedia & Scientific Art sections** (2025)
 <!-- /registry:credentials -->
 
 - Full documentation: catalog texts, technical riders, installation specs, bilingual EN/RU
@@ -90,12 +90,12 @@ We respond to institutional inquiries within 48 hours.
 <!-- registry:credentials-ru -->
 - **1-е место — конкурс «ART × TECHNOLOGY», Технопарк «Сколково»** (2026) — проект «Нейродоска почёта» · 80 000 ₽
 - **Официальная заявка — Prix Ars Electronica & STARTS Prize** (2026)
-- **Грант CultTech Lab 2026, Вена — проект «Ancestors in the Noise» с Еленой Ковылиной** (2026) — производственный грант до EUR 2 500 · показ на CultTech Summit, ноябрь 2026
+- **Грант CultTech Lab 2026, Вена — проект «Ancestors in the Noise» с Еленой Ковылиной** (2026) — грант на продакшн до EUR 2 500 · показ на CultTech Summit, ноябрь 2026
 - **1-е место — VJ-конкурс «Видженинг», Портал 2030–2050** (2025) — приз 200 000 ₽
 - **ODA.Dream® — зарегистрированный товарный знак (Роспатент)** (2026)
 - **Нейромандала — патентная заявка подана** (2026)
-- **Члены Творческого союза художников России (ТСХР) — секции мультимедиа и научного искусства** (2025)
 - **7 лет на рынке · 80+ событий · 1 500+ участников · 10+ городов** (2026)
+- **Члены Творческого союза художников России (ТСХР) — секции мультимедиа и научного искусства** (2025)
 <!-- /registry:credentials-ru -->
 
 - Полная документация: каталожные тексты, технические райдеры, инсталляционные спецификации, EN/RU

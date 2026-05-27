@@ -52,23 +52,23 @@ Neuromandala works simultaneously as:
 3. a research tool for observing attention and state dynamics,
 4. a communication medium between subjective experience and shared visual language.
 
-## Where it was deployed
 
-<!-- registry:work-cases:neuromandala -->
-- [[eng-2025-mipt-terraforming|Terraforming — MIPT exhibition]] · 2025.12.09
-- [[eng-2025-tavrida-ai|AI festival Cultural Code of Russia]] — Tavrida.ART · 2025.08.01
-- [[eng-lamborghini-brand|Lamborghini brand activation]] — Lamborghini · 2024.01.01
-- [[eng-audi-brand|Audi brand activation]] — Audi · 2024.01.01
-<!-- /registry:work-cases:neuromandala -->
-
-## Recognition
-
-<!-- registry:work-awards:neuromandala -->
-- **1st place — ART × TECHNOLOGY competition, Skolkovo Innovation Center** (2026) — "Neuro Honor Board" project · 80,000 RUB
-- **Neuromandala — patent application filed** (2026)
-<!-- /registry:work-awards:neuromandala -->
 
 **License / commission →** [[for-institutions|Institutions & Collectors]]
+
+## Track record
+
+<!-- registry:dossier:neuromandala -->
+*Track record at a glance:*
+
+**Shown at:** [[eng-2025-mipt-terraforming|Terraforming — MIPT exhibition]] (2025) · [[eng-2025-tavrida-ai|AI festival Cultural Code of Russia]] (Tavrida.ART, 2025) · [[eng-lamborghini-brand|Lamborghini brand activation]] (Lamborghini, 2024)
+
+**Recognition:** 1st place — ART × TECHNOLOGY competition, Skolkovo Innovation Center (2026) · Neuromandala — patent application filed (2026)
+
+> «for participation in the first AI festival "Cultural Code of Russia", interest in the project, and creation of your work» — Tavrida.ART (2025)
+
+Full footprint → [[press|Press]] · [[testimonials|Testimonials]] · [[letters|Recognition]]
+<!-- /registry:dossier:neuromandala -->
 
 ---RU---
 
@@ -112,20 +112,20 @@ Neuromandala works simultaneously as:
 3. исследовательский инструмент наблюдения внимания и динамики состояний,
 4. язык коммуникации между субъективным опытом и общим визуальным полем.
 
-## Где применялась
 
-<!-- registry:work-cases:neuromandala-ru -->
-- [[eng-2025-mipt-terraforming|Терраформинг — выставка МФТИ]] · 2025.12.09
-- [[eng-2025-tavrida-ai|Фестиваль ИИ «Культурный код России»]] — Таврида.АРТ · 2025.08.01
-- [[eng-lamborghini-brand|Брендовая активация Lamborghini]] — Lamborghini · 2024.01.01
-- [[eng-audi-brand|Брендовая активация Audi]] — Audi · 2024.01.01
-<!-- /registry:work-cases:neuromandala-ru -->
-
-## Признание
-
-<!-- registry:work-awards:neuromandala-ru -->
-- **1-е место — конкурс «ART × TECHNOLOGY», Технопарк «Сколково»** (2026) — проект «Нейродоска почёта» · 80 000 ₽
-- **Нейромандала — патентная заявка подана** (2026)
-<!-- /registry:work-awards:neuromandala-ru -->
 
 **Лицензировать / заказать →** [[for-institutions|Институциям и коллекционерам]]
+
+## Признание и след
+
+<!-- registry:dossier:neuromandala-ru -->
+*След и признание вкратце:*
+
+**Показывали:** [[eng-2025-mipt-terraforming|Терраформинг — выставка МФТИ]] (2025) · [[eng-2025-tavrida-ai|Фестиваль ИИ «Культурный код России»]] (Таврида.АРТ, 2025) · [[eng-lamborghini-brand|Брендовая активация Lamborghini]] (Lamborghini, 2024)
+
+**Награды:** 1-е место — конкурс «ART × TECHNOLOGY», Технопарк «Сколково» (2026) · Нейромандала — патентная заявка подана (2026)
+
+> «за участие в первом фестивале ИИ «Культурный код России», интерес к проекту и создание своей работы» — Таврида.АРТ (2025)
+
+Весь след → [[press|Пресса]] · [[testimonials|Отзывы]] · [[letters|Признание]]
+<!-- /registry:dossier:neuromandala-ru -->

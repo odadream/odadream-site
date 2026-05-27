@@ -49,13 +49,18 @@ The space — a contemporary cultural infrastructure opened in 2015 — allowed 
 - [[events|Events]] — full public timeline.
 - [[portal|Portal 2030]] — the previous milestone in the competitive/institutional trajectory.
 
-## Where it was shown
-
-<!-- registry:work-cases:interference -->
-- [[eng-2026-interference-tsiolkovsky|Interference of Realities — Tsiolkovsky Festival]] — Neiry Group · 2026.05.16
-<!-- /registry:work-cases:interference -->
 
 **Commission a performance →** [[for-institutions|Institutions & Collectors]]
+
+## Track record
+
+<!-- registry:dossier:interference -->
+*Track record at a glance:*
+
+**Shown at:** [[eng-2026-interference-tsiolkovsky|Interference of Realities — Tsiolkovsky Festival]] (Neiry Group, 2026)
+
+Full footprint → [[press|Press]] · [[testimonials|Testimonials]] · [[letters|Recognition]]
+<!-- /registry:dossier:interference -->
 
 ---RU---
 
@@ -98,10 +103,15 @@ The space — a contemporary cultural infrastructure opened in 2015 — allowed 
 - [[events|События]] — полная публичная лента.
 - [[portal|Портал 2030]] — предыдущий этап конкурсно-институциональной траектории.
 
-## Где показывали
-
-<!-- registry:work-cases:interference-ru -->
-- [[eng-2026-interference-tsiolkovsky|«Интерференция реальностей» — Фестиваль Циолковского]] — Neiry Group · 2026.05.16
-<!-- /registry:work-cases:interference-ru -->
 
 **Заказать спектакль →** [[for-institutions|Институциям и коллекционерам]]
+
+## Признание и след
+
+<!-- registry:dossier:interference-ru -->
+*След и признание вкратце:*
+
+**Показывали:** [[eng-2026-interference-tsiolkovsky|«Интерференция реальностей» — Фестиваль Циолковского]] (Neiry Group, 2026)
+
+Весь след → [[press|Пресса]] · [[testimonials|Отзывы]] · [[letters|Признание]]
+<!-- /registry:dossier:interference-ru -->

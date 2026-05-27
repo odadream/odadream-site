@@ -23,17 +23,11 @@ MultiSync is the technological layer that reads several EEG streams at once and 
 - Real-time markers of inter-brain synchrony (shared attention, convergence).
 - Output stream that art and education formats render as visuals, light, and sound.
 
-## Where it is used
+## Track record
 
-<!-- registry:work-cases:multisync -->
+<!-- registry:dossier:multisync -->
 
-<!-- /registry:work-cases:multisync -->
-
-## Recognition
-
-<!-- registry:work-awards:multisync -->
-
-<!-- /registry:work-awards:multisync -->
+<!-- /registry:dossier:multisync -->
 
 ---RU---
 
@@ -49,14 +43,8 @@ MultiSync — технологический слой, считывающий н
 - Реал-тайм маркеры межмозговой синхронии (общее внимание, сближение).
 - Выходной поток, который арт- и образовательные форматы превращают в визуал, свет и звук.
 
-## Где применяется
+## Признание и след
 
-<!-- registry:work-cases:multisync-ru -->
+<!-- registry:dossier:multisync-ru -->
 
-<!-- /registry:work-cases:multisync-ru -->
-
-## Признание
-
-<!-- registry:work-awards:multisync-ru -->
-
-<!-- /registry:work-awards:multisync-ru -->
+<!-- /registry:dossier:multisync-ru -->

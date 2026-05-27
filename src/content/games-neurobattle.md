@@ -55,15 +55,22 @@ No training is required — participants learn the mechanics on the fly. This ad
 - Neurobattle at the ![[https://dzen.ru/embed/v1ftBaZRQUXU?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | Wind of Change | /images/content/neurobattle_veter.webp]] charity gala;
 - TV feature on TNT’s ![[https://dzen.ru/embed/vY9PlkGfKPUc?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | You Like Me | /images/content/neurobattle_tnt.webp]] show.
 
-## Where it was shown
-
-<!-- registry:work-cases:neurobattle -->
-- [[eng-2025-dano-ekoniva|Neurobattle at DANO Olympiad]] — EkoNiva · 2025.06.01
-<!-- /registry:work-cases:neurobattle -->
 
 **Book for your event →** [[for-business|Corporate & Brands]] · [[for-agents|Agencies]]
 
 Ready to create a scenario for your event where technology, people, and audience function as a single organism? Contact us via [[contacts]] to discuss the concept.
+
+## Track record
+
+<!-- registry:dossier:neurobattle -->
+*Track record at a glance:*
+
+**Shown at:** [[eng-2025-dano-ekoniva|Neurobattle at DANO Olympiad]] (EkoNiva, 2025)
+
+**Press:** [TNT, "Ty kak Ya"](https://dzen.ru/embed/vY9PlkGfKPUc?from_block=partner&from=zen&mute=0&autoplay=0&tv=0)
+
+Full footprint → [[press|Press]] · [[testimonials|Testimonials]] · [[letters|Recognition]]
+<!-- /registry:dossier:neurobattle -->
 
 ---RU---
 
@@ -111,12 +118,19 @@ Ready to create a scenario for your event where technology, people, and audience
 - Нейробатл на благотворительном вечере ![[https://dzen.ru/embed/v1ftBaZRQUXU?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | Ветер Перемен | /images/content/neurobattle_veter.webp]];
 - Шоу на телеканале ТНТ ![[https://dzen.ru/embed/vY9PlkGfKPUc?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | Ты как Я | /images/content/neurobattle_tnt.webp]].
 
-## Где показывали
-
-<!-- registry:work-cases:neurobattle-ru -->
-- [[eng-2025-dano-ekoniva|Нейробитва на Олимпиаде DANO]] — ЭкоНива · 2025.06.01
-<!-- /registry:work-cases:neurobattle-ru -->
 
 **Заказать на событие →** [[for-business|Корпоративным клиентам]] · [[for-agents|Агентствам]]
 
 Готовы спроектировать для вашего события ситуацию, где технология, человек и зритель работают как единое целое? Свяжитесь с нами через [[contacts|контакты]], чтобы обсудить концепцию.
+
+## Признание и след
+
+<!-- registry:dossier:neurobattle-ru -->
+*След и признание вкратце:*
+
+**Показывали:** [[eng-2025-dano-ekoniva|Нейробитва на Олимпиаде DANO]] (ЭкоНива, 2025)
+
+**Пресса:** [ТНТ, «Ты как Я»](https://dzen.ru/embed/vY9PlkGfKPUc?from_block=partner&from=zen&mute=0&autoplay=0&tv=0)
+
+Весь след → [[press|Пресса]] · [[testimonials|Отзывы]] · [[letters|Признание]]
+<!-- /registry:dossier:neurobattle-ru -->
