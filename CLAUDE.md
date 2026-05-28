@@ -65,6 +65,7 @@ Embedded nodes are how cross-references and dynamic grid composition work — th
 - Global state: single `NavigationContext` (`src/context/NavigationContext.tsx`) — path stack, language, theme.
 - Themes: CSS custom properties on `<html data-theme="...">`, defined in `src/index.css`. Currently `dark | light | ocean | matrix`, but `ENABLE_THEME_SWITCHER` in `constants.ts` is `false`, so the toggle is hidden. To add a theme: define the `[data-theme="x"]` block in `index.css`, extend the `Theme` union in `types.ts`, and add it to the cycle array in `NavigationContext.tsx`.
 - Components: `LotusGrid` (main 3×3 navigator — the largest component), `LotusMap` (fractal site-map view, toggled from the sidebar), `LotusSidebar`, `TextPanel`, `Lightbox` (lazy-loaded), `HeaderTabs`, `Breadcrumbs`, `CyberText`, `ErrorBoundary`. Custom hooks: `useLotusLogic`, `useImageFallback`, `useScrollOverflow`.
+- **Lotus Map pyramid** (`lotusMode === "map"`): fractal 3×3 nesting with four display modes (L0–L1 `full`, L2 terminal `micro`, L3 `density`, deeper `aggregate`). View model in `src/utils/mapPyramid.ts`; hub double-click/tap zooms `zoomRoot`. Atom budget (`usableSize/9|27|81`) collapses deep branches when cells would be smaller than `oda_map_min_atom_px`. Atomic calibration UI only when `import.meta.env.DEV && MAP_ATOMIC_DEBUG`.
 
 ### Procedural assets
 
@@ -72,7 +73,7 @@ Embedded nodes are how cross-references and dynamic grid composition work — th
 
 ### Version management
 
-`versions.json` is the source of truth — `current` plus a `history[]` of bilingual changelog entries. `npm run version:sync` fans the version out to `package.json`, `src/constants.ts` (`SITE_VERSION`), `README.md` badge, `metadata.json`, and `src/content/changelog.md`. Bump by editing `versions.json` and running the sync, not the other way around.
+`versions.json` is the source of truth — `current` plus a `history[]` of bilingual changelog entries. `npm run version:sync` fans the version out to `package.json`, `src/constants.ts` (`SITE_VERSION`), `README.md` badge, `metadata.json`, `versions.md` (derived human-readable history), and `src/content/changelog.md`. Bump by editing `versions.json` and running the sync, not the other way around.
 
 ### CI/CD
 

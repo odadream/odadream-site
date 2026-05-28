@@ -42,6 +42,11 @@ export const LOTUS_SORT_MODE: "by-type" | "by-mention" = "by-mention";
  */
 export const LOTUS_GRID_LIMIT = 8;
 
+/**
+ * When true (and import.meta.env.DEV), Lotus Map shows atomic grid calibration UI.
+ */
+export const MAP_ATOMIC_DEBUG = false;
+
 // --- ROOT SKELETON ---
 // The skeleton provides the entry point ('home').
 // All other nodes are attached via 'parent' fields in their .md files.
