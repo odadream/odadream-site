@@ -133,11 +133,27 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
   const [lang, setLang] = useState<Language>(getInitialLang);
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
   const [isGridCollapsed, setIsGridCollapsed] = useState(true);
-  const [lotusMode, setLotusMode] = useState<"grid" | "map">("grid");
-  const toggleLotusMode = useCallback(
-    () => setLotusMode((m) => (m === "grid" ? "map" : "grid")),
-    [],
-  );
+  const [lotusMode, setLotusMode] = useState<"grid" | "map">(() => {
+    if (typeof window === "undefined") return "grid";
+    try {
+      const saved = localStorage.getItem("oda_lotus_mode");
+      if (saved === "map" || saved === "grid") return saved;
+    } catch (e) {
+      /* ignore */
+    }
+    return "grid";
+  });
+  const toggleLotusMode = useCallback(() => {
+    setLotusMode((m) => {
+      const next = m === "grid" ? "map" : "grid";
+      try {
+        localStorage.setItem("oda_lotus_mode", next);
+      } catch (e) {
+        /* ignore */
+      }
+      return next;
+    });
+  }, []);
   const [lightboxMedia, setLightboxMedia] = useState<LotusNode | null>(null);
   const [navigatorHighlight, setNavigatorHighlight] = useState(false);
   /**
