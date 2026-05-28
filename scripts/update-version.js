@@ -12,6 +12,7 @@ const PACKAGE_PATH = path.join(PROJECT_ROOT, "package.json");
 const CONSTANTS_PATH = path.join(PROJECT_ROOT, "src", "constants.ts");
 const METADATA_PATH = path.join(PROJECT_ROOT, "metadata.json");
 const README_PATH = path.join(PROJECT_ROOT, "README.md");
+const VERSIONS_MD_PATH = path.join(PROJECT_ROOT, "versions.md");
 const CHANGELOG_PATH = path.join(
   PROJECT_ROOT,
   "src",
@@ -23,6 +24,38 @@ const CHANGELOG_PATH = path.join(
 const versionsData = JSON.parse(fs.readFileSync(VERSIONS_PATH, "utf-8"));
 const currentVersion = versionsData.current;
 const history = versionsData.history;
+
+const REQUIRED_FIELDS = ["version", "title_en", "title_ru", "desc_en", "desc_ru"];
+
+const fail = (message) => {
+  console.error(`\n❌ VERSION SYNC FAILED: ${message}\n`);
+  process.exit(1);
+};
+
+if (!currentVersion || typeof currentVersion !== "string") {
+  fail("`versions.json.current` must be a non-empty string");
+}
+
+if (!Array.isArray(history) || history.length === 0) {
+  fail("`versions.json.history` must be a non-empty array");
+}
+
+if (history[0].version !== currentVersion) {
+  fail("`versions.json.current` must match `versions.json.history[0].version`");
+}
+
+const seenVersions = new Set();
+for (const [index, entry] of history.entries()) {
+  for (const field of REQUIRED_FIELDS) {
+    if (!entry[field] || typeof entry[field] !== "string") {
+      fail(`history[${index}] is missing required string field: ${field}`);
+    }
+  }
+  if (seenVersions.has(entry.version)) {
+    fail(`Duplicate version in history: ${entry.version}`);
+  }
+  seenVersions.add(entry.version);
+}
 
 console.log(`\n🔄 SYNCHRONIZING VERSION: ${currentVersion}...\n`);
 
@@ -71,7 +104,32 @@ if (readme.match(badgeRegex)) {
   console.log(`✅ Updated README.md badge`);
 }
 
-// 5. GENERATE CHANGELOG.MD
+// 5. GENERATE VERSIONS.MD (derived from versions.json)
+const versionsHeader = `# Version History | История Версий
+
+> This file is auto-generated from \`versions.json\`.
+> Do not edit manually. Use \`npm run version:sync\` after updating \`versions.json\`.
+`;
+
+const versionsBody = history
+  .map((h) => {
+    const dateStr = h.date ? `**Date:** ${h.date}\n\n` : "";
+    const dateRuStr = h.date ? `**Дата:** ${h.date}\n\n` : "";
+    return `## v${h.version} - ${h.title_en} | ${h.title_ru}
+${dateStr}${h.desc_en}
+
+---
+
+${dateRuStr}${h.desc_ru}
+
+---`;
+  })
+  .join("\n\n");
+
+fs.writeFileSync(VERSIONS_MD_PATH, `${versionsHeader}\n\n${versionsBody}\n`);
+console.log(`✅ Regenerated versions.md`);
+
+// 6. GENERATE CHANGELOG.MD
 const changelogHeader = `---
 id: changelog
 parent: home
