@@ -17,7 +17,10 @@ import {
   Disc,
   Plus,
   AlertTriangle,
+  Map as MapIcon,
+  Grid3X3,
 } from "lucide-react";
+import { LotusMap } from "./LotusMap";
 
 import { LotusNode } from "../types";
 import { THEME } from "../styles/theme";
@@ -431,6 +434,8 @@ export const LotusGrid: React.FC = () => {
     isGridCollapsed,
     toggleGrid,
     navigatorHighlight,
+    lotusMode,
+    toggleLotusMode,
   } = useNavigation();
   const { gridCells } = useLotusLogic(currentNode, lang);
 
@@ -779,24 +784,54 @@ export const LotusGrid: React.FC = () => {
             className="flex-1 relative min-h-0 flex flex-col"
             style={contentStyle}
           >
-            <div className={cn(THEME.lotus.frame, "flex-1 min-h-0")}>
-              <div className={THEME.lotus.gridWrapper}>
-                {gridCells.map((cell, index) => (
-                  <div
-                    key={index}
-                    className="relative w-full h-full isolate overflow-hidden bg-surface"
-                  >
-                    <AnimatePresence mode="popLayout" initial={false}>
-                      <GridCell
-                        key={cell ? cell.id : `empty-${index}`}
-                        cell={cell}
-                        index={index}
-                        className="absolute inset-0"
-                      />
-                    </AnimatePresence>
-                  </div>
-                ))}
-              </div>
+            <div className={cn(THEME.lotus.frame, "flex-1 min-h-0 relative")}>
+              {/* Mode toggle — overlay in the top-right of the lotus frame */}
+              <button
+                type="button"
+                onClick={toggleLotusMode}
+                title={
+                  lotusMode === "map"
+                    ? lang === "ru"
+                      ? "Назад к навигации"
+                      : "Back to navigation"
+                    : lang === "ru"
+                      ? "Карта сайта"
+                      : "Site map"
+                }
+                className={cn(
+                  "absolute top-2 right-2 z-40 w-7 h-7 flex items-center justify-center rounded-sm",
+                  "bg-surface/70 backdrop-blur-sm ring-1 ring-border/40",
+                  "text-txt-muted hover:text-accent hover:ring-accent/50 transition-colors",
+                )}
+              >
+                {lotusMode === "map" ? (
+                  <Grid3X3 className="w-3.5 h-3.5" strokeWidth={1.5} />
+                ) : (
+                  <MapIcon className="w-3.5 h-3.5" strokeWidth={1.5} />
+                )}
+              </button>
+
+              {lotusMode === "map" ? (
+                <LotusMap />
+              ) : (
+                <div className={THEME.lotus.gridWrapper}>
+                  {gridCells.map((cell, index) => (
+                    <div
+                      key={index}
+                      className="relative w-full h-full isolate overflow-hidden bg-surface"
+                    >
+                      <AnimatePresence mode="popLayout" initial={false}>
+                        <GridCell
+                          key={cell ? cell.id : `empty-${index}`}
+                          cell={cell}
+                          index={index}
+                          className="absolute inset-0"
+                        />
+                      </AnimatePresence>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="shrink-0 z-50 w-full bg-transparent">
               <Breadcrumbs />

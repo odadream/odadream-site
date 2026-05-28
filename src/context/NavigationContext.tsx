@@ -19,6 +19,8 @@ interface NavigationContextType {
   theme: Theme;
   isDesktop: boolean;
   isGridCollapsed: boolean;
+  /** Lotus panel display mode: contextual 3x3 navigation vs full fractal sitemap. */
+  lotusMode: "grid" | "map";
   lightboxMedia: LotusNode | null;
   navigatorHighlight: boolean;
   nodeRegistry: Map<string, LotusNode>;
@@ -40,6 +42,7 @@ interface NavigationContextType {
   openLightbox: (mediaNode: LotusNode) => void;
   closeLightbox: () => void;
   triggerNavigatorHighlight: () => void;
+  toggleLotusMode: () => void;
 }
 
 const NavigationContext = createContext<NavigationContextType | undefined>(
@@ -130,6 +133,11 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
   const [lang, setLang] = useState<Language>(getInitialLang);
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
   const [isGridCollapsed, setIsGridCollapsed] = useState(true);
+  const [lotusMode, setLotusMode] = useState<"grid" | "map">("grid");
+  const toggleLotusMode = useCallback(
+    () => setLotusMode((m) => (m === "grid" ? "map" : "grid")),
+    [],
+  );
   const [lightboxMedia, setLightboxMedia] = useState<LotusNode | null>(null);
   const [navigatorHighlight, setNavigatorHighlight] = useState(false);
   /**
@@ -335,6 +343,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
       theme,
       isDesktop,
       isGridCollapsed,
+      lotusMode,
       lightboxMedia,
       navigatorHighlight,
       nodeRegistry,
@@ -351,6 +360,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
       openLightbox: setLightboxMedia,
       closeLightbox: () => setLightboxMedia(null),
       triggerNavigatorHighlight,
+      toggleLotusMode,
     }),
     [
       path,
@@ -359,6 +369,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
       theme,
       isDesktop,
       isGridCollapsed,
+      lotusMode,
       lightboxMedia,
       navigatorHighlight,
       nodeRegistry,
@@ -374,6 +385,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
       setIsGridCollapsed,
       setLightboxMedia,
       triggerNavigatorHighlight,
+      toggleLotusMode,
     ],
   );
 
