@@ -31,7 +31,7 @@ The space is organized according to the fractal principle of the **Blooming Lotu
 
 This structure defines both the **logic of navigation and the logic of meanings**. Moving through directions is a shift in the level of observation and engagement. Some directions lead to completed objects, others to processes unfolding in time.
 
-Navigation is via the lotus grid [[navigator|navigator]]. Return to the previous level—through the central cell or the path at the bottom of the page. At the top is a panel of key nodes.
+Navigation is via the lotus grid [[navigator|navigator]]. Return to the previous level—through the central cell or the path at the bottom of the page. At the top is a panel of key nodes. The navigator also has a **site map** mode (toggle in its header) — a fractal view of every node, hover for titles.
 
 ## Development
 
@@ -69,7 +69,7 @@ _The journey is nonlinear._
 
 Эта структура задаёт **логику навигации и логику смыслов**. Перемещение по направлениям — это смена уровня наблюдения и вовлечённости. Одни направления ведут к завершённым объектам, другие — к процессам, разворачивающимся во времени.
 
-Навигация осуществляется через сетку лотоса [[navigator|навигатор]]. Возврат на предыдущий уровень — через центральную ячейку или путь в нижней части страницы. В верхней части страницы находится панель ключевых узлов.
+Навигация осуществляется через сетку лотоса [[navigator|навигатор]]. Возврат на предыдущий уровень — через центральную ячейку или путь в нижней части страницы. В верхней части страницы находится панель ключевых узлов. У навигатора также есть режим **карты сайта** (переключатель в его шапке) — фрактальный вид всех нод, наведение показывает названия.
 
 ## Развитие
 

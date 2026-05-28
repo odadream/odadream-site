@@ -35,7 +35,15 @@ export const parseFrontmatter = (text: string): FrontmatterData => {
         if (!line.trim() || line.trim().startsWith('#')) return;
 
         const colonIndex = line.indexOf(':');
-        if (colonIndex === -1) return;
+        if (colonIndex === -1) {
+            // Heuristic warning: a non-empty, non-comment frontmatter line should be `key: value`.
+            // Silent failures here are how `КОД: Провинции`-style content trips up the YAML side.
+            // We don't throw — just surface the issue for developer attention.
+            if (typeof console !== 'undefined') {
+                console.warn(`[frontmatter] Skipped malformed line (no ':'):`, line);
+            }
+            return;
+        }
 
         const key = line.slice(0, colonIndex).trim();
         

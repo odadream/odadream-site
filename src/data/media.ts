@@ -125,8 +125,3 @@ export const MEDIA: Record<string, MediaAsset> = {
   },
 };
 
-// URL → id reverse map (used by the migration script). Trailing query strings on
-// Dzen URLs are normalized via .url so this map captures the canonical form.
-export const MEDIA_BY_URL: Record<string, string> = Object.fromEntries(
-  Object.entries(MEDIA).map(([id, m]) => [m.url, id]),
-);

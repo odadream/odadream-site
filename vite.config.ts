@@ -33,5 +33,21 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        // Split heavy 3rd-party libs into their own chunks so the initial
+        // index bundle drops well below the 500 KB warning threshold and
+        // the first paint ships faster on mobile.
+        manualChunks(id) {
+          if (!id.includes('node_modules')) return undefined;
+          if (id.includes('framer-motion')) return 'framer-motion';
+          if (id.includes('react-markdown') || id.includes('remark-') || id.includes('mdast') || id.includes('micromark') || id.includes('unified')) return 'markdown';
+          if (id.includes('lucide-react')) return 'icons';
+          if (id.includes('react-dom') || id.includes('scheduler')) return 'react-dom';
+          if (id.includes('node_modules/react/')) return 'react';
+          return 'vendor';
+        },
+      },
+    },
   }
 })

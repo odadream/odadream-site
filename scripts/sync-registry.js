@@ -6,6 +6,13 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { parse as parseYaml } from "yaml";
+import {
+  buildDossier,
+  listAwards,
+  listPress,
+  listTestimonials,
+  listLetters,
+} from "./sync/proof-builders.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
@@ -391,133 +398,8 @@ function cleanupOldGenerated() {
   }
 }
 
-// --- PROOF LEDGER (digital footprint: awards, press, testimonials, letters) ---
-
-const TIER_RANK = { flagship: 0, strong: 1, standard: 2 };
-const L = {
-  shown: { en: "Shown at", ru: "Показывали" },
-  awards: { en: "Recognition", ru: "Награды" },
-  press: { en: "Press", ru: "Пресса" },
-  voices: { en: "Voices", ru: "Отзывы" },
-  lead: { en: "Track record at a glance:", ru: "След и признание вкратце:" },
-  full: { en: "Full footprint", ru: "Весь след" },
-};
-
-function pYear(p) {
-  return String(p.date || "").slice(0, 4);
-}
-function sortProofs(a, b) {
-  const t = (TIER_RANK[a.tier] ?? 9) - (TIER_RANK[b.tier] ?? 9);
-  return t !== 0 ? t : String(b.date).localeCompare(String(a.date));
-}
-// Issuer / outlet name: prefer linked org, else free-text source, else eng's org.
-function proofSource(p, omap, engById, lang) {
-  if (p.org && omap.get(p.org)) return lang === "ru" ? omap.get(p.org).name_ru : omap.get(p.org).name_en;
-  const s = lang === "ru" ? p.source_ru : p.source_en;
-  if (s) return s;
-  if (p.eng && engById.get(p.eng)) {
-    const o = orgNames(engById.get(p.eng).orgs, omap, lang);
-    if (o && o !== "—") return o;
-  }
-  return "";
-}
-function txt(p, key, lang) {
-  return lang === "ru" ? p[`${key}_ru`] : p[`${key}_en`];
-}
-
-function proofsOf(proofs, kind, workId) {
-  return proofs
-    .filter((p) => p.kind === kind && (workId ? p.work === workId : true))
-    .sort(sortProofs);
-}
-
-// Inline, ` · `-joined highlight strings (compact, reads as a dossier, not a long list).
-function casesInline(work, engagements, omap, lang, limit) {
-  const keys = work.format_keys || [];
-  if (!keys.length) return "";
-  return engagements
-    .filter((e) => keys.includes(e.format))
-    .sort((a, b) => String(b.date).localeCompare(String(a.date)))
-    .slice(0, limit)
-    .map((e) => {
-      const t = lang === "ru" ? e.title_ru : e.title_en;
-      const org = orgNames(e.orgs, omap, lang);
-      const tail = org && org !== "—" ? ` (${org}, ${pYear(e)})` : ` (${pYear(e)})`;
-      return `[[${e.id}|${t}]]${tail}`;
-    })
-    .join(" · ");
-}
-function awardsInline(proofs, workId, lang, limit) {
-  return proofsOf(proofs, "award", workId)
-    .slice(0, limit)
-    .map((p) => `${txt(p, "title", lang)} (${pYear(p)})`)
-    .join(" · ");
-}
-function pressInline(proofs, omap, engById, workId, lang, limit) {
-  return proofsOf(proofs, "press", workId)
-    .slice(0, limit)
-    .map((p) => {
-      const src = proofSource(p, omap, engById, lang) || txt(p, "title", lang);
-      return p.url ? `[${src}](${p.url})` : src;
-    })
-    .join(" · ");
-}
-function topTestimonial(proofs, omap, engById, workId, lang) {
-  const p = proofsOf(proofs, "testimonial", workId)[0];
-  if (!p) return "";
-  const src = proofSource(p, omap, engById, lang);
-  return `> «${txt(p, "quote", lang)}»${src ? ` — ${src} (${pYear(p)})` : ""}`;
-}
-
-// One cohesive "dossier" module per work: framed, weighted highlights — not a raw dump.
-function buildDossier(work, proofs, engagements, omap, engById, lang) {
-  const lines = [];
-  const cases = casesInline(work, engagements, omap, lang, 3);
-  const aw = awardsInline(proofs, work.id, lang, 2);
-  const pr = pressInline(proofs, omap, engById, work.id, lang, 3);
-  const voice = topTestimonial(proofs, omap, engById, work.id, lang);
-  if (cases) lines.push(`**${L.shown[lang]}:** ${cases}`);
-  if (aw) lines.push(`**${L.awards[lang]}:** ${aw}`);
-  if (pr) lines.push(`**${L.press[lang]}:** ${pr}`);
-  if (!lines.length && !voice) return "";
-  const segs = [`*${L.lead[lang]}*`];
-  if (lines.length) segs.push(lines.join("\n\n"));
-  if (voice) segs.push(voice);
-  segs.push(
-    `${L.full[lang]} → [[press|${lang === "ru" ? "Пресса" : "Press"}]] · [[testimonials|${lang === "ru" ? "Отзывы" : "Testimonials"}]] · [[letters|${lang === "ru" ? "Признание" : "Recognition"}]]`,
-  );
-  return segs.join("\n\n");
-}
-
-// --- STUDIO-LEVEL LISTS (full corpus for world pages) ---
-function listAwards(proofs, lang) {
-  return proofsOf(proofs, "award").map((p) => {
-    const note = txt(p, "note", lang);
-    return `- **${txt(p, "title", lang)}** (${pYear(p)})${note ? ` — ${note}` : ""}`;
-  }).join("\n");
-}
-function listPress(proofs, omap, engById, lang) {
-  return proofsOf(proofs, "press").map((p) => {
-    const src = proofSource(p, omap, engById, lang);
-    const title = txt(p, "title", lang);
-    const head = p.url ? `[${title}](${p.url})` : title;
-    return `- **${src || title}** — ${head} (${pYear(p)})`;
-  }).join("\n");
-}
-function listTestimonials(proofs, omap, engById, lang) {
-  return proofsOf(proofs, "testimonial").map((p) => {
-    const src = proofSource(p, omap, engById, lang);
-    return `> «${txt(p, "quote", lang)}»\n>\n> — ${src} (${pYear(p)})`;
-  }).join("\n\n");
-}
-function listLetters(proofs, omap, engById, lang) {
-  return proofsOf(proofs, "letter").map((p) => {
-    const src = proofSource(p, omap, engById, lang) || "";
-    const title = txt(p, "title", lang);
-    const media = p.media ? ` ![[${p.media} | ${title}]]` : "";
-    return `- **${title}**${src ? ` — ${src}` : ""} (${pYear(p)})${media}`;
-  }).join("\n");
-}
+// Proof-ledger builders (awards/press/testimonials/letters + dossier) live in
+// ./sync/proof-builders.js — imported above to keep this orchestrator focused.
 
 console.log("\n🔄 REGISTRY SYNC\n");
 
@@ -608,10 +490,6 @@ for (const work of works) {
   const file = path.join(CONTENT_DIR, fname);
   let touched = false;
   const variants = [
-    // Legacy split markers (still filled if a page uses them)
-    [`work-cases:${work.id}`, casesInline(work, engagements, omap, "en", 8).split(" · ").map((s) => `- ${s}`).join("\n")],
-    [`work-cases:${work.id}-ru`, casesInline(work, engagements, omap, "ru", 8).split(" · ").map((s) => `- ${s}`).join("\n")],
-    // Unified dossier
     [`dossier:${work.id}`, buildDossier(work, proofs, engagements, omap, engById, "en")],
     [`dossier:${work.id}-ru`, buildDossier(work, proofs, engagements, omap, engById, "ru")],
   ];
