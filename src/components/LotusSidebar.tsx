@@ -2,10 +2,11 @@ import React from "react";
 import { AnimatePresence } from "framer-motion";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { Layers, ChevronUp } from "lucide-react";
+import { Layers, ChevronUp, Map as MapIcon, Grid3X3 } from "lucide-react";
 import { THEME } from "../styles/theme";
 import { CyberText } from "./CyberText";
 import { MotionDiv } from "../styles/animations";
+import { useNavigation } from "../context/NavigationContext";
 
 const cn = (...inputs: (string | undefined | null | false)[]) =>
   twMerge(clsx(inputs));
@@ -31,6 +32,23 @@ export const LotusSidebar: React.FC<LotusSidebarProps> = ({
   handlePulse,
 }) => {
   const layoutKey = isDesktop ? "desktop" : "mobile";
+  const { lotusMode, toggleLotusMode } = useNavigation();
+
+  // Stop the native drag/tap handler in LotusGrid from interpreting button
+  // clicks on the mobile drawer handle as a drawer toggle.
+  const swallowDrag = (e: React.SyntheticEvent) => {
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation?.();
+  };
+  const ModeIcon = lotusMode === "map" ? Grid3X3 : MapIcon;
+  const modeTitle =
+    lotusMode === "map"
+      ? lang === "ru"
+        ? "Назад к навигации"
+        : "Back to navigation"
+      : lang === "ru"
+        ? "Карта сайта"
+        : "Site map";
 
   return (
     <div
@@ -91,6 +109,26 @@ export const LotusSidebar: React.FC<LotusSidebarProps> = ({
               />
             </span>
           </div>
+
+          <button
+            type="button"
+            title={modeTitle}
+            onClick={(e) => {
+              swallowDrag(e);
+              toggleLotusMode();
+            }}
+            onPointerDown={swallowDrag}
+            onPointerUp={swallowDrag}
+            className={cn(
+              "flex items-center justify-center w-7 h-7 rounded-sm relative z-30",
+              "ring-1 ring-border/40 bg-surface/70 hover:bg-surface transition-colors",
+              "md:mt-3 landscape:mt-3",
+              lotusMode === "map" ? "text-accent ring-accent/50" : "text-txt-muted hover:text-accent",
+            )}
+            style={{ touchAction: "manipulation" }}
+          >
+            <ModeIcon className="w-3.5 h-3.5" strokeWidth={1.5} />
+          </button>
 
           {!isDesktop && (
             <div
