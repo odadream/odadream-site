@@ -370,10 +370,10 @@ npm run build
 **Format:**
 ```json
 {
-  "current": "1.0.1",
+  "current": "1.2.0",
   "history": [
     {
-      "version": "1.0.1",
+      "version": "1.2.0",
       "title_en": "...",
       "title_ru": "...",
       "desc_en": "...",
@@ -418,7 +418,7 @@ npm run build
 **File:** `src/constants.ts`
 
 ```typescript
-export const SITE_VERSION = "v1.0.1";
+export const SITE_VERSION = "v1.2.0";
 export const ENABLE_THEME_SWITCHER = false;
 export const LOTUS_SORT_MODE: "by-type" | "by-mention" = "by-mention";
 export const LOTUS_GRID_LIMIT = 8;

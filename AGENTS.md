@@ -1,6 +1,6 @@
 # ODA.dream Multi-Agent System | Мультиагентная система
 
-**Version:** 1.0.0  
+**Version:** 1.2.0 
 **Status:** Production Ready  
 **Philosophy:** Tech Noir Intelligence
 
@@ -162,17 +162,16 @@ IF task is complex (multiple areas)
 
 ## Autonomy Level | Уровень автономности
 
-**Full Autonomy** (as configured):
-- Agents make decisions independently
-- Execute changes without confirmation
-- Create commits automatically
-- Deploy when necessary
+**Operational Autonomy**:
+- Agents may analyze, edit, and validate code/content proactively
+- Agents should complete tasks end-to-end in one pass when possible
+- Agents should run local verification for code/runtime-impacting changes
 
-**Exceptions** (require notification):
-- Major versions (breaking changes)
-- Content deletion
-- CI/CD configuration changes
-- Force push to main
+**User-Gated Actions** (require explicit user request):
+- Creating git commits
+- Pushing to remote branches
+- Opening pull requests / releases
+- Any destructive git operation
 
 ---
 
@@ -276,7 +275,7 @@ IF task is complex (multiple areas)
 ### Key Constants
 
 ```typescript
-SITE_VERSION = "v1.0.1"
+SITE_VERSION = "v1.2.0"
 ENABLE_THEME_SWITCHER = false
 LOTUS_SORT_MODE = "by-mention"
 LOTUS_GRID_LIMIT = 8

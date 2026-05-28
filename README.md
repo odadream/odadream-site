@@ -2,7 +2,7 @@
 
 ![Version](https://img.shields.io/badge/version-1.2.0-emerald)
 ![Status](https://img.shields.io/badge/status-production-blue)
-![Engine](https://img.shields.io/badge/engine-react_19-cyan)
+![Engine](https://img.shields.io/badge/engine-react_18-cyan)
 
 **The Interface for the Digital Subconscious.**
 

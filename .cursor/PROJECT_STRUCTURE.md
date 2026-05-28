@@ -22,7 +22,7 @@ D:\YandexDisk\_ODA2\Сайт\odadream-site\  ← ROOT (always work from here!)
 │
 ├── src/                          # Source code
 │   ├── components/               # React components
-│   │   ├── LotusGrid.tsx        # Main navigation (809 lines)
+│   │   ├── LotusGrid.tsx        # Main navigation (largest component)
 │   │   ├── LotusSidebar.tsx
 │   │   ├── TextPanel.tsx
 │   │   ├── Lightbox.tsx
@@ -31,7 +31,7 @@ D:\YandexDisk\_ODA2\Сайт\odadream-site\  ← ROOT (always work from here!)
 │   │   ├── CyberText.tsx
 │   │   └── ErrorBoundary.tsx
 │   │
-│   ├── content/                  # CMS - 84 markdown files
+│   ├── content/                  # CMS - markdown node files
 │   │   ├── home.md
 │   │   ├── lectures-*.md
 │   │   ├── works-*.md
@@ -65,7 +65,7 @@ D:\YandexDisk\_ODA2\Сайт\odadream-site\  ← ROOT (always work from here!)
 │   └── images/
 │       ├── assets/              # Logos, favicon
 │       ├── content/             # Content images
-│       └── nodes/               # Generated SVG backgrounds (58 files)
+│       └── nodes/               # Generated SVG backgrounds
 │
 ├── scripts/                      # Automation
 │   ├── generate-assets.js       # SVG generation

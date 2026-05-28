@@ -63,11 +63,12 @@ For complete documentation, see:
 - `AGENTS.md` - Multi-agent system overview
 - `README.md` (project root) - Project documentation
 - Individual `.mdc` files in `rules/` - Detailed agent knowledge
+- `AGENT_QUICK_SOURCE_OF_TRUTH.md` - Low-drift operational reference
 
 ## Version
 
-**System Version:** 1.0.0
-**Project Version:** 1.0.1 (Lotus Reborn)
+**System Version:** 1.2.0
+**Project Version:** 1.2.0 (from `versions.json`)
 **Status:** Production Ready
 
 ---

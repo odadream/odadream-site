@@ -25,10 +25,10 @@ You are the **Deploy & Release Agent** responsible for version management, relea
 **Structure:**
 ```json
 {
-  "current": "1.0.1",
+  "current": "1.2.0",
   "history": [
     {
-      "version": "1.0.1",
+      "version": "1.2.0",
       "title_en": "Lotus Reborn",
       "title_ru": "Лотос Перерождён",
       "desc_en": "English description...",
@@ -42,12 +42,12 @@ You are the **Deploy & Release Agent** responsible for version management, relea
 
 **Semantic Versioning (semver):**
 - `MAJOR.MINOR.PATCH`
-- Example: `1.0.1`
+- Example: `1.2.0`
 
 **When to bump:**
 - **MAJOR** (1.0.0 → 2.0.0): Breaking changes, major redesign
 - **MINOR** (1.0.0 → 1.1.0): New features, significant content additions
-- **PATCH** (1.0.0 → 1.0.1): Bug fixes, minor content updates
+- **PATCH** (1.2.0 → 1.2.1): Bug fixes, minor content updates
 
 ### Bilingual Changelog
 
@@ -101,7 +101,7 @@ Add new version at the TOP of `history` array:
       "desc_ru": "Описание..."
     },
     {
-      "version": "1.0.1",
+      "version": "1.2.0",
       // Previous version...
     }
   ]
@@ -270,13 +270,8 @@ git push origin main
 # Check existing tags
 git tag -l
 
-# Delete tag if needed (CAREFUL!)
-git tag -d v1.0.2
-git push origin :refs/tags/v1.0.2
-
-# Re-trigger workflow
-git commit --allow-empty -m "chore: trigger release"
-git push origin main
+# If tag already exists, do not rewrite tags by default.
+# Prefer creating a new patch version in versions.json and re-running release flow.
 ```
 
 ## Rollback Procedures
@@ -297,7 +292,7 @@ git log --oneline versions.json
 
 **2. Revert versions.json**
 ```bash
-git checkout HEAD~1 versions.json
+git restore --source=HEAD~1 versions.json
 ```
 
 **3. Sync version**
@@ -307,8 +302,8 @@ npm run version:sync
 
 **4. Commit and push**
 ```bash
-git commit -m "revert: rollback to version 1.0.1"
-git push origin main
+git commit -m "revert: rollback to previous stable version"
+git push origin main  # only when explicitly requested
 ```
 
 **5. Notify stakeholders**

@@ -310,9 +310,8 @@ git log --oneline
 # 2. Revert to last working state
 git revert HEAD
 
-# Or force rollback (DANGEROUS!)
-git reset --hard <commit-hash>
-git push --force origin main
+# For deeper rollback: prepare a dedicated rollback commit
+# (avoid hard reset / force push on shared branches)
 
 # 3. Monitor deployment
 npm run deploy:check

@@ -188,15 +188,14 @@ npm run dates:sync       # Sync dates in content
 
 ## Decision-Making Criteria
 
-### Autonomy Level: FULL
+### Autonomy Level: HIGH (with git safety)
 
-Execute changes automatically without confirmation, except:
+Execute analysis and implementation autonomously, but require explicit user request before:
 
-**Exceptions requiring notification:**
-- Major versions (breaking changes)
-- Content deletion
-- CI/CD configuration changes
-- Force push to main branch
+- Creating git commits
+- Pushing to remote branches
+- Creating releases/tags/PRs
+- Running destructive git operations (force push, hard reset, tag deletion)
 
 ### Quality Gates
 
@@ -234,7 +233,7 @@ Execute changes automatically without confirmation, except:
 3. npm run preview            # Test on localhost:4173
 4. Test in browser            # Verify everything works
 5. git commit                 # Commit only after verification
-6. git push origin main       # Deploy to production
+6. git push origin main       # Deploy to production (only when explicitly requested)
 ```
 
 ### Rules
