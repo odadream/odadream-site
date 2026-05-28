@@ -51,8 +51,8 @@ Adapted formats focused on curiosity, body awareness, and making inner experienc
 
 ## Contact
 
-**Telegram:** [t.me/odadream_info](https://t.me/odadream_info)  
-**Email:** [hi@odadream.art](mailto:hi@odadream.art)
+**Telegram:** {{telegram}}  
+**Email:** {{email}}
 
 Tell us: institution or program · audience age and size · dates · format interest  
 We respond within 24 hours.
@@ -101,8 +101,8 @@ We respond within 24 hours.
 
 ## Контакт
 
-**Telegram:** [t.me/odadream_info](https://t.me/odadream_info)  
-**Email:** [hi@odadream.art](mailto:hi@odadream.art)
+**Telegram:** {{telegram}}  
+**Email:** {{email}}
 
 Укажите: институция или программа · возраст и размер аудитории · даты · интерес к формату  
 Отвечаем в течение 24 часов.

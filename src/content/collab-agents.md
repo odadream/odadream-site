@@ -74,8 +74,8 @@ Send them these pages:
 
 Send us a brief — we quote within 24 hours. You set your client price, we give you the production cost.
 
-**Telegram:** [t.me/odadream_info](https://t.me/odadream_info) ← fastest response  
-**Email:** [hi@odadream.art](mailto:hi@odadream.art)
+**Telegram:** {{telegram}} ← fastest response  
+**Email:** {{email}}
 
 Include in your first message:
 - Event date and city
@@ -152,8 +152,8 @@ We don't touch your client relationship. You own the account.
 
 Пришлите бриф — мы дадим смету в течение 24 часов. Вы устанавливаете цену для своего клиента, мы называем вам производственную стоимость.
 
-**Telegram:** [t.me/odadream_info](https://t.me/odadream_info) ← быстрее всего  
-**Email:** [hi@odadream.art](mailto:hi@odadream.art)
+**Telegram:** {{telegram}} ← быстрее всего  
+**Email:** {{email}}
 
 Включите в первое сообщение:
 - Дата и город мероприятия

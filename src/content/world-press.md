@@ -23,9 +23,9 @@ Media, broadcasts, and public mentions that document the visibility of ODA.dream
 
 ## Open media channels
 
-- **Dzen portfolio:** [dzen.ru/odadream](https://dzen.ru/odadream)
-- **YouTube archive:** [@odadreamart](https://www.youtube.com/@odadreamart)
-- **Behance selection:** [behance.net/chudodey](https://www.behance.net/chudodey)
+- **Dzen portfolio:** {{dzen}}
+- **YouTube archive:** {{youtube}}
+- **Behance selection:** {{behance}}
 
 ---RU---
 
@@ -43,6 +43,6 @@ Media, broadcasts, and public mentions that document the visibility of ODA.dream
 
 ## Открытые медиаканалы
 
-- **Dzen-портфолио:** [dzen.ru/odadream](https://dzen.ru/odadream)
-- **YouTube-архив:** [@odadreamart](https://www.youtube.com/@odadreamart)
-- **Behance:** [behance.net/chudodey](https://www.behance.net/chudodey)
+- **Dzen-портфолио:** {{dzen}}
+- **YouTube-архив:** {{youtube}}
+- **Behance:** {{behance}}

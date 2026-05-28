@@ -21,7 +21,7 @@ Service page for validating image rendering in `content` nodes.
 - lightbox behavior;
 - loading/fallback state for missing asset.
 
-![[/images/content/art-brain.jpg | Debug Image Local]]
+![[media:art-brain-cover | Debug Image Local]]
 
 ---RU---
 
@@ -35,4 +35,4 @@ Service page for validating image rendering in `content` nodes.
 - поведение лайтбокса;
 - состояние загрузки/fallback при отсутствии файла.
 
-![[/images/content/art-brain.jpg | Debug Image Local]]
+![[media:art-brain-cover | Debug Image Local]]

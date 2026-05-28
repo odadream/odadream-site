@@ -37,7 +37,7 @@ Navigation is via the lotus grid [[navigator|navigator]]. Return to the previous
 
 The interface is in active development. Elements appear gradually—current changes in [[changelog|change log]].
 
-Feedback is part of this space. Found errors? Message us on [Telegram](https://t.me/odadream_info). Something resonated? We'd love to hear about it.
+Feedback is part of this space. Found errors? Message us on {{telegram}}. Something resonated? We'd love to hear about it.
 
 Contact with the duo and other information channels—in the [[contacts|contacts]] section.
 
@@ -75,7 +75,7 @@ _The journey is nonlinear._
 
 Интерфейс в активной разработке. Элементы появляются постепенно — актуальные изменения в разделе [[changelog|лог изменений]].
 
-Обратная связь — часть этого пространства. Обнаружили ошибки? Напишите в [Telegram](https://t.me/odadream_info). Что-то отозвалось? Будем рады резонансу.
+Обратная связь — часть этого пространства. Обнаружили ошибки? Напишите в {{telegram}}. Что-то отозвалось? Будем рады резонансу.
 
 Связь с дуэтом и другие каналы информации — в разделе [[contacts|контакты]].
 

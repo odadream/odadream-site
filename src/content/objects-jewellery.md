@@ -37,7 +37,7 @@ These inputs are transformed by generative algorithms and then adapted for fabri
 - bespoke commission for private clients;
 - limited concept series for exhibitions and curated drops.
 
-![[/images/content/jewellery.jpg]]
+![[media:jewellery-cover]]
 
 ---RU---
 
@@ -67,4 +67,4 @@ These inputs are transformed by generative algorithms and then adapted for fabri
 - кастомный частный заказ;
 - лимитированные концептуальные серии для выставок и кураторских релизов.
 
-![[/images/content/jewellery.jpg]]
+![[media:jewellery-cover]]

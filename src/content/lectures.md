@@ -88,14 +88,14 @@ The format works equally well with diverse audiences — **from young people to 
 
 ## Examples of Presentations
 
-1. [[eng-2024-gonchar-private|Private neuro-show — Nata Gonchar]] — ![[https://dzen.ru/embed/vZ6STYjxZhHk?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | video | /images/content/lectures-gonchar.webp]]
-2. [[eng-2025-bauman-moscow2030|Brain-hacking lecture — Bauman / Moscow 2030]] — ![[https://dzen.ru/embed/o20b-pOkIAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | video | /images/content/lectures-moscow2030.webp]]
-3. [[eng-2025-tavrida-ai|AI festival — Tavrida.ART]] — ![[/images/content/lectures-tavrida.webp | photo]]
-4. [[eng-2025-sber-lecture|Science-art lecture for Sberbank]] — ![[/images/content/lectures-sber.webp | photo]]
-5. Masterclass on neurotechnologies for an innovative ballet theater at ![[https://dzen.ru/embed/v2Wb3fVoWW1A?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | IKC | /images/content/lectures-ikc.webp]], Kaluga, 2024.
-6. Lecture on neuroaesthetics for members of the ![[https://dzen.ru/embed/veLb095NOWiA?from_block=partner&from=zen&mute=1&autoplay=1&tv=0 | TCA | /images/content/lectures-tshr.webp]] multimedia section, 2025.
+1. [[eng-2024-gonchar-private|Private neuro-show — Nata Gonchar]] — ![[media:lec-gonchar]]
+2. [[eng-2025-bauman-moscow2030|Brain-hacking lecture — Bauman / Moscow 2030]] — ![[media:lec-bauman]]
+3. [[eng-2025-tavrida-ai|AI festival — Tavrida.ART]] — ![[media:lec-tavrida]]
+4. [[eng-2025-sber-lecture|Science-art lecture for Sberbank]] — ![[media:lec-sber]]
+5. Masterclass on neurotechnologies for an innovative ballet theater at ![[media:lec-ikc]], Kaluga, 2024.
+6. Lecture on neuroaesthetics for members of the ![[media:lec-tskhr]] multimedia section, 2025.
 7. [[eng-2025-hse-beautiful-brain|Beautiful About the Brain — HSE University]] (also charity formats).
-8. [[eng-2024-ashram-birthday|Ashram Studio — public talk]] — ![[/images/content/lectures-ashram.webp | photo]]
+8. [[eng-2024-ashram-birthday|Ashram Studio — public talk]] — ![[media:lec-ashram]]
 
 Full log → [[registry-expert|Expert registry]]
 
@@ -106,7 +106,7 @@ Full log → [[registry-expert|Expert registry]]
 
 Ready to integrate a lecture into your festival or event — one that doesn’t just explain, but shows and leaves a lasting impression? → [Write to us](https://t.me/m/XTR2TqNlNTM1), and we’ll discuss the format and tailor it to your audience.
 
-![[/images/content/art-brain.jpg]]
+![[media:art-brain-cover]]
 
 ## Track record
 
@@ -199,14 +199,14 @@ Full footprint → [[press|Press]] · [[testimonials|Testimonials]] · [[letters
 
 ## Примеры выступлений
 
-1. [[eng-2024-gonchar-private|Частное нейрошоу — Ната Гончар]] — ![[https://dzen.ru/embed/vZ6STYjxZhHk?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | видео | /images/content/lectures-gonchar.webp]]
-2. [[eng-2025-bauman-moscow2030|Лекция про брейнхакинг — Бауман / Москва 2030]] — ![[https://dzen.ru/embed/o20b-pOkIAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | видео | /images/content/lectures-moscow2030.webp]]
-3. [[eng-2025-tavrida-ai|Фестиваль ИИ — Таврида.АРТ]] — ![[/images/content/lectures-tavrida.webp | фото]]
-4. [[eng-2025-sber-lecture|Science-art лекция для Сбербанка]] — ![[/images/content/lectures-sber.webp | фото]]
-5. Мастер-класс про нейротехнологии для инновационного театра балета в ![[https://dzen.ru/embed/v2Wb3fVoWW1A?from_block=partner&from=zen&mute=0&autoplay=0&tv=0 | ИКЦ | /images/content/lectures-ikc.webp]], г. Калуга, 2024 г.
-6. Лекция про нейроэстетику для членов ![[https://dzen.ru/embed/veLb095NOWiA?from_block=partner&from=zen&mute=1&autoplay=1&tv=0 | ТСХР | /images/content/lectures-tshr.webp]] секции мультимедиа, 2025 г.
+1. [[eng-2024-gonchar-private|Частное нейрошоу — Ната Гончар]] — ![[media:lec-gonchar]]
+2. [[eng-2025-bauman-moscow2030|Лекция про брейнхакинг — Бауман / Москва 2030]] — ![[media:lec-bauman]]
+3. [[eng-2025-tavrida-ai|Фестиваль ИИ — Таврида.АРТ]] — ![[media:lec-tavrida]]
+4. [[eng-2025-sber-lecture|Science-art лекция для Сбербанка]] — ![[media:lec-sber]]
+5. Мастер-класс про нейротехнологии для инновационного театра балета в ![[media:lec-ikc]], г. Калуга, 2024 г.
+6. Лекция про нейроэстетику для членов ![[media:lec-tskhr]] секции мультимедиа, 2025 г.
 7. [[eng-2025-hse-beautiful-brain|«Красиво про мозг» — НИУ ВШЭ]] (также благотворительные форматы).
-8. [[eng-2024-ashram-birthday|Ashram Studio — публичный talk]] — ![[/images/content/lectures-ashram.webp | фото]]
+8. [[eng-2024-ashram-birthday|Ashram Studio — публичный talk]] — ![[media:lec-ashram]]
 
 Полный журнал → [[registry-expert|Реестр экспертизы]]
 

@@ -46,8 +46,8 @@ We collaborate with artists, curators, performers, and creative technologists bu
 
 ## Get in touch
 
-**Email:** [hi@odadream.art](mailto:hi@odadream.art)  
-**Telegram:** [t.me/odadream_info](https://t.me/odadream_info)
+**Email:** {{email}}  
+**Telegram:** {{telegram}}
 
 Tell us about your project — concept, where it stands, and what kind of collaboration you have in mind.
 
@@ -89,7 +89,7 @@ Tell us about your project — concept, where it stands, and what kind of collab
 
 ## Связаться
 
-**Email:** [hi@odadream.art](mailto:hi@odadream.art)  
-**Telegram:** [t.me/odadream_info](https://t.me/odadream_info)
+**Email:** {{email}}  
+**Telegram:** {{telegram}}
 
 Расскажите о своём проекте — концепция, стадия, какое сотрудничество имеете в виду.

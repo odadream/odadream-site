@@ -74,8 +74,8 @@ We bring neurointerfaces, laptop, proprietary software, art works, and operators
 
 We do not have a standard package. Every format is adapted to the context, the audience, and the story you want to tell. The right first step is a brief conversation.
 
-**Telegram:** [t.me/odadream_info](https://t.me/odadream_info)  
-**Email:** [hi@odadream.art](mailto:hi@odadream.art)
+**Telegram:** {{telegram}}  
+**Email:** {{email}}
 
 Tell us: event type · audience · what you want guests to feel or take away  
 We respond within 24 hours.
@@ -148,8 +148,8 @@ _ODA.dream — это тот опыт._
 
 У нас нет стандартного пакета. Каждый формат адаптируется под контекст, аудиторию и историю, которую вы хотите рассказать. Правильный первый шаг — короткий разговор.
 
-**Telegram:** [t.me/odadream_info](https://t.me/odadream_info)  
-**Email:** [hi@odadream.art](mailto:hi@odadream.art)
+**Telegram:** {{telegram}}  
+**Email:** {{email}}
 
 Расскажите: тип события · аудитория · что должны почувствовать или вынести гости  
 Отвечаем в течение 24 часов.

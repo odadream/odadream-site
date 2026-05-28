@@ -13,8 +13,8 @@ order: 1
 
 **Ready to collaborate?**
 
-**Telegram:** [t.me/odadream_info](https://t.me/odadream_info) ← fastest response  
-**Email:** [hi@odadream.art](mailto:hi@odadream.art)
+**Telegram:** {{telegram}} ← fastest response  
+**Email:** {{email}}
 
 ## What to include in your first message
 
@@ -32,10 +32,10 @@ Same contacts. Mention you're an agency — we'll switch to the partner brief fo
 
 ## Media and info channels
 
-- Telegram news: [t.me/odadream](https://t.me/odadream)
-- YouTube: [@odadreamart](https://www.youtube.com/@odadreamart)
-- Portfolio: [dzen.ru/odadream](https://dzen.ru/odadream)
-- Behance: [behance.net/chudodey](https://www.behance.net/chudodey)
+- Telegram news: {{telegram-news}}
+- YouTube: {{youtube}}
+- Portfolio: {{dzen}}
+- Behance: {{behance}}
 
 _End of transmission._
 
@@ -45,8 +45,8 @@ _End of transmission._
 
 **Готовы к сотрудничеству?**
 
-**Telegram:** [t.me/odadream_info](https://t.me/odadream_info) ← быстрее всего  
-**Email:** [hi@odadream.art](mailto:hi@odadream.art)
+**Telegram:** {{telegram}} ← быстрее всего  
+**Email:** {{email}}
 
 ## Что включить в первое сообщение
 
@@ -64,9 +64,9 @@ _End of transmission._
 
 ## Медиа и информационные каналы
 
-- Telegram-новости: [t.me/odadream](https://t.me/odadream)
-- YouTube: [@odadreamart](https://www.youtube.com/@odadreamart)
-- Портфолио: [dzen.ru/odadream](https://dzen.ru/odadream)
-- Behance: [behance.net/chudodey](https://www.behance.net/chudodey)
+- Telegram-новости: {{telegram-news}}
+- YouTube: {{youtube}}
+- Портфолио: {{dzen}}
+- Behance: {{behance}}
 
 _Конец передачи._

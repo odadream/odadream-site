@@ -35,7 +35,7 @@ It connects neuroaesthetics, perceptual psychology, and media-art examples in a 
 - Museum and art-education environments.
 - Intro sessions before deeper lectures in the series.
 
-![[/images/content/art-brain.jpg]]
+![[media:art-brain-cover]]
 
 ---RU---
 
@@ -64,4 +64,4 @@ It connects neuroaesthetics, perceptual psychology, and media-art examples in a 
 - Музейные и образовательные площадки.
 - Входной модуль перед более специализированными темами цикла.
 
-![[/images/content/art-brain.jpg]]
+![[media:art-brain-cover]]

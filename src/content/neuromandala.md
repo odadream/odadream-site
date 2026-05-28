@@ -19,7 +19,7 @@ status: patent
 Neuromandala is ODA.dream's core platform where biosignals are translated into a living audiovisual form.  
 It connects engineering precision with artistic dramaturgy and allows inner states to become visible in real time.
 
-![[/images/content/neuromandala-cover.jpg]]
+![[media:neuromandala-cover]]
 
 ## Base Technology
 
@@ -79,7 +79,7 @@ Full footprint → [[press|Press]] · [[testimonials|Testimonials]] · [[letters
 Нейромандала - это ключевая платформа ODA.dream, где биосигналы переводятся в живую аудиовизуальную форму.  
 Она соединяет инженерную точность и художественную драматургию, позволяя сделать внутренние состояния видимыми в реальном времени.
 
-![[/images/content/neuromandala-cover.jpg]]
+![[media:neuromandala-cover]]
 
 ## Базовая технология
 

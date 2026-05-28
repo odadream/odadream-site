@@ -49,10 +49,10 @@ Both are members of the Creative Union of Artists of Russia (TSKhR): Multimedia 
 
 ## Contact
 
-- Website: [odadream.art](https://odadream.art)
-- Email: [hi@odadream.art](mailto:hi@odadream.art)
-- Behance: [behance.net/chudodey](https://www.behance.net/chudodey)
-- YouTube: [@odadreamart](https://www.youtube.com/@odadreamart)
+- Website: {{site}}
+- Email: {{email}}
+- Behance: {{behance}}
+- YouTube: {{youtube}}
 
 ---RU---
 
@@ -96,7 +96,7 @@ ODA.dream работает на пересечении нейротехноло�
 
 ## Контакты
 
-- Сайт: [odadream.art](https://odadream.art)
-- Email: [hi@odadream.art](mailto:hi@odadream.art)
-- Behance: [behance.net/chudodey](https://www.behance.net/chudodey)
-- YouTube: [@odadreamart](https://www.youtube.com/@odadreamart)
+- Сайт: {{site}}
+- Email: {{email}}
+- Behance: {{behance}}
+- YouTube: {{youtube}}

@@ -52,8 +52,8 @@ The core artistic research line is **Neuromandala** — a system for translating
 
 ## Inquiries
 
-**Email:** [hi@odadream.art](mailto:hi@odadream.art)  
-**Telegram:** [t.me/odadream_info](https://t.me/odadream_info)
+**Email:** {{email}}  
+**Telegram:** {{telegram}}
 
 Include: institution name · project concept · dates · scale  
 We respond to institutional inquiries within 48 hours.
@@ -102,8 +102,8 @@ We respond to institutional inquiries within 48 hours.
 
 ## Запросы
 
-**Email:** [hi@odadream.art](mailto:hi@odadream.art)  
-**Telegram:** [t.me/odadream_info](https://t.me/odadream_info)
+**Email:** {{email}}  
+**Telegram:** {{telegram}}
 
 Укажите: название институции · концепция проекта · даты · масштаб  
 На институциональные запросы отвечаем в течение 48 часов.

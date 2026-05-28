@@ -48,8 +48,8 @@ For full credentials → [[cv|ODA.dream CV]]
 
 ## Curatorial inquiries
 
-**Email:** [hi@odadream.art](mailto:hi@odadream.art)  
-**Telegram:** [t.me/odadream_info](https://t.me/odadream_info)
+**Email:** {{email}}  
+**Telegram:** {{telegram}}
 
 Include: institution · exhibition context · proposed dates  
 We respond to curatorial inquiries within 48 hours.
@@ -94,8 +94,8 @@ We respond to curatorial inquiries within 48 hours.
 
 ## Кураторские запросы
 
-**Email:** [hi@odadream.art](mailto:hi@odadream.art)  
-**Telegram:** [t.me/odadream_info](https://t.me/odadream_info)
+**Email:** {{email}}  
+**Telegram:** {{telegram}}
 
 Укажите: институция · контекст выставки · предполагаемые даты  
 На кураторские запросы отвечаем в течение 48 часов.
