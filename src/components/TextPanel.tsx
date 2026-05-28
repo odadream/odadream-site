@@ -49,7 +49,7 @@ export const TextPanel: React.FC = () => {
     const raw = currentNode.description[lang] || "";
     // Optimized: stripH1 uses Regex now, not split/join
     const noH1 = stripH1(raw);
-    return transformWikiLinks(noH1, nodeRegistry);
+    return transformWikiLinks(noH1, nodeRegistry, lang);
   }, [currentNode.description, lang]);
 
   const handleMediaClick = (srcWithParams: string, label: string) => {

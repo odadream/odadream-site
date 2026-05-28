@@ -1,5 +1,48 @@
 import { LotusNode } from "../types";
 import { getMediaType, attachPosterToUrl } from "./mediaHelpers";
+import { MEDIA } from "../data/media";
+import { CONTACTS, CONTACTS_CTA } from "../data/contacts";
+
+type Lang = "en" | "ru";
+
+/**
+ * Resolve registry tokens into plain markdown/embed syntax BEFORE the existing
+ * wiki/embed regexes run. Single source for media (src/data/media.ts) and
+ * contacts (src/data/contacts.ts); change once → propagates site-wide.
+ *
+ *  - `![[media:<id>]]` or `![[media:<id> | Label]]` or `![[media:<id> | Label | Poster]]`
+ *      → `![[<url> | <label> | <poster>]]` (label/poster default to the registry)
+ *  - `{{contacts-cta}}`               → the bilingual outreach block
+ *  - `{{telegram}}`/`{{email}}`/…    → `[label](href)`
+ */
+const resolveTokens = (text: string, lang: Lang = "en"): string => {
+  if (!text) return text;
+
+  // Media tokens — expand to standard wiki embed (caught by existing regex below).
+  let out = text.replace(
+    /!\[\[\s*media:([a-z0-9][a-z0-9_-]*)\s*(?:\|\s*([^|\]]+?)\s*)?(?:\|\s*([^\]]+?)\s*)?\]\]/gi,
+    (match, id, labelOverride, posterOverride) => {
+      const asset = MEDIA[id];
+      if (!asset) return match; // unknown id — leave token untouched for visibility
+      const label = (labelOverride || asset.title?.[lang] || id).trim();
+      const poster = (posterOverride || asset.poster || "").trim();
+      return poster
+        ? `![[${asset.url} | ${label} | ${poster}]]`
+        : `![[${asset.url} | ${label}]]`;
+    },
+  );
+
+  // Contact CTA block (full outreach paragraph).
+  out = out.replace(/\{\{\s*contacts-cta\s*\}\}/g, () => CONTACTS_CTA[lang] || CONTACTS_CTA.en);
+
+  // Atomic contact tokens → markdown link.
+  out = out.replace(/\{\{\s*([a-z][a-z0-9-]*)\s*\}\}/gi, (match, key) => {
+    const c = CONTACTS[key];
+    return c ? `[${c.label}](${c.href})` : match;
+  });
+
+  return out;
+};
 
 const simpleHash = (str: string): string => {
   let hash = 0;
@@ -84,10 +127,12 @@ export const generateMediaNode = (
 export const parseContentAndExtractMedia = (
   rawMarkdown: string,
   nodeRegistry?: Map<string, LotusNode>,
+  lang: Lang = "en",
 ): { cleanText: string; mediaNodes: LotusNode[] } => {
   if (!rawMarkdown) return { cleanText: "", mediaNodes: [] };
 
-  const { masked: textToScan } = maskCodeBlocks(rawMarkdown);
+  const resolved = resolveTokens(rawMarkdown, lang);
+  const { masked: textToScan } = maskCodeBlocks(resolved);
   const mediaNodes: LotusNode[] = [];
   const processedKeys = new Set<string>();
   let counter = 0;
@@ -156,10 +201,12 @@ export const parseContentAndExtractMedia = (
 export const transformWikiLinks = (
   text: string,
   nodeRegistry?: Map<string, LotusNode>,
+  lang: Lang = "en",
 ): string => {
   if (!text) return "";
 
-  const { masked, placeholders } = maskCodeBlocks(text);
+  const resolved = resolveTokens(text, lang);
+  const { masked, placeholders } = maskCodeBlocks(resolved);
   let processed = masked;
 
   // 1. Media/Node Embeds: ![[Value|Label|Poster]]

@@ -51,7 +51,7 @@ export const useLotusLogic = (currentNode: LotusNode, lang: "en" | "ru") => {
 
   const displayChildren = useMemo(() => {
     const rawText = currentNode.description[lang] || "";
-    const { mediaNodes } = parseContentAndExtractMedia(rawText, nodeRegistry);
+    const { mediaNodes } = parseContentAndExtractMedia(rawText, nodeRegistry, lang);
 
     // --- STATIC CHILDREN (structural hierarchy) ---
     const staticChildren = (currentNode.children || [])
