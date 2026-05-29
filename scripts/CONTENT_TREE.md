@@ -1,7 +1,7 @@
 # Project Content Tree
-Generated: 25.05.2026, 17:02:14
+Generated: 29.05.2026, 08:44:31
 
-Total Nodes: 100
+Total Nodes: 113
 
 ## 🌳 Site Hierarchy
 
@@ -12,12 +12,10 @@ Total Nodes: 100
     │   ├── **for-artists** (Artists)
     │   ├── **for-business** (Business)
     │   ├── **for-education** (For Education)
-    │   ├── **for-events** (Events) [📂 5]
-    │   │     ├─ 🖼️ `https://dzen.ru/embed/o20ZleGMJAAA?from_block=p...`
-    │   │     ├─ 🖼️ `/images/content/neurobattle_dano.webp`
-    │   │     ├─ 🖼️ `/images/content/mindshow_tpp.webp`
-    │   │     ├─ 🖼️ `https://dzen.ru/embed/vZ6STYjxZhHk?from_block=p...`
-    │   │     └─ 🖼️ `/images/content/lectures-gonchar.webp`
+    │   ├── **for-events** (Events) [📂 3]
+    │   │     ├─ 🖼️ `media:nrbt-dano`
+    │   │     ├─ 🖼️ `media:mdsh-tpp`
+    │   │     └─ 🖼️ `media:lec-gonchar`
     │   ├── **for-galleries** (Galleries)
     │   └── **for-institutions** (For Institutions)
     ├── **contacts** (Contacts)
@@ -28,114 +26,111 @@ Total Nodes: 100
     │   │     └─ 🖼️ `/media/debug/audio-placeholder.mp3`
     │   ├── **debug-hub** (Nested Hub)
     │   ├── **debug-image** (Image) [📂 1]
-    │   │     └─ 🖼️ `/images/content/art-brain.jpg`
+    │   │     └─ 🖼️ `media:art-brain-cover`
     │   └── **debug-video** (Video Page) [📂 2]
     │         ├─ 🖼️ `/media/debug/video-placeholder.mp4`
     │         └─ 🖼️ `/images/content/neuromandala-cover.jpg`
     ├── **events** (Events)
     │   ├── **byob** (BYOB)
+    │   │   ├── **byob-2019** (BYOB 2019)
+    │   │   │   └── **work-byob-2019-mindgrid** (Mind Grid — BYOB 2019 neuro-portrait) [📂 1]
+    │   │   │         └─ 🖼️ `/images/content/works/byob-2019-mindgrid.png`
+    │   │   ├── **byob-2020** (BYOB 2020)
+    │   │   └── **byob-2026** (BYOB 2026)
     │   ├── **chastoti** (Chastoti) [📂 2]
     │   │     ├─ 🖼️ `/images/content/neuromandala-cover.jpg`
     │   │     └─ 🖼️ `https://www.youtube.com/watch?v=1g9FDBRSa5w`
     │   ├── **interference** (Interference of Realities)
     │   ├── **pleinair** (Plein Air)
     │   ├── **portal** (Portal)
-    │   └── **terraforming** (Terraforming) [📂 2]
-    │         ├─ 🖼️ `https://www.youtube.com/watch?v=xUlotjPuXPA`
-    │         └─ 🖼️ `/images/content/neuromandala-cover.jpg`
-    ├── **neuromandala** (Neuromandala) [📂 1]
-    │     └─ 🖼️ `/images/content/neuromandala-cover.jpg`
+    │   └── **terraforming** (Terraforming)
     ├── **works** (Works)
-    │   ├── **games** (Games)
-    │   │   ├── **brain-hack** (Brain Hack)
-    │   │   ├── **journey** (Journey)
-    │   │   └── **neurobattle** (Neurobattle) [📂 9]
-    │   │         ├─ 🖼️ `/images/nodes/neurobattle.webp`
-    │   │         ├─ 🖼️ `https://dzen.ru/embed/o20YLsWwKAAA?from_block=p...`
-    │   │         ├─ 🖼️ `/images/content/neurobattle_gameplay.webp`
-    │   │         ├─ 🖼️ `https://dzen.ru/embed/o20ZleGMJAAA?from_block=p...`
-    │   │         ├─ 🖼️ `/images/content/neurobattle_dano.webp`
-    │   │         ├─ 🖼️ `https://dzen.ru/embed/v1ftBaZRQUXU?from_block=p...`
-    │   │         ├─ 🖼️ `/images/content/neurobattle_veter.webp`
-    │   │         ├─ 🖼️ `https://dzen.ru/embed/vY9PlkGfKPUc?from_block=p...`
-    │   │         └─ 🖼️ `/images/content/neurobattle_tnt.webp`
-    │   ├── **lectures** (Lectures) [📂 12]
-    │   │     ├─ 🖼️ `https://dzen.ru/embed/vZ6STYjxZhHk?from_block=p...`
-    │   │     ├─ 🖼️ `/images/content/lectures-gonchar.webp`
-    │   │     ├─ 🖼️ `https://dzen.ru/embed/o20b-pOkIAAA?from_block=p...`
-    │   │     ├─ 🖼️ `/images/content/lectures-moscow2030.webp`
-    │   │     ├─ 🖼️ `/images/content/lectures-tavrida.webp`
-    │   │     ├─ 🖼️ `/images/content/lectures-sber.webp`
-    │   │     ├─ 🖼️ `https://dzen.ru/embed/v2Wb3fVoWW1A?from_block=p...`
-    │   │     ├─ 🖼️ `/images/content/lectures-ikc.webp`
-    │   │     ├─ 🖼️ `https://dzen.ru/embed/veLb095NOWiA?from_block=p...`
-    │   │     ├─ 🖼️ `/images/content/lectures-tshr.webp`
-    │   │     ├─ 🖼️ `/images/content/lectures-ashram.webp`
-    │   │     ├─ 🖼️ `/images/content/art-brain.jpg`
-    │   │   ├── **art-brain** (Art of Brain) [📂 1]
-    │   │   │     └─ 🖼️ `/images/content/art-brain.jpg`
-    │   │   ├── **color-brain** (Color)
-    │   │   ├── **empathy** (Empathy)
-    │   │   ├── **neuroaesthetics-lec** (Neuroaesthetics)
-    │   │   ├── **sound-brain** (Sound) [📂 1]
-    │   │   │     └─ 🖼️ `https://www.soundhelix.com/examples/mp3/SoundHe...`
-    │   │   └── **taste-brain** (Taste)
-    │   ├── **objects** (Objects)
-    │   │   ├── **emomandala** (Emomandala)
-    │   │   ├── **jewellery** (Jewellery) [📂 1]
-    │   │   │     └─ 🖼️ `/images/content/jewellery.jpg`
-    │   │   └── **mom-baby** (Mom & Baby)
-    │   ├── **practices** (Practices)
-    │   │   └── **workshops** (Workshops)
+    │   ├── **works-art** (Artistic Works)
+    │   │   ├── **games** (Games)
+    │   │   │   ├── **brain-hack** (Brain Hack)
+    │   │   │   ├── **journey** (Journey)
+    │   │   │   └── **neurobattle** (Neurobattle) [📂 5]
+    │   │   │         ├─ 🖼️ `/images/nodes/neurobattle.webp`
+    │   │   │         ├─ 🖼️ `media:nrbt-gameplay-v9`
+    │   │   │         ├─ 🖼️ `media:nrbt-dano`
+    │   │   │         ├─ 🖼️ `media:nrbt-veter`
+    │   │   │         └─ 🖼️ `media:nrbt-tnt`
+    │   │   ├── **objects** (Objects)
+    │   │   │   ├── **emomandala** (Emomandala)
+    │   │   │   ├── **jewellery** (Jewellery) [📂 1]
+    │   │   │   │     └─ 🖼️ `media:jewellery-cover`
+    │   │   │   └── **mom-baby** (Mom & Baby)
+    │   │   └── **research** (Art Research)
+    │   │       ├── **cultural-neuro-code** (Cultural Neuro Code)
+    │   │       ├── **dashran** (Darshan Moment)
+    │   │       ├── **heritage** (Heritage)
+    │   │       ├── **mindshow** (Mindshow) [📂 8]
+    │   │       │     ├─ 🖼️ `media:mdsh-demo-v5`
+    │   │       │     ├─ 🖼️ `work-byob-2019-mindgrid`
+    │   │       │     ├─ 🖼️ `media:mdsh-hypercube`
+    │   │       │     ├─ 🖼️ `media:mdsh-tpp`
+    │   │       │     ├─ 🖼️ `media:mdsh-urban-forum`
+    │   │       │     ├─ 🖼️ `media:mdsh-wildmint`
+    │   │       │     ├─ 🖼️ `media:mdsh-ashram`
+    │   │       │     └─ 🖼️ `media:mdsh-terraforming`
+    │   │       ├── **posustoronniy** (Posustoronniy)
+    │   │       ├── **schrodinger** (Schrodinger)
+    │   │       └── **sync-circle** (Sync Circle)
+    │   ├── **works-education** (Education & Outreach)
+    │   │   ├── **lectures** (Lectures) [📂 8]
+    │   │   │     ├─ 🖼️ `media:lec-gonchar`
+    │   │   │     ├─ 🖼️ `media:lec-bauman`
+    │   │   │     ├─ 🖼️ `media:lec-tavrida`
+    │   │   │     ├─ 🖼️ `media:lec-sber`
+    │   │   │     ├─ 🖼️ `media:lec-ikc`
+    │   │   │     ├─ 🖼️ `media:lec-tskhr`
+    │   │   │     ├─ 🖼️ `media:lec-ashram`
+    │   │   │     ├─ 🖼️ `media:art-brain-cover`
+    │   │   │   ├── **beautiful-brain** (Beautiful About the Brain) [📂 1]
+    │   │   │   │     └─ 🖼️ `media:art-brain-cover`
+    │   │   │   ├── **art-brain** (Art of Brain) [📂 1]
+    │   │   │   │     └─ 🖼️ `media:art-brain-cover`
+    │   │   │   ├── **color-brain** (Color)
+    │   │   │   ├── **empathy** (Empathy)
+    │   │   │   ├── **neuroaesthetics-lec** (Neuroaesthetics)
+    │   │   │   ├── **sound-brain** (Sound) [📂 1]
+    │   │   │   │     └─ 🖼️ `https://www.soundhelix.com/examples/mp3/SoundHe...`
+    │   │   │   └── **taste-brain** (Taste)
+    │   │   └── **practices** (Practices)
     │   │       ├── **coaching** (Coaching)
     │   │       ├── **neuro-dance** (Neuro Dance)
     │   │       ├── **gong** (Gong Theater)
-    │   │       └── **neurosync** (Neurosync)
-    │   └── **research** (Research)
-    │       ├── **cultural-neuro-code** (Cultural Neuro Code)
-    │       ├── **dashran** (Darshan Moment)
-    │       ├── **heritage** (Heritage)
-    │       ├── **mindshow** (Mindshow) [📂 16]
-    │       │     ├─ 🖼️ `https://dzen.ru/embed/o20aog1YJAAA?from_block=p...`
-    │       │     ├─ 🖼️ `/images/content/mindshow_mdsh_v5.webp`
-    │       │     ├─ 🖼️ `https://dzen.ru/embed/vL3M-cNgfSVo?from_block=p...`
-    │       │     ├─ 🖼️ `/images/content/mindshow_portal.webp`
-    │       │     ├─ 🖼️ `/images/content/mindshow_tpp.webp`
-    │       │     ├─ 🖼️ `https://dzen.ru/embed/vYcLmkD5bAxE?from_block=p...`
-    │       │     ├─ 🖼️ `/images/content/mindshow_urban_forum.webp`
-    │       │     ├─ 🖼️ `https://dzen.ru/embed/o21sOdHQIAAA?from_block=p...`
-    │       │     ├─ 🖼️ `/images/content/mindshow_myata.webp`
-    │       │     ├─ 🖼️ `https://dzen.ru/embed/o21s_fHQIAAA?from_block=p...`
-    │       │     ├─ 🖼️ `/images/content/mindshow_ashram.webp`
-    │       │     ├─ 🖼️ `/images/content/mindshow_metro_2.webp`
-    │       │     ├─ 🖼️ `https://dzen.ru/embed/o21tvvnYKAAA?from_block=p...`
-    │       │     ├─ 🖼️ `/images/content/mindshow_ufa.webp`
-    │       │     ├─ 🖼️ `https://www.ntv.ru/novosti/2887676/`
-    │       │     └─ 🖼️ `https://tcxp.ru/news/regions/v-bashkirii-proshe...`
-    │       ├── **posustoronniy** (Posustoronniy)
-    │       ├── **schrodinger** (Schrodinger)
-    │       └── **sync-circle** (Sync Circle)
+    │   │       ├── **neurosync** (Neurosync)
+    │   │       └── **workshops** (Workshops)
+    │   └── **works-tech** (Technology)
+    │       ├── **multisync** (Hyperscanning / MultiSync)
+    │       └── **neuromandala** (Neuromandala) [📂 2]
+    │             ├─ 🖼️ `/images/content/neuromandala-cover.jpg`
+    │             └─ 🖼️ `media:neuromandala-cover`
     └── **world** (World)
         ├── **letters** (Recognition & Awards) [📂 13]
-        │     ├─ 🖼️ `\images\content\collab_2025_ODA_Portal.webp`
-        │     ├─ 🖼️ `\images\content\collab_2026_ODA_Gostinyy_dvor.webp`
-        │     ├─ 🖼️ `\images\content\collab_2025_ODA_Moskva_2030_Olg...`
-        │     ├─ 🖼️ `\images\content\collab_2025_ODA_VShE_ch2.webp`
-        │     ├─ 🖼️ `\images\content\collab_2025_ODA_Severnaya_Oseti...`
-        │     ├─ 🖼️ `\images\content\collab_2025_ODA_Dikaya_myata.webp`
-        │     ├─ 🖼️ `\images\content\collab_2025_ODA_Tavrida_II.webp`
-        │     ├─ 🖼️ `\images\content\collab_2025_ODA_Shulgan_Tash.webp`
-        │     ├─ 🖼️ `\images\content\collab_2025_ODA_TPP.webp`
-        │     ├─ 🖼️ `\images\content\collab_2024_ODA_TechWeek_Olya.webp`
-        │     ├─ 🖼️ `\images\content\collab_2024_ODA_Bitva_za_millia...`
-        │     ├─ 🖼️ `\images\content\collab_2024_ODA_Kod_provintsii_...`
-        │     └─ 🖼️ `\images\content\collab_2025_ODA_Khaskel.webp`
+        │     ├─ 🖼️ `/images/content/collab_2026_ODA_Gostinyy_dvor.webp`
+        │     ├─ 🖼️ `/images/content/collab_2025_ODA_Portal.webp`
+        │     ├─ 🖼️ `/images/content/collab_2025_ODA_VShE_ch2.webp`
+        │     ├─ 🖼️ `/images/content/collab_2025_ODA_Tavrida_II.webp`
+        │     ├─ 🖼️ `/images/content/collab_2025_ODA_Moskva_2030_Olg...`
+        │     ├─ 🖼️ `/images/content/collab_2025_ODA_Severnaya_Oseti...`
+        │     ├─ 🖼️ `/images/content/collab_2025_ODA_Dikaya_myata.webp`
+        │     ├─ 🖼️ `/images/content/collab_2025_ODA_Shulgan_Tash.webp`
+        │     ├─ 🖼️ `/images/content/collab_2025_ODA_TPP.webp`
+        │     ├─ 🖼️ `/images/content/collab_2025_ODA_Khaskel.webp`
+        │     ├─ 🖼️ `/images/content/collab_2024_ODA_TechWeek_Olya.webp`
+        │     ├─ 🖼️ `/images/content/collab_2024_ODA_Bitva_za_millia...`
+        │     ├─ 🖼️ `/images/content/collab_2024_ODA_Kod_provintsii_...`
+        │   ├── **proof-hse-beautiful-brain** (HSE — Beautiful About the Brain)
+        │   ├── **proof-mipt-letter** (MIPT — Letter of recognition)
+        │   └── **proof-portal-1st** (1st place — Visioning VJ competition, Portal 2030–2050)
         ├── **registry** (Experience Registry)
         │   ├── **registry-commercial** (Commercial)
         │   │   ├── **eng-2024-ashram-birthday** (Ashram Studio birthday celebration) [📂 1]
         │   │   │     └─ 🖼️ `/images/content/mindshow_ashram.webp`
         │   │   ├── **eng-2025-dano-ekoniva** (Neurobattle at DANO Olympiad) [📂 1]
-        │   │   │     └─ 🖼️ `/images/content/neurobattle_dano.webp`
+        │   │   │     └─ 🖼️ `media:nrbt-dano`
         │   │   ├── **eng-2025-tavrida-ai** (AI festival Cultural Code of Russia)
         │   │   └── **eng-merck-corporate** (Merck corporate science-art format)
         │   ├── **registry-expert** (Expert Appearances)
@@ -144,7 +139,8 @@ Total Nodes: 100
         │   │   ├── **eng-2025-bauman-moscow2030** (Brain-hacking lecture — Bauman MSTU) [📂 1]
         │   │   │     └─ 🖼️ `/images/content/lectures-moscow2030.webp`
         │   │   ├── **eng-2025-hse-beautiful-brain** (Beautiful About the Brain — HSE University)
-        │   │   ├── **eng-2025-mipt-terraforming** (Terraforming — MIPT exhibition)
+        │   │   ├── **eng-2025-mipt-terraforming** (Terraforming — MIPT exhibition) [📂 1]
+        │   │   │     └─ 🖼️ `media:mdsh-terraforming`
         │   │   ├── **eng-2025-moscow2030-portal** (Visioning competition win — Portal 2030–2050)
         │   │   ├── **eng-2025-sber-lecture** (Science-art lecture for Sberbank) [📂 1]
         │   │   │     └─ 🖼️ `/images/content/lectures-sber.webp`
@@ -178,28 +174,31 @@ Total Nodes: 100
         ├── **press** (Press)
         ├── **team** (Team)
         └── **testimonials** (Testimonials)
+            └── **proof-cipr-quote** (CIPR — Testimonial quote)
 
 ## 📊 Media Manifest
 
 | Node ID | Media Count | Files |
 |---------|-------------|-------|
-| for-events | 5 | `https://dzen.ru/embed/o20ZleGMJAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0`<br/>`/images/content/neurobattle_dano.webp`<br/>`/images/content/mindshow_tpp.webp`<br/>`https://dzen.ru/embed/vZ6STYjxZhHk?from_block=partner&from=zen&mute=0&autoplay=0&tv=0`<br/>`/images/content/lectures-gonchar.webp` |
-| letters | 13 | `\images\content\collab_2025_ODA_Portal.webp`<br/>`\images\content\collab_2026_ODA_Gostinyy_dvor.webp`<br/>`\images\content\collab_2025_ODA_Moskva_2030_Olga.webp`<br/>`\images\content\collab_2025_ODA_VShE_ch2.webp`<br/>`\images\content\collab_2025_ODA_Severnaya_Osetiya_Media_Eksperty.webp`<br/>`\images\content\collab_2025_ODA_Dikaya_myata.webp`<br/>`\images\content\collab_2025_ODA_Tavrida_II.webp`<br/>`\images\content\collab_2025_ODA_Shulgan_Tash.webp`<br/>`\images\content\collab_2025_ODA_TPP.webp`<br/>`\images\content\collab_2024_ODA_TechWeek_Olya.webp`<br/>`\images\content\collab_2024_ODA_Bitva_za_milliard.webp`<br/>`\images\content\collab_2024_ODA_Kod_provintsii_Daler.webp`<br/>`\images\content\collab_2025_ODA_Khaskel.webp` |
+| beautiful-brain | 1 | `media:art-brain-cover` |
+| for-events | 3 | `media:nrbt-dano`<br/>`media:mdsh-tpp`<br/>`media:lec-gonchar` |
+| letters | 13 | `/images/content/collab_2026_ODA_Gostinyy_dvor.webp`<br/>`/images/content/collab_2025_ODA_Portal.webp`<br/>`/images/content/collab_2025_ODA_VShE_ch2.webp`<br/>`/images/content/collab_2025_ODA_Tavrida_II.webp`<br/>`/images/content/collab_2025_ODA_Moskva_2030_Olga.webp`<br/>`/images/content/collab_2025_ODA_Severnaya_Osetiya_Media_Eksperty.webp`<br/>`/images/content/collab_2025_ODA_Dikaya_myata.webp`<br/>`/images/content/collab_2025_ODA_Shulgan_Tash.webp`<br/>`/images/content/collab_2025_ODA_TPP.webp`<br/>`/images/content/collab_2025_ODA_Khaskel.webp`<br/>`/images/content/collab_2024_ODA_TechWeek_Olya.webp`<br/>`/images/content/collab_2024_ODA_Bitva_za_milliard.webp`<br/>`/images/content/collab_2024_ODA_Kod_provintsii_Daler.webp` |
 | debug-audio | 1 | `/media/debug/audio-placeholder.mp3` |
-| debug-image | 1 | `/images/content/art-brain.jpg` |
+| debug-image | 1 | `media:art-brain-cover` |
 | debug-video | 2 | `/media/debug/video-placeholder.mp4`<br/>`/images/content/neuromandala-cover.jpg` |
 | eng-2024-ashram-birthday | 1 | `/images/content/mindshow_ashram.webp` |
 | eng-2024-gonchar-private | 1 | `/images/content/lectures-gonchar.webp` |
 | eng-2025-bauman-moscow2030 | 1 | `/images/content/lectures-moscow2030.webp` |
-| eng-2025-dano-ekoniva | 1 | `/images/content/neurobattle_dano.webp` |
+| eng-2025-dano-ekoniva | 1 | `media:nrbt-dano` |
+| eng-2025-mipt-terraforming | 1 | `media:mdsh-terraforming` |
 | eng-2025-sber-lecture | 1 | `/images/content/lectures-sber.webp` |
 | eng-2025-tpp-mindshow | 1 | `/images/content/mindshow_tpp.webp` |
 | chastoti | 2 | `/images/content/neuromandala-cover.jpg`<br/>`https://www.youtube.com/watch?v=1g9FDBRSa5w` |
-| terraforming | 2 | `https://www.youtube.com/watch?v=xUlotjPuXPA`<br/>`/images/content/neuromandala-cover.jpg` |
-| neurobattle | 9 | `/images/nodes/neurobattle.webp`<br/>`https://dzen.ru/embed/o20YLsWwKAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0`<br/>`/images/content/neurobattle_gameplay.webp`<br/>`https://dzen.ru/embed/o20ZleGMJAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0`<br/>`/images/content/neurobattle_dano.webp`<br/>`https://dzen.ru/embed/v1ftBaZRQUXU?from_block=partner&from=zen&mute=0&autoplay=0&tv=0`<br/>`/images/content/neurobattle_veter.webp`<br/>`https://dzen.ru/embed/vY9PlkGfKPUc?from_block=partner&from=zen&mute=0&autoplay=0&tv=0`<br/>`/images/content/neurobattle_tnt.webp` |
-| art-brain | 1 | `/images/content/art-brain.jpg` |
+| neurobattle | 5 | `/images/nodes/neurobattle.webp`<br/>`media:nrbt-gameplay-v9`<br/>`media:nrbt-dano`<br/>`media:nrbt-veter`<br/>`media:nrbt-tnt` |
+| art-brain | 1 | `media:art-brain-cover` |
 | sound-brain | 1 | `https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3` |
-| lectures | 12 | `https://dzen.ru/embed/vZ6STYjxZhHk?from_block=partner&from=zen&mute=0&autoplay=0&tv=0`<br/>`/images/content/lectures-gonchar.webp`<br/>`https://dzen.ru/embed/o20b-pOkIAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0`<br/>`/images/content/lectures-moscow2030.webp`<br/>`/images/content/lectures-tavrida.webp`<br/>`/images/content/lectures-sber.webp`<br/>`https://dzen.ru/embed/v2Wb3fVoWW1A?from_block=partner&from=zen&mute=0&autoplay=0&tv=0`<br/>`/images/content/lectures-ikc.webp`<br/>`https://dzen.ru/embed/veLb095NOWiA?from_block=partner&from=zen&mute=1&autoplay=1&tv=0`<br/>`/images/content/lectures-tshr.webp`<br/>`/images/content/lectures-ashram.webp`<br/>`/images/content/art-brain.jpg` |
-| neuromandala | 1 | `/images/content/neuromandala-cover.jpg` |
-| jewellery | 1 | `/images/content/jewellery.jpg` |
-| mindshow | 16 | `https://dzen.ru/embed/o20aog1YJAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0`<br/>`/images/content/mindshow_mdsh_v5.webp`<br/>`https://dzen.ru/embed/vL3M-cNgfSVo?from_block=partner&from=zen&mute=1&autoplay=1&tv=0`<br/>`/images/content/mindshow_portal.webp`<br/>`/images/content/mindshow_tpp.webp`<br/>`https://dzen.ru/embed/vYcLmkD5bAxE?from_block=partner&from=zen&mute=1&autoplay=1&tv=0`<br/>`/images/content/mindshow_urban_forum.webp`<br/>`https://dzen.ru/embed/o21sOdHQIAAA?from_block=partner&from=zen&mute=1&autoplay=1&tv=0`<br/>`/images/content/mindshow_myata.webp`<br/>`https://dzen.ru/embed/o21s_fHQIAAA?from_block=partner&from=zen&mute=1&autoplay=1&tv=0`<br/>`/images/content/mindshow_ashram.webp`<br/>`/images/content/mindshow_metro_2.webp`<br/>`https://dzen.ru/embed/o21tvvnYKAAA?from_block=partner&from=zen&mute=1&autoplay=1&tv=0`<br/>`/images/content/mindshow_ufa.webp`<br/>`https://www.ntv.ru/novosti/2887676/`<br/>`https://tcxp.ru/news/regions/v-bashkirii-proshel-pervyy-cifrovoy-plener` |
+| lectures | 8 | `media:lec-gonchar`<br/>`media:lec-bauman`<br/>`media:lec-tavrida`<br/>`media:lec-sber`<br/>`media:lec-ikc`<br/>`media:lec-tskhr`<br/>`media:lec-ashram`<br/>`media:art-brain-cover` |
+| neuromandala | 2 | `/images/content/neuromandala-cover.jpg`<br/>`media:neuromandala-cover` |
+| jewellery | 1 | `media:jewellery-cover` |
+| mindshow | 8 | `media:mdsh-demo-v5`<br/>`work-byob-2019-mindgrid`<br/>`media:mdsh-hypercube`<br/>`media:mdsh-tpp`<br/>`media:mdsh-urban-forum`<br/>`media:mdsh-wildmint`<br/>`media:mdsh-ashram`<br/>`media:mdsh-terraforming` |
+| work-byob-2019-mindgrid | 1 | `/images/content/works/byob-2019-mindgrid.png` |
