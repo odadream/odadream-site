@@ -4,9 +4,13 @@ parent: registry-orgs
 title_en: Ekaterina Kalashnikova
 title_ru: Екатерина Калашникова
 type: content
-tags: [registry, curator]
+tags:
+  - registry
+  - curator
 visible: false
 date: 2026.05.25
+kind: organizer
+subkind: curator
 ---
 
 ## Ekaterina Kalashnikova

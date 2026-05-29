@@ -4,9 +4,13 @@ parent: registry-orgs
 title_en: CCI of Russian Federation
 title_ru: ТПП РФ
 type: content
-tags: [registry, institution]
+tags:
+  - registry
+  - institution
 visible: false
 date: 2026.05.25
+kind: organizer
+subkind: gov
 ---
 
 ## CCI of Russian Federation

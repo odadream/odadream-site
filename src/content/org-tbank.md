@@ -4,9 +4,13 @@ parent: registry-orgs
 title_en: T-Bank
 title_ru: Т-Банк
 type: content
-tags: [registry, institution]
+tags:
+  - registry
+  - institution
 visible: false
 date: 2026.05.25
+kind: organizer
+subkind: corporate
 ---
 
 ## T-Bank

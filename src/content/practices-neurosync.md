@@ -4,10 +4,14 @@ parent: practices
 title_en: Neurosync
 title_ru: Нейросинк
 type: content
-tags: [group, meditation]
+tags:
+  - group
+  - meditation
 order: 1
 visible: true
 date: 2026.02.10
+kind: product
+subkind: education
 ---
 
 ## NEUROSYNC

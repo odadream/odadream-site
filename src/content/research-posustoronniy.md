@@ -4,11 +4,15 @@ parent: research
 title_en: Posustoronniy
 title_ru: Потусторонний
 type: content
-tags: [darkness, light]
+tags:
+  - darkness
+  - light
 order: 4
 visible: true
 date: 2026.02.13
 status: rnd
+kind: product
+subkind: art
 ---
 
 ## POSUSTORONNIY

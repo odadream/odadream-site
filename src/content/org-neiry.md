@@ -4,9 +4,13 @@ parent: registry-orgs
 title_en: Neiry Group
 title_ru: Neiry Group
 type: content
-tags: [registry, partner]
+tags:
+  - registry
+  - partner
 visible: false
 date: 2026.05.25
+kind: organizer
+subkind: corporate
 ---
 
 ## Neiry Group

@@ -4,10 +4,19 @@ parent: registry-expert
 title_en: MindShow — Russian Digital Creative summit
 title_ru: MindShow — саммит Russian Digital Creative
 type: content
-tags: [registry, mindshow]
+tags:
+  - registry
+  - mindshow
 visible: true
 date: 2025.01.01
 order: 0
+kind: event
+date_start: 2025-01-01
+venue: Moscow
+organizer:
+  - "[[org-cci]]"
+products:
+  - "[[mindshow]]"
 ---
 
 ## MindShow — Russian Digital Creative summit
@@ -33,4 +42,3 @@ order: 0
 **Площадки:** ТПП РФ
 
 ![[/images/content/mindshow_tpp.webp]]
-

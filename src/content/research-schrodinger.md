@@ -4,11 +4,15 @@ parent: research
 title_en: Schrodinger
 title_ru: Шрёдингер
 type: content
-tags: [theater, collective]
+tags:
+  - theater
+  - collective
 order: 1
 visible: true
 date: 2026.04.07
 status: rnd
+kind: product
+subkind: art
 ---
 
 ## PROJECT SCHRODINGER

@@ -4,11 +4,15 @@ parent: objects
 title_en: Jewellery
 title_ru: Ювелирка
 type: content
-tags: [silver, ring]
+tags:
+  - silver
+  - ring
 order: 1
 date: 2026.02.06
 visible: true
 status: rnd
+kind: product
+subkind: art
 ---
 
 ## DATA ARTIFACTS

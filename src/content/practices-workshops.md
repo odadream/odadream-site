@@ -4,10 +4,14 @@ parent: practices
 title_en: Workshops
 title_ru: Воркшопы
 type: content
-tags: [practice, learning]
+tags:
+  - practice
+  - learning
 order: 0
 date: 2026.04.07
 visible: true
+kind: product
+subkind: education
 ---
 
 ## WORKSHOPS

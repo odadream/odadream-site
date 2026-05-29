@@ -4,9 +4,13 @@ parent: registry-orgs
 title_en: Sberbank
 title_ru: Сбербанк
 type: content
-tags: [registry, institution]
+tags:
+  - registry
+  - institution
 visible: false
 date: 2026.05.25
+kind: organizer
+subkind: corporate
 ---
 
 ## Sberbank

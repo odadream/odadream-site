@@ -4,9 +4,13 @@ parent: registry-orgs
 title_en: Culture and Sport of Moscow South Administrative Okrug
 title_ru: Культура и спорт ЮАО
 type: content
-tags: [registry, institution]
+tags:
+  - registry
+  - institution
 visible: false
 date: 2026.05.25
+kind: organizer
+subkind: gov
 ---
 
 ## Culture and Sport of Moscow South Administrative Okrug

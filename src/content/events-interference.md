@@ -4,10 +4,15 @@ parent: events
 title_en: Interference of Realities
 title_ru: Интерференция реальностей
 type: content
-tags: [concert, lotus, experiment]
+tags:
+  - concert
+  - lotus
+  - experiment
 order: 0
 date: 2026.05.16
 status: production
+kind: product
+subkind: art
 ---
 
 ## INTERFERENCE OF REALITIES

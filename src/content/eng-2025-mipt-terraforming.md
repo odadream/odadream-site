@@ -4,10 +4,18 @@ parent: registry-expert
 title_en: Terraforming — MIPT exhibition
 title_ru: Терраформинг — выставка МФТИ
 type: content
-tags: [registry, installation]
+tags:
+  - registry
+  - installation
 visible: true
 date: 2025.12.09
 order: 0
+kind: event
+date_start: 2025-12-09
+venue: Moscow
+organizer:
+  - "[[org-kapitsa]]"
+  - "[[org-mipt]]"
 ---
 
 ## Terraforming — MIPT exhibition
@@ -29,4 +37,3 @@ order: 0
 **Формат:** installation  
 **Организации:** Екатерина Капица  
 **Площадки:** МФТИ
-

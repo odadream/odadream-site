@@ -4,10 +4,14 @@ parent: lectures
 title_en: Color
 title_ru: Цвет
 type: content
-tags: [spectrum, color]
+tags:
+  - spectrum
+  - color
 order: 3
 visible: true
 date: 2026.02.12
+kind: product
+subkind: education
 ---
 
 ## COLOR & BRAIN

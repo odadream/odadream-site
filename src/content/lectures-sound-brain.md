@@ -4,10 +4,14 @@ parent: lectures
 title_en: Sound
 title_ru: Звук
 type: content
-tags: [wave, sound]
+tags:
+  - wave
+  - sound
 order: 1
 visible: true
 date: 2026.02.12
+kind: product
+subkind: education
 ---
 
 ## SOUND & SYNC

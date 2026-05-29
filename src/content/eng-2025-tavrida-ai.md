@@ -4,10 +4,16 @@ parent: registry-commercial
 title_en: AI festival Cultural Code of Russia
 title_ru: Фестиваль ИИ «Культурный код России»
 type: content
-tags: [registry, installation]
+tags:
+  - registry
+  - installation
 visible: true
 date: 2025.08.01
 order: 0
+kind: event
+date_start: 2025-08-01
+organizer:
+  - "[[org-tavrida]]"
 ---
 
 ## AI festival Cultural Code of Russia
@@ -29,4 +35,3 @@ order: 0
 **Формат:** installation  
 **Организации:** Таврида.АРТ  
 **Площадки:** Таврида.АРТ
-

@@ -4,10 +4,14 @@ parent: lectures
 title_en: Taste
 title_ru: Вкус
 type: content
-tags: [food, abstract]
+tags:
+  - food
+  - abstract
 order: 2
 visible: true
 date: 2026.02.12
+kind: product
+subkind: education
 ---
 
 ## TASTE & BRAIN

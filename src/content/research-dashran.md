@@ -4,11 +4,15 @@ parent: research
 title_en: Darshan Moment
 title_ru: Момент Даршана
 type: content
-tags: [contemplation, ritual]
+tags:
+  - contemplation
+  - ritual
 order: 3
 visible: true
 date: 2026.04.07
 status: concept
+kind: product
+subkind: art
 ---
 
 ## DARSHAN MOMENT

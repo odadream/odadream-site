@@ -4,9 +4,13 @@ parent: registry-orgs
 title_en: Audi
 title_ru: Audi
 type: content
-tags: [registry, client]
+tags:
+  - registry
+  - client
 visible: false
 date: 2026.05.25
+kind: organizer
+subkind: corporate
 ---
 
 ## Audi

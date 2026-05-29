@@ -4,11 +4,15 @@ parent: objects
 title_en: Mom & Baby
 title_ru: Мама и Малыш
 type: content
-tags: [love, statue]
+tags:
+  - love
+  - statue
 order: 0
 date: 2026.02.06
 visible: true
 status: concept
+kind: product
+subkind: art
 ---
 
 ## MOM AND BABY

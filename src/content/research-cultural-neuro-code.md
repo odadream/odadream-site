@@ -4,10 +4,14 @@ parent: research
 title_en: Cultural Neuro Code
 title_ru: Культурный нейрокод
 type: content
-tags: [culture, neurofeedback]
+tags:
+  - culture
+  - neurofeedback
 order: 2
 date: 2026.04.07
 status: rnd
+kind: product
+subkind: art
 ---
 
 ## CULTURAL NEURO CODE

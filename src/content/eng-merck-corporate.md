@@ -4,10 +4,17 @@ parent: registry-commercial
 title_en: Merck corporate science-art format
 title_ru: Корпоративный science-art формат Merck
 type: content
-tags: [registry, lecture]
+tags:
+  - registry
+  - lecture
 visible: true
 date: 2025.01.01
 order: 0
+kind: event
+date_start: 2025-01-01
+venue: Moscow
+organizer:
+  - "[[org-merck]]"
 ---
 
 ## Merck corporate science-art format
@@ -29,4 +36,3 @@ order: 0
 **Формат:** lecture  
 **Организации:** Merck (Мерц)  
 **Площадки:** —
-

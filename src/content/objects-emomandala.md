@@ -4,11 +4,15 @@ parent: objects
 title_en: Emomandala
 title_ru: Эмомандала
 type: content
-tags: [mandala, 3d]
+tags:
+  - mandala
+  - 3d
 order: 2
 date: 2026.02.06
 visible: true
 status: rnd
+kind: product
+subkind: art
 ---
 
 ## EMOMANDALA

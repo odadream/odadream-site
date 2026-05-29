@@ -4,10 +4,21 @@ parent: registry-expert
 title_en: Interference of Realities — Tsiolkovsky Festival
 title_ru: «Интерференция реальностей» — Фестиваль Циолковского
 type: content
-tags: [registry, performance]
+tags:
+  - registry
+  - performance
 visible: true
 date: 2026.05.16
 order: 0
+kind: event
+subkind: competition
+date_start: 2026-05-16
+venue: Kaluga
+organizer:
+  - "[[org-neiry]]"
+  - "[[org-tsiolkovsky]]"
+products:
+  - "[[interference]]"
 ---
 
 ## Interference of Realities — Tsiolkovsky Festival
@@ -29,4 +40,3 @@ order: 0
 **Формат:** performance  
 **Организации:** Neiry Group  
 **Площадки:** Фестиваль Циолковского
-

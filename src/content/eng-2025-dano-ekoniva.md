@@ -4,10 +4,21 @@ parent: registry-commercial
 title_en: Neurobattle at DANO Olympiad
 title_ru: Нейробитва на Олимпиаде DANO
 type: content
-tags: [registry, neurobattle]
+tags:
+  - registry
+  - neurobattle
 visible: true
 date: 2025.12.17
 order: 0
+kind: event
+date_start: 2025-12-17
+venue: Moscow
+organizer:
+  - "[[org-ekoniva]]"
+  - "[[org-hse]]"
+  - "[[org-tbank]]"
+products:
+  - "[[neurobattle]]"
 ---
 
 ## Neurobattle at DANO Olympiad
@@ -33,4 +44,3 @@ order: 0
 **Площадки:** НИУ ВШЭ, Т-Банк
 
 ![[/images/content/neurobattle_dano.webp]]
-

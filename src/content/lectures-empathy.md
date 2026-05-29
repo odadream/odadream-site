@@ -6,10 +6,14 @@ title_ru: Эмпатия
 short_en: Empathy
 short_ru: Эмпатия
 type: content
-tags: [connection, people]
+tags:
+  - connection
+  - people
 order: 4
 visible: true
 date: 2026.02.12
+kind: product
+subkind: education
 ---
 
 ## EMPATHY PROTOCOL

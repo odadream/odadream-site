@@ -4,11 +4,15 @@ parent: games
 title_en: Brain Hack
 title_ru: Взлом Мозга
 type: content
-tags: [illusion, mind]
+tags:
+  - illusion
+  - mind
 date: 2026.02.10
 order: 1
 visible: true
 status: concept
+kind: product
+subkind: art
 ---
 
 ## BRAIN HACK

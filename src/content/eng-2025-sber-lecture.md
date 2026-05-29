@@ -4,10 +4,17 @@ parent: registry-expert
 title_en: Science-art lecture for Sberbank
 title_ru: Science-art лекция для Сбербанка
 type: content
-tags: [registry, lecture]
+tags:
+  - registry
+  - lecture
 visible: true
 date: 2025.01.01
 order: 0
+kind: event
+date_start: 2025-01-01
+venue: Moscow
+organizer:
+  - "[[org-sberbank]]"
 ---
 
 ## Science-art lecture for Sberbank
@@ -33,4 +40,3 @@ order: 0
 **Площадки:** Сбербанк
 
 ![[/images/content/lectures-sber.webp]]
-

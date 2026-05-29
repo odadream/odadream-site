@@ -4,10 +4,14 @@ parent: lectures
 title_en: Neuroaesthetics
 title_ru: Нейроэстетика
 type: content
-tags: [sculpture, geometry]
+tags:
+  - sculpture
+  - geometry
 order: 5
 visible: true
 date: 2026.02.12
+kind: product
+subkind: education
 ---
 
 ## NEUROAESTHETICS

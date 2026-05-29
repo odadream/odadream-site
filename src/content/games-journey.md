@@ -4,11 +4,15 @@ parent: games
 title_en: Journey
 title_ru: Путешествие
 type: content
-tags: [vr, meditation]
+tags:
+  - vr
+  - meditation
 order: 2
 visible: true
 date: 2026.02.10
 status: concept
+kind: product
+subkind: art
 ---
 
 ## JOURNEY TO YOURSELF

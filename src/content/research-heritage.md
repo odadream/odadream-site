@@ -4,10 +4,14 @@ parent: research
 title_en: Heritage
 title_ru: Наследие
 type: content
-tags: [history, craft]
+tags:
+  - history
+  - craft
 visible: true
 date: 2026.02.13
 status: rnd
+kind: product
+subkind: art
 ---
 
 ## CULTURAL HERITAGE

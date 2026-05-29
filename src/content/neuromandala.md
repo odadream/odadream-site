@@ -4,7 +4,10 @@ parent: works-tech
 title_en: Neuromandala
 title_ru: Нейромандала
 type: content
-tags: [technology, geometry, brainwave]
+tags:
+  - technology
+  - geometry
+  - brainwave
 image: /images/content/neuromandala-cover.jpg
 date: 2026.05.29
 order: 0
@@ -12,6 +15,8 @@ visible: true
 status: patent
 media:
   - neuromandala-cover
+kind: product
+subkind: tech
 ---
 
 ## NEUROMANDALA

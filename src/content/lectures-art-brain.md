@@ -4,10 +4,14 @@ parent: lectures
 title_en: Art of Brain
 title_ru: Искусство Мозга
 type: content
-tags: [brain, art]
+tags:
+  - brain
+  - art
 date: 2026.02.12
 order: 0
 visible: true
+kind: product
+subkind: education
 ---
 
 ## ART OF THE BRAIN

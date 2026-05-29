@@ -4,9 +4,13 @@ parent: registry-orgs
 title_en: EkoNiva
 title_ru: ЭкоНива
 type: content
-tags: [registry, client]
+tags:
+  - registry
+  - client
 visible: false
 date: 2026.05.25
+kind: organizer
+subkind: corporate
 ---
 
 ## EkoNiva

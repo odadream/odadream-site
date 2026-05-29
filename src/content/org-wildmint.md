@@ -4,9 +4,13 @@ parent: registry-orgs
 title_en: Wild Mint Festival
 title_ru: Дикая Мята
 type: content
-tags: [registry, venue]
+tags:
+  - registry
+  - venue
 visible: false
 date: 2026.05.25
+kind: organizer
+subkind: corporate
 ---
 
 ## Wild Mint Festival

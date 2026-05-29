@@ -4,9 +4,13 @@ parent: registry-orgs
 title_en: Ashram Studio (Natali Osman)
 title_ru: Студия Ashram (Натали Осман)
 type: content
-tags: [registry, client]
+tags:
+  - registry
+  - client
 visible: false
 date: 2026.05.25
+kind: organizer
+subkind: corporate
 ---
 
 ## Ashram Studio (Natali Osman)

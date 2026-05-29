@@ -4,9 +4,13 @@ parent: registry-orgs
 title_en: Moscow 2030
 title_ru: Москва 2030
 type: content
-tags: [registry, venue]
+tags:
+  - registry
+  - venue
 visible: false
 date: 2026.05.25
+kind: organizer
+subkind: gov
 ---
 
 ## Moscow 2030

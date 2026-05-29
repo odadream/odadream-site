@@ -4,10 +4,14 @@ parent: practices
 title_en: Coaching
 title_ru: Коучинг
 type: content
-tags: [focus, business]
+tags:
+  - focus
+  - business
 order: 3
 visible: true
 date: 2026.02.10
+kind: product
+subkind: education
 ---
 
 ## NEURO COACHING

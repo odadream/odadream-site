@@ -4,9 +4,13 @@ parent: registry-orgs
 title_en: HSE University
 title_ru: НИУ ВШЭ
 type: content
-tags: [registry, institution]
+tags:
+  - registry
+  - institution
 visible: false
 date: 2026.05.25
+kind: organizer
+subkind: university
 ---
 
 ## HSE University

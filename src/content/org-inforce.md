@@ -4,9 +4,13 @@ parent: registry-orgs
 title_en: inForce
 title_ru: inForce
 type: content
-tags: [registry, venue]
+tags:
+  - registry
+  - venue
 visible: false
 date: 2026.05.25
+kind: organizer
+subkind: corporate
 ---
 
 ## inForce

@@ -4,10 +4,18 @@ parent: registry-expert
 title_en: Brain-hacking lecture — Bauman MSTU
 title_ru: Лекция про брейнхакинг — МГТУ им. Баумана
 type: content
-tags: [registry, lecture]
+tags:
+  - registry
+  - lecture
 visible: true
 date: 2025.01.01
 order: 0
+kind: event
+date_start: 2025-01-01
+venue: Moscow
+organizer:
+  - "[[org-bauman]]"
+  - "[[org-moscow2030]]"
 ---
 
 ## Brain-hacking lecture — Bauman MSTU
@@ -33,4 +41,3 @@ order: 0
 **Площадки:** МГТУ им. Баумана, Москва 2030
 
 ![[/images/content/lectures-moscow2030.webp]]
-

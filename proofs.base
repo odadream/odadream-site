@@ -12,10 +12,11 @@ views:
       - publication_date
       - issued_by
       - proof_of
+    sort:
+      - property: publication
+        direction: ASC
+      - property: publication_date
+        direction: ASC
     columnSize:
-      file.name: 260
-      subkind: 110
-      publication: 220
-      publication_date: 110
-      issued_by: 180
-      proof_of: 240
+      file.name: 182
+      note.publication: 405

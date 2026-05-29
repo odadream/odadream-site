@@ -4,9 +4,13 @@ parent: registry-orgs
 title_en: Tavrida.ART
 title_ru: Таврида.АРТ
 type: content
-tags: [registry, client]
+tags:
+  - registry
+  - client
 visible: false
 date: 2026.05.25
+kind: organizer
+subkind: gov
 ---
 
 ## Tavrida.ART

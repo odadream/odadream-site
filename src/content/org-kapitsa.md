@@ -4,9 +4,13 @@ parent: registry-orgs
 title_en: Ekaterina Kapitsa
 title_ru: Екатерина Капица
 type: content
-tags: [registry, curator]
+tags:
+  - registry
+  - curator
 visible: false
 date: 2026.05.25
+kind: organizer
+subkind: curator
 ---
 
 ## Ekaterina Kapitsa

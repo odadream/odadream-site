@@ -4,10 +4,17 @@ parent: registry-expert
 title_en: Beautiful About the Brain — HSE University
 title_ru: «Красиво про мозг» — НИУ ВШЭ
 type: content
-tags: [registry, lecture]
+tags:
+  - registry
+  - lecture
 visible: true
 date: 2025.05.01
 order: 0
+kind: event
+date_start: 2025-05-01
+venue: Moscow
+organizer:
+  - "[[org-hse]]"
 ---
 
 ## Beautiful About the Brain — HSE University
@@ -29,4 +36,3 @@ order: 0
 **Формат:** lecture  
 **Организации:** НИУ ВШЭ  
 **Площадки:** НИУ ВШЭ
-

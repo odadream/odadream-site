@@ -4,10 +4,19 @@ parent: registry-commercial
 title_en: Ashram Studio birthday celebration
 title_ru: День рождения студии Ashram
 type: content
-tags: [registry, mindshow]
+tags:
+  - registry
+  - mindshow
 visible: true
 date: 2024.06.25
 order: 0
+kind: event
+date_start: 2024-06-25
+venue: Moscow
+organizer:
+  - "[[org-ashram]]"
+products:
+  - "[[mindshow]]"
 ---
 
 ## Ashram Studio birthday celebration
@@ -33,4 +42,3 @@ order: 0
 **Площадки:** Студия Ashram (Натали Осман)
 
 ![[/images/content/mindshow_ashram.webp]]
-

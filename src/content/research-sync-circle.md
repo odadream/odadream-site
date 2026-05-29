@@ -4,11 +4,15 @@ parent: research
 title_en: Sync Circle
 title_ru: Круг Синхронизации
 type: content
-tags: [circle, social]
+tags:
+  - circle
+  - social
 order: 2
 visible: true
 date: 2026.02.13
 status: rnd
+kind: product
+subkind: art
 ---
 
 ## SYNC CIRCLE

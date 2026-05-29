@@ -4,10 +4,14 @@ parent: practices
 title_en: Neuro Dance
 title_ru: Нейро Танец
 type: content
-tags: [dance, motion]
+tags:
+  - dance
+  - motion
 order: 0
 visible: true
 date: 2026.02.10
+kind: product
+subkind: education
 ---
 
 ## NEURO DANCE

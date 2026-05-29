@@ -4,10 +4,20 @@ parent: registry-expert
 title_en: MindShow at TechFriendly / CIPR
 title_ru: MindShow на TechFriendly / ЦИПР
 type: content
-tags: [registry, mindshow]
+tags:
+  - registry
+  - mindshow
 visible: true
 date: 2026.05.01
 order: 0
+kind: event
+date_start: 2026-05-01
+venue: Nizhny Novgorod
+organizer:
+  - "[[org-ashram]]"
+  - "[[org-cipr]]"
+products:
+  - "[[mindshow]]"
 ---
 
 ## MindShow at TechFriendly / CIPR
@@ -29,4 +39,3 @@ order: 0
 **Формат:** mindshow  
 **Организации:** Студия Ashram (Натали Осман)  
 **Площадки:** ЦИПР
-
