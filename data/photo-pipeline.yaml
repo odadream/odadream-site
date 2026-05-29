@@ -1,0 +1,40 @@
+# Event photo ingest routes — used by scripts/add-event-photo.js
+# Match: substring in source file path (case-insensitive)
+
+byob-2026:
+  eventId: byob-2026
+  albumId: work-byob-2026-photos
+  products: [mindshow]
+  destDir: byob-2026
+  pathHints:
+    - "26-02-28"
+    - "мини byob"
+    - "byob 3"
+    - "byob-2026"
+  title_en: "BYOB 2026 — photo report"
+  title_ru: "BYOB 2026 — фоторепортаж"
+
+byob-2020:
+  eventId: byob-2020
+  albumId: work-byob-2020-photos
+  products: [multisync]
+  destDir: byob-2020
+  pathHints:
+    - "19-08-15"
+    - "byob 2"
+    - "byob-2020"
+    - "dsc07261"
+  title_en: "BYOB 2020 — photo report"
+  title_ru: "BYOB 2020 — фоторепортаж"
+
+byob-2019:
+  eventId: byob-2019
+  albumId: work-byob-2019-photos
+  products: [mindshow]
+  destDir: byob-2019
+  pathHints:
+    - "19-12-22"
+    - "byob 1"
+    - "byob-2019"
+  title_en: "BYOB 2019 — photo report"
+  title_ru: "BYOB 2019 — фоторепортаж"
