@@ -184,6 +184,25 @@ export interface LotusNode {
 
   /** External URL for organizers. */
   website?: string;
+
+  // -----------------------------------------------------------------
+  // Phase D — external subsites + work access/sale
+  // -----------------------------------------------------------------
+
+  /** External canonical site for a product/event (e.g. interference.odadream.art). */
+  external_site?: string;
+  /** Bilingual CTA label for the external_site banner. */
+  external_site_label?: LocalizedString;
+
+  /** Access tier for a media work. public = freely playable, restricted = preview
+   *  shown but full body behind paywall/request, private = mentioned only. */
+  access?: "public" | "restricted" | "private";
+  /** True if the work is purchasable / for licensing. */
+  for_sale?: boolean;
+  /** URL to a purchase / licensing flow when for_sale = true. */
+  purchase_url?: string;
+  /** Media asset id (from data/media.ts) used as a teaser when the full work is restricted. */
+  preview_media?: string;
 }
 
 /**

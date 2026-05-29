@@ -62,6 +62,12 @@ const loadFileNodes = (): LotusNode[] => {
                 asset: partialNode.asset,
                 quote: partialNode.quote,
                 website: partialNode.website,
+                external_site: partialNode.external_site,
+                external_site_label: partialNode.external_site_label,
+                access: partialNode.access,
+                for_sale: partialNode.for_sale,
+                purchase_url: partialNode.purchase_url,
+                preview_media: partialNode.preview_media,
             };
             nodes.push(node);
         }

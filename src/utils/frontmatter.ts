@@ -182,5 +182,27 @@ export const fileToNode = (
   const quote = optionalLocalized(attributes.quote_en, attributes.quote_ru);
   if (quote) node.quote = quote;
 
+  // --- Phase D: external subsite + work access/sale ---
+  const external_site = toString(attributes.external_site);
+  if (external_site) node.external_site = external_site;
+  const ext_label = optionalLocalized(
+    attributes.external_site_label_en,
+    attributes.external_site_label_ru,
+  );
+  if (ext_label) node.external_site_label = ext_label;
+
+  if (
+    attributes.access === "public" ||
+    attributes.access === "restricted" ||
+    attributes.access === "private"
+  ) {
+    node.access = attributes.access;
+  }
+  if (attributes.for_sale === true) node.for_sale = true;
+  const purchase_url = toString(attributes.purchase_url);
+  if (purchase_url) node.purchase_url = purchase_url;
+  const preview_media = toString(attributes.preview_media);
+  if (preview_media) node.preview_media = preview_media;
+
   return node;
 };

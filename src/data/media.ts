@@ -9,11 +9,16 @@
  */
 
 export type MediaAsset = {
+  /** Primary URL used for inline embed. */
   url: string;
   poster?: string;
   title?: { en: string; ru: string };
   /** Lotus node ids this asset relates to (product / event). */
   subject?: string[];
+  /** Coarse type — see taxonomy.media. */
+  subkind?: "video" | "photo" | "sketch" | "teaser" | "post" | "text" | "audio";
+  /** Alternative URLs for the same asset (mirrors on YT/VK/etc). Keyed by platform name. */
+  mirrors?: Record<string, string>;
 };
 
 export const MEDIA: Record<string, MediaAsset> = {
@@ -172,5 +177,18 @@ export const MEDIA: Record<string, MediaAsset> = {
   "jewellery-cover": {
     url: "/images/content/jewellery.jpg",
     title: { en: "Jewellery objects", ru: "Ювелирные объекты" },
+  },
+
+  // --- Interference of Realities (neuro-theater) ---
+  "intf-teaser": {
+    url: "https://dzen.ru/video/watch/intf-teaser-placeholder",
+    poster: "/images/content/interference_teaser.webp",
+    title: { en: "Interference · official teaser", ru: "Интерференция · официальный тизер" },
+    subkind: "video",
+    subject: ["interference", "eng-2026-interference-tsiolkovsky"],
+    mirrors: {
+      youtube: "https://youtube.com/watch?v=intf-teaser-placeholder",
+      vk: "https://vk.com/video/intf-teaser-placeholder",
+    },
   },
 };

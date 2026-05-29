@@ -13,6 +13,11 @@ date: 2026.05.16
 status: production
 kind: product
 subkind: art
+external_site: https://interference.odadream.art
+external_site_label_en: Full project archive
+external_site_label_ru: Полный архив проекта
+media:
+  - intf-teaser
 ---
 
 ## INTERFERENCE OF REALITIES

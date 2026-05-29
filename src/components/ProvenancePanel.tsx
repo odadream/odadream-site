@@ -1,6 +1,6 @@
 import React from "react";
 import * as LucideIcons from "lucide-react";
-import { type LucideIcon, Tag, Globe, Calendar, MapPin, Users, Award } from "lucide-react";
+import { type LucideIcon, Tag, Globe, Calendar, MapPin, Users, Award, ArrowUpRight, Lock, ShoppingBag } from "lucide-react";
 
 import { LotusNode } from "../types";
 import { useNavigation } from "../context/NavigationContext";
@@ -178,6 +178,12 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
         media: "Медиа",
         artifacts: "Артефакты",
         workAbout: "О чём",
+        externalSite: "Полный архив проекта",
+        workStatus: "Статус работы",
+        accessPublic: "Открытый доступ",
+        accessRestricted: "Ограниченный доступ",
+        accessPrivate: "Частный",
+        forSale: "Купить / лицензировать",
       }
     : {
         title: "Provenance",
@@ -202,6 +208,12 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
         media: "Media",
         artifacts: "Artifacts",
         workAbout: "About",
+        externalSite: "Project archive",
+        workStatus: "Work status",
+        accessPublic: "Public access",
+        accessRestricted: "Restricted access",
+        accessPrivate: "Private",
+        forSale: "Buy / license",
       };
 
   const sub = subkindMeta(node.kind, node.subkind);
@@ -228,7 +240,71 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
         </span>
       </header>
 
+      {/* EXTERNAL SUBSITE CTA — full-width banner above sections.
+          Renders only when a product/event has a canonical external archive. */}
+      {node.external_site && (
+        <a
+          href={node.external_site}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group block ring-1 ring-accent/40 hover:ring-accent/80 transition-all bg-accent/[0.05] hover:bg-accent/[0.10] px-4 py-3 mb-6"
+        >
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex flex-col">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-accent/80">
+                {node.external_site_label?.[lang] || T.externalSite}
+              </span>
+              <span className="text-sm font-mono text-hud">
+                {node.external_site.replace(/^https?:\/\//, "")}
+              </span>
+            </div>
+            <ArrowUpRight className="w-4 h-4 text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </div>
+        </a>
+      )}
+
       <div className="flex flex-col gap-6">
+        {/* WORK STATUS (media works only) — access + for_sale --------- */}
+        {(node.access || node.for_sale) && node.kind === "media" && (
+          <Section label={T.workStatus} icon={Lock}>
+            {node.access && (
+              <span
+                className={`inline-flex items-center gap-1.5 px-2 py-1 ring-1 text-[11px] font-mono ${
+                  node.access === "public"
+                    ? "text-emerald-400/90 ring-emerald-400/30"
+                    : node.access === "restricted"
+                      ? "text-amber-400/90 ring-amber-400/30"
+                      : "text-rose-400/90 ring-rose-400/30"
+                }`}
+              >
+                <Lock className="w-3 h-3" strokeWidth={1.5} />
+                {node.access === "public"
+                  ? T.accessPublic
+                  : node.access === "restricted"
+                    ? T.accessRestricted
+                    : T.accessPrivate}
+              </span>
+            )}
+            {node.for_sale &&
+              (node.purchase_url ? (
+                <a
+                  href={node.purchase_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-2 py-1 ring-1 ring-accent/50 hover:bg-accent/10 transition-colors text-[11px] font-mono text-accent"
+                >
+                  <ShoppingBag className="w-3 h-3" strokeWidth={1.5} />
+                  {T.forSale}
+                </a>
+              ) : (
+                <span className="inline-flex items-center gap-1.5 px-2 py-1 ring-1 ring-accent/40 text-[11px] font-mono text-accent/80">
+                  <ShoppingBag className="w-3 h-3" strokeWidth={1.5} />
+                  {T.forSale}
+                </span>
+              ))}
+          </Section>
+        )}
+
         {/* WHEN / WHERE (events) ---------------------------------------- */}
         {hasDates && (
           <Section label={T.when} icon={Calendar}>
@@ -410,16 +486,39 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
           const FilmIcon = iconFor("Film");
           return (
             <Section label={T.media} icon={FilmIcon}>
-              {prov.media.map(({ id, asset }) => (
-                <span
-                  key={id}
-                  className="inline-flex items-center gap-1.5 px-2 py-1 ring-1 ring-border/40 text-[11px] font-mono text-txt-muted"
-                  title={asset.title?.[lang] || id}
-                >
-                  <FilmIcon className="w-3 h-3" strokeWidth={1.5} />
-                  {asset.title?.[lang] || id}
-                </span>
-              ))}
+              {prov.media.map(({ id, asset }) => {
+                const meta = subkindMeta("media", asset.subkind);
+                const Icon = iconFor(meta.icon);
+                const mirrors = asset.mirrors ? Object.entries(asset.mirrors) : [];
+                return (
+                  <span
+                    key={id}
+                    className="inline-flex items-center gap-1.5 px-2 py-1 ring-1 ring-border/40 text-[11px] font-mono text-txt-muted"
+                    title={asset.title?.[lang] || id}
+                  >
+                    <Icon className="w-3 h-3" strokeWidth={1.5} />
+                    {asset.title?.[lang] || id}
+                    {mirrors.length > 0 && (
+                      <span className="text-txt-dim opacity-70 ml-1">
+                        ·{" "}
+                        {mirrors.map(([platform, url], i) => (
+                          <React.Fragment key={platform}>
+                            {i > 0 && " · "}
+                            <a
+                              href={url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="hover:text-accent transition-colors uppercase"
+                            >
+                              {platform}
+                            </a>
+                          </React.Fragment>
+                        ))}
+                      </span>
+                    )}
+                  </span>
+                );
+              })}
             </Section>
           );
         })()}
