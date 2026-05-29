@@ -19,8 +19,8 @@ For **paid brand commissions** → [[for-business|Corporate & brands]]. For the 
 <!-- registry:letters-all -->
 - **Diploma — "Digital Art & AI" panel, 6th exhibition-forum** — Unique Russia (Gostiny Dvor, Moscow) (2026) ![[/images/content/collab_2026_ODA_Gostinyy_dvor.webp | Diploma — "Digital Art & AI" panel, 6th exhibition-forum]]
 - **Diploma — Portal 2030–2050 (Visioning win)** (2025) ![[/images/content/collab_2025_ODA_Portal.webp | Diploma — Portal 2030–2050 (Visioning win)]]
-- **Letter of appreciation — HSE University, "Beautiful About the Brain"** — HSE University (2025) ![[/images/content/collab_2025_ODA_VShE_ch2.webp | Letter of appreciation — HSE University, "Beautiful About the Brain"]]
 - **Letter of appreciation — Tavrida.ART, "Cultural Code of Russia"** — Tavrida.ART (2025) ![[/images/content/collab_2025_ODA_Tavrida_II.webp | Letter of appreciation — Tavrida.ART, "Cultural Code of Russia"]]
+- [[proof-hse-beautiful-brain|Letter of appreciation — HSE University, "Beautiful About the Brain"]] — HSE University (2025) ![[/images/content/collab_2025_ODA_VShE_ch2.webp | Letter of appreciation — HSE University, "Beautiful About the Brain"]]
 - **Letter of appreciation — Moscow 2030, forum-festival participation** — Moscow 2030 (2025) ![[/images/content/collab_2025_ODA_Moskva_2030_Olga.webp | Letter of appreciation — Moscow 2030, forum-festival participation]]
 - **Letter of appreciation — "Cultural Code of North Ossetia" exhibition** — Media Experts — "Great Russia" project (2025) ![[/images/content/collab_2025_ODA_Severnaya_Osetiya_Media_Eksperty.webp | Letter of appreciation — "Cultural Code of North Ossetia" exhibition]]
 - **Letter of appreciation — Wild Mint, "Neuromandala" lecture & performance** — Wild Mint Festival (2025) ![[/images/content/collab_2025_ODA_Dikaya_myata.webp | Letter of appreciation — Wild Mint, "Neuromandala" lecture & performance]]
@@ -43,8 +43,8 @@ For **paid brand commissions** → [[for-business|Corporate & brands]]. For the 
 <!-- registry:letters-all-ru -->
 - **Диплом — панель «Цифровое искусство и ИИ», VI выставка-форум** — Уникальная Россия (Гостиный двор, Москва) (2026) ![[/images/content/collab_2026_ODA_Gostinyy_dvor.webp | Диплом — панель «Цифровое искусство и ИИ», VI выставка-форум]]
 - **Диплом — Портал 2030–2050 (победа в «Видженинг»)** (2025) ![[/images/content/collab_2025_ODA_Portal.webp | Диплом — Портал 2030–2050 (победа в «Видженинг»)]]
-- **Благодарность — НИУ ВШЭ, лекция «Красиво про мозг»** — НИУ ВШЭ (2025) ![[/images/content/collab_2025_ODA_VShE_ch2.webp | Благодарность — НИУ ВШЭ, лекция «Красиво про мозг»]]
 - **Благодарность — Таврида.АРТ, фестиваль «Культурный код России»** — Таврида.АРТ (2025) ![[/images/content/collab_2025_ODA_Tavrida_II.webp | Благодарность — Таврида.АРТ, фестиваль «Культурный код России»]]
+- [[proof-hse-beautiful-brain|Благодарность — НИУ ВШЭ, лекция «Красиво про мозг»]] — НИУ ВШЭ (2025) ![[/images/content/collab_2025_ODA_VShE_ch2.webp | Благодарность — НИУ ВШЭ, лекция «Красиво про мозг»]]
 - **Благодарность — Москва 2030, участие в подготовке форума-фестиваля** — Москва 2030 (2025) ![[/images/content/collab_2025_ODA_Moskva_2030_Olga.webp | Благодарность — Москва 2030, участие в подготовке форума-фестиваля]]
 - **Благодарность — выставка «Культурный код Северной Осетии»** — Медиа Эксперты — проект «Великая Россия» (2025) ![[/images/content/collab_2025_ODA_Severnaya_Osetiya_Media_Eksperty.webp | Благодарность — выставка «Культурный код Северной Осетии»]]
 - **Благодарность — Дикая Мята, лекция и перформанс «Нейромандала»** — Дикая Мята (2025) ![[/images/content/collab_2025_ODA_Dikaya_myata.webp | Благодарность — Дикая Мята, лекция и перформанс «Нейромандала»]]

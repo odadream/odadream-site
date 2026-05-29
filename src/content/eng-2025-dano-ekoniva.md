@@ -6,14 +6,14 @@ title_ru: Нейробитва на Олимпиаде DANO
 type: content
 tags: [registry, neurobattle]
 visible: true
-date: 2025.06.01
+date: 2025.12.17
 order: 0
 ---
 
 ## Neurobattle at DANO Olympiad
 
 **Type:** Commercial  
-**Date:** 2025.06.01  
+**Date:** 2025.12.17  
 **City:** Moscow  
 **Format:** neurobattle  
 **Organizations:** EkoNiva  
@@ -26,7 +26,7 @@ order: 0
 ## Нейробитва на Олимпиаде DANO
 
 **Тип:** Коммерческий заказ  
-**Дата:** 2025.06.01  
+**Дата:** 2025.12.17  
 **Город:** Moscow  
 **Формат:** neurobattle  
 **Организации:** ЭкоНива  

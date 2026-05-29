@@ -16,7 +16,7 @@ order: 0
 **Date:** 2025.12.09  
 **City:** Moscow  
 **Format:** installation  
-**Organizations:** —  
+**Organizations:** Ekaterina Kapitsa  
 **Venues:** MIPT
 
 ---RU---
@@ -27,6 +27,6 @@ order: 0
 **Дата:** 2025.12.09  
 **Город:** Moscow  
 **Формат:** installation  
-**Организации:** —  
+**Организации:** Екатерина Капица  
 **Площадки:** МФТИ
 

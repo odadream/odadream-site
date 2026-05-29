@@ -4,18 +4,22 @@ parent: works-tech
 title_en: Hyperscanning / MultiSync
 title_ru: Гиперсканирование / MultiSync
 type: content
-tags: [circle, science]
+tags: [kind/product, product/tech, circle, science]
 status: rnd
 order: 1
 visible: true
-date: 2026.05.27
+date: 2026.05.29
+kind: product
+subkind: tech
+presented_at:
+  - "[[byob-2020]]"
 ---
 
 ## HYPERSCANNING / MULTISYNC
 
-**Multi-participant synchronization stack**
+**Multi-participant synchronization product**
 
-MultiSync is the technological layer that reads several EEG streams at once and computes their relationship in real time — the basis for collective formats like [[sync-circle|Sync Circle]] and the neuro-theater line.
+MultiSync reads several EEG streams at once and computes their relationship in real time — the basis for collective formats like [[sync-circle|Sync Circle]] and the neuro-theater line. Built on the **Neuromandala** technology stack.
 
 ## What it does
 
@@ -23,19 +27,15 @@ MultiSync is the technological layer that reads several EEG streams at once and 
 - Real-time markers of inter-brain synchrony (shared attention, convergence).
 - Output stream that art and education formats render as visuals, light, and sound.
 
-## Track record
-
-<!-- registry:dossier:multisync -->
-
-<!-- /registry:dossier:multisync -->
+![[work-byob-2020-photos]]
 
 ---RU---
 
 ## ГИПЕРСКАНИРОВАНИЕ / MULTISYNC
 
-**Стек синхронизации множества участников**
+**Продукт групповой синхронизации**
 
-MultiSync — технологический слой, считывающий несколько ЭЭГ-потоков одновременно и вычисляющий их взаимосвязь в реальном времени. На нём строятся коллективные форматы вроде [[sync-circle|Круга синхронизации]] и линия нейротеатра.
+MultiSync считывает несколько ЭЭГ-потоков одновременно и вычисляет их взаимосвязь в реальном времени — основа коллективных форматов вроде [[sync-circle|Круга синхронизации]] и линии нейротеатра. Построен на технологическом стеке **Нейромандала**.
 
 ## Что делает
 
@@ -43,8 +43,4 @@ MultiSync — технологический слой, считывающий н
 - Реал-тайм маркеры межмозговой синхронии (общее внимание, сближение).
 - Выходной поток, который арт- и образовательные форматы превращают в визуал, свет и звук.
 
-## Признание и след
-
-<!-- registry:dossier:multisync-ru -->
-
-<!-- /registry:dossier:multisync-ru -->
+![[work-byob-2020-photos]]

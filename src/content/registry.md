@@ -22,7 +22,7 @@ Data lives in `data/registry/` in git. Update YAML, then run `npm run registry:s
 
 | Date | Engagement | Type | Client / org | Venue | City |
 |------|------------|------|--------------|-------|------|
-| 2025.06.01 | [[eng-2025-dano-ekoniva|Neurobattle at DANO Olympiad]] | Commercial | EkoNiva | HSE University, T-Bank | Moscow |
+| 2025.12.17 | [[eng-2025-dano-ekoniva|Neurobattle at DANO Olympiad]] | Commercial | EkoNiva | HSE University, T-Bank | Moscow |
 | 2025.08.01 | [[eng-2025-tavrida-ai|AI festival Cultural Code of Russia]] | Commercial | Tavrida.ART | Tavrida.ART | — |
 | 2025.01.01 | [[eng-merck-corporate|Merck corporate science-art format]] | Commercial | Merck | — | Moscow |
 | 2024.06.25 | [[eng-2024-ashram-birthday|Ashram Studio birthday celebration]] | Commercial | Ashram Studio (Natali Osman) | Ashram Studio (Natali Osman) | Moscow |
@@ -36,8 +36,8 @@ Data lives in `data/registry/` in git. Update YAML, then run `npm run registry:s
 | 2026.05.01 | [[eng-2026-cipr-mindshow|MindShow at TechFriendly / CIPR]] | Expert invitation | Ashram Studio (Natali Osman) | CIPR | Nizhny Novgorod |
 | 2025.01.01 | [[eng-2025-sber-lecture|Science-art lecture for Sberbank]] | Expert invitation | Sberbank | Sberbank | Moscow |
 | 2025.01.01 | [[eng-2025-moscow2030-portal|Visioning competition win — Portal 2030–2050]] | Award / competition | — | Moscow 2030, Skolkovo Innovation Center | Moscow |
-| 2025.01.01 | [[eng-2025-hse-beautiful-brain|Beautiful About the Brain — HSE University]] | Expert invitation | HSE University | HSE University | Moscow |
-| 2025.12.09 | [[eng-2025-mipt-terraforming|Terraforming — MIPT exhibition]] | Expert invitation | — | MIPT | Moscow |
+| 2025.05.01 | [[eng-2025-hse-beautiful-brain|Beautiful About the Brain — HSE University]] | Expert invitation | HSE University | HSE University | Moscow |
+| 2025.12.09 | [[eng-2025-mipt-terraforming|Terraforming — MIPT exhibition]] | Expert invitation | Ekaterina Kapitsa | MIPT | Moscow |
 | 2025.01.01 | [[eng-2025-bauman-moscow2030|Brain-hacking lecture — Bauman MSTU]] | Expert invitation | — | Bauman MSTU, Moscow 2030 | Moscow |
 | 2025.01.01 | [[eng-2025-tpp-mindshow|MindShow — Russian Digital Creative summit]] | Expert invitation | — | CCI of Russian Federation | Moscow |
 | 2026.05.16 | [[eng-2026-interference-tsiolkovsky|Interference of Realities — Tsiolkovsky Festival]] | Competition / festival | Neiry Group | Tsiolkovsky Festival | Kaluga |
@@ -68,6 +68,8 @@ Data lives in `data/registry/` in git. Update YAML, then run `npm run registry:s
 | [[org-tsiolkovsky|Tsiolkovsky Festival]] | venue |
 | [[org-wildmint|Wild Mint Festival]] | venue |
 | [[org-neiry|Neiry Group]] | partner |
+| [[org-kalashnikova|Ekaterina Kalashnikova]] | curator |
+| [[org-kapitsa|Ekaterina Kapitsa]] | curator |
 
 ---RU---
 
@@ -83,7 +85,7 @@ Data lives in `data/registry/` in git. Update YAML, then run `npm run registry:s
 
 | Дата | Участие | Тип | Заказчик / орг. | Площадка | Город |
 |------|---------|-----|-----------------|----------|-------|
-| 2025.06.01 | [[eng-2025-dano-ekoniva|Нейробитва на Олимпиаде DANO]] | Коммерческий заказ | ЭкоНива | НИУ ВШЭ, Т-Банк | Moscow |
+| 2025.12.17 | [[eng-2025-dano-ekoniva|Нейробитва на Олимпиаде DANO]] | Коммерческий заказ | ЭкоНива | НИУ ВШЭ, Т-Банк | Moscow |
 | 2025.08.01 | [[eng-2025-tavrida-ai|Фестиваль ИИ «Культурный код России»]] | Коммерческий заказ | Таврида.АРТ | Таврида.АРТ | — |
 | 2025.01.01 | [[eng-merck-corporate|Корпоративный science-art формат Merck]] | Коммерческий заказ | Merck (Мерц) | — | Moscow |
 | 2024.06.25 | [[eng-2024-ashram-birthday|День рождения студии Ashram]] | Коммерческий заказ | Студия Ashram (Натали Осман) | Студия Ashram (Натали Осман) | Moscow |
@@ -97,8 +99,8 @@ Data lives in `data/registry/` in git. Update YAML, then run `npm run registry:s
 | 2026.05.01 | [[eng-2026-cipr-mindshow|MindShow на TechFriendly / ЦИПР]] | Экспертное приглашение | Студия Ashram (Натали Осман) | ЦИПР | Nizhny Novgorod |
 | 2025.01.01 | [[eng-2025-sber-lecture|Science-art лекция для Сбербанка]] | Экспертное приглашение | Сбербанк | Сбербанк | Moscow |
 | 2025.01.01 | [[eng-2025-moscow2030-portal|Победа «Видженинг» — Портал 2030–2050]] | Награда / конкурс | — | Москва 2030, Технопарк «Сколково» | Moscow |
-| 2025.01.01 | [[eng-2025-hse-beautiful-brain|«Красиво про мозг» — НИУ ВШЭ]] | Экспертное приглашение | НИУ ВШЭ | НИУ ВШЭ | Moscow |
-| 2025.12.09 | [[eng-2025-mipt-terraforming|Терраформинг — выставка МФТИ]] | Экспертное приглашение | — | МФТИ | Moscow |
+| 2025.05.01 | [[eng-2025-hse-beautiful-brain|«Красиво про мозг» — НИУ ВШЭ]] | Экспертное приглашение | НИУ ВШЭ | НИУ ВШЭ | Moscow |
+| 2025.12.09 | [[eng-2025-mipt-terraforming|Терраформинг — выставка МФТИ]] | Экспертное приглашение | Екатерина Капица | МФТИ | Moscow |
 | 2025.01.01 | [[eng-2025-bauman-moscow2030|Лекция про брейнхакинг — МГТУ им. Баумана]] | Экспертное приглашение | — | МГТУ им. Баумана, Москва 2030 | Moscow |
 | 2025.01.01 | [[eng-2025-tpp-mindshow|MindShow — саммит Russian Digital Creative]] | Экспертное приглашение | — | ТПП РФ | Moscow |
 | 2026.05.16 | [[eng-2026-interference-tsiolkovsky|«Интерференция реальностей» — Фестиваль Циолковского]] | Конкурс / фестиваль | Neiry Group | Фестиваль Циолковского | Kaluga |
@@ -129,3 +131,5 @@ Data lives in `data/registry/` in git. Update YAML, then run `npm run registry:s
 | [[org-tsiolkovsky|Фестиваль Циолковского]] | venue |
 | [[org-wildmint|Дикая Мята]] | venue |
 | [[org-neiry|Neiry Group]] | partner |
+| [[org-kalashnikova|Екатерина Калашникова]] | curator |
+| [[org-kapitsa|Екатерина Капица]] | curator |

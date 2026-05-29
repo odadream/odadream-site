@@ -94,7 +94,7 @@ The format works equally well with diverse audiences — **from young people to 
 4. [[eng-2025-sber-lecture|Science-art lecture for Sberbank]] — ![[media:lec-sber]]
 5. Masterclass on neurotechnologies for an innovative ballet theater at ![[media:lec-ikc]], Kaluga, 2024.
 6. Lecture on neuroaesthetics for members of the ![[media:lec-tskhr]] multimedia section, 2025.
-7. [[eng-2025-hse-beautiful-brain|Beautiful About the Brain — HSE University]] (also charity formats).
+7. [[beautiful-brain|Beautiful About the Brain]] — flagship lecture format (also charity and institutional variants).
 8. [[eng-2024-ashram-birthday|Ashram Studio — public talk]] — ![[media:lec-ashram]]
 
 Full log → [[registry-expert|Expert registry]]
@@ -107,18 +107,6 @@ Full log → [[registry-expert|Expert registry]]
 Ready to integrate a lecture into your festival or event — one that doesn’t just explain, but shows and leaves a lasting impression? → [Write to us](https://t.me/m/XTR2TqNlNTM1), and we’ll discuss the format and tailor it to your audience.
 
 ![[media:art-brain-cover]]
-
-## Track record
-
-<!-- registry:dossier:lectures -->
-*Track record at a glance:*
-
-**Shown at:** [[eng-merck-corporate|Merck corporate science-art format]] (Merck, 2025) · [[eng-2025-sber-lecture|Science-art lecture for Sberbank]] (Sberbank, 2025) · [[eng-2025-hse-beautiful-brain|Beautiful About the Brain — HSE University]] (HSE University, 2025)
-
-> «for conducting an immersive lecture "Beautiful About the Brain" that united neurophysiology, EEG technologies, and science-art» — HSE University (2025)
-
-Full footprint → [[press|Press]] · [[testimonials|Testimonials]] · [[letters|Recognition]]
-<!-- /registry:dossier:lectures -->
 
 ---RU---
 
@@ -205,7 +193,7 @@ Full footprint → [[press|Press]] · [[testimonials|Testimonials]] · [[letters
 4. [[eng-2025-sber-lecture|Science-art лекция для Сбербанка]] — ![[media:lec-sber]]
 5. Мастер-класс про нейротехнологии для инновационного театра балета в ![[media:lec-ikc]], г. Калуга, 2024 г.
 6. Лекция про нейроэстетику для членов ![[media:lec-tskhr]] секции мультимедиа, 2025 г.
-7. [[eng-2025-hse-beautiful-brain|«Красиво про мозг» — НИУ ВШЭ]] (также благотворительные форматы).
+7. [[beautiful-brain|«Красиво про мозг»]] — флагманский формат лекции (также благотворительные и институциональные варианты).
 8. [[eng-2024-ashram-birthday|Ashram Studio — публичный talk]] — ![[media:lec-ashram]]
 
 Полный журнал → [[registry-expert|Реестр экспертизы]]
@@ -216,15 +204,3 @@ Full footprint → [[press|Press]] · [[testimonials|Testimonials]] · [[letters
 ---
 
 Готовы встроить в ваш фестиваль или событие лекцию, которая не объясняет, а показывает и оставляет след? Свяжитесь с нами через [[contacts|контакты]] — обсудим формат и адаптируем его под вашу аудиторию.
-
-## Признание и след
-
-<!-- registry:dossier:lectures-ru -->
-*След и признание вкратце:*
-
-**Показывали:** [[eng-merck-corporate|Корпоративный science-art формат Merck]] (Merck (Мерц), 2025) · [[eng-2025-sber-lecture|Science-art лекция для Сбербанка]] (Сбербанк, 2025) · [[eng-2025-hse-beautiful-brain|«Красиво про мозг» — НИУ ВШЭ]] (НИУ ВШЭ, 2025)
-
-> «за проведение иммерсивной лекции «Красиво про мозг», объединившей нейрофизиологию, ЭЭГ-технологии и science-art» — НИУ ВШЭ (2025)
-
-Весь след → [[press|Пресса]] · [[testimonials|Отзывы]] · [[letters|Признание]]
-<!-- /registry:dossier:lectures-ru -->

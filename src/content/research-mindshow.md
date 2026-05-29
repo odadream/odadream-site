@@ -4,15 +4,42 @@ parent: research
 title_en: Mindshow
 title_ru: Майнд-шоу
 type: content
-tags: [stage, light]
+tags: [kind/product, product/art, stage, light]
 order: 4
-date: 2026.02.13
+date: 2026.05.29
 status: production
+kind: product
+subkind: art
+presented_at:
+  - "[[byob-2019]]"
+  - "[[byob-2026]]"
+  - "[[eng-2025-mipt-terraforming]]"
+  - "[[eng-2025-moscow2030-portal]]"
+  - "[[eng-2025-tpp-mindshow]]"
+  - "[[eng-2026-cipr-mindshow]]"
+proofs:
+  - "[[proof-portal-1st]]"
+  - "[[proof-cipr-quote]]"
+media:
+  - mdsh-demo-v5
+  - mdsh-hypercube
+  - mdsh-tpp
+  - mdsh-urban-forum
+  - mdsh-wildmint
+  - mdsh-ashram
+  - mdsh-terraforming
 ---
 
 An interactive installation-performance where a participant creates and experiences a **personal audiovisual animation** generated directly from their neural signals and verbal narrative. Watch demo -> ![[media:mdsh-demo-v5]].
 
 > Subject–object fusion. A person becomes simultaneously a medium, a co-creator, and a co-observer. Not a user of the interface — but a part of it.
+
+## Names and versions
+
+Public names evolved (**MindGrid** at early festivals including [[byob-2019|BYOB 2019]], later **MindShow**). Stack versions (v5, VJ mode, AI layers, etc.) are documented here on the product card — event cards only link `[[mindshow]]`, not a specific build.
+
+![[work-byob-2019-mindgrid]]
+![[work-byob-2026-photos]]
 
 ## How It Works
 
@@ -54,49 +81,37 @@ An interactive installation-performance where a participant creates and experien
 - **Public lecture or workshop** on digital humanism: a practical illustration of theses on new subjectivity in the age of algorithms.
 - **Research retreat or lab:** a tool for collecting unique data on correlations between subjective experience and objective brain patterns.
 
-> The MindShow performance won **1st place** at the VJ competition of the "Portal 2030–2050" festival (2025) as part of the "Territory of the Future. Moscow 2030" forum.
-
 **Conclusion:** This is neither a show nor a diagnostic tool. It is a protocol for materializing internal states: a structured process in which consciousness becomes the source, and the interface — the translator. The outcome is not an emotion, but a visual symbol of understanding.
 
-## Featured Projects
+## Format in motion
 
-1. Projection onto the ![[media:mdsh-hypercube]] building in Skolkovo at the "Portal 2030–2050" festival (2024);
-2. Booth at the ![[media:mdsh-tpp]] at the International Interindustry Summit Russian Digital Creative 2025;
-3. Booth at the ![[media:mdsh-urban-forum]] in 2024;
-4. Lecture and performance at the ![[media:mdsh-wildmint]] festival in 2025;
-5. Practices at Ashram ![[media:mdsh-ashram]];
-6. First digital plein air in the Moscow ![[media:mdsh-metro]] → [NTV story](https://www.ntv.ru/novosti/2887676/);
-7. First digital plein air in Bashkiria, at the ![[media:mdsh-bashkiria]] museum → [TCXP article](https://tcxp.ru/news/regions/v-bashkirii-proshel-pervyy-cifrovoy-plener).
+Illustrations from the field — video only, details in provenance:
+
+1. ![[media:mdsh-hypercube]] — Skolkovo, Portal 2030–2050;
+2. ![[media:mdsh-tpp]] — Russian Digital Creative summit;
+3. ![[media:mdsh-urban-forum]] — RusUrbanForum;
+4. ![[media:mdsh-wildmint]] — Wild Mint Festival;
+5. ![[media:mdsh-ashram]] — Ashram Studio practices;
+6. ![[media:mdsh-terraforming]] — Terraforming / MIPT performance.
 
 ---
-
-
 
 **Exhibit / commission →** [[for-institutions|Institutions & Collectors]]
 
 Ready to create a space for your event where the inner state becomes visible? → [discuss the concept](https://t.me/m/6ytmN4eMYzY9)
-
-## Track record
-
-<!-- registry:dossier:mindshow -->
-*Track record at a glance:*
-
-**Shown at:** [[eng-2026-cipr-mindshow|MindShow at TechFriendly / CIPR]] (Ashram Studio (Natali Osman), 2026) · [[eng-2025-moscow2030-portal|Visioning competition win — Portal 2030–2050]] (2025) · [[eng-2025-tpp-mindshow|MindShow — Russian Digital Creative summit]] (2025)
-
-**Recognition:** 1st place — VJ competition "Visioning", Portal 2030–2050 (2025)
-
-**Press:** [NTV](https://www.ntv.ru/novosti/2887676/) · [TSKhR](https://tcxp.ru/news/regions/v-bashkirii-proshel-pervyy-cifrovoy-plener)
-
-> «for co-presentation at TechFriendly Weekend, part of CIPR — Digital Industry of Industrial Russia forum» — CIPR (2026)
-
-Full footprint → [[press|Press]] · [[testimonials|Testimonials]] · [[letters|Recognition]]
-<!-- /registry:dossier:mindshow -->
 
 ---RU---
 
 Интерактивная инсталляция-перформанс, в которой участник создаёт и проживает **персональную аудиовизуальную анимацию**, возникающую из прямого преобразования нейросигналов и собственного вербального нарратива. Смотреть демо -> ![[media:mdsh-demo-v5]].
 
 > Субъект-объектное слияние. Человек становится одновременно медиумом, сотворцом и сонаблюдателем. Не пользователем интерфейса — а его частью.
+
+## Имена и версии
+
+Публичные названия менялись (**MindGrid** на ранних фестивалях, в т.ч. [[byob-2019|BYOB 2019]], позже **MindShow**). Версии стека (v5, VJ-режим, AI-слои и т.д.) — на этой карточке продукта; события ссылаются только на `[[mindshow]]`, без привязки к билду.
+
+![[work-byob-2019-mindgrid]]
+![[work-byob-2026-photos]]
 
 ## Как это работает
 
@@ -138,40 +153,21 @@ Full footprint → [[press|Press]] · [[testimonials|Testimonials]] · [[letters
 - **Публичная лекция или воркшоп** по digital humanism: как практическая иллюстрация к тезисам о новой субъективности в эпоху алгоритмов.
 - **Исследовательский ретрит или лаборатория:** как инструмент для сбора уникальных данных о корреляции субъективного опыта и объективных паттернов мозга.
 
-> Перформанс MindShow занял **первое место** на VJ-конкурсе фестиваля «Портал 2030–2050» (2025 г.) в рамках форума «Территория будущего. Москва 2030».
-
 **Итог:** Это не шоу и не диагностика. Это протокол материализации внутреннего состояния: структурированный процесс, в котором сознание становится источником, а интерфейс — переводчиком. Результат — не эмоция, а визуальный символ понимания.
 
-## Реализованные кейсы
+## Формат в движении
 
-1. Проекция на здание ![[media:mdsh-hypercube]] в Сколково на фестивале «Портал 2030–2050» (2024 г.);
-2. Стенд в ![[media:mdsh-tpp]] на Международном межотраслевом саммите Russian Digital Creative 2025;
-3. Стенд на ![[media:mdsh-urban-forum]] в 2024 г.;
-4. Лекция и перформанс на фестивале ![[media:mdsh-wildmint]] в 2025 г.;
-5. Практики в Ashram ![[media:mdsh-ashram]];
-6. Первый цифровой пленэр в московском ![[media:mdsh-metro]] → [Сюжет на НТВ](https://www.ntv.ru/novosti/2887676/);
-7. Первый цифровой пленэр в Башкирии, музее ![[media:mdsh-bashkiria]] → [Статья ТСХР](https://tcxp.ru/news/regions/v-bashkirii-proshel-pervyy-cifrovoy-plener).
+Иллюстрации с площадок — только видео, детали в блоке связей:
+
+1. ![[media:mdsh-hypercube]] — Сколково, Портал 2030–2050;
+2. ![[media:mdsh-tpp]] — саммит Russian Digital Creative;
+3. ![[media:mdsh-urban-forum]] — РосУрбанФорум;
+4. ![[media:mdsh-wildmint]] — Дикая Мята;
+5. ![[media:mdsh-ashram]] — практики в Ashram;
+6. ![[media:mdsh-terraforming]] — перформанс Терраформинг / МФТИ.
 
 ---
-
-
 
 **Показать / заказать →** [[for-institutions|Институциям и коллекционерам]]
 
 Готовы создать для вашего события пространство, где внутреннее состояние становится видимым? Свяжитесь с нами через [[contacts|контакты]] — обсудим концепцию и формат.
-
-## Признание и след
-
-<!-- registry:dossier:mindshow-ru -->
-*След и признание вкратце:*
-
-**Показывали:** [[eng-2026-cipr-mindshow|MindShow на TechFriendly / ЦИПР]] (Студия Ashram (Натали Осман), 2026) · [[eng-2025-moscow2030-portal|Победа «Видженинг» — Портал 2030–2050]] (2025) · [[eng-2025-tpp-mindshow|MindShow — саммит Russian Digital Creative]] (2025)
-
-**Награды:** 1-е место — VJ-конкурс «Видженинг», Портал 2030–2050 (2025)
-
-**Пресса:** [НТВ](https://www.ntv.ru/novosti/2887676/) · [ТСХР](https://tcxp.ru/news/regions/v-bashkirii-proshel-pervyy-cifrovoy-plener)
-
-> «за совместное выступление на TechFriendly Weekend в рамках форума ЦИПР — Цифровая индустрия промышленной России» — ЦИПР (2026)
-
-Весь след → [[press|Пресса]] · [[testimonials|Отзывы]] · [[letters|Признание]]
-<!-- /registry:dossier:mindshow-ru -->

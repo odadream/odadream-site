@@ -3,68 +3,65 @@ id: byob
 parent: events
 title_en: BYOB
 title_ru: BYOB
-type: content
-tags: [projector, chaos]
+type: hub
+tags: [byob, projector, festival-series]
 order: 3
-date: 2026.02.06
+date: 2026.05.29
+visible: true
 ---
 
 ## BYOB
 
-**Bring Your Own Beamer**
+**Bring Your Own Beamer** — an international open format where artists project their own work. ODA.dream has taken part **three times**; each edition is a separate card with dates, products, and media in provenance. Moscow editions were curated by **[[org-kalashnikova|Ekaterina Kalashnikova]]**.
 
-BYOB 2019 is one of the earliest public milestones of ODA.dream: the first open presentation of MindGrid / Neuromandala in a projection-festival context.
+| Year | Edition | Product shown |
+|------|---------|---------------|
+| 2019 | [[byob-2019]] | [[mindshow]] (then public name **MindGrid**) |
+| 2020 | [[byob-2020]] | [[multisync]] |
+| 2026 | [[byob-2026]] | [[mindshow]] |
 
-## Why this event matters
+Built on the **Neuromandala** technology stack (EEG → generative visuals). Product version details live on each product card — not duplicated per event.
 
-- first public test of the format in a live audience environment;
-- transition from internal experimentation to festival-scale communication;
-- starting point for the concept of **event neuroanalysis**.
+## Why the series matters
 
-## Event neuroanalysis concept (first articulation)
+- first public stress-test of neuro-art in a projection-festival context (2019);
+- birthplace of the **event neuroanalysis** idea — reading a program through collective biosignal layers;
+- a recurring checkpoint for how MindShow and MultiSync evolve in the wild.
 
-At BYOB we proposed a framework for reading events through biosignal-informed layers:
+## Event neuroanalysis (first formulated at BYOB 2019)
 
-- participants' changing states during the program;
-- linkage of verbal interaction and group dynamics;
-- timeline-based interpretation of state shifts;
-- relation between emotional response and DJ/music track flow.
+- dynamics of participant states across the program;
+- links between verbal interaction and group dynamics;
+- temporal interpretation of state shifts;
+- emotional response mapped to musical tracks / DJ sets.
 
-This became an early foundation for later ODA.dream lines in participatory installations, show formats, and event-level neuro portraits.
-
-## Continuity
-
-- BYOB 2019 -> first public showing;
-- BYOB 2020 -> continuation and iteration of the format;
-- later growth into MindShow / Neurobattle and broader festival ecosystem.
+This framing later fed participatory installations, show formats, and event neuro-portraits across the portfolio.
 
 ---RU---
 
 ## BYOB
 
-**Принеси Свой Проектор**
+**Bring Your Own Beamer** — открытый формат, где художники проецируют собственные работы. ODA.dream участвовали **трижды**; каждый год — отдельная карточка с датами, продуктами и медиа в блоке связей. Московские издания курировала **[[org-kalashnikova|Екатерина Калашникова]]**.
 
-BYOB 2019 — одна из ранних публичных вех ODA.dream: первый открытый показ MindGrid / Нейромандалы в контексте проекционного фестиваля.
+| Год | Участие | Продукт |
+|-----|---------|---------|
+| 2019 | [[byob-2019]] | [[mindshow]] (тогда публичное имя **MindGrid**) |
+| 2020 | [[byob-2020]] | [[multisync]] |
+| 2026 | [[byob-2026]] | [[mindshow]] |
 
-## Почему это событие важно
+Основа — технологический стек **Нейромандала** (ЭЭГ → генеративная графика). Версии продуктов описаны на карточках продуктов, не дублируются по событиям.
 
-- первый публичный стресс-тест формата на живой аудитории;
-- переход от внутреннего эксперимента к фестивальной коммуникации;
-- точка первого формулирования концепта **нейроанализа событий**.
+## Почему серия важна
 
-## Концепт нейроанализа событий (первое формулирование)
+- первый публичный стресс-тест нейроарта на проекционном фестивале (2019);
+- место, где впервые сформулирован **нейроанализ событий**;
+- повторяющаяся точка проверки эволюции MindShow и MultiSync «в поле».
 
-Именно на BYOB мы предложили рамку чтения события через слои, связанные с биосигналами:
+## Нейроанализ событий (впервые на BYOB 2019)
 
 - динамика состояний участников по ходу программы;
 - связь вербального взаимодействия и групповой динамики;
 - интерпретация изменений по временной шкале;
-- связь эмоционального отклика с музыкальными треками / DJ-сетом.
+- связь эмоционального отклика с треками / DJ-сетом.
 
-Это стало ранней методической основой для последующих линий ODA.dream: партисипаторных инсталляций, show-форматов и нейропортретов событий.
-
-## Континуитет развития
-
-- BYOB 2019 -> первый публичный показ;
-- BYOB 2020 -> продолжение и итерация формата;
-- дальнейшее развитие в MindShow / Neurobattle и более широком фестивальном контуре.
+Эта рамка позже легла в основу партисипаторных инсталляций, шоу-форматов и нейропортретов событий.

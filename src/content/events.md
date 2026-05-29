@@ -22,7 +22,7 @@ Start from these core cases:
 - [[interference|Interference of Realities]] — neuro-theater premiere (2026): 12 live neurointerfaces, 150 attendees, XIV Tsiolkovsky Festival.
 - [[portal|Portal 2030]] — competition and festival context where MindShow gained institutional visibility.
 - [[pleinair|Digital Plein Air]] — field format in museum and urban environments with media-art outputs.
-- [[byob|BYOB]] — the first public debut of Neuromandala/MindGrid and the beginning of event neuroanalytics thinking.
+- [[byob|BYOB]] — recurring festival series (2019 MindShow/MindGrid, 2020 MultiSync, 2026 MindShow); birthplace of event neuroanalytics.
 - [[chastoti|Chastoti]] — a case of sensory and rhythm-based interaction.
 - [[terraforming|Terraforming]] — experiment at the intersection of environment, perception, and collective response.
 
@@ -41,7 +41,7 @@ If you are discovering us for the first time, open `Portal` and `BYOB` first: th
 - [[interference|Интерференция реальностей]] — нейротеатральная премьера (2026): 12 живых нейроинтерфейсов, 150 зрителей, XIV Фестиваль Циолковского.
 - [[portal|Портал 2030]] — конкурсный и фестивальный контекст, где MindShow получил институциональную видимость.
 - [[pleinair|Цифровой пленэр]] — полевой формат в музейной и городской среде с медиа-арт результатами.
-- [[byob|BYOB]] — первый публичный показ Нейромандалы/MindGrid и отправная точка идеи нейроанализа событий.
+- [[byob|BYOB]] — серия фестиваля (2019 MindShow/MindGrid, 2020 MultiSync, 2026 MindShow); здесь родился нейроанализ событий.
 - [[chastoti|Частоты]] — кейс сенсорной и ритмической работы с аудиторией.
 - [[terraforming|Терраформинг]] — эксперимент на пересечении среды, восприятия и коллективного отклика.
 

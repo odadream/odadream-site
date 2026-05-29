@@ -160,8 +160,9 @@ export function listLetters(proofs, omap, engById, lang) {
     .map((p) => {
       const src = proofSource(p, omap, engById, lang) || "";
       const title = txt(p, "title", lang);
+      const head = p.site_node ? `[[${p.site_node}|${title}]]` : `**${title}**`;
       const media = p.media ? ` ![[${p.media} | ${title}]]` : "";
-      return `- **${title}**${src ? ` — ${src}` : ""} (${pYear(p)})${media}`;
+      return `- ${head}${src ? ` — ${src}` : ""} (${pYear(p)})${media}`;
     })
     .join("\n");
 }

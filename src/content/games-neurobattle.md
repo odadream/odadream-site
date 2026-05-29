@@ -4,11 +4,20 @@ parent: games
 title_en: Neurobattle
 title_ru: Нейробитва
 type: content
-tags: [esports, brain]
+tags: [kind/product, product/game, esports, brain]
 image: /images/nodes/neurobattle.webp
-date: 2026.02.11
+date: 2026.05.29
 order: 0
 status: production
+kind: product
+subkind: game
+presented_at:
+  - "[[eng-2025-dano-ekoniva]]"
+media:
+  - nrbt-gameplay-v9
+  - nrbt-dano
+  - nrbt-veter
+  - nrbt-tnt
 ---
 
 Two participants control a single virtual object in real time. In form — tug of war. In essence — **a duel of mental states**. The system reads brain rhythms (EEG) and translates them into generative graphics on the screen.
@@ -19,13 +28,13 @@ Two participants control a single virtual object in real time. In form — tug o
 
 To gain the upper hand, depending on the battle mode, players must either **achieve deep relaxation** (increase alpha activity) or **intense concentration** (boost beta activity).
 
-The system tracks relative changes in each player’s state here and now. It’s not about “who is smarter” or “whose brain is more powerful”, but who can better regulate their state in the moment.
+The system tracks relative changes in each player's state here and now. It's not about "who is smarter" or "whose brain is more powerful", but who can better regulate their state in the moment.
 
-**The key paradox** of the format: success in a confrontation requires not emotional intensity, but the ability to manage it. The game is designed so that the outcome is inevitable, yet each player’s path to victory is unique.
+**The key paradox** of the format: success in a confrontation requires not emotional intensity, but the ability to manage it. The game is designed so that the outcome is inevitable, yet each player's path to victory is unique.
 
-No training is required — participants learn the mechanics on the fly. This adds an extra layer of excitement: spectators watch closely, discuss previous players’ strategies, and become actively immersed in the action.
+No training is required — participants learn the mechanics on the fly. This adds an extra layer of excitement: spectators watch closely, discuss previous players' strategies, and become actively immersed in the action.
 
-## Why It’s Engaging
+## Why It's Engaging
 
 - **Instant insight:** a direct and vivid way to sense how much you are in control of your inner balance right now.
 - **Spectacular contradiction:** it is fascinating to watch the outwardly calmer opponent win. This generates buzz, emotion, and a dense energetic atmosphere around the zone.
@@ -47,30 +56,17 @@ No training is required — participants learn the mechanics on the fly. This ad
 - **Public venue** (festival, exhibition): a live popular science demonstration turned into an exciting duel. Attracts audiences with a taste for tech-driven aesthetics.
 - **Private event:** an element of intellectual performance and a focal point for thoughtful guests. A format people talk about and want to discuss.
 
-**Bottom line:** a technologically sophisticated, visually compelling, and conceptually coherent format. Works for high throughput, draws a live audience, and ensures deep participant engagement. Provides strong visual and narrative content for social media and press.
+**Bottom line:** a technologically sophisticated, visually compelling, and conceptually coherent format. Works for high throughput, draws a live audience, and ensures deep participant engagement.
 
-## Featured Projects
+## Format in motion
 
-- [[eng-2025-dano-ekoniva|DANO Olympiad / EkoNiva]] — ![[media:nrbt-dano]];
-- Neurobattle at the ![[media:nrbt-veter]] charity gala;
-- TV feature on TNT’s ![[media:nrbt-tnt]] show.
-
+- ![[media:nrbt-dano]] — DANO Olympiad / EkoNiva stand;
+- ![[media:nrbt-veter]] — Wind of Change charity gala;
+- ![[media:nrbt-tnt]] — TNT "Ty kak Ya".
 
 **Book for your event →** [[for-business|Corporate & Brands]] · [[for-agents|Agencies]]
 
 Ready to create a scenario for your event where technology, people, and audience function as a single organism? Contact us via [[contacts]] to discuss the concept.
-
-## Track record
-
-<!-- registry:dossier:neurobattle -->
-*Track record at a glance:*
-
-**Shown at:** [[eng-2025-dano-ekoniva|Neurobattle at DANO Olympiad]] (EkoNiva, 2025)
-
-**Press:** [TNT, "Ty kak Ya"](https://dzen.ru/embed/vY9PlkGfKPUc?from_block=partner&from=zen&mute=0&autoplay=0&tv=0)
-
-Full footprint → [[press|Press]] · [[testimonials|Testimonials]] · [[letters|Recognition]]
-<!-- /registry:dossier:neurobattle -->
 
 ---RU---
 
@@ -110,27 +106,14 @@ Full footprint → [[press|Press]] · [[testimonials|Testimonials]] · [[letters
 - **Публичная площадка** (фестиваль, выставка): живая научно-популярная демонстрация, превращённая в увлекательный поединок. Притягивает аудиторию, ценящую технологичную эстетику.
 - **Закрытое событие:** элемент интеллектуального перформанса и точка притяжения для вдумчивых гостей. Формат, о котором говорят и который хочется обсудить.
 
-**Итог:** технологичный, зрелищный и концептуально цельный формат. Работает на поток, создаёт живую аудиторию вокруг и гарантирует глубокое вовлечение участников. Даёт сильный визуальный и смысловой контент для социальных сетей и медиа.
+**Итог:** технологичный, зрелищный и концептуально цельный формат. Работает на поток, создаёт живую аудиторию вокруг и гарантирует глубокое вовлечение участников.
 
-## Реализованные кейсы
+## Формат в движении
 
-- [[eng-2025-dano-ekoniva|Олимпиада DANO / ЭкоНива]] — ![[media:nrbt-dano]];
-- Нейробатл на благотворительном вечере ![[media:nrbt-veter]];
-- Шоу на телеканале ТНТ ![[media:nrbt-tnt]].
-
+- ![[media:nrbt-dano]] — олимпиада DANO / стенд ЭкоНива;
+- ![[media:nrbt-veter]] — благотворительный вечер «Ветер Перемен»;
+- ![[media:nrbt-tnt]] — ТНТ «Ты как Я».
 
 **Заказать на событие →** [[for-business|Корпоративным клиентам]] · [[for-agents|Агентствам]]
 
 Готовы спроектировать для вашего события ситуацию, где технология, человек и зритель работают как единое целое? Свяжитесь с нами через [[contacts|контакты]], чтобы обсудить концепцию.
-
-## Признание и след
-
-<!-- registry:dossier:neurobattle-ru -->
-*След и признание вкратце:*
-
-**Показывали:** [[eng-2025-dano-ekoniva|Нейробитва на Олимпиаде DANO]] (ЭкоНива, 2025)
-
-**Пресса:** [ТНТ, «Ты как Я»](https://dzen.ru/embed/vY9PlkGfKPUc?from_block=partner&from=zen&mute=0&autoplay=0&tv=0)
-
-Весь след → [[press|Пресса]] · [[testimonials|Отзывы]] · [[letters|Признание]]
-<!-- /registry:dossier:neurobattle-ru -->
