@@ -6,7 +6,7 @@ title_ru: Mind Grid — нейропортрет BYOB 2019
 short_en: Mind Grid
 short_ru: Mind Grid
 type: content
-tags: [kind/media, media/photo, byob, mindshow]
+tags: [byob, mindshow]
 order: 1
 date: 2019.12.22
 visible: true

@@ -4,7 +4,7 @@ parent: games
 title_en: Neurobattle
 title_ru: Нейробитва
 type: content
-tags: [kind/product, product/game, esports, brain]
+tags: [esports, brain]
 image: /images/nodes/neurobattle.webp
 date: 2026.05.29
 order: 0

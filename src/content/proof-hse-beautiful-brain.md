@@ -4,7 +4,7 @@ parent: letters
 title_en: HSE — Beautiful About the Brain
 title_ru: ВШЭ — «Красиво про мозг»
 type: content
-tags: [kind/proof, proof/letter]
+tags: [proof, letter]
 visible: true
 date: 2025.05.01
 order: 2

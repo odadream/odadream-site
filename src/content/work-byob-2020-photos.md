@@ -6,7 +6,7 @@ title_ru: BYOB 2020 — фоторепортаж
 short_en: Photos
 short_ru: Фото
 type: content
-tags: [kind/media, media/photo, byob, multisync]
+tags: [byob, multisync]
 order: 1
 date: 2020.08.15
 visible: true

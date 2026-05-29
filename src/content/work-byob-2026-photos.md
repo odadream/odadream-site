@@ -6,7 +6,7 @@ title_ru: BYOB 2026 — фоторепортаж
 short_en: Photos
 short_ru: Фото
 type: content
-tags: [kind/media, media/photo, byob, mindshow]
+tags: [byob, mindshow]
 order: 1
 date: 2026.02.28
 visible: true

@@ -4,7 +4,7 @@ parent: letters
 title_en: <Title EN>
 title_ru: <Заголовок RU>
 type: content
-tags: [kind/proof]
+tags: []
 visible: true
 date: 2026.01.01
 kind: proof

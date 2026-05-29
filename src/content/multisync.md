@@ -4,7 +4,7 @@ parent: works-tech
 title_en: Hyperscanning / MultiSync
 title_ru: Гиперсканирование / MultiSync
 type: content
-tags: [kind/product, product/tech, circle, science]
+tags: [circle, science]
 status: rnd
 order: 1
 visible: true

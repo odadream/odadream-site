@@ -4,7 +4,7 @@ parent: research
 title_en: <Title EN>
 title_ru: <Заголовок RU>
 type: content
-tags: [kind/product]
+tags: []
 date: 2026.01.01
 status: production
 kind: product

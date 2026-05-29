@@ -4,7 +4,7 @@ parent: registry-orgs
 title_en: <Name EN>
 title_ru: <Название RU>
 type: content
-tags: [kind/organizer]
+tags: []
 visible: true
 date: 2026.01.01
 kind: organizer

@@ -1,0 +1,21 @@
+filters:
+  and:
+    - file.folder == "src/content"
+    - kind == "proof"
+views:
+  - type: table
+    name: Пруфы
+    order:
+      - file.name
+      - subkind
+      - publication
+      - publication_date
+      - issued_by
+      - proof_of
+    columnSize:
+      file.name: 260
+      subkind: 110
+      publication: 220
+      publication_date: 110
+      issued_by: 180
+      proof_of: 240

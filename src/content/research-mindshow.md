@@ -4,7 +4,7 @@ parent: research
 title_en: Mindshow
 title_ru: Майнд-шоу
 type: content
-tags: [kind/product, product/art, stage, light]
+tags: [stage, light]
 order: 4
 date: 2026.05.29
 status: production

@@ -4,7 +4,7 @@ parent: lectures
 title_en: Beautiful About the Brain
 title_ru: Красиво про мозг
 type: content
-tags: [kind/product, product/education, lecture, neuroscience]
+tags: [lecture, neuroscience]
 date: 2026.05.29
 order: 1
 status: production

@@ -1,0 +1,15 @@
+filters:
+  and:
+    - file.folder == "src/content"
+    - kind == "organizer"
+views:
+  - type: table
+    name: Организаторы
+    order:
+      - file.name
+      - subkind
+      - website
+    columnSize:
+      file.name: 240
+      subkind: 140
+      website: 280

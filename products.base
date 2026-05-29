@@ -1,0 +1,19 @@
+filters:
+  and:
+    - file.folder == "src/content"
+    - kind == "product"
+views:
+  - type: table
+    name: Продукты
+    order:
+      - file.name
+      - subkind
+      - status
+      - presented_at
+      - proofs
+    columnSize:
+      file.name: 240
+      subkind: 110
+      status: 110
+      presented_at: 280
+      proofs: 220

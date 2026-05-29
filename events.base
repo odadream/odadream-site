@@ -1,0 +1,21 @@
+filters:
+  and:
+    - file.folder == "src/content"
+    - kind == "event"
+views:
+  - type: table
+    name: События
+    order:
+      - file.name
+      - subkind
+      - date_start
+      - venue
+      - organizer
+      - products
+    columnSize:
+      file.name: 260
+      subkind: 100
+      date_start: 110
+      venue: 200
+      organizer: 200
+      products: 240
