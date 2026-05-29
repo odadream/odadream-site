@@ -1,131 +1,186 @@
-
-import { LotusNode } from '../types';
+import YAML from "yaml";
+import { LotusNode, LocalizedString } from "../types";
 
 interface FrontmatterData {
-    attributes: Record<string, any>;
-    body: string;
+  attributes: Record<string, any>;
+  body: string;
 }
 
+const DANGEROUS_KEYS = new Set(["__proto__", "constructor", "prototype"]);
+
 /**
- * Simple YAML Frontmatter parser.
- * Handles:
- * - Strings (key: value)
- * - Arrays (tags: [a, b, c])
- * - Booleans (visible: true)
- * - Numbers (order: 1)
+ * Strip prototype-pollution keys from any parsed object before we use it.
+ */
+const sanitize = (obj: any): any => {
+  if (Array.isArray(obj)) return obj.map(sanitize);
+  if (obj && typeof obj === "object") {
+    const out: Record<string, any> = Object.create(null);
+    for (const k of Object.keys(obj)) {
+      if (DANGEROUS_KEYS.has(k)) {
+        console.warn(`[Security] Blocked unsafe frontmatter key: ${k}`);
+        continue;
+      }
+      out[k] = sanitize(obj[k]);
+    }
+    return out;
+  }
+  return obj;
+};
+
+/**
+ * YAML Frontmatter parser. Supports full YAML — multi-line lists, nested objects,
+ * dates, numbers, booleans. Body separation on the surrounding `---` block.
  */
 export const parseFrontmatter = (text: string): FrontmatterData => {
-    // Robustness: Trim start of string to handle files with leading newlines
-    const cleanText = text.trimStart();
-    
-    // Regex now handles potential trailing spaces after '---'
-    // iOS Safari compatibility: avoid [\s\S]*? which can cause issues in older versions
-    const match = cleanText.match(/^---\s*\r?\n((?:.|\r?\n)*?)\r?\n---\s*\r?\n((?:.|\r?\n)*)$/);
-    
-    if (!match) {
-        return { attributes: {}, body: text };
-    }
+  const cleanText = text.trimStart();
+  const match = cleanText.match(
+    /^---\s*\r?\n((?:.|\r?\n)*?)\r?\n---\s*\r?\n((?:.|\r?\n)*)$/,
+  );
+  if (!match) return { attributes: {}, body: text };
 
-    const frontmatterBlock = match[1];
-    const body = match[2].trim();
-    // SECURITY: Use Object.create(null) to avoid prototype pollution via "__proto__"
-    const attributes: Record<string, any> = Object.create(null);
+  const block = match[1];
+  const body = match[2].trim();
 
-    frontmatterBlock.split(/\r?\n/).forEach(line => {
-        if (!line.trim() || line.trim().startsWith('#')) return;
+  let parsed: any;
+  try {
+    parsed = YAML.parse(block);
+  } catch (e) {
+    console.warn(`[frontmatter] YAML parse failed:`, e);
+    return { attributes: {}, body };
+  }
 
-        const colonIndex = line.indexOf(':');
-        if (colonIndex === -1) {
-            // Heuristic warning: a non-empty, non-comment frontmatter line should be `key: value`.
-            // Silent failures here are how `КОД: Провинции`-style content trips up the YAML side.
-            // We don't throw — just surface the issue for developer attention.
-            if (typeof console !== 'undefined') {
-                console.warn(`[frontmatter] Skipped malformed line (no ':'):`, line);
-            }
-            return;
-        }
-
-        const key = line.slice(0, colonIndex).trim();
-        
-        // SECURITY: Explicitly block dangerous keys
-        if (['__proto__', 'constructor', 'prototype'].includes(key)) {
-            console.warn(`[Security] Blocked unsafe frontmatter key: ${key}`);
-            return;
-        }
-
-        let value = line.slice(colonIndex + 1).trim();
-
-        // Handle Arrays [a, b] or ['a', "b"]
-        if (value.startsWith('[') && value.endsWith(']')) {
-            attributes[key] = value
-                .slice(1, -1)
-                .split(',')
-                .map(item => item.trim().replace(/^['"]|['"]$/g, '')) // Remove surrounding quotes
-                .filter(i => i);
-            return;
-        }
-
-        // Handle Booleans
-        if (value === 'true') {
-            attributes[key] = true;
-            return;
-        }
-        if (value === 'false') {
-            attributes[key] = false;
-            return;
-        }
-
-        // Handle Numbers
-        if (!isNaN(Number(value)) && value !== '') {
-            attributes[key] = Number(value);
-            return;
-        }
-
-        // Handle Strings (remove quotes if present)
-        if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
-            value = value.slice(1, -1);
-        }
-
-        attributes[key] = value;
-    });
-
-    return { attributes, body };
+  const attributes = parsed && typeof parsed === "object" ? sanitize(parsed) : {};
+  return { attributes, body };
 };
+
+/**
+ * Obsidian-style links in YAML strings look like `"[[id]]"` or `"[[id|alias]]"`.
+ * This util strips the brackets so downstream code sees a plain id.
+ * Pass-through for plain strings.
+ */
+export const unwrapWikilink = (s: unknown): string | undefined => {
+  if (typeof s !== "string") return undefined;
+  const trimmed = s.trim();
+  if (!trimmed) return undefined;
+  const m = trimmed.match(/^\[\[([^\]|]+)(?:\|[^\]]*)?\]\]$/);
+  if (m) return m[1].trim();
+  return trimmed;
+};
+
+const unwrapList = (v: unknown): string[] | undefined => {
+  if (!v) return undefined;
+  const arr = Array.isArray(v) ? v : [v];
+  const out = arr.map(unwrapWikilink).filter((s): s is string => !!s);
+  return out.length ? out : undefined;
+};
+
+const optionalLocalized = (
+  en: unknown,
+  ru: unknown,
+): LocalizedString | undefined => {
+  if (typeof en !== "string" && typeof ru !== "string") return undefined;
+  return {
+    en: typeof en === "string" ? en : "",
+    ru: typeof ru === "string" ? ru : "",
+  };
+};
+
+const toNumber = (v: unknown): number | undefined => {
+  if (typeof v === "number") return v;
+  if (typeof v === "string" && v.trim() !== "" && !isNaN(Number(v))) {
+    return Number(v);
+  }
+  return undefined;
+};
+
+const toString = (v: unknown): string | undefined =>
+  typeof v === "string" && v.trim() ? v : undefined;
 
 /**
  * Converts parsed file data into a partial LotusNode structure.
  */
-export const fileToNode = (rawContent: string, filename: string): Partial<LotusNode> | null => {
-    const { attributes, body } = parseFrontmatter(rawContent);
+export const fileToNode = (
+  rawContent: string,
+  filename: string,
+): Partial<LotusNode> | null => {
+  const { attributes, body } = parseFrontmatter(rawContent);
 
-    if (!attributes.id) {
-        console.warn(`File ${filename} is missing 'id' in frontmatter or failed to parse.`);
-        return null;
+  if (!attributes.id) {
+    console.warn(
+      `File ${filename} is missing 'id' in frontmatter or failed to parse.`,
+    );
+    return null;
+  }
+
+  const node: Partial<LotusNode> = {
+    id: attributes.id,
+    parentId: attributes.parent,
+    title: {
+      en: attributes.title_en || attributes.id,
+      ru: attributes.title_ru || attributes.id,
+    },
+    shortTitle: {
+      en: attributes.short_en || attributes.title_en,
+      ru: attributes.short_ru || attributes.title_ru,
+    },
+    description: {
+      en: body.split("---RU---")[0]?.trim() || body,
+      ru: body.split("---RU---")[1]?.trim() || body,
+    },
+    type: attributes.type || "content",
+    tags: Array.isArray(attributes.tags) ? attributes.tags : [],
+    imageUrl: attributes.image,
+    mediaUrl: attributes.media_url || attributes.image,
+    externalLink: attributes.external_link,
+    visible: attributes.visible !== false,
+    status: attributes.status,
+    lastModified: attributes.date,
+    order: attributes.order,
+  };
+
+  // --- Provenance-model fields ---
+  if (attributes.kind) node.kind = attributes.kind;
+  if (attributes.subkind) node.subkind = String(attributes.subkind);
+
+  node.presented_at = unwrapList(attributes.presented_at);
+  node.products = unwrapList(attributes.products);
+  node.organizer = unwrapList(attributes.organizer);
+  node.client = unwrapList(attributes.client);
+  node.proofs = unwrapList(attributes.proofs);
+  node.proof_of = unwrapList(attributes.proof_of);
+  node.about = unwrapList(attributes.about);
+  node.issued_by = unwrapList(attributes.issued_by);
+  // media here points to ids in src/data/media.ts (NOT wiki-links)
+  if (Array.isArray(attributes.media)) {
+    node.media = attributes.media.map(String).filter(Boolean);
+  }
+
+  if (attributes.attendance && typeof attributes.attendance === "object") {
+    const a = attributes.attendance as Record<string, unknown>;
+    const visitors = toNumber(a.visitors);
+    const contacts = toNumber(a.contacts);
+    if (visitors !== undefined || contacts !== undefined) {
+      node.attendance = { visitors, contacts };
     }
+  }
 
-    return {
-        id: attributes.id,
-        parentId: attributes.parent,
-        title: {
-            en: attributes.title_en || attributes.id,
-            ru: attributes.title_ru || attributes.id
-        },
-        shortTitle: {
-            en: attributes.short_en || attributes.title_en,
-            ru: attributes.short_ru || attributes.title_ru
-        },
-        description: {
-            en: body.split('---RU---')[0]?.trim() || body,
-            ru: body.split('---RU---')[1]?.trim() || body 
-        },
-        type: attributes.type || 'content',
-        tags: attributes.tags || [],
-        imageUrl: attributes.image,
-        mediaUrl: attributes.media || attributes.image,
-        externalLink: attributes.external_link,
-        visible: attributes.visible !== false,
-        status: attributes.status,
-        lastModified: attributes.date,
-        order: attributes.order,
-    };
+  const date_start = toString(attributes.date_start);
+  if (date_start) node.date_start = date_start;
+  const date_end = toString(attributes.date_end);
+  if (date_end) node.date_end = date_end;
+  const venue = toString(attributes.venue);
+  if (venue) node.venue = venue;
+  const publication = toString(attributes.publication);
+  if (publication) node.publication = publication;
+  const publication_date = toString(attributes.publication_date);
+  if (publication_date) node.publication_date = publication_date;
+  const asset = toString(attributes.asset);
+  if (asset) node.asset = asset;
+  const website = toString(attributes.website);
+  if (website) node.website = website;
+
+  const quote = optionalLocalized(attributes.quote_en, attributes.quote_ru);
+  if (quote) node.quote = quote;
+
+  return node;
 };

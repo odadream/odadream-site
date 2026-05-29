@@ -260,11 +260,24 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
       }
       const newPath = findPathToNode(ROOT_NODE, targetId);
       if (newPath) {
-        setHistoryStack([]); // Direct jump resets context history
+        setHistoryStack([]);
         setPath(newPath);
+        return;
+      }
+      // Fallback: node exists in registry but outside the main tree path
+      const node = nodeRegistry.get(targetId) ?? nodeRegistry.get(id);
+      if (node) {
+        setHistoryStack([]);
+        setPath((prev) => {
+          if (prev.some((n) => n.id === node.id)) {
+            const idx = prev.findIndex((n) => n.id === node.id);
+            return prev.slice(0, idx + 1);
+          }
+          return [...prev, node];
+        });
       }
     },
-    [isDesktop, triggerNavigatorHighlight],
+    [isDesktop, triggerNavigatorHighlight, nodeRegistry],
   );
 
   const toggleLang = useCallback(() => {

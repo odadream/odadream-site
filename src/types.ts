@@ -28,6 +28,22 @@ export interface LocalizedString {
 export type MediaType = "image" | "video" | "audio" | "unknown";
 
 /**
+ * Provenance entity kinds — orthogonal to `type`. `type` is a UI/behaviour
+ * category (hub/content/media/action), while `kind` is the semantic role of
+ * the node in the provenance graph.
+ */
+export type Kind = "product" | "event" | "organizer" | "proof" | "media";
+
+/**
+ * Visitor / contact counters for events. Both fields optional so partial
+ * data still renders.
+ */
+export interface EventAttendance {
+  visitors?: number;
+  contacts?: number;
+}
+
+/**
  * Core node structure for the Lotus Graph.
  * Represents both navigational hubs, content pages, and interactive actions.
  *
@@ -101,6 +117,73 @@ export interface LotusNode {
    * Never persisted — set dynamically in useLotusLogic.
    */
   _isEmbedded?: boolean;
+
+  // -----------------------------------------------------------------
+  // Provenance model (Phase A, see plan glowing-pondering-sparrow.md)
+  // -----------------------------------------------------------------
+
+  /** Semantic role in the provenance graph. */
+  kind?: Kind;
+
+  /**
+   * Free-form subtype string. NOT a TS union — taxonomy is data-driven
+   * (see src/data/taxonomy.ts). Unknown values render with a fallback.
+   */
+  subkind?: string;
+
+  /** Events where this product was presented. */
+  presented_at?: string[];
+
+  /** Products shown at this event. */
+  products?: string[];
+
+  /** Organizer(s) of this event. */
+  organizer?: string[];
+
+  /** Commercial client / stand host (distinct from event organizer). */
+  client?: string[];
+
+  /** Proofs (awards, press, testimonials) tied to this node. */
+  proofs?: string[];
+
+  /** Event(s) or product(s) this proof refers to. */
+  proof_of?: string[];
+
+  /** Event(s) or product(s) this media work documents. */
+  about?: string[];
+
+  /** Who issued this proof. */
+  issued_by?: string[];
+
+  /** Media asset ids from src/data/media.ts attached to this node. */
+  media?: string[];
+
+  /** Event attendance counters. */
+  attendance?: EventAttendance;
+
+  /** Event start date (ISO YYYY-MM-DD). */
+  date_start?: string;
+
+  /** Event end date (ISO YYYY-MM-DD). */
+  date_end?: string;
+
+  /** Free-form venue label. */
+  venue?: string;
+
+  /** Publication source for press/interview proofs. */
+  publication?: string;
+
+  /** ISO date of publication. */
+  publication_date?: string;
+
+  /** Asset path (image/scan) for award/letter proofs. */
+  asset?: string;
+
+  /** Bilingual quote text for testimonial proofs. */
+  quote?: LocalizedString;
+
+  /** External URL for organizers. */
+  website?: string;
 }
 
 /**

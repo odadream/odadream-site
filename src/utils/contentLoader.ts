@@ -40,7 +40,28 @@ const loadFileNodes = (): LotusNode[] => {
                 status: partialNode.status,
                 children: [],
                 lastModified: partialNode.lastModified,
-                order: partialNode.order
+                order: partialNode.order,
+                // Provenance model passthrough — all optional
+                kind: partialNode.kind,
+                subkind: partialNode.subkind,
+                presented_at: partialNode.presented_at,
+                products: partialNode.products,
+                organizer: partialNode.organizer,
+                client: partialNode.client,
+                proofs: partialNode.proofs,
+                proof_of: partialNode.proof_of,
+                about: partialNode.about,
+                issued_by: partialNode.issued_by,
+                media: partialNode.media,
+                attendance: partialNode.attendance,
+                date_start: partialNode.date_start,
+                date_end: partialNode.date_end,
+                venue: partialNode.venue,
+                publication: partialNode.publication,
+                publication_date: partialNode.publication_date,
+                asset: partialNode.asset,
+                quote: partialNode.quote,
+                website: partialNode.website,
             };
             nodes.push(node);
         }

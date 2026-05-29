@@ -14,6 +14,7 @@ import { SITE_VERSION } from "../constants";
 import { stripH1, transformWikiLinks } from "../utils/contentProcessor";
 import { getMediaType, detachPosterFromUrl } from "../utils/mediaHelpers";
 import { CyberText } from "./CyberText";
+import { ProvenancePanel } from "./ProvenancePanel";
 import { useNavigation } from "../context/NavigationContext";
 
 // SECURITY: Allow only safe protocols
@@ -247,6 +248,9 @@ export const TextPanel: React.FC = () => {
                 {content}
               </Markdown>
             </div>
+
+            {/* PROVENANCE — auto-rendered only for nodes with `kind` */}
+            <ProvenancePanel node={currentNode} />
 
             {/* FOOTER */}
             <div className={THEME.typography.contentFooter}>
