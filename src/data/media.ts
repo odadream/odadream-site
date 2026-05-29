@@ -33,7 +33,7 @@ export const MEDIA: Record<string, MediaAsset> = {
     url: "https://dzen.ru/embed/o20ZleGMJAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0",
     poster: "/images/content/neurobattle_dano.webp",
     title: { en: "DANO Olympiad", ru: "Олимпиада DANO" },
-    subject: ["neurobattle", "eng-2025-dano-ekoniva"],
+    subject: ["eng-2025-dano-ekoniva", "for-events", "neurobattle"],
   },
   "nrbt-veter": {
     url: "https://dzen.ru/embed/v1ftBaZRQUXU?from_block=partner&from=zen&mute=0&autoplay=0&tv=0",
@@ -113,7 +113,7 @@ export const MEDIA: Record<string, MediaAsset> = {
   "mdsh-tpp": {
     url: "/images/content/mindshow_tpp.webp",
     title: { en: "CCI RF · Russian Digital Creative", ru: "ТПП РФ · Russian Digital Creative" },
-    subject: ["mindshow", "eng-2025-tpp-mindshow"],
+    subject: ["eng-2025-tpp-mindshow", "for-events", "mindshow"],
   },
   "mdsh-terraforming": {
     url: "https://www.youtube.com/watch?v=xUlotjPuXPA",
@@ -127,7 +127,7 @@ export const MEDIA: Record<string, MediaAsset> = {
     url: "https://dzen.ru/embed/vZ6STYjxZhHk?from_block=partner&from=zen&mute=0&autoplay=0&tv=0",
     poster: "/images/content/lectures-gonchar.webp",
     title: { en: "Nata Gonchar · private neuro-show", ru: "Ната Гончар · частное нейрошоу" },
-    subject: ["lectures"],
+    subject: ["for-events", "lectures"],
   },
   "lec-bauman": {
     url: "https://dzen.ru/embed/o20b-pOkIAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0",
@@ -172,11 +172,12 @@ export const MEDIA: Record<string, MediaAsset> = {
   "art-brain-cover": {
     url: "/images/content/art-brain.jpg",
     title: { en: "Art of Brain", ru: "Искусство мозга" },
-    subject: ["beautiful-brain", "lectures"],
+    subject: ["art-brain", "beautiful-brain", "debug-image", "lectures"],
   },
   "jewellery-cover": {
     url: "/images/content/jewellery.jpg",
     title: { en: "Jewellery objects", ru: "Ювелирные объекты" },
+    subject: ["jewellery"],
   },
 
   // --- Interference of Realities (neuro-theater) ---

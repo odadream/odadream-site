@@ -1,0 +1,19 @@
+filters:
+  and:
+    - file.folder == "src/content"
+    - kind == "media"
+views:
+  - type: table
+    name: Медиа-работы
+    order:
+      - file.name
+      - subkind
+      - access
+      - for_sale
+      - about
+    columnSize:
+      file.name: 280
+      subkind: 110
+      access: 130
+      for_sale: 90
+      about: 320

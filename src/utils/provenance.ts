@@ -116,6 +116,36 @@ const resolveMedia = (ids?: string[]) => {
     .filter((m): m is { id: string; asset: MediaAsset } => !!m.asset);
 };
 
+/**
+ * Inverse index built once at module load: nodeId → assets that list this id
+ * in their `subject`. Backfilled by `scripts/migrate/media-subject.js`.
+ */
+const MEDIA_BY_SUBJECT = (() => {
+  const map = new Map<string, Array<{ id: string; asset: MediaAsset }>>();
+  for (const [id, asset] of Object.entries(MEDIA)) {
+    if (!asset.subject) continue;
+    for (const subjId of asset.subject) {
+      if (!map.has(subjId)) map.set(subjId, []);
+      map.get(subjId)!.push({ id, asset });
+    }
+  }
+  return map;
+})();
+
+/** Merge direct + inverse media, dedup by asset id. */
+const collectMedia = (node: LotusNode) => {
+  const direct = resolveMedia(node.media);
+  const inverse = MEDIA_BY_SUBJECT.get(node.id) ?? [];
+  const seen = new Set<string>();
+  const out: Array<{ id: string; asset: MediaAsset }> = [];
+  for (const m of [...direct, ...inverse]) {
+    if (seen.has(m.id)) continue;
+    seen.add(m.id);
+    out.push(m);
+  }
+  return out;
+};
+
 /** Collect unique products from events this organizer is linked to. */
 const productsFromOrganizedEvents = (
   organizerId: string,
@@ -156,7 +186,7 @@ export function getProvenance(
     proof_of: resolveAll(node.proof_of, registry),
     about: resolveAll(node.about, registry),
     issued_by: resolveAll(node.issued_by, registry),
-    media: resolveMedia(node.media),
+    media: collectMedia(node),
     inverse: {
       presented_here: idx.presented_here.get(node.id) ?? [],
       shown_in: idx.shown_in.get(node.id) ?? [],

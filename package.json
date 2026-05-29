@@ -17,7 +17,9 @@
     "photos:add": "node scripts/add-event-photo.js",
     "deploy:check": "powershell -ExecutionPolicy Bypass -File scripts/check-deployment.ps1",
     "migrate:dry": "node scripts/migrate.js",
-    "migrate:run": "node scripts/migrate.js --write"
+    "migrate:run": "node scripts/migrate.js --write",
+    "migrate:media-dry": "node scripts/migrate/media-subject.js",
+    "migrate:media-run": "node scripts/migrate/media-subject.js --write"
   },
   "dependencies": {
     "clsx": "^2.1.0",
