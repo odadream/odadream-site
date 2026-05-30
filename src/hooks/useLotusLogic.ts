@@ -92,6 +92,14 @@ export const useLotusLogic = (currentNode: LotusNode, lang: "en" | "ru") => {
       resolved = [...staticChildren, ...mentionOrdered];
     }
 
+    // --- DEDUP: structural child + ![[same-id]] mention → one petal ---
+    const seenIds = new Set<string>();
+    resolved = resolved.filter((n) => {
+      if (seenIds.has(n.id)) return false;
+      seenIds.add(n.id);
+      return true;
+    });
+
     // --- OVERFLOW CHECK ---
     if (resolved.length > LOTUS_GRID_LIMIT) {
       onGridOverflow(currentNode.id, resolved.length, LOTUS_GRID_LIMIT);
