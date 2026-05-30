@@ -68,7 +68,10 @@ const createSkeleton = (
   };
 };
 
-const STATIC_ROOT = createSkeleton("home", "oda.dream", "oda.dream");
+/** Id of the root hub. Hard-coded because the static skeleton anchors here. */
+export const ROOT_ID = "hub-home";
+
+const STATIC_ROOT = createSkeleton(ROOT_ID, "oda.dream", "oda.dream");
 
 // --- UNIFIED GRAPH ---
 // Merges static skeleton with file-based nodes from src/content/*.md
@@ -91,12 +94,12 @@ export const NODE_REGISTRY: ReadonlyMap<string, LotusNode> = (() => {
 // You can include deep links (children of children) here.
 // The order in this array determines the display order.
 const HEADER_TABS_ORDER = [
-  "home",
-  "works",
-  "collab",
-  "events",
-  "world",
-  "contacts",
+  "hub-home",
+  "hub-works",
+  "hub-collab",
+  "hub-events",
+  "hub-world",
+  "hub-contacts",
 ];
 
 // --- QUICK ACCESS ---

@@ -263,7 +263,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
         if (!isDesktop) setIsGridCollapsed(false);
         return;
       }
-      if (id === "home" || id === "root") {
+      if (id === "home" || id === "root" || id === "hub-home") {
         setPath([ROOT_NODE]);
         return;
       }
@@ -357,7 +357,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
   useEffect(() => {
     const title = currentNode.title[lang];
     document.title =
-      currentNode.id === "home"
+      currentNode.id === "hub-home"
         ? "ODA.dream | Wellness Art Tech"
         : `${title} | ODA.dream`;
   }, [currentNode, lang]);
