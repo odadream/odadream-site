@@ -1,6 +1,6 @@
 ---
 id: hub-terraforming
-parent: hub-events
+parent: hub-exhibitions
 title_en: Terraforming
 title_ru: Терраформинг
 type: content

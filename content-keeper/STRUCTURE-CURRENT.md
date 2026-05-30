@@ -1,23 +1,23 @@
 # Current content hierarchy
 
-Generated: 2026-05-30T17:43:01.554Z
+Generated: 2026-05-30T17:52:11.759Z
 
 Authoritative snapshot of `parent` relationships across all nodes in `src/content/`.
 
 ## Root: `hub-home`
 
 - **`hub-home`** — oda.dream _[type: hub]_
+  - **`hub-lectures`** — Lectures / Лекции _[type: hub]_
+    - **`beautiful-brain`** — Beautiful About the Brain / Красиво про мозг _[kind: product, subkind: education]_
+    - **`brain-hack`** — Brain Hack / Взлом Мозга _[kind: product, subkind: art]_
+    - **`sound-brain`** — Sound / Звук _[kind: product, subkind: education]_
+    - **`journey`** — Journey / Путешествие _[kind: product, subkind: art]_
+    - **`taste-brain`** — Taste / Вкус _[kind: product, subkind: education]_
+    - **`feedback-empathy-brain`** — Empathy / Эмпатия _[kind: product, subkind: education]_
+    - **`neuroaesthetics-lec`** — Neuroaesthetics / Нейроэстетика _[kind: product, subkind: education]_
+    - **`meditation-brain`** — Brain & Meditation / Мозг и медитация _[kind: product, subkind: education]_
   - **`hub-contacts`** — Contacts / Контакты _[type: action]_
   - **`hub-events`** — Events / События _[type: hub]_
-    - **`hub-chastoti`** — Chastoti / Частоты
-    - **`interference`** — Interference of Realities / Интерференция реальностей _[kind: product, subkind: art]_
-      - **`media-interference-recording`** — Interference — full performance recording / Интерференция — полная запись спектакля _[kind: media, subkind: video]_
-      - **`media-interference-photos`** — Interference — photo report / Интерференция — фоторепортаж _[kind: media, subkind: photo]_
-      - **`media-interference-poster`** — Interference — show poster / Интерференция — афиша спектакля _[kind: media, subkind: photo]_
-      - **`media-interference-plakats`** — Interference — informational plakats / Интерференция — информационные плакаты _[kind: media, subkind: photo]_
-      - **`media-interference-sketch`** — Interference — stage sketch / Интерференция — эскиз сцены _[kind: media, subkind: sketch]_
-    - **`hub-terraforming`** — Terraforming / Терраформинг
-    - **`hub-portal`** — Portal / Портал
     - **`hub-byob`** — BYOB _[type: hub]_
       - **`event-byob-2019`** — BYOB 2019 _[kind: event, subkind: festival]_
         - **`media-byob-2019-mindgrid`** — Mind Grid — BYOB 2019 neuro-portrait / Mind Grid — нейропортрет BYOB 2019 _[kind: media, subkind: photo]_
@@ -25,62 +25,113 @@ Authoritative snapshot of `parent` relationships across all nodes in `src/conten
         - **`media-byob-2020-photos`** — BYOB 2020 — photo report / BYOB 2020 — фоторепортаж _[kind: media, subkind: photo]_
       - **`event-byob-2026`** — BYOB 2026 _[kind: event, subkind: festival]_
         - **`media-byob-2026-photos`** — BYOB 2026 — photo report / BYOB 2026 — фоторепортаж _[kind: media, subkind: photo]_
-    - **`hub-pleinair`** — Plein Air / Пленэр
-    - **`event-wildmint-2025`** — Wild Mint festival — neuromandala installation / Дикая Мята — инсталляция Нейромандала _[kind: event, subkind: festival]_
+    - **`event-myata-2025`** — Wild Mint festival — neuromandala installation / Дикая Мята — инсталляция Нейромандала _[kind: event, subkind: festival]_
+    - **`hub-edu-corporate`** — Lectures & Programs / Лекции и образ. программы _[type: hub]_
+      - **`event-bauman-moscow2030-2025`** — Brain-hacking lecture — Bauman MSTU / Лекция про брейнхакинг — МГТУ им. Баумана _[kind: event, subkind: lecture]_
+      - **`event-dano-ekoniva-2025`** — Neurobattle at DANO Olympiad / Нейробитва на Олимпиаде DANO _[kind: event, subkind: olympiad]_
+      - **`event-hse-beautiful-brain-2025`** — Beautiful About the Brain — HSE University / «Красиво про мозг» — НИУ ВШЭ _[kind: event, subkind: lecture]_
+      - **`event-merck-corporate`** — Merck corporate science-art format / Корпоративный science-art формат Merck _[kind: event, subkind: conference]_
+      - **`event-sber-lecture-2025`** — Science-art lecture for Sberbank / Science-art лекция для Сбербанка _[kind: event, subkind: lecture]_
+      - **`event-tavrida-ai-2025`** — AI festival Cultural Code of Russia / Фестиваль ИИ «Культурный код России» _[kind: event, subkind: school]_
+    - **`hub-exhibitions`** — Exhibitions / Выставки _[type: hub]_
+      - **`hub-chastoti`** — Chastoti / Частоты
+      - **`hub-terraforming`** — Terraforming / Терраформинг
+        - **`event-mipt-terraforming-2025`** — Terraforming — MIPT exhibition / Терраформинг — выставка МФТИ _[kind: event, subkind: exhibition]_
+      - **`pleinair-bashkiria`** — Digital plein-air, Bashkiria / Цифровой плэнер в Башкирии _[kind: event, subkind: exhibition]_
+      - **`pleinair-metro`** — Plein-air in Metro / Плэнер в метро _[kind: event, subkind: exhibition]_
+      - **`unique-russia`** — Unique Russia 2026 / Уникальная Россия 2026 _[kind: event, subkind: exhibition]_
+    - **`hub-festivals`** — Festivals / Фестивали _[type: hub]_
+      - **`hub-portal`** — Portal / Портал
+        - **`portal-2025`** — Visioning competition win — Portal 2030–2050 / Победа «Видженинг» — Портал 2030–2050 _[kind: event, subkind: forum]_
+        - **`portal-2024`** — Portal 2030–2050 (2024) / Портал 2030–2050 (2024) _[kind: event, subkind: festival]_
+      - **`hub-gong-fest`** — Gong Fest / Гонг фест _[type: hub]_
+        - **`gong-fest-2024`** — Gong Fest 2024 / Гонг фест 2024 _[kind: event, subkind: festival]_
+        - **`gong-fest-2025`** — Gong Fest 2025 / Гонг фест 2025 _[kind: event, subkind: festival]_
+      - **`hub-tsiolkovsky`** — Tsiolkovsky Fest / Циолковский _[type: hub]_
+        - **`event-interference-tsiolkovsky-2026`** — Interference of Realities — Tsiolkovsky Festival / «Интерференция реальностей» — Фестиваль Циолковского _[kind: event, subkind: festival]_
+        - **`tsiolkovsky-2025`** — Tsiolkovsky Fest 2025 / Циолковский фест 2025 _[kind: event, subkind: festival]_
+        - **`tsiolkovsky-2026`** — Tsiolkovsky Fest 2026 / Циолковский фест 2026 _[kind: event, subkind: festival]_
+    - **`hub-forums`** — Forums / Форумы / конф. _[type: hub]_
+      - **`event-cipr-mindshow-2026`** — MindShow at TechFriendly / CIPR / MindShow на TechFriendly / ЦИПР _[kind: event, subkind: forum]_
+      - **`event-tpp-mindshow-2025`** — MindShow — Russian Digital Creative summit / MindShow — саммит Russian Digital Creative _[kind: event, subkind: forum]_
+      - **`event-bitva-milliard-2024`** — Battle for a Billion 2024 / Битва за миллиард 2024 _[kind: event, subkind: forum]_
+      - **`event-brics-plus`** — BRICS+ _[kind: event, subkind: forum]_
+      - **`event-kod-provincii`** — Code of Province / Код провинции _[kind: event, subkind: forum]_
+      - **`event-techweek`** — TechWeek _[kind: event, subkind: forum]_
+    - **`hub-private-shows`** — Private Shows / Закрытые показы _[type: hub]_
+      - **`event-ashram-birthday-2024`** — Ashram Studio birthday celebration / День рождения студии Ashram _[kind: event, subkind: private_show]_
+      - **`event-gonchar-private-2024`** — Private neuro-show — Nata Gonchar / Частное нейрошоу — Ната Гончар _[kind: event, subkind: private_show]_
   - **`hub-works`** — Works / Работы _[type: hub]_
-    - **`hub-works-art`** — Artistic Works / Художественные работы _[type: hub]_
-      - **`hub-research`** — Art Research / Художественные исследования _[type: hub]_
-        - **`schrodinger`** — Schrodinger / Шрёдингер _[kind: product, subkind: art]_
-        - **`cultural-neuro-code`** — Cultural Neuro Code / Культурный нейрокод _[kind: product, subkind: art]_
-        - **`sync-circle`** — Sync Circle / Круг Синхронизации _[kind: product, subkind: art]_
-        - **`dashran`** — Darshan Moment / Момент Даршана _[kind: product, subkind: art]_
-        - **`mindshow`** — Mindshow / Майнд-шоу _[kind: product, subkind: art]_
-        - **`posustoronniy`** — Posustoronniy / Потусторонний _[kind: product, subkind: art]_
-        - **`heritage`** — Heritage / Наследие _[kind: product, subkind: art]_
-      - **`hub-games`** — Games / Игры _[type: hub]_
-        - **`neurobattle`** — Neurobattle / Нейробитва _[kind: product, subkind: game]_
-        - **`brain-hack`** — Brain Hack / Взлом Мозга _[kind: product, subkind: art]_
-        - **`journey`** — Journey / Путешествие _[kind: product, subkind: art]_
-      - **`hub-objects`** — Objects / Объекты _[type: hub]_
-        - **`mom-baby`** — Mom & Baby / Мама и Малыш _[kind: product, subkind: art]_
-        - **`jewellery`** — Jewellery / Ювелирка _[kind: product, subkind: art]_
-        - **`emomandala`** — Emomandala / Эмомандала _[kind: product, subkind: art]_
-    - **`hub-works-education`** — Education & Outreach / Просвещение _[type: hub]_
-      - **`hub-lectures`** — Lectures / Лекции _[type: hub]_
-        - **`art-brain`** — Art of Brain / Искусство Мозга _[kind: product, subkind: education]_
-        - **`beautiful-brain`** — Beautiful About the Brain / Красиво про мозг _[kind: product, subkind: education]_
-        - **`sound-brain`** — Sound / Звук _[kind: product, subkind: education]_
-        - **`taste-brain`** — Taste / Вкус _[kind: product, subkind: education]_
-        - **`color-brain`** — Color / Цвет _[kind: product, subkind: education]_
-        - **`empathy`** — Empathy / Эмпатия _[kind: product, subkind: education]_
-        - **`neuroaesthetics-lec`** — Neuroaesthetics / Нейроэстетика _[kind: product, subkind: education]_
-      - **`hub-practices`** — Practices / Практики _[type: hub]_
-        - **`neuro-dance`** — Neuro Dance / Нейро Танец _[kind: product, subkind: education]_
-        - **`workshops`** — Workshops / Воркшопы _[kind: product, subkind: education]_
-        - **`neurosync`** — Neurosync / Нейросинк _[kind: product, subkind: education]_
-        - **`gong`** — Gong Theater / Гонг Театр _[kind: product, subkind: education]_
-        - **`coaching`** — Coaching / Коучинг _[kind: product, subkind: education]_
-    - **`hub-works-tech`** — Technology / Технологические разработки _[type: hub]_
-      - **`neuromandala`** — Neuromandala / Нейромандала _[kind: product, subkind: tech]_
-      - **`multisync`** — Hyperscanning / MultiSync / Гиперсканирование / MultiSync _[kind: product, subkind: tech]_
+    - **`hub-materia`** — Objects / Объекты _[type: hub]_
+      - **`mom-baby`** — Mom & Baby / Мама и Малыш _[kind: product, subkind: art]_
+      - **`emomandala`** — Emomandala / Эмомандала _[kind: product, subkind: art]_
+      - **`happiness`** — Happiness / Счастье _[kind: product, subkind: art]_
+      - **`lighthouse`** — Lighthouse / Маяк _[kind: product, subkind: art]_
+      - **`two-waves`** — Two Waves / Две волны _[kind: product, subkind: art]_
+      - **`voronka`** — Funnel / Воронка _[kind: product, subkind: art]_
+    - **`hub-big-forms`** — Big Forms / Большие формы _[type: hub]_
+      - **`interference`** — Interference of Realities / Интерференция реальностей _[kind: product, subkind: art]_
+        - **`media-interference-recording`** — Interference — full performance recording / Интерференция — полная запись спектакля _[kind: media, subkind: video]_
+        - **`media-interference-photos`** — Interference — photo report / Интерференция — фоторепортаж _[kind: media, subkind: photo]_
+        - **`media-interference-poster`** — Interference — show poster / Интерференция — афиша спектакля _[kind: media, subkind: photo]_
+        - **`media-interference-plakats`** — Interference — informational plakats / Интерференция — информационные плакаты _[kind: media, subkind: photo]_
+        - **`media-interference-sketch`** — Interference — stage sketch / Интерференция — эскиз сцены _[kind: media, subkind: sketch]_
+      - **`schrodinger`** — Schrodinger / Шрёдингер _[kind: product, subkind: art]_
+      - **`ancestors`** — Ancestors in the Noise / Предки в шуме _[kind: product, subkind: art]_
+    - **`hub-installations`** — Installations / Инсталляции _[type: hub]_
+      - **`sync-circle`** — Sync Circle / Круг Синхронизации _[kind: product, subkind: art]_
+      - **`dashran`** — Darshan Moment / Момент Даршана _[kind: product, subkind: art]_
+      - **`posustoronniy`** — Posustoronniy / Потусторонний _[kind: product, subkind: art]_
+      - **`another-people`** — Others / Другие люди _[kind: product, subkind: art]_
+      - **`honors`** — Honor Board (Skolkovo) / Нейродоска почёта (Сколково) _[kind: product, subkind: art]_
+    - **`hub-performances`** — Performances / Перформансы _[type: hub]_
+      - **`neuro-dance`** — Neuro Dance / Нейро Танец _[kind: product, subkind: education]_
+      - **`neurobattle`** — Neurobattle / Парадокс Успеха _[kind: product, subkind: game]_
+      - **`neurosync`** — Neurosync / Нейросинхронизация _[kind: product, subkind: education]_
+      - **`cultural-neuro-code`** — Cultural Neuro Code / Культурный нейрокод _[kind: product, subkind: art]_
+      - **`gong`** — Gong Theater / Гонг Театр _[kind: product, subkind: education]_
+      - **`mindshow`** — Mindshow / Майнд-шоу _[kind: product, subkind: art]_
   - **`hub-collab`** — Collaboration / Сотрудничество _[type: hub]_
     - **`hub-institutions`** — For Institutions / Институциям
+      - **`hub-galleries`** — Galleries / Галереи
     - **`hub-education`** — For Education / Образованию
     - **`hub-business`** — Business / Бизнес
-    - **`hub-galleries`** — Galleries / Галереи
-    - **`hub-artists`** — Artists / Художники
-    - **`hub-agents`** — For Agencies / Агентствам
+    - **`hub-creators`** — Artists / Художники
+    - **`hub-event-agencies`** — For Agencies / Агентствам
     - **`hub-host-events`** — Events / Ивенты
+    - **`hub-collab-media`** — Media / Медиа _[type: hub]_
   - **`hub-world`** — World / Мир _[type: hub]_
     - **`hub-manifesto`** — Manifesto / Манифест
     - **`hub-cv`** — CV
-    - **`hub-team`** — Team / Команда
     - **`hub-press`** — Press / Пресса
       - **`proof-press-cyens-cyprus`** — International collaboration inquiry on the neuro-art methodology / Запрос на международное сотрудничество по нейро-арт-методологии _[kind: proof, subkind: hub-press]_
       - **`proof-press-ntv-metro`** — NTV news feature on the digital plein air in the Moscow metro / Сюжет НТВ о цифровом пленэре в московском метро _[kind: proof, subkind: hub-press]_
       - **`proof-press-tnt-tykakya`** — Neurobattle segment on mainstream entertainment TV / Сегмент Нейробитвы в шоу на федеральном ТВ _[kind: proof, subkind: hub-press]_
       - **`proof-press-tskhr-bashkiria`** — TSKhR publication on the first digital plein air in Bashkiria / Публикация ТСХР о первом цифровом пленэре в Башкирии _[kind: proof, subkind: hub-press]_
       - **`proof-press-vecherka`** — Coverage of an ODA.dream public event / Публикация о публичном событии ODA.dream _[kind: proof, subkind: hub-press]_
+    - **`hub-registry-orgs`** — Organizations / Организации
+      - **`org-ashram`** — Ashram Studio (Natali Osman) / Студия Ashram (Натали Осман) _[kind: organizer, subkind: corporate]_
+      - **`org-audi`** — Audi _[kind: organizer, subkind: corporate]_
+      - **`org-bauman`** — Bauman MSTU / МГТУ им. Баумана _[kind: organizer, subkind: university]_
+      - **`org-cci`** — CCI of Russian Federation / ТПП РФ _[kind: organizer, subkind: gov]_
+      - **`org-cipr`** — CIPR / ЦИПР _[kind: organizer, subkind: gov]_
+      - **`org-culture-sport-uao`** — Culture and Sport of Moscow South Administrative Okrug / Культура и спорт ЮАО _[kind: organizer, subkind: gov]_
+      - **`org-ekoniva`** — EkoNiva / ЭкоНива _[kind: organizer, subkind: corporate]_
+      - **`org-hse`** — HSE University / НИУ ВШЭ _[kind: organizer, subkind: university]_
+      - **`org-inforce`** — inForce _[kind: organizer, subkind: corporate]_
+      - **`org-kalashnikova`** — Ekaterina Kalashnikova / Екатерина Калашникова _[kind: organizer, subkind: curator]_
+      - **`org-kapitsa`** — Ekaterina Kapitsa / Екатерина Капица _[kind: organizer, subkind: curator]_
+      - **`org-lamborghini`** — Lamborghini _[kind: organizer, subkind: corporate]_
+      - **`org-merck`** — Merck / Merck (Мерц) _[kind: organizer, subkind: corporate]_
+      - **`org-mipt`** — MIPT / МФТИ _[kind: organizer, subkind: university]_
+      - **`org-moscow2030`** — Moscow 2030 / Москва 2030 _[kind: organizer, subkind: gov]_
+      - **`org-neiry`** — Neiry Group _[kind: organizer, subkind: corporate]_
+      - **`org-sberbank`** — Sberbank / Сбербанк _[kind: organizer, subkind: corporate]_
+      - **`org-skolkovo`** — Skolkovo Innovation Center / Технопарк «Сколково» _[kind: organizer, subkind: venue]_
+      - **`org-tavrida`** — Tavrida.ART / Таврида.АРТ _[kind: organizer, subkind: gov]_
+      - **`org-tbank`** — T-Bank / Т-Банк _[kind: organizer, subkind: corporate]_
+      - **`org-tsiolkovsky`** — Tsiolkovsky Festival / Фестиваль Циолковского _[kind: organizer, subkind: gov]_
+      - **`org-wildmint`** — Wild Mint Festival / Дикая Мята _[kind: organizer, subkind: corporate]_
     - **`hub-testimonials`** — Testimonials / Отзывы
       - **`proof-cipr-quote`** — CIPR — Testimonial quote / ЦИПР — Отзыв _[kind: proof, subkind: testimonial]_
       - **`proof-tst-ashram-osman`** — tst-ashram-osman _[kind: proof, subkind: testimonial]_
@@ -113,45 +164,10 @@ Authoritative snapshot of `parent` relationships across all nodes in `src/conten
       - **`proof-let-tpp-techinno`** — Letter of appreciation — contribution to the award / Благодарность — вклад в организацию премии _[kind: proof, subkind: letter]_
       - **`proof-let-unique-russia`** — Diploma — "Digital Art & AI" panel, 6th exhibition-forum / Диплом — панель «Цифровое искусство и ИИ», VI выставка-форум _[kind: proof, subkind: letter]_
       - **`proof-let-wildmint`** — Letter of appreciation — Wild Mint, "Neuromandala" lecture & performance / Благодарность — Дикая Мята, лекция и перформанс «Нейромандала» _[kind: proof, subkind: letter]_
-    - **`hub-registry`** — Experience Registry / Реестр опыта _[type: hub]_
-      - **`hub-registry-commercial`** — Commercial / Коммерция _[type: hub]_
-        - **`event-ashram-birthday-2024`** — Ashram Studio birthday celebration / День рождения студии Ashram _[kind: event, subkind: private_show]_
-        - **`event-dano-ekoniva-2025`** — Neurobattle at DANO Olympiad / Нейробитва на Олимпиаде DANO _[kind: event, subkind: competition]_
-        - **`event-merck-corporate`** — Merck corporate science-art format / Корпоративный science-art формат Merck _[kind: event, subkind: workshop]_
-        - **`event-tavrida-ai-2025`** — AI festival Cultural Code of Russia / Фестиваль ИИ «Культурный код России» _[kind: event, subkind: festival]_
-      - **`hub-registry-expert`** — Expert Appearances / Экспертные приглашения _[type: hub]_
-        - **`event-bauman-moscow2030-2025`** — Brain-hacking lecture — Bauman MSTU / Лекция про брейнхакинг — МГТУ им. Баумана _[kind: event, subkind: forum]_
-        - **`event-cipr-mindshow-2026`** — MindShow at TechFriendly / CIPR / MindShow на TechFriendly / ЦИПР _[kind: event, subkind: forum]_
-        - **`event-gonchar-private-2024`** — Private neuro-show — Nata Gonchar / Частное нейрошоу — Ната Гончар _[kind: event, subkind: private_show]_
-        - **`event-hse-beautiful-brain-2025`** — Beautiful About the Brain — HSE University / «Красиво про мозг» — НИУ ВШЭ _[kind: event, subkind: conference]_
-        - **`event-interference-tsiolkovsky-2026`** — Interference of Realities — Tsiolkovsky Festival / «Интерференция реальностей» — Фестиваль Циолковского _[kind: event, subkind: competition]_
-        - **`event-mipt-terraforming-2025`** — Terraforming — MIPT exhibition / Терраформинг — выставка МФТИ _[kind: event, subkind: workshop]_
-        - **`event-moscow2030-portal-2025`** — Visioning competition win — Portal 2030–2050 / Победа «Видженинг» — Портал 2030–2050 _[kind: event, subkind: forum]_
-        - **`event-sber-lecture-2025`** — Science-art lecture for Sberbank / Science-art лекция для Сбербанка _[kind: event, subkind: workshop]_
-        - **`event-tpp-mindshow-2025`** — MindShow — Russian Digital Creative summit / MindShow — саммит Russian Digital Creative _[kind: event, subkind: forum]_
-      - **`hub-registry-orgs`** — Organizations / Организации
-        - **`org-ashram`** — Ashram Studio (Natali Osman) / Студия Ashram (Натали Осман) _[kind: organizer, subkind: corporate]_
-        - **`org-audi`** — Audi _[kind: organizer, subkind: corporate]_
-        - **`org-bauman`** — Bauman MSTU / МГТУ им. Баумана _[kind: organizer, subkind: university]_
-        - **`org-cci`** — CCI of Russian Federation / ТПП РФ _[kind: organizer, subkind: gov]_
-        - **`org-cipr`** — CIPR / ЦИПР _[kind: organizer, subkind: gov]_
-        - **`org-culture-sport-uao`** — Culture and Sport of Moscow South Administrative Okrug / Культура и спорт ЮАО _[kind: organizer, subkind: gov]_
-        - **`org-ekoniva`** — EkoNiva / ЭкоНива _[kind: organizer, subkind: corporate]_
-        - **`org-hse`** — HSE University / НИУ ВШЭ _[kind: organizer, subkind: university]_
-        - **`org-inforce`** — inForce _[kind: organizer, subkind: corporate]_
-        - **`org-kalashnikova`** — Ekaterina Kalashnikova / Екатерина Калашникова _[kind: organizer, subkind: curator]_
-        - **`org-kapitsa`** — Ekaterina Kapitsa / Екатерина Капица _[kind: organizer, subkind: curator]_
-        - **`org-lamborghini`** — Lamborghini _[kind: organizer, subkind: corporate]_
-        - **`org-merck`** — Merck / Merck (Мерц) _[kind: organizer, subkind: corporate]_
-        - **`org-mipt`** — MIPT / МФТИ _[kind: organizer, subkind: university]_
-        - **`org-moscow2030`** — Moscow 2030 / Москва 2030 _[kind: organizer, subkind: gov]_
-        - **`org-neiry`** — Neiry Group _[kind: organizer, subkind: corporate]_
-        - **`org-sberbank`** — Sberbank / Сбербанк _[kind: organizer, subkind: corporate]_
-        - **`org-skolkovo`** — Skolkovo Innovation Center / Технопарк «Сколково» _[kind: organizer, subkind: venue]_
-        - **`org-tavrida`** — Tavrida.ART / Таврида.АРТ _[kind: organizer, subkind: gov]_
-        - **`org-tbank`** — T-Bank / Т-Банк _[kind: organizer, subkind: corporate]_
-        - **`org-tsiolkovsky`** — Tsiolkovsky Festival / Фестиваль Циолковского _[kind: organizer, subkind: gov]_
-        - **`org-wildmint`** — Wild Mint Festival / Дикая Мята _[kind: organizer, subkind: corporate]_
+    - **`awards`** — Awards / Награды
+    - **`clients`** — Clients / Клиенты
+    - **`collabs`** — Collabs / Коллабы
+    - **`partners`** — Partners / Партнёры
   - **`hub-debug`** — Debug / Отладка _[type: hub]_
     - **`hub-debug-hub`** — Nested Hub / Влож. Хаб _[type: hub]_
     - **`hub-debug-article`** — Article / Статья
@@ -159,17 +175,23 @@ Authoritative snapshot of `parent` relationships across all nodes in `src/conten
     - **`hub-debug-audio`** — Audio / Аудио _[type: media]_
     - **`hub-debug-image`** — Image / Фото
     - **`hub-debug-action`** — Action / Действие _[type: action]_
-  - **`hub-changelog`** — Changelog / Лог изменений
+  - **`hub-tech`** — Technologies / Технологии _[type: hub]_
+    - **`neuromandala`** — Neuromandala / Нейромандала _[kind: product, subkind: tech]_
+    - **`multisync`** — Hyperscanning / MultiSync / Гиперсканирование / MultiSync _[kind: product, subkind: tech]_
+    - **`hyperscan-scene-engine`** — Hyperscan Scene Engine _[kind: product, subkind: tech]_
+    - **`neuromandala-os`** — Neuromandala OS / Нейромандала OS _[kind: product, subkind: tech]_
 
 ## Cap diagnostics (LOTUS_GRID_LIMIT = 8)
 
 - **`hub-letters`** — Recognition & Awards / Признание и награды → **23** children ❌
 - **`hub-registry-orgs`** — Organizations / Организации → **22** children ❌
-- **`hub-registry-expert`** — Expert Appearances / Экспертные приглашения → **9** children ❌
+- **`hub-world`** — World / Мир → **10** children ❌
+- **`hub-lectures`** — Lectures / Лекции → **8** children ⚠
+- **`hub-home`** — oda.dream → **8** children ⚠
 
 ## Summary
 
-- Total nodes: 154
-- Reached from root: 154
+- Total nodes: 174
+- Reached from root: 174
 - Orphans / unreached: 0
-- Branches ≥ 8 children: 3
+- Branches ≥ 8 children: 5

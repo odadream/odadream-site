@@ -1,6 +1,6 @@
 ---
 id: event-dano-ekoniva-2025
-parent: hub-registry-commercial
+parent: hub-edu-corporate
 title_en: Neurobattle at DANO Olympiad
 title_ru: Нейробитва на Олимпиаде DANO
 type: content
@@ -19,7 +19,7 @@ organizer:
   - "[[org-tbank]]"
 products:
   - "[[neurobattle]]"
-subkind: competition
+subkind: olympiad
 ---
 
 ## Neurobattle at DANO Olympiad

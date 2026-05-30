@@ -1,6 +1,6 @@
 ---
 id: interference
-parent: hub-events
+parent: hub-big-forms
 title_en: Interference of Realities
 title_ru: Интерференция реальностей
 type: content

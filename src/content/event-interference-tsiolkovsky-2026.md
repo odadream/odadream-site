@@ -1,6 +1,6 @@
 ---
 id: event-interference-tsiolkovsky-2026
-parent: hub-registry-expert
+parent: hub-tsiolkovsky
 title_en: Interference of Realities — Tsiolkovsky Festival
 title_ru: «Интерференция реальностей» — Фестиваль Циолковского
 type: content
@@ -11,7 +11,7 @@ visible: true
 date: 2026.05.16
 order: 0
 kind: event
-subkind: competition
+subkind: festival
 date_start: 2026-05-16
 venue: Kaluga
 organizer:

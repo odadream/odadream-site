@@ -1,6 +1,6 @@
 ---
 id: cultural-neuro-code
-parent: hub-research
+parent: hub-performances
 title_en: Cultural Neuro Code
 title_ru: Культурный нейрокод
 type: content
@@ -25,7 +25,7 @@ The project asks a practical question: can culturally meaningful forms become to
 ## Method
 
 1. **Personal layer:** participant memory materials (family narratives, photos, identity context).
-2. **Cultural layer:** curated artifacts (ornaments, songs, stories, landscapes, hub-objects).
+2. **Cultural layer:** curated artifacts (ornaments, songs, stories, landscapes, hub-materia).
 3. **Neural layer:** EEG comparison across both sets to detect resonance patterns.
 4. **Art layer:** selected artifacts become generative neurofeedback agents.
 
@@ -34,7 +34,7 @@ This creates a bridge from archive to living interaction.
 ## Output Format
 
 - A relational map of artifacts and resonances.
-- A set of interactive media hub-objects driven by biosignal feedback.
+- A set of interactive media hub-materia driven by biosignal feedback.
 - A participatory installation where people can observe and train state transitions through culturally grounded stimuli.
 
 ## Why It Matters

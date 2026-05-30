@@ -19,7 +19,7 @@ subkind: corporate
 
 Related engagements in the ODA.dream hub-registry:
 
-- [[event-wildmint-2025|Neuromandala — Wild Mint Festival]] (2025.01.01)
+- [[event-myata-2025|Neuromandala — Wild Mint Festival]] (2025.01.01)
 
 ---RU---
 
@@ -27,4 +27,4 @@ Related engagements in the ODA.dream hub-registry:
 
 Связанные участия в реестре ODA.dream:
 
-- [[event-wildmint-2025|Нейромандала — Дикая Мята]] (2025.01.01)
+- [[event-myata-2025|Нейромандала — Дикая Мята]] (2025.01.01)

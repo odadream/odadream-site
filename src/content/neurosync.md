@@ -1,8 +1,8 @@
 ---
 id: neurosync
-parent: hub-practices
+parent: hub-performances
 title_en: Neurosync
-title_ru: Нейросинк
+title_ru: Нейросинхронизация
 type: content
 tags:
   - group
@@ -12,6 +12,8 @@ visible: true
 date: 2026.02.10
 kind: product
 subkind: education
+aliases:
+  - neurosync-perf
 ---
 
 ## NEUROSYNC

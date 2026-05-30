@@ -1,6 +1,6 @@
 ---
 id: neuro-dance
-parent: hub-practices
+parent: hub-performances
 title_en: Neuro Dance
 title_ru: Нейро Танец
 type: content

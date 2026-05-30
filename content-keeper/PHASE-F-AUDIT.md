@@ -1,26 +1,35 @@
 # Phase F — Content audit
 
-Generated: 2026-05-30T06:36:46.523Z
+Generated: 2026-05-30T17:52:21.857Z
 
 ## Summary
 
-- Total nodes: **154**
-  - (no kind): 44
-  - event: 17
+- Total nodes: **174**
+  - (no kind): 48
+  - event: 29
   - media: 8
   - organizer: 22
-  - product: 28
+  - product: 32
   - proof: 35
-- Conformance gaps: **14**
-- Body smells: **16**
+- Conformance gaps: **26**
+- Body smells: **9**
 - Missing referenced ids: **0**
-- Orphan nodes: **44**
+- Orphan nodes: **60**
 - Duplicate candidates: **1**
 - Proof drift — md-only / yaml-only / no-relations: **3 / 0 / 25**
 - Gratitude mentions / without link: **3 / 0**
 
 ## 1. Conformance gaps
 
+- `event-bitva-milliard-2024.md` (id: event-bitva-milliard-2024) — missing: date_start
+- `event-brics-plus.md` (id: event-brics-plus) — missing: date_start
+- `event-kod-provincii.md` (id: event-kod-provincii) — missing: date_start
+- `event-techweek.md` (id: event-techweek) — missing: date_start
+- `gong-fest-2024.md` (id: gong-fest-2024) — missing: date_start
+- `gong-fest-2025.md` (id: gong-fest-2025) — missing: date_start
+- `pleinair-bashkiria.md` (id: pleinair-bashkiria) — missing: date_start
+- `pleinair-metro.md` (id: pleinair-metro) — missing: date_start
+- `portal-2024.md` (id: portal-2024) — missing: date_start
 - `proof-award-ars-electronica.md` (id: proof-award-ars-electronica) — missing: proof_of
 - `proof-award-culttech-vienna.md` (id: proof-award-culttech-vienna) — missing: proof_of
 - `proof-cred-track-record.md` (id: proof-cred-track-record) — missing: proof_of
@@ -35,26 +44,22 @@ Generated: 2026-05-30T06:36:46.523Z
 - `proof-let-unique-russia.md` (id: proof-let-unique-russia) — missing: proof_of
 - `proof-press-cyens-cyprus.md` (id: proof-press-cyens-cyprus) — missing: proof_of
 - `proof-press-vecherka.md` (id: proof-press-vecherka) — missing: proof_of
+- `tsiolkovsky-2025.md` (id: tsiolkovsky-2025) — missing: date_start
+- `tsiolkovsky-2026.md` (id: tsiolkovsky-2026) — missing: date_start
+- `unique-russia.md` (id: unique-russia) — missing: date_start
 
 ## 2. Body smells
 
-### manual-link-list (16)
-- `heritage.md` — 6 link bullets in 2 block(s)
-- `hub-agents.md` — 40 link bullets in 6 block(s)
+### manual-link-list (9)
 - `hub-business.md` — 12 link bullets in 2 block(s)
+- `hub-event-agencies.md` — 40 link bullets in 6 block(s)
 - `hub-events.md` — 12 link bullets in 2 block(s)
 - `hub-lectures.md` — 12 link bullets in 2 block(s)
-- `hub-pleinair.md` — 6 link bullets in 2 block(s)
 - `hub-portal.md` — 6 link bullets in 2 block(s)
-- `hub-practices.md` — 10 link bullets in 2 block(s)
-- `hub-registry-commercial.md` — 8 link bullets in 2 block(s)
-- `hub-registry-expert.md` — 18 link bullets in 2 block(s)
-- `hub-works-art.md` — 6 link bullets in 2 block(s)
 - `hub-world.md` — 14 link bullets in 2 block(s)
 - `interference.md` — 6 link bullets in 2 block(s)
 - `posustoronniy.md` — 6 link bullets in 2 block(s)
 - `sync-circle.md` — 6 link bullets in 2 block(s)
-- `workshops.md` — 8 link bullets in 2 block(s)
 
 ## 3. Missing referenced ids (→ stubs)
 
@@ -62,30 +67,42 @@ _None — every wikilink resolves._
 
 ## 4. Orphan nodes (no inbound refs, no children)
 
-- `art-brain.md` (kind: product)
+- `ancestors.md` (kind: product)
+- `another-people.md` (kind: product)
 - `brain-hack.md` (kind: product)
-- `coaching.md` (kind: product)
-- `color-brain.md` (kind: product)
 - `cultural-neuro-code.md` (kind: product)
 - `dashran.md` (kind: product)
 - `emomandala.md` (kind: product)
-- `empathy.md` (kind: product)
 - `event-bauman-moscow2030-2025.md` (kind: event)
+- `event-bitva-milliard-2024.md` (kind: event)
+- `event-brics-plus.md` (kind: event)
 - `event-gonchar-private-2024.md` (kind: event)
+- `event-kod-provincii.md` (kind: event)
 - `event-merck-corporate.md` (kind: event)
 - `event-sber-lecture-2025.md` (kind: event)
+- `event-techweek.md` (kind: event)
+- `feedback-empathy-brain.md` (kind: product)
+- `gong-fest-2024.md` (kind: event)
+- `gong-fest-2025.md` (kind: event)
 - `gong.md` (kind: product)
-- `heritage.md` (kind: product)
-- `jewellery.md` (kind: product)
+- `happiness.md` (kind: product)
+- `honors.md` (kind: product)
+- `hyperscan-scene-engine.md` (kind: product)
 - `journey.md` (kind: product)
+- `lighthouse.md` (kind: product)
+- `meditation-brain.md` (kind: product)
 - `mom-baby.md` (kind: product)
 - `neuro-dance.md` (kind: product)
 - `neuroaesthetics-lec.md` (kind: product)
+- `neuromandala-os.md` (kind: product)
 - `neurosync.md` (kind: product)
 - `org-audi.md` (kind: organizer)
 - `org-culture-sport-uao.md` (kind: organizer)
 - `org-inforce.md` (kind: organizer)
 - `org-lamborghini.md` (kind: organizer)
+- `pleinair-bashkiria.md` (kind: event)
+- `pleinair-metro.md` (kind: event)
+- `portal-2024.md` (kind: event)
 - `posustoronniy.md` (kind: product)
 - `proof-award-ars-electronica.md` (kind: proof)
 - `proof-award-culttech-vienna.md` (kind: proof)
@@ -105,7 +122,11 @@ _None — every wikilink resolves._
 - `sound-brain.md` (kind: product)
 - `sync-circle.md` (kind: product)
 - `taste-brain.md` (kind: product)
-- `workshops.md` (kind: product)
+- `tsiolkovsky-2025.md` (kind: event)
+- `tsiolkovsky-2026.md` (kind: event)
+- `two-waves.md` (kind: product)
+- `unique-russia.md` (kind: event)
+- `voronka.md` (kind: product)
 
 ## 5. Duplicate candidates (same title_en within kind)
 

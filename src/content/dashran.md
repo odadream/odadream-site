@@ -1,6 +1,6 @@
 ---
 id: dashran
-parent: hub-research
+parent: hub-installations
 title_en: Darshan Moment
 title_ru: Момент Даршана
 type: content

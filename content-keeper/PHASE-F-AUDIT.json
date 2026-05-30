@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-05-30T06:36:46.523Z",
+  "generated_at": "2026-05-30T17:52:21.857Z",
   "counts": {
     "byKind": {
-      "product": 28,
-      "event": 17,
-      "(no kind)": 44,
+      "product": 32,
+      "(no kind)": 48,
+      "event": 29,
       "media": 8,
       "organizer": 22,
       "proof": 35
     },
-    "total": 154
+    "total": 174
   },
-  "conformance_gaps": 14,
-  "body_smells": 16,
+  "conformance_gaps": 26,
+  "body_smells": 9,
   "missing_refs": 0,
-  "orphans": 44,
+  "orphans": 60,
   "duplicates": 1,
   "proof_drift": {
     "md_only": 3,
@@ -25,6 +25,69 @@
   "gratitude_without_link": 0,
   "detail": {
     "conformance": [
+      {
+        "id": "event-bitva-milliard-2024",
+        "file": "event-bitva-milliard-2024.md",
+        "missing": [
+          "date_start"
+        ]
+      },
+      {
+        "id": "event-brics-plus",
+        "file": "event-brics-plus.md",
+        "missing": [
+          "date_start"
+        ]
+      },
+      {
+        "id": "event-kod-provincii",
+        "file": "event-kod-provincii.md",
+        "missing": [
+          "date_start"
+        ]
+      },
+      {
+        "id": "event-techweek",
+        "file": "event-techweek.md",
+        "missing": [
+          "date_start"
+        ]
+      },
+      {
+        "id": "gong-fest-2024",
+        "file": "gong-fest-2024.md",
+        "missing": [
+          "date_start"
+        ]
+      },
+      {
+        "id": "gong-fest-2025",
+        "file": "gong-fest-2025.md",
+        "missing": [
+          "date_start"
+        ]
+      },
+      {
+        "id": "pleinair-bashkiria",
+        "file": "pleinair-bashkiria.md",
+        "missing": [
+          "date_start"
+        ]
+      },
+      {
+        "id": "pleinair-metro",
+        "file": "pleinair-metro.md",
+        "missing": [
+          "date_start"
+        ]
+      },
+      {
+        "id": "portal-2024",
+        "file": "portal-2024.md",
+        "missing": [
+          "date_start"
+        ]
+      },
       {
         "id": "proof-award-ars-electronica",
         "file": "proof-award-ars-electronica.md",
@@ -122,26 +185,41 @@
         "missing": [
           "proof_of"
         ]
+      },
+      {
+        "id": "tsiolkovsky-2025",
+        "file": "tsiolkovsky-2025.md",
+        "missing": [
+          "date_start"
+        ]
+      },
+      {
+        "id": "tsiolkovsky-2026",
+        "file": "tsiolkovsky-2026.md",
+        "missing": [
+          "date_start"
+        ]
+      },
+      {
+        "id": "unique-russia",
+        "file": "unique-russia.md",
+        "missing": [
+          "date_start"
+        ]
       }
     ],
     "bodySmells": [
-      {
-        "id": "heritage",
-        "file": "heritage.md",
-        "smell": "manual-link-list",
-        "detail": "6 link bullets in 2 block(s)"
-      },
-      {
-        "id": "hub-agents",
-        "file": "hub-agents.md",
-        "smell": "manual-link-list",
-        "detail": "40 link bullets in 6 block(s)"
-      },
       {
         "id": "hub-business",
         "file": "hub-business.md",
         "smell": "manual-link-list",
         "detail": "12 link bullets in 2 block(s)"
+      },
+      {
+        "id": "hub-event-agencies",
+        "file": "hub-event-agencies.md",
+        "smell": "manual-link-list",
+        "detail": "40 link bullets in 6 block(s)"
       },
       {
         "id": "hub-events",
@@ -156,38 +234,8 @@
         "detail": "12 link bullets in 2 block(s)"
       },
       {
-        "id": "hub-pleinair",
-        "file": "hub-pleinair.md",
-        "smell": "manual-link-list",
-        "detail": "6 link bullets in 2 block(s)"
-      },
-      {
         "id": "hub-portal",
         "file": "hub-portal.md",
-        "smell": "manual-link-list",
-        "detail": "6 link bullets in 2 block(s)"
-      },
-      {
-        "id": "hub-practices",
-        "file": "hub-practices.md",
-        "smell": "manual-link-list",
-        "detail": "10 link bullets in 2 block(s)"
-      },
-      {
-        "id": "hub-registry-commercial",
-        "file": "hub-registry-commercial.md",
-        "smell": "manual-link-list",
-        "detail": "8 link bullets in 2 block(s)"
-      },
-      {
-        "id": "hub-registry-expert",
-        "file": "hub-registry-expert.md",
-        "smell": "manual-link-list",
-        "detail": "18 link bullets in 2 block(s)"
-      },
-      {
-        "id": "hub-works-art",
-        "file": "hub-works-art.md",
         "smell": "manual-link-list",
         "detail": "6 link bullets in 2 block(s)"
       },
@@ -214,35 +262,24 @@
         "file": "sync-circle.md",
         "smell": "manual-link-list",
         "detail": "6 link bullets in 2 block(s)"
-      },
-      {
-        "id": "workshops",
-        "file": "workshops.md",
-        "smell": "manual-link-list",
-        "detail": "8 link bullets in 2 block(s)"
       }
     ],
     "missingRefs": [],
     "orphans": [
       {
-        "id": "art-brain",
+        "id": "ancestors",
         "kind": "product",
-        "file": "art-brain.md"
+        "file": "ancestors.md"
+      },
+      {
+        "id": "another-people",
+        "kind": "product",
+        "file": "another-people.md"
       },
       {
         "id": "brain-hack",
         "kind": "product",
         "file": "brain-hack.md"
-      },
-      {
-        "id": "coaching",
-        "kind": "product",
-        "file": "coaching.md"
-      },
-      {
-        "id": "color-brain",
-        "kind": "product",
-        "file": "color-brain.md"
       },
       {
         "id": "cultural-neuro-code",
@@ -260,19 +297,29 @@
         "file": "emomandala.md"
       },
       {
-        "id": "empathy",
-        "kind": "product",
-        "file": "empathy.md"
-      },
-      {
         "id": "event-bauman-moscow2030-2025",
         "kind": "event",
         "file": "event-bauman-moscow2030-2025.md"
       },
       {
+        "id": "event-bitva-milliard-2024",
+        "kind": "event",
+        "file": "event-bitva-milliard-2024.md"
+      },
+      {
+        "id": "event-brics-plus",
+        "kind": "event",
+        "file": "event-brics-plus.md"
+      },
+      {
         "id": "event-gonchar-private-2024",
         "kind": "event",
         "file": "event-gonchar-private-2024.md"
+      },
+      {
+        "id": "event-kod-provincii",
+        "kind": "event",
+        "file": "event-kod-provincii.md"
       },
       {
         "id": "event-merck-corporate",
@@ -285,24 +332,59 @@
         "file": "event-sber-lecture-2025.md"
       },
       {
+        "id": "event-techweek",
+        "kind": "event",
+        "file": "event-techweek.md"
+      },
+      {
+        "id": "feedback-empathy-brain",
+        "kind": "product",
+        "file": "feedback-empathy-brain.md"
+      },
+      {
+        "id": "gong-fest-2024",
+        "kind": "event",
+        "file": "gong-fest-2024.md"
+      },
+      {
+        "id": "gong-fest-2025",
+        "kind": "event",
+        "file": "gong-fest-2025.md"
+      },
+      {
         "id": "gong",
         "kind": "product",
         "file": "gong.md"
       },
       {
-        "id": "heritage",
+        "id": "happiness",
         "kind": "product",
-        "file": "heritage.md"
+        "file": "happiness.md"
       },
       {
-        "id": "jewellery",
+        "id": "honors",
         "kind": "product",
-        "file": "jewellery.md"
+        "file": "honors.md"
+      },
+      {
+        "id": "hyperscan-scene-engine",
+        "kind": "product",
+        "file": "hyperscan-scene-engine.md"
       },
       {
         "id": "journey",
         "kind": "product",
         "file": "journey.md"
+      },
+      {
+        "id": "lighthouse",
+        "kind": "product",
+        "file": "lighthouse.md"
+      },
+      {
+        "id": "meditation-brain",
+        "kind": "product",
+        "file": "meditation-brain.md"
       },
       {
         "id": "mom-baby",
@@ -318,6 +400,11 @@
         "id": "neuroaesthetics-lec",
         "kind": "product",
         "file": "neuroaesthetics-lec.md"
+      },
+      {
+        "id": "neuromandala-os",
+        "kind": "product",
+        "file": "neuromandala-os.md"
       },
       {
         "id": "neurosync",
@@ -343,6 +430,21 @@
         "id": "org-lamborghini",
         "kind": "organizer",
         "file": "org-lamborghini.md"
+      },
+      {
+        "id": "pleinair-bashkiria",
+        "kind": "event",
+        "file": "pleinair-bashkiria.md"
+      },
+      {
+        "id": "pleinair-metro",
+        "kind": "event",
+        "file": "pleinair-metro.md"
+      },
+      {
+        "id": "portal-2024",
+        "kind": "event",
+        "file": "portal-2024.md"
       },
       {
         "id": "posustoronniy",
@@ -440,9 +542,29 @@
         "file": "taste-brain.md"
       },
       {
-        "id": "workshops",
+        "id": "tsiolkovsky-2025",
+        "kind": "event",
+        "file": "tsiolkovsky-2025.md"
+      },
+      {
+        "id": "tsiolkovsky-2026",
+        "kind": "event",
+        "file": "tsiolkovsky-2026.md"
+      },
+      {
+        "id": "two-waves",
         "kind": "product",
-        "file": "workshops.md"
+        "file": "two-waves.md"
+      },
+      {
+        "id": "unique-russia",
+        "kind": "event",
+        "file": "unique-russia.md"
+      },
+      {
+        "id": "voronka",
+        "kind": "product",
+        "file": "voronka.md"
       }
     ],
     "duplicates": [

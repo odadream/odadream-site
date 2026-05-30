@@ -1,6 +1,6 @@
 ---
 id: event-cipr-mindshow-2026
-parent: hub-registry-expert
+parent: hub-forums
 title_en: MindShow at TechFriendly / CIPR
 title_ru: MindShow на TechFriendly / ЦИПР
 type: content

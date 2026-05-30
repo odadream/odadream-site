@@ -1,10 +1,11 @@
 ---
 id: hub-registry-orgs
-parent: hub-registry
+parent: hub-world
 title_en: Organizations
 title_ru: Организации
 type: content
-tags: [hub-registry]
+tags:
+  - hub-registry
 order: 2
 visible: true
 date: 2026.05.25

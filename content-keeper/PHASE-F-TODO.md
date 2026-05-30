@@ -1,6 +1,6 @@
 # Phase F — TODO
 
-Generated: 2026-05-30T06:36:46.523Z
+Generated: 2026-05-30T17:52:21.857Z
 
 Items are grouped by **who fixes them** so non-trivial work isn't blocked on mechanical tasks.
 
@@ -12,6 +12,15 @@ Already applied at last fix run. Re-run if registry yamls change.
 
 These proofs lack `proof_of` / `issued_by` because the source YAML record has no `work` / `eng` / `org`. Add the missing keys to the YAML, then re-run the Phase C proof migrator.
 
+- `event-bitva-milliard-2024` — missing: date_start
+- `event-brics-plus` — missing: date_start
+- `event-kod-provincii` — missing: date_start
+- `event-techweek` — missing: date_start
+- `gong-fest-2024` — missing: date_start
+- `gong-fest-2025` — missing: date_start
+- `pleinair-bashkiria` — missing: date_start
+- `pleinair-metro` — missing: date_start
+- `portal-2024` — missing: date_start
 - `proof-award-ars-electronica` — missing: proof_of
 - `proof-award-culttech-vienna` — missing: proof_of
 - `proof-cred-track-record` — missing: proof_of
@@ -26,6 +35,9 @@ These proofs lack `proof_of` / `issued_by` because the source YAML record has no
 - `proof-let-unique-russia` — missing: proof_of
 - `proof-press-cyens-cyprus` — missing: proof_of
 - `proof-press-vecherka` — missing: proof_of
+- `tsiolkovsky-2025` — missing: date_start
+- `tsiolkovsky-2026` — missing: date_start
+- `unique-russia` — missing: date_start
 - `proof-award-ars-electronica` — missing: proof_of, issued_by
 - `proof-award-culttech-vienna` — missing: proof_of, issued_by
 - `proof-award-portal-visioning` — missing: issued_by
@@ -75,51 +87,56 @@ Hub pages contain bullet lists of `[[…]]`. These are navigation by hand. Decis
 - **convert to `.base`** — large registries (`registry-expert.md` with 18 bullets, `collab-agents.md` with 40).
 - **delete + render computed inverse** — when the same data is already on referenced nodes (e.g. `works-art.md`).
 
-- `heritage.md` — 6 link bullets in 2 block(s)
-- `hub-agents.md` — 40 link bullets in 6 block(s)
 - `hub-business.md` — 12 link bullets in 2 block(s)
+- `hub-event-agencies.md` — 40 link bullets in 6 block(s)
 - `hub-events.md` — 12 link bullets in 2 block(s)
 - `hub-lectures.md` — 12 link bullets in 2 block(s)
-- `hub-pleinair.md` — 6 link bullets in 2 block(s)
 - `hub-portal.md` — 6 link bullets in 2 block(s)
-- `hub-practices.md` — 10 link bullets in 2 block(s)
-- `hub-registry-commercial.md` — 8 link bullets in 2 block(s)
-- `hub-registry-expert.md` — 18 link bullets in 2 block(s)
-- `hub-works-art.md` — 6 link bullets in 2 block(s)
 - `hub-world.md` — 14 link bullets in 2 block(s)
 - `interference.md` — 6 link bullets in 2 block(s)
 - `posustoronniy.md` — 6 link bullets in 2 block(s)
 - `sync-circle.md` — 6 link bullets in 2 block(s)
-- `workshops.md` — 8 link bullets in 2 block(s)
 
 ## G. Orphans (informational)
 
-Total: 44. These are leaf nodes nobody points at and that anchor nothing themselves. Many are legitimate (standalone lectures, untouched practices). Audit list:
+Total: 60. These are leaf nodes nobody points at and that anchor nothing themselves. Many are legitimate (standalone lectures, untouched practices). Audit list:
 
-- `art-brain.md` (kind: product)
+- `ancestors.md` (kind: product)
+- `another-people.md` (kind: product)
 - `brain-hack.md` (kind: product)
-- `coaching.md` (kind: product)
-- `color-brain.md` (kind: product)
 - `cultural-neuro-code.md` (kind: product)
 - `dashran.md` (kind: product)
 - `emomandala.md` (kind: product)
-- `empathy.md` (kind: product)
 - `event-bauman-moscow2030-2025.md` (kind: event)
+- `event-bitva-milliard-2024.md` (kind: event)
+- `event-brics-plus.md` (kind: event)
 - `event-gonchar-private-2024.md` (kind: event)
+- `event-kod-provincii.md` (kind: event)
 - `event-merck-corporate.md` (kind: event)
 - `event-sber-lecture-2025.md` (kind: event)
+- `event-techweek.md` (kind: event)
+- `feedback-empathy-brain.md` (kind: product)
+- `gong-fest-2024.md` (kind: event)
+- `gong-fest-2025.md` (kind: event)
 - `gong.md` (kind: product)
-- `heritage.md` (kind: product)
-- `jewellery.md` (kind: product)
+- `happiness.md` (kind: product)
+- `honors.md` (kind: product)
+- `hyperscan-scene-engine.md` (kind: product)
 - `journey.md` (kind: product)
+- `lighthouse.md` (kind: product)
+- `meditation-brain.md` (kind: product)
 - `mom-baby.md` (kind: product)
 - `neuro-dance.md` (kind: product)
 - `neuroaesthetics-lec.md` (kind: product)
+- `neuromandala-os.md` (kind: product)
 - `neurosync.md` (kind: product)
 - `org-audi.md` (kind: organizer)
 - `org-culture-sport-uao.md` (kind: organizer)
 - `org-inforce.md` (kind: organizer)
 - `org-lamborghini.md` (kind: organizer)
+- `pleinair-bashkiria.md` (kind: event)
+- `pleinair-metro.md` (kind: event)
+- `portal-2024.md` (kind: event)
 - `posustoronniy.md` (kind: product)
 - `proof-award-ars-electronica.md` (kind: proof)
 - `proof-award-culttech-vienna.md` (kind: proof)
@@ -139,4 +156,8 @@ Total: 44. These are leaf nodes nobody points at and that anchor nothing themsel
 - `sound-brain.md` (kind: product)
 - `sync-circle.md` (kind: product)
 - `taste-brain.md` (kind: product)
-- `workshops.md` (kind: product)
+- `tsiolkovsky-2025.md` (kind: event)
+- `tsiolkovsky-2026.md` (kind: event)
+- `two-waves.md` (kind: product)
+- `unique-russia.md` (kind: event)
+- `voronka.md` (kind: product)

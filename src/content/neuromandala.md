@@ -1,6 +1,6 @@
 ---
 id: neuromandala
-parent: hub-works-tech
+parent: hub-tech
 title_en: Neuromandala
 title_ru: Нейромандала
 type: content

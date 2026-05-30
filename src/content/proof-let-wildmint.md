@@ -10,7 +10,7 @@ kind: proof
 subkind: letter
 proof_of:
   - "[[neuromandala]]"
-  - "[[event-wildmint-2025]]"
+  - "[[event-myata-2025]]"
 issued_by:
   - "[[org-wildmint]]"
 publication_date: 2025-01-01

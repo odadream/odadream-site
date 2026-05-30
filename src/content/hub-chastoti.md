@@ -1,6 +1,6 @@
 ---
 id: hub-chastoti
-parent: hub-events
+parent: hub-exhibitions
 title_en: Chastoti
 title_ru: Частоты
 type: content

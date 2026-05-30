@@ -15,7 +15,7 @@ Here, _interface_ is understood not as an instrumental shell, but as a _way of o
 
 > "The screen is not a window, but a mirror of the nervous system".
 
-We explore _human—human, human—computer, and human—computer—human_ connections through the lens of consciousness and attention, embodiment and perception, empathy and communication. Our tools are neurointerfaces and biointerfaces. **Our themes are the relationships between past, present, and possible future scenarios.**
+We explore _human—human, human—computer, and human—computer—human_ connections through the lens of consciousness and attention, embodiment and perception, feedback-empathy-brain and communication. Our tools are neurointerfaces and biointerfaces. **Our themes are the relationships between past, present, and possible future scenarios.**
 
 ## Open Space
 
@@ -29,7 +29,7 @@ If any of this resonated — the [[hub-collab|collaboration space]] is here.
 
 The space is organized according to the fractal principle of the **Blooming Lotus**. You are at its center. At each level—one to eight directions; some active, some hidden and will open over time.
 
-This structure defines both the **logic of navigation and the logic of meanings**. Moving through directions is a shift in the level of observation and engagement. Some directions lead to completed hub-objects, others to processes unfolding in time.
+This structure defines both the **logic of navigation and the logic of meanings**. Moving through directions is a shift in the level of observation and engagement. Some directions lead to completed hub-materia, others to processes unfolding in time.
 
 Navigation is via the lotus grid [[navigator|navigator]]. Return to the previous level—through the central cell or the path at the bottom of the page. At the top is a panel of key nodes. The navigator also has a **site map** mode (toggle in its header) — a fractal view of every node, hover for titles.
 

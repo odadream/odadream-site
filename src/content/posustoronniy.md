@@ -1,6 +1,6 @@
 ---
 id: posustoronniy
-parent: hub-research
+parent: hub-installations
 title_en: Posustoronniy
 title_ru: Потусторонний
 type: content

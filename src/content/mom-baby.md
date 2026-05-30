@@ -1,6 +1,6 @@
 ---
 id: mom-baby
-parent: hub-objects
+parent: hub-materia
 title_en: Mom & Baby
 title_ru: Мама и Малыш
 type: content

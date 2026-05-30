@@ -1,10 +1,12 @@
 ---
 id: multisync
-parent: hub-works-tech
+parent: hub-tech
 title_en: Hyperscanning / MultiSync
 title_ru: Гиперсканирование / MultiSync
 type: content
-tags: [circle, science]
+tags:
+  - circle
+  - science
 status: rnd
 order: 1
 visible: true

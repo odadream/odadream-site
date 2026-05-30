@@ -1,0 +1,20 @@
+---
+id: gong-fest-2024
+parent: hub-gong-fest
+title_en: Gong Fest 2024
+title_ru: Гонг фест 2024
+type: content
+tags: []
+kind: event
+subkind: festival
+---
+
+## Gong Fest 2024
+
+Stub — created by Phase G restructure. Fill in details.
+
+---RU---
+
+## Гонг фест 2024
+
+Заглушка — создана аудитом Phase G. Дополнить.

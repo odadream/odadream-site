@@ -1,6 +1,6 @@
 ---
 id: event-ashram-birthday-2024
-parent: hub-registry-commercial
+parent: hub-private-shows
 title_en: Ashram Studio birthday celebration
 title_ru: День рождения студии Ashram
 type: content

@@ -1,10 +1,12 @@
 ---
 id: hub-lectures
-parent: hub-works-education
+parent: hub-home
 title_en: Lectures
 title_ru: Лекции
 type: hub
-tags: [lecture, hall]
+tags:
+  - lecture
+  - hall
 order: 0
 visible: true
 date: 2026.02.13
@@ -34,7 +36,7 @@ The visual component is enhanced with generative graphics, media art, sound feed
 - [[sound-brain|Sound & Brain]] — auditory entrainment, rhythm, and collective state modulation.
 - [[taste-brain|Taste & Brain]] — multisensory food perception, context, and cognitive framing.
 - [[color-brain|Color & Brain]] — light, spectrum, and emotional/cognitive regulation.
-- [[empathy|Empathy Protocol]] — interpersonal attunement and neural coupling as a discussion framework.
+- [[feedback-empathy-brain|Empathy Protocol]] — interpersonal attunement and neural coupling as a discussion framework.
 - [[neuroaesthetics-lec|Neuroaesthetics]] — advanced conceptual lecture for art and curatorial audiences.
 
 Topics are modular and can be assembled as:
@@ -54,7 +56,7 @@ Topics are modular and can be assembled as:
 
 - Start with [[art-brain|Art of Brain]] for first-time audiences.
 - Add [[sound-brain|Sound & Brain]] or [[color-brain|Color & Brain]] for applied sensory focus.
-- Use [[empathy|Empathy Protocol]] and [[neuroaesthetics-lec|Neuroaesthetics]] for advanced discussion contexts.
+- Use [[feedback-empathy-brain|Empathy Protocol]] and [[neuroaesthetics-lec|Neuroaesthetics]] for advanced discussion contexts.
 
 ## Contexts
 
@@ -133,7 +135,7 @@ Ready to integrate a lecture into your festival or event — one that doesn’t 
 - [[sound-brain|Звук и мозг]] — аудиальная синхронизация, ритм и управление коллективным состоянием.
 - [[taste-brain|Вкус и мозг]] — мультисенсорное восприятие еды, контекст и когнитивные эффекты.
 - [[color-brain|Цвет и мозг]] — свет, спектр и эмоционально-когнитивная регуляция.
-- [[empathy|Протокол эмпатии]] — межличностная сонастройка и нейронная связность как рамка обсуждения.
+- [[feedback-empathy-brain|Протокол эмпатии]] — межличностная сонастройка и нейронная связность как рамка обсуждения.
 - [[neuroaesthetics-lec|Нейроэстетика]] — углублённая лекция для арт- и кураторских аудиторий.
 
 Темы собираются модульно:
@@ -153,7 +155,7 @@ Ready to integrate a lecture into your festival or event — one that doesn’t 
 
 - Для первого знакомства начните с [[art-brain|Искусство мозга]].
 - Для прикладного сенсорного фокуса добавляйте [[sound-brain|Звук и мозг]] или [[color-brain|Цвет и мозг]].
-- Для продвинутой дискуссии открывайте [[empathy|Протокол эмпатии]] и [[neuroaesthetics-lec|Нейроэстетику]].
+- Для продвинутой дискуссии открывайте [[feedback-empathy-brain|Протокол эмпатии]] и [[neuroaesthetics-lec|Нейроэстетику]].
 
 ## Контексты проведения
 

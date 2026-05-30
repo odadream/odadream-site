@@ -1,6 +1,6 @@
 ---
 id: event-tpp-mindshow-2025
-parent: hub-registry-expert
+parent: hub-forums
 title_en: MindShow — Russian Digital Creative summit
 title_ru: MindShow — саммит Russian Digital Creative
 type: content

@@ -1,6 +1,6 @@
 ---
 id: sync-circle
-parent: hub-research
+parent: hub-installations
 title_en: Sync Circle
 title_ru: Круг Синхронизации
 type: content

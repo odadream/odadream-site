@@ -1,6 +1,6 @@
 ---
 id: brain-hack
-parent: hub-games
+parent: hub-lectures
 title_en: Brain Hack
 title_ru: Взлом Мозга
 type: content

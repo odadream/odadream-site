@@ -79,7 +79,7 @@ export const MEDIA: Record<string, MediaAsset> = {
     url: "https://dzen.ru/embed/vL3M-cNgfSVo?from_block=partner&from=zen&mute=1&autoplay=1&tv=0",
     poster: "/images/content/mindshow_portal.webp",
     title: { en: "Hypercube · Portal 2030–2050, Skolkovo", ru: "Гиперкуб · Портал 2030–2050, Сколково" },
-    subject: ["mindshow", "event-moscow2030-portal-2025"],
+    subject: ["mindshow", "portal-2025"],
   },
   "mdsh-urban-forum": {
     url: "https://dzen.ru/embed/vYcLmkD5bAxE?from_block=partner&from=zen&mute=1&autoplay=1&tv=0",
@@ -176,7 +176,7 @@ export const MEDIA: Record<string, MediaAsset> = {
   },
   "jewellery-cover": {
     url: "/images/content/jewellery.jpg",
-    title: { en: "Jewellery hub-objects", ru: "Ювелирные объекты" },
+    title: { en: "Jewellery hub-materia", ru: "Ювелирные объекты" },
     subject: ["jewellery"],
   },
 

@@ -1,6 +1,6 @@
 ---
 id: mindshow
-parent: hub-research
+parent: hub-performances
 title_en: Mindshow
 title_ru: Майнд-шоу
 type: content
@@ -16,7 +16,7 @@ presented_at:
   - "[[event-byob-2019]]"
   - "[[event-byob-2026]]"
   - "[[event-mipt-terraforming-2025]]"
-  - "[[event-moscow2030-portal-2025]]"
+  - "[[portal-2025]]"
   - "[[event-tpp-mindshow-2025]]"
   - "[[event-cipr-mindshow-2026]]"
 proofs:

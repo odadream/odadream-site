@@ -1,6 +1,6 @@
 ---
 id: event-mipt-terraforming-2025
-parent: hub-registry-expert
+parent: hub-terraforming
 title_en: Terraforming — MIPT exhibition
 title_ru: Терраформинг — выставка МФТИ
 type: content
@@ -16,7 +16,7 @@ venue: Moscow
 organizer:
   - "[[org-kapitsa]]"
   - "[[org-mipt]]"
-subkind: workshop
+subkind: exhibition
 ---
 
 ## Terraforming — MIPT exhibition

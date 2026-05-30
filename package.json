@@ -21,7 +21,9 @@
     "migrate:media-dry": "node scripts/migrate/media-subject.js",
     "migrate:media-run": "node scripts/migrate/media-subject.js --write",
     "audit": "node scripts/audit/content-audit.js",
-    "audit:structure": "node scripts/audit/dump-structure.js"
+    "audit:structure": "node scripts/audit/dump-structure.js",
+    "restructure:dry": "node scripts/audit/restructure.js",
+    "restructure:run": "node scripts/audit/restructure.js --write"
   },
   "dependencies": {
     "clsx": "^2.1.0",

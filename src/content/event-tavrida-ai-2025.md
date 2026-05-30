@@ -1,6 +1,6 @@
 ---
 id: event-tavrida-ai-2025
-parent: hub-registry-commercial
+parent: hub-edu-corporate
 title_en: AI festival Cultural Code of Russia
 title_ru: Фестиваль ИИ «Культурный код России»
 type: content
@@ -14,7 +14,7 @@ kind: event
 date_start: 2025-08-01
 organizer:
   - "[[org-tavrida]]"
-subkind: festival
+subkind: school
 ---
 
 ## AI festival Cultural Code of Russia

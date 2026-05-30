@@ -59,12 +59,12 @@ Site-specific installation, co-curated public programs, mediation, and productio
 
 ## For Artists & Creative Teams
 
-[[hub-artists|Co-production and interdisciplinary labs]]  
+[[hub-creators|Co-production and interdisciplinary labs]]  
 Hybrid hub-team projects where artistic concept, technology, and facilitation develop together.
 
 ## For Event Agencies
 
-[[hub-agents|Agency partnership]]  
+[[hub-event-agencies|Agency partnership]]  
 You bring the client — we deliver the neuro stack, software, art layer, and on-site performance; the organizer provides AV, furniture, and power.
 
 ---
@@ -122,12 +122,12 @@ If you are not sure which section fits — write to us directly: [[hub-contacts|
 
 ## Художникам и креативным командам
 
-[[hub-artists|Копродакшн и междисциплинарные лаборатории]]  
+[[hub-creators|Копродакшн и междисциплинарные лаборатории]]  
 Гибридные проекты, где художественная идея, технология и фасилитация развиваются вместе.
 
 ## Ивент-агентствам
 
-[[hub-agents|Партнёрство]]  
+[[hub-event-agencies|Партнёрство]]  
 Вы приводите клиента — мы обеспечиваем нейро-контур, софт, арт-часть и работу на площадке; инфраструктуру обеспечивает организатор.
 
 ---

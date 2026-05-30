@@ -1,6 +1,6 @@
 ---
 id: gong
-parent: hub-practices
+parent: hub-performances
 title_en: Gong Theater
 title_ru: Гонг Театр
 type: content

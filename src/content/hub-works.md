@@ -13,7 +13,7 @@ date: 2026.05.27
 
 We are an art-science duo. Everything we make falls into three categories:
 
-- 🎨 [[hub-works-art|Artistic hub-works]] — performances, installations, neuro-theater, hub-games, hub-objects.
+- 🎨 [[hub-works-art|Artistic hub-works]] — performances, installations, neuro-theater, hub-games, hub-materia.
 - 📚 [[hub-works-education|Education & outreach]] — hub-lectures, hub-practices, demonstrations, measurements.
 - ⚙️ [[hub-works-tech|Technology]] — Neuromandala platform and hyperscanning, where our patents live.
 

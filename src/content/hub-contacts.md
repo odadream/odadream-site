@@ -28,7 +28,7 @@ We respond within 24 hours.
 ## For event agencies and production companies
 
 Same hub-contacts. Mention you're an agency — we'll switch to the partner brief format.  
-→ [[hub-agents|Agency partnership page]]
+→ [[hub-event-agencies|Agency partnership page]]
 
 ## Media and info channels
 
@@ -60,7 +60,7 @@ _End of transmission._
 ## Ивент-агентствам и продакшн-компаниям
 
 Те же контакты. Напишите, что вы агентство — перейдём на партнёрский бриф-формат.  
-→ [[hub-agents|Страница для агентств]]
+→ [[hub-event-agencies|Страница для агентств]]
 
 ## Медиа и информационные каналы
 

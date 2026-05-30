@@ -1,6 +1,6 @@
 ---
 id: event-merck-corporate
-parent: hub-registry-commercial
+parent: hub-edu-corporate
 title_en: Merck corporate science-art format
 title_ru: Корпоративный science-art формат Merck
 type: content
@@ -15,7 +15,7 @@ date_start: 2025-01-01
 venue: Moscow
 organizer:
   - "[[org-merck]]"
-subkind: workshop
+subkind: conference
 ---
 
 ## Merck corporate science-art format

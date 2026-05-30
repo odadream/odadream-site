@@ -79,7 +79,7 @@ Review **client feedback** in the [[hub-letters | thank you hub-letters]] sectio
 Include: event date · city · audience size · format interest (or "not sure yet")  
 We respond within 24 hours.
 
-Working through an agency? Ask them to contact us directly — [[hub-agents|partner info here]].
+Working through an agency? Ask them to contact us directly — [[hub-event-agencies|partner info here]].
 
 _Communication session terminated._
 
@@ -152,6 +152,6 @@ _Communication session terminated._
 Укажите: дата и город · размер аудитории · интерес к формату (или «пока не знаю»)  
 Отвечаем в течение 24 часов.
 
-Работаете через агентство? Попросите их связаться с нами напрямую — [[hub-agents|информация для партнёров]].
+Работаете через агентство? Попросите их связаться с нами напрямую — [[hub-event-agencies|информация для партнёров]].
 
 _Сеанс связи завершён._

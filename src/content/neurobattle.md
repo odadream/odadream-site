@@ -1,8 +1,8 @@
 ---
 id: neurobattle
-parent: hub-games
+parent: hub-performances
 title_en: Neurobattle
-title_ru: Нейробитва
+title_ru: Парадокс Успеха
 type: content
 tags:
   - esports
@@ -20,6 +20,8 @@ media:
   - nrbt-dano
   - nrbt-veter
   - nrbt-tnt
+aliases:
+  - neurobattle
 ---
 
 Two participants control a single virtual object in real time. In form — tug of war. In essence — **a duel of mental states**. The system reads brain rhythms (EEG) and translates them into generative graphics on the screen.
@@ -66,7 +68,7 @@ No training is required — participants learn the mechanics on the fly. This ad
 - ![[media:nrbt-veter]] — Wind of Change charity gala;
 - ![[media:nrbt-tnt]] — TNT "Ty kak Ya".
 
-**Book for your event →** [[hub-business|Corporate & Brands]] · [[hub-agents|Agencies]]
+**Book for your event →** [[hub-business|Corporate & Brands]] · [[hub-event-agencies|Agencies]]
 
 Ready to create a scenario for your event where technology, people, and audience function as a single organism? Contact us via [[hub-contacts]] to discuss the concept.
 
@@ -116,6 +118,6 @@ Ready to create a scenario for your event where technology, people, and audience
 - ![[media:nrbt-veter]] — благотворительный вечер «Ветер Перемен»;
 - ![[media:nrbt-tnt]] — ТНТ «Ты как Я».
 
-**Заказать на событие →** [[hub-business|Корпоративным клиентам]] · [[hub-agents|Агентствам]]
+**Заказать на событие →** [[hub-business|Корпоративным клиентам]] · [[hub-event-agencies|Агентствам]]
 
 Готовы спроектировать для вашего события ситуацию, где технология, человек и зритель работают как единое целое? Свяжитесь с нами через [[hub-contacts|контакты]], чтобы обсудить концепцию.

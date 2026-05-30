@@ -1,6 +1,6 @@
 ---
 id: event-gonchar-private-2024
-parent: hub-registry-expert
+parent: hub-private-shows
 title_en: Private neuro-show — Nata Gonchar
 title_ru: Частное нейрошоу — Ната Гончар
 type: content

@@ -1,6 +1,6 @@
 ---
 id: schrodinger
-parent: hub-research
+parent: hub-big-forms
 title_en: Schrodinger
 title_ru: Шрёдингер
 type: content

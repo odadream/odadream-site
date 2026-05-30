@@ -1,6 +1,6 @@
 ---
 id: event-bauman-moscow2030-2025
-parent: hub-registry-expert
+parent: hub-edu-corporate
 title_en: Brain-hacking lecture — Bauman MSTU
 title_ru: Лекция про брейнхакинг — МГТУ им. Баумана
 type: content
@@ -16,7 +16,7 @@ venue: Moscow
 organizer:
   - "[[org-bauman]]"
   - "[[org-moscow2030]]"
-subkind: forum
+subkind: lecture
 ---
 
 ## Brain-hacking lecture — Bauman MSTU

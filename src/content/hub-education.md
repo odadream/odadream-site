@@ -16,7 +16,7 @@ date: 2026.05.25
 
 **Lectures · Workshops · Youth Programs · Summer Schools**
 
-We believe scientific art is one of the most powerful tools for developing attention, empathy, and self-awareness in young people. When you can watch your own brain activity become a visual image in real time — something shifts in how you understand yourself.
+We believe scientific art is one of the most powerful tools for developing attention, feedback-empathy-brain, and self-awareness in young people. When you can watch your own brain activity become a visual image in real time — something shifts in how you understand yourself.
 
 ## Lecture series
 

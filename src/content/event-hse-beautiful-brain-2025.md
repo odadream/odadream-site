@@ -1,6 +1,6 @@
 ---
 id: event-hse-beautiful-brain-2025
-parent: hub-registry-expert
+parent: hub-edu-corporate
 title_en: Beautiful About the Brain — HSE University
 title_ru: «Красиво про мозг» — НИУ ВШЭ
 type: content
@@ -15,7 +15,7 @@ date_start: 2025-05-01
 venue: Moscow
 organizer:
   - "[[org-hse]]"
-subkind: conference
+subkind: lecture
 ---
 
 ## Beautiful About the Brain — HSE University

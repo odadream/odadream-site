@@ -1,6 +1,6 @@
 ---
 id: journey
-parent: hub-games
+parent: hub-lectures
 title_en: Journey
 title_ru: Путешествие
 type: content

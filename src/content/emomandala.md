@@ -1,6 +1,6 @@
 ---
 id: emomandala
-parent: hub-objects
+parent: hub-materia
 title_en: Emomandala
 title_ru: Эмомандала
 type: content

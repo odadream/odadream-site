@@ -1,6 +1,6 @@
 ---
 id: event-sber-lecture-2025
-parent: hub-registry-expert
+parent: hub-edu-corporate
 title_en: Science-art lecture for Sberbank
 title_ru: Science-art лекция для Сбербанка
 type: content
@@ -15,7 +15,7 @@ date_start: 2025-01-01
 venue: Moscow
 organizer:
   - "[[org-sberbank]]"
-subkind: workshop
+subkind: lecture
 ---
 
 ## Science-art lecture for Sberbank

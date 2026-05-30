@@ -1,6 +1,6 @@
 ---
 id: hub-galleries
-parent: hub-collab
+parent: hub-institutions
 title_en: Galleries
 title_ru: Галереи
 type: content

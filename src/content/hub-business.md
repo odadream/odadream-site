@@ -78,7 +78,7 @@ We do not have a standard package. Every format is adapted to the context, the a
 
 {{contacts-cta}}
 
-Working through an event agency? Ask them to include ODA.dream in the program — they handle the coordination: [[hub-agents|agency partner info]].
+Working through an event agency? Ask them to include ODA.dream in the program — they handle the coordination: [[hub-event-agencies|agency partner info]].
 
 ---RU---
 
@@ -148,4 +148,4 @@ _ODA.dream — это тот опыт._
 
 {{contacts-cta}}
 
-Работаете через ивент-агентство? Попросите их включить ODA.dream в программу — они возьмут на себя координацию: [[hub-agents|информация для агентств]].
+Работаете через ивент-агентство? Попросите их включить ODA.dream в программу — они возьмут на себя координацию: [[hub-event-agencies|информация для агентств]].
