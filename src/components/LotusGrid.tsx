@@ -22,7 +22,7 @@ import { LotusMap } from "./LotusMap";
 
 import { LotusNode } from "../types";
 import { THEME } from "../styles/theme";
-import { TRANSITIONS, MotionDiv, CELL_VARIANTS } from "../styles/animations";
+import { TRANSITIONS, MotionDiv, LOTUS_GRID_VARIANTS } from "../styles/animations";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { CyberText } from "./CyberText";
 import { LotusSidebar } from "./LotusSidebar";
@@ -46,8 +46,6 @@ const ARROW_ROTATIONS = [
   "rotate-180",
   "rotate-[135deg]",
 ];
-
-// Using centralized CELL_VARIANTS from animations.ts
 
 const CornerBrackets = React.memo(
   ({ show, accent }: { show: boolean; accent: boolean }) => {
@@ -107,17 +105,11 @@ const NoSignal = () => (
   </div>
 );
 
-// Updated Prop Interface to accept className for positioning
-// forwardRef required for AnimatePresence popLayout mode in React 19
-const GridCell = React.memo(
-  React.forwardRef<
-    HTMLDivElement,
-    {
-      cell: GridNode | null;
-      index: number;
-      className?: string;
-    }
-  >(({ cell, index, className }, _ref) => {
+const GridCell = React.memo<{
+  cell: GridNode | null;
+  index: number;
+  className?: string;
+}>(({ cell, index, className }) => {
     const {
       navigate,
       navigateHistory,
@@ -158,11 +150,7 @@ const GridCell = React.memo(
     // Empty Cell State
     if (!cell) {
       return (
-        <MotionDiv
-          variants={CELL_VARIANTS}
-          initial="initial"
-          animate="animate"
-          exit="exit"
+        <div
           className={cn(
             THEME.lotus.cellEmpty,
             "group w-full h-full bg-surface",
@@ -174,7 +162,7 @@ const GridCell = React.memo(
             className="w-3 h-3 text-txt-dim transition-all duration-500 group-hover:text-txt-muted group-hover:rotate-90 group-hover:scale-125"
             strokeWidth={1.5}
           />
-        </MotionDiv>
+        </div>
       );
     }
 
@@ -248,12 +236,7 @@ const GridCell = React.memo(
               : "50% 50%";
 
     return (
-      <MotionDiv
-        key={cell.id}
-        variants={CELL_VARIANTS}
-        initial="initial"
-        animate="animate"
-        exit="exit"
+      <div
         // Center cell: outward shadow so it appears raised; LED glow is outward only
         style={
           cell.isCenter
@@ -264,7 +247,7 @@ const GridCell = React.memo(
         }
         className={cn(
           THEME.lotus.cell,
-          "bg-surface will-change-transform",
+          "bg-surface",
           cell.isCenter ? THEME.lotus.cellActive : THEME.lotus.cellInteractive,
           className,
         )}
@@ -333,12 +316,9 @@ const GridCell = React.memo(
               loading="eager"
               draggable={false}
               className={cn(
-                "w-full h-full object-cover pointer-events-none select-none",
-                // NOTE: will-change-[opacity,filter] removed — causes Firefox compositing-layer
-                // repaints when combined with mix-blend-mode, producing visible cell flicker.
-                // NOTE: mix-blend-luminosity removed — blend-mode switching triggers expensive
-                // stacking-context recomposition in Firefox. grayscale() filter (in theme classes)
-                // already achieves the desaturation effect without blend-mode changes.
+                "w-full h-full object-cover pointer-events-none select-none [backface-visibility:hidden]",
+                // Per-cell AnimatePresence + popLayout removed — see LOTUS_GRID_VARIANTS.
+                // grayscale() in theme classes replaces mix-blend-luminosity (Firefox flicker).
                 cell.isCenter
                   ? THEME.lotus.image.center
                   : isVisualNode
@@ -419,10 +399,9 @@ const GridCell = React.memo(
             </div>
           </div>
         </div>
-      </MotionDiv>
+      </div>
     );
-  }),
-);
+});
 
 export const LotusGrid: React.FC = () => {
   const {
@@ -433,8 +412,14 @@ export const LotusGrid: React.FC = () => {
     toggleGrid,
     navigatorHighlight,
     lotusMode,
+    historyStack,
   } = useNavigation();
   const { gridCells } = useLotusLogic(currentNode, lang);
+
+  const lotusGridKey =
+    historyStack.length > 0
+      ? `${currentNode.id}::${historyStack.map((n) => n.id).join(">")}`
+      : currentNode.id;
 
   // --- SINGLE SOURCE OF TRUTH: drawerY ---
   // On mobile, this is the ONLY thing that controls the panel position.
@@ -785,22 +770,33 @@ export const LotusGrid: React.FC = () => {
               {lotusMode === "map" ? (
                 <LotusMap />
               ) : (
-                <div className={THEME.lotus.gridWrapper}>
-                  {gridCells.map((cell, index) => (
-                    <div
-                      key={index}
-                      className="relative w-full h-full isolate overflow-hidden bg-surface"
+                <div className="relative w-full h-full min-h-0">
+                  <AnimatePresence initial={false}>
+                    <MotionDiv
+                      key={lotusGridKey}
+                      variants={LOTUS_GRID_VARIANTS}
+                      initial="initial"
+                      animate="animate"
+                      exit="exit"
+                      className={cn(
+                        THEME.lotus.gridWrapper,
+                        "absolute inset-0 [transform:translateZ(0)]",
+                      )}
                     >
-                      <AnimatePresence mode="popLayout" initial={false}>
-                        <GridCell
-                          key={cell ? cell.id : `empty-${index}`}
-                          cell={cell}
-                          index={index}
-                          className="absolute inset-0"
-                        />
-                      </AnimatePresence>
-                    </div>
-                  ))}
+                      {gridCells.map((cell, index) => (
+                        <div
+                          key={index}
+                          className="relative w-full h-full overflow-hidden bg-surface"
+                        >
+                          <GridCell
+                            cell={cell}
+                            index={index}
+                            className="absolute inset-0"
+                          />
+                        </div>
+                      ))}
+                    </MotionDiv>
+                  </AnimatePresence>
                 </div>
               )}
             </div>

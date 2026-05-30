@@ -79,6 +79,21 @@ export const TRANSITIONS = {
 
 // --- SHARED VARIANTS ---
 
+/** Text panel — opacity/translate only (no filter: blur — breaks child text compositing near media links). */
+export const FADE_UP_TEXT_VARIANTS = {
+  initial: { opacity: 0, y: 12 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: TRANSITIONS.page,
+  },
+  exit: {
+    opacity: 0,
+    y: -8,
+    transition: { duration: 0.3, ease: "easeIn" },
+  },
+};
+
 export const FADE_UP_VARIANTS = {
   initial: { opacity: 0, y: 15, filter: "blur(4px)" },
   animate: {
@@ -101,23 +116,19 @@ export const SCALE_FADE_VARIANTS = {
   exit: { opacity: 0, scale: 0.98, transition: { duration: 0.2 } },
 };
 
-// Optimized cell variants for smooth cross-dissolve transitions
-export const CELL_VARIANTS = {
-  initial: {
-    opacity: 0,
-    zIndex: 10, // Incoming sits ON TOP
-  },
+// Whole 3×3 grid crossfade (one layer). Per-cell AnimatePresence + popLayout
+// caused Firefox to flash blank cells and ghost the previous center image.
+export const LOTUS_GRID_VARIANTS = {
+  initial: { opacity: 0 },
   animate: {
     opacity: 1,
-    zIndex: 10,
     transition: TRANSITIONS.cell,
   },
   exit: {
     opacity: 0,
-    zIndex: 0, // Outgoing sits BELOW
-    transition: {
-      duration: TRANSITIONS.cell.duration,
-      ease: "easeIn",
-    },
+    transition: { duration: 0.22, ease: "easeIn" as const },
   },
 };
+
+/** @deprecated Per-cell transitions — kept for empty-slot stubs if needed */
+export const CELL_VARIANTS = LOTUS_GRID_VARIANTS;

@@ -11,6 +11,7 @@ import { LotusNode, Language, Theme } from "../types";
 import { ROOT_NODE, NODE_REGISTRY } from "../constants";
 import { findPathToNode } from "../utils/nodeHelpers";
 import { getDefaultNodeImage } from "../utils/mediaHelpers";
+import { preloadLotusGrid } from "../utils/preloadLotusGrid";
 
 interface NavigationContextType {
   path: LotusNode[];
@@ -194,59 +195,88 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
 
   // --- ACTIONS ---
 
-  const navigate = useCallback((node: LotusNode) => {
-    if (node.type === "media") {
-      setLightboxMedia(node);
-    } else {
-      const canonicalPath = findPathToNode(ROOT_NODE, node.id);
-      setPath((prev) => {
-        if (canonicalPath) return canonicalPath;
-        // Fallback for orphaned nodes
-        if (prev.some((n) => n.id === node.id)) {
-          const idx = prev.findIndex((n) => n.id === node.id);
-          return prev.slice(0, idx + 1);
-        }
-        return [...prev, node];
-      });
-    }
-  }, []);
+  const navigate = useCallback(
+    (node: LotusNode) => {
+      if (node.type === "media") {
+        setLightboxMedia(node);
+      } else {
+        const canonicalPath = findPathToNode(ROOT_NODE, node.id);
+        const target =
+          canonicalPath?.[canonicalPath.length - 1] ?? node;
+        preloadLotusGrid(target, nodeRegistry, lang);
+        setPath((prev) => {
+          if (canonicalPath) return canonicalPath;
+          if (prev.some((n) => n.id === node.id)) {
+            const idx = prev.findIndex((n) => n.id === node.id);
+            return prev.slice(0, idx + 1);
+          }
+          return [...prev, node];
+        });
+      }
+    },
+    [nodeRegistry, lang],
+  );
 
   /**
    * Embedded navigation: records the node we are leaving in historyStack,
    * then navigates to target. Center cell becomes "back to origin".
    */
-  const navigateHistory = useCallback((node: LotusNode) => {
-    if (node.type === "media") {
-      setLightboxMedia(node);
-      return;
-    }
-    setPath((prevPath) => {
-      const origin = prevPath[prevPath.length - 1];
-      setHistoryStack((prev) => [...prev, origin]);
+  const navigateHistory = useCallback(
+    (node: LotusNode) => {
+      if (node.type === "media") {
+        setLightboxMedia(node);
+        return;
+      }
       const canonicalPath = findPathToNode(ROOT_NODE, node.id);
-      if (canonicalPath) return canonicalPath;
-      return [...prevPath, node];
-    });
-  }, []);
+      const target =
+        canonicalPath?.[canonicalPath.length - 1] ?? node;
+      preloadLotusGrid(target, nodeRegistry, lang);
+      setPath((prevPath) => {
+        const origin = prevPath[prevPath.length - 1];
+        setHistoryStack((prev) => [...prev, origin]);
+        if (canonicalPath) return canonicalPath;
+        return [...prevPath, node];
+      });
+    },
+    [nodeRegistry, lang],
+  );
 
   const goBackHistory = useCallback(() => {
     setHistoryStack((prevHistory) => {
       if (prevHistory.length === 0) return prevHistory;
       const origin = prevHistory[prevHistory.length - 1];
       const canonicalPath = findPathToNode(ROOT_NODE, origin.id);
-      if (canonicalPath) setPath(canonicalPath);
+      if (canonicalPath) {
+        const target = canonicalPath[canonicalPath.length - 1];
+        preloadLotusGrid(target, nodeRegistry, lang);
+        setPath(canonicalPath);
+      }
       return prevHistory.slice(0, -1);
     });
-  }, []);
+  }, [nodeRegistry, lang]);
 
   const goBack = useCallback(() => {
-    setPath((prev) => (prev.length > 1 ? prev.slice(0, -1) : prev));
-  }, []);
+    setPath((prev) => {
+      if (prev.length <= 1) return prev;
+      const next = prev.slice(0, -1);
+      const target = next[next.length - 1];
+      preloadLotusGrid(target, nodeRegistry, lang);
+      return next;
+    });
+  }, [nodeRegistry, lang]);
 
-  const jumpToLevel = useCallback((index: number) => {
-    setHistoryStack([]); // Hierarchy jump resets context history
-    setPath((prev) => prev.slice(0, index + 1));
-  }, []);
+  const jumpToLevel = useCallback(
+    (index: number) => {
+      setHistoryStack([]);
+      setPath((prev) => {
+        const next = prev.slice(0, index + 1);
+        const target = next[next.length - 1];
+        if (target) preloadLotusGrid(target, nodeRegistry, lang);
+        return next;
+      });
+    },
+    [nodeRegistry, lang],
+  );
 
   const triggerNavigatorHighlight = useCallback(() => {
     setNavigatorHighlight(true);
@@ -270,13 +300,18 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
       const newPath = findPathToNode(ROOT_NODE, targetId);
       if (newPath) {
         setHistoryStack([]);
+        preloadLotusGrid(
+          newPath[newPath.length - 1],
+          nodeRegistry,
+          lang,
+        );
         setPath(newPath);
         return;
       }
-      // Fallback: node exists in registry but outside the main tree path
       const node = nodeRegistry.get(targetId) ?? nodeRegistry.get(id);
       if (node) {
         setHistoryStack([]);
+        preloadLotusGrid(node, nodeRegistry, lang);
         setPath((prev) => {
           if (prev.some((n) => n.id === node.id)) {
             const idx = prev.findIndex((n) => n.id === node.id);
@@ -286,7 +321,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
         });
       }
     },
-    [isDesktop, triggerNavigatorHighlight, nodeRegistry],
+    [isDesktop, triggerNavigatorHighlight, nodeRegistry, lang],
   );
 
   const toggleLang = useCallback(() => {
@@ -363,10 +398,15 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
   }, [currentNode, lang]);
 
   useEffect(() => {
-    const handlePopState = () => setPath(getPathFromUrl());
+    const handlePopState = () => {
+      const nextPath = getPathFromUrl();
+      const target = nextPath[nextPath.length - 1];
+      if (target) preloadLotusGrid(target, nodeRegistry, lang);
+      setPath(nextPath);
+    };
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
-  }, []);
+  }, [nodeRegistry, lang]);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
