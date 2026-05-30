@@ -1,6 +1,6 @@
 ---
 id: proof-let-tavrida
-parent: letters
+parent: hub-letters
 title_en: Letter of appreciation — Tavrida.ART, "Cultural Code of Russia"
 title_ru: Благодарность — Таврида.АРТ, фестиваль «Культурный код России»
 type: content
@@ -10,7 +10,7 @@ kind: proof
 subkind: letter
 proof_of:
   - "[[neuromandala]]"
-  - "[[eng-2025-tavrida-ai]]"
+  - "[[event-tavrida-ai-2025]]"
 issued_by:
   - "[[org-tavrida]]"
 publication_date: 2025-01-01

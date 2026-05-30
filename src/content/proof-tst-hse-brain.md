@@ -1,6 +1,6 @@
 ---
 id: proof-tst-hse-brain
-parent: testimonials
+parent: hub-testimonials
 title_en: tst-hse-brain
 title_ru: tst-hse-brain
 type: content
@@ -10,7 +10,7 @@ kind: proof
 subkind: testimonial
 proof_of:
   - "[[beautiful-brain]]"
-  - "[[eng-2025-hse-beautiful-brain]]"
+  - "[[event-hse-beautiful-brain-2025]]"
 issued_by:
   - "[[org-hse]]"
 publication_date: 2025-05-01

@@ -1,6 +1,6 @@
 ---
 id: neuromandala
-parent: works-tech
+parent: hub-works-tech
 title_en: Neuromandala
 title_ru: Нейромандала
 type: content
@@ -23,7 +23,7 @@ subkind: tech
 
 **Core technology platform**
 
-Neuromandala is ODA.dream's foundational stack where biosignals become a living audiovisual form. **Products** such as [[mindshow|MindShow]], [[multisync|MultiSync]], and [[beautiful-brain|Beautiful About the Brain]] are built on this layer — they are what gets booked and shown at events; Neuromandala is the engine underneath.
+Neuromandala is ODA.dream's foundational stack where biosignals become a living audiovisual form. **Products** such as [[mindshow|MindShow]], [[multisync|MultiSync]], and [[beautiful-brain|Beautiful About the Brain]] are built on this layer — they are what gets booked and shown at hub-events; Neuromandala is the engine underneath.
 
 ![[media:neuromandala-cover]]
 
@@ -51,7 +51,7 @@ This architecture is modular and adapts for exhibition, performance, lab session
 
 Event-level provenance (where, when, proofs) lives on **product** and **event** cards — not here.
 
-**License / commission →** [[for-institutions|Institutions & Collectors]]
+**License / commission →** [[hub-institutions|Institutions & Collectors]]
 
 ---RU---
 
@@ -87,4 +87,4 @@ Event-level provenance (where, when, proofs) lives on **product** and **event** 
 
 Провенанс по площадкам и датам — на карточках **продуктов** и **событий**, не здесь.
 
-**Лицензировать / заказать →** [[for-institutions|Институциям и коллекционерам]]
+**Лицензировать / заказать →** [[hub-institutions|Институциям и коллекционерам]]

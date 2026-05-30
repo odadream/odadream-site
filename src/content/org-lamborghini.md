@@ -1,11 +1,11 @@
 ---
 id: org-lamborghini
-parent: registry-orgs
+parent: hub-registry-orgs
 title_en: Lamborghini
 title_ru: Lamborghini
 type: content
 tags:
-  - registry
+  - hub-registry
   - client
 visible: false
 date: 2026.05.25
@@ -17,7 +17,7 @@ subkind: corporate
 
 **Type:** Client
 
-Related engagements in the ODA.dream registry:
+Related engagements in the ODA.dream hub-registry:
 
 - [[eng-lamborghini-brand|Lamborghini brand activation]] (2024.01.01)
 

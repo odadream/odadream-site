@@ -1,6 +1,6 @@
 ---
 id: proof-let-bashkiria
-parent: letters
+parent: hub-letters
 title_en: Participation — first digital plein air in Bashkiria
 title_ru: Участие — первый цифровой пленэр в Башкирии
 type: content

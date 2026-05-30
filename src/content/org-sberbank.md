@@ -1,11 +1,11 @@
 ---
 id: org-sberbank
-parent: registry-orgs
+parent: hub-registry-orgs
 title_en: Sberbank
 title_ru: Сбербанк
 type: content
 tags:
-  - registry
+  - hub-registry
   - institution
 visible: false
 date: 2026.05.25
@@ -17,9 +17,9 @@ subkind: corporate
 
 **Type:** Institution
 
-Related engagements in the ODA.dream registry:
+Related engagements in the ODA.dream hub-registry:
 
-- [[eng-2025-sber-lecture|Science-art lecture for Sberbank]] (2025.01.01)
+- [[event-sber-lecture-2025|Science-art lecture for Sberbank]] (2025.01.01)
 
 ---RU---
 
@@ -27,4 +27,4 @@ Related engagements in the ODA.dream registry:
 
 Связанные участия в реестре ODA.dream:
 
-- [[eng-2025-sber-lecture|Science-art лекция для Сбербанка]] (2025.01.01)
+- [[event-sber-lecture-2025|Science-art лекция для Сбербанка]] (2025.01.01)

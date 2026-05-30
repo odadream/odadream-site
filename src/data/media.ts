@@ -33,7 +33,7 @@ export const MEDIA: Record<string, MediaAsset> = {
     url: "https://dzen.ru/embed/o20ZleGMJAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0",
     poster: "/images/content/neurobattle_dano.webp",
     title: { en: "DANO Olympiad", ru: "Олимпиада DANO" },
-    subject: ["eng-2025-dano-ekoniva", "for-events", "neurobattle"],
+    subject: ["event-dano-ekoniva-2025", "hub-host-events", "neurobattle"],
   },
   "nrbt-veter": {
     url: "https://dzen.ru/embed/v1ftBaZRQUXU?from_block=partner&from=zen&mute=0&autoplay=0&tv=0",
@@ -50,22 +50,22 @@ export const MEDIA: Record<string, MediaAsset> = {
 
   // --- BYOB 2026 / MindShow ---
   "byob-2026-hero": {
-    url: "/images/content/events/byob-2026/neuromandala-installation.jpg",
+    url: "/images/content/hub-events/event-byob-2026/neuromandala-installation.jpg",
     title: {
       en: "Neuromandala installation — Mini BYOB 2026",
       ru: "Инсталляция Нейромандала — Мини BYOB 2026",
     },
-    subject: ["byob-2026", "mindshow", "work-byob-2026-photos"],
+    subject: ["event-byob-2026", "mindshow", "media-byob-2026-photos"],
   },
 
   // --- BYOB 2020 / MultiSync ---
   "byob-2020-hero": {
-    url: "/images/content/events/byob-2020/projection-pentagon.jpg",
+    url: "/images/content/hub-events/event-byob-2020/projection-pentagon.jpg",
     title: {
       en: "MultiSync projection — BYOB Moscow 2020",
       ru: "Проекция MultiSync — BYOB Moscow 2020",
     },
-    subject: ["byob-2020", "multisync", "work-byob-2020-photos"],
+    subject: ["event-byob-2020", "multisync", "media-byob-2020-photos"],
   },
 
   // --- MindShow ---
@@ -73,13 +73,13 @@ export const MEDIA: Record<string, MediaAsset> = {
     url: "https://dzen.ru/embed/o20aog1YJAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0",
     poster: "/images/content/mindshow_mdsh_v5.webp",
     title: { en: "MindShow · demo v5", ru: "MindShow · демо v5" },
-    subject: ["mindshow", "byob-2019", "byob-2026"],
+    subject: ["mindshow", "event-byob-2019", "event-byob-2026"],
   },
   "mdsh-hypercube": {
     url: "https://dzen.ru/embed/vL3M-cNgfSVo?from_block=partner&from=zen&mute=1&autoplay=1&tv=0",
     poster: "/images/content/mindshow_portal.webp",
     title: { en: "Hypercube · Portal 2030–2050, Skolkovo", ru: "Гиперкуб · Портал 2030–2050, Сколково" },
-    subject: ["mindshow", "eng-2025-moscow2030-portal"],
+    subject: ["mindshow", "event-moscow2030-portal-2025"],
   },
   "mdsh-urban-forum": {
     url: "https://dzen.ru/embed/vYcLmkD5bAxE?from_block=partner&from=zen&mute=1&autoplay=1&tv=0",
@@ -113,13 +113,13 @@ export const MEDIA: Record<string, MediaAsset> = {
   "mdsh-tpp": {
     url: "/images/content/mindshow_tpp.webp",
     title: { en: "CCI RF · Russian Digital Creative", ru: "ТПП РФ · Russian Digital Creative" },
-    subject: ["eng-2025-tpp-mindshow", "for-events", "mindshow"],
+    subject: ["event-tpp-mindshow-2025", "hub-host-events", "mindshow"],
   },
   "mdsh-terraforming": {
     url: "https://www.youtube.com/watch?v=xUlotjPuXPA",
     poster: "/images/content/neuromandala-cover.jpg",
     title: { en: "Terraforming — MIPT performance", ru: "Терраформинг — перформанс МФТИ" },
-    subject: ["mindshow", "eng-2025-mipt-terraforming", "neuromandala"],
+    subject: ["mindshow", "event-mipt-terraforming-2025", "neuromandala"],
   },
 
   // --- Lectures (event clips & cover photos) ---
@@ -127,40 +127,40 @@ export const MEDIA: Record<string, MediaAsset> = {
     url: "https://dzen.ru/embed/vZ6STYjxZhHk?from_block=partner&from=zen&mute=0&autoplay=0&tv=0",
     poster: "/images/content/lectures-gonchar.webp",
     title: { en: "Nata Gonchar · private neuro-show", ru: "Ната Гончар · частное нейрошоу" },
-    subject: ["for-events", "lectures"],
+    subject: ["hub-host-events", "hub-lectures"],
   },
   "lec-bauman": {
     url: "https://dzen.ru/embed/o20b-pOkIAAA?from_block=partner&from=zen&mute=0&autoplay=0&tv=0",
     poster: "/images/content/lectures-moscow2030.webp",
     title: { en: "Bauman / Moscow 2030 · brain-hacking lecture", ru: "Бауман / Москва 2030 · лекция о брейнхакинге" },
-    subject: ["lectures"],
+    subject: ["hub-lectures"],
   },
   "lec-ikc": {
     url: "https://dzen.ru/embed/v2Wb3fVoWW1A?from_block=partner&from=zen&mute=0&autoplay=0&tv=0",
     poster: "/images/content/lectures-ikc.webp",
     title: { en: "ICC Kaluga · masterclass", ru: "ИКЦ Калуга · мастер-класс" },
-    subject: ["lectures"],
+    subject: ["hub-lectures"],
   },
   "lec-tskhr": {
     url: "https://dzen.ru/embed/veLb095NOWiA?from_block=partner&from=zen&mute=1&autoplay=1&tv=0",
     poster: "/images/content/lectures-tshr.webp",
     title: { en: "TSKhR · neuroaesthetics lecture", ru: "ТСХР · лекция о нейроэстетике" },
-    subject: ["lectures", "beautiful-brain"],
+    subject: ["hub-lectures", "beautiful-brain"],
   },
   "lec-tavrida": {
     url: "/images/content/lectures-tavrida.webp",
     title: { en: "Tavrida.ART · AI festival", ru: "Таврида.АРТ · фестиваль ИИ" },
-    subject: ["lectures"],
+    subject: ["hub-lectures"],
   },
   "lec-sber": {
     url: "/images/content/lectures-sber.webp",
     title: { en: "Sberbank · science-art lecture", ru: "Сбербанк · science-art лекция" },
-    subject: ["lectures"],
+    subject: ["hub-lectures"],
   },
   "lec-ashram": {
     url: "/images/content/lectures-ashram.webp",
     title: { en: "Ashram Studio · public talk", ru: "Студия Ashram · публичный talk" },
-    subject: ["lectures"],
+    subject: ["hub-lectures"],
   },
 
   // --- Covers / generic ---
@@ -172,11 +172,11 @@ export const MEDIA: Record<string, MediaAsset> = {
   "art-brain-cover": {
     url: "/images/content/art-brain.jpg",
     title: { en: "Art of Brain", ru: "Искусство мозга" },
-    subject: ["art-brain", "beautiful-brain", "debug-image", "lectures"],
+    subject: ["art-brain", "beautiful-brain", "hub-debug-image", "hub-lectures"],
   },
   "jewellery-cover": {
     url: "/images/content/jewellery.jpg",
-    title: { en: "Jewellery objects", ru: "Ювелирные объекты" },
+    title: { en: "Jewellery hub-objects", ru: "Ювелирные объекты" },
     subject: ["jewellery"],
   },
 
@@ -186,7 +186,7 @@ export const MEDIA: Record<string, MediaAsset> = {
     poster: "/images/content/interference_teaser.webp",
     title: { en: "Interference · official teaser", ru: "Интерференция · официальный тизер" },
     subkind: "video",
-    subject: ["interference", "eng-2026-interference-tsiolkovsky"],
+    subject: ["interference", "event-interference-tsiolkovsky-2026"],
     mirrors: {
       youtube: "https://youtube.com/watch?v=intf-teaser-placeholder",
       vk: "https://vk.com/video/intf-teaser-placeholder",

@@ -1,6 +1,6 @@
 ---
 id: proof-let-golos-obshchestva
-parent: letters
+parent: hub-letters
 title_en: Letter of appreciation — expert participation
 title_ru: Благодарность — экспертное участие
 type: content

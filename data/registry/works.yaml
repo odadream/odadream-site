@@ -1,14 +1,14 @@
-# ODA.dream works registry — single source of truth for the catalog.
+# ODA.dream hub-works hub-registry — single source of truth for the catalog.
 #
 # Positioning: we are artists. Every product/service falls into ONE of three categories:
-#   art        — Художественные работы (performances, installations, spectacles, games, objects)
-#   education  — Просветительская деятельность (lectures, practices, demonstrations, measurements)
+#   art        — Художественные работы (performances, installations, spectacles, hub-games, hub-objects)
+#   education  — Просветительская деятельность (hub-lectures, hub-practices, demonstrations, measurements)
 #   tech       — Технологические разработки (Neuromandala platform, hyperscanning — where patents live)
 #
 # status: production | rnd | concept | patent
 # node:        id of the src/content/*.md page this work renders on (provenance is injected there)
 # format_keys: values of `format` in engagements.yaml that belong to this work (drives auto-provenance)
-# funnel:      collab page a producer should be routed to from this work
+# funnel:      hub-collab page a producer should be routed to from this work
 #
 # Canonical anchor (Chudodeystvo "Продукты и услуги"): Перформанс, Игры, Инсталляция,
 # Ювелирка, MindShow, Bio-IMAG → art · Лекции/МК/Лабы, Практики, Нейро-замеры → education ·
@@ -21,7 +21,7 @@
   title_ru: Парадокс Победы
   title_en: Paradox of Victory
   format_keys: [neurobattle]
-  funnel: for-business
+  funnel: hub-business
 
 - id: mindshow
   node: mindshow
@@ -30,7 +30,7 @@
   title_ru: MindShow
   title_en: MindShow
   format_keys: [mindshow]
-  funnel: for-institutions
+  funnel: hub-institutions
 
 - id: interference
   node: interference
@@ -39,7 +39,7 @@
   title_ru: Интерференция реальностей
   title_en: Interference of Realities
   format_keys: [performance]
-  funnel: for-institutions
+  funnel: hub-institutions
 
 - id: schrodinger
   node: schrodinger
@@ -48,7 +48,7 @@
   title_ru: Проект «Шрёдингер»
   title_en: Project Schrödinger
   format_keys: []
-  funnel: for-institutions
+  funnel: hub-institutions
 
 - id: sync-circle
   node: sync-circle
@@ -57,7 +57,7 @@
   title_ru: Круг синхронизации
   title_en: Sync Circle
   format_keys: []
-  funnel: for-institutions
+  funnel: hub-institutions
 
 - id: cultural-neuro-code
   node: cultural-neuro-code
@@ -66,7 +66,7 @@
   title_ru: Культурный нейрокод
   title_en: Cultural Neuro Code
   format_keys: []
-  funnel: for-institutions
+  funnel: hub-institutions
 
 - id: heritage
   node: heritage
@@ -75,7 +75,7 @@
   title_ru: Наследие
   title_en: Heritage
   format_keys: []
-  funnel: for-institutions
+  funnel: hub-institutions
 
 - id: posustoronniy
   node: posustoronniy
@@ -84,7 +84,7 @@
   title_ru: Потусторонний
   title_en: Posustoronniy
   format_keys: []
-  funnel: for-institutions
+  funnel: hub-institutions
 
 - id: dashran
   node: dashran
@@ -93,7 +93,7 @@
   title_ru: Момент Даршана
   title_en: Darshan Moment
   format_keys: []
-  funnel: for-institutions
+  funnel: hub-institutions
 
 - id: brain-hack
   node: brain-hack
@@ -102,7 +102,7 @@
   title_ru: Взлом мозга
   title_en: Brain Hack
   format_keys: []
-  funnel: for-business
+  funnel: hub-business
 
 - id: journey
   node: journey
@@ -111,7 +111,7 @@
   title_ru: Путешествие к себе
   title_en: Journey to Yourself
   format_keys: []
-  funnel: for-business
+  funnel: hub-business
 
 - id: emomandala
   node: emomandala
@@ -120,7 +120,7 @@
   title_ru: Эмомандала
   title_en: Emomandala
   format_keys: []
-  funnel: for-galleries
+  funnel: hub-galleries
 
 - id: jewellery
   node: jewellery
@@ -129,7 +129,7 @@
   title_ru: Ювелирные объекты
   title_en: Jewellery Objects
   format_keys: []
-  funnel: for-galleries
+  funnel: hub-galleries
 
 - id: mom-baby
   node: mom-baby
@@ -138,25 +138,25 @@
   title_ru: Мама и малыш
   title_en: Mom and Baby
   format_keys: []
-  funnel: for-galleries
+  funnel: hub-galleries
 
-- id: lectures
-  node: lectures
+- id: hub-lectures
+  node: hub-lectures
   category: education
   status: production
   title_ru: Лекции-перформансы
   title_en: Lecture-Performances
   format_keys: [lecture]
-  funnel: for-education
+  funnel: hub-education
 
-- id: practices
-  node: practices
+- id: hub-practices
+  node: hub-practices
   category: education
   status: rnd
   title_ru: Практики
   title_en: Practices
   format_keys: [practice]
-  funnel: for-education
+  funnel: hub-education
 
 - id: neuromandala
   node: neuromandala
@@ -165,7 +165,7 @@
   title_ru: Нейромандала
   title_en: Neuromandala
   format_keys: [installation]
-  funnel: for-institutions
+  funnel: hub-institutions
 
 - id: multisync
   node: multisync
@@ -174,4 +174,4 @@
   title_ru: Гиперсканирование (MultiSync)
   title_en: Hyperscanning (MultiSync)
   format_keys: []
-  funnel: for-institutions
+  funnel: hub-institutions

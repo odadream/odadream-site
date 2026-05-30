@@ -1,6 +1,6 @@
 ---
 id: proof-let-media-experts
-parent: letters
+parent: hub-letters
 title_en: Letter of appreciation — "Cultural Code of North Ossetia" exhibition
 title_ru: Благодарность — выставка «Культурный код Северной Осетии»
 type: content

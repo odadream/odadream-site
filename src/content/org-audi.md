@@ -1,11 +1,11 @@
 ---
 id: org-audi
-parent: registry-orgs
+parent: hub-registry-orgs
 title_en: Audi
 title_ru: Audi
 type: content
 tags:
-  - registry
+  - hub-registry
   - client
 visible: false
 date: 2026.05.25
@@ -17,7 +17,7 @@ subkind: corporate
 
 **Type:** Client
 
-Related engagements in the ODA.dream registry:
+Related engagements in the ODA.dream hub-registry:
 
 - [[eng-audi-brand|Audi brand activation]] (2024.01.01)
 

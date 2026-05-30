@@ -1,6 +1,6 @@
 ---
 id: proof-let-techweek
-parent: letters
+parent: hub-letters
 title_en: Letter of appreciation — conference participation
 title_ru: Благодарность — участие в конференции
 type: content

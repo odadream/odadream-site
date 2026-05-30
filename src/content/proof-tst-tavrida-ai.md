@@ -1,6 +1,6 @@
 ---
 id: proof-tst-tavrida-ai
-parent: testimonials
+parent: hub-testimonials
 title_en: tst-tavrida-ai
 title_ru: tst-tavrida-ai
 type: content
@@ -10,7 +10,7 @@ kind: proof
 subkind: testimonial
 proof_of:
   - "[[neuromandala]]"
-  - "[[eng-2025-tavrida-ai]]"
+  - "[[event-tavrida-ai-2025]]"
 issued_by:
   - "[[org-tavrida]]"
 publication_date: 2025-08-01

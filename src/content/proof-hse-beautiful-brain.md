@@ -1,6 +1,6 @@
 ---
 id: proof-hse-beautiful-brain
-parent: letters
+parent: hub-letters
 title_en: HSE — Beautiful About the Brain
 title_ru: ВШЭ — «Красиво про мозг»
 type: content
@@ -12,7 +12,7 @@ kind: proof
 subkind: letter
 proof_of:
   - "[[beautiful-brain]]"
-  - "[[eng-2025-hse-beautiful-brain]]"
+  - "[[event-hse-beautiful-brain-2025]]"
 issued_by:
   - "[[org-hse]]"
 publication: "HSE University — letter of appreciation"
@@ -24,7 +24,7 @@ quote_ru: "за проведение иммерсивной лекции «Кр�
 
 ## HSE — Beautiful About the Brain
 
-Letter of appreciation from **[[org-hse|HSE University]]** (May 2025) for the immersive lecture **[[beautiful-brain|Beautiful About the Brain]]** at [[eng-2025-hse-beautiful-brain|the HSE engagement]].
+Letter of appreciation from **[[org-hse|HSE University]]** (May 2025) for the immersive lecture **[[beautiful-brain|Beautiful About the Brain]]** at [[event-hse-beautiful-brain-2025|the HSE engagement]].
 
 ![[/images/content/collab_2025_ODA_VShE_ch2.webp | HSE letter of appreciation — Beautiful About the Brain]]
 
@@ -32,6 +32,6 @@ Letter of appreciation from **[[org-hse|HSE University]]** (May 2025) for the im
 
 ## ВШЭ — «Красиво про мозг»
 
-Благодарственное письмо **[[org-hse|НИУ ВШЭ]]** (май 2025) за иммерсивную лекцию **[[beautiful-brain|«Красиво про мозг»]]** на [[eng-2025-hse-beautiful-brain|участии в ВШЭ]].
+Благодарственное письмо **[[org-hse|НИУ ВШЭ]]** (май 2025) за иммерсивную лекцию **[[beautiful-brain|«Красиво про мозг»]]** на [[event-hse-beautiful-brain-2025|участии в ВШЭ]].
 
 ![[/images/content/collab_2025_ODA_VShE_ch2.webp | Благодарность ВШЭ — «Красиво про мозг»]]

@@ -1,6 +1,6 @@
 ---
 id: proof-award-skolkovo-arttech
-parent: letters
+parent: hub-letters
 title_en: 1st place — ART × TECHNOLOGY competition, Skolkovo Innovation Center
 title_ru: 1-е место — конкурс «ART × TECHNOLOGY», Технопарк «Сколково»
 type: content

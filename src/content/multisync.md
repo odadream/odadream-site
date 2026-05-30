@@ -1,6 +1,6 @@
 ---
 id: multisync
-parent: works-tech
+parent: hub-works-tech
 title_en: Hyperscanning / MultiSync
 title_ru: Гиперсканирование / MultiSync
 type: content
@@ -12,7 +12,7 @@ date: 2026.05.29
 kind: product
 subkind: tech
 presented_at:
-  - "[[byob-2020]]"
+  - "[[event-byob-2020]]"
 ---
 
 ## HYPERSCANNING / MULTISYNC
@@ -27,7 +27,7 @@ MultiSync reads several EEG streams at once and computes their relationship in r
 - Real-time markers of inter-brain synchrony (shared attention, convergence).
 - Output stream that art and education formats render as visuals, light, and sound.
 
-![[work-byob-2020-photos]]
+![[media-byob-2020-photos]]
 
 ---RU---
 
@@ -43,4 +43,4 @@ MultiSync считывает несколько ЭЭГ-потоков однов
 - Реал-тайм маркеры межмозговой синхронии (общее внимание, сближение).
 - Выходной поток, который арт- и образовательные форматы превращают в визуал, свет и звук.
 
-![[work-byob-2020-photos]]
+![[media-byob-2020-photos]]

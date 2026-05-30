@@ -1,6 +1,6 @@
 ---
 id: proof-let-bitva-milliard
-parent: letters
+parent: hub-letters
 title_en: Letter of appreciation — "Neuromandala" art installation
 title_ru: Благодарность — арт-инсталляция «Нейромандала»
 type: content

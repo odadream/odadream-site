@@ -1,11 +1,11 @@
 ---
 id: org-wildmint
-parent: registry-orgs
+parent: hub-registry-orgs
 title_en: Wild Mint Festival
 title_ru: Дикая Мята
 type: content
 tags:
-  - registry
+  - hub-registry
   - venue
 visible: false
 date: 2026.05.25
@@ -17,9 +17,9 @@ subkind: corporate
 
 **Type:** Venue
 
-Related engagements in the ODA.dream registry:
+Related engagements in the ODA.dream hub-registry:
 
-- [[eng-2025-wildmint|Neuromandala — Wild Mint Festival]] (2025.01.01)
+- [[event-wildmint-2025|Neuromandala — Wild Mint Festival]] (2025.01.01)
 
 ---RU---
 
@@ -27,4 +27,4 @@ Related engagements in the ODA.dream registry:
 
 Связанные участия в реестре ODA.dream:
 
-- [[eng-2025-wildmint|Нейромандала — Дикая Мята]] (2025.01.01)
+- [[event-wildmint-2025|Нейромандала — Дикая Мята]] (2025.01.01)

@@ -1,6 +1,6 @@
 ---
 id: proof-tst-bitva-milliard
-parent: testimonials
+parent: hub-testimonials
 title_en: tst-bitva-milliard
 title_ru: tst-bitva-milliard
 type: content

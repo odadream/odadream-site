@@ -1,0 +1,345 @@
+
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    
+    <defs>
+        <filter id="noise-hub-debug-video" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9505863710777707" numOctaves="4" result="noise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.1 0" in="noise" result="coloredNoise"/>
+            <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"/>
+        </filter>
+        <linearGradient id="grad-hub-debug-video" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0038A8" stop-opacity="0.2" />
+            <stop offset="50%" stop-color="#121212" stop-opacity="0" />
+            <stop offset="100%" stop-color="#FF0055" stop-opacity="0.3" />
+        </linearGradient>
+        <pattern id="grid-hub-debug-video" width="50" height="50" patternUnits="userSpaceOnUse">
+             <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#00FF99" stroke-width="0.5" stroke-opacity="0.2"/>
+             <circle cx="25" cy="25" r="1" fill="#FF0055" fill-opacity="0.4"/>
+        </pattern>
+    </defs>
+    
+    <rect width="100%" height="100%" fill="#121212" />
+    <rect width="100%" height="100%" fill="url(#grad-hub-debug-video)" />
+    <rect width="100%" height="100%" fill="url(#grid-hub-debug-video)" />
+    <rect x="81.06417388754355%" y="45.570676117735616%" width="36.433788744205415%" height="28.687451765581457%" fill="#FFFFFF" opacity="0.10372423339050657" />
+    <rect x="26.24464265652433%" y="93.70970543819452%" width="31.715264003458678%" height="30.442170964965754%" fill="#FFFFFF" opacity="0.31746467148649005" />
+    <rect x="54.4635178097184%" y="68.34418430770206%" width="33.9899075506161%" height="32.37625023850822%" fill="none" stroke="#FFFFFF" stroke-width="2.9374594613327267" opacity="0.6380809651111075" />
+    <circle cx="55.0224819267378%" cy="62.854094675606206%" r="12.771406512494579%" fill="none" stroke="#FFFFFF" stroke-width="2.4132061930496302" opacity="0.22400369674340234" />
+    <rect x="33.9446753579608%" y="8.159258177652264%" width="39.03789228763235%" height="19.85568575733871%" fill="#FF0055" opacity="0.1015024592182622" />
+    <line x1="60.466472488331114%" y1="60.003420766446204%" x2="51.31236157502268%" y2="46.86152894688913%" stroke="#FFFFFF" stroke-width="3.422444807758969" opacity="0.21322441810110995" />
+    <circle cx="74.51929200861537%" cy="45.740988194701245%" r="9.865937602581399%" fill="#FF0055" opacity="0.09032570558630461" />
+    <circle cx="99.99625557101915%" cy="37.06738211872744%" r="1.4904873934485834%" fill="none" stroke="#FFFFFF" stroke-width="2.961017349698597" opacity="0.4206878071843533" />
+    <rect x="9.671027175775754%" y="40.954450183505614%" width="9.984014446832253%" height="11.33104281251416%" fill="none" stroke="#FF0055" stroke-width="1.1929288685255952" opacity="0.5855511409095965" />
+    <rect x="16.410714775706374%" y="14.883889458034085%" width="36.938202444406414%" height="32.36850709781843%" fill="#FF0055" opacity="0.3443445726245125" />
+    
+                <g stroke="#FF0055" stroke-width="2" opacity="0.10670157606406284">
+                    <line x1="849.1191241695724" y1="60.57300424256642" x2="884.4550838269806" y2="60.57300424256642" />
+                    <line x1="866.7871039982765" y1="42.90502441386229" x2="866.7871039982765" y2="78.24098407127055" />
+                </g>
+            
+    
+                <g stroke="#FFFFFF" stroke-width="2" opacity="0.2985929519856283">
+                    <line x1="1082.437761586567" y1="286.1141244751533" x2="1124.5508943819914" y2="286.1141244751533" />
+                    <line x1="1103.4943279842792" y1="265.0575580774411" x2="1103.4943279842792" y2="307.17069087286546" />
+                </g>
+            
+    <circle cx="14.893523570982294%" cy="15.451323534782347%" r="18.757251808193747%" fill="none" stroke="#FFFFFF" stroke-width="2.8620482681896986" opacity="0.313701990725195" />
+    
+                <g stroke="#FF0055" stroke-width="2" opacity="0.5334761140248515">
+                    <line x1="437.45686306381293" y1="88.83536652553396" x2="494.74201208422136" y2="88.83536652553396" />
+                    <line x1="466.09943757401714" y1="60.19279201532974" x2="466.09943757401714" y2="117.47794103573817" />
+                </g>
+            
+    <rect x="56.034196080671805%" y="66.73387192816834%" width="37.72730180223221%" height="32.76140790037942%" fill="#FFFFFF" opacity="0.24521438101792187" />
+    <rect x="5.4029700862271435%" y="7.718979527912083%" width="30.998297635464276%" height="26.388429692376803%" fill="#FF0055" opacity="0.3022351525279089" />
+    <circle cx="44.67698535386192%" cy="86.09327532918498%" r="22.039922208562423%" fill="none" stroke="#FF0055" stroke-width="2.149207730916522" opacity="0.389395374515462" />
+    <rect x="37.98883928730044%" y="78.42238697076439%" width="36.040132961273315%" height="24.51471110481276%" fill="none" stroke="#FF0055" stroke-width="2.1332605743159174" opacity="0.4724655162286623" />
+    <rect x="96.57152834960402%" y="77.67699861682672%" width="12.94289849506961%" height="37.29521839255022%" fill="#00FF99" opacity="0.09449870367022112" />
+    
+                <g stroke="#0038A8" stroke-width="2" opacity="0.6795974653024203">
+                    <line x1="549.0755590229068" y1="178.33831140616752" x2="629.322430230046" y2="178.33831140616752" />
+                    <line x1="589.1989946264764" y1="138.21487580259785" x2="589.1989946264764" y2="218.4617470097372" />
+                </g>
+            
+    <rect x="48.593084093735634%" y="3.964765699547497%" width="36.518668296298635%" height="11.25808312395409%" fill="#0038A8" opacity="0.2645442838450375" />
+    <line x1="21.34453521235337%" y1="37.60392958075174%" x2="33.30803709412742%" y2="28.180119440127275%" stroke="#0038A8" stroke-width="4.402319680342749" opacity="0.37407199765934795" />
+    <circle cx="97.90758807017244%" cy="32.832711732790536%" r="8.416063572667598%" fill="none" stroke="#00FF99" stroke-width="1.8088154674589778" opacity="0.4193661833362339" />
+    <rect x="72.36708777245794%" y="73.64440795373582%" width="31.50922785001735%" height="25.59254168681106%" fill="#00FF99" opacity="0.14715101443897097" />
+    <line x1="13.035831379737548%" y1="93.21867985950661%" x2="-4.701204015595096%" y2="106.8650858447562%" stroke="#0038A8" stroke-width="2.5145443803766225" opacity="0.49683930584866487" />
+    
+                <g stroke="#0038A8" stroke-width="2" opacity="0.5886834483488309">
+                    <line x1="963.9807472694487" y1="758.8759630535505" x2="1046.8883325689364" y2="758.8759630535505" />
+                    <line x1="1005.4345399191925" y1="717.4221704038067" x2="1005.4345399191925" y2="800.3297557032944" />
+                </g>
+            
+    <rect x="85.82993595472531%" y="43.73370194224054%" width="22.22638350746258%" height="36.82774902491621%" fill="#FFFFFF" opacity="0.24268504129041457" />
+    <circle cx="12.882883532795015%" cy="22.624217460513318%" r="17.983956710420507%" fill="#0038A8" opacity="0.20981931273808635" />
+    <circle cx="28.597691402395895%" cy="41.399958861432935%" r="23.963474451530235%" fill="none" stroke="#00FF99" stroke-width="2.4671854902684554" opacity="0.622328290922873" />
+    <circle cx="15.08537946742529%" cy="39.97337356207275%" r="14.970948910313613%" fill="#0038A8" opacity="0.15281115923338676" />
+    <rect x="59.19467123150329%" y="84.83970722634318%" width="11.820165408607727%" height="15.520243004448938%" fill="#FFFFFF" opacity="0.17569034227700003" />
+    <circle cx="79.47913792867134%" cy="5.871327739089102%" r="19.585906783664512%" fill="#00FF99" opacity="0.1298454847278497" />
+    <circle cx="25.927491929314556%" cy="63.357435691503284%" r="7.666902086387297%" fill="#0038A8" opacity="0.03924535420652978" />
+    
+                <g stroke="#FFFFFF" stroke-width="2" opacity="0.31109910412793895">
+                    <line x1="235.381273967569" y1="604.4955307659651" x2="335.2032129887521" y2="604.4955307659651" />
+                    <line x1="285.2922434781606" y1="554.5845612553735" x2="285.2922434781606" y2="654.4065002765567" />
+                </g>
+            
+    <circle cx="60.32338799938876%" cy="55.18241622967871%" r="17.990881447671804%" fill="#0038A8" opacity="0.16468248835269594" />
+    <rect x="85.77860555218403%" y="81.02362685000861%" width="29.29744435501978%" height="16.14735856852248%" fill="#FF0055" opacity="0.16161166980081393" />
+    <rect x="54.91182678836568%" y="3.073184893534691%" width="32.694039890257685%" height="26.728492733769578%" fill="none" stroke="#0038A8" stroke-width="1.6374714138335282" opacity="0.26512937868491687" />
+    <line x1="41.827549731198275%" y1="95.62878752651511%" x2="49.30572201433193%" y2="101.27044814757113%" stroke="#0038A8" stroke-width="4.939017046186157" opacity="0.4665764838145827" />
+    
+                <g stroke="#FF0055" stroke-width="2" opacity="0.33824379335925336">
+                    <line x1="697.3437303745595" y1="399.25900176098475" x2="756.4075500205229" y2="399.25900176098475" />
+                    <line x1="726.8756401975412" y1="369.727091938003" x2="726.8756401975412" y2="428.7909115839665" />
+                </g>
+            
+    
+                <g stroke="#0038A8" stroke-width="2" opacity="0.6333475588200125">
+                    <line x1="1134.834987749192" y1="386.6566728676266" x2="1154.8514505893472" y2="386.6566728676266" />
+                    <line x1="1144.8432191692696" y1="376.648441447549" x2="1144.8432191692696" y2="396.6649042877042" />
+                </g>
+            
+    <circle cx="58.35998743619769%" cy="56.309166044284744%" r="2.2212817046989515%" fill="none" stroke="#0038A8" stroke-width="1.0787803806166913" opacity="0.469117043976781" />
+    <rect x="86.76846687381014%" y="17.622851643360082%" width="8.415884330324722%" height="27.76818695084023%" fill="#FF0055" opacity="0.20659310431833672" />
+    
+                <g stroke="#FF0055" stroke-width="2" opacity="0.24208260555014258">
+                    <line x1="1124.1266369578677" y1="588.7716604292128" x2="1205.2936233163753" y2="588.7716604292128" />
+                    <line x1="1164.7101301371215" y1="548.1881672499591" x2="1164.7101301371215" y2="629.3551536084666" />
+                </g>
+            
+    <circle cx="26.777829906696294%" cy="54.98781488741544%" r="2.9702531452944996%" fill="#0038A8" opacity="0.06161826613509866" />
+    <circle cx="90.11979991581272%" cy="43.4772623642136%" r="5.705065835923949%" fill="#FFFFFF" opacity="0.19662237255519474" />
+    <circle cx="39.159223892874294%" cy="49.076443676907985%" r="14.048183155290953%" fill="#00FF99" opacity="0.12311539750836362" />
+    
+                <g stroke="#FFFFFF" stroke-width="2" opacity="0.20623263903542668">
+                    <line x1="886.1353850887485" y1="304.5444483911101" x2="921.7371459228332" y2="304.5444483911101" />
+                    <line x1="903.9362655057909" y1="286.7435679740678" x2="903.9362655057909" y2="322.34532880815243" />
+                </g>
+            
+    
+                <g stroke="#FF0055" stroke-width="2" opacity="0.13761678173916114">
+                    <line x1="809.4239082554578" y1="83.09712305953458" x2="891.5964574195413" y2="83.09712305953458" />
+                    <line x1="850.5101828374995" y1="42.0108484774929" x2="850.5101828374995" y2="124.18339764157626" />
+                </g>
+            
+    <circle cx="11.29209474780792%" cy="86.23712066210538%" r="9.131584324065209%" fill="none" stroke="#FFFFFF" stroke-width="3.5990141035048424" opacity="0.1987486016924946" />
+    <circle cx="82.78540580792856%" cy="74.31554857112053%" r="22.738561851660315%" fill="none" stroke="#FF0055" stroke-width="3.0308890664306367" opacity="0.1166297797268534" />
+    
+                <g stroke="#0038A8" stroke-width="2" opacity="0.4261679879633412">
+                    <line x1="579.9045986588156" y1="69.0574072944535" x2="641.5987727340299" y2="69.0574072944535" />
+                    <line x1="610.7516856964228" y1="38.210320256846316" x2="610.7516856964228" y2="99.90449433206068" />
+                </g>
+            
+    <rect x="0" y="0" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="4" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="8" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="12" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="16" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="20" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="24" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="28" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="32" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="36" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="40" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="44" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="48" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="52" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="56" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="60" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="64" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="68" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="72" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="76" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="80" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="84" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="88" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="92" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="96" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="100" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="104" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="108" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="112" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="116" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="120" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="124" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="128" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="132" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="136" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="140" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="144" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="148" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="152" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="156" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="160" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="164" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="168" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="172" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="176" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="180" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="184" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="188" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="192" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="196" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="200" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="204" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="208" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="212" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="216" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="220" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="224" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="228" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="232" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="236" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="240" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="244" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="248" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="252" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="256" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="260" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="264" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="268" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="272" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="276" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="280" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="284" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="288" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="292" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="296" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="300" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="304" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="308" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="312" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="316" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="320" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="324" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="328" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="332" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="336" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="340" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="344" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="348" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="352" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="356" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="360" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="364" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="368" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="372" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="376" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="380" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="384" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="388" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="392" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="396" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="400" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="404" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="408" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="412" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="416" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="420" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="424" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="428" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="432" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="436" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="440" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="444" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="448" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="452" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="456" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="460" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="464" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="468" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="472" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="476" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="480" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="484" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="488" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="492" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="496" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="500" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="504" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="508" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="512" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="516" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="520" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="524" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="528" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="532" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="536" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="540" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="544" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="548" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="552" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="556" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="560" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="564" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="568" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="572" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="576" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="580" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="584" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="588" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="592" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="596" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="600" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="604" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="608" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="612" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="616" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="620" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="624" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="628" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="632" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="636" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="640" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="644" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="648" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="652" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="656" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="660" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="664" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="668" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="672" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="676" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="680" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="684" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="688" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="692" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="696" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="700" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="704" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="708" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="712" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="716" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="720" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="724" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="728" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="732" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="736" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="740" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="744" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="748" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="752" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="756" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="760" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="764" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="768" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="772" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="776" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="780" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="784" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="788" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="792" width="100%" height="1" fill="#000" opacity="0.1" />
+    <rect x="0" y="796" width="100%" height="1" fill="#000" opacity="0.1" />
+    
+        <rect x="0" y="740" width="100%" height="60" fill="#000" opacity="0.7" />
+        <text x="30" y="775" font-family="monospace" font-weight="bold" font-size="24" fill="#FFFFFF" letter-spacing="4">
+            HUB-DEBUG-VIDEO
+        </text>
+        <text x="1170" y="775" text-anchor="end" font-family="monospace" font-size="14" fill="#FFFFFF" opacity="0.7">
+            GEN.ASSET.V2 // NODE
+        </text>
+    
+    <rect width="100%" height="100%" filter="url(#noise-hub-debug-video)" opacity="0.15" pointer-events="none" />
+</svg>

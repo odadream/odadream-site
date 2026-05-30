@@ -1,11 +1,11 @@
 ---
 id: org-neiry
-parent: registry-orgs
+parent: hub-registry-orgs
 title_en: Neiry Group
 title_ru: Neiry Group
 type: content
 tags:
-  - registry
+  - hub-registry
   - partner
 visible: false
 date: 2026.05.25
@@ -17,9 +17,9 @@ subkind: corporate
 
 **Type:** Partner
 
-Related engagements in the ODA.dream registry:
+Related engagements in the ODA.dream hub-registry:
 
-- [[eng-2026-interference-tsiolkovsky|Interference of Realities — Tsiolkovsky Festival]] (2026.05.16)
+- [[event-interference-tsiolkovsky-2026|Interference of Realities — Tsiolkovsky Festival]] (2026.05.16)
 
 ---RU---
 
@@ -27,4 +27,4 @@ Related engagements in the ODA.dream registry:
 
 Связанные участия в реестре ODA.dream:
 
-- [[eng-2026-interference-tsiolkovsky|«Интерференция реальностей» — Фестиваль Циолковского]] (2026.05.16)
+- [[event-interference-tsiolkovsky-2026|«Интерференция реальностей» — Фестиваль Циолковского]] (2026.05.16)

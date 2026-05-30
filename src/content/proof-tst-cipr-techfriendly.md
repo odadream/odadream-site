@@ -1,6 +1,6 @@
 ---
 id: proof-tst-cipr-techfriendly
-parent: testimonials
+parent: hub-testimonials
 title_en: tst-cipr-techfriendly
 title_ru: tst-cipr-techfriendly
 type: content
@@ -10,7 +10,7 @@ kind: proof
 subkind: testimonial
 proof_of:
   - "[[mindshow]]"
-  - "[[eng-2026-cipr-mindshow]]"
+  - "[[event-cipr-mindshow-2026]]"
 issued_by:
   - "[[org-cipr]]"
 publication_date: 2026-05-01

@@ -1,6 +1,6 @@
 ---
 id: proof-mipt-letter
-parent: letters
+parent: hub-letters
 title_en: MIPT — Letter of recognition
 title_ru: МФТИ — Благодарственное письмо
 type: content
@@ -11,7 +11,7 @@ order: 0
 kind: proof
 subkind: letter
 proof_of:
-  - "[[eng-2025-mipt-terraforming]]"
+  - "[[event-mipt-terraforming-2025]]"
 issued_by:
   - "[[org-mipt]]"
 publication_date: 2025-12-15

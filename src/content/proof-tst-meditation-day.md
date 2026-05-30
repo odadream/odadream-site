@@ -1,6 +1,6 @@
 ---
 id: proof-tst-meditation-day
-parent: testimonials
+parent: hub-testimonials
 title_en: tst-meditation-day
 title_ru: tst-meditation-day
 type: content

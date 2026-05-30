@@ -1,11 +1,11 @@
 ---
 id: org-culture-sport-uao
-parent: registry-orgs
+parent: hub-registry-orgs
 title_en: Culture and Sport of Moscow South Administrative Okrug
 title_ru: Культура и спорт ЮАО
 type: content
 tags:
-  - registry
+  - hub-registry
   - institution
 visible: false
 date: 2026.05.25
@@ -17,7 +17,7 @@ subkind: gov
 
 **Type:** Institution
 
-Related engagements in the ODA.dream registry:
+Related engagements in the ODA.dream hub-registry:
 
 _No linked engagements yet._
 

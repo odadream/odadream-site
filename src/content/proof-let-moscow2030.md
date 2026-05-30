@@ -1,6 +1,6 @@
 ---
 id: proof-let-moscow2030
-parent: letters
+parent: hub-letters
 title_en: Letter of appreciation — Moscow 2030, forum-festival participation
 title_ru: Благодарность — Москва 2030, участие в подготовке форума-фестиваля
 type: content

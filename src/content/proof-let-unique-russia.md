@@ -1,6 +1,6 @@
 ---
 id: proof-let-unique-russia
-parent: letters
+parent: hub-letters
 title_en: Diploma — "Digital Art & AI" panel, 6th exhibition-forum
 title_ru: Диплом — панель «Цифровое искусство и ИИ», VI выставка-форум
 type: content

@@ -1,6 +1,6 @@
 ---
 id: proof-award-ars-electronica
-parent: letters
+parent: hub-letters
 title_en: Official submission — Prix Ars Electronica & STARTS Prize
 title_ru: Официальная заявка — Prix Ars Electronica & STARTS Prize
 type: content

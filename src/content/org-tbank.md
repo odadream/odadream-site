@@ -1,11 +1,11 @@
 ---
 id: org-tbank
-parent: registry-orgs
+parent: hub-registry-orgs
 title_en: T-Bank
 title_ru: Т-Банк
 type: content
 tags:
-  - registry
+  - hub-registry
   - institution
 visible: false
 date: 2026.05.25
@@ -17,9 +17,9 @@ subkind: corporate
 
 **Type:** Institution
 
-Related engagements in the ODA.dream registry:
+Related engagements in the ODA.dream hub-registry:
 
-- [[eng-2025-dano-ekoniva|Neurobattle at DANO Olympiad]] (2025.12.17)
+- [[event-dano-ekoniva-2025|Neurobattle at DANO Olympiad]] (2025.12.17)
 
 ---RU---
 
@@ -27,4 +27,4 @@ Related engagements in the ODA.dream registry:
 
 Связанные участия в реестре ODA.dream:
 
-- [[eng-2025-dano-ekoniva|Нейробитва на Олимпиаде DANO]] (2025.12.17)
+- [[event-dano-ekoniva-2025|Нейробитва на Олимпиаде DANO]] (2025.12.17)

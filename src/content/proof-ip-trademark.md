@@ -1,6 +1,6 @@
 ---
 id: proof-ip-trademark
-parent: letters
+parent: hub-letters
 title_en: ODA.Dream® — registered trademark (Rospatent)
 title_ru: ODA.Dream® — зарегистрированный товарный знак (Роспатент)
 type: content

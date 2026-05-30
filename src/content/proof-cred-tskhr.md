@@ -1,6 +1,6 @@
 ---
 id: proof-cred-tskhr
-parent: letters
+parent: hub-letters
 title_en: Members of the Creative Union of Artists of Russia (TSKhR) — Multimedia & Scientific Art sections
 title_ru: Члены Творческого союза художников России (ТСХР) — секции мультимедиа и научного искусства
 type: content

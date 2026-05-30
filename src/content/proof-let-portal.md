@@ -1,6 +1,6 @@
 ---
 id: proof-let-portal
-parent: letters
+parent: hub-letters
 title_en: Diploma — Portal 2030–2050 (Visioning win)
 title_ru: Диплом — Портал 2030–2050 (победа в «Видженинг»)
 type: content
@@ -10,7 +10,7 @@ kind: proof
 subkind: letter
 proof_of:
   - "[[mindshow]]"
-  - "[[eng-2025-moscow2030-portal]]"
+  - "[[event-moscow2030-portal-2025]]"
 publication_date: 2025-01-01
 asset: /images/content/collab_2025_ODA_Portal.webp
 ---

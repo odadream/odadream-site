@@ -1,6 +1,6 @@
 ---
 id: proof-let-kod-provincii
-parent: letters
+parent: hub-letters
 title_en: Letter of appreciation — speaker participation
 title_ru: Благодарность — выступление спикером
 type: content

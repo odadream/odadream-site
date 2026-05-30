@@ -1,6 +1,6 @@
 ---
 id: beautiful-brain
-parent: lectures
+parent: hub-lectures
 title_en: Beautiful About the Brain
 title_ru: Красиво про мозг
 type: content
@@ -11,7 +11,7 @@ status: production
 kind: product
 subkind: education
 presented_at:
-  - "[[eng-2025-hse-beautiful-brain]]"
+  - "[[event-hse-beautiful-brain-2025]]"
 proofs:
   - "[[proof-hse-beautiful-brain]]"
 media:
@@ -20,7 +20,7 @@ media:
 
 **Beautiful About the Brain** is an immersive lecture-performance where neuroscience becomes a **live aesthetic experience** — without jargon, but with experiments everyone in the room can join.
 
-> How does perception work? Can we *see* the brain at work and learn to steer attention? We explore these questions through neurophysiology, digital art, and mindfulness practices.
+> How does perception work? Can we *see* the brain at work and learn to steer attention? We explore these questions through neurophysiology, digital art, and mindfulness hub-practices.
 
 ## What happens
 
@@ -33,7 +33,7 @@ media:
 
 A duo of hosts frames the theme. One speaker wears a neurointerface; the audience watches **live Neuromandala visualization** as the talk unfolds. At key moments, volunteers from the hall join on stage — their states become part of the same audiovisual performance.
 
-Modular topics in the [[lectures|Lectures]] hub (Art of Brain, Sound & Brain, Color & Brain, etc.) can be combined into a single keynote, a lecture + demo, or a short cycle.
+Modular topics in the [[hub-lectures|Lectures]] hub (Art of Brain, Sound & Brain, Color & Brain, etc.) can be combined into a single keynote, a lecture + demo, or a short cycle.
 
 ## Technical rider
 
@@ -41,9 +41,9 @@ Modular topics in the [[lectures|Lectures]] hub (Art of Brain, Sound & Brain, Co
 
 **From ODA.dream:** two neurointerfaces (Muse, Neuroplay), laptop, proprietary interactive software. Setup ~30 minutes; runtime 30–90 minutes depending on program.
 
-**Book a lecture →** [[for-education|Education]] · [[contacts|Contacts]]
+**Book a lecture →** [[hub-education|Education]] · [[hub-contacts|Contacts]]
 
-Institutional track: [[eng-2025-hse-beautiful-brain|HSE University, May 2025]] · [[proof-hse-beautiful-brain|letter of appreciation]]
+Institutional track: [[event-hse-beautiful-brain-2025|HSE University, May 2025]] · [[proof-hse-beautiful-brain|letter of appreciation]]
 
 ![[proof-hse-beautiful-brain]]
 
@@ -66,7 +66,7 @@ Institutional track: [[eng-2025-hse-beautiful-brain|HSE University, May 2025]] �
 
 Дуэт ведущих задаёт тему. На спикера надевается нейроинтерфейс; зал наблюдает **живую визуализацию Нейромандалы** по ходу лекции. В ключевые моменты на сцену выходят волонтёры — их состояния становятся частью того же аудиовизуального перформанса.
 
-Модульные темы в хабе [[lectures|Лекции]] (Искусство мозга, Звук и мозг, Цвет и мозг и др.) можно собрать в один доклад, лекцию с демо или короткий цикл.
+Модульные темы в хабе [[hub-lectures|Лекции]] (Искусство мозга, Звук и мозг, Цвет и мозг и др.) можно собрать в один доклад, лекцию с демо или короткий цикл.
 
 ## Технический райдер
 
@@ -74,9 +74,9 @@ Institutional track: [[eng-2025-hse-beautiful-brain|HSE University, May 2025]] �
 
 **От ODA.dream:** два нейроинтерфейса (Muse, Neuroplay), ноутбук, авторское ПО. Монтаж ~30 минут; хронометраж 30–90 минут.
 
-**Пригласить лекцию →** [[for-education|Образованию]] · [[contacts|Контакты]]
+**Пригласить лекцию →** [[hub-education|Образованию]] · [[hub-contacts|Контакты]]
 
-Институциональный трек: [[eng-2025-hse-beautiful-brain|НИУ ВШЭ, май 2025]] · [[proof-hse-beautiful-brain|благодарственное письмо]]
+Институциональный трек: [[event-hse-beautiful-brain-2025|НИУ ВШЭ, май 2025]] · [[proof-hse-beautiful-brain|благодарственное письмо]]
 
 ![[proof-hse-beautiful-brain]]
 

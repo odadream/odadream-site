@@ -1,13 +1,13 @@
 ---
 id: proof-press-ntv-metro
-parent: press
+parent: hub-press
 title_en: NTV news feature on the digital plein air in the Moscow metro
 title_ru: Сюжет НТВ о цифровом пленэре в московском метро
 type: content
 visible: true
 date: 2024.01.01
 kind: proof
-subkind: press
+subkind: hub-press
 proof_of:
   - "[[mindshow]]"
 publication: NTV

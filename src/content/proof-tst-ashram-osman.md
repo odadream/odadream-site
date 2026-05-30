@@ -1,6 +1,6 @@
 ---
 id: proof-tst-ashram-osman
-parent: testimonials
+parent: hub-testimonials
 title_en: tst-ashram-osman
 title_ru: tst-ashram-osman
 type: content
@@ -10,7 +10,7 @@ kind: proof
 subkind: testimonial
 proof_of:
   - "[[mindshow]]"
-  - "[[eng-2024-ashram-birthday]]"
+  - "[[event-ashram-birthday-2024]]"
 issued_by:
   - "[[org-ashram]]"
 publication: Natali Osman, founder of Ashram Studio (Patriarch's Ponds)

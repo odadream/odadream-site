@@ -1,6 +1,6 @@
 ---
 id: proof-let-wildmint
-parent: letters
+parent: hub-letters
 title_en: Letter of appreciation — Wild Mint, "Neuromandala" lecture & performance
 title_ru: Благодарность — Дикая Мята, лекция и перформанс «Нейромандала»
 type: content
@@ -10,7 +10,7 @@ kind: proof
 subkind: letter
 proof_of:
   - "[[neuromandala]]"
-  - "[[eng-2025-wildmint]]"
+  - "[[event-wildmint-2025]]"
 issued_by:
   - "[[org-wildmint]]"
 publication_date: 2025-01-01

@@ -1,6 +1,6 @@
 ---
 id: proof-ip-patent
-parent: letters
+parent: hub-letters
 title_en: Neuromandala — patent application filed
 title_ru: Нейромандала — патентная заявка подана
 type: content

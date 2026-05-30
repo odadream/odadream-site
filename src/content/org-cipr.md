@@ -1,11 +1,11 @@
 ---
 id: org-cipr
-parent: registry-orgs
+parent: hub-registry-orgs
 title_en: CIPR
 title_ru: ЦИПР
 type: content
 tags:
-  - registry
+  - hub-registry
   - venue
 visible: false
 date: 2026.05.25
@@ -17,9 +17,9 @@ subkind: gov
 
 **Type:** Venue
 
-Related engagements in the ODA.dream registry:
+Related engagements in the ODA.dream hub-registry:
 
-- [[eng-2026-cipr-mindshow|MindShow at TechFriendly / CIPR]] (2026.05.01)
+- [[event-cipr-mindshow-2026|MindShow at TechFriendly / CIPR]] (2026.05.01)
 
 ---RU---
 
@@ -27,4 +27,4 @@ Related engagements in the ODA.dream registry:
 
 Связанные участия в реестре ODA.dream:
 
-- [[eng-2026-cipr-mindshow|MindShow на TechFriendly / ЦИПР]] (2026.05.01)
+- [[event-cipr-mindshow-2026|MindShow на TechFriendly / ЦИПР]] (2026.05.01)

@@ -1,11 +1,11 @@
 ---
 id: org-kalashnikova
-parent: registry-orgs
+parent: hub-registry-orgs
 title_en: Ekaterina Kalashnikova
 title_ru: Екатерина Калашникова
 type: content
 tags:
-  - registry
+  - hub-registry
   - curator
 visible: false
 date: 2026.05.25
@@ -17,7 +17,7 @@ subkind: curator
 
 **Type:** Partner
 
-Related engagements in the ODA.dream registry:
+Related engagements in the ODA.dream hub-registry:
 
 _No linked engagements yet._
 

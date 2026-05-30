@@ -1,6 +1,6 @@
 ---
 id: proof-cipr-quote
-parent: testimonials
+parent: hub-testimonials
 title_en: CIPR — Testimonial quote
 title_ru: ЦИПР — Отзыв
 type: content
@@ -12,7 +12,7 @@ kind: proof
 subkind: testimonial
 proof_of:
   - "[[mindshow]]"
-  - "[[eng-2026-cipr-mindshow]]"
+  - "[[event-cipr-mindshow-2026]]"
 issued_by:
   - "[[org-cipr]]"
 publication: "CIPR — Digital Industry of Industrial Russia forum"

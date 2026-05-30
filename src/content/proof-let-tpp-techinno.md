@@ -1,6 +1,6 @@
 ---
 id: proof-let-tpp-techinno
-parent: letters
+parent: hub-letters
 title_en: Letter of appreciation — contribution to the award
 title_ru: Благодарность — вклад в организацию премии
 type: content

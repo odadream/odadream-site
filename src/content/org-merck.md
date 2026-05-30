@@ -1,11 +1,11 @@
 ---
 id: org-merck
-parent: registry-orgs
+parent: hub-registry-orgs
 title_en: Merck
 title_ru: Merck (Мерц)
 type: content
 tags:
-  - registry
+  - hub-registry
   - client
 visible: false
 date: 2026.05.25
@@ -17,9 +17,9 @@ subkind: corporate
 
 **Type:** Client
 
-Related engagements in the ODA.dream registry:
+Related engagements in the ODA.dream hub-registry:
 
-- [[eng-merck-corporate|Merck corporate science-art format]] (2025.01.01)
+- [[event-merck-corporate|Merck corporate science-art format]] (2025.01.01)
 
 ---RU---
 
@@ -27,4 +27,4 @@ Related engagements in the ODA.dream registry:
 
 Связанные участия в реестре ODA.dream:
 
-- [[eng-merck-corporate|Корпоративный science-art формат Merck]] (2025.01.01)
+- [[event-merck-corporate|Корпоративный science-art формат Merck]] (2025.01.01)

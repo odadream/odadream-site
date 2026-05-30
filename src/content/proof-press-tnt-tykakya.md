@@ -1,13 +1,13 @@
 ---
 id: proof-press-tnt-tykakya
-parent: press
+parent: hub-press
 title_en: Neurobattle segment on mainstream entertainment TV
 title_ru: Сегмент Нейробитвы в шоу на федеральном ТВ
 type: content
 visible: true
 date: 2020.01.01
 kind: proof
-subkind: press
+subkind: hub-press
 proof_of:
   - "[[neurobattle]]"
 publication: TNT, "Ty kak Ya"

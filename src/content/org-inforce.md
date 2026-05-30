@@ -1,11 +1,11 @@
 ---
 id: org-inforce
-parent: registry-orgs
+parent: hub-registry-orgs
 title_en: inForce
 title_ru: inForce
 type: content
 tags:
-  - registry
+  - hub-registry
   - venue
 visible: false
 date: 2026.05.25
@@ -17,7 +17,7 @@ subkind: corporate
 
 **Type:** Venue
 
-Related engagements in the ODA.dream registry:
+Related engagements in the ODA.dream hub-registry:
 
 _No linked engagements yet._
 

@@ -19,7 +19,8 @@
     "migrate:dry": "node scripts/migrate.js",
     "migrate:run": "node scripts/migrate.js --write",
     "migrate:media-dry": "node scripts/migrate/media-subject.js",
-    "migrate:media-run": "node scripts/migrate/media-subject.js --write"
+    "migrate:media-run": "node scripts/migrate/media-subject.js --write",
+    "audit": "node scripts/audit/content-audit.js"
   },
   "dependencies": {
     "clsx": "^2.1.0",

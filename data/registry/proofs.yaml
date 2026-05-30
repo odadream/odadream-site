@@ -1,16 +1,16 @@
 # ODA.dream proof ledger — single source of truth for the whole "digital footprint".
-# Awards, letters/certificates, testimonials, and press in one place. No duplication:
+# Awards, hub-letters/certificates, hub-testimonials, and hub-press in one place. No duplication:
 # each record LINKS to existing ids (work / eng / org) instead of restating their facts.
 #
-# kind:   award | letter | testimonial | press
+# kind:   award | letter | testimonial | hub-press
 # tier:   flagship | strong | standard   (weight; Forbes / federal TV / Ars Electronica = flagship)
 # scope:  studio | work
-# work:   id from works.yaml            (when scope: work → attaches to that work's page)
+# work:   id from hub-works.yaml            (when scope: work → attaches to that work's page)
 # eng:    id from engagements.yaml       (date / org / venue are pulled from there, not restated)
 # org:    id from organizations.yaml     (issuer / outlet, when it exists as an org)
 # source_ru/source_en: free-text issuer or outlet when not an org (magazines, committees, people)
 # title_*: award wording / letter subject / article headline
-# quote_*: testimonial text          url: press link          media: scan / thumbnail
+# quote_*: testimonial text          url: hub-press link          media: scan / thumbnail
 
 # ============================ AWARDS & IP ============================
 
@@ -56,7 +56,7 @@
   tier: flagship
   scope: work
   work: mindshow
-  eng: eng-2025-moscow2030-portal
+  eng: event-moscow2030-portal-2025
   date: 2025.01.01
   title_ru: 1-е место — VJ-конкурс «Видженинг», Портал 2030–2050
   title_en: 1st place — VJ competition "Visioning", Portal 2030–2050
@@ -94,12 +94,12 @@
   scope: studio
   date: 2026.01.01
   title_ru: 7 лет на рынке · 80+ событий · 1 500+ участников · 10+ городов
-  title_en: 7 years on market · 80+ events · 1,500+ participants · 10+ cities
+  title_en: 7 years on market · 80+ hub-events · 1,500+ participants · 10+ cities
 
 # ============================ PRESS ============================
 
 - id: press-ntv-metro
-  kind: press
+  kind: hub-press
   tier: flagship
   scope: work
   work: mindshow
@@ -111,7 +111,7 @@
   url: https://www.ntv.ru/novosti/2887676/
 
 - id: press-tnt-tykakya
-  kind: press
+  kind: hub-press
   tier: flagship
   scope: work
   work: neurobattle
@@ -123,7 +123,7 @@
   url: https://dzen.ru/embed/vY9PlkGfKPUc?from_block=partner&from=zen&mute=0&autoplay=0&tv=0
 
 - id: press-tskhr-bashkiria
-  kind: press
+  kind: hub-press
   tier: strong
   scope: work
   work: mindshow
@@ -135,7 +135,7 @@
   url: https://tcxp.ru/news/regions/v-bashkirii-proshel-pervyy-cifrovoy-plener
 
 - id: press-vecherka
-  kind: press
+  kind: hub-press
   tier: strong
   scope: studio
   date: 2025.01.01
@@ -145,7 +145,7 @@
   title_en: Coverage of an ODA.dream public event
 
 - id: press-cyens-cyprus
-  kind: press
+  kind: hub-press
   tier: standard
   scope: studio
   date: 2026.01.01
@@ -161,7 +161,7 @@
   tier: strong
   scope: work
   work: beautiful-brain
-  eng: eng-2025-hse-beautiful-brain
+  eng: event-hse-beautiful-brain-2025
   org: org-hse
   date: 2025-05-01
   quote_ru: за проведение иммерсивной лекции «Красиво про мозг», объединившей нейрофизиологию, ЭЭГ-технологии и science-art
@@ -172,7 +172,7 @@
   tier: strong
   scope: work
   work: mindshow
-  eng: eng-2024-ashram-birthday
+  eng: event-ashram-birthday-2024
   org: org-ashram
   date: 2024.06.25
   source_ru: Натали Осман, основатель студии Ашрам (Патриаршие пруды)
@@ -185,7 +185,7 @@
   tier: strong
   scope: work
   work: mindshow
-  eng: eng-2026-cipr-mindshow
+  eng: event-cipr-mindshow-2026
   org: org-cipr
   date: 2026.05.01
   quote_ru: за совместное выступление на TechFriendly Weekend в рамках форума ЦИПР — Цифровая индустрия промышленной России
@@ -196,7 +196,7 @@
   tier: strong
   scope: work
   work: neuromandala
-  eng: eng-2025-tavrida-ai
+  eng: event-tavrida-ai-2025
   org: org-tavrida
   date: 2025.08.01
   quote_ru: за участие в первом фестивале ИИ «Культурный код России», интерес к проекту и создание своей работы
@@ -231,7 +231,7 @@
   tier: strong
   scope: work
   work: mindshow
-  eng: eng-2025-moscow2030-portal
+  eng: event-moscow2030-portal-2025
   date: 2025.01.01
   title_ru: Диплом — Портал 2030–2050 (победа в «Видженинг»)
   title_en: Diploma — Portal 2030–2050 (Visioning win)
@@ -263,7 +263,7 @@
   tier: strong
   scope: work
   work: beautiful-brain
-  eng: eng-2025-hse-beautiful-brain
+  eng: event-hse-beautiful-brain-2025
   org: org-hse
   date: 2025-05-01
   site_node: proof-hse-beautiful-brain
@@ -287,7 +287,7 @@
   tier: standard
   scope: work
   work: neuromandala
-  eng: eng-2025-wildmint
+  eng: event-wildmint-2025
   org: org-wildmint
   date: 2025.01.01
   title_ru: Благодарность — Дикая Мята, лекция и перформанс «Нейромандала»
@@ -299,7 +299,7 @@
   tier: strong
   scope: work
   work: neuromandala
-  eng: eng-2025-tavrida-ai
+  eng: event-tavrida-ai-2025
   org: org-tavrida
   date: 2025.01.01
   title_ru: Благодарность — Таврида.АРТ, фестиваль «Культурный код России»
