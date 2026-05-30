@@ -16,11 +16,11 @@ These proofs lack `proof_of` / `issued_by` because the source YAML record has no
 - `event-brics-plus` — missing: date_start
 - `event-kod-provincii` — missing: date_start
 - `event-techweek` — missing: date_start
-- `gong-fest-2024` — missing: date_start
-- `gong-fest-2025` — missing: date_start
+- `event-gong-fest-2024` — missing: date_start
+- `event-gong-fest-2025` — missing: date_start
 - `pleinair-bashkiria` — missing: date_start
 - `pleinair-metro` — missing: date_start
-- `portal-2024` — missing: date_start
+- `event-portal-2024` — missing: date_start
 - `proof-award-ars-electronica` — missing: proof_of
 - `proof-award-culttech-vienna` — missing: proof_of
 - `proof-cred-track-record` — missing: proof_of
@@ -35,7 +35,7 @@ These proofs lack `proof_of` / `issued_by` because the source YAML record has no
 - `proof-let-unique-russia` — missing: proof_of
 - `proof-press-cyens-cyprus` — missing: proof_of
 - `proof-press-vecherka` — missing: proof_of
-- `tsiolkovsky-2025` — missing: date_start
+- `event-tsiolkovsky-2025` — missing: date_start
 - `tsiolkovsky-2026` — missing: date_start
 - `unique-russia` — missing: date_start
 - `proof-award-ars-electronica` — missing: proof_of, issued_by
@@ -91,7 +91,7 @@ Hub pages contain bullet lists of `[[…]]`. These are navigation by hand. Decis
 - `hub-event-agencies.md` — 40 link bullets in 6 block(s)
 - `hub-events.md` — 12 link bullets in 2 block(s)
 - `hub-lectures.md` — 12 link bullets in 2 block(s)
-- `hub-portal.md` — 6 link bullets in 2 block(s)
+- `event-portal.md` — 6 link bullets in 2 block(s)
 - `hub-world.md` — 14 link bullets in 2 block(s)
 - `interference.md` — 6 link bullets in 2 block(s)
 - `posustoronniy.md` — 6 link bullets in 2 block(s)
@@ -116,8 +116,8 @@ Total: 60. These are leaf nodes nobody points at and that anchor nothing themsel
 - `event-sber-lecture-2025.md` (kind: event)
 - `event-techweek.md` (kind: event)
 - `feedback-empathy-brain.md` (kind: product)
-- `gong-fest-2024.md` (kind: event)
-- `gong-fest-2025.md` (kind: event)
+- `event-gong-fest-2024.md` (kind: event)
+- `event-gong-fest-2025.md` (kind: event)
 - `gong.md` (kind: product)
 - `happiness.md` (kind: product)
 - `honors.md` (kind: product)
@@ -136,7 +136,7 @@ Total: 60. These are leaf nodes nobody points at and that anchor nothing themsel
 - `org-lamborghini.md` (kind: organizer)
 - `pleinair-bashkiria.md` (kind: event)
 - `pleinair-metro.md` (kind: event)
-- `portal-2024.md` (kind: event)
+- `event-portal-2024.md` (kind: event)
 - `posustoronniy.md` (kind: product)
 - `proof-award-ars-electronica.md` (kind: proof)
 - `proof-award-culttech-vienna.md` (kind: proof)
@@ -156,7 +156,7 @@ Total: 60. These are leaf nodes nobody points at and that anchor nothing themsel
 - `sound-brain.md` (kind: product)
 - `sync-circle.md` (kind: product)
 - `taste-brain.md` (kind: product)
-- `tsiolkovsky-2025.md` (kind: event)
+- `event-tsiolkovsky-2025.md` (kind: event)
 - `tsiolkovsky-2026.md` (kind: event)
 - `two-waves.md` (kind: product)
 - `unique-russia.md` (kind: event)

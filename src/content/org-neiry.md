@@ -19,7 +19,7 @@ subkind: corporate
 
 Related engagements in the ODA.dream hub-registry:
 
-- [[event-interference-tsiolkovsky-2026|Interference of Realities — Tsiolkovsky Festival]] (2026.05.16)
+- [[event-tsiolkovsky-2026|Interference of Realities — Tsiolkovsky Festival]] (2026.05.16)
 
 ---RU---
 
@@ -27,4 +27,4 @@ Related engagements in the ODA.dream hub-registry:
 
 Связанные участия в реестре ODA.dream:
 
-- [[event-interference-tsiolkovsky-2026|«Интерференция реальностей» — Фестиваль Циолковского]] (2026.05.16)
+- [[event-tsiolkovsky-2026|«Интерференция реальностей» — Фестиваль Циолковского]] (2026.05.16)

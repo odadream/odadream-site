@@ -79,7 +79,7 @@ export const MEDIA: Record<string, MediaAsset> = {
     url: "https://dzen.ru/embed/vL3M-cNgfSVo?from_block=partner&from=zen&mute=1&autoplay=1&tv=0",
     poster: "/images/content/mindshow_portal.webp",
     title: { en: "Hypercube · Portal 2030–2050, Skolkovo", ru: "Гиперкуб · Портал 2030–2050, Сколково" },
-    subject: ["mindshow", "portal-2025"],
+    subject: ["mindshow", "event-portal-2025"],
   },
   "mdsh-urban-forum": {
     url: "https://dzen.ru/embed/vYcLmkD5bAxE?from_block=partner&from=zen&mute=1&autoplay=1&tv=0",
@@ -186,7 +186,7 @@ export const MEDIA: Record<string, MediaAsset> = {
     poster: "/images/content/interference_teaser.webp",
     title: { en: "Interference · official teaser", ru: "Интерференция · официальный тизер" },
     subkind: "video",
-    subject: ["interference", "event-interference-tsiolkovsky-2026"],
+    subject: ["interference", "event-tsiolkovsky-2026"],
     mirrors: {
       youtube: "https://youtube.com/watch?v=intf-teaser-placeholder",
       vk: "https://vk.com/video/intf-teaser-placeholder",

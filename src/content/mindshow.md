@@ -16,7 +16,7 @@ presented_at:
   - "[[event-byob-2019]]"
   - "[[event-byob-2026]]"
   - "[[event-mipt-terraforming-2025]]"
-  - "[[portal-2025]]"
+  - "[[event-portal-2025]]"
   - "[[event-tpp-mindshow-2025]]"
   - "[[event-cipr-mindshow-2026]]"
 proofs:

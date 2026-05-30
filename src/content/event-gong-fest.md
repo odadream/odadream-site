@@ -1,9 +1,11 @@
 ---
-id: hub-gong-fest
+id: event-gong-fest
 parent: hub-festivals
 title_en: Gong Fest
 title_ru: Гонг фест
 type: hub
+kind: event
+subkind: series
 tags: []
 ---
 

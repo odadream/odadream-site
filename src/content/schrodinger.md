@@ -9,10 +9,13 @@ tags:
   - collective
 order: 1
 visible: true
-date: 2026.04.07
-status: rnd
+date: 2025.01.01
+status: production
 kind: product
 subkind: art
+presented_at:
+  - "[[event-tsiolkovsky-2025]]"
+proofs: []
 ---
 
 ## PROJECT SCHRODINGER
@@ -26,7 +29,7 @@ Instead of a fixed script, the piece uses a rule-based structure: each action on
 ## Core Principle
 
 The technology is not a spectacle layer over theater.  
-It hub-works as an instrument that makes invisible group dynamics perceptible in real time.
+It works as an instrument that makes invisible group dynamics perceptible in real time.
 
 ## Performance Mechanics
 
@@ -35,10 +38,14 @@ It hub-works as an instrument that makes invisible group dynamics perceptible in
 - The audience becomes a co-author through attention, choice, and presence.
 - The resulting scene is produced once and cannot be repeated identically.
 
-## Context
+## Provenance
 
-The project developed in collaboration with theater practitioners and was presented in festival laboratory format.  
-It extends ODA.dream's line from individual neurofeedback to collective performative cognition.
+- **2024** — [[event-kod-provincii|Code of Province]]: met [[org-itb|Innovation Ballet Theatre]] (Ksenia Golyzhibina); lecture + [[neuro-dance|Neuro Dance]] + [[neurosync|Neurosync]].
+- **Nov 2024** — [[event-itb-lab-2024-11|internal ITB lab]] on neurointerfaces in dance.
+- **2025** — [[event-tsiolkovsky-2025|Tsiolkovsky Festival]]: closing open lab-performance, invited by [[org-senatova|Anna Senatova]]; co-produced with ITB at [[org-ikc|ICC Kaluga]].
+- **2026** — successor premiere [[interference|Interference of Realities]] opened the next festival edition ([[event-tsiolkovsky-2026|2026]]).
+
+Not in repertoire yet — awaiting repeat bookings.
 
 ---RU---
 
@@ -62,7 +69,11 @@ It extends ODA.dream's line from individual neurofeedback to collective performa
 - Зритель становится соавтором через внимание, выбор и присутствие.
 - Каждый показ формирует уникальную сценическую конфигурацию и не воспроизводится идентично.
 
-## Контекст
+## Провенанс
 
-Проект развивался в сотрудничестве с театральными практиками и показывался в формате фестивальной лаборатории.  
-Эта работа продолжает траекторию ODA.dream: от индивидуального нейрофидбека к коллективному перформативному мышлению.
+- **2024** — [[event-kod-provincii|«Код провинции»]]: знакомство с [[org-itb|театром балета ИКЦ]] (Ксения Голыжбина); лекция + [[neuro-dance|нейро-танец]] + [[neurosync|нейросинхронизация]].
+- **Нояб. 2024** — [[event-itb-lab-2024-11|внутренняя лаборатория ИТБ]].
+- **2025** — [[event-tsiolkovsky-2025|фестиваль Циолковский]]: закрывающая открытая лаборатория-спектакль, приглашение [[org-senatova|А. И. Сенатовой]]; со-постановка с ИТБ на базе [[org-ikc|ИКЦ]].
+- **2026** — следующая ступень — премьера [[interference|«Интерференция реальностей»]] на открытии фестиваля ([[event-tsiolkovsky-2026|2026]]).
+
+Пока не в репертуаре — ждёт повторных показов.

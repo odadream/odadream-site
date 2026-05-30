@@ -1,20 +1,20 @@
 ---
-id: tsiolkovsky-2025
-parent: hub-tsiolkovsky
-title_en: Tsiolkovsky Fest 2025
-title_ru: Циолковский фест 2025
+id: event-gong-fest-2024
+parent: event-gong-fest
+title_en: Gong Fest 2024
+title_ru: Гонг фест 2024
 type: content
 tags: []
 kind: event
 subkind: festival
 ---
 
-## Tsiolkovsky Fest 2025
+## Gong Fest 2024
 
 Stub — created by Phase G restructure. Fill in details.
 
 ---RU---
 
-## Циолковский фест 2025
+## Гонг фест 2024
 
 Заглушка — создана аудитом Phase G. Дополнить.

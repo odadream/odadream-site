@@ -113,15 +113,15 @@ hub-events ✅
 │   ├── pleinair-metro 🆕         Плэнер в метро
 │   └── pleinair-bashkiria 🆕     Цифровой плэнер в Башкирии
 ├── hub-festivals 🆕       Фестивали                   (4 ✅)
-│   ├── hub-tsiolkovsky 🆕        Циолковский (series-hub)
-│   │   ├── tsiolkovsky-2025 🆕
+│   ├── event-tsiolkovsky 🆕        Циолковский (series-hub)
+│   │   ├── event-tsiolkovsky-2025 🆕
 │   │   └── tsiolkovsky-2026 🆕
-│   ├── hub-portal 🆕             Портал 2030–2050 (series-hub)
-│   │   ├── portal-2024 🆕
-│   │   └── portal-2025 🆕         (renamed from event-moscow2030-portal-2025)
-│   ├── hub-gong-fest 🆕          Гонг фест (series-hub)
-│   │   ├── gong-fest-2024 🆕
-│   │   └── gong-fest-2025 🆕
+│   ├── event-portal 🆕             Портал 2030–2050 (series-hub)
+│   │   ├── event-portal-2024 🆕
+│   │   └── event-portal-2025 🆕         (renamed from event-moscow2030-event-portal-2025)
+│   ├── event-gong-fest 🆕          Гонг фест (series-hub)
+│   │   ├── event-gong-fest-2024 🆕
+│   │   └── event-gong-fest-2025 🆕
 │   └── event-myata-2025 🆕       Дикая Мята 2025 (rename from event-wildmint-2025)
 ├── hub-forums 🆕          Форумы / конф.              (6 ✅)
 │   ├── event-cipr-mindshow-2026 ✅
@@ -154,7 +154,7 @@ hub-events ✅
 | Узел | Было | Стало | Где |
 |---|---|---|---|
 | `event-mipt-terraforming-2025` | workshop | **exhibition** | Выставки (под `hub-terraforming`) |
-| `event-interference-tsiolkovsky-2026` | competition | **festival** | Фестивали (под `hub-tsiolkovsky`) |
+| `event-tsiolkovsky-2026` | competition | **festival** | Фестивали (под `event-tsiolkovsky`) |
 | `event-dano-ekoniva-2025` | competition | **olympiad** | Лекции и образ. программы |
 | `event-sber-lecture-2025` | workshop | **lecture** | Лекции и образ. программы |
 | `event-merck-corporate` | workshop | **conference** | Лекции и образ. программы |
@@ -230,7 +230,7 @@ Cap = 8 ровно (предел). Дальше расти О нас не дол
 | 1   | Технологии = top-level или подкатегория Работ?                                     | Корень + Работы    | **resolved**: top-level                                                                                       | top-level                                                                                                                                                                                                             |
 | 2   | Лекторий = top-level или под Сотрудничество→Образованию?                           | Корень             | **resolved**: top-level                                                                                       | top-level                                                                                                                                                                                                             |
 | 3   | Корп-частные события: вариант A (категория) или B (visible:false)?                 | События            | **resolved**: 2 категории — `hub-edu-corporate` (6) для громких имён, `hub-private-shows` (2 ⚠) для приватных | Интимные - закрытый хаб по паролю :)                                                                                                                                                                                  |
-| 4   | `moscow2030-portal-2025` — это форум Москва 2030 или Портал-серия?                 | Форумы / Фестивали | **resolved**: Портал-серия (`portal-2025`)                                                                    | Вообще рамочный такой, фестиваль Портал 2030-2050 проходит в рамках форума "Территория будущего. **Москва** **2030**". Mindshow и первое место по VJ я выиграл на портале, а лекцию читал в Бауманке в рамках форума. |
+| 4   | `moscow2030-event-portal-2025` — это форум Москва 2030 или Портал-серия?                 | Форумы / Фестивали | **resolved**: Портал-серия (`event-portal-2025`)                                                                    | Вообще рамочный такой, фестиваль Портал 2030-2050 проходит в рамках форума "Территория будущего. **Москва** **2030**". Mindshow и первое место по VJ я выиграл на портале, а лекцию читал в Бауманке в рамках форума. |
 | 5   | Добавлять «Медиа» аудиторию в Сотрудничество?                                      | Сотрудничество     | **resolved**: добавлено `hub-collab-media` (6-я аудитория)                                                    | Добавить                                                                                                                                                                                                              |
 | 6   | `galleries` — подгруппа арт-институций или отдельная аудитория?                    | Сотрудничество     | **resolved**: подгруппа Арт-институций                                                                        | Подгруппа арт-институций                                                                                                                                                                                              |
 | 7   | Команда `hub-team` — куда переезжает (cv vs отдельно)?                             | О нас              | **resolved**: содержимое `hub-team` → `cv`                                                                    | команда должна переехать в CV - это общие сущности                                                                                                                                                                    |
@@ -252,11 +252,11 @@ Cap = 8 ровно (предел). Дальше расти О нас не дол
 
 ### Новые хабы (не существуют)
 
-`hub-big-forms`, `hub-performances`, `hub-installations`, `hub-tech`, `hub-exhibitions`, `hub-festivals`, `hub-forums`, `hub-edu-corporate`, `hub-private-shows`, `hub-tsiolkovsky`, `hub-portal`, `hub-gong-fest`, `hub-collab-media`.
+`hub-big-forms`, `hub-performances`, `hub-installations`, `hub-tech`, `hub-exhibitions`, `hub-festivals`, `hub-forums`, `hub-edu-corporate`, `hub-private-shows`, `event-tsiolkovsky`, `event-portal`, `event-gong-fest`, `hub-collab-media`.
 
 ### Заглушки-узлы
 
-`ancestors`, `another-people`, `two-waves`, `voronka`, `happiness`, `lighthouse`, `feedback-empathy-brain`, `meditation-brain`, `neuromandala-os`, `hyperscan-scene-engine`, `unique-russia`, `pleinair-metro`, `pleinair-bashkiria`, `event-kod-provincii`, `event-techweek`, `event-bitva-milliard-2024`, `event-brics-plus`, `tsiolkovsky-2025`, `tsiolkovsky-2026`, `portal-2024`, `portal-2025`, `gong-fest-2024`, `gong-fest-2025`, `awards`, `partners`, `clients`, `collabs`.
+`ancestors`, `another-people`, `two-waves`, `voronka`, `happiness`, `lighthouse`, `feedback-empathy-brain`, `meditation-brain`, `neuromandala-os`, `hyperscan-scene-engine`, `unique-russia`, `pleinair-metro`, `pleinair-bashkiria`, `event-kod-provincii`, `event-techweek`, `event-bitva-milliard-2024`, `event-brics-plus`, `event-tsiolkovsky-2025`, `tsiolkovsky-2026`, `event-portal-2024`, `event-portal-2025`, `event-gong-fest-2024`, `event-gong-fest-2025`, `awards`, `partners`, `clients`, `collabs`.
 
 ### Удаляются (содержимое перенесено)
 

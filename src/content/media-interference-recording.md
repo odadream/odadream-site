@@ -14,7 +14,7 @@ kind: media
 subkind: video
 about:
   - "[[interference]]"
-  - "[[event-interference-tsiolkovsky-2026]]"
+  - "[[event-tsiolkovsky-2026]]"
 access: restricted
 for_sale: true
 purchase_url: https://interference.odadream.art/buy

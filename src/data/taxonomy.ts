@@ -42,6 +42,7 @@ export const TAXONOMY: Record<Kind, SubkindMap> = {
     game:      { label: { en: "Game",       ru: "Игра" },           icon: "Gamepad2",   color: "teal" },
   },
   event: {
+    series:       { label: { en: "Event series", ru: "Серия событий" },    icon: "Layers",       color: "purple" },
     festival:     { label: { en: "Festival",     ru: "Фестиваль" },        icon: "Sparkles",     color: "purple" },
     lab:          { label: { en: "Lab",          ru: "Лаборатория" },      icon: "FlaskConical", color: "emerald" },
     expo:         { label: { en: "Exhibition",   ru: "Выставка" },         icon: "Image",        color: "rose" },

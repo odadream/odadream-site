@@ -23,7 +23,8 @@
     "audit": "node scripts/audit/content-audit.js",
     "audit:structure": "node scripts/audit/dump-structure.js",
     "restructure:dry": "node scripts/audit/restructure.js",
-    "restructure:run": "node scripts/audit/restructure.js --write"
+    "restructure:run": "node scripts/audit/restructure.js --write",
+    "audit:checklist": "node scripts/audit/dump-checklist.js"
   },
   "dependencies": {
     "clsx": "^2.1.0",

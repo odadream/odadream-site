@@ -9,28 +9,30 @@ order: 2
 date: 2026.05.27
 ---
 
-## WHAT WE MAKE
+## Our work
 
-We are an art-science duo. Everything we make falls into three categories:
+We are an art–science duo. Our work is grounded in **applied neuroscience and brain-signal processing**, and lives in four registers:
 
-- 🎨 [[hub-works-art|Artistic hub-works]] — performances, installations, neuro-theater, hub-games, hub-materia.
-- 📚 [[hub-works-education|Education & outreach]] — hub-lectures, hub-practices, demonstrations, measurements.
-- ⚙️ [[hub-works-tech|Technology]] — Neuromandala platform and hyperscanning, where our patents live.
+- 🎭 [[hub-big-forms|Big forms]] — flagship theatrical productions: [[schrodinger|Schrödinger]], [[interference|Interference of Realities]], [[ancestors|Ancestors in the Noise]].
+- 🎤 [[hub-performances|Performances]] — site-specific, one-evening works: live VJ, neuro-dance, sync circles, master-classes.
+- 🏛 [[hub-installations|Installations]] — stationary objects that operate without a performer: from Skolkovo's Honor Board to community sync circles.
+- 🧱 [[hub-materia|Materia]] — physical artefacts: prints, jewellery, sculptural objects with embedded brain data.
 
-Education is built on the art; the art is built on the technology. Open any work to see its provenance — hub-events, clients, and awards — gathered automatically.
+The engineering substrate — engines, BCI protocols, registered IP — lives in [[hub-tech|Technologies]]. Lectures and conceptual master-classes are in [[hub-lectures|Lectures]].
 
-→ Where it was shown: [[hub-events|Events]] · Who we worked with: [[hub-registry|Experience Registry]]
+Each piece carries its provenance — where it was shown, who commissioned it, which proofs attest it — collected automatically from the graph below.
 
 ---RU---
 
-## ЧТО МЫ СОЗДАЁМ
+## Что мы делаем
 
-Мы — арт-научный дуэт. Всё, что мы создаём, делится на три категории:
+Мы — арт-научный дуэт. Наша работа основана на **прикладной нейронауке и обработке сигналов мозга**, и существует в четырёх форматах:
 
-- 🎨 [[hub-works-art|Художественные работы]] — перформансы, инсталляции, нейротеатр, игры, объекты.
-- 📚 [[hub-works-education|Просвещение]] — лекции, практики, демонстрации, замеры.
-- ⚙️ [[hub-works-tech|Технологические разработки]] — платформа Нейромандала и гиперсканирование, где живут наши патенты.
+- 🎭 [[hub-big-forms|Большие формы]] — флагманские театральные постановки: [[schrodinger|Шрёдингер]], [[interference|Интерференция реальностей]], [[ancestors|Предки в шуме]].
+- 🎤 [[hub-performances|Перформансы]] — site-specific работы для одного вечера: live VJ, нейроарт-танец, sync circles, мастер-классы.
+- 🏛 [[hub-installations|Инсталляции]] — стационарные объекты, работающие без исполнителя: от Нейродоски почёта в Сколково до коллективных sync circles.
+- 🧱 [[hub-materia|Материя]] — физические артефакты: отпечатки, ювелирные объекты, скульптуры с зашитыми данными мозга.
 
-Просвещение строится на искусстве; искусство — на технологии. Откройте любую работу — её провенанс (события, заказчики, награды) подтянется сам.
+Инженерный субстрат — движки, BCI-протоколы, зарегистрированный IP — собран в [[hub-tech|Технологиях]]. Лекции и концептуальные мастер-классы — в [[hub-lectures|Лектории]].
 
-→ Где показывали: [[hub-events|События]] · С кем работали: [[hub-registry|Реестр опыта]]
+Каждая работа несёт свой провенанс — где показана, кто заказал, какие пруфы её подтверждают — собирается автоматически из графа ниже.

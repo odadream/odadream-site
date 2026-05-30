@@ -25,11 +25,11 @@ Generated: 2026-05-30T17:52:21.857Z
 - `event-brics-plus.md` (id: event-brics-plus) — missing: date_start
 - `event-kod-provincii.md` (id: event-kod-provincii) — missing: date_start
 - `event-techweek.md` (id: event-techweek) — missing: date_start
-- `gong-fest-2024.md` (id: gong-fest-2024) — missing: date_start
-- `gong-fest-2025.md` (id: gong-fest-2025) — missing: date_start
+- `event-gong-fest-2024.md` (id: event-gong-fest-2024) — missing: date_start
+- `event-gong-fest-2025.md` (id: event-gong-fest-2025) — missing: date_start
 - `pleinair-bashkiria.md` (id: pleinair-bashkiria) — missing: date_start
 - `pleinair-metro.md` (id: pleinair-metro) — missing: date_start
-- `portal-2024.md` (id: portal-2024) — missing: date_start
+- `event-portal-2024.md` (id: event-portal-2024) — missing: date_start
 - `proof-award-ars-electronica.md` (id: proof-award-ars-electronica) — missing: proof_of
 - `proof-award-culttech-vienna.md` (id: proof-award-culttech-vienna) — missing: proof_of
 - `proof-cred-track-record.md` (id: proof-cred-track-record) — missing: proof_of
@@ -44,7 +44,7 @@ Generated: 2026-05-30T17:52:21.857Z
 - `proof-let-unique-russia.md` (id: proof-let-unique-russia) — missing: proof_of
 - `proof-press-cyens-cyprus.md` (id: proof-press-cyens-cyprus) — missing: proof_of
 - `proof-press-vecherka.md` (id: proof-press-vecherka) — missing: proof_of
-- `tsiolkovsky-2025.md` (id: tsiolkovsky-2025) — missing: date_start
+- `event-tsiolkovsky-2025.md` (id: event-tsiolkovsky-2025) — missing: date_start
 - `tsiolkovsky-2026.md` (id: tsiolkovsky-2026) — missing: date_start
 - `unique-russia.md` (id: unique-russia) — missing: date_start
 
@@ -55,7 +55,7 @@ Generated: 2026-05-30T17:52:21.857Z
 - `hub-event-agencies.md` — 40 link bullets in 6 block(s)
 - `hub-events.md` — 12 link bullets in 2 block(s)
 - `hub-lectures.md` — 12 link bullets in 2 block(s)
-- `hub-portal.md` — 6 link bullets in 2 block(s)
+- `event-portal.md` — 6 link bullets in 2 block(s)
 - `hub-world.md` — 14 link bullets in 2 block(s)
 - `interference.md` — 6 link bullets in 2 block(s)
 - `posustoronniy.md` — 6 link bullets in 2 block(s)
@@ -82,8 +82,8 @@ _None — every wikilink resolves._
 - `event-sber-lecture-2025.md` (kind: event)
 - `event-techweek.md` (kind: event)
 - `feedback-empathy-brain.md` (kind: product)
-- `gong-fest-2024.md` (kind: event)
-- `gong-fest-2025.md` (kind: event)
+- `event-gong-fest-2024.md` (kind: event)
+- `event-gong-fest-2025.md` (kind: event)
 - `gong.md` (kind: product)
 - `happiness.md` (kind: product)
 - `honors.md` (kind: product)
@@ -102,7 +102,7 @@ _None — every wikilink resolves._
 - `org-lamborghini.md` (kind: organizer)
 - `pleinair-bashkiria.md` (kind: event)
 - `pleinair-metro.md` (kind: event)
-- `portal-2024.md` (kind: event)
+- `event-portal-2024.md` (kind: event)
 - `posustoronniy.md` (kind: product)
 - `proof-award-ars-electronica.md` (kind: proof)
 - `proof-award-culttech-vienna.md` (kind: proof)
@@ -122,7 +122,7 @@ _None — every wikilink resolves._
 - `sound-brain.md` (kind: product)
 - `sync-circle.md` (kind: product)
 - `taste-brain.md` (kind: product)
-- `tsiolkovsky-2025.md` (kind: event)
+- `event-tsiolkovsky-2025.md` (kind: event)
 - `tsiolkovsky-2026.md` (kind: event)
 - `two-waves.md` (kind: product)
 - `unique-russia.md` (kind: event)

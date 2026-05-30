@@ -1,10 +1,10 @@
 ---
 id: event-byob-2020
-parent: hub-byob
+parent: event-byob
 title_en: BYOB 2020
 title_ru: BYOB 2020
 type: content
-tags: [hub-byob]
+tags: [event-byob]
 order: 1
 date: 2020.08.15
 visible: true

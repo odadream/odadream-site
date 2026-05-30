@@ -1,10 +1,10 @@
 ---
 id: event-byob-2026
-parent: hub-byob
+parent: event-byob
 title_en: BYOB 2026
 title_ru: BYOB 2026
 type: content
-tags: [hub-byob]
+tags: [event-byob]
 order: 2
 date: 2026.02.28
 visible: true

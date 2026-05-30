@@ -10,7 +10,7 @@ kind: proof
 subkind: letter
 proof_of:
   - "[[mindshow]]"
-  - "[[portal-2025]]"
+  - "[[event-portal-2025]]"
 publication_date: 2025-01-01
 asset: /images/content/collab_2025_ODA_Portal.webp
 ---

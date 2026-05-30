@@ -14,7 +14,7 @@ kind: media
 subkind: photo
 about:
   - "[[interference]]"
-  - "[[event-interference-tsiolkovsky-2026]]"
+  - "[[event-tsiolkovsky-2026]]"
 access: public
 ---
 

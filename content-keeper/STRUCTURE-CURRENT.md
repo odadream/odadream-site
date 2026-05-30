@@ -1,6 +1,6 @@
 # Current content hierarchy
 
-Generated: 2026-05-30T17:52:11.759Z
+Generated: 2026-05-30T18:01:56.318Z
 
 Authoritative snapshot of `parent` relationships across all nodes in `src/content/`.
 
@@ -18,14 +18,6 @@ Authoritative snapshot of `parent` relationships across all nodes in `src/conten
     - **`meditation-brain`** — Brain & Meditation / Мозг и медитация _[kind: product, subkind: education]_
   - **`hub-contacts`** — Contacts / Контакты _[type: action]_
   - **`hub-events`** — Events / События _[type: hub]_
-    - **`hub-byob`** — BYOB _[type: hub]_
-      - **`event-byob-2019`** — BYOB 2019 _[kind: event, subkind: festival]_
-        - **`media-byob-2019-mindgrid`** — Mind Grid — BYOB 2019 neuro-portrait / Mind Grid — нейропортрет BYOB 2019 _[kind: media, subkind: photo]_
-      - **`event-byob-2020`** — BYOB 2020 _[kind: event, subkind: festival]_
-        - **`media-byob-2020-photos`** — BYOB 2020 — photo report / BYOB 2020 — фоторепортаж _[kind: media, subkind: photo]_
-      - **`event-byob-2026`** — BYOB 2026 _[kind: event, subkind: festival]_
-        - **`media-byob-2026-photos`** — BYOB 2026 — photo report / BYOB 2026 — фоторепортаж _[kind: media, subkind: photo]_
-    - **`event-myata-2025`** — Wild Mint festival — neuromandala installation / Дикая Мята — инсталляция Нейромандала _[kind: event, subkind: festival]_
     - **`hub-edu-corporate`** — Lectures & Programs / Лекции и образ. программы _[type: hub]_
       - **`event-bauman-moscow2030-2025`** — Brain-hacking lecture — Bauman MSTU / Лекция про брейнхакинг — МГТУ им. Баумана _[kind: event, subkind: lecture]_
       - **`event-dano-ekoniva-2025`** — Neurobattle at DANO Olympiad / Нейробитва на Олимпиаде DANO _[kind: event, subkind: olympiad]_
@@ -41,16 +33,23 @@ Authoritative snapshot of `parent` relationships across all nodes in `src/conten
       - **`pleinair-metro`** — Plein-air in Metro / Плэнер в метро _[kind: event, subkind: exhibition]_
       - **`unique-russia`** — Unique Russia 2026 / Уникальная Россия 2026 _[kind: event, subkind: exhibition]_
     - **`hub-festivals`** — Festivals / Фестивали _[type: hub]_
-      - **`hub-portal`** — Portal / Портал
-        - **`portal-2025`** — Visioning competition win — Portal 2030–2050 / Победа «Видженинг» — Портал 2030–2050 _[kind: event, subkind: forum]_
-        - **`portal-2024`** — Portal 2030–2050 (2024) / Портал 2030–2050 (2024) _[kind: event, subkind: festival]_
-      - **`hub-gong-fest`** — Gong Fest / Гонг фест _[type: hub]_
-        - **`gong-fest-2024`** — Gong Fest 2024 / Гонг фест 2024 _[kind: event, subkind: festival]_
-        - **`gong-fest-2025`** — Gong Fest 2025 / Гонг фест 2025 _[kind: event, subkind: festival]_
-      - **`hub-tsiolkovsky`** — Tsiolkovsky Fest / Циолковский _[type: hub]_
-        - **`event-interference-tsiolkovsky-2026`** — Interference of Realities — Tsiolkovsky Festival / «Интерференция реальностей» — Фестиваль Циолковского _[kind: event, subkind: festival]_
-        - **`tsiolkovsky-2025`** — Tsiolkovsky Fest 2025 / Циолковский фест 2025 _[kind: event, subkind: festival]_
-        - **`tsiolkovsky-2026`** — Tsiolkovsky Fest 2026 / Циолковский фест 2026 _[kind: event, subkind: festival]_
+      - **`event-portal`** — Portal / Портал _[kind: event, subkind: series]_
+        - **`event-portal-2025`** — Visioning competition win — Portal 2030–2050 / Победа «Видженинг» — Портал 2030–2050 _[kind: event, subkind: forum]_
+        - **`event-portal-2024`** — Portal 2030–2050 (2024) / Портал 2030–2050 (2024) _[kind: event, subkind: festival]_
+      - **`event-byob`** — BYOB _[kind: event, subkind: series]_
+        - **`event-byob-2019`** — BYOB 2019 _[kind: event, subkind: festival]_
+          - **`media-byob-2019-mindgrid`** — Mind Grid — BYOB 2019 neuro-portrait / Mind Grid — нейропортрет BYOB 2019 _[kind: media, subkind: photo]_
+        - **`event-byob-2020`** — BYOB 2020 _[kind: event, subkind: festival]_
+          - **`media-byob-2020-photos`** — BYOB 2020 — photo report / BYOB 2020 — фоторепортаж _[kind: media, subkind: photo]_
+        - **`event-byob-2026`** — BYOB 2026 _[kind: event, subkind: festival]_
+          - **`media-byob-2026-photos`** — BYOB 2026 — photo report / BYOB 2026 — фоторепортаж _[kind: media, subkind: photo]_
+      - **`event-myata-2025`** — Wild Mint festival — neuromandala installation / Дикая Мята — инсталляция Нейромандала _[kind: event, subkind: festival]_
+      - **`event-gong-fest`** — Gong Fest / Гонг фест _[kind: event, subkind: series]_
+        - **`event-gong-fest-2024`** — Gong Fest 2024 / Гонг фест 2024 _[kind: event, subkind: festival]_
+        - **`event-gong-fest-2025`** — Gong Fest 2025 / Гонг фест 2025 _[kind: event, subkind: festival]_
+      - **`event-tsiolkovsky`** — Tsiolkovsky Fest / Циолковский _[kind: event, subkind: series]_
+        - **`event-tsiolkovsky-2026`** — Interference of Realities — Tsiolkovsky Festival / «Интерференция реальностей» — Фестиваль Циолковского _[kind: event, subkind: festival]_
+        - **`event-tsiolkovsky-2025`** — Tsiolkovsky Fest 2025 / Циолковский фест 2025 _[kind: event, subkind: festival]_
     - **`hub-forums`** — Forums / Форумы / конф. _[type: hub]_
       - **`event-cipr-mindshow-2026`** — MindShow at TechFriendly / CIPR / MindShow на TechFriendly / ЦИПР _[kind: event, subkind: forum]_
       - **`event-tpp-mindshow-2025`** — MindShow — Russian Digital Creative summit / MindShow — саммит Russian Digital Creative _[kind: event, subkind: forum]_

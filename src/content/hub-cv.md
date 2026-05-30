@@ -35,7 +35,7 @@ Our approach combines artistic direction, engineering implementation, and facili
 - **Cultural Neuro Code** (2024-2025): field and exhibition hub-research connecting cultural artifacts with neurofeedback.
 - **Neuromandala** exhibitions (2025): "Chastoti 6.0" and "Terraforming", Moscow.
 - **Prix Ars Electronica & STARTS Prize** (2026): international submission to the hub-world's most prestigious media-art award (Linz, Austria). Recognition of the neuro-art line in the global science-art context.
-- **[[event-interference-tsiolkovsky-2026|Interference of Realities]]** (2026): neuro-theater premiere at XIV Tsiolkovsky Festival (Kaluga).
+- **[[event-tsiolkovsky-2026|Interference of Realities]]** (2026): neuro-theater premiere at XIV Tsiolkovsky Festival (Kaluga).
 - **[[event-cipr-mindshow-2026|TechFriendly @ CIPR]]** (2026): MindShow with Natali Osman at the Digital Industry of Industrial Russia forum.
 - **Technopark ART × TECHNOLOGY, Skolkovo** (2026): 1st place in the open design competition for Skolkovo Innovation Center. Category: Art Objects and Interactive Installations. Project: "Neuro Honor Board". Prize: 80,000 RUB. Jury: Skolkovo, Stroganov Academy, NUST MISIS.
 - **CultTech Lab 2026, Vienna** (2026): selected with a participation grant for the international CultTech Lab program (CultTech Association, Austria). Joint project *"Ancestors in the Noise"* with Elena Kovylina — Memory Track (Memory and Identity / AI). Studio production grant available (up to EUR 2,500). Showcase: CultTech Summit, Vienna, November 2026.
@@ -82,7 +82,7 @@ ODA.dream работает на пересечении нейротехноло�
 - **Cultural Neuro Code** (2024-2025): полевые и выставочные исследования на стыке культурных артефактов и нейрофидбека.
 - **Выставки Нейромандалы** (2025): "Частоты 6.0" и "Терраформинг", Москва.
 - **Prix Ars Electronica & STARTS Prize** (2026): международная заявка на наиболее престижную в мире премию в области медиаискусства (Линц, Австрия). Признание нейро-арт-линии в глобальном контексте science-art.
-- **[[event-interference-tsiolkovsky-2026|«Интерференция реальностей»]]** (2026): нейротеатральная премьера на XIV Фестивале Циолковского (Калуга).
+- **[[event-tsiolkovsky-2026|«Интерференция реальностей»]]** (2026): нейротеатральная премьера на XIV Фестивале Циолковского (Калуга).
 - **[[event-cipr-mindshow-2026|TechFriendly @ ЦИПР]]** (2026): MindShow с Натали Осман на форуме «Цифровая индустрия промышленной России».
 - **Технопарт ART × TECHNOLOGY, Сколково** (2026): 1-е место в открытом конкурсе дизайнерских решений для Технопарка «Сколково». Номинация: Арт-объекты и интерактивные инсталляции внутри здания. Проект: «Нейродоска почёта». Приз: 80 000 ₽. Жюри: Сколково, Строгановская академия, НИТУ МИСИС.
 - **CultTech Lab 2026, Вена** (2026): отбор с грантом на обучение в международной программе CultTech Lab (CultTech Association, Австрия). Совместный проект *«Ancestors in the Noise»* с Еленой Ковылиной — трек «Память и идентичность / ИИ». Грант на продакшн (до EUR 2 500). Показ: CultTech Summit, Вена, ноябрь 2026.

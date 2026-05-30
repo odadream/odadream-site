@@ -32,7 +32,7 @@ const RENAMES = [
   { from: "hub-agents",                   to: "hub-event-agencies",  aliases: ["hub-agents", "for-agents"] },
   { from: "hub-artists",                  to: "hub-creators",        aliases: ["hub-artists", "for-artists"] },
   { from: "event-wildmint-2025",          to: "event-myata-2025",    aliases: ["event-wildmint-2025"] },
-  { from: "event-moscow2030-portal-2025", to: "portal-2025",         aliases: ["event-moscow2030-portal-2025"] },
+  { from: "event-moscow2030-event-portal-2025", to: "event-portal-2025",         aliases: ["event-moscow2030-event-portal-2025"] },
   { from: "empathy",                      to: "feedback-empathy-brain", aliases: ["empathy"] },
 ];
 
@@ -74,10 +74,12 @@ const PARENT_MOVES = {
   "hub-terraforming": "hub-exhibitions",
   "hub-chastoti":     "hub-exhibitions",
   "event-mipt-terraforming-2025": "hub-terraforming",
-  // Существующий hub-portal репозиционируется как series-hub под Фестивали
-  "hub-portal":       "hub-festivals",
+  // Существующий event-portal репозиционируется как series-hub под Фестивали
+  "event-portal":       "hub-festivals",
   // События → Фестивали (через series)
-  "event-interference-tsiolkovsky-2026": "hub-tsiolkovsky",
+  "event-tsiolkovsky-2026": "event-tsiolkovsky",
+  "event-byob":         "hub-festivals", // BYOB — серия фестивалей
+  "event-myata-2025": "hub-festivals", // Дикая Мята — фестиваль
   // События → Форумы
   "event-cipr-mindshow-2026": "hub-forums",
   "event-tpp-mindshow-2025":  "hub-forums",
@@ -100,12 +102,12 @@ const PARENT_MOVES = {
   // Реестр организаций — административный, parent hub-registry удалён → переезжает в hub-world
   "hub-registry-orgs": "hub-world",
   // События, висевшие на registry-* hubs, поднимаются в соответствующую категорию
-  "portal-2025":  "hub-portal",
+  "event-portal-2025":  "event-portal",
 };
 
 const SUBKIND_FIXES = {
   "event-mipt-terraforming-2025":        "exhibition",
-  "event-interference-tsiolkovsky-2026": "festival",
+  "event-tsiolkovsky-2026": "festival",
   "event-dano-ekoniva-2025":             "olympiad",
   "event-sber-lecture-2025":             "lecture",
   "event-merck-corporate":               "conference",
@@ -124,9 +126,9 @@ const NEW_HUBS = [
   { id: "hub-forums",        parent: "hub-events", title_en: "Forums",           title_ru: "Форумы / конф." },
   { id: "hub-edu-corporate", parent: "hub-events", title_en: "Lectures & Programs", title_ru: "Лекции и образ. программы" },
   { id: "hub-private-shows", parent: "hub-events", title_en: "Private Shows",    title_ru: "Закрытые показы" },
-  { id: "hub-tsiolkovsky",   parent: "hub-festivals", title_en: "Tsiolkovsky Fest", title_ru: "Циолковский" },
-  // hub-portal уже существует — репозиционируется через PARENT_MOVES
-  { id: "hub-gong-fest",     parent: "hub-festivals", title_en: "Gong Fest",       title_ru: "Гонг фест" },
+  { id: "event-tsiolkovsky",   parent: "hub-festivals", title_en: "Tsiolkovsky Fest", title_ru: "Циолковский" },
+  // event-portal уже существует — репозиционируется через PARENT_MOVES
+  { id: "event-gong-fest",     parent: "hub-festivals", title_en: "Gong Fest",       title_ru: "Гонг фест" },
   { id: "hub-collab-media",  parent: "hub-collab", title_en: "Media",             title_ru: "Медиа" },
 ];
 
@@ -170,15 +172,15 @@ const STUBS = [
   { id: "event-brics-plus", parent: "hub-forums", kind: "event", subkind: "forum",
     title_en: "BRICS+", title_ru: "BRICS+" },
   // Series children
-  { id: "tsiolkovsky-2025", parent: "hub-tsiolkovsky", kind: "event", subkind: "festival",
+  { id: "event-tsiolkovsky-2025", parent: "event-tsiolkovsky", kind: "event", subkind: "festival",
     title_en: "Tsiolkovsky Fest 2025", title_ru: "Циолковский фест 2025" },
-  { id: "tsiolkovsky-2026", parent: "hub-tsiolkovsky", kind: "event", subkind: "festival",
+  { id: "tsiolkovsky-2026", parent: "event-tsiolkovsky", kind: "event", subkind: "festival",
     title_en: "Tsiolkovsky Fest 2026", title_ru: "Циолковский фест 2026" },
-  { id: "portal-2024", parent: "hub-portal", kind: "event", subkind: "festival",
+  { id: "event-portal-2024", parent: "event-portal", kind: "event", subkind: "festival",
     title_en: "Portal 2030–2050 (2024)", title_ru: "Портал 2030–2050 (2024)" },
-  { id: "gong-fest-2024", parent: "hub-gong-fest", kind: "event", subkind: "festival",
+  { id: "event-gong-fest-2024", parent: "event-gong-fest", kind: "event", subkind: "festival",
     title_en: "Gong Fest 2024", title_ru: "Гонг фест 2024" },
-  { id: "gong-fest-2025", parent: "hub-gong-fest", kind: "event", subkind: "festival",
+  { id: "event-gong-fest-2025", parent: "event-gong-fest", kind: "event", subkind: "festival",
     title_en: "Gong Fest 2025", title_ru: "Гонг фест 2025" },
   // О нас
   { id: "awards",   parent: "hub-world", title_en: "Awards",   title_ru: "Награды" },

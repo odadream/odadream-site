@@ -8,6 +8,10 @@ visible: true
 date: 2026.01.01
 kind: proof
 subkind: award
+proof_of:
+  - "[[ancestors]]"
+issued_by:
+  - "[[org-culttech]]"
 publication: CultTech Association, Austria
 publication_date: 2026-01-01
 external_link: https://culttech.at/lab/memory-track

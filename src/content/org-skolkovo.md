@@ -19,7 +19,7 @@ subkind: venue
 
 Related engagements in the ODA.dream hub-registry:
 
-- [[portal-2025|Visioning competition win — Portal 2030–2050]] (2025.01.01)
+- [[event-portal-2025|Visioning competition win — Portal 2030–2050]] (2025.01.01)
 
 ---RU---
 
@@ -27,4 +27,4 @@ Related engagements in the ODA.dream hub-registry:
 
 Связанные участия в реестре ODA.dream:
 
-- [[portal-2025|Победа «Видженинг» — Портал 2030–2050]] (2025.01.01)
+- [[event-portal-2025|Победа «Видженинг» — Портал 2030–2050]] (2025.01.01)

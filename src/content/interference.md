@@ -13,6 +13,8 @@ date: 2026.05.16
 status: production
 kind: product
 subkind: art
+presented_at:
+  - "[[event-tsiolkovsky-2026]]"
 external_site: https://interference.odadream.art
 external_site_label_en: Full project archive
 external_site_label_ru: Полный архив проекта
@@ -26,11 +28,13 @@ media:
 
 "Interference of Realities" is a neuro-theater performance where the boundary between stage and audience dissolves: 12 live neurointerfaces connect performers and viewers into a single real-time biofeedback field. The visual landscape of the performance is never pre-programmed — it is determined entirely by the actual neural states of participants at each moment.
 
+## Provenance line
+
+Chronology shared with **[[schrodinger|Project Schrödinger]]**: [[event-kod-provincii|Code of Province]] (2024) → [[event-itb-lab-2024-11|ITB lab]] (Nov 2024) → [[event-tsiolkovsky-2025|2025 festival lab]] → **this premiere** as the **opening performance** of [[event-tsiolkovsky-2026|XIV Tsiolkovsky Festival]] (16 May 2026), co-produced with **[[org-itb|Innovation Ballet Theatre]]** at [[org-ikc|ICC Kaluga]]. Not in repertoire yet.
+
 ## Context
 
 The premiere took place on May 16, 2026, at the Innovation Cultural Center (ICC) in Kaluga, as part of the **XIV Tsiolkovsky Festival** — an annual cultural and scientific event supported by the Ministry of Culture of the Kaluga Region and the Creative Union of Artists of Russia (TSKhR).
-
-The space — a contemporary cultural infrastructure opened in 2015 — allowed the performance to unfold at the intersection of science, technology, and performing arts.
 
 ## Technology
 
@@ -57,7 +61,7 @@ The space — a contemporary cultural infrastructure opened in 2015 — allowed 
 
 - [[mindshow|MindShow]] — the visual system at the core of the neuro-theater interface.
 - [[hub-events|Events]] — full public timeline.
-- [[hub-portal|Portal 2030]] — the previous milestone in the competitive/institutional trajectory.
+- [[event-portal|Portal 2030]] — the previous milestone in the competitive/institutional trajectory.
 
 
 **Commission a performance →** [[hub-institutions|Institutions & Collectors]]
@@ -67,7 +71,7 @@ The space — a contemporary cultural infrastructure opened in 2015 — allowed 
 <!-- hub-registry:dossier:interference -->
 *Track record at a glance:*
 
-**Shown at:** [[event-interference-tsiolkovsky-2026|Interference of Realities — Tsiolkovsky Festival]] (Neiry Group, 2026)
+**Shown at:** [[event-tsiolkovsky-2026|Interference of Realities — Tsiolkovsky Festival]] (Neiry Group, 2026)
 
 Full footprint → [[hub-press|Press]] · [[hub-testimonials|Testimonials]] · [[hub-letters|Recognition]]
 <!-- /hub-registry:dossier:interference -->
@@ -80,11 +84,13 @@ Full footprint → [[hub-press|Press]] · [[hub-testimonials|Testimonials]] · [
 
 «Интерференция реальностей» — нейротеатральный спектакль, в котором граница между сценой и зрительным залом исчезает: 12 живых нейроинтерфейсов объединяют исполнителей и зрителей в единое поле биологической обратной связи в реальном времени. Визуальный ландшафт спектакля не программируется заранее — он полностью определяется актуальными нейросостояниями участников в каждый момент.
 
+## Линия провенанса
+
+Общая хронология со **[[schrodinger|Проектом Шрёдингер]]**: [[event-kod-provincii|«Код провинции»]] (2024) → [[event-itb-lab-2024-11|лаборатория ИТБ]] (нояб. 2024) → [[event-tsiolkovsky-2025|лаборатория 2025]] → **эта премьера** как **открытие** [[event-tsiolkovsky-2026|XIV фестиваля Циолковского]] (16 мая 2026), со-постановка с **[[org-itb|театром балета ИКЦ]]** на [[org-ikc|ИКЦ]]. Пока не в репертуаре.
+
 ## Контекст
 
 Премьера состоялась 16 мая 2026 года в Инновационном культурном центре (ИКЦ) Калуги в рамках **XIV Фестиваля Циолковского** — ежегодного культурно-научного события при поддержке Министерства культуры Калужской области и Творческого союза художников России (ТСХР).
-
-Площадка — современная культурная инфраструктура, открытая в 2015 году, — позволила реализовать спектакль на пересечении науки, технологии и исполнительского искусства.
 
 ## Технология
 
@@ -111,7 +117,7 @@ Full footprint → [[hub-press|Press]] · [[hub-testimonials|Testimonials]] · [
 
 - [[mindshow|Майнд-шоу]] — визуальная система в основе нейротеатрального интерфейса.
 - [[hub-events|События]] — полная публичная лента.
-- [[hub-portal|Портал 2030]] — предыдущий этап конкурсно-институциональной траектории.
+- [[event-portal|Портал 2030]] — предыдущий этап конкурсно-институциональной траектории.
 
 
 **Заказать спектакль →** [[hub-institutions|Институциям и коллекционерам]]
@@ -121,7 +127,7 @@ Full footprint → [[hub-press|Press]] · [[hub-testimonials|Testimonials]] · [
 <!-- hub-registry:dossier:interference-ru -->
 *След и признание вкратце:*
 
-**Показывали:** [[event-interference-tsiolkovsky-2026|«Интерференция реальностей» — Фестиваль Циолковского]] (Neiry Group, 2026)
+**Показывали:** [[event-tsiolkovsky-2026|«Интерференция реальностей» — Фестиваль Циолковского]] (Neiry Group, 2026)
 
 Весь след → [[hub-press|Пресса]] · [[hub-testimonials|Отзывы]] · [[hub-letters|Признание]]
 <!-- /hub-registry:dossier:interference-ru -->

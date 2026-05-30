@@ -20,9 +20,9 @@ This section combines festivals, competitions, and site-specific interventions w
 Start from these core cases:
 
 - [[interference|Interference of Realities]] — neuro-theater premiere (2026): 12 live neurointerfaces, 150 attendees, XIV Tsiolkovsky Festival.
-- [[hub-portal|Portal 2030]] — competition and festival context where MindShow gained institutional visibility.
+- [[event-portal|Portal 2030]] — competition and festival context where MindShow gained institutional visibility.
 - [[hub-pleinair|Digital Plein Air]] — field format in museum and urban environments with media-art outputs.
-- [[hub-byob|BYOB]] — recurring festival series (2019 MindShow/MindGrid, 2020 MultiSync, 2026 MindShow); birthplace of event neuroanalytics.
+- [[event-byob|BYOB]] — recurring festival series (2019 MindShow/MindGrid, 2020 MultiSync, 2026 MindShow); birthplace of event neuroanalytics.
 - [[hub-chastoti|Chastoti]] — a case of sensory and rhythm-based interaction.
 - [[hub-terraforming|Terraforming]] — experiment at the intersection of environment, perception, and collective response.
 
@@ -39,9 +39,9 @@ If you are discovering us for the first time, open `Portal` and `BYOB` first: th
 Ключевые кейсы для старта:
 
 - [[interference|Интерференция реальностей]] — нейротеатральная премьера (2026): 12 живых нейроинтерфейсов, 150 зрителей, XIV Фестиваль Циолковского.
-- [[hub-portal|Портал 2030]] — конкурсный и фестивальный контекст, где MindShow получил институциональную видимость.
+- [[event-portal|Портал 2030]] — конкурсный и фестивальный контекст, где MindShow получил институциональную видимость.
 - [[hub-pleinair|Цифровой пленэр]] — полевой формат в музейной и городской среде с медиа-арт результатами.
-- [[hub-byob|BYOB]] — серия фестиваля (2019 MindShow/MindGrid, 2020 MultiSync, 2026 MindShow); здесь родился нейроанализ событий.
+- [[event-byob|BYOB]] — серия фестиваля (2019 MindShow/MindGrid, 2020 MultiSync, 2026 MindShow); здесь родился нейроанализ событий.
 - [[hub-chastoti|Частоты]] — кейс сенсорной и ритмической работы с аудиторией.
 - [[hub-terraforming|Терраформинг]] — эксперимент на пересечении среды, восприятия и коллективного отклика.
 

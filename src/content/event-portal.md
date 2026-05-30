@@ -1,9 +1,11 @@
 ---
-id: hub-portal
+id: event-portal
 parent: hub-festivals
 title_en: Portal
 title_ru: Портал
-type: content
+type: hub
+kind: event
+subkind: series
 tags:
   - ar
   - city
@@ -15,7 +17,7 @@ date: 2026.02.06
 
 **Festival Case: Portal 2030–2050**
 
-Portal is a key public milestone for ODA.dream: from large-scale projection experimentation to award-winning competitive performance. Registry record → [[portal-2025|Visioning win — Portal 2030–2050]].
+Portal is a key public milestone for ODA.dream: from large-scale projection experimentation to award-winning competitive performance. Registry record → [[event-portal-2025|Visioning win — Portal 2030–2050]].
 
 ## Context
 
@@ -55,7 +57,7 @@ For ODA.dream, this platform became a bridge between R&D formats and institution
 
 **Фестивальный кейс: Портал 2030–2050**
 
-`Портал` — один из ключевых публичных этапов ODA.dream: от эксперимента с крупной проекцией до победы в конкурсной программе. Запись в реестре → [[portal-2025|Победа «Видженинг» — Портал 2030–2050]].
+`Портал` — один из ключевых публичных этапов ODA.dream: от эксперимента с крупной проекцией до победы в конкурсной программе. Запись в реестре → [[event-portal-2025|Победа «Видженинг» — Портал 2030–2050]].
 
 ## Контекст
 

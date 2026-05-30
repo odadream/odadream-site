@@ -12,7 +12,7 @@ kind: proof
 subkind: award
 proof_of:
   - "[[mindshow]]"
-  - "[[portal-2025]]"
+  - "[[event-portal-2025]]"
 publication: "Portal 2030–2050 / Moscow 2030 forum"
 publication_date: 2025-09-01
 ---

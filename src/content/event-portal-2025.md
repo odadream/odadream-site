@@ -1,6 +1,6 @@
 ---
-id: portal-2025
-parent: hub-portal
+id: event-portal-2025
+parent: event-portal
 title_en: Visioning competition win — Portal 2030–2050
 title_ru: Победа «Видженинг» — Портал 2030–2050
 type: content
@@ -20,7 +20,7 @@ products:
   - "[[mindshow]]"
 subkind: forum
 aliases:
-  - portal-2025
+  - event-portal-2025
 ---
 
 ## Visioning competition win — Portal 2030–2050

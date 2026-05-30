@@ -12,6 +12,9 @@ visible: true
 date: 2026.02.10
 kind: product
 subkind: education
+presented_at:
+  - "[[event-kod-provincii]]"
+  - "[[event-itb-lab-2024-11]]"
 aliases:
   - neurosync-perf
 ---

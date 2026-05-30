@@ -19,7 +19,7 @@ subkind: gov
 
 Related engagements in the ODA.dream hub-registry:
 
-- [[portal-2025|Visioning competition win — Portal 2030–2050]] (2025.01.01)
+- [[event-portal-2025|Visioning competition win — Portal 2030–2050]] (2025.01.01)
 - [[event-bauman-moscow2030-2025|Brain-hacking lecture — Bauman MSTU]] (2025.01.01)
 
 ---RU---
@@ -28,5 +28,5 @@ Related engagements in the ODA.dream hub-registry:
 
 Связанные участия в реестре ODA.dream:
 
-- [[portal-2025|Победа «Видженинг» — Портал 2030–2050]] (2025.01.01)
+- [[event-portal-2025|Победа «Видженинг» — Портал 2030–2050]] (2025.01.01)
 - [[event-bauman-moscow2030-2025|Лекция про брейнхакинг — МГТУ им. Баумана]] (2025.01.01)

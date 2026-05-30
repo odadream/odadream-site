@@ -1,11 +1,13 @@
 ---
-id: hub-byob
-parent: hub-events
+id: event-byob
+parent: hub-festivals
 title_en: BYOB
 title_ru: BYOB
 type: hub
+kind: event
+subkind: series
 tags:
-  - hub-byob
+  - event-byob
   - projector
   - festival-series
 order: 3

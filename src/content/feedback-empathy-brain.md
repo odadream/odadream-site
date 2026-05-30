@@ -14,6 +14,8 @@ visible: true
 date: 2026.02.12
 kind: product
 subkind: education
+presented_at:
+  - "[[event-kod-provincii]]"
 aliases:
   - feedback-empathy-brain
 ---
