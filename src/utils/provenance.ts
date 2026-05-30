@@ -96,7 +96,10 @@ function getIndex(registry: Map<string, LotusNode>): InverseIndex {
 
   registry.forEach((node) => {
     node.presented_at?.forEach((id) => pushTo(index.shown_in, id, node));
-    node.products?.forEach((id) => pushTo(index.presented_here, id, node));
+    // Only events "show" products; collaboration.products = co-authored works (not venues).
+    if (node.kind === "event") {
+      node.products?.forEach((id) => pushTo(index.presented_here, id, node));
+    }
     node.organizer?.forEach((id) => pushTo(index.organized_events, id, node));
     node.client?.forEach((id) => pushTo(index.client_events, id, node));
     if (node.kind === "product" || node.kind === "event") {
