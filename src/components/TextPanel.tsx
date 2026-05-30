@@ -9,7 +9,7 @@ import {
 import Markdown, { Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { THEME } from "../styles/theme";
-import { FADE_UP_VARIANTS, MotionDiv } from "../styles/animations";
+import { FADE_UP_TEXT_VARIANTS, MotionDiv } from "../styles/animations";
 import { SITE_VERSION } from "../constants";
 import { stripH1, transformWikiLinks } from "../utils/contentProcessor";
 import { getMediaType, detachPosterFromUrl } from "../utils/mediaHelpers";
@@ -202,7 +202,7 @@ export const TextPanel: React.FC = () => {
         <AnimatePresence mode="wait">
           <MotionDiv
             key={currentNode.id + lang}
-            variants={FADE_UP_VARIANTS}
+            variants={FADE_UP_TEXT_VARIANTS}
             initial="initial"
             animate="animate"
             exit="exit"
