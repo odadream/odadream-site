@@ -21,7 +21,6 @@ interface NavigationContextType {
   isGridCollapsed: boolean;
   /** Lotus panel display mode: contextual 3x3 navigation vs full fractal sitemap. */
   lotusMode: "grid" | "map";
-  lightboxMedia: LotusNode | null;
   navigatorHighlight: boolean;
   nodeRegistry: Map<string, LotusNode>;
   /** Nodes to return to after embedded (![[nodeId]]) navigation */
@@ -39,13 +38,22 @@ interface NavigationContextType {
   toggleLang: () => void;
   cycleTheme: () => void;
   toggleGrid: (collapsed: boolean) => void;
-  openLightbox: (mediaNode: LotusNode) => void;
-  closeLightbox: () => void;
   triggerNavigatorHighlight: () => void;
   toggleLotusMode: () => void;
 }
 
+// Lightbox lives in a separate context so opening/closing it doesn't
+// re-render every GridCell + sidebar subscribed to NavigationContext.
+interface LightboxContextType {
+  lightboxMedia: LotusNode | null;
+  openLightbox: (mediaNode: LotusNode) => void;
+  closeLightbox: () => void;
+}
+
 const NavigationContext = createContext<NavigationContextType | undefined>(
+  undefined,
+);
+const LightboxContext = createContext<LightboxContextType | undefined>(
   undefined,
 );
 
@@ -53,6 +61,14 @@ export const useNavigation = () => {
   const context = useContext(NavigationContext);
   if (!context) {
     throw new Error("useNavigation must be used within a NavigationProvider");
+  }
+  return context;
+};
+
+export const useLightbox = () => {
+  const context = useContext(LightboxContext);
+  if (!context) {
+    throw new Error("useLightbox must be used within a NavigationProvider");
   }
   return context;
 };
@@ -356,8 +372,13 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
-  // --- MEMOIZED CONTEXT VALUE ---
-  const contextValue = useMemo(
+  // --- MEMOIZED CONTEXT VALUES ---
+  // Split: navigation slice changes on most interactions; lightbox slice changes
+  // only when the lightbox opens/closes — keeping it separate stops media toggles
+  // from re-rendering every grid cell / sidebar consumer.
+  const closeLightbox = useCallback(() => setLightboxMedia(null), []);
+
+  const navValue = useMemo<NavigationContextType>(
     () => ({
       path,
       currentNode,
@@ -366,7 +387,6 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
       isDesktop,
       isGridCollapsed,
       lotusMode,
-      lightboxMedia,
       navigatorHighlight,
       nodeRegistry,
       historyStack,
@@ -379,8 +399,6 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
       toggleLang,
       cycleTheme,
       toggleGrid: setIsGridCollapsed,
-      openLightbox: setLightboxMedia,
-      closeLightbox: () => setLightboxMedia(null),
       triggerNavigatorHighlight,
       toggleLotusMode,
     }),
@@ -392,7 +410,6 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
       isDesktop,
       isGridCollapsed,
       lotusMode,
-      lightboxMedia,
       navigatorHighlight,
       nodeRegistry,
       historyStack,
@@ -404,16 +421,25 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
       jumpToLevel,
       toggleLang,
       cycleTheme,
-      setIsGridCollapsed,
-      setLightboxMedia,
       triggerNavigatorHighlight,
       toggleLotusMode,
     ],
   );
 
+  const lightboxValue = useMemo<LightboxContextType>(
+    () => ({
+      lightboxMedia,
+      openLightbox: setLightboxMedia,
+      closeLightbox,
+    }),
+    [lightboxMedia, closeLightbox],
+  );
+
   return (
-    <NavigationContext.Provider value={contextValue}>
-      {children}
+    <NavigationContext.Provider value={navValue}>
+      <LightboxContext.Provider value={lightboxValue}>
+        {children}
+      </LightboxContext.Provider>
     </NavigationContext.Provider>
   );
 };

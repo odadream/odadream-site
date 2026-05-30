@@ -1,6 +1,6 @@
 import React from "react";
 import { AnimatePresence } from "framer-motion";
-import { NavigationProvider, useNavigation } from "./context/NavigationContext";
+import { NavigationProvider, useNavigation, useLightbox } from "./context/NavigationContext";
 import { THEME } from "./styles/theme";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 
@@ -11,7 +11,8 @@ import { LotusGrid } from "./components/LotusGrid";
 import { Lightbox } from "./components/Lightbox";
 
 const Layout: React.FC = () => {
-  const { lang, lightboxMedia, closeLightbox } = useNavigation();
+  const { lang } = useNavigation();
+  const { lightboxMedia, closeLightbox } = useLightbox();
 
   return (
     <div className={THEME.layout.fullScreen}>

@@ -15,7 +15,7 @@ import { stripH1, transformWikiLinks } from "../utils/contentProcessor";
 import { getMediaType, detachPosterFromUrl } from "../utils/mediaHelpers";
 import { CyberText } from "./CyberText";
 import { ProvenancePanel } from "./ProvenancePanel";
-import { useNavigation } from "../context/NavigationContext";
+import { useNavigation, useLightbox } from "../context/NavigationContext";
 
 // SECURITY: Allow only safe protocols
 const isSafeUrl = (url?: string) => {
@@ -35,8 +35,8 @@ const STATUS_BADGE: Record<
 };
 
 export const TextPanel: React.FC = () => {
-  const { currentNode, lang, jumpToId, openLightbox, nodeRegistry } =
-    useNavigation();
+  const { currentNode, lang, jumpToId, nodeRegistry } = useNavigation();
+  const { openLightbox } = useLightbox();
   const scrollRef = useRef<HTMLDivElement>(null);
 
   // Reset scroll on ID change

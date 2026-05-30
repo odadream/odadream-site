@@ -53,6 +53,8 @@ interface InverseIndex {
   proofs_about: Map<string, LotusNode[]>;
   works_about: Map<string, LotusNode[]>;
   proofs_issued: Map<string, LotusNode[]>;
+  /** Pre-computed rollup: organizer id → unique products across all events it hosted. */
+  products_from_events: Map<string, LotusNode[]>;
 }
 
 const pushTo = (map: Map<string, LotusNode[]>, key: string, value: LotusNode) => {
@@ -79,6 +81,7 @@ function getIndex(registry: Map<string, LotusNode>): InverseIndex {
     proofs_about: new Map(),
     works_about: new Map(),
     proofs_issued: new Map(),
+    products_from_events: new Map(),
   };
 
   registry.forEach((node) => {
@@ -90,6 +93,21 @@ function getIndex(registry: Map<string, LotusNode>): InverseIndex {
     node.proof_of?.forEach((id) => pushTo(index.proofs_about, id, node));
     node.about?.forEach((id) => pushTo(index.works_about, id, node));
     node.issued_by?.forEach((id) => pushTo(index.proofs_issued, id, node));
+  });
+
+  // Second pass — organizer → unique products via the events it hosted.
+  // Done once at index build instead of on every organizer page render.
+  index.organized_events.forEach((events, organizerId) => {
+    const seen = new Set<string>();
+    const products: LotusNode[] = [];
+    for (const ev of events) {
+      for (const pid of ev.products ?? []) {
+        if (seen.has(pid)) continue;
+        const p = registry.get(pid);
+        if (p) { seen.add(pid); products.push(p); }
+      }
+    }
+    if (products.length) index.products_from_events.set(organizerId, products);
   });
 
   cached = { registry, index };
@@ -146,28 +164,6 @@ const collectMedia = (node: LotusNode) => {
   return out;
 };
 
-/** Collect unique products from events this organizer is linked to. */
-const productsFromOrganizedEvents = (
-  organizerId: string,
-  registry: Map<string, LotusNode>,
-  index: InverseIndex,
-): LotusNode[] => {
-  const events = index.organized_events.get(organizerId) ?? [];
-  const seen = new Set<string>();
-  const out: LotusNode[] = [];
-  for (const ev of events) {
-    for (const productId of ev.products ?? []) {
-      if (seen.has(productId)) continue;
-      const p = registry.get(productId);
-      if (p) {
-        seen.add(productId);
-        out.push(p);
-      }
-    }
-  }
-  return out;
-};
-
 /**
  * Resolve direct + inverse provenance for a node.
  * Returns a fully-populated Provenance object — empty arrays where nothing matches.
@@ -192,10 +188,7 @@ export function getProvenance(
       shown_in: idx.shown_in.get(node.id) ?? [],
       organized_events: idx.organized_events.get(node.id) ?? [],
       client_events: idx.client_events.get(node.id) ?? [],
-      products_from_events:
-        node.kind === "organizer"
-          ? productsFromOrganizedEvents(node.id, registry, idx)
-          : [],
+      products_from_events: idx.products_from_events.get(node.id) ?? [],
       proves: idx.proves.get(node.id) ?? [],
       proofs_about: idx.proofs_about.get(node.id) ?? [],
       works_about: idx.works_about.get(node.id) ?? [],

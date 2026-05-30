@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 import { LotusNode } from "../types";
-import { useNavigation } from "../context/NavigationContext";
+import { useNavigation, useLightbox } from "../context/NavigationContext";
 import { getProvenance, hasAnyProvenance, type Provenance } from "../utils/provenance";
 import { subkindMeta, KIND_LABELS } from "../data/taxonomy";
 
@@ -122,7 +122,8 @@ const Stat: React.FC<{ label: string; value: number }> = ({ label, value }) => (
 // ---------------------------------------------------------------------------
 
 export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
-  const { nodeRegistry, lang, jumpToId, openLightbox } = useNavigation();
+  const { nodeRegistry, lang, jumpToId } = useNavigation();
+  const { openLightbox } = useLightbox();
 
   const prov = React.useMemo<Provenance>(
     () => getProvenance(node, nodeRegistry),
