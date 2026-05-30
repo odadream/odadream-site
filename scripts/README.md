@@ -248,7 +248,7 @@ chmod +x scripts/script.sh
 ### Planned Scripts
 
 - `validate-content.js` - Validate all markdown files
-- `optimize-images.js` - Compress images
+- `pack-image.js` — WebP master + thumb (`npm run image:pack -- "<file>" -- --out public/images/content/works/name`)
 - `check-links.js` - Find broken links
 - `generate-sitemap.js` - Generate sitemap.xml
 - `analyze-bundle.js` - Analyze build size
