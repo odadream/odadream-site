@@ -8,7 +8,7 @@ import React, {
   ReactNode,
 } from "react";
 import { LotusNode, Language, Theme } from "../types";
-import { ROOT_NODE } from "../constants";
+import { ROOT_NODE, NODE_REGISTRY } from "../constants";
 import { findPathToNode } from "../utils/nodeHelpers";
 import { getDefaultNodeImage } from "../utils/mediaHelpers";
 
@@ -172,16 +172,9 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
 
   const currentNode = path[path.length - 1];
 
-  // Flat registry of all nodes by ID for O(1) lookup
-  const nodeRegistry = useMemo<Map<string, LotusNode>>(() => {
-    const map = new Map<string, LotusNode>();
-    const walk = (node: LotusNode) => {
-      map.set(node.id, node);
-      node.children?.forEach(walk);
-    };
-    walk(ROOT_NODE);
-    return map;
-  }, []);
+  // Flat registry of all nodes by ID — built once at module load in constants.ts.
+  // Stable reference identity, which is what provenance.ts uses as its cache key.
+  const nodeRegistry = NODE_REGISTRY as Map<string, LotusNode>;
 
   // --- ACTIONS ---
 

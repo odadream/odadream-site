@@ -28,8 +28,11 @@ export function writeMd(filePath, fm, body, { dryRun }) {
 }
 
 export function readYaml(name) {
-  const p = path.join(REGISTRY_DIR, name);
-  return YAML.parse(fs.readFileSync(p, "utf8"));
+  return readYamlFile(path.join(REGISTRY_DIR, name));
+}
+
+export function readYamlFile(absPath) {
+  return YAML.parse(fs.readFileSync(absPath, "utf8")) ?? null;
 }
 
 export function isoDate(s) {

@@ -3,6 +3,9 @@ import { LotusNode } from '../types';
 import { fileToNode } from './frontmatter';
 import { getMediaType, getDefaultNodeImage } from './mediaHelpers';
 
+const isNodeType = (t: unknown): t is LotusNode['type'] =>
+    t === 'hub' || t === 'content' || t === 'action' || t === 'media';
+
 /**
  * Loads all .md files from ../content/ using Vite's import.meta.glob
  */
@@ -30,7 +33,7 @@ const loadFileNodes = (): LotusNode[] => {
                 title: partialNode.title!,
                 shortTitle: partialNode.shortTitle,
                 description: partialNode.description!,
-                type: partialNode.type as any || 'content',
+                type: isNodeType(partialNode.type) ? partialNode.type : 'content',
                 tags: partialNode.tags,
                 imageUrl: partialNode.imageUrl || (getMediaType(resolvedMediaUrl) === 'image' ? resolvedMediaUrl : undefined),
                 mediaUrl: resolvedMediaUrl,

@@ -11,6 +11,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
+import { readMd } from "./migrate/lib.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
@@ -34,32 +35,6 @@ const REL_VALUES = new Set([
   "competition",
   "internal",
 ]);
-
-function parseFrontmatter(raw) {
-  const m = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-  if (!m) return {};
-  const data = {};
-  for (const line of m[1].split("\n")) {
-    const kv = line.match(/^([a-zA-Z0-9_-]+):\s*(.*)$/);
-    if (!kv) continue;
-    let val = kv[2].trim();
-    if (
-      (val.startsWith('"') && val.endsWith('"')) ||
-      (val.startsWith("'") && val.endsWith("'"))
-    ) {
-      val = val.slice(1, -1);
-    }
-    if (val.startsWith("[") && val.endsWith("]")) {
-      val = val
-        .slice(1, -1)
-        .split(",")
-        .map((s) => s.trim().replace(/^['"]|['"]$/g, ""))
-        .filter(Boolean);
-    }
-    data[kv[1]] = val;
-  }
-  return data;
-}
 
 function walkMd(dir, out = []) {
   if (!fs.existsSync(dir)) return out;
@@ -167,9 +142,9 @@ const files = walkMd(vaultPath);
 const imported = [];
 
 for (const f of files) {
-  const raw = fs.readFileSync(f, "utf-8");
-  const fm = parseFrontmatter(raw);
-  const eng = noteToEngagement(fm, f);
+  const md = readMd(f);
+  if (!md) continue;
+  const eng = noteToEngagement(md.fm, f);
   if (eng) imported.push(eng);
 }
 

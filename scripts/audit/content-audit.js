@@ -33,11 +33,10 @@ const REL_FIELDS = [
 
 const KIND_PREFIX = [
   [/^proof-/, "proof"],
-  [/^org-/, "organizer"],
-  [/^eng-\d{4}/, "event"],
-  [/^events-/, "event"],
-  [/^byob-\d{4}/, "event"],
-  [/^work-/, "media"],
+  [/^org-/,   "organizer"],
+  [/^event-/, "event"],
+  [/^media-/, "media"],
+  [/^hub-/,   "hub"],
 ];
 
 function guessKindFromId(id) {

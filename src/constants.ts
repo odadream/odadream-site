@@ -74,6 +74,18 @@ const STATIC_ROOT = createSkeleton("home", "oda.dream", "oda.dream");
 // Merges static skeleton with file-based nodes from src/content/*.md
 export const ROOT_NODE = buildUnifiedGraph(STATIC_ROOT);
 
+// Flat id → node map computed once at module load. Stable reference identity
+// across re-renders, which is what provenance.ts uses as its cache key.
+export const NODE_REGISTRY: ReadonlyMap<string, LotusNode> = (() => {
+  const map = new Map<string, LotusNode>();
+  const walk = (n: LotusNode) => {
+    map.set(n.id, n);
+    n.children?.forEach(walk);
+  };
+  walk(ROOT_NODE);
+  return map;
+})();
+
 // --- HEADER TABS CONFIGURATION (FAVORITES) ---
 // Define the IDs of the nodes you want to appear in the top navigation bar.
 // You can include deep links (children of children) here.

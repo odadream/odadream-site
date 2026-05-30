@@ -6,6 +6,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { parse as parseYaml } from "yaml";
+import { readYamlFile } from "./migrate/lib.js";
 import {
   buildDossier,
   listAwards,
@@ -32,10 +33,7 @@ const REL_LABELS = {
   internal: { en: "Internal", ru: "Внутреннее" },
 };
 
-function loadYaml(filePath) {
-  const raw = fs.readFileSync(filePath, "utf-8");
-  return parseYaml(raw) || [];
-}
+const loadYaml = (filePath) => readYamlFile(filePath) ?? [];
 
 function orgMap(orgs) {
   const m = new Map();

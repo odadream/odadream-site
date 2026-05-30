@@ -1,6 +1,12 @@
 import React from "react";
-import * as LucideIcons from "lucide-react";
-import { type LucideIcon, Tag, Globe, Calendar, MapPin, Users, Award, ArrowUpRight, Lock, ShoppingBag } from "lucide-react";
+import {
+  type LucideIcon,
+  ArrowUpRight, Award, BookMarked, BookOpen, Building2, Calendar, Cpu,
+  FileText, Film, FlaskConical, Gamepad2, Globe, GraduationCap, Hammer,
+  Handshake, HeartHandshake, Image, Landmark, Lock, Mail, MapPin,
+  MessageSquare, Mic, Mic2, Newspaper, Palette, PencilLine, Quote, Radio,
+  ShoppingBag, Sparkle, Sparkles, Tag, Target, Trophy, UserRound, Users,
+} from "lucide-react";
 
 import { LotusNode } from "../types";
 import { useNavigation } from "../context/NavigationContext";
@@ -11,12 +17,17 @@ import { subkindMeta, KIND_LABELS } from "../data/taxonomy";
 // Helpers
 // ---------------------------------------------------------------------------
 
-/** Resolve a lucide icon by name with a safe fallback. */
-const iconFor = (name?: string): LucideIcon => {
-  if (!name) return Tag;
-  const lib = LucideIcons as unknown as Record<string, LucideIcon>;
-  return lib[name] ?? Tag;
+// Explicit icon map — keeps lucide tree-shaking effective. Adding a new
+// taxonomy icon means registering it here AND in src/data/taxonomy.ts.
+const ICON_MAP: Record<string, LucideIcon> = {
+  ArrowUpRight, Award, BookMarked, BookOpen, Building2, Calendar, Cpu,
+  FileText, Film, FlaskConical, Gamepad2, Globe, GraduationCap, Hammer,
+  Handshake, HeartHandshake, Image, Landmark, Lock, Mail, MapPin,
+  MessageSquare, Mic, Mic2, Newspaper, Palette, PencilLine, Quote, Radio,
+  ShoppingBag, Sparkle, Sparkles, Tag, Target, Trophy, UserRound, Users,
 };
+
+const iconFor = (name?: string): LucideIcon => (name && ICON_MAP[name]) || Tag;
 
 /** Tailwind colour family → border/text classes used by chips. */
 const CHIP_COLOUR: Record<string, string> = {
