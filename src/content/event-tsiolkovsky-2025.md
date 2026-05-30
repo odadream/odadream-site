@@ -6,11 +6,11 @@ title_ru: Циолковский фест 2025 — Проект Шрёдинге
 type: content
 tags: [festival, theater, lab]
 visible: true
-date: 2025.01.01
+date: 2025.05.22
 order: 0
 kind: event
 subkind: festival
-date_start: 2025-01-01
+date_start: 2025-05-22
 venue: Kaluga
 organizer:
   - "[[org-tsiolkovsky]]"

@@ -180,6 +180,33 @@ export const MEDIA: Record<string, MediaAsset> = {
     subject: ["jewellery"],
   },
 
+  // --- Project Schrödinger (neuro-theatre) ---
+  "schrd-teaser": {
+    url: "https://dzen.ru/video/watch/6845a4440a4ab554ebf00fb0",
+    poster: "/images/content/works/schrodinger-2025-poster-thumb.webp",
+    title: {
+      en: "Project Schrödinger · how it was",
+      ru: "Проект Шрёдингер · как это было",
+    },
+    subkind: "video",
+    subject: ["schrodinger", "event-tsiolkovsky-2025", "media-schrodinger-teaser"],
+  },
+  "schrd-poster": {
+    url: "/images/content/works/schrodinger-2025-poster.webp",
+    poster: "/images/content/works/schrodinger-2025-poster-thumb.webp",
+    title: { en: "Project Schrödinger — poster", ru: "Проект Шрёдингер — афиша" },
+    subkind: "photo",
+    subject: ["schrodinger", "event-tsiolkovsky-2025", "media-schrodinger-poster"],
+  },
+  "schrd-hero": {
+    url: "/images/content/events/schrodinger-2025/schrodinger-2025-01.webp",
+    title: {
+      en: "Project Schrödinger 2025 — premiere",
+      ru: "Проект Шрёдингер 2025 — премьера",
+    },
+    subject: ["schrodinger", "event-tsiolkovsky-2025", "media-schrodinger-photos"],
+  },
+
   // --- Interference of Realities (neuro-theater) ---
   "intf-teaser": {
     url: "https://dzen.ru/video/watch/intf-teaser-placeholder",
