@@ -149,7 +149,20 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
             ...prov.products,
             ...prov.inverse.products_from_events,
           ])
-        : [];
+        : node.kind === "collaboration"
+          ? uniqueById([
+              ...prov.products,
+              ...prov.inverse.coauthored_products,
+            ])
+          : [];
+
+  const eventsForCollab =
+    node.kind === "collaboration"
+      ? uniqueById([
+          ...prov.collab_events,
+          ...prov.inverse.coauthored_events,
+        ])
+      : [];
 
   const proofsAbout     = uniqueById([...prov.proofs, ...prov.inverse.proofs_about]);
   const subjectsOfProof = uniqueById([...prov.proof_of, ...prov.inverse.proves]);
@@ -174,6 +187,10 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
         organizer: "Организатор",
         client: "Заказчик",
         clientEngagements: "Участия как заказчик",
+        collaborators: "Со-творчество",
+        relatedOrg: "Институциональный контекст",
+        coauthoredWorks: "Совместные работы",
+        coauthoredEvents: "События линии",
         productsShown: "Показано",
         shownAt: "Показано на",
         proofs: "Пруфы",
@@ -204,6 +221,10 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
         organizer: "Organizer",
         client: "Client",
         clientEngagements: "Engagements as client",
+        collaborators: "Co-creation",
+        relatedOrg: "Institutional context",
+        coauthoredWorks: "Joint works",
+        coauthoredEvents: "Line events",
         productsShown: "Shown",
         shownAt: "Shown at",
         proofs: "Proofs",
@@ -354,6 +375,16 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
           </Section>
         )}
 
+        {/* COLLABORATORS (equal co-creation) ------------------------------ */}
+        {prov.collaborators.length > 0 &&
+          (node.kind === "product" || node.kind === "event") && (
+          <Section label={T.collaborators} icon={iconFor("Handshake")}>
+            {prov.collaborators.map((n) => (
+              <NodeChip key={n.id} node={n} lang={lang} onClick={jumpToId} />
+            ))}
+          </Section>
+        )}
+
         {/* CLIENT EVENTS (organizer org view) ----------------------------- */}
         {prov.inverse.client_events.length > 0 && node.kind === "organizer" && (
           <Section label={T.clientEngagements} icon={iconFor("Handshake")}>
@@ -363,13 +394,40 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
           </Section>
         )}
 
-        {/* PRODUCTS at event (event / organizer only) ------------------- */}
-        {productsAtEvent.length > 0 && (node.kind === "event" || node.kind === "organizer") && (
+        {/* PRODUCTS at event / organizer / collaboration ---------------- */}
+        {productsAtEvent.length > 0 &&
+          (node.kind === "event" ||
+            node.kind === "organizer" ||
+            node.kind === "collaboration") && (
           <Section
-            label={node.kind === "organizer" ? T.productsHosted : T.productsShown}
+            label={
+              node.kind === "organizer"
+                ? T.productsHosted
+                : node.kind === "collaboration"
+                  ? T.coauthoredWorks
+                  : T.productsShown
+            }
             icon={iconFor("Sparkles")}
           >
             {productsAtEvent.map((n) => (
+              <NodeChip key={n.id} node={n} lang={lang} onClick={jumpToId} />
+            ))}
+          </Section>
+        )}
+
+        {/* EVENTS (collaboration line) ---------------------------------- */}
+        {eventsForCollab.length > 0 && node.kind === "collaboration" && (
+          <Section label={T.coauthoredEvents} icon={iconFor("Calendar")}>
+            {eventsForCollab.map((n) => (
+              <NodeChip key={n.id} node={n} lang={lang} onClick={jumpToId} />
+            ))}
+          </Section>
+        )}
+
+        {/* RELATED ORG (collaboration card) ----------------------------- */}
+        {prov.related_org.length > 0 && node.kind === "collaboration" && (
+          <Section label={T.relatedOrg} icon={iconFor("Building2")}>
+            {prov.related_org.map((n) => (
               <NodeChip key={n.id} node={n} lang={lang} onClick={jumpToId} />
             ))}
           </Section>

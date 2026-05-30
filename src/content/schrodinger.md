@@ -15,6 +15,8 @@ kind: product
 subkind: art
 presented_at:
   - "[[event-tsiolkovsky-2025]]"
+collaborators:
+  - "[[collab-itb]]"
 proofs: []
 ---
 

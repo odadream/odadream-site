@@ -15,7 +15,7 @@ subkind: venue
 
 Dance company led by **Ksenia Golyzhibina**, based at the [[org-ikc|Innovation Cultural Centre, Kaluga]]. Co-producer of ODA.dream's full-evening neuro-theatre pieces **[[schrodinger|Schrödinger]]** and **[[interference|Interference of Realities]]**.
 
-Collaboration began at [[event-kod-provincii|Code of Province]] (2024), deepened at the internal [[event-itb-lab-2024-11|November 2024 lab]], and continued on the **Tsiolkovsky Festival** stage.
+Neuro-theatre line → [[collab-itb|ITB × ODA.dream collaboration]]. Began at [[event-kod-provincii|Code of Province]] (2024), deepened at [[event-itb-lab-2024-11|November 2024 lab]], continued on **[[event-tsiolkovsky|Tsiolkovsky Festival]]**.
 
 ---RU---
 
@@ -23,4 +23,4 @@ Collaboration began at [[event-kod-provincii|Code of Province]] (2024), deepened
 
 Танцевальная труппа под руководством **Ксении Голыжбиной** при [[org-ikc|Инновационном культурном центре, Калуга]]. Со-постановщик полноформатных нейротеатральных работ ODA.dream — **[[schrodinger|Шрёдингер]]** и **[[interference|Интерференция реальностей]]**.
 
-Сотрудничество началось на [[event-kod-provincii|«Коде провинции»]] (2024), углубилось на [[event-itb-lab-2024-11|внутренней лаборатории ноября 2024]] и продолжилось на сцене **фестиваля Циолковский**.
+Подробнее о линии нейротеатра — [[collab-itb|коллаборация ИТБ × ODA.dream]]. Старт на [[event-kod-provincii|«Коде провинции»]] (2024), углубление на [[event-itb-lab-2024-11|лаборатории ноября 2024]], сцена **[[event-tsiolkovsky|фестиваля Циолковского]]**.

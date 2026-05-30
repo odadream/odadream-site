@@ -15,6 +15,9 @@ export interface Provenance {
   products: LotusNode[];
   organizer: LotusNode[];
   client: LotusNode[];
+  collaborators: LotusNode[];
+  related_org: LotusNode[];
+  collab_events: LotusNode[];
   proofs: LotusNode[];
   proof_of: LotusNode[];
   about: LotusNode[];
@@ -31,6 +34,9 @@ export interface Provenance {
     organized_events: LotusNode[];
     /** Events that listed this node in `client` (= engagements where this org was the client). */
     client_events: LotusNode[];
+    /** Products / events that listed this collab in `collaborators`. */
+    coauthored_products: LotusNode[];
+    coauthored_events: LotusNode[];
     /** Products listed on events this organizer hosted (rollup). */
     products_from_events: LotusNode[];
     /** Nodes that listed this node in their `proofs` (= subjects this proof attests). */
@@ -49,6 +55,8 @@ interface InverseIndex {
   shown_in: Map<string, LotusNode[]>;
   organized_events: Map<string, LotusNode[]>;
   client_events: Map<string, LotusNode[]>;
+  coauthored_products: Map<string, LotusNode[]>;
+  coauthored_events: Map<string, LotusNode[]>;
   proves: Map<string, LotusNode[]>;
   proofs_about: Map<string, LotusNode[]>;
   works_about: Map<string, LotusNode[]>;
@@ -77,6 +85,8 @@ function getIndex(registry: Map<string, LotusNode>): InverseIndex {
     shown_in: new Map(),
     organized_events: new Map(),
     client_events: new Map(),
+    coauthored_products: new Map(),
+    coauthored_events: new Map(),
     proves: new Map(),
     proofs_about: new Map(),
     works_about: new Map(),
@@ -89,6 +99,12 @@ function getIndex(registry: Map<string, LotusNode>): InverseIndex {
     node.products?.forEach((id) => pushTo(index.presented_here, id, node));
     node.organizer?.forEach((id) => pushTo(index.organized_events, id, node));
     node.client?.forEach((id) => pushTo(index.client_events, id, node));
+    if (node.kind === "product" || node.kind === "event") {
+      node.collaborators?.forEach((id) => {
+        if (node.kind === "product") pushTo(index.coauthored_products, id, node);
+        else pushTo(index.coauthored_events, id, node);
+      });
+    }
     node.proofs?.forEach((id) => pushTo(index.proves, id, node));
     node.proof_of?.forEach((id) => pushTo(index.proofs_about, id, node));
     node.about?.forEach((id) => pushTo(index.works_about, id, node));
@@ -178,6 +194,9 @@ export function getProvenance(
     products: resolveAll(node.products, registry),
     organizer: resolveAll(node.organizer, registry),
     client: resolveAll(node.client, registry),
+    collaborators: resolveAll(node.collaborators, registry),
+    related_org: resolveAll(node.related_org, registry),
+    collab_events: resolveAll(node.collab_events, registry),
     proofs: resolveAll(node.proofs, registry),
     proof_of: resolveAll(node.proof_of, registry),
     about: resolveAll(node.about, registry),
@@ -188,6 +207,8 @@ export function getProvenance(
       shown_in: idx.shown_in.get(node.id) ?? [],
       organized_events: idx.organized_events.get(node.id) ?? [],
       client_events: idx.client_events.get(node.id) ?? [],
+      coauthored_products: idx.coauthored_products.get(node.id) ?? [],
+      coauthored_events: idx.coauthored_events.get(node.id) ?? [],
       products_from_events: idx.products_from_events.get(node.id) ?? [],
       proves: idx.proves.get(node.id) ?? [],
       proofs_about: idx.proofs_about.get(node.id) ?? [],
@@ -207,6 +228,9 @@ export function hasAnyProvenance(p: Provenance): boolean {
     p.products.length > 0 ||
     p.organizer.length > 0 ||
     p.client.length > 0 ||
+    p.collaborators.length > 0 ||
+    p.related_org.length > 0 ||
+    p.collab_events.length > 0 ||
     p.proofs.length > 0 ||
     p.proof_of.length > 0 ||
     p.about.length > 0 ||
@@ -216,6 +240,8 @@ export function hasAnyProvenance(p: Provenance): boolean {
     p.inverse.shown_in.length > 0 ||
     p.inverse.organized_events.length > 0 ||
     p.inverse.client_events.length > 0 ||
+    p.inverse.coauthored_products.length > 0 ||
+    p.inverse.coauthored_events.length > 0 ||
     p.inverse.products_from_events.length > 0 ||
     p.inverse.proves.length > 0 ||
     p.inverse.proofs_about.length > 0 ||

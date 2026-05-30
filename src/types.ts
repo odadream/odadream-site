@@ -32,7 +32,13 @@ export type MediaType = "image" | "video" | "audio" | "unknown";
  * category (hub/content/media/action), while `kind` is the semantic role of
  * the node in the provenance graph.
  */
-export type Kind = "product" | "event" | "organizer" | "proof" | "media";
+export type Kind =
+  | "product"
+  | "event"
+  | "organizer"
+  | "collaboration"
+  | "proof"
+  | "media";
 
 /**
  * Visitor / contact counters for events. Both fields optional so partial
@@ -142,6 +148,21 @@ export interface LotusNode {
 
   /** Commercial client / stand host (distinct from event organizer). */
   client?: string[];
+
+  /**
+   * Equal co-creative partners (`collab-*`, kind: collaboration).
+   * Distinct from `organizer` (hosts the event) and `client` (commissions).
+   */
+  collaborators?: string[];
+
+  /**
+   * Institutional anchor for a collaboration card (e.g. collab-itb → org-itb).
+   * The collab node is the equal partnership; org is venue/host context.
+   */
+  related_org?: string[];
+
+  /** Events that belong to this collaboration line (on collab nodes). */
+  collab_events?: string[];
 
   /** Proofs (awards, press, testimonials) tied to this node. */
   proofs?: string[];

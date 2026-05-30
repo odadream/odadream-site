@@ -52,6 +52,12 @@ export const TAXONOMY: Record<Kind, SubkindMap> = {
     conference:   { label: { en: "Conference",   ru: "Конференция" },      icon: "Mic",          color: "indigo" },
     competition:  { label: { en: "Competition",  ru: "Конкурс" },          icon: "Trophy",       color: "amber" },
   },
+  collaboration: {
+    person:      { label: { en: "Person",      ru: "Персона" },       icon: "UserRound",     color: "fuchsia" },
+    ensemble:    { label: { en: "Ensemble",    ru: "Коллектив" },     icon: "Users",         color: "purple" },
+    duo:         { label: { en: "Duo",         ru: "Дуэт" },          icon: "Handshake",     color: "emerald" },
+    institution: { label: { en: "Institution", ru: "Институция" },    icon: "Building2",     color: "sky" },
+  },
   organizer: {
     curator:    { label: { en: "Curator",     ru: "Куратор" },       icon: "UserRound",     color: "fuchsia" },
     university: { label: { en: "University",  ru: "Университет" },   icon: "GraduationCap", color: "cyan" },
@@ -85,8 +91,9 @@ export const TAXONOMY: Record<Kind, SubkindMap> = {
 export const KIND_LABELS: Record<Kind, LocalizedString> = {
   product:   { en: "Product",    ru: "Продукт" },
   event:     { en: "Event",      ru: "Событие" },
-  organizer: { en: "Organizer",  ru: "Организатор" },
-  proof:     { en: "Proof",      ru: "Пруф" },
+  organizer:     { en: "Organizer",      ru: "Организатор" },
+  collaboration: { en: "Collaboration",  ru: "Коллаборация" },
+  proof:         { en: "Proof",          ru: "Пруф" },
   media:     { en: "Media",      ru: "Медиа" },
 };
 

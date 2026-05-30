@@ -15,6 +15,8 @@ kind: product
 subkind: art
 presented_at:
   - "[[event-tsiolkovsky-2026]]"
+collaborators:
+  - "[[collab-itb]]"
 external_site: https://interference.odadream.art
 external_site_label_en: Full project archive
 external_site_label_ru: Полный архив проекта

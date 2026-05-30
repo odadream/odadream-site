@@ -54,6 +54,7 @@ const REQUIRED_BY_KIND = {
   product:   ["title_en", "title_ru", "kind", "subkind", "presented_at", "media"],
   event:     ["title_en", "title_ru", "kind", "subkind", "date_start", "organizer", "products"],
   organizer: ["title_en", "title_ru", "kind", "subkind", "website"],
+  collaboration: ["title_en", "title_ru", "kind", "subkind", "products"],
   proof:     ["title_en", "title_ru", "kind", "subkind", "proof_of", "issued_by"],
   media:     ["title_en", "title_ru", "kind", "subkind", "about"],
 };
@@ -66,7 +67,24 @@ function bodySplit(body) {
   return { en: body.slice(0, idx), ru: body.slice(idx + 8) };
 }
 
-const wordCount = (s) => (s.trim().match(/\b\w+\b/g) ?? []).length;
+/** Bilingual word count: \b\w+\b misses Cyrillic; use Unicode letters/numbers. */
+function stripMarkdownForCount(s) {
+  return String(s)
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/!\[\[[^\]]+\]\]/g, " ")
+    .replace(/\[\[[^\]]+\]\]/g, " ")
+    .replace(/`[^`]+`/g, " ")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/^#{1,6}\s+/gm, "")
+    .replace(/[*_~>|]/g, " ");
+}
+
+const wordCount = (s) => {
+  const text = stripMarkdownForCount(s).trim();
+  if (!text) return 0;
+  const matches = text.match(/[\p{L}\p{N}]+(?:['\u2019-][\p{L}\p{N}]+)*/gu);
+  return matches?.length ?? 0;
+};
 
 const isPlaceholder = (s) =>
   !s || /^stub|TBD|TODO|placeholder|^Loading/i.test(String(s)) || /заглушка/i.test(String(s));
@@ -102,6 +120,12 @@ function gradeNode({ fm, body }) {
   return { kind: kind ?? "(none)", status, missing, wEn, wRu };
 }
 
+/** Obsidian wikilink from vault root (repo root). No display alias — `|` breaks MD tables. */
+function obsidianLink(file) {
+  const stem = String(file).replace(/\.md$/i, "");
+  return `[[src/content/${stem}]]`;
+}
+
 // ── Emit ──
 const rows = [];
 const summary = { "🔴": 0, "🟡": 0, "🟢": 0 };
@@ -112,13 +136,41 @@ for (const { id, depth } of inScope) {
   summary[g.status]++;
   const title = n.fm.title_ru || n.fm.title_en || "(no title)";
   rows.push({
-    id, depth, kind: g.kind, status: g.status, missing: g.missing,
-    title, wEn: g.wEn, wRu: g.wRu,
+    id,
+    file: n.file,
+    depth,
+    kind: g.kind,
+    status: g.status,
+    missing: g.missing,
+    title,
+    wEn: g.wEn,
+    wRu: g.wRu,
   });
 }
 
 const lines = [];
 lines.push(`# Phase H — content checklist  \`${ROOT_ID}\``);
+lines.push("");
+lines.push("> **Как обновить** (этот файл перезаписывается целиком, правки в таблице не сохраняются):");
+lines.push(">");
+lines.push("> 1. Из корня репозитория:");
+if (ALL) {
+  lines.push(">    ```bash");
+  lines.push(">    npm run audit:checklist --all");
+  lines.push(">    ```");
+} else {
+  lines.push(">    ```bash");
+  lines.push(`>    npm run audit:checklist ${ROOT_ID}`);
+  lines.push(">    ```");
+}
+lines.push("> 2. Скрипт: [`scripts/audit/dump-checklist.js`](../scripts/audit/dump-checklist.js) — npm-алиас `audit:checklist`.");
+lines.push("> 3. Критерии 🟢/🟡/🔴: [`content-keeper/PHASE-H-PLAN.md`](./PHASE-H-PLAN.md).");
+if (!ALL) {
+  lines.push("> 4. Другая ветка: `npm run audit:checklist hub-events` → `PHASE-H-CHECKLIST-hub-events.md`.");
+  lines.push("> 5. Всё дерево: `npm run audit:checklist --all` → `PHASE-H-CHECKLIST-ALL.md`.");
+}
+lines.push("> 6. После правок `.md` в `src/content/` — перезапустите команду, чтобы увидеть актуальный прогресс.");
+lines.push("> 7. Колонка **Page** — wikilink Obsidian (`[[src/content/…]]`), клик открывает карточку в vault.");
 lines.push("");
 lines.push(`Generated: ${new Date().toISOString()}`);
 lines.push("");
@@ -131,12 +183,16 @@ lines.push("- 🟢 — все обязательные поля + body ≥ 60 с
 lines.push("- 🟡 — есть body, но не все поля ИЛИ короткий");
 lines.push("- 🔴 — stub (< 30 слов суммарно) или текст-заглушка");
 lines.push("");
-lines.push("| Status | ID | Kind | Title | EN words | RU words | Missing |");
+lines.push("| Status | Page | Kind | Title | EN | RU | Missing |");
 lines.push("|---|---|---|---|---|---|---|");
 for (const r of rows) {
   const indent = "  ".repeat(r.depth);
   const miss = r.missing.length ? "`" + r.missing.join("`, `") + "`" : "—";
-  lines.push(`| ${r.status} | ${indent}\`${r.id}\` | ${r.kind} | ${r.title} | ${r.wEn} | ${r.wRu} | ${miss} |`);
+  const link = obsidianLink(r.file);
+  const title = String(r.title).replace(/\|/g, "／");
+  lines.push(
+    `| ${r.status} | ${indent}${link} | ${r.kind} | ${title} | ${r.wEn} | ${r.wRu} | ${miss} |`,
+  );
 }
 
 fs.writeFileSync(OUT, lines.join("\n") + "\n", "utf8");

@@ -59,6 +59,7 @@ Site-specific installation, co-curated public programs, mediation, and productio
 
 ## For Artists & Creative Teams
 
+[[hub-registry-collabs|Co-creative partners (collab-*)]] — equal partnerships on record.  
 [[hub-creators|Co-production and interdisciplinary labs]]  
 Hybrid hub-team projects where artistic concept, technology, and facilitation develop together.
 
@@ -122,6 +123,7 @@ If you are not sure which section fits — write to us directly: [[hub-contacts|
 
 ## Художникам и креативным командам
 
+[[hub-registry-collabs|Партнёры со-творчества (collab-*)]] — равные коллаборации в реестре.  
 [[hub-creators|Копродакшн и междисциплинарные лаборатории]]  
 Гибридные проекты, где художественная идея, технология и фасилитация развиваются вместе.
 

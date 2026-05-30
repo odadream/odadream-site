@@ -19,6 +19,17 @@
 
 Примеры (2026-05-30): `event-byob` → `event-byob-2019`; `event-tsiolkovsky` → `event-tsiolkovsky-2025`, `event-tsiolkovsky-2026`; `event-portal` → `event-portal-2024`, `event-portal-2025`.
 
+## Конвенция: коллаборации (равное со-творчество)
+
+| Роль | ID / kind | Связь |
+|------|-----------|--------|
+| Партнёр на равных (персона, труппа) | `collab-*`, `kind: collaboration` | `subkind`: `person` \| `ensemble` \| `duo` |
+| Институт-хост события | `org-*`, `kind: organizer` | `organizer` на `event` |
+| Заказчик коммерции | `org-*` | `client` на `event` |
+| Работа / событие | `product` / `event` | `collaborators: ["[[collab-…]]"]` |
+
+На карточке `collab-*`: `products`, `collab_events`, опционально `related_org` (институциональный якорь). Реестр: `hub-registry-collabs`.
+
 ---
 
 ## Открытые
@@ -54,7 +65,7 @@
 ### DEBT-006 · Сайты организаторов
 
 - `org-ikc`, `org-itb`, `org-senatova` — публичные URL/контакты.
-- `org-kovylina` — отдельная нода или только в `ancestors` (сейчас в тексте).
+- ~~`org-kovylina`~~ — достаточно `collab-kovylina` (`kind: collaboration`).
 
 ### DEBT-007 · Повторные показы Шрёдингер / Интерференция
 
@@ -69,6 +80,23 @@
 - Узлы: `event-gong-fest-2024`, `event-gong-fest-2025`, `event-portal-2024` — stubs, нет `date_start`, минимальный текст.
 - Серии: `event-gong-fest`, `event-portal` — дополнить EN/RU как у `event-byob` / `event-tsiolkovsky`.
 
+### DEBT-010 · Коллаборация ИТБ × нейротеатр
+
+- Узел: `collab-itb` (создан, заглушка).
+- Нужно: роли (Ксения Голыжбина, Александр Шестернин и др.), договорённости со-постановки, райдер гастролей, ссылка на фильм про ИТБ (см. DEBT-002).
+- Связи: `org-itb`, `org-ikc`, `schrodinger`, `interference`, `event-kod-provincii`, `event-itb-lab-2024-11`.
+
+### DEBT-011 · Коллаборация Ковылина × «Предки в шуме»
+
+- Узел: `collab-kovylina` (создан, заглушка).
+- Нужно: биография Елены Ковылиной, публичное имя трека CultTech, дата/место премьеры (ноябрь 2026 — уточнить), отдельная нода `org-kovylina` или достаточно collab-карточки.
+- Связи: `ancestors`, `org-culttech`, `proof-award-culttech-vienna`, `event-culttech-summit-2026` (см. DEBT-008).
+
+### DEBT-012 · «Код провинции» — официальное название в текстах
+
+- В `hub-big-forms` и навигации: зафиксировать форму **«Код провинции» — научная хореографическая конференция** vs краткое «Код провинции».
+- Сверить с программой конференции и публикацией РИНЦ (DEBT-001).
+
 ---
 
 ## Закрыто (2026-05-30)
@@ -78,3 +106,4 @@
 - ~~Приглашение на Циолковский 2025~~ — `org-senatova`, `event-tsiolkovsky-2025`.
 - ~~CultTech grant~~ — `proof-award-culttech-vienna.proof_of` → `ancestors`, `org-culttech`.
 - ~~Именование серий фестивалей~~ — `hub-byob` / `hub-portal` / `hub-tsiolkovsky` / `hub-gong-fest` → `event-*`; издания `event-*-YYYY`; удалена дублирующая заглушка `tsiolkovsky-2026`.
+- ~~`kind: collaboration`~~ — шестой базовый kind; префикс `collab-*`; `collab-itb`, `collab-kovylina`; реестр `hub-registry-collabs`; поле `collaborators` на product/event.
