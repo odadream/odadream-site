@@ -12,6 +12,7 @@ import { LotusNode } from "../types";
 import { useNavigation, useLightbox } from "../context/NavigationContext";
 import { getProvenance, hasAnyProvenance, type Provenance } from "../utils/provenance";
 import { subkindMeta, KIND_LABELS } from "../data/taxonomy";
+import { getMediaType } from "../utils/mediaHelpers";
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -552,24 +553,46 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
         )}
 
         {/* MEDIA ASSETS -------------------------------------------------- */}
-        {prov.media.length > 0 && (() => {
+        {(() => {
+          // Dedup: skip MediaAssets whose `subject` already points at a media-node
+          // we're rendering in the "Артефакты" section. Same content surfacing twice.
+          const artifactIds = new Set(artifactsForSubject.map((n) => n.id));
+          const mediaToShow = prov.media.filter(
+            ({ asset }) => !(asset.subject ?? []).some((s) => artifactIds.has(s)),
+          );
+          if (!mediaToShow.length) return null;
           const FilmIcon = iconFor("Film");
           return (
             <Section label={T.media} icon={FilmIcon}>
-              {prov.media.map(({ id, asset }) => {
+              {mediaToShow.map(({ id, asset }) => {
                 const meta = subkindMeta("media", asset.subkind);
                 const Icon = iconFor(meta.icon);
                 const mirrors = asset.mirrors ? Object.entries(asset.mirrors) : [];
+                const handleOpen = () => {
+                  openLightbox({
+                    id,
+                    title: asset.title ?? { en: id, ru: id },
+                    shortTitle: asset.title,
+                    description: { en: "", ru: "" },
+                    type: "media",
+                    mediaUrl: asset.url,
+                    imageUrl: asset.poster ?? asset.url,
+                    mediaType: getMediaType(asset.url),
+                    visible: true,
+                  });
+                };
                 return (
-                  <span
+                  <button
+                    type="button"
                     key={id}
-                    className="inline-flex items-center gap-1.5 px-2 py-1 ring-1 ring-border/40 text-[11px] font-mono text-txt-muted"
+                    onClick={handleOpen}
                     title={asset.title?.[lang] || id}
+                    className="group inline-flex items-center gap-1.5 px-2 py-1 ring-1 ring-border/40 text-[11px] font-mono text-txt-muted hover:bg-surface/40 hover:text-txt transition-colors"
                   >
                     <Icon className="w-3 h-3" strokeWidth={1.5} />
-                    {asset.title?.[lang] || id}
+                    <span className="truncate max-w-[28ch]">{asset.title?.[lang] || id}</span>
                     {mirrors.length > 0 && (
-                      <span className="text-txt-dim opacity-70 ml-1">
+                      <span className="text-txt-dim opacity-70 ml-1" onClick={(e) => e.stopPropagation()}>
                         ·{" "}
                         {mirrors.map(([platform, url], i) => (
                           <React.Fragment key={platform}>
@@ -586,7 +609,7 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
                         ))}
                       </span>
                     )}
-                  </span>
+                  </button>
                 );
               })}
             </Section>
