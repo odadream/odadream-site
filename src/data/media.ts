@@ -368,4 +368,118 @@ export const MEDIA: Record<string, MediaAsset> = {
     subkind: "photo",
     subject: ["honors", "neuromandala", "media-honors-presentation"],
   },
+
+  // --- Darshan Moment (R&D; video + single documentation node) ---
+  "dash-video": {
+    url: "https://dzen.ru/video/watch/67dc1059b6978c7cceec438d",
+    poster: "/images/content/works/dashran/dashran-tech-render-b-thumb.webp",
+    title: { en: "Darshan Moment · concept video", ru: "Момент Даршана · видео концепции" },
+    subkind: "video",
+    subject: ["dashran", "media-dashran-video"],
+    mirrors: {
+      dzen: "https://dzen.ru/video/watch/67dc1059b6978c7cceec438d",
+    },
+  },
+  "dash-tech-desc-pdf": {
+    url: "/documents/dashran-tech-description.pdf",
+    poster: "/images/content/works/dashran/dashran-tech-render-b-thumb.webp",
+    title: {
+      en: "Darshan Moment — technical description PDF",
+      ru: "Момент Даршана — художественно-техническое описание PDF",
+    },
+    subkind: "text",
+    subject: ["dashran", "media-dashran-docs"],
+  },
+  "dash-tech-spec-pdf": {
+    url: "/documents/dashran-tech-spec-nur.pdf",
+    poster: "/images/content/works/dashran/dashran-tech-render-b-thumb.webp",
+    title: {
+      en: "Darshan Moment — full tech spec PDF (NUR)",
+      ru: "Момент Даршана — полное техзадание PDF (НУР)",
+    },
+    subkind: "text",
+    subject: ["dashran", "media-dashran-docs"],
+  },
+  "dash-render-b": {
+    url: "/images/content/works/dashran/dashran-tech-render-b.webp",
+    poster: "/images/content/works/dashran/dashran-tech-render-b-thumb.webp",
+    title: { en: "Darshan Moment — spatial render", ru: "Момент Даршана — пространственный рендер" },
+    subkind: "photo",
+    subject: ["dashran", "media-dashran-docs"],
+  },
+  "dash-concept": {
+    url: "/images/content/works/dashran/dashran-playda-01.webp",
+    poster: "/images/content/works/dashran/dashran-playda-01-thumb.webp",
+    title: { en: "Darshan Moment — concept slide", ru: "Момент Даршана — концепт" },
+    subkind: "photo",
+    subject: ["dashran", "media-dashran-docs"],
+  },
+  "dash-footprint": {
+    url: "/images/content/works/dashran/dashran-tech-space.webp",
+    title: { en: "Darshan Moment — footprint", ru: "Момент Даршана — габариты" },
+    subkind: "sketch",
+    subject: ["dashran", "media-dashran-docs"],
+  },
+  "dash-plan": {
+    url: "/images/content/works/dashran/dashran-tech-plan.webp",
+    title: { en: "Darshan Moment — floor plan", ru: "Момент Даршана — план" },
+    subkind: "sketch",
+    subject: ["dashran", "media-dashran-docs"],
+  },
+  "dash-wiring": {
+    url: "/images/content/works/dashran/dashran-wiring.webp",
+    title: { en: "Darshan Moment — wiring", ru: "Момент Даршана — подключение" },
+    subkind: "sketch",
+    subject: ["dashran", "media-dashran-docs"],
+  },
+  "dash-cycle": {
+    url: "/images/content/works/dashran/dashran-system-flow.webp",
+    title: { en: "Darshan Moment — performance cycle", ru: "Момент Даршана — цикл перформанса" },
+    subkind: "sketch",
+    subject: ["dashran", "media-dashran-docs"],
+  },
+
+  // --- Other People (inclusive EEG exhibition, R&D) ---
+  "oth-deck-ru": {
+    url: "/documents/other-people-deck-ru.pdf",
+    poster: "/images/content/works/another-people/other-people-gallery-thumb.webp",
+    title: { en: "Other People — deck PDF (RU)", ru: "Другие люди — презентация PDF (RU)" },
+    subkind: "text",
+    subject: ["another-people", "media-another-people-docs"],
+  },
+  "oth-deck-en": {
+    url: "/documents/other-people-art-science-society.pdf",
+    poster: "/images/content/works/another-people/other-people-gallery-thumb.webp",
+    title: {
+      en: "Other People — art · science · society PDF (EN)",
+      ru: "Другие люди — art · science · society PDF (EN)",
+    },
+    subkind: "text",
+    subject: ["another-people", "media-another-people-docs"],
+  },
+  "oth-gallery": {
+    url: "/images/content/works/another-people/other-people-gallery.webp",
+    poster: "/images/content/works/another-people/other-people-gallery-thumb.webp",
+    title: { en: "Other People — exhibition layout", ru: "Другие люди — план выставки" },
+    subkind: "photo",
+    subject: ["another-people", "media-another-people-docs"],
+  },
+  "oth-character-card": {
+    url: "/images/content/works/another-people/other-people-character-card.webp",
+    title: { en: "Other People — character card", ru: "Другие люди — карточка персонажа" },
+    subkind: "photo",
+    subject: ["another-people", "neuromandala", "media-another-people-docs"],
+  },
+  "oth-eeg-session": {
+    url: "/images/content/works/another-people/other-people-eeg-session.webp",
+    title: { en: "Other People — EEG session", ru: "Другие люди — запись ЭЭГ" },
+    subkind: "photo",
+    subject: ["another-people", "media-another-people-docs"],
+  },
+  "oth-neuromandala": {
+    url: "/images/content/works/another-people/other-people-neuromandala.webp",
+    title: { en: "Other People — neuromandala", ru: "Другие люди — нейромандала" },
+    subkind: "photo",
+    subject: ["another-people", "neuromandala", "media-another-people-docs"],
+  },
 };

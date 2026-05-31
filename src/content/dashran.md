@@ -5,52 +5,53 @@ title_en: Darshan Moment
 title_ru: Момент Даршана
 type: content
 tags:
-  - contemplation
-  - ritual
+  - installation
+  - cyber-buddhism
+  - biometrics
+  - generative
 order: 3
 visible: true
-date: 2026.04.07
-status: concept
+date: 2025.02.22
+status: rnd
 kind: product
 subkind: art
+image: /images/content/works/dashran/dashran-tech-render-b-thumb.webp
+media:
+  - dash-video
+  - dash-render-b
+  - dash-tech-desc-pdf
 ---
 
-## DARSHAN MOMENT
+## Darshan Moment
 
-**Contemplative Interface**
+**Interactive performance · cyber-Buddhism · AI deity · in R&D**
 
-Darshan Moment explores states of contemplation where attention, image, and bodily rhythm enter a single perceptual loop.
+Installation-performance on the diffusion between humans and artificial intelligence, contemplative practice and digital media. In Hindu tradition, **darshan** is beholding a temple deity; participants become modern **sadhakas** meeting their “deity” — an ideal, an absolute — and asking it a question.
 
-The project brings together meditative hub-practices and neuroreactive media, asking how subtle inner shifts can be translated into shared audiovisual space without losing their depth.
+**Status.** **Research & development** — **not publicly exhibited** to date. Festival **application packages** were prepared (Play Digital Art, NUR, Intervals, ARS Electronica, 2025); no premiere on record in the ODA.dream registry.
 
-## Research Focus
+**Space.** A wall segment from which a **multi-arm figure** emerges. Hands in sacred **mudras**; the body is a projection-mapped canvas. The deity is played by **DeepSeek**, **Stable Diffusion**, and companion models. **Six cushions** in a semicircle; biometric wristbands (pulse, relaxation proxy) stream state. Questions are spoken privately; answers arrive through **sound, gesture, and image** — not voice. **Prompt craft** is the ritual. **Finale:** a **connectivity graph** of all six participants.
 
-- Threshold states between silence, symbol, and embodied presence.
-- Ethical design of attention-oriented interfaces.
-- Translation of contemplative experience into visual dramaturgy.
+**Cycle (~12 min + reset).** Preparation → sensors → projection → meditation (relaxation sets answer depth) → per-participant questions → LLM + generative visuals in **TouchDesigner** → collective graph → reset. Footprint from **5 × 5.5 m**, meditation zone **4 × 4 m**, ceiling **≥ 3.5 m**, blackout.
 
-## Format
+**Lab prototype.** Ritual stack debugged privately at **[[org-ashram|Ashram Studio (Natali Osman)]]** wellness lab, Moscow — internal R&D, not a public show. Festival build targets a **mobile modular sculpture** (aluminium frame, large-format 3D-print segments); **SketchUp** / **CorelDRAW** masters stay in the project vault.
 
-Darshan Moment can be staged as a chamber installation, a guided session, or a performative lecture.  
-In each format, the participant is treated not as an object of measurement, but as a co-creator of a sensitive field.
+**Materials:** [[media-dashran-video|concept video (Dzen)]] · [[media-dashran-docs|documentation (PDF + diagrams)]].
 
 ---RU---
 
-## МОМЕНТ ДАРШАНА
+## Момент Даршана
 
-**Созерцательный интерфейс**
+**Интерактивный перформанс · кибер-буддизм · ИИ-божество · в разработке**
 
-«Момент Даршана» исследует состояния созерцания, в которых внимание, образ и телесный ритм входят в единую перцептивную петлю.
+Инсталляция-перформанс на стыке человека и ИИ, практики созерцания и цифровых технологий. **Даршан** — созерцание храмового божества; участники — **садхаки**, встречающие «божество» и задающие ему вопрос.
 
-Проект соединяет медитативные практики и нейрореактивные медиа, задавая вопрос: как перевести тонкие внутренние сдвиги в общее аудиовизуальное пространство, не потеряв их глубину.
+**Статус.** **R&D** — **публичных показов пока не было**. Подготовлены **пакеты заявок** на фестивали (Play Digital Art, НУР, Intervals, ARS Electronica, 2025); премьеры в реестре ODA.dream нет.
 
-## Фокус исследования
+**Пространство.** Стена, из которой проступает **многорукая фигура**; **мудры**, проекционный маппинг. Божество — **DeepSeek**, **Stable Diffusion** и др. **Шесть подушек**, биобраслеты. Ответы — **звук, жест, образ**. **Финал** — **граф связности** шестерых.
 
-- Пороговые состояния между тишиной, символом и воплощенным присутствием.
-- Этичный дизайн интерфейсов, работающих с вниманием.
-- Перевод созерцательного опыта в визуальную драматургию.
+**Цикл (~12 мин + перезапуск).** Подготовка → датчики → проекция → медитация → вопросы → **TouchDesigner** + LLM → граф → сброс. Габариты от **5 × 5,5 м**, зона медитации **4 × 4 m**, потолок **≥ 3,5 m**, затемнение.
 
-## Формат
+**Лабораторный прототип.** Отладка ритуала в **[[org-ashram|студии Ashram (Натали Осман)]]**, Москва — внутренняя R&D, не публичный показ. Фестивальная версия — **мобильная модульная скульптура**; мастер-модели **SketchUp** / **CorelDRAW** в проектном архиве.
 
-«Момент Даршана» может существовать как камерная инсталляция, сопровождаемая сессия или перформативная лекция.  
-Во всех форматах участник рассматривается не как объект измерения, а как соавтор чувствительного поля.
+**Материалы:** [[media-dashran-video|видео концепции (Дзен)]] · [[media-dashran-docs|документация (PDF + схемы)]].
