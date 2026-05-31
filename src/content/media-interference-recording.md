@@ -18,12 +18,11 @@ about:
 access: restricted
 for_sale: true
 purchase_url: https://interference.odadream.art/buy
-preview_media: intf-teaser
 ---
 
 ## Interference — full performance recording
 
-The complete recording of the **Interference of Realities** neuro-theater premiere (XIV Tsiolkovsky Festival, Kaluga, 2026). The recording itself is an **art object** — a single edition, archived in a private vault. Public preview is the official teaser; full access is granted to collectors and partner institutions.
+The complete recording of the **Interference of Realities** neuro-theater premiere (XIV Tsiolkovsky Festival, Kaluga, 2026). The recording itself is an **art object** — a single edition, archived in a private vault. Full access is granted to collectors and partner institutions on request.
 
 Contact for licensing and acquisition via [interference.odadream.art](https://interference.odadream.art/buy).
 
@@ -31,6 +30,6 @@ Contact for licensing and acquisition via [interference.odadream.art](https://in
 
 ## Интерференция — полная запись спектакля
 
-Полная запись нейро-театральной премьеры **«Интерференция реальностей»** (XIV Циолковский-фестиваль, Калуга, 2026). Сама запись — **арт-объект** в единственном экземпляре, хранится в закрытом архиве. Для широкой публики доступен официальный тизер; полный доступ — коллекционерам и партнёрским институциям.
+Полная запись нейро-театральной премьеры **«Интерференция реальностей»** (XIV Циолковский-фестиваль, Калуга, 2026). Сама запись — **арт-объект** в единственном экземпляре, хранится в закрытом архиве. Полный доступ — коллекционерам и партнёрским институциям по запросу.
 
 Условия лицензирования и приобретения — на [interference.odadream.art](https://interference.odadream.art/buy).

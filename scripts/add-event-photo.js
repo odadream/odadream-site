@@ -16,6 +16,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { parse as parseYaml } from "yaml";
 import { spawnSync } from "child_process";
+import sharp from "sharp";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
@@ -24,6 +25,8 @@ const CONTENT_DIR = path.join(ROOT, "src", "content");
 const PUBLIC_EVENTS = path.join(ROOT, "public", "images", "content", "events");
 
 const IMAGE_EXT = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif"]);
+const PACK_MAX_EDGE = 1920;
+const PACK_QUALITY = 82;
 
 function parseArgs(argv) {
   const out = {
@@ -91,6 +94,18 @@ function defaultCaptions(route, slug) {
 
 function embedLine(webPath, captionEn, captionRu) {
   return `![[${webPath} | ${captionEn}]]`;
+}
+
+async function packToWebp(src, destAbs) {
+  await sharp(src)
+    .resize({
+      width: PACK_MAX_EDGE,
+      height: PACK_MAX_EDGE,
+      fit: "inside",
+      withoutEnlargement: true,
+    })
+    .webp({ quality: PACK_QUALITY, effort: 4 })
+    .toFile(destAbs);
 }
 
 function albumPath(albumId) {
@@ -189,7 +204,7 @@ function ensureProductEmbed(productId, albumId, dryRun) {
   console.log(`[product] Linked ${token} in ${productId}.md`);
 }
 
-function main() {
+async function main() {
   const opts = parseArgs(process.argv.slice(2));
   if (!opts.file) {
     console.error(`Usage: npm run photos:add -- "<image-path>" [--event byob-2026] [--slug name]`);
@@ -211,7 +226,7 @@ function main() {
   const route = detectRoute(routes, src, opts.event);
   const slug = opts.slug || slugify(src);
   const destDir = path.join(PUBLIC_EVENTS, route.destDir);
-  const destName = `${slug}${ext}`;
+  const destName = `${slug}.webp`;
   const destAbs = path.join(destDir, destName);
   const webPath = `/images/content/events/${route.destDir}/${destName}`;
 
@@ -231,8 +246,12 @@ function main() {
   }
 
   fs.mkdirSync(destDir, { recursive: true });
-  fs.copyFileSync(src, destAbs);
-  console.log(`[copy] ${src} → ${destAbs}`);
+  const srcStat = fs.statSync(src);
+  await packToWebp(src, destAbs);
+  const destStat = fs.statSync(destAbs);
+  console.log(
+    `[pack] ${src} (${(srcStat.size / 1024).toFixed(1)} KB) → ${destAbs} (${(destStat.size / 1024).toFixed(1)} KB)`,
+  );
 
   const albumFile = albumPath(route.albumId);
   if (!fs.existsSync(albumFile)) {
@@ -244,8 +263,10 @@ function main() {
     console.log(`[album] Appended embed to ${route.albumId}.md`);
   }
 
-  for (const productId of route.products || []) {
-    ensureProductEmbed(productId, route.albumId, false);
+  if (route.linkProduct !== false) {
+    for (const productId of route.products || []) {
+      ensureProductEmbed(productId, route.albumId, false);
+    }
   }
 
   if (!opts.skipAssets) {
@@ -260,4 +281,7 @@ function main() {
   console.log("\nDone. Verify: npm run dev → ?id=" + route.eventId);
 }
 
-main();
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

@@ -2,101 +2,52 @@
 id: sync-circle
 parent: hub-installations
 title_en: Sync Circle
-title_ru: Круг Синхронизации
+title_ru: Круг синхронизации
 type: content
 tags:
   - circle
   - social
+  - multisync
 order: 2
 visible: true
-date: 2026.02.13
+date: 2021.03.19
 status: rnd
 kind: product
 subkind: art
+image: /images/content/works/sync-circle/sync-circle-hero-thumb.webp
+external_site: https://dzen.ru/a/YFSXv_8BKDp8IHDb
+external_site_label_en: Dzen article (2021)
+external_site_label_ru: Статья на Дзене (2021)
+media:
+  - sync-video
+  - sync-hero
+  - sync-mandala
+  - sync-mvc
+proofs: []
 ---
 
-## SYNC CIRCLE
+## Sync Circle
 
-**Collective Synchronization Protocol**
+**Group neuro-audio installation · collective synchrony made visible**
 
-Sync Circle is a group neuro-audio installation built to make non-verbal group dynamics visible in real time.
-It grows from the MultiSync technology line and focuses on one central question:
-how does a group move from parallel individual states to a shared attentional field?
+Five to seven participants sit in a circle with EEG headsets; calm music plays. The system reads brain activity and projects it onto the floor in real time. Each person gets a **mandala-neurogram** — a circular chart of four wave-band intensities. When two minds converge, a **coloured line** links their mandalas (wave-type colour). Full-group synchrony reads as **one colour across all links**. LED lighting on chairs and around the ring follows projection and music.
 
-## Research Focus
+Built on the **[[multisync|MultiSync]]** stack (neuro-sync algorithms + visualization), **TouchDesigner** for media, projectors, audio, and LED. Session **25–30 minutes**; optional **10–15 minute** debrief. Not medical diagnostics — an art-research protocol for observing how a group moves from parallel states to a shared attentional field.
 
-- Collective synchrony as an observable process, not a metaphor.
-- Translation of EEG-derived state markers into understandable visual and light signals.
-- Reflection layer after the session: how participants describe convergence, tension, and transition points.
+**Stack (from published specs).** MultiSync software · EEG headsets · TouchDesigner · projection floor · LED · seating. Documented in the [2021 Dzen article](https://dzen.ru/a/YFSXv_8BKDp8IHDb) with MVC diagram, dimensions, state table, and chair layouts — see [[media-sync-circle-gallery|gallery]] and [[media-sync-circle-video|demo videos]].
 
-## Method and Session Format
-
-Standard session:
-
-1. **Setup**: 5-7 participants are connected to EEG interfaces in a circular spatial configuration.
-2. **Baseline**: the system captures each participant's initial state.
-3. **Live phase**: each state is rendered as a personal mandala-neurogram; when states converge, connective lines emerge between participants.
-4. **Group condition**: when the whole group converges, the visual system shows a coherent shared pattern.
-5. **Debrief**: 10-15 minutes of guided reflection to compare subjective reports with observed visual dynamics.
-
-## Outputs
-
-- Real-time collective visualization for audience and participants.
-- Session-level artifact (visual capture of dynamic transitions).
-- Structured observations for further protocol tuning.
-
-## Constraints and Current Status
-
-- The method tracks state dynamics, but does not claim medical diagnostics.
-- Group synchrony quality depends on context, facilitation, and participant readiness.
-- Current status: hub-research and format development with public demonstration potential.
-
-## Related Nodes
-
-- [[hub-research|Research]] — context of the wider R&D branch.
-- [[hub-events|Events]] — where collective formats are publicly tested.
-- [[hub-works|Works]] — neighboring implementation formats.
+**Status:** **R&D** — format documented and demonstrated on video; ready for venue-specific deployments.
 
 ---RU---
 
-## КРУГ СИНХРОНИЗАЦИИ
+## Круг синхронизации
 
-**Протокол коллективной синхронизации**
+**Групповая нейро-аудио инсталляция · коллективная синхронность на виду**
 
-Sync Circle — это групповая нейро-аудио инсталляция, в которой невербальная динамика группы становится видимой в реальном времени.
-Нода развивает технологическую линию MultiSync и отвечает на ключевой исследовательский вопрос:
-как группа переходит от набора индивидуальных состояний к общему полю внимания.
+Пять–семь участников в кругу с ЭЭГ-гарнитурами; играет спокойная музыка. Система считывает активность мозга и проецирует её на пол в реальном времени. У каждого — **мандала-нейрограмма** (круговой график интенсивностей четырёх ритмов). При сближении состояний пары появляется **цветная линия** между мандалами. Общая синхронность — когда **все линии одного цвета**. LED-подсветка кресел и кольца следует за проекцией и музыкой.
 
-## Исследовательский фокус
+Технологическая база — **[[multisync|MultiSync]]** (алгоритмы нейро-синхронизации и визуализация), **TouchDesigner**, проектор, аудио, LED. Сессия **25–30 минут**; опционально **10–15 минут** рефлексии. Не медицинская диагностика — art-research протокол наблюдения перехода группы от параллельных состояний к общему полю внимания.
 
-- Коллективная синхронизация как наблюдаемый процесс, а не абстрактная метафора.
-- Перевод ЭЭГ-показателей в понятные визуальные и световые индикаторы.
-- Сопоставление визуальной динамики с рефлексией участников после сессии.
+**Состав (по опубликованным материалам).** ПО MultiSync · нейроинтерфейсы · TouchDesigner · напольная проекция · LED · мебель. В [статье на Дзене (2021)](https://dzen.ru/a/YFSXv_8BKDp8IHDb) — схема MVC, габариты, таблица состояний, варианты кресел: [[media-sync-circle-gallery|галерея]], [[media-sync-circle-video|демо-видео]].
 
-## Метод и формат сессии
-
-Базовый протокол:
-
-1. **Подключение**: 5-7 участников с ЭЭГ-гарнитурами размещаются в круговой конфигурации.
-2. **Базовая фиксация**: система считывает исходные состояния каждого участника.
-3. **Живая фаза**: состояние каждого отображается как мандала-нейрограмма; при сближении состояний между участниками возникают визуальные линии связи.
-4. **Групповая синхронизация**: при выраженном общем состоянии визуальный контур становится согласованным на уровне всей группы.
-5. **Рефлексия**: 10-15 минут разбора, где субъективные ощущения сопоставляются с наблюдаемой динамикой.
-
-## Выходы
-
-- Публичная визуализация групповой динамики.
-- Артефакт сессии (запись/срез переходов состояний).
-- Наблюдения для донастройки методики и сценографии.
-
-## Ограничения и текущий статус
-
-- Формат не является медицинской диагностикой; это исследовательский и художественный протокол.
-- Качество синхронизации зависит от контекста, фасилитации и готовности группы.
-- Текущий статус: R&D-формат с потенциалом публичных показов.
-
-## Связанные ноды
-
-- [[hub-research|Исследования]] — методологический контекст.
-- [[hub-events|События]] — публичные площадки тестирования формата.
-- [[hub-works|Работы]] — соседние направления применения.
+**Статус:** **R&D** — формат описан и показан на видео; готов к адаптации под площадки.

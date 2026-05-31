@@ -92,6 +92,30 @@
 - Нужно: биография Елены Ковылиной, публичное имя трека CultTech, дата/место премьеры (ноябрь 2026 — уточнить), отдельная нода `org-kovylina` или достаточно collab-карточки.
 - Связи: `ancestors`, `org-culttech`, `proof-award-culttech-vienna`, `event-culttech-summit-2026` (см. DEBT-008).
 
+### DEBT-015 · UX/UI: дубль обложки product-карточки и первого inline-эмбеда
+
+**Что болит**: когда в frontmatter указан `image: /path/cover.webp` (используется как hero / cover карточки), и при этом в body первой же строкой стоит `![[media:<тот-же-asset>]]` — одна и та же картинка появляется **дважды**: как cover вверху карточки и как первый inline-блок текста.
+
+**Пример наблюдения** (2026-05-31): `ancestors.md`:
+- `image: /images/content/works/ancestors-hero.webp` (cover для лотоса и страницы)
+- Body line 1: `![[media:ancestors-hero]]` (inline embed)
+- → визитор видит то же фото подряд два раза.
+
+**Что в коде**:
+- `image:` поле читается `contentLoader.ts` → `imageUrl` на LotusNode. Используется в LotusGrid (петля cover) и предположительно как hero-блок в TextPanel/ProvenancePanel.
+- `![[media:<id>]]` обрабатывается `contentProcessor.ts` → inline-token → разворачивается в эмбед при рендере body.
+
+**Гипотезы решений** (нужно выбрать):
+1. **Dedup при рендере body**: если первый inline `![[media:X]]` совпадает с `image:` cover'ом (по URL или asset id), не показывать его. Прозрачно для писателя — можно ставить hero как inline для удобства редактирования в Obsidian, рендер сам пропустит дубль.
+2. **Правило в process**: hero держим только в `image:` frontmatter, в body первый inline должен быть другим asset'ом. Без code-fix, но требует дисциплины при наполнении.
+3. **Hero — это вообще inline**: убрать рендер `image:` как отдельного hero-блока на странице (оставить только для лотос-петли); body сам диктует «обложку» через первый inline `![[media:...]]`. Семантически чище, но ломает текущий layout.
+
+**Узлы для пилота**: `ancestors`, `interference`, `schrodinger` — у всех есть cover + inline-эмбеды.
+
+**Связано с**: [[#DEBT-014]] (UX медиа в провенансе).
+
+**Источник**: пользователь, 2026-05-31.
+
 ### DEBT-014 · UX/UI: представление медиа в лотосе («Медиа» vs «Артефакты»)
 
 **Что болит**: на карточке продукта в секции «Связи» сейчас два раздела — **«Медиа»** и **«Артефакты»** — и граница между ними непонятна посетителю. Оба показывают изображения/видео; вложенность media-нод-документаций создаёт лишний уровень.
@@ -113,6 +137,33 @@
 **Узлы для следующего пилота**: `interference` (5 media-артефактов: photos, plakats, poster, recording, sketch). После применения тех же дедуп-правил проверить, что осталось в «Медиа», и решить, нужно ли inline-разворачивать артефакты на странице продукта.
 
 **Источник**: пользователь, 2026-05-31.
+
+### DEBT-016 · UI: просмотр PDF в лотосе (документы в `public/documents/`)
+
+**Что болит**: PDF уже лежат в репозитории и подключены в контент (`media_url`, `[[media:*-deck-pdf]]`, `subkind: text`), но **в интерфейсе не открываются** — клик по чипу в «Связях» или по `![[media:…]]` ведёт в Lightbox, который умеет только image / video / audio.
+
+**Текущее состояние (2026-05-31)**:
+- Файлы: `public/documents/posustoronniy-deck.pdf`, `public/documents/honors-skolkovo-presentation.pdf` (папка `public/documents/` пока untracked в git — добавить при коммите).
+- Регистр: `pos-deck-pdf`, `hon-deck-pdf` в `media.ts` (`subkind: text`, URL `.pdf`).
+- Ноды: `media-posustoronniy-deck`, `media-honors-presentation` — в body ссылка «Полный PDF» + галерея WebP-слайдов.
+- `getMediaType()` не распознаёт `.pdf` → fallback `'image'` → Lightbox пытается показать PDF как картинку (ошибка / «Signal Lost»).
+- `MediaType` в `types.ts` не включает `document` / `pdf`.
+
+**Желаемое поведение** (выбрать вариант при реализации):
+1. **Lightbox + `<iframe>` / `<embed>`** — PDF на весь экран внутри существующего оверлея (минимальный diff).
+2. **Отдельная панель DocumentViewer** — как TextPanel, с кнопкой «скачать» и fallback-ссылкой, если браузер не рендерит PDF.
+3. **Только внешняя ссылка** — чип открывает PDF в новой вкладке (`target="_blank"`), без встроенного просмотра (самый дешёвый UX, хуже для «tech noir» потока).
+
+**Затронутые файлы** (ориентир):
+- `src/utils/mediaHelpers.ts` — `getMediaType`: `.pdf` → `document` (или `pdf`).
+- `src/types.ts` — расширить `MediaType`.
+- `src/components/Lightbox.tsx` и/или `TextPanel.tsx` — ветка рендера PDF.
+- `ProvenancePanel.tsx` — для PDF-чипов: preview не как image; клик → viewer или новая вкладка.
+- Опционально: иконка FileText в чипах провенанса.
+
+**Узлы-пилоты**: `honors` + `media-honors-presentation`, `posustoronniy` + `media-posustoronniy-deck`.
+
+**Источник**: пользователь, 2026-05-31 (контент PDF загружен, просмотр в UI — отложен).
 
 ### DEBT-013 · Проект Шрёдингер — медиа и отдельный сайт
 

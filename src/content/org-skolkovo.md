@@ -20,6 +20,7 @@ subkind: venue
 Related engagements in the ODA.dream hub-registry:
 
 - [[event-portal-2025|Visioning competition win — Portal 2030–2050]] (2025.01.01)
+- [[honors|Neuro Honor Board]] — 1st place, ART × TECHNOLOGY competition (2026)
 
 ---RU---
 
@@ -28,3 +29,4 @@ Related engagements in the ODA.dream hub-registry:
 Связанные участия в реестре ODA.dream:
 
 - [[event-portal-2025|Победа «Видженинг» — Портал 2030–2050]] (2025.01.01)
+- [[honors|Нейродоска почёта]] — 1-е место, конкурс ART × TECHNOLOGY (2026)

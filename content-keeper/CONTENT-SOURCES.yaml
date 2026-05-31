@@ -1,0 +1,72 @@
+# Маппинг node id → исходники текстов и материалов.
+# Используется для:
+#   1. Отслеживания, откуда брался фактический материал для написания body.
+#   2. Будущей автообновлялки: если исходник обновился, перегенерировать draft.
+#
+# Format:
+#   <node-id>:
+#     sources:
+#       - path: <absolute path>
+#         type: project_folder | text | media | research | pitch
+#         priority: canonical | reference | archive
+#         added: YYYY-MM-DD
+#         notes: <optional>
+
+ancestors:
+  sources:
+    - path: D:/YandexDisk/_ODA2/События/26-05-19 Австрия
+      type: project_folder
+      priority: canonical
+      added: 2026-05-31
+      notes: |
+        Рабочая папка CultTech Lab 2026 Memory Track submission.
+        Канон смысла: 02_research/concepts/CANON.md (one-liner, метод, этика).
+        Полный текст: 02_research/concepts/v0.4 Памяти посвящается.md
+        Заявка EN: 01_archive/culttech_application_2026-04-04/proposals/Ancestors_in_the_Noise_proposal_CultTech_EN.md
+
+interference:
+  sources:
+    - path: D:/YandexDisk/_ODA2/Сайт/interference-site-kaluga-2026
+      type: project_folder
+      priority: canonical
+      added: 2026-05-31
+      notes: |
+        Канон текстов: src/data/content.tsx (описание, слои, программа, команда, FAQ).
+        Публичный архив: https://interference.odadream.art
+        Премьера: 2026-05-16 19:00, ИКЦ Калуга, XIV Циолковский фест.
+
+posustoronniy:
+  sources:
+    - path: D:/YandexDisk/_DALER ARTS/LN-200801 Contented/Модуль 6. Свет/Экспорт/Посюсторонний - Далер Арабов.pdf
+      type: media
+      priority: canonical
+      added: 2026-05-31
+      notes: |
+        5-slide deck (2008): title, 9-panel storyboard, concept/mood board, TouchDesigner tech layout, drum study.
+        Course: Contented LN-200801 Module 6 Light.
+        Published: public/documents/posustoronniy-deck.pdf
+
+sync-circle:
+  sources:
+    - path: https://dzen.ru/a/YFSXv_8BKDp8IHDb
+      type: text
+      priority: canonical
+      added: 2026-05-31
+      notes: |
+        Dzen article 2021-03-19. Images via dzen API; videos wRyzTwNqdqQ + FisxaQxfe8c.
+    - path: D:/Obsidian/Chudodeystvo/Проекты/Sync Circle/SyncCircle.md
+      type: text
+      priority: reference
+      added: 2026-05-31
+      notes: Historical card (MultiSync lineage, session params). Exclude pricing and legacy team names.
+
+honors:
+  sources:
+    - path: D:/YandexDisk/_ODA2/События/26-04-20 Сколково
+      type: project_folder
+      priority: canonical
+      added: 2026-05-31
+      notes: |
+        ART × TECHNOLOGY competition. Texts: texts/концепт_направление_6.md, презентация_художественное_описание.md.
+        Images: portfolio/media/. PDF: public/documents/honors-skolkovo-presentation.pdf.
+        1st place; architect co-design Anastasia Mitina. No pricing tables in site copy.

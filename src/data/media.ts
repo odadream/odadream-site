@@ -207,16 +207,165 @@ export const MEDIA: Record<string, MediaAsset> = {
     subject: ["schrodinger", "event-tsiolkovsky-2025", "media-schrodinger-photos"],
   },
 
-  // --- Interference of Realities (neuro-theater) ---
-  "intf-teaser": {
-    url: "https://dzen.ru/video/watch/intf-teaser-placeholder",
-    poster: "/images/content/interference_teaser.webp",
-    title: { en: "Interference · official teaser", ru: "Интерференция · официальный тизер" },
-    subkind: "video",
-    subject: ["interference", "event-tsiolkovsky-2026"],
-    mirrors: {
-      youtube: "https://youtube.com/watch?v=intf-teaser-placeholder",
-      vk: "https://vk.com/video/intf-teaser-placeholder",
+  // --- Ancestors in the Noise (CultTech 2026) ---
+  "ancestors-hero": {
+    url: "/images/content/works/ancestors-hero.webp",
+    poster: "/images/content/works/ancestors-hero-thumb.webp",
+    title: {
+      en: "Ancestors in the Noise — cover",
+      ru: "Предки в шуме — обложка",
     },
+    subkind: "photo",
+    subject: ["ancestors"],
+  },
+  "ancestors-sketch": {
+    url: "/images/content/works/ancestors-sketch.webp",
+    poster: "/images/content/works/ancestors-sketch-thumb.webp",
+    title: {
+      en: "Ancestors in the Noise — concept sketch",
+      ru: "Предки в шуме — концепт-эскиз",
+    },
+    subkind: "sketch",
+    subject: ["ancestors"],
+  },
+
+  // --- Interference of Realities (neuro-theater) ---
+  "intf-poster": {
+    url: "/images/content/works/interference-2026-poster.webp",
+    poster: "/images/content/works/interference-2026-poster-thumb.webp",
+    title: { en: "Interference — poster", ru: "Интерференция — афиша" },
+    subkind: "photo",
+    subject: ["interference", "event-tsiolkovsky-2026", "media-interference-poster"],
+  },
+  "intf-hero": {
+    url: "/images/content/events/interference-2026/interference-2026-01.webp",
+    title: {
+      en: "Interference of Realities 2026 — premiere",
+      ru: "Интерференция реальностей 2026 — премьера",
+    },
+    subject: ["interference", "event-tsiolkovsky-2026", "media-interference-photos"],
+  },
+  "intf-radio": {
+    url: "https://vk.com/wall-220048623_232",
+    poster: "/images/content/works/interference-2026-poster-thumb.webp",
+    title: {
+      en: "Interference · Nika FM interview",
+      ru: "Интерференция · интервью «Ника FM»",
+    },
+    subkind: "audio",
+    subject: ["interference", "event-tsiolkovsky-2026", "media-interference-radio-nika"],
+    mirrors: {
+      vk: "https://vk.com/wall-220048623_232",
+    },
+  },
+
+  // --- Posustoronniy (immersive shadow installation) ---
+  "pos-deck-pdf": {
+    url: "/documents/posustoronniy-deck.pdf",
+    poster: "/images/content/works/posustoronniy/posustoronniy-cover-thumb.webp",
+    title: {
+      en: "Posustoronniy — presentation PDF (2008)",
+      ru: "Потусторонний — презентация PDF (2008)",
+    },
+    subkind: "text",
+    subject: ["posustoronniy", "media-posustoronniy-deck"],
+  },
+  "pos-hero": {
+    url: "/images/content/works/posustoronniy/posustoronniy-cover.webp",
+    poster: "/images/content/works/posustoronniy/posustoronniy-cover-thumb.webp",
+    title: { en: "Posustoronniy — cover", ru: "Потусторонний — обложка" },
+    subkind: "photo",
+    subject: ["posustoronniy", "media-posustoronniy-deck"],
+  },
+  "pos-storyboard": {
+    url: "/images/content/works/posustoronniy/posustoronniy-storyboard.webp",
+    title: { en: "Posustoronniy — storyboard", ru: "Потусторонний — сториборд" },
+    subkind: "sketch",
+    subject: ["posustoronniy", "media-posustoronniy-deck"],
+  },
+  "pos-concept": {
+    url: "/images/content/works/posustoronniy/posustoronniy-concept.webp",
+    title: { en: "Posustoronniy — concept board", ru: "Потусторонний — концепт-борд" },
+    subkind: "photo",
+    subject: ["posustoronniy", "media-posustoronniy-deck"],
+  },
+  "pos-tech": {
+    url: "/images/content/works/posustoronniy/posustoronniy-tech.webp",
+    title: { en: "Posustoronniy — technical layout", ru: "Потусторонний — техническая схема" },
+    subkind: "sketch",
+    subject: ["posustoronniy", "media-posustoronniy-deck"],
+  },
+
+  // --- Sync Circle (group neuro-audio installation) ---
+  "sync-video": {
+    url: "https://www.youtube.com/watch?v=wRyzTwNqdqQ",
+    poster: "/images/content/works/sync-circle/sync-circle-hero-thumb.webp",
+    title: { en: "Sync Circle · installation demo", ru: "Круг синхронизации · демо инсталляции" },
+    subkind: "video",
+    subject: ["sync-circle", "multisync", "media-sync-circle-video"],
+    mirrors: {
+      youtube: "https://www.youtube.com/watch?v=wRyzTwNqdqQ",
+      dzen: "https://dzen.ru/a/YFSXv_8BKDp8IHDb",
+    },
+  },
+  "sync-video-lines": {
+    url: "https://www.youtube.com/watch?v=FisxaQxfe8c",
+    poster: "/images/content/works/sync-circle/sync-circle-mandala.webp",
+    title: { en: "Sync Circle · synchrony lines", ru: "Круг синхронизации · линии синхронности" },
+    subkind: "video",
+    subject: ["sync-circle", "media-sync-circle-video"],
+    mirrors: {
+      youtube: "https://www.youtube.com/watch?v=FisxaQxfe8c",
+    },
+  },
+  "sync-hero": {
+    url: "/images/content/works/sync-circle/sync-circle-hero.webp",
+    poster: "/images/content/works/sync-circle/sync-circle-hero-thumb.webp",
+    title: { en: "Sync Circle — overview", ru: "Круг синхронизации — обзор" },
+    subkind: "photo",
+    subject: ["sync-circle", "media-sync-circle-gallery"],
+  },
+  "sync-mandala": {
+    url: "/images/content/works/sync-circle/sync-circle-mandala.webp",
+    title: { en: "Sync Circle — mandala-neurogram", ru: "Круг синхронизации — мандала-нейрограмма" },
+    subkind: "photo",
+    subject: ["sync-circle", "media-sync-circle-gallery"],
+  },
+  "sync-mvc": {
+    url: "/images/content/works/sync-circle/sync-circle-mvc.webp",
+    title: { en: "Sync Circle — MVC diagram", ru: "Круг синхронизации — схема MVC" },
+    subkind: "sketch",
+    subject: ["sync-circle", "media-sync-circle-gallery"],
+  },
+
+  // --- Neuro Honor Board (Skolkovo ART × TECHNOLOGY) ---
+  "hon-deck-pdf": {
+    url: "/documents/honors-skolkovo-presentation.pdf",
+    poster: "/images/content/works/honors-skolkovo/honors-skolkovo-cover-thumb.webp",
+    title: {
+      en: "Neuro Honor Board — competition PDF",
+      ru: "Нейродоска почёта — презентация конкурса PDF",
+    },
+    subkind: "text",
+    subject: ["honors", "org-skolkovo", "media-honors-presentation", "proof-award-skolkovo-arttech"],
+  },
+  "hon-hero": {
+    url: "/images/content/works/honors-skolkovo/honors-skolkovo-cover.webp",
+    poster: "/images/content/works/honors-skolkovo/honors-skolkovo-cover-thumb.webp",
+    title: { en: "Neuro Honor Board — cover", ru: "Нейродоска почёта — обложка" },
+    subkind: "photo",
+    subject: ["honors", "media-honors-presentation"],
+  },
+  "hon-interior": {
+    url: "/images/content/works/honors-skolkovo/honors-skolkovo-interior.webp",
+    title: { en: "Neuro Honor Board — pavilion interior", ru: "Нейродоска почёта — интерьер павильона" },
+    subkind: "photo",
+    subject: ["honors", "media-honors-presentation"],
+  },
+  "hon-mandala": {
+    url: "/images/content/works/honors-skolkovo/honors-skolkovo-mandala.webp",
+    title: { en: "Neuro Honor Board — neuromandala", ru: "Нейродоска почёта — нейромандала" },
+    subkind: "photo",
+    subject: ["honors", "neuromandala", "media-honors-presentation"],
   },
 };
