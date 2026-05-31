@@ -6,63 +6,68 @@ title_ru: Мама и Малыш
 type: content
 tags:
   - love
-  - statue
-order: 0
-date: 2026.02.06
+  - pendant
+order: 3
+date: 2022.09.01
 visible: true
 status: concept
 kind: product
 subkind: art
+image: /images/content/materia/mom-baby/mom-baby-cover-thumb.webp
+presented_at: []
+proofs: []
+media:
+  - media-mom-baby-docs
 ---
 
-## MOM AND BABY
+## Mom & Baby
 
-**The first bond as a data artifact**
+**“Sasha pendant” line · first bond as a wearable trace**
 
-`Mom & Baby` is an object-format concept in which the early mother-child connection is translated into a visual/plastic form.
+`Mom & Baby` translates early **mother–child co-regulation** into a plastic and metal keepsake — the studio’s gentle counterpart to large public pieces like [[two-waves|Two Waves]]. Archive generations (Borzih, Faya, Ayova, and others) are **family-scale fabrications** of the same idea, not separate catalogue brands.
 
 ## Concept
 
-The project explores the idea that care, rhythm, and bodily co-regulation can be represented through data-informed artistic language.
+Care, rhythm, and shared body signals become a **data-informed ornament** — symbolic, not clinical. The object holds a moment of anticipation or arrival without reducing parenthood to metrics.
 
-Instead of medical diagnostics, the focus is symbolic:  
-to preserve a meaningful life moment as a personal artifact.
+## Method
+
+- soft facilitation + context interview;
+- signal capture where appropriate (e.g. CTG / session traces in commissioned cases);
+- generative pendant (“Sasha” lineage) with brochure and QR story layers in the archive (`LV2 Mom and Baby`).
 
 ## Format
 
-- guided recording session with soft facilitation;
-- interpretation layer (state, rhythm, memory context);
-- final object/prototype in physical form.
+- private family archive or gift;
+- exhibition prototype in art/science settings.
 
-## Use cases
+## Track
 
-- private commission for family archive;
-- meaningful gift connected to motherhood;
-- exhibition prototype in art/science context.
+**Concept + fulfilled family commissions** documented under `LV2 Mom and Baby`. Gallery: [[media-mom-baby-docs|renders & brochure]].
 
 ---RU---
 
-## МАМА И МАЛЫШ
+## Мама и Малыш
 
-**Первая связь как артефакт данных**
+**Линия «кулон Саши» · первая связь как носимый след**
 
-`Мама и Малыш` — объектный концепт, в котором ранняя связь матери и ребёнка переводится в визуально-пластическую форму.
+`Мама и Малыш` переводит раннюю **сонастройку матери и ребёнка** в пластический и металлический артефакт — бережный контрапункт к масштабным работам вроде [[two-waves|Две волны]]. Поколения в архиве (Борзих, Фая, Ayova и др.) — **семейные экземпляры** одной идеи, не отдельные бренды каталога.
 
-## Идея
+## Концепция
 
-Проект исследует, как забота, ритм и телесная сонастройка могут быть выражены языком data-informed искусства.
+Забота, ритм и общие телесные сигналы становятся **украшением на языке данных** — символически, не клинически. Объект держит момент ожидания или прихода, не сводя материнство к метрикам.
 
-Это не медицинская диагностика, а символическая работа с памятью:  
-сохранить значимый жизненный момент в виде персонального артефакта.
+## Метод
 
-## Формат работы
+- мягкое сопровождение + контекстная беседа;
+- фиксация сигнала где уместно (КТГ / следы сессии в частных кейсах);
+- генеративный кулон (линия Sasha) с буклетом и QR в архиве (`LV2 Mom and Baby`).
 
-- бережная сессия фиксации сигнала и контекста;
-- интерпретационный слой (состояние, ритм, история момента);
-- финальный объект/прототип в физическом материале.
+## Формат
 
-## Где применимо
+- семейный архив или подарок;
+- выставочный прототип в art/science.
 
-- частный семейный заказ;
-- значимый подарок, связанный с материнством;
-- выставочный прототип в art/science-контексте.
+## Трек
+
+**Концепт + семейные работы** в `LV2 Mom and Baby`. Галерея: [[media-mom-baby-docs|рендеры и буклет]].

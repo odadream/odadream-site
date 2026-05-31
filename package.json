@@ -15,6 +15,7 @@
     "registry:sync": "node scripts/sync-registry.js",
     "registry:import-obsidian": "node scripts/import-from-obsidian.js",
     "photos:add": "node scripts/add-event-photo.js",
+    "pack:materia": "node scripts/pack-materia-assets.js",
     "image:pack": "node scripts/pack-image.js",
     "deploy:check": "powershell -ExecutionPolicy Bypass -File scripts/check-deployment.ps1",
     "migrate:dry": "node scripts/migrate.js",

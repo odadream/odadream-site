@@ -53,8 +53,9 @@ hub-works ✅
 │   ├── sync-circle ✅             SyncCircle
 │   └── another-people 🆕          Другие люди / Другие
 └── hub-materia ✏️         Материя (renamed from hub-objects, aliases: [hub-objects])
+    ├── oda-rings 🆕               Кольца ODA.dream
     ├── mom-baby ✅                Мать и дитя
-    ├── two-waves 🆕               Две волны
+    ├── two-waves 🆕               Две волны (кулон · ~2000 медитация)
     ├── emomandala ✅              Эмо-мандала
     ├── voronka 🆕                 Воронка
     ├── happiness 🆕               Счастье

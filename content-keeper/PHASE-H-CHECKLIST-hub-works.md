@@ -13,11 +13,11 @@
 > 6. После правок `.md` в `src/content/` — перезапустите команду, чтобы увидеть актуальный прогресс.
 > 7. Колонка **Page** — wikilink Obsidian (`[[src/content/…]]`), клик открывает карточку в vault.
 
-Generated: 2026-05-31T17:38:55.251Z
+Generated: 2026-05-31T22:45:01.464Z
 
-Scope: 33 nodes from `hub-works` subtree.
+Scope: 48 nodes from `hub-works` subtree.
 
-**Summary**: 🟢 done: **7** · 🟡 partial: **18** · 🔴 stub: **8**
+**Summary**: 🟢 done: **8** · 🟡 partial: **32** · 🔴 stub: **8**
 
 Status:
 - 🟢 — все обязательные поля + body ≥ 60 слов EN и RU
@@ -39,19 +39,34 @@ Status:
 | 🟡 |       [[src/content/media-schrodinger-photos]] | media | Проект Шрёдингер 2025 — фоторепортаж | 28 | 22 | — |
 | 🟡 |       [[src/content/media-schrodinger-poster]] | media | Проект Шрёдингер — афиша | 23 | 21 | — |
 | 🟡 |       [[src/content/media-schrodinger-teaser]] | media | Проект Шрёдингер — тизер | 19 | 17 | — |
-| 🔴 |   [[src/content/hub-installations]] | hub | Инсталляции | 2 | 2 | — |
-| 🔴 |     [[src/content/another-people]] | product | Другие люди | 10 | 8 | `presented_at`, `media` |
-| 🟡 |     [[src/content/dashran]] | product | Момент Даршана | 106 | 92 | `presented_at`, `media` |
-| 🔴 |     [[src/content/honors]] | product | Нейродоска почёта (Сколково) | 12 | 9 | `presented_at`, `media` |
-| 🟡 |     [[src/content/posustoronniy]] | product | Потусторонний | 175 | 169 | `presented_at`, `media` |
-| 🟡 |     [[src/content/sync-circle]] | product | Круг Синхронизации | 237 | 198 | `presented_at`, `media` |
-| 🟢 |   [[src/content/hub-materia]] | hub | Объекты | 81 | 79 | — |
-| 🟡 |     [[src/content/emomandala]] | product | Эмомандала | 83 | 78 | `presented_at`, `media` |
-| 🔴 |     [[src/content/happiness]] | product | Счастье | 10 | 7 | `presented_at`, `media` |
-| 🔴 |     [[src/content/lighthouse]] | product | Маяк | 10 | 7 | `presented_at`, `media` |
-| 🟡 |     [[src/content/mom-baby]] | product | Мама и Малыш | 101 | 88 | `presented_at`, `media` |
-| 🔴 |     [[src/content/two-waves]] | product | Две волны | 11 | 8 | `presented_at`, `media` |
-| 🔴 |     [[src/content/voronka]] | product | Воронка | 10 | 7 | `presented_at`, `media` |
+| 🟢 |   [[src/content/hub-installations]] | hub | Инсталляции | 202 | 167 | — |
+| 🟡 |     [[src/content/another-people]] | product | Другие люди | 182 | 156 | `presented_at` |
+| 🟡 |       [[src/content/media-another-people-docs]] | media | Другие люди — документация проекта | 31 | 32 | — |
+| 🟡 |     [[src/content/dashran]] | product | Момент Даршана | 224 | 138 | `presented_at` |
+| 🟡 |       [[src/content/media-dashran-docs]] | media | Момент Даршана — документация проекта | 36 | 35 | — |
+| 🟡 |       [[src/content/media-dashran-video]] | media | Момент Даршана — видео-презентация | 22 | 20 | — |
+| 🟡 |     [[src/content/honors]] | product | Нейродоска почёта (Сколково) | 213 | 183 | `presented_at` |
+| 🟡 |       [[src/content/media-honors-presentation]] | media | Нейродоска почёта — презентация конкурса | 25 | 22 | — |
+| 🟡 |     [[src/content/potustoronniy]] | product | Потусторонний | 232 | 196 | `presented_at` |
+| 🟡 |       [[src/content/media-potustoronniy-deck]] | media | Потусторонний — презентация проекта | 38 | 31 | — |
+| 🟡 |     [[src/content/sync-circle]] | product | Круг синхронизации | 168 | 136 | `presented_at` |
+| 🟡 |       [[src/content/media-sync-circle-gallery]] | media | Круг синхронизации — схемы и визуализации | 18 | 20 | — |
+| 🟡 |       [[src/content/media-sync-circle-video]] | media | Круг синхронизации — демо-видео | 35 | 31 | — |
+| 🟢 |   [[src/content/hub-materia]] | hub | Материя | 263 | 204 | — |
+| 🟡 |     [[src/content/emomandala]] | product | Эмомандала | 107 | 77 | `presented_at` |
+| 🔴 |       [[src/content/media-emomandala-docs]] | media | Эмомандала — визуалы | 2 | 2 | — |
+| 🟡 |     [[src/content/happiness]] | product | Счастье | 148 | 113 | `presented_at` |
+| 🔴 |       [[src/content/media-happiness-docs]] | media | Счастье — визуалы | 2 | 2 | — |
+| 🟡 |     [[src/content/lighthouse]] | product | Маяк | 174 | 135 | `presented_at` |
+| 🔴 |       [[src/content/media-lighthouse-docs]] | media | Маяк — визуалы | 2 | 2 | — |
+| 🟡 |     [[src/content/mom-baby]] | product | Мама и Малыш | 127 | 111 | `presented_at` |
+| 🔴 |       [[src/content/media-mom-baby-docs]] | media | Мама и Малыш — визуалы | 3 | 4 | — |
+| 🟡 |     [[src/content/oda-rings]] | product | Кольца ODA.dream | 212 | 162 | `presented_at` |
+| 🔴 |       [[src/content/media-oda-rings-docs]] | media | Кольца ODA.dream — визуалы | 4 | 4 | — |
+| 🟡 |     [[src/content/two-waves]] | product | Две волны | 242 | 196 | `presented_at` |
+| 🔴 |       [[src/content/media-two-waves-docs]] | media | Две волны — визуалы | 3 | 3 | — |
+| 🟡 |     [[src/content/voronka]] | product | Воронка | 160 | 127 | `presented_at` |
+| 🔴 |       [[src/content/media-voronka-docs]] | media | Воронка — визуалы | 2 | 2 | — |
 | 🔴 |   [[src/content/hub-performances]] | hub | Перформансы | 2 | 2 | — |
 | 🟡 |     [[src/content/cultural-neuro-code]] | product | Культурный нейрокод | 161 | 142 | `presented_at`, `media` |
 | 🟡 |     [[src/content/gong]] | product | Гонг Театр | 78 | 71 | `presented_at`, `media` |

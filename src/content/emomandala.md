@@ -6,53 +6,59 @@ title_ru: Эмомандала
 type: content
 tags:
   - mandala
-  - 3d
-order: 2
-date: 2026.02.06
+  - diary
+  - generative
+order: 5
+date: 2022.11.10
 visible: true
 status: rnd
 kind: product
 subkind: art
+image: /images/content/materia/emomandala/emomandala-cover-thumb.webp
+presented_at: []
+proofs: []
+media:
+  - media-emomandala-docs
 ---
 
-## EMOMANDALA
+## Emomandala
 
-**Crystallized emotions**
+**Emotional diary · generative art · parallel to EEG Materia**
 
-`Emomandala` is an exploratory object line where collective emotional traces are interpreted as sculptural and visual forms.
+`Emomandala` is **not** the same pipeline as neuromandala jewellery ([[oda-rings|ODA.dream Rings]], [[voronka|Funnel]], [[two-waves|Two Waves]]). The archive README frames it as an **emotional mandala** — diary of feelings, generative studies, and NFT experiments (`LV2 Emo-mandala`: p5 sketches, STL tests, Instagram carousels).
 
 ## Research frame
 
-The project asks how distributed affect (district, venue, or event-level mood) can be translated into material composition without reducing people to metrics.
+How can **self-reported and sensed emotion** become geometry without pretending it is a raw EEG portrait? The line probes colour, wheel-of-emotions references, and printable mandala kits for discussion.
 
-## Method (prototype level)
+## Method (prototype)
 
-- collect anonymized aggregate signals from group contexts;
-- map dynamics into generative geometry;
-- produce physical/digital object studies for exhibition and discussion.
+- capture emotional checkpoints over time;
+- map to generative rules (parametric mandala, 3D print tests);
+- publish process boards — distinct from collective EEG souvenirs like [[lighthouse|Lighthouse]].
 
-## Why this matters
+## Track
 
-`Emomandala` expands ODA.dream from personal biofeedback artifacts toward collective cultural cartography of emotions.
+**R&D** — active design folder with exports from Nov 2022. Gallery: [[media-emomandala-docs|mandala studies]].
 
 ---RU---
 
-## ЭМОМАНДАЛА
+## Эмомандала
 
-**Кристаллизованные эмоции**
+**Дневник эмоций · генеративное искусство · параллель EEG-Материи**
 
-`Эмомандала` — исследовательская объектная линия, в которой коллективные эмоциональные следы интерпретируются как скульптурные и визуальные формы.
+`Эмомандала` — **не** тот же конвейер, что нейро-украшения ([[oda-rings|Кольца ODA.dream]], [[voronka|Воронка]], [[two-waves|Две волны]]). README архива: **эмоциональная мандала** — дневник чувств, генеративные этюды, NFT-эксперименты (`LV2 Emo-mandala`: p5, STL, карусели Instagram).
 
 ## Исследовательская рамка
 
-Проект задаёт вопрос: как распределённое аффективное состояние (район, площадка, событие) переводить в материальную композицию, не сводя человека к «метрике».
+Как **самонаблюдаемое и ощущаемое** становится геометрией — без выдачи за сырой портрет ЭЭГ? Линия пробует цвет, колесо эмоций, печатные наборы для дискуссии.
 
-## Метод (уровень прототипа)
+## Метод (прототип)
 
-- сбор обезличенных агрегированных сигналов из группового контекста;
-- перевод динамики в генеративную геометрию;
-- выпуск физических/цифровых объектных этюдов для выставочного и дискуссионного применения.
+- отметки эмоций во времени;
+- генеративные правила (параметрическая мандала, тесты 3D-печати);
+- процессные доски — отдельно от EEG-сувениров вроде [[lighthouse|Маяка]].
 
-## Зачем это важно
+## Трек
 
-`Эмомандала` расширяет практику ODA.dream: от персональных био-артефактов к коллективной культурной картографии эмоций.
+**R&D** — живая папка дизайна, экспорты ноября 2022. Галерея: [[media-emomandala-docs|этюды мандал]].
