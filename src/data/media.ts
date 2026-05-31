@@ -259,41 +259,41 @@ export const MEDIA: Record<string, MediaAsset> = {
     },
   },
 
-  // --- Posustoronniy (immersive shadow installation) ---
-  "pos-deck-pdf": {
-    url: "/documents/posustoronniy-deck.pdf",
-    poster: "/images/content/works/posustoronniy/posustoronniy-cover-thumb.webp",
+  // --- Beyond / Потусторонний (immersive shadow installation; id potustoronniy) ---
+  "pot-deck-pdf": {
+    url: "/documents/potustoronniy-deck.pdf",
+    poster: "/images/content/works/potustoronniy/potustoronniy-cover-thumb.webp",
     title: {
-      en: "Posustoronniy — presentation PDF (2008)",
+      en: "Beyond — presentation PDF (2008)",
       ru: "Потусторонний — презентация PDF (2008)",
     },
     subkind: "text",
-    subject: ["posustoronniy", "media-posustoronniy-deck"],
+    subject: ["potustoronniy", "media-potustoronniy-deck"],
   },
-  "pos-hero": {
-    url: "/images/content/works/posustoronniy/posustoronniy-cover.webp",
-    poster: "/images/content/works/posustoronniy/posustoronniy-cover-thumb.webp",
-    title: { en: "Posustoronniy — cover", ru: "Потусторонний — обложка" },
+  "pot-hero": {
+    url: "/images/content/works/potustoronniy/potustoronniy-cover.webp",
+    poster: "/images/content/works/potustoronniy/potustoronniy-cover-thumb.webp",
+    title: { en: "Beyond — cover", ru: "Потусторонний — обложка" },
     subkind: "photo",
-    subject: ["posustoronniy", "media-posustoronniy-deck"],
+    subject: ["potustoronniy", "media-potustoronniy-deck"],
   },
-  "pos-storyboard": {
-    url: "/images/content/works/posustoronniy/posustoronniy-storyboard.webp",
-    title: { en: "Posustoronniy — storyboard", ru: "Потусторонний — сториборд" },
+  "pot-storyboard": {
+    url: "/images/content/works/potustoronniy/potustoronniy-storyboard.webp",
+    title: { en: "Beyond — storyboard", ru: "Потусторонний — сториборд" },
     subkind: "sketch",
-    subject: ["posustoronniy", "media-posustoronniy-deck"],
+    subject: ["potustoronniy", "media-potustoronniy-deck"],
   },
-  "pos-concept": {
-    url: "/images/content/works/posustoronniy/posustoronniy-concept.webp",
-    title: { en: "Posustoronniy — concept board", ru: "Потусторонний — концепт-борд" },
+  "pot-concept": {
+    url: "/images/content/works/potustoronniy/potustoronniy-concept.webp",
+    title: { en: "Beyond — concept board", ru: "Потусторонний — концепт-борд" },
     subkind: "photo",
-    subject: ["posustoronniy", "media-posustoronniy-deck"],
+    subject: ["potustoronniy", "media-potustoronniy-deck"],
   },
-  "pos-tech": {
-    url: "/images/content/works/posustoronniy/posustoronniy-tech.webp",
-    title: { en: "Posustoronniy — technical layout", ru: "Потусторонний — техническая схема" },
+  "pot-tech": {
+    url: "/images/content/works/potustoronniy/potustoronniy-tech.webp",
+    title: { en: "Beyond — technical layout", ru: "Потусторонний — техническая схема" },
     subkind: "sketch",
-    subject: ["posustoronniy", "media-posustoronniy-deck"],
+    subject: ["potustoronniy", "media-potustoronniy-deck"],
   },
 
   // --- Sync Circle (group neuro-audio installation) ---

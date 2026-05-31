@@ -54,7 +54,7 @@ const PARENT_MOVES = {
   gong:                    "hub-performances",
   // Работы → Инсталляции
   dashran:        "hub-installations",
-  posustoronniy:  "hub-installations",
+  potustoronniy:  "hub-installations",
   "sync-circle":  "hub-installations",
   // Работы → Материя (после rename hub-objects → hub-materia)
   "mom-baby":  "hub-materia",
