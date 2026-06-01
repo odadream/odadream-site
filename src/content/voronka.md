@@ -7,9 +7,11 @@ type: content
 tags:
   - jewellery
   - pendant
+  - earrings
   - vortex
+  - parametric
 order: 2
-date: 2023.04.01
+date: 2023.01.30
 visible: true
 status: production
 kind: product
@@ -23,46 +25,58 @@ media:
 
 ## Funnel (Vortex)
 
-**Catalogue pendant · diamond frame · neuromandala rhythm lines**
+**Private parametric set · pendant + earrings · flat mandala lifted into volume**
 
-**Voronka** (*Vortex* in the studio catalogue) is a **generative jewellery design**: a strict **diamond silhouette** balances the fluid trace of brain rhythms translated into metal. The funnel shape gives **visual depth** to the neuromandala — wide intake, focused waist — without resorting to marketing metaphors.
+**Voronka** (*Vortex* in the studio catalogue) began as a **single private commission**: take a **flat neuromandala** — concentric rhythm bands (θ, α, β, γ) — and make it **truly three-dimensional**. The entire pipeline was built **parametrically in Grasshopper for Rhinoceros**: not sculpted by hand, but grown from the data topology.
 
 ## Concept
 
-From the product overview: silver 925 / nickel silver, rhodium, cold enamel; typical footprint **34×34×6 mm**, ~6.5–9 g. Rhythm bands (β, α, θ, γ) are readable in the composition as both ornament and legend.
+The design challenge was depth without betraying the mandala’s logic. The solution is a **diamond frame** holding a **stepped funnel**: four nested organic rings, each tier a rhythm layer. **Cold enamel** fills the grooves between walls — one colour field per band. A matching **earring pair** scales the form down and **splits it in half**, so the section view exposes the same inner strata as the exploded CAD diagram.
 
-Individual pieces are cut from **recorded sessions**; one archived fabrication series includes a **private set** (funnel + companion pendants) after a neuro-sync collaboration — referenced only as a studio case, not as the product name.
+Two artefacts left the studio: **pendant** and **earrings** — one narrative in two scales.
+
+## The model that waited
+
+During layout, the mathematics **refused to close**: intersections and collisions persisted while the commission was emotionally unresolved. On the day the client made a **decisive life choice**, the same Grasshopper graph suddenly **assembled cleanly** — a collision-free solid in one pass. The team treats that coincidence as part of the work’s biography: parametric jewellery as co-regulation between human decision and geometric constraint.
 
 ## Method
 
-- live neuromandala → resource state → capture peak → **algorithmic surface**;
-- rhombus + flowing polylines; fabrication constraints for wall thickness and casting;
-- optional paired pendants on the same data palette.
+- source mandala frame from the client’s **“dream”** session recording;
+- loft flat rings into volumetric tiers in Grasshopper → export to fabrication;
+- **four physical layers** on the pendant, enamel per rhythm;
+- earrings: halved mini-funnel on chain — interior structure as jewellery;
+- silver 925, rhodium, cold enamel (studio archive batch ~2022–2023).
 
 ## Track
 
-**Catalogue line + custom instances** in the studio archive. Visuals: [[media-voronka-docs|renders & fabrication]].
+**Commissioned set** that became the reference **Vortex** silhouette in later product sheets (~34×34×6 mm in catalogue notes). Contrasts with mass-field pieces like [[fourth-dimension|Fourth Dimension]] and intimate origin [[oda-rings|ODA.dream Rings]]. Visuals: [[media-voronka-docs|source mandala · CAD · product photos]].
 
 ---RU---
 
 ## Воронка (Vortex)
 
-**Кулон из каталога · ромб · линии ритмов нейромандалы**
+**Частный параметрический комплект · кулон + серьги · плоская мандала, поднятая в объём**
 
-**Воронка** (в каталоге студии *Vortex*) — **генеративный дизайн украшения**: строгий **ромб** уравновешивает текучий след ритмов мозга в металле. Форма воронки даёт **глубину** нейромандале — широкий вход, узкое «горло» — без метафор «воронки продаж».
+**Воронка** (в каталоге студии *Vortex*) началась как **единичный частный заказ**: взять **плоскую нейромандалу** — концентрические полосы ритмов (θ, α, β, γ) — и сделать её **по-настоящему объёмной**. Весь конвейер собран **параметрически в Grasshopper для Rhinoceros**: не лепка, а рост из топологии данных.
 
 ## Концепция
 
-Из обзора продуктов: серебро 925 / нейзильбер, родий, холодная эмаль; ориентир **34×34×6 мм**, ~6,5–9 г. Полосы ритмов (β, α, θ, γ) читаются и как орнамент, и как легенда.
+Задача — глубина без потери логики мандалы. Решение — **ромбовая рамка** и **ступенчатая воронка**: четыре вложенных органических кольца, каждый ярус — слой ритма. **Холодная эмаль** заполняет канавки между стенками — своё поле цвета на полосу. **Пара серёг** уменьшает форму и **делит пополам**, чтобы в разрезе были видны те же внутренние ярусы, что на взрыв-схеме CAD.
 
-Экземпляры режутся из **записанных сессий**; в архиве есть серия **частного изделия** (воронка + подвески) после нейро-синхронизации — только как кейс студии, не как имя продукта.
+Два артефакта: **кулон** и **серьги** — одна история в двух масштабах.
+
+## Модель, которая ждала
+
+На этапе раскладки математика **не сходилась**: пересечения и коллизии, пока заказ оставался эмоционально незакрытым. В день, когда клиентка сделала **важный жизненный выбор**, тот же граф Grasshopper **собрался чисто** — твёрдое тело без коллизий за один проход. Команда считает это частью биографии работы: параметрическое украшение как сонастройка человеческого решения и геометрического ограничения.
 
 ## Метод
 
-- нейромандала в реальном времени → ресурс → пик → **алгоритмическая поверхность**;
-- ромб + текучие линии; ограничения литья и толщины стенки;
-- опционально парные подвески на той же палитре данных.
+- исходный кадр мандалы из сессии **«Мечта»**;
+- лофт плоских колец в объёмные ярусы в Grasshopper → производство;
+- **четыре физических слоя** на кулоне, эмаль по ритму;
+- серьги: уменьшенная воронка пополам на цепочке — внутренняя структура как украшение;
+- серебро 925, родий, холодная эмаль (партия в архиве ~2022–2023).
 
 ## Трек
 
-**Каталожная линия + индивидуальные экземпляры** в архиве. Визуалы: [[media-voronka-docs|рендеры и производство]].
+**Заказной комплект**, ставший эталонным силуэтом **Vortex** в последующих обзорах (~34×34×6 мм в каталожных пометках). Контраст с массовым полем [[fourth-dimension|4-е измерение]] и камерным истоком [[oda-rings|Кольца ODA.dream]]. Визуалы: [[media-voronka-docs|исходная мандала · CAD · фото изделий]].

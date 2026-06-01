@@ -18,6 +18,7 @@
     "pack:materia": "node scripts/pack-materia-assets.js",
     "pack:oda-rings": "node scripts/pack-oda-rings-assets.js",
     "pack:fourth-dimension": "node scripts/pack-fourth-dimension-assets.js",
+    "pack:voronka": "node scripts/pack-voronka-assets.js",
     "image:pack": "node scripts/pack-image.js",
     "deploy:check": "powershell -ExecutionPolicy Bypass -File scripts/check-deployment.ps1",
     "migrate:dry": "node scripts/migrate.js",

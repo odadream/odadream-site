@@ -607,19 +607,43 @@ export const MEDIA: Record<string, MediaAsset> = {
   "voronka-cover": {
     url: "/images/content/materia/voronka/voronka-cover.webp",
     poster: "/images/content/materia/voronka/voronka-cover-thumb.webp",
-    title: { en: "Funnel (Vortex) pendant", ru: "Кулон Воронка (Vortex)" },
+    title: { en: "Funnel set · pendant and earrings", ru: "Воронка · кулон и серьги" },
     subkind: "photo",
     subject: ["voronka", "media-voronka-docs"],
   },
-  "voronka-1": {
-    url: "/images/content/materia/voronka/voronka-1.webp",
-    title: { en: "Funnel — rhythm lines", ru: "Воронка — линии ритмов" },
+  "voronka-neuromandala": {
+    url: "/images/content/materia/voronka/neuromandala-source.webp",
+    title: { en: "Source neuromandala · dream session", ru: "Исходная нейромандала · сессия «Мечта»" },
     subkind: "photo",
     subject: ["voronka", "media-voronka-docs"],
   },
-  "voronka-2": {
-    url: "/images/content/materia/voronka/voronka-2.webp",
-    title: { en: "Funnel — alternate view", ru: "Воронка — другой ракурс" },
+  "voronka-render-hero": {
+    url: "/images/content/materia/voronka/render-hero.webp",
+    title: { en: "CAD render · stepped funnel", ru: "Рендер · ступенчатая воронка" },
+    subkind: "photo",
+    subject: ["voronka", "media-voronka-docs"],
+  },
+  "voronka-render-exploded": {
+    url: "/images/content/materia/voronka/render-exploded.webp",
+    title: { en: "Exploded view · four layers", ru: "Взрыв-схема · четыре слоя" },
+    subkind: "photo",
+    subject: ["voronka", "media-voronka-docs"],
+  },
+  "voronka-render-section": {
+    url: "/images/content/materia/voronka/render-section.webp",
+    title: { en: "Section · halved geometry", ru: "Разрез · половинка воронки" },
+    subkind: "photo",
+    subject: ["voronka", "media-voronka-docs"],
+  },
+  "voronka-photo-set": {
+    url: "/images/content/materia/voronka/photo-set.webp",
+    title: { en: "Product photo · full set", ru: "Фото · комплект" },
+    subkind: "photo",
+    subject: ["voronka", "media-voronka-docs"],
+  },
+  "voronka-photo-detail": {
+    url: "/images/content/materia/voronka/photo-detail.webp",
+    title: { en: "Detail · enamel grooves", ru: "Деталь · эмаль в канавках" },
     subkind: "photo",
     subject: ["voronka", "media-voronka-docs"],
   },

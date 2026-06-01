@@ -22,14 +22,6 @@ const PACKS = [
     ],
   },
   {
-    id: "voronka",
-    hero: "LV2 Neuro-mandala/Gen 2 - Grishina/Export/Render1.png",
-    gallery: [
-      "LV2 Neuro-mandala/Gen 2 - Grishina/Export/Render3.png",
-      "LV2 Neuro-mandala/Gen 2 - Grishina/Export/Render2.png",
-    ],
-  },
-  {
     id: "lighthouse",
     hero: "LV3 Маяк/Export/03_Shaped2.png",
     gallery: [
