@@ -41,7 +41,7 @@ The TouchDesigner **Tower** studies in the archive (`Blended`, `Shaped` exports)
 
 ## Track
 
-**R&D / catalogue object** — fabrication masters under `LV3 Маяк`. Not mixed with the [[two-waves|Two Waves]] pendant or [[oda-rings|ODA.dream Rings]]. Gallery: [[media-lighthouse-docs|shapes & blends]].
+**R&D / catalogue object** — fabrication masters under `LV3 Маяк`. Not mixed with the [[fourth-dimension|Fourth Dimension]] pendant or [[oda-rings|ODA.dream Rings]]. Gallery: [[media-lighthouse-docs|shapes & blends]].
 
 ---RU---
 
@@ -65,4 +65,4 @@ The TouchDesigner **Tower** studies in the archive (`Blended`, `Shaped` exports)
 
 ## Трек
 
-**R&D / каталожный объект** — мастера в `LV3 Маяк`. Не смешивать с кулоном [[two-waves|Две волны]] или [[oda-rings|Кольца ODA.dream]]. Галерея: [[media-lighthouse-docs|формы и бленды]].
+**R&D / каталожный объект** — мастера в `LV3 Маяк`. Не смешивать с кулоном [[fourth-dimension|4-е измерение]] или [[oda-rings|Кольца ODA.dream]]. Галерея: [[media-lighthouse-docs|формы и бленды]].

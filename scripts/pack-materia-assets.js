@@ -22,14 +22,6 @@ const PACKS = [
     ],
   },
   {
-    id: "two-waves",
-    hero: "LV2 Neuro-mandala/Gen 4 - Blinovskaya/Gen 2 - Enamel/Render v2/Render1.png",
-    gallery: [
-      "LV2 Neuro-mandala/Gen 4 - Blinovskaya/Gen 2 - Enamel/Render v2/Render10-colors.png",
-      "LV2 Neuro-mandala/Gen 4 - Blinovskaya/Gen 1 - Silver/Render v1/Render3.png",
-    ],
-  },
-  {
     id: "voronka",
     hero: "LV2 Neuro-mandala/Gen 2 - Grishina/Export/Render1.png",
     gallery: [

@@ -143,7 +143,7 @@ const STUBS = [
     title_en: "Others", title_ru: "Другие люди" },
   // Материя
   { id: "oda-rings",  parent: "hub-materia", kind: "product", subkind: "art", title_en: "ODA.dream Rings", title_ru: "Кольца ODA.dream" },
-  { id: "two-waves",  parent: "hub-materia", kind: "product", subkind: "art", title_en: "Two Waves",  title_ru: "Две волны" },
+  { id: "fourth-dimension", parent: "hub-materia", kind: "product", subkind: "art", title_en: "Fourth Dimension", title_ru: "4-е измерение" },
   { id: "voronka",    parent: "hub-materia", kind: "product", subkind: "art", title_en: "Funnel",     title_ru: "Воронка" },
   { id: "happiness",  parent: "hub-materia", kind: "product", subkind: "art", title_en: "Happiness",  title_ru: "Счастье" },
   { id: "lighthouse", parent: "hub-materia", kind: "product", subkind: "art", title_en: "Lighthouse", title_ru: "Маяк" },

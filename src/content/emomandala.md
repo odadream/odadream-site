@@ -25,7 +25,7 @@ media:
 
 **Emotional diary · generative art · parallel to EEG Materia**
 
-`Emomandala` is **not** the same pipeline as neuromandala jewellery ([[oda-rings|ODA.dream Rings]], [[voronka|Funnel]], [[two-waves|Two Waves]]). The archive README frames it as an **emotional mandala** — diary of feelings, generative studies, and NFT experiments (`LV2 Emo-mandala`: p5 sketches, STL tests, Instagram carousels).
+`Emomandala` is **not** the same pipeline as neuromandala jewellery ([[oda-rings|ODA.dream Rings]], [[voronka|Funnel]], [[fourth-dimension|Fourth Dimension]]). The archive README frames it as an **emotional mandala** — diary of feelings, generative studies, and NFT experiments (`LV2 Emo-mandala`: p5 sketches, STL tests, Instagram carousels).
 
 ## Research frame
 
@@ -47,7 +47,7 @@ How can **self-reported and sensed emotion** become geometry without pretending 
 
 **Дневник эмоций · генеративное искусство · параллель EEG-Материи**
 
-`Эмомандала` — **не** тот же конвейер, что нейро-украшения ([[oda-rings|Кольца ODA.dream]], [[voronka|Воронка]], [[two-waves|Две волны]]). README архива: **эмоциональная мандала** — дневник чувств, генеративные этюды, NFT-эксперименты (`LV2 Emo-mandala`: p5, STL, карусели Instagram).
+`Эмомандала` — **не** тот же конвейер, что нейро-украшения ([[oda-rings|Кольца ODA.dream]], [[voronka|Воронка]], [[fourth-dimension|4-е измерение]]). README архива: **эмоциональная мандала** — дневник чувств, генеративные этюды, NFT-эксперименты (`LV2 Emo-mandala`: p5, STL, карусели Instagram).
 
 ## Исследовательская рамка
 

@@ -34,8 +34,8 @@ Designs are **generative**: each object is unique to the session that fed it. Yo
 
 ### Neuro-materia line
 
-- **[[oda-rings|ODA.dream Rings]]** — founding wedding bands (2020): two alpha traces, stones, **wish-fulfilment** mythology.
-- **[[two-waves|Two Waves]]** — pendant from a **large public meditation field** (~2000 participants): dual wave composition in silver and enamel.
+- **[[oda-rings|ODA.dream Rings]]** — founding wedding bands (2020): dream sealed in metal; namesake of the duo.
+- **[[fourth-dimension|Fourth Dimension]]** — pendant from a **large collective meditation** (~2000 participants): a **two-minute** EEG window of the lead facilitator, sealed in silver and enamel.
 - **[[voronka|Funnel]]** — catalogue Vortex form balancing diamond geometry and rhythm lines.
 - **[[mom-baby|Mom & Baby]]** — intimate “Sasha pendant” lineage for early mother–child bond.
 - **[[lighthouse|Lighthouse]]** — LV3 table object: neuromandala **unfolded in time** as a spiral tower.
@@ -70,8 +70,8 @@ For curators and commissioners: bring a **trace worth keeping**; we agree protoc
 
 ### Линия нейро-материи
 
-- **[[oda-rings|Кольца ODA.dream]]** — обручальные кольца-исток (2020): два альфа-следа, камни, миф **исполнения желаний**.
-- **[[two-waves|Две волны]]** — кулон из **поля публичной медитации** (~2000 участников): две волны в серебре и эмали.
+- **[[oda-rings|Кольца ODA.dream]]** — обручальные кольца-исток (2020): мечта в металле; откуда имя дуэта.
+- **[[fourth-dimension|4-е измерение]]** — кулон из **коллективной медитации** (~2000 участников): **двухминутное** окно ЭЭГ ведущей, запечатлённое в серебре и эмали.
 - **[[voronka|Воронка]]** — каталожный Vortex: ромб и линии ритмов.
 - **[[mom-baby|Мама и Малыш]]** — камерная линия «кулон Саши» для связи матери и ребёнка.
 - **[[lighthouse|Маяк]]** — объект LV3: нейромандала **развёрнута по времени** в спираль-башню.

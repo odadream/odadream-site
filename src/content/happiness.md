@@ -39,7 +39,7 @@ From the *Water Crystal Oracle* deck we traced the Wisdom card «Happiness», re
 
 ## Track
 
-**Gift micro-edition** — outside neuromandala commissions. For the EEG pipeline see [[oda-rings|ODA.dream Rings]] and [[two-waves|Two Waves]]. Gallery: [[media-happiness-docs|snowflake visuals]].
+**Gift micro-edition** — outside neuromandala commissions. For the EEG pipeline see [[oda-rings|ODA.dream Rings]] and [[fourth-dimension|Fourth Dimension]]. Gallery: [[media-happiness-docs|snowflake visuals]].
 
 ---RU---
 
@@ -61,4 +61,4 @@ From the *Water Crystal Oracle* deck we traced the Wisdom card «Happiness», re
 
 ## Трек
 
-**Подарочная микросерия** — вне заказов нейромандалы. Для EEG-линии см. [[oda-rings|Кольца ODA.dream]] и [[two-waves|Две волны]]. Галерея: [[media-happiness-docs|визуалы снежинки]].
+**Подарочная микросерия** — вне заказов нейромандалы. Для EEG-линии см. [[oda-rings|Кольца ODA.dream]] и [[fourth-dimension|4-е измерение]]. Галерея: [[media-happiness-docs|визуалы снежинки]].

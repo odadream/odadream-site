@@ -24,7 +24,7 @@ media:
 
 **“Sasha pendant” line · first bond as a wearable trace**
 
-`Mom & Baby` translates early **mother–child co-regulation** into a plastic and metal keepsake — the studio’s gentle counterpart to large public pieces like [[two-waves|Two Waves]]. Archive generations (Borzih, Faya, Ayova, and others) are **family-scale fabrications** of the same idea, not separate catalogue brands.
+`Mom & Baby` translates early **mother–child co-regulation** into a plastic and metal keepsake — the studio’s gentle counterpart to large public pieces like [[fourth-dimension|Fourth Dimension]]. Archive generations (Borzih, Faya, Ayova, and others) are **family-scale fabrications** of the same idea, not separate catalogue brands.
 
 ## Concept
 
@@ -51,7 +51,7 @@ Care, rhythm, and shared body signals become a **data-informed ornament** — sy
 
 **Линия «кулон Саши» · первая связь как носимый след**
 
-`Мама и Малыш` переводит раннюю **сонастройку матери и ребёнка** в пластический и металлический артефакт — бережный контрапункт к масштабным работам вроде [[two-waves|Две волны]]. Поколения в архиве (Борзих, Фая, Ayova и др.) — **семейные экземпляры** одной идеи, не отдельные бренды каталога.
+`Мама и Малыш` переводит раннюю **сонастройку матери и ребёнка** в пластический и металлический артефакт — бережный контрапункт к масштабным работам вроде [[fourth-dimension|4-е измерение]]. Поколения в архиве (Борзих, Фая, Ayova и др.) — **семейные экземпляры** одной идеи, не отдельные бренды каталога.
 
 ## Концепция
 
