@@ -23,10 +23,10 @@ const getNodeIcon = (node: LotusNode) => {
 };
 
 export const Breadcrumbs: React.FC = () => {
-  const { path, jumpToLevel, lang } = useNavigation();
+  const { path, jumpToLevel, lang, historyStack, goBackHistory } = useNavigation();
   const scrollRef = useRef<HTMLDivElement>(null);
   const currentYear = new Date().getFullYear();
-  const { canScrollLeft, canScrollRight, scroll, checkScroll } = useScrollOverflow(scrollRef, [path]);
+  const { canScrollLeft, canScrollRight, scroll, checkScroll } = useScrollOverflow(scrollRef, path.map(n => n.id).join('/'));
 
   useEffect(() => {
       if (scrollRef.current) {
@@ -78,6 +78,25 @@ export const Breadcrumbs: React.FC = () => {
                   );
               })}
               
+              {historyStack.length > 0 && (() => {
+                const origin = historyStack[historyStack.length - 1];
+                const label = origin.shortTitle?.[lang] || origin.title[lang];
+                return (
+                  <React.Fragment key="history-origin">
+                    <ChevronRight className="w-3 h-3 text-zinc-600 shrink-0 opacity-50" strokeWidth={1} />
+                    <button
+                      onClick={goBackHistory}
+                      title={lang === "ru" ? `Вернуться к: ${label}` : `Back to: ${label}`}
+                      className="group flex items-center gap-1.5 px-2 py-1.5 rounded-sm transition-all duration-300 shrink-0 cursor-pointer"
+                    >
+                      <ChevronLeft className="w-3 h-3 text-accent/60 group-hover:text-accent transition-colors" strokeWidth={1.5} />
+                      <span className={`${THEME.typography.ui} text-accent/60 group-hover:text-accent transition-colors italic`}>
+                        {label}
+                      </span>
+                    </button>
+                  </React.Fragment>
+                );
+              })()}
               <div className={`shrink-0 transition-all duration-300 ${canScrollRight ? 'w-4' : 'w-0'}`} />
           </div>
 

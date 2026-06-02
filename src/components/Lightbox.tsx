@@ -33,6 +33,7 @@ const NoSignal = () => (
 export const Lightbox: React.FC<LightboxProps> = ({ isOpen, onClose, mediaUrl, title }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const cleanUrl = mediaUrl?.trim() || '';
@@ -42,10 +43,48 @@ export const Lightbox: React.FC<LightboxProps> = ({ isOpen, onClose, mediaUrl, t
       type === 'image' ? cleanUrl : undefined
   );
 
+  // Escape key closes the dialog
   useEffect(() => {
-      setIsLoading(true);
+    if (!isOpen) return;
+    const handle = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', handle);
+    return () => window.removeEventListener('keydown', handle);
+  }, [isOpen, onClose]);
+
+  // Focus trap: move focus into dialog on open; cycle Tab within focusable elements
+  useEffect(() => {
+    if (!isOpen || !dialogRef.current) return;
+    dialogRef.current.focus();
+    const handleTab = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab' || !dialogRef.current) return;
+      const focusable = Array.from(
+        dialogRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((el) => !el.hasAttribute('disabled'));
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    window.addEventListener('keydown', handleTab);
+    return () => window.removeEventListener('keydown', handleTab);
+  }, [isOpen]);
+
+  // Spinner timeout: unblock after 8s in case iframe never fires onLoad/onError
+  useEffect(() => {
+    setIsLoading(true);
+    const t = setTimeout(() => setIsLoading(false), 8000);
+    return () => clearTimeout(t);
   }, [mediaUrl]);
 
+  // Pause and unload media when mediaUrl changes (prevents audio/video bleed-through)
   useEffect(() => {
     return () => {
       if (videoRef.current) {
@@ -59,7 +98,7 @@ export const Lightbox: React.FC<LightboxProps> = ({ isOpen, onClose, mediaUrl, t
         audioRef.current.load();
       }
     };
-  }, []);
+  }, [mediaUrl]);
 
   if (!isOpen || !mediaUrl) return null;
 
@@ -92,11 +131,16 @@ export const Lightbox: React.FC<LightboxProps> = ({ isOpen, onClose, mediaUrl, t
       </button>
 
       <MotionDiv
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label={title || "Media preview"}
+        tabIndex={-1}
         variants={SCALE_FADE_VARIANTS}
         initial="initial"
         animate="animate"
         exit="exit"
-        className="relative max-w-full max-h-full flex flex-col items-center justify-center w-full h-full"
+        className="relative max-w-full max-h-full flex flex-col items-center justify-center w-full h-full outline-none"
         onClick={(e: React.MouseEvent) => e.stopPropagation()}
       >
         <div className="relative flex-1 flex items-center justify-center w-full min-h-0 overflow-hidden">
@@ -115,7 +159,6 @@ export const Lightbox: React.FC<LightboxProps> = ({ isOpen, onClose, mediaUrl, t
                                 onError={handleError}
                                 className="w-full h-full absolute inset-0" 
                                 allow="autoplay; fullscreen; accelerometer; gyroscope; picture-in-picture; encrypted-media" 
-                                frameBorder="0" 
                                 allowFullScreen
                                 sandbox="allow-scripts allow-same-origin allow-presentation"
                                 referrerPolicy="no-referrer"

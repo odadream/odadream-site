@@ -7,7 +7,7 @@ type: content
 tags:
   - vr
   - meditation
-order: 2
+order: 6
 visible: true
 date: 2026.02.10
 status: concept

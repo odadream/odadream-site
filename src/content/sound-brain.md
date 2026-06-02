@@ -7,7 +7,7 @@ type: content
 tags:
   - wave
   - sound
-order: 1
+order: 3
 visible: true
 date: 2026.02.12
 kind: product

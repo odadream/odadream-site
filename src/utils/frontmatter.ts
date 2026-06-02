@@ -125,7 +125,7 @@ export const fileToNode = (
     },
     description: {
       en: body.split("---RU---")[0]?.trim() || body,
-      ru: body.split("---RU---")[1]?.trim() || body,
+      ru: body.split("---RU---")[1]?.trim() || "",
     },
     type: attributes.type || "content",
     tags: Array.isArray(attributes.tags) ? attributes.tags : [],

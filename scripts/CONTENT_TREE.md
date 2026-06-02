@@ -1,11 +1,12 @@
 # Project Content Tree
-Generated: 30.05.2026, 22:13:26
+Generated: 02.06.2026, 11:06:58
 
-Total Nodes: 178
+Total Nodes: 204
 
 ## 🌳 Site Hierarchy
 
 └── **hub-home** (oda.dream)
+    ├── **hub-changelog** (Changelog)
     ├── **hub-collab** (Collaboration)
     │   ├── **hub-business** (Business)
     │   ├── **hub-collab-media** (Media)
@@ -16,14 +17,16 @@ Total Nodes: 178
     │   │     ├─ 🖼️ `media:nrbt-dano`
     │   │     ├─ 🖼️ `media:mdsh-tpp`
     │   │     └─ 🖼️ `media:lec-gonchar`
-    │   └── **hub-institutions** (For Institutions)
-    │       └── **hub-galleries** (Galleries)
+    │   ├── **hub-institutions** (For Institutions)
+    │   │   └── **hub-galleries** (Galleries)
+    │   └── **hub-registry-collabs** (Co-creative partners)
+    │       ├── **collab-itb** (Innovation Ballet Theatre)
+    │       └── **collab-kovylina** (Elena Kovylina)
     ├── **hub-contacts** (Contacts)
     ├── **hub-debug** (Debug)
     │   ├── **hub-debug-action** (Action)
     │   ├── **hub-debug-article** (Article)
-    │   ├── **hub-debug-audio** (Audio) [📂 1]
-    │   │     └─ 🖼️ `/media/hub-debug/audio-placeholder.mp3`
+    │   ├── **hub-debug-audio** (Audio)
     │   ├── **hub-debug-hub** (Nested Hub)
     │   ├── **hub-debug-image** (Image) [📂 1]
     │   │     └─ 🖼️ `media:art-brain-cover`
@@ -116,27 +119,179 @@ Total Nodes: 178
     │         └─ 🖼️ `media:neuromandala-cover`
     ├── **hub-works** (Works)
     │   ├── **hub-big-forms** (Big Forms)
-    │   │   ├── **ancestors** (Ancestors in the Noise)
-    │   │   ├── **interference** (Interference of Realities)
-    │   │   │   ├── **media-interference-photos** (Interference — photo report)
-    │   │   │   ├── **media-interference-plakats** (Interference — informational plakats)
-    │   │   │   ├── **media-interference-poster** (Interference — show poster)
-    │   │   │   ├── **media-interference-recording** (Interference — full performance recording)
-    │   │   │   └── **media-interference-sketch** (Interference — stage sketch)
-    │   │   └── **schrodinger** (Schrodinger)
+    │   │   ├── **ancestors** (Ancestors in the Noise) [📂 3]
+    │   │   │     ├─ 🖼️ `/images/content/works/ancestors-hero.webp`
+    │   │   │     ├─ 🖼️ `media:ancestors-hero`
+    │   │   │     └─ 🖼️ `media:ancestors-sketch`
+    │   │   ├── **interference** (Interference of Realities) [📂 1]
+    │   │   │     ├─ 🖼️ `/images/content/works/interference-2026-poster-...`
+    │   │   │   ├── **media-interference-photos** (Interference — photo report) [📂 9]
+    │   │   │   │     ├─ 🖼️ `/images/content/events/interference-2026/interf...`
+    │   │   │   │     ├─ 🖼️ `/images/content/events/interference-2026/interf...`
+    │   │   │   │     ├─ 🖼️ `/images/content/events/interference-2026/interf...`
+    │   │   │   │     ├─ 🖼️ `/images/content/events/interference-2026/interf...`
+    │   │   │   │     ├─ 🖼️ `/images/content/events/interference-2026/interf...`
+    │   │   │   │     ├─ 🖼️ `/images/content/events/interference-2026/interf...`
+    │   │   │   │     ├─ 🖼️ `/images/content/events/interference-2026/interf...`
+    │   │   │   │     ├─ 🖼️ `/images/content/events/interference-2026/interf...`
+    │   │   │   │     └─ 🖼️ `/images/content/events/interference-2026/interf...`
+    │   │   │   ├── **media-interference-plakats** (Interference — informational plakats) [📂 8]
+    │   │   │   │     ├─ 🖼️ `/images/content/works/interference-plakats/inte...`
+    │   │   │   │     ├─ 🖼️ `/images/content/works/interference-plakats/inte...`
+    │   │   │   │     ├─ 🖼️ `/images/content/works/interference-plakats/inte...`
+    │   │   │   │     ├─ 🖼️ `/images/content/works/interference-plakats/inte...`
+    │   │   │   │     ├─ 🖼️ `/images/content/works/interference-plakats/inte...`
+    │   │   │   │     ├─ 🖼️ `/images/content/works/interference-plakats/inte...`
+    │   │   │   │     ├─ 🖼️ `/images/content/works/interference-plakats/inte...`
+    │   │   │   │     └─ 🖼️ `/images/content/works/interference-plakats/inte...`
+    │   │   │   ├── **media-interference-poster** (Interference — show poster) [📂 2]
+    │   │   │   │     ├─ 🖼️ `/images/content/works/interference-2026-poster-...`
+    │   │   │   │     └─ 🖼️ `/images/content/works/interference-2026-poster....`
+    │   │   │   ├── **media-interference-radio-nika** (Interference — Nika FM radio interview) [📂 1]
+    │   │   │   │     └─ 🖼️ `media:intf-radio`
+    │   │   │   └── **media-interference-recording** (Interference — full performance recording)
+    │   │   └── **schrodinger** (Project Schrödinger) [📂 1]
+    │   │         ├─ 🖼️ `/images/content/works/schrodinger-2025-poster-t...`
+    │   │       ├── **media-schrodinger-photos** (Project Schrödinger 2025 — photo report) [📂 8]
+    │   │       │     ├─ 🖼️ `/images/content/events/schrodinger-2025/schrodi...`
+    │   │       │     ├─ 🖼️ `/images/content/events/schrodinger-2025/schrodi...`
+    │   │       │     ├─ 🖼️ `/images/content/events/schrodinger-2025/schrodi...`
+    │   │       │     ├─ 🖼️ `/images/content/events/schrodinger-2025/schrodi...`
+    │   │       │     ├─ 🖼️ `/images/content/events/schrodinger-2025/schrodi...`
+    │   │       │     ├─ 🖼️ `/images/content/events/schrodinger-2025/schrodi...`
+    │   │       │     ├─ 🖼️ `/images/content/events/schrodinger-2025/schrodi...`
+    │   │       │     └─ 🖼️ `/images/content/events/schrodinger-2025/schrodi...`
+    │   │       ├── **media-schrodinger-poster** (Project Schrödinger — show poster) [📂 2]
+    │   │       │     ├─ 🖼️ `/images/content/works/schrodinger-2025-poster-t...`
+    │   │       │     └─ 🖼️ `/images/content/works/schrodinger-2025-poster.webp`
+    │   │       └── **media-schrodinger-teaser** (Project Schrödinger — teaser) [📂 1]
+    │   │             └─ 🖼️ `media:schrd-teaser`
     │   ├── **hub-installations** (Installations)
-    │   │   ├── **another-people** (Others)
-    │   │   ├── **dashran** (Darshan Moment)
-    │   │   ├── **honors** (Honor Board (Skolkovo))
-    │   │   ├── **posustoronniy** (Posustoronniy)
-    │   │   └── **sync-circle** (Sync Circle)
-    │   ├── **hub-materia** (Objects)
-    │   │   ├── **emomandala** (Emomandala)
-    │   │   ├── **happiness** (Happiness)
-    │   │   ├── **lighthouse** (Lighthouse)
-    │   │   ├── **mom-baby** (Mom & Baby)
-    │   │   ├── **two-waves** (Two Waves)
-    │   │   └── **voronka** (Funnel)
+    │   │   ├── **another-people** (Other People) [📂 1]
+    │   │   │     ├─ 🖼️ `/images/content/works/another-people/other-peop...`
+    │   │   │   └── **media-another-people-docs** (Other People — project documentation) [📂 7]
+    │   │   │         ├─ 🖼️ `/images/content/works/another-people/other-peop...`
+    │   │   │         ├─ 🖼️ `/images/content/works/another-people/other-peop...`
+    │   │   │         ├─ 🖼️ `/images/content/works/another-people/other-peop...`
+    │   │   │         ├─ 🖼️ `/images/content/works/another-people/other-peop...`
+    │   │   │         ├─ 🖼️ `/images/content/works/another-people/other-peop...`
+    │   │   │         ├─ 🖼️ `/images/content/works/another-people/other-peop...`
+    │   │   │         └─ 🖼️ `/images/content/works/another-people/other-peop...`
+    │   │   ├── **dashran** (Darshan Moment) [📂 1]
+    │   │   │     ├─ 🖼️ `/images/content/works/dashran/dashran-tech-rend...`
+    │   │   │   ├── **media-dashran-docs** (Darshan Moment — project documentation) [📂 7]
+    │   │   │   │     ├─ 🖼️ `/images/content/works/dashran/dashran-tech-rend...`
+    │   │   │   │     ├─ 🖼️ `/images/content/works/dashran/dashran-tech-rend...`
+    │   │   │   │     ├─ 🖼️ `/images/content/works/dashran/dashran-playda-01...`
+    │   │   │   │     ├─ 🖼️ `/images/content/works/dashran/dashran-tech-spac...`
+    │   │   │   │     ├─ 🖼️ `/images/content/works/dashran/dashran-tech-plan...`
+    │   │   │   │     ├─ 🖼️ `/images/content/works/dashran/dashran-wiring.webp`
+    │   │   │   │     └─ 🖼️ `/images/content/works/dashran/dashran-system-fl...`
+    │   │   │   └── **media-dashran-video** (Darshan Moment — presentation video) [📂 1]
+    │   │   │         └─ 🖼️ `media:dash-video`
+    │   │   ├── **honors** (Neuro Honor Board (Skolkovo)) [📂 1]
+    │   │   │     ├─ 🖼️ `/images/content/works/honors-skolkovo/honors-sk...`
+    │   │   │   └── **media-honors-presentation** (Neuro Honor Board — competition presentation) [📂 9]
+    │   │   │         ├─ 🖼️ `/images/content/works/honors-skolkovo/honors-sk...`
+    │   │   │         ├─ 🖼️ `/images/content/works/honors-skolkovo/honors-sk...`
+    │   │   │         ├─ 🖼️ `/images/content/works/honors-skolkovo/honors-sk...`
+    │   │   │         ├─ 🖼️ `/images/content/works/honors-skolkovo/honors-sk...`
+    │   │   │         ├─ 🖼️ `/images/content/works/honors-skolkovo/honors-sk...`
+    │   │   │         ├─ 🖼️ `/images/content/works/honors-skolkovo/honors-sk...`
+    │   │   │         ├─ 🖼️ `/images/content/works/honors-skolkovo/honors-sk...`
+    │   │   │         ├─ 🖼️ `/images/content/works/honors-skolkovo/honors-sk...`
+    │   │   │         └─ 🖼️ `/images/content/works/honors-skolkovo/honors-sk...`
+    │   │   ├── **potustoronniy** (Beyond) [📂 1]
+    │   │   │     ├─ 🖼️ `/images/content/works/potustoronniy/potustoronn...`
+    │   │   │   └── **media-potustoronniy-deck** (Beyond — presentation deck) [📂 6]
+    │   │   │         ├─ 🖼️ `/images/content/works/potustoronniy/potustoronn...`
+    │   │   │         ├─ 🖼️ `/images/content/works/potustoronniy/potustoronn...`
+    │   │   │         ├─ 🖼️ `/images/content/works/potustoronniy/potustoronn...`
+    │   │   │         ├─ 🖼️ `/images/content/works/potustoronniy/potustoronn...`
+    │   │   │         ├─ 🖼️ `/images/content/works/potustoronniy/potustoronn...`
+    │   │   │         └─ 🖼️ `/images/content/works/potustoronniy/potustoronn...`
+    │   │   └── **sync-circle** (Sync Circle) [📂 1]
+    │   │         ├─ 🖼️ `/images/content/works/sync-circle/sync-circle-h...`
+    │   │       ├── **media-sync-circle-gallery** (Sync Circle — diagrams & renders) [📂 9]
+    │   │       │     ├─ 🖼️ `/images/content/works/sync-circle/sync-circle-h...`
+    │   │       │     ├─ 🖼️ `/images/content/works/sync-circle/sync-circle-h...`
+    │   │       │     ├─ 🖼️ `/images/content/works/sync-circle/sync-circle-m...`
+    │   │       │     ├─ 🖼️ `/images/content/works/sync-circle/sync-circle-m...`
+    │   │       │     ├─ 🖼️ `/images/content/works/sync-circle/sync-circle-d...`
+    │   │       │     ├─ 🖼️ `/images/content/works/sync-circle/sync-circle-s...`
+    │   │       │     ├─ 🖼️ `/images/content/works/sync-circle/sync-circle-c...`
+    │   │       │     ├─ 🖼️ `/images/content/works/sync-circle/sync-circle-c...`
+    │   │       │     └─ 🖼️ `/images/content/works/sync-circle/sync-circle-c...`
+    │   │       └── **media-sync-circle-video** (Sync Circle — demo video) [📂 2]
+    │   │             ├─ 🖼️ `media:sync-video`
+    │   │             └─ 🖼️ `media:sync-video-lines`
+    │   ├── **hub-materia** (Materia)
+    │   │   ├── **emomandala** (Emomandala) [📂 1]
+    │   │   │     ├─ 🖼️ `/images/content/materia/emomandala/emomandala-c...`
+    │   │   │   └── **media-emomandala-docs** (Emomandala — visuals) [📂 4]
+    │   │   │         ├─ 🖼️ `/images/content/materia/emomandala/emomandala-c...`
+    │   │   │         ├─ 🖼️ `/images/content/materia/emomandala/emomandala-c...`
+    │   │   │         ├─ 🖼️ `/images/content/materia/emomandala/emomandala-1...`
+    │   │   │         └─ 🖼️ `/images/content/materia/emomandala/emomandala-2...`
+    │   │   ├── **fourth-dimension** (Fourth Dimension) [📂 1]
+    │   │   │     ├─ 🖼️ `/images/content/materia/fourth-dimension/fourth...`
+    │   │   │   ├── **media-fourth-dimension-tz** (Fourth Dimension — specification) [📂 1]
+    │   │   │   │     └─ 🖼️ `/images/content/materia/fourth-dimension/fourth...`
+    │   │   │   └── **media-fourth-dimension-visuals** (Fourth Dimension — visuals) [📂 5]
+    │   │   │         ├─ 🖼️ `/images/content/materia/fourth-dimension/fourth...`
+    │   │   │         ├─ 🖼️ `/images/content/materia/fourth-dimension/neurom...`
+    │   │   │         ├─ 🖼️ `/images/content/materia/fourth-dimension/render...`
+    │   │   │         ├─ 🖼️ `/images/content/materia/fourth-dimension/render...`
+    │   │   │         └─ 🖼️ `/images/content/materia/fourth-dimension/photo-...`
+    │   │   ├── **happiness** (Happiness) [📂 1]
+    │   │   │     ├─ 🖼️ `/images/content/materia/happiness/happiness-cov...`
+    │   │   │   └── **media-happiness-docs** (Happiness — visuals) [📂 4]
+    │   │   │         ├─ 🖼️ `/images/content/materia/happiness/happiness-cov...`
+    │   │   │         ├─ 🖼️ `/images/content/materia/happiness/happiness-cov...`
+    │   │   │         ├─ 🖼️ `/images/content/materia/happiness/happiness-1.webp`
+    │   │   │         └─ 🖼️ `/images/content/materia/happiness/happiness-2.webp`
+    │   │   ├── **lighthouse** (Lighthouse) [📂 1]
+    │   │   │     ├─ 🖼️ `/images/content/materia/lighthouse/lighthouse-c...`
+    │   │   │   └── **media-lighthouse-docs** (Lighthouse — visuals) [📂 4]
+    │   │   │         ├─ 🖼️ `/images/content/materia/lighthouse/lighthouse-c...`
+    │   │   │         ├─ 🖼️ `/images/content/materia/lighthouse/lighthouse-c...`
+    │   │   │         ├─ 🖼️ `/images/content/materia/lighthouse/lighthouse-1...`
+    │   │   │         └─ 🖼️ `/images/content/materia/lighthouse/lighthouse-2...`
+    │   │   ├── **mom-baby** (Mom & Baby) [📂 1]
+    │   │   │     ├─ 🖼️ `/images/content/materia/mom-baby/mom-baby-cover...`
+    │   │   │   └── **media-mom-baby-docs** (Mom & Baby — visuals) [📂 4]
+    │   │   │         ├─ 🖼️ `/images/content/materia/mom-baby/mom-baby-cover...`
+    │   │   │         ├─ 🖼️ `/images/content/materia/mom-baby/mom-baby-cover...`
+    │   │   │         ├─ 🖼️ `/images/content/materia/mom-baby/mom-baby-1.webp`
+    │   │   │         └─ 🖼️ `/images/content/materia/mom-baby/mom-baby-2.webp`
+    │   │   ├── **oda-rings** (ODA.dream Rings) [📂 1]
+    │   │   │     ├─ 🖼️ `/images/content/materia/oda-rings/oda-rings-cov...`
+    │   │   │   ├── **media-oda-rings-banner** (ODA.dream Rings — Synergy forum banner (2022)) [📂 2]
+    │   │   │   │     ├─ 🖼️ `/images/content/materia/oda-rings/synergy-banne...`
+    │   │   │   │     └─ 🖼️ `/images/content/materia/oda-rings/synergy-banne...`
+    │   │   │   ├── **media-oda-rings-drawings** (ODA.dream Rings — manufacturing drawings) [📂 1]
+    │   │   │   │     └─ 🖼️ `/images/content/materia/oda-rings/oda-rings-cov...`
+    │   │   │   └── **media-oda-rings-story** (ODA.dream Rings — visual chronicle) [📂 10]
+    │   │   │         ├─ 🖼️ `/images/content/materia/oda-rings/oda-rings-cov...`
+    │   │   │         ├─ 🖼️ `/images/content/materia/oda-rings/ig-01-hero.webp`
+    │   │   │         ├─ 🖼️ `/images/content/materia/oda-rings/ig-02-wedding...`
+    │   │   │         ├─ 🖼️ `/images/content/materia/oda-rings/ig-03-sketch....`
+    │   │   │         ├─ 🖼️ `/images/content/materia/oda-rings/ig-04-worksho...`
+    │   │   │         ├─ 🖼️ `/images/content/materia/oda-rings/ig-05-model-e...`
+    │   │   │         ├─ 🖼️ `/images/content/materia/oda-rings/ig-06-hands.webp`
+    │   │   │         ├─ 🖼️ `/images/content/materia/oda-rings/ig-07-flight....`
+    │   │   │         ├─ 🖼️ `/images/content/materia/oda-rings/ig-08-dream-p...`
+    │   │   │         └─ 🖼️ `/images/content/materia/oda-rings/ig-09-lempuya...`
+    │   │   └── **voronka** (Funnel) [📂 1]
+    │   │         ├─ 🖼️ `/images/content/materia/voronka/voronka-cover-t...`
+    │   │       └── **media-voronka-docs** (Funnel — visuals) [📂 7]
+    │   │             ├─ 🖼️ `/images/content/materia/voronka/voronka-cover-t...`
+    │   │             ├─ 🖼️ `/images/content/materia/voronka/neuromandala-so...`
+    │   │             ├─ 🖼️ `/images/content/materia/voronka/render-hero.webp`
+    │   │             ├─ 🖼️ `/images/content/materia/voronka/render-exploded...`
+    │   │             ├─ 🖼️ `/images/content/materia/voronka/render-section....`
+    │   │             ├─ 🖼️ `/images/content/materia/voronka/photo-set.webp`
+    │   │             └─ 🖼️ `/images/content/materia/voronka/photo-detail.webp`
     │   └── **hub-performances** (Performances)
     │       ├── **cultural-neuro-code** (Cultural Neuro Code)
     │       ├── **gong** (Gong Theater)
@@ -200,6 +355,7 @@ Total Nodes: 178
         │   ├── **proof-let-unique-russia** (Diploma — "Digital Art & AI" panel, 6th exhibition-forum)
         │   ├── **proof-let-wildmint** (Letter of appreciation — Wild Mint, "Neuromandala" lecture & performance)
         │   ├── **proof-mipt-letter** (MIPT — Letter of recognition)
+        │   ├── **proof-oda-synergy-forum-2022** (ODA.dream debut — Synergy Crypto & NFT Forum, Bali)
         │   └── **proof-portal-1st** (1st place — Visioning VJ competition, Portal 2030–2050)
         ├── **hub-manifesto** (Manifesto)
         ├── **hub-press** (Press)
@@ -237,19 +393,23 @@ Total Nodes: 178
         │   └── **org-wildmint** (Wild Mint Festival)
         ├── **hub-testimonials** (Testimonials)
         │   ├── **proof-cipr-quote** (CIPR — Testimonial quote)
-        │   ├── **proof-tst-ashram-osman** (tst-ashram-osman)
-        │   ├── **proof-tst-bitva-milliard** (tst-bitva-milliard)
-        │   ├── **proof-tst-cipr-techfriendly** (tst-cipr-techfriendly)
-        │   ├── **proof-tst-hse-brain** (tst-hse-brain)
-        │   ├── **proof-tst-meditation-day** (tst-meditation-day)
-        │   └── **proof-tst-tavrida-ai** (tst-tavrida-ai)
+        │   ├── **proof-tst-ashram-osman** (Ashram Studio — Birthday Celebration)
+        │   ├── **proof-tst-bitva-milliard** (Bitva za Milliard — Neuromandala)
+        │   ├── **proof-tst-cipr-techfriendly** (CIPR TechFriendly — MindShow)
+        │   ├── **proof-tst-hse-brain** (HSE — Beautiful About the Brain)
+        │   ├── **proof-tst-meditation-day** (International Meditation Day)
+        │   └── **proof-tst-tavrida-ai** (Tavrida.ART — Cultural Code of Russia)
         └── **partners** (Partners)
 
 ## 📊 Media Manifest
 
 | Node ID | Media Count | Files |
 |---------|-------------|-------|
+| ancestors | 3 | `/images/content/works/ancestors-hero.webp`<br/>`media:ancestors-hero`<br/>`media:ancestors-sketch` |
+| another-people | 1 | `/images/content/works/another-people/other-people-gallery-thumb.webp` |
 | beautiful-brain | 2 | `proof-hse-beautiful-brain`<br/>`media:art-brain-cover` |
+| dashran | 1 | `/images/content/works/dashran/dashran-tech-render-b-thumb.webp` |
+| emomandala | 1 | `/images/content/materia/emomandala/emomandala-cover-thumb.webp` |
 | event-ashram-birthday-2024 | 1 | `/images/content/mindshow_ashram.webp` |
 | event-bauman-moscow2030-2025 | 1 | `/images/content/lectures-moscow2030.webp` |
 | event-dano-ekoniva-2025 | 1 | `/images/content/neurobattle_dano.webp` |
@@ -257,19 +417,53 @@ Total Nodes: 178
 | event-myata-2025 | 1 | `[]` |
 | event-sber-lecture-2025 | 1 | `/images/content/lectures-sber.webp` |
 | event-tpp-mindshow-2025 | 1 | `/images/content/mindshow_tpp.webp` |
+| fourth-dimension | 1 | `/images/content/materia/fourth-dimension/fourth-dimension-cover-thumb.webp` |
+| happiness | 1 | `/images/content/materia/happiness/happiness-cover-thumb.webp` |
+| honors | 1 | `/images/content/works/honors-skolkovo/honors-skolkovo-cover-thumb.webp` |
 | hub-chastoti | 2 | `/images/content/neuromandala-cover.jpg`<br/>`https://www.youtube.com/watch?v=1g9FDBRSa5w` |
-| hub-debug-audio | 1 | `/media/hub-debug/audio-placeholder.mp3` |
 | hub-debug-image | 1 | `media:art-brain-cover` |
 | hub-debug-video | 2 | `/media/hub-debug/video-placeholder.mp4`<br/>`/images/content/neuromandala-cover.jpg` |
 | hub-host-events | 3 | `media:nrbt-dano`<br/>`media:mdsh-tpp`<br/>`media:lec-gonchar` |
 | hub-lectures | 8 | `media:lec-gonchar`<br/>`media:lec-bauman`<br/>`media:lec-tavrida`<br/>`media:lec-sber`<br/>`media:lec-ikc`<br/>`media:lec-tskhr`<br/>`media:lec-ashram`<br/>`media:art-brain-cover` |
 | hub-letters | 13 | `/images/content/collab_2026_ODA_Gostinyy_dvor.webp`<br/>`/images/content/collab_2025_ODA_Portal.webp`<br/>`/images/content/collab_2025_ODA_Tavrida_II.webp`<br/>`/images/content/collab_2025_ODA_VShE_ch2.webp`<br/>`/images/content/collab_2025_ODA_Moskva_2030_Olga.webp`<br/>`/images/content/collab_2025_ODA_Severnaya_Osetiya_Media_Eksperty.webp`<br/>`/images/content/collab_2025_ODA_Dikaya_myata.webp`<br/>`/images/content/collab_2025_ODA_Shulgan_Tash.webp`<br/>`/images/content/collab_2025_ODA_TPP.webp`<br/>`/images/content/collab_2025_ODA_Khaskel.webp`<br/>`/images/content/collab_2024_ODA_TechWeek_Olya.webp`<br/>`/images/content/collab_2024_ODA_Bitva_za_milliard.webp`<br/>`/images/content/collab_2024_ODA_Kod_provintsii_Daler.webp` |
+| interference | 1 | `/images/content/works/interference-2026-poster-thumb.webp` |
+| lighthouse | 1 | `/images/content/materia/lighthouse/lighthouse-cover-thumb.webp` |
+| media-another-people-docs | 7 | `/images/content/works/another-people/other-people-gallery-thumb.webp`<br/>`/images/content/works/another-people/other-people-gallery.webp`<br/>`/images/content/works/another-people/other-people-character-card.webp`<br/>`/images/content/works/another-people/other-people-eeg-session.webp`<br/>`/images/content/works/another-people/other-people-neuromandala.webp`<br/>`/images/content/works/another-people/other-people-workshop.webp`<br/>`/images/content/works/another-people/other-people-portrait.webp` |
 | media-byob-2019-mindgrid | 1 | `/images/content/hub-works/byob-2019-mindgrid.png` |
 | media-byob-2020-photos | 1 | `/images/content/hub-events/event-byob-2020/projection-pentagon.jpg` |
 | media-byob-2026-photos | 1 | `/images/content/hub-events/event-byob-2026/neuromandala-installation.jpg` |
+| media-dashran-docs | 7 | `/images/content/works/dashran/dashran-tech-render-b-thumb.webp`<br/>`/images/content/works/dashran/dashran-tech-render-b.webp`<br/>`/images/content/works/dashran/dashran-playda-01.webp`<br/>`/images/content/works/dashran/dashran-tech-space.webp`<br/>`/images/content/works/dashran/dashran-tech-plan.webp`<br/>`/images/content/works/dashran/dashran-wiring.webp`<br/>`/images/content/works/dashran/dashran-system-flow.webp` |
+| media-dashran-video | 1 | `media:dash-video` |
+| media-emomandala-docs | 4 | `/images/content/materia/emomandala/emomandala-cover-thumb.webp`<br/>`/images/content/materia/emomandala/emomandala-cover.webp`<br/>`/images/content/materia/emomandala/emomandala-1.webp`<br/>`/images/content/materia/emomandala/emomandala-2.webp` |
+| media-fourth-dimension-tz | 1 | `/images/content/materia/fourth-dimension/fourth-dimension-cover-thumb.webp` |
+| media-fourth-dimension-visuals | 5 | `/images/content/materia/fourth-dimension/fourth-dimension-cover-thumb.webp`<br/>`/images/content/materia/fourth-dimension/neuromandala-source.webp`<br/>`/images/content/materia/fourth-dimension/render-front.webp`<br/>`/images/content/materia/fourth-dimension/render-back.webp`<br/>`/images/content/materia/fourth-dimension/photo-product.webp` |
+| media-happiness-docs | 4 | `/images/content/materia/happiness/happiness-cover-thumb.webp`<br/>`/images/content/materia/happiness/happiness-cover.webp`<br/>`/images/content/materia/happiness/happiness-1.webp`<br/>`/images/content/materia/happiness/happiness-2.webp` |
+| media-honors-presentation | 9 | `/images/content/works/honors-skolkovo/honors-skolkovo-cover-thumb.webp`<br/>`/images/content/works/honors-skolkovo/honors-skolkovo-cover.webp`<br/>`/images/content/works/honors-skolkovo/honors-skolkovo-dome.webp`<br/>`/images/content/works/honors-skolkovo/honors-skolkovo-interior.webp`<br/>`/images/content/works/honors-skolkovo/honors-skolkovo-mandala.webp`<br/>`/images/content/works/honors-skolkovo/honors-skolkovo-viz.webp`<br/>`/images/content/works/honors-skolkovo/honors-skolkovo-plan.webp`<br/>`/images/content/works/honors-skolkovo/honors-skolkovo-scheme.webp`<br/>`/images/content/works/honors-skolkovo/honors-skolkovo-plan-detail.webp` |
+| media-interference-photos | 9 | `/images/content/events/interference-2026/interference-2026-01.webp`<br/>`/images/content/events/interference-2026/interference-2026-02.webp`<br/>`/images/content/events/interference-2026/interference-2026-03.webp`<br/>`/images/content/events/interference-2026/interference-2026-04.webp`<br/>`/images/content/events/interference-2026/interference-2026-05.webp`<br/>`/images/content/events/interference-2026/interference-2026-06.webp`<br/>`/images/content/events/interference-2026/interference-2026-07.webp`<br/>`/images/content/events/interference-2026/interference-2026-08.webp`<br/>`/images/content/events/interference-2026/interference-2026-09.webp` |
+| media-interference-plakats | 8 | `/images/content/works/interference-plakats/interference-plakat-01-light.webp`<br/>`/images/content/works/interference-plakats/interference-plakat-02-sound.webp`<br/>`/images/content/works/interference-plakats/interference-plakat-03-dance.webp`<br/>`/images/content/works/interference-plakats/interference-plakat-04-brain.webp`<br/>`/images/content/works/interference-plakats/interference-plakat-05-technology.webp`<br/>`/images/content/works/interference-plakats/interference-plakat-06-waves.webp`<br/>`/images/content/works/interference-plakats/interference-plakat-07-reality.webp`<br/>`/images/content/works/interference-plakats/interference-plakat-08-dramaturgy.webp` |
+| media-interference-poster | 2 | `/images/content/works/interference-2026-poster-thumb.webp`<br/>`/images/content/works/interference-2026-poster.webp` |
+| media-interference-radio-nika | 1 | `media:intf-radio` |
+| media-lighthouse-docs | 4 | `/images/content/materia/lighthouse/lighthouse-cover-thumb.webp`<br/>`/images/content/materia/lighthouse/lighthouse-cover.webp`<br/>`/images/content/materia/lighthouse/lighthouse-1.webp`<br/>`/images/content/materia/lighthouse/lighthouse-2.webp` |
+| media-mom-baby-docs | 4 | `/images/content/materia/mom-baby/mom-baby-cover-thumb.webp`<br/>`/images/content/materia/mom-baby/mom-baby-cover.webp`<br/>`/images/content/materia/mom-baby/mom-baby-1.webp`<br/>`/images/content/materia/mom-baby/mom-baby-2.webp` |
+| media-oda-rings-banner | 2 | `/images/content/materia/oda-rings/synergy-banner-preview-thumb.webp`<br/>`/images/content/materia/oda-rings/synergy-banner-preview.webp` |
+| media-oda-rings-drawings | 1 | `/images/content/materia/oda-rings/oda-rings-cover-thumb.webp` |
+| media-oda-rings-story | 10 | `/images/content/materia/oda-rings/oda-rings-cover-thumb.webp`<br/>`/images/content/materia/oda-rings/ig-01-hero.webp`<br/>`/images/content/materia/oda-rings/ig-02-wedding.webp`<br/>`/images/content/materia/oda-rings/ig-03-sketch.webp`<br/>`/images/content/materia/oda-rings/ig-04-workshop.webp`<br/>`/images/content/materia/oda-rings/ig-05-model-eeg.webp`<br/>`/images/content/materia/oda-rings/ig-06-hands.webp`<br/>`/images/content/materia/oda-rings/ig-07-flight.webp`<br/>`/images/content/materia/oda-rings/ig-08-dream-photo.webp`<br/>`/images/content/materia/oda-rings/ig-09-lempuyang.webp` |
+| media-potustoronniy-deck | 6 | `/images/content/works/potustoronniy/potustoronniy-cover-thumb.webp`<br/>`/images/content/works/potustoronniy/potustoronniy-cover.webp`<br/>`/images/content/works/potustoronniy/potustoronniy-storyboard.webp`<br/>`/images/content/works/potustoronniy/potustoronniy-concept.webp`<br/>`/images/content/works/potustoronniy/potustoronniy-tech.webp`<br/>`/images/content/works/potustoronniy/potustoronniy-drum.webp` |
+| media-schrodinger-photos | 8 | `/images/content/events/schrodinger-2025/schrodinger-2025-01.webp`<br/>`/images/content/events/schrodinger-2025/schrodinger-2025-02.webp`<br/>`/images/content/events/schrodinger-2025/schrodinger-2025-03.webp`<br/>`/images/content/events/schrodinger-2025/schrodinger-2025-04.webp`<br/>`/images/content/events/schrodinger-2025/schrodinger-2025-05.webp`<br/>`/images/content/events/schrodinger-2025/schrodinger-2025-06.webp`<br/>`/images/content/events/schrodinger-2025/schrodinger-2025-07.webp`<br/>`/images/content/events/schrodinger-2025/schrodinger-2025-08.webp` |
+| media-schrodinger-poster | 2 | `/images/content/works/schrodinger-2025-poster-thumb.webp`<br/>`/images/content/works/schrodinger-2025-poster.webp` |
+| media-schrodinger-teaser | 1 | `media:schrd-teaser` |
+| media-sync-circle-gallery | 9 | `/images/content/works/sync-circle/sync-circle-hero-thumb.webp`<br/>`/images/content/works/sync-circle/sync-circle-hero.webp`<br/>`/images/content/works/sync-circle/sync-circle-mandala.webp`<br/>`/images/content/works/sync-circle/sync-circle-mvc.webp`<br/>`/images/content/works/sync-circle/sync-circle-dimensions.webp`<br/>`/images/content/works/sync-circle/sync-circle-states.webp`<br/>`/images/content/works/sync-circle/sync-circle-chairs-1.webp`<br/>`/images/content/works/sync-circle/sync-circle-chairs-2.webp`<br/>`/images/content/works/sync-circle/sync-circle-chairs-3.webp` |
+| media-sync-circle-video | 2 | `media:sync-video`<br/>`media:sync-video-lines` |
+| media-voronka-docs | 7 | `/images/content/materia/voronka/voronka-cover-thumb.webp`<br/>`/images/content/materia/voronka/neuromandala-source.webp`<br/>`/images/content/materia/voronka/render-hero.webp`<br/>`/images/content/materia/voronka/render-exploded.webp`<br/>`/images/content/materia/voronka/render-section.webp`<br/>`/images/content/materia/voronka/photo-set.webp`<br/>`/images/content/materia/voronka/photo-detail.webp` |
 | mindshow | 9 | `media:mdsh-demo-v5`<br/>`media-byob-2019-mindgrid`<br/>`media-byob-2026-photos`<br/>`media:mdsh-hypercube`<br/>`media:mdsh-tpp`<br/>`media:mdsh-urban-forum`<br/>`media:mdsh-wildmint`<br/>`media:mdsh-ashram`<br/>`media:mdsh-terraforming` |
+| mom-baby | 1 | `/images/content/materia/mom-baby/mom-baby-cover-thumb.webp` |
 | multisync | 1 | `media-byob-2020-photos` |
 | neurobattle | 5 | `/images/nodes/neurobattle.webp`<br/>`media:nrbt-gameplay-v9`<br/>`media:nrbt-dano`<br/>`media:nrbt-veter`<br/>`media:nrbt-tnt` |
 | neuromandala | 2 | `/images/content/neuromandala-cover.jpg`<br/>`media:neuromandala-cover` |
+| oda-rings | 1 | `/images/content/materia/oda-rings/oda-rings-cover-thumb.webp` |
+| potustoronniy | 1 | `/images/content/works/potustoronniy/potustoronniy-cover-thumb.webp` |
 | proof-hse-beautiful-brain | 1 | `/images/content/collab_2025_ODA_VShE_ch2.webp` |
+| schrodinger | 1 | `/images/content/works/schrodinger-2025-poster-thumb.webp` |
 | sound-brain | 1 | `https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3` |
+| sync-circle | 1 | `/images/content/works/sync-circle/sync-circle-hero-thumb.webp` |
+| voronka | 1 | `/images/content/materia/voronka/voronka-cover-thumb.webp` |

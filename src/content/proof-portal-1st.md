@@ -7,7 +7,7 @@ type: content
 tags: [proof, award]
 visible: true
 date: 2025.09.01
-order: 0
+order: 1
 kind: proof
 subkind: award
 proof_of:

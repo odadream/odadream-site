@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useCallback,
   useMemo,
+  useRef,
   ReactNode,
 } from "react";
 import { LotusNode, Language, Theme } from "../types";
@@ -12,6 +13,7 @@ import { ROOT_NODE, NODE_REGISTRY } from "../constants";
 import { findPathToNode } from "../utils/nodeHelpers";
 import { getDefaultNodeImage } from "../utils/mediaHelpers";
 import { preloadLotusGrid } from "../utils/preloadLotusGrid";
+import { updateMetaTags } from "../utils/metaTags";
 
 interface NavigationContextType {
   path: LotusNode[];
@@ -117,8 +119,12 @@ const getPathFromUrl = (): LotusNode[] => {
 const getInitialLang = (): Language => {
   if (typeof window === "undefined") return "en";
   try {
+    const urlLang = new URLSearchParams(window.location.search).get("lang");
+    if (urlLang === "en" || urlLang === "ru") return urlLang as Language;
+  } catch (e) {}
+  try {
     const saved = localStorage.getItem("oda_lang");
-    if (saved === "en" || saved === "ru") return saved;
+    if (saved === "en" || saved === "ru") return saved as Language;
   } catch (e) {}
   try {
     const nav = window.navigator;
@@ -149,7 +155,16 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
   const [path, setPath] = useState<LotusNode[]>(getPathFromUrl);
   const [lang, setLang] = useState<Language>(getInitialLang);
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
-  const [isGridCollapsed, setIsGridCollapsed] = useState(true);
+  const [isGridCollapsed, setIsGridCollapsed] = useState(() => {
+    if (typeof window === "undefined") return true;
+    try {
+      const saved = localStorage.getItem("oda_drawer_collapsed");
+      if (saved === null) return false; // first visit: show the grid
+      return saved === "true";
+    } catch (e) {
+      return true;
+    }
+  });
   const [lotusMode, setLotusMode] = useState<"grid" | "map">(() => {
     if (typeof window === "undefined") return "grid";
     try {
@@ -186,6 +201,10 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
     }
     return false;
   });
+
+  // Refs for side-effect management outside of updater functions
+  const highlightTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isPopStateRef = useRef(false);
 
   const currentNode = path[path.length - 1];
 
@@ -228,59 +247,53 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
         return;
       }
       const canonicalPath = findPathToNode(ROOT_NODE, node.id);
-      const target =
-        canonicalPath?.[canonicalPath.length - 1] ?? node;
+      const target = canonicalPath?.[canonicalPath.length - 1] ?? node;
       preloadLotusGrid(target, nodeRegistry, lang);
-      setPath((prevPath) => {
-        const origin = prevPath[prevPath.length - 1];
-        setHistoryStack((prev) => [...prev, origin]);
-        if (canonicalPath) return canonicalPath;
-        return [...prevPath, node];
-      });
+      // Read origin from current path closure — setHistoryStack must not be
+      // called inside a setPath updater (updaters run twice in StrictMode).
+      const origin = path[path.length - 1];
+      setHistoryStack((prev) => [...prev, origin]);
+      setPath(canonicalPath ?? [...path, node]);
     },
-    [nodeRegistry, lang],
+    [path, nodeRegistry, lang],
   );
 
   const goBackHistory = useCallback(() => {
-    setHistoryStack((prevHistory) => {
-      if (prevHistory.length === 0) return prevHistory;
-      const origin = prevHistory[prevHistory.length - 1];
-      const canonicalPath = findPathToNode(ROOT_NODE, origin.id);
-      if (canonicalPath) {
-        const target = canonicalPath[canonicalPath.length - 1];
-        preloadLotusGrid(target, nodeRegistry, lang);
-        setPath(canonicalPath);
-      }
-      return prevHistory.slice(0, -1);
-    });
-  }, [nodeRegistry, lang]);
+    if (historyStack.length === 0) return;
+    const origin = historyStack[historyStack.length - 1];
+    const canonicalPath = findPathToNode(ROOT_NODE, origin.id);
+    if (canonicalPath) {
+      const target = canonicalPath[canonicalPath.length - 1];
+      preloadLotusGrid(target, nodeRegistry, lang);
+      setPath(canonicalPath);
+    }
+    // setPath must not be called inside a setHistoryStack updater (StrictMode
+    // double-invokes updaters, which would push duplicate pushState entries).
+    setHistoryStack((prev) => prev.slice(0, -1));
+  }, [historyStack, nodeRegistry, lang]);
 
   const goBack = useCallback(() => {
-    setPath((prev) => {
-      if (prev.length <= 1) return prev;
-      const next = prev.slice(0, -1);
-      const target = next[next.length - 1];
-      preloadLotusGrid(target, nodeRegistry, lang);
-      return next;
-    });
-  }, [nodeRegistry, lang]);
+    if (path.length <= 1) return;
+    const next = path.slice(0, -1);
+    preloadLotusGrid(next[next.length - 1], nodeRegistry, lang);
+    setPath(next);
+  }, [path, nodeRegistry, lang]);
 
   const jumpToLevel = useCallback(
     (index: number) => {
       setHistoryStack([]);
-      setPath((prev) => {
-        const next = prev.slice(0, index + 1);
-        const target = next[next.length - 1];
-        if (target) preloadLotusGrid(target, nodeRegistry, lang);
-        return next;
-      });
+      const next = path.slice(0, index + 1);
+      const target = next[next.length - 1];
+      if (target) preloadLotusGrid(target, nodeRegistry, lang);
+      setPath(next);
     },
-    [nodeRegistry, lang],
+    [path, nodeRegistry, lang],
   );
 
   const triggerNavigatorHighlight = useCallback(() => {
+    if (highlightTimerRef.current) clearTimeout(highlightTimerRef.current);
     setNavigatorHighlight(true);
-    setTimeout(() => setNavigatorHighlight(false), 1000);
+    highlightTimerRef.current = setTimeout(() => setNavigatorHighlight(false), 1000);
   }, []);
 
   const jumpToId = useCallback(
@@ -374,35 +387,51 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
   }, []);
 
   useEffect(() => {
+    // Skip pushState when navigation was triggered by browser back/forward (popstate).
+    // In that case replaceState already ran inside handlePopState; pushing again
+    // would create a duplicate history entry.
+    if (isPopStateRef.current) {
+      isPopStateRef.current = false;
+      return;
+    }
     const currentId = currentNode.id;
     try {
       const params = new URLSearchParams(window.location.search);
-      if (params.get("id") !== currentId) {
-        const newUrl =
-          currentId === ROOT_NODE.id
-            ? window.location.pathname
-            : `${window.location.pathname}?id=${currentId}`;
-        window.history.pushState({ id: currentId }, "", newUrl);
+      const expectedId = currentId !== ROOT_NODE.id ? currentId : null;
+      if (params.get("id") !== expectedId || params.get("lang") !== lang) {
+        const p = new URLSearchParams();
+        if (currentId !== ROOT_NODE.id) p.set("id", currentId);
+        p.set("lang", lang);
+        window.history.pushState(
+          { id: currentId },
+          "",
+          `${window.location.pathname}?${p.toString()}`,
+        );
       }
     } catch (e) {
       /* ignore */
     }
-  }, [currentNode]);
+  }, [currentNode, lang]);
 
   useEffect(() => {
-    const title = currentNode.title[lang];
-    document.title =
-      currentNode.id === "hub-home"
-        ? "ODA.dream | Wellness Art Tech"
-        : `${title} | ODA.dream`;
+    updateMetaTags(currentNode, lang, ROOT_NODE.id);
   }, [currentNode, lang]);
 
   useEffect(() => {
     const handlePopState = () => {
+      isPopStateRef.current = true; // prevents URL-sync effect from pushing a duplicate entry
       const nextPath = getPathFromUrl();
       const target = nextPath[nextPath.length - 1];
       if (target) preloadLotusGrid(target, nodeRegistry, lang);
       setPath(nextPath);
+      // Restore lang from URL on browser back/forward
+      try {
+        const urlLang = new URLSearchParams(window.location.search).get("lang");
+        if (urlLang === "en" || urlLang === "ru") {
+          setLang(urlLang as Language);
+          localStorage.setItem("oda_lang", urlLang);
+        }
+      } catch (e) { /* ignore */ }
     };
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
@@ -438,7 +467,10 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
       jumpToLevel,
       toggleLang,
       cycleTheme,
-      toggleGrid: setIsGridCollapsed,
+      toggleGrid: (collapsed: boolean) => {
+        setIsGridCollapsed(collapsed);
+        try { localStorage.setItem("oda_drawer_collapsed", String(collapsed)); } catch (e) {}
+      },
       triggerNavigatorHighlight,
       toggleLotusMode,
     }),

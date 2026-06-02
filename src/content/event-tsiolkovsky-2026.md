@@ -7,7 +7,7 @@ type: content
 tags: [performance, festival, premiere]
 visible: true
 date: 2026.05.16
-order: 0
+order: 1
 kind: event
 subkind: festival
 date_start: 2026-05-16

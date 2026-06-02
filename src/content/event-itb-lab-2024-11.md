@@ -7,7 +7,7 @@ type: content
 tags: [lab, dance, private]
 visible: false
 date: 2024.11.08
-order: 0
+order: 2
 kind: event
 subkind: lab
 date_start: 2024-11-08

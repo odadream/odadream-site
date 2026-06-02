@@ -9,7 +9,7 @@ tags:
   - lecture
 visible: true
 date: 2025.01.01
-order: 0
+order: 4
 kind: event
 date_start: 2025-01-01
 venue: Moscow

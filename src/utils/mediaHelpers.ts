@@ -28,15 +28,23 @@ export const detachPosterFromUrl = (fullUrl: string): { cleanUrl: string; poster
     // Use regex to carefully extract just our param
     const match = fullUrl.match(/[?&]__poster=([^&]*)/);
     if (match) {
-        const poster = decodeURIComponent(match[1]);
+        let poster: string;
+        try {
+            poster = decodeURIComponent(match[1]);
+        } catch (e) {
+            // Malformed percent-encoding — return original URL unchanged
+            return { cleanUrl: fullUrl };
+        }
         // Remove the parameter string from the URL
         let cleanUrl = fullUrl.replace(match[0], '');
-        
-        // Fix potential dangling '?' if we removed the first param
-        if (cleanUrl.includes('?') && cleanUrl.endsWith('?')) {
-            cleanUrl = cleanUrl.slice(0, -1);
+        // If __poster was the first query param (match[0] starts with '?'),
+        // any remaining params now begin with '&' — replace the leading '&' with '?'
+        if (match[0].startsWith('?') && cleanUrl.includes('&') && !cleanUrl.includes('?')) {
+            cleanUrl = cleanUrl.replace('&', '?');
         }
-        
+        // Fix potential dangling '?'
+        if (cleanUrl.endsWith('?')) cleanUrl = cleanUrl.slice(0, -1);
+
         return { cleanUrl, poster };
     }
     

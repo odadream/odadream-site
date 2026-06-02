@@ -7,6 +7,7 @@ type: content
 tags: []
 kind: product
 subkind: education
+order: 8
 ---
 
 ## Brain & Meditation

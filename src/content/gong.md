@@ -7,7 +7,7 @@ type: content
 tags:
   - gong
   - sound
-order: 2
+order: 3
 visible: true
 date: 2026.02.10
 kind: product

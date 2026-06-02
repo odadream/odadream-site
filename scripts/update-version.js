@@ -131,13 +131,13 @@ console.log(`✅ Regenerated versions.md`);
 
 // 6. GENERATE CHANGELOG.MD
 const changelogHeader = `---
-id: changelog
-parent: home
+id: hub-changelog
+parent: hub-home
 title_en: Changelog
 title_ru: Лог изменений
 type: content
 tags: [system, version]
-order: 7
+order: 8
 ---
 
 ## SYSTEM CHANGELOG

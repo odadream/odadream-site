@@ -37,7 +37,7 @@ Pipeline (all under `src/utils/`):
 3. `contentProcessor.ts` — splits EN/RU on `---RU---`, extracts media references and `[[wiki-links]]` (both node embeds and media embeds).
 4. `nodeHelpers.ts` — graph traversal (`findNode`, etc).
 
-Output: `ROOT_NODE` exported from `src/constants.ts`. Everything downstream — `App.tsx`, `NavigationContext`, `LotusGrid`, sidebar, breadcrumbs — operates on this in-memory tree. Routing is query-param only (`?id=node-id`); there is no router library.
+Output: `ROOT_NODE` and a flat `NODE_REGISTRY: ReadonlyMap<string, LotusNode>` (both exported from `src/constants.ts`). Everything downstream — `App.tsx`, `NavigationContext`, `LotusGrid`, sidebar, breadcrumbs, `provenance.ts` — operates on these in-memory structures. Routing is query-param only (`?id=node-id`); there is no router library.
 
 ### Node model
 
@@ -56,9 +56,49 @@ Markdown body splits on the literal separator `---RU---`. Frontmatter uses paral
 ### Wiki-link syntax (extension over standard Markdown)
 
 - `[[node-id]]` or `[[node-id|label]]` — embeds another node into the current node's Lotus grid (`_isEmbedded: true`).
-- `![[url]]` / `![[url | title]]` / `![[url | title | poster_url]]` — embeds a media node (video/audio/image) inline; the lightbox handles playback.
+- `![[url]]` / `![[url | title]]` / `![[url | title | poster_url]]` — embeds an inline media node from a raw URL; the lightbox handles playback.
+- `![[media:asset-id]]` / `![[media:asset-id | Custom Label]]` — preferred form; resolves the asset from `src/data/media.ts` by key, inheriting its URL, poster, and bilingual title. Use this instead of raw URLs to keep media centralised.
+
+Wiki-links in frontmatter YAML (e.g. `organizer: ["[[org-cipr]]"]`) are stripped to plain IDs by `unwrapWikilink` in `frontmatter.ts`. You can write them with or without brackets.
 
 Embedded nodes are how cross-references and dynamic grid composition work — they don't move the file, they just surface it as a petal on this node.
+
+### Media registry
+
+`src/data/media.ts` — single source of truth for reusable media assets (video embeds, images, audio). Each entry: `url`, optional `poster`, bilingual `title`, optional `subject[]` (node IDs for provenance cross-reference), `subkind`, and `mirrors`. Reference from content via `![[media:key-name]]`. The `media:` frontmatter field (a plain string list of asset IDs, not wiki-links) attaches media to a node for provenance display in `ProvenancePanel`.
+
+### Provenance model
+
+Nodes carry semantic relationship fields in frontmatter — all are lists of node IDs (plain strings or `[[wiki-link]]` syntax):
+
+| Field | Direction | Description |
+|-------|-----------|-------------|
+| `kind` | — | Semantic role: `product \| event \| organizer \| collaboration \| proof \| media` |
+| `subkind` | — | Data-driven subtype; see `src/data/taxonomy.ts` |
+| `presented_at` | product→event | Events where this product was shown |
+| `products` | event→product | Products shown at this event |
+| `organizer` | event→org | Who hosted the event |
+| `client` | event→org | Commercial client (distinct from organizer) |
+| `collaborators` | product/event→collab | Equal co-creative partners |
+| `proofs` | subject→proof | Evidence nodes (awards, press, etc.) |
+| `proof_of` | proof→subject | What this proof attests |
+| `about` | media→subject | What media work documents |
+| `issued_by` | proof→org | Who issued this proof |
+
+`src/utils/provenance.ts` builds a bidirectional index at module load from `NODE_REGISTRY` and exposes `getProvenance(node, registry)` → `Provenance` (direct + inverse links). `ProvenancePanel` renders this. The index is cached by registry reference identity.
+
+### Taxonomy
+
+`src/data/taxonomy.ts` — `TAXONOMY[kind][subkind]` gives `{ label: LocalizedString, icon: string, color: string }` for badge rendering. Unknown subkinds get a graceful fallback via `subkindMeta(kind, subkind)`. To add a subkind, append to the relevant kind's map — no TS changes elsewhere.
+
+### Content file naming conventions
+
+File IDs follow semantic prefixes by kind:
+- `hub-*` — navigation hubs
+- `event-*` — events (suffix `YYYY` or `YYYY-MM`)
+- `org-*` — organizers / venues
+- `proof-award-*`, `proof-let-*`, `proof-tst-*`, `proof-press-*` — proofs by subkind
+- `collab-*` — collaborations
 
 ### State, theming, components
 
@@ -88,7 +128,9 @@ Embedded nodes are how cross-references and dynamic grid composition work — th
 
 ## Before committing content changes
 
-1. Frontmatter valid, `parent` resolves, `---RU---` present.
-2. `npm run assets:map` — no orphans.
-3. `npm run assets:generate` if any nodes were added/renamed.
-4. `npm run build` to confirm `tsc` is clean.
+1. Frontmatter valid: `id` matches filename, `parent` resolves, `---RU---` present.
+2. Provenance IDs (`organizer`, `products`, `proofs`, etc.) must point to existing node IDs — typos silently produce empty provenance.
+3. New media assets added to `src/data/media.ts` before referencing them with `![[media:id]]`.
+4. `npm run assets:map` — no orphans.
+5. `npm run assets:generate` if any nodes were added/renamed.
+6. `npm run build` to confirm `tsc` is clean.

@@ -101,12 +101,14 @@ export const useLotusLogic = (currentNode: LotusNode, lang: "en" | "ru") => {
     });
 
     // --- OVERFLOW CHECK ---
+    let overflowCount = 0;
     if (resolved.length > LOTUS_GRID_LIMIT) {
+      overflowCount = resolved.length - LOTUS_GRID_LIMIT;
       onGridOverflow(currentNode.id, resolved.length, LOTUS_GRID_LIMIT);
       resolved = resolved.slice(0, LOTUS_GRID_LIMIT);
     }
 
-    return resolved;
+    return { nodes: resolved, overflowCount };
   }, [currentNode, lang, nodeRegistry]);
 
   // Map to 3x3 Grid
@@ -122,10 +124,10 @@ export const useLotusLogic = (currentNode: LotusNode, lang: "en" | "ru") => {
           return { ...currentNode, isCenter: true };
         }
         const childIndex = gridIndex < 4 ? gridIndex : gridIndex - 1;
-        const child = displayChildren[childIndex];
+        const child = displayChildren.nodes[childIndex];
         return child ? { ...child, isCenter: false } : null;
       });
   }, [currentNode, displayChildren]);
 
-  return { gridCells };
+  return { gridCells, overflowCount: displayChildren.overflowCount };
 };

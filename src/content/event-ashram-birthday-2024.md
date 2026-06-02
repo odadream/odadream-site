@@ -9,7 +9,7 @@ tags:
   - mindshow
 visible: true
 date: 2024.06.25
-order: 0
+order: 1
 kind: event
 date_start: 2024-06-25
 venue: Moscow

@@ -7,6 +7,7 @@ type: content
 tags: []
 kind: event
 subkind: forum
+order: 5
 ---
 
 ## TechWeek

@@ -107,13 +107,13 @@ const uniqueById = (nodes: LotusNode[]): LotusNode[] => {
 // Stat — single number+label pair for event attendance
 // ---------------------------------------------------------------------------
 
-const Stat: React.FC<{ label: string; value: number }> = ({ label, value }) => (
+const Stat: React.FC<{ label: string; value: number; lang: string }> = ({ label, value, lang }) => (
   <div className="flex flex-col items-start">
     <span className="text-[10px] font-mono uppercase tracking-widest text-txt-dim">
       {label}
     </span>
     <span className="text-base font-mono text-hud">
-      {new Intl.NumberFormat("ru-RU").format(value)}
+      {new Intl.NumberFormat(lang === "ru" ? "ru-RU" : "en-US").format(value)}
     </span>
   </div>
 );
@@ -582,12 +582,17 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
                   });
                 };
                 return (
-                  <button
-                    type="button"
+                  // div[role=button] allows <a> children (valid HTML); <button> does not.
+                  <div
+                    role="button"
+                    tabIndex={0}
                     key={id}
                     onClick={handleOpen}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleOpen(); }
+                    }}
                     title={asset.title?.[lang] || id}
-                    className="group inline-flex items-center gap-1.5 px-2 py-1 ring-1 ring-border/40 text-[11px] font-mono text-txt-muted hover:bg-surface/40 hover:text-txt transition-colors"
+                    className="group inline-flex items-center gap-1.5 px-2 py-1 ring-1 ring-border/40 text-[11px] font-mono text-txt-muted hover:bg-surface/40 hover:text-txt transition-colors cursor-pointer"
                   >
                     <Icon className="w-3 h-3" strokeWidth={1.5} />
                     <span className="truncate max-w-[28ch]">{asset.title?.[lang] || id}</span>
@@ -609,7 +614,7 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
                         ))}
                       </span>
                     )}
-                  </button>
+                  </div>
                 );
               })}
             </Section>
@@ -621,10 +626,10 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
           <Section label={T.attendance} icon={Users}>
             <div className="flex gap-8">
               {typeof node.attendance?.visitors === "number" && (
-                <Stat label={T.visitors} value={node.attendance.visitors} />
+                <Stat label={T.visitors} value={node.attendance.visitors} lang={lang} />
               )}
               {typeof node.attendance?.contacts === "number" && (
-                <Stat label={T.contacts} value={node.attendance.contacts} />
+                <Stat label={T.contacts} value={node.attendance.contacts} lang={lang} />
               )}
             </div>
           </Section>

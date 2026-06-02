@@ -7,7 +7,7 @@ type: content
 tags:
   - food
   - abstract
-order: 2
+order: 7
 visible: true
 date: 2026.02.12
 kind: product

@@ -6,7 +6,7 @@ title_ru: Организации
 type: content
 tags:
   - hub-registry
-order: 2
+order: 3
 visible: true
 date: 2026.05.25
 ---

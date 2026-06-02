@@ -97,6 +97,8 @@ const HEADER_TABS_ORDER = [
   "hub-home",
   "hub-works",
   "hub-collab",
+  "hub-education",
+  "hub-business",
   "hub-events",
   "hub-world",
   "hub-contacts",

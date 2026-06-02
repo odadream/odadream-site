@@ -37,7 +37,7 @@ const resolveTokens = (text: string, lang: Lang = "en"): string => {
 
   // Atomic contact tokens → markdown link.
   out = out.replace(/\{\{\s*([a-z][a-z0-9-]*)\s*\}\}/gi, (match, key) => {
-    const c = CONTACTS[key];
+    const c = CONTACTS[key.toLowerCase()];
     return c ? `[${c.label}](${c.href})` : match;
   });
 
@@ -132,7 +132,7 @@ export const parseContentAndExtractMedia = (
   if (!rawMarkdown) return { cleanText: "", mediaNodes: [] };
 
   const resolved = resolveTokens(rawMarkdown, lang);
-  const { masked: textToScan } = maskCodeBlocks(resolved);
+  const { masked: textToScan, placeholders } = maskCodeBlocks(resolved);
   const mediaNodes: LotusNode[] = [];
   const processedKeys = new Set<string>();
   let counter = 0;
@@ -187,7 +187,13 @@ export const parseContentAndExtractMedia = (
     addNode(match[2], match[1]);
   }
 
-  return { cleanText: rawMarkdown, mediaNodes };
+  // Strip embed syntax from cleanText so callers get plain prose without tokens
+  const cleanMasked = textToScan
+    .replace(/!\[\[\s*[^|\]]+?(?:\s*\|[^\]]+?)?\s*\]\]/g, "")
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, "");
+  const cleanText = restoreCodeBlocks(cleanMasked, placeholders).trim();
+
+  return { cleanText, mediaNodes };
 };
 
 /**

@@ -9,7 +9,7 @@ tags:
   - installation
 visible: true
 date: 2025.08.01
-order: 0
+order: 5
 kind: event
 date_start: 2025-08-01
 organizer:

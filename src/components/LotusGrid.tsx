@@ -235,6 +235,14 @@ const GridCell = React.memo<{
               ? "50% 0%"
               : "50% 50%";
 
+    const cellLabel = cell.isCenter
+      ? hasHistory
+        ? `${lang === "ru" ? "Вернуться к" : "Back to"}: ${originNode?.shortTitle?.[lang] || originNode?.title[lang] || ""}`
+        : canGoBack
+          ? `${lang === "ru" ? "Вверх к" : "Up to"}: ${path[path.length - 2]?.shortTitle?.[lang] || path[path.length - 2]?.title[lang] || ""}`
+          : lang === "ru" ? "Вы дома" : "Home"
+      : displayTitle;
+
     return (
       <div
         // Center cell: outward shadow so it appears raised; LED glow is outward only
@@ -255,6 +263,8 @@ const GridCell = React.memo<{
         onMouseLeave={() => setIsHovered(false)}
         onClick={handleClick}
         role="button"
+        aria-label={cellLabel}
+        title={cellLabel}
         tabIndex={0}
         onKeyDown={(e: React.KeyboardEvent) => {
           if (e.key === "Enter" || e.key === " ") {
@@ -414,7 +424,7 @@ export const LotusGrid: React.FC = () => {
     lotusMode,
     historyStack,
   } = useNavigation();
-  const { gridCells } = useLotusLogic(currentNode, lang);
+  const { gridCells, overflowCount } = useLotusLogic(currentNode, lang);
 
   const lotusGridKey =
     historyStack.length > 0
@@ -661,52 +671,51 @@ export const LotusGrid: React.FC = () => {
   const peekFiredRef = React.useRef(false);
   const peekTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // Always clears the previous timer before scheduling the next one —
+  // prevents orphaned timers when the effect re-runs mid-sequence.
+  const schedulePeek = React.useCallback((fn: () => void, delay: number) => {
+    if (peekTimerRef.current) clearTimeout(peekTimerRef.current);
+    peekTimerRef.current = setTimeout(fn, delay);
+  }, []);
+
   React.useEffect(() => {
     // Only on mobile, only when collapsed, only once per session
     if (isDesktop || !isGridCollapsed) {
-      // User opened the panel — cancel pending peek, stop pulse
       if (peekTimerRef.current) clearTimeout(peekTimerRef.current);
+      peekTimerRef.current = null;
       setHandlePulse(false);
       return;
     }
 
-    // Already fired this session — don't repeat
     if (peekFiredRef.current) return;
 
-    peekTimerRef.current = setTimeout(() => {
+    schedulePeek(() => {
       const panel = panelRef.current;
-      if (!panel || !isCollapsedRef.current) return; // user may have opened meanwhile
+      if (!panel || !isCollapsedRef.current) return;
 
       peekFiredRef.current = true;
       const closed = closedOffsetRef.current;
-      // Peek distance: 30% of panel height (enough to show top row of cells)
       const peekY = closed * 0.3;
 
-      // PEEK IN — fast ease-out (feels like a knock)
       panel.style.transition = "transform 420ms cubic-bezier(0.22, 1, 0.36, 1)";
       panel.style.transform = `translateY(${closed - peekY}px)`;
 
-      // PEEK OUT — spring back after 600ms pause
-      const backTimer = setTimeout(() => {
-        if (!isCollapsedRef.current) return; // user opened it during peek
-        panel.style.transition =
-          "transform 500ms cubic-bezier(0.32, 0.72, 0, 1)";
+      schedulePeek(() => {
+        if (!isCollapsedRef.current) return;
+        panel.style.transition = "transform 500ms cubic-bezier(0.32, 0.72, 0, 1)";
         panel.style.transform = `translateY(${closed}px)`;
 
-        // Start handle pulse after peek completes
-        const pulseTimer = setTimeout(() => {
+        schedulePeek(() => {
           if (isCollapsedRef.current) setHandlePulse(true);
         }, 520);
-        peekTimerRef.current = pulseTimer;
       }, 700);
-
-      peekTimerRef.current = backTimer;
     }, 4000);
 
     return () => {
       if (peekTimerRef.current) clearTimeout(peekTimerRef.current);
+      peekTimerRef.current = null;
     };
-  }, [isDesktop, isGridCollapsed]);
+  }, [isDesktop, isGridCollapsed, schedulePeek]);
 
   // Mobile style: absolute overlay, GPU-only transform.
   // Transition is always "on" here — during drag it gets disabled
@@ -768,7 +777,14 @@ export const LotusGrid: React.FC = () => {
           >
             <div className={cn(THEME.lotus.frame, "flex-1 min-h-0")}>
               {lotusMode === "map" ? (
-                <LotusMap />
+                <div className="relative w-full h-full">
+                  <LotusMap />
+                  <div className="absolute bottom-2 left-0 right-0 flex justify-center pointer-events-none z-50">
+                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-txt-dim/50 mix-blend-screen">
+                      {lang === "ru" ? "// карта · phase 1 · топология в разработке" : "// map · phase 1 · topology in progress"}
+                    </span>
+                  </div>
+                </div>
               ) : (
                 <div className="relative w-full h-full min-h-0">
                   <AnimatePresence initial={false}>
@@ -785,7 +801,7 @@ export const LotusGrid: React.FC = () => {
                     >
                       {gridCells.map((cell, index) => (
                         <div
-                          key={index}
+                          key={cell ? cell.id : `empty-${index}`}
                           className="relative w-full h-full overflow-hidden bg-surface"
                         >
                           <GridCell
@@ -797,6 +813,16 @@ export const LotusGrid: React.FC = () => {
                       ))}
                     </MotionDiv>
                   </AnimatePresence>
+                  {overflowCount > 0 && (
+                    <div
+                      className="absolute bottom-1 right-1 z-40 pointer-events-none"
+                      title={`+${overflowCount} hidden`}
+                    >
+                      <span className="font-mono text-[9px] tracking-widest text-accent/50 mix-blend-screen">
+                        +{overflowCount}
+                      </span>
+                    </div>
+                  )}
                 </div>
               )}
             </div>

@@ -5,7 +5,7 @@ title_en: World
 title_ru: Мир
 type: hub
 tags: [globe, network]
-order: 4
+order: 5
 visible: true
 date: 2026.02.10
 ---

@@ -5,7 +5,7 @@ title_en: Co-creative partners
 title_ru: Партнёры со-творчества
 type: hub
 tags: [registry, collaboration]
-order: 1
+order: 2
 visible: true
 date: 2026.05.30
 ---

@@ -72,9 +72,15 @@ export const HeaderTabs: React.FC = () => {
               </button>
           )}
 
-          <button onClick={toggleLang} className={`flex items-center gap-2 px-2 py-1 ${THEME.typography.ui} text-txt-muted hover:text-hud hover:bg-overlay/5 rounded transition-colors`}>
-             <Globe className="w-3 h-3 transition-transform duration-500 hover:rotate-180" strokeWidth={1.5} />
-             <span>{lang}</span>
+          <button
+            onClick={toggleLang}
+            title={lang === "ru" ? "Switch to English" : "Переключить на русский"}
+            className={`flex items-center gap-1.5 px-2 py-1 ${THEME.typography.ui} hover:bg-overlay/5 rounded transition-colors`}
+          >
+            <Globe className="w-3 h-3 text-txt-dim transition-transform duration-500 hover:rotate-180 shrink-0" strokeWidth={1.5} />
+            <span className={lang === "en" ? "text-hud" : "text-txt-dim/50 hover:text-txt-dim"}>EN</span>
+            <span className="text-txt-dim/30">·</span>
+            <span className={lang === "ru" ? "text-hud" : "text-txt-dim/50 hover:text-txt-dim"}>RU</span>
           </button>
       </div>
     </header>

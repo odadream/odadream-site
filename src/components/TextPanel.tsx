@@ -38,6 +38,7 @@ export const TextPanel: React.FC = () => {
   const { currentNode, lang, jumpToId, nodeRegistry } = useNavigation();
   const { openLightbox } = useLightbox();
   const scrollRef = useRef<HTMLDivElement>(null);
+  const provenanceRef = useRef<HTMLDivElement>(null);
 
   // Reset scroll on ID change
   useEffect(() => {
@@ -52,6 +53,19 @@ export const TextPanel: React.FC = () => {
     const noH1 = stripH1(raw);
     return transformWikiLinks(noH1, nodeRegistry, lang);
   }, [currentNode.description, lang]);
+
+  // Detect placeholder/stub nodes: raw description very short AND no visible children
+  const isShallowContent = useMemo(() => {
+    const raw = (currentNode.description[lang] || "").replace(/#+\s[^\n]*/g, "").trim();
+    const hasChildren = (currentNode.children || []).some(c => c.visible !== false);
+    return raw.length < 120 && !hasChildren;
+  }, [currentNode, lang]);
+
+  const hasProvenance = !!currentNode.kind;
+
+  const scrollToProvenance = () => {
+    provenanceRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   const handleMediaClick = (srcWithParams: string, label: string) => {
     if (!srcWithParams) return;
@@ -217,13 +231,22 @@ export const TextPanel: React.FC = () => {
                     triggerKey={currentNode.id}
                   />
                 </h1>
-                <div className="flex flex-col items-end shrink-0 text-right ml-4 pb-1">
+                <div className="flex flex-col items-end shrink-0 text-right ml-4 pb-1 gap-1">
                   {currentNode.status && STATUS_BADGE[currentNode.status] && (
                     <span
-                      className={`${THEME.typography.meta} ${STATUS_BADGE[currentNode.status].cls} font-bold mb-0.5`}
+                      className={`${THEME.typography.meta} ${STATUS_BADGE[currentNode.status].cls} font-bold`}
                     >
                       {STATUS_BADGE[currentNode.status][lang]}
                     </span>
+                  )}
+                  {hasProvenance && (
+                    <button
+                      onClick={scrollToProvenance}
+                      className={`${THEME.typography.meta} text-accent/60 hover:text-accent transition-colors cursor-pointer`}
+                      title={lang === "ru" ? "Перейти к связям" : "Jump to provenance"}
+                    >
+                      {lang === "ru" ? "Связи ↓" : "Provenance ↓"}
+                    </button>
                   )}
                   <span className={`${THEME.typography.meta} text-accent/80 opacity-50`}>
                     {currentNode.type}
@@ -247,10 +270,19 @@ export const TextPanel: React.FC = () => {
               >
                 {content}
               </Markdown>
+              {isShallowContent && (
+                <div className="mt-6 py-5 border border-dashed border-border-dim/40 flex items-center justify-center">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-txt-dim">
+                    {lang === "ru" ? "// раздел в разработке" : "// section in development"}
+                  </span>
+                </div>
+              )}
             </div>
 
             {/* PROVENANCE — auto-rendered only for nodes with `kind` */}
-            <ProvenancePanel node={currentNode} />
+            <div ref={provenanceRef}>
+              <ProvenancePanel node={currentNode} />
+            </div>
 
             {/* FOOTER */}
             <div className={THEME.typography.contentFooter}>
