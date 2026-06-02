@@ -1,68 +1,89 @@
 ---
 id: lighthouse
-parent: hub-materia
+parent: hub-installations
 title_en: Lighthouse
 title_ru: Маяк
 type: content
 tags:
-  - souvenir
-  - sculpture
-  - spiral
+  - installation
+  - architecture
+  - neuromandala
+  - bali
+  - generative
 order: 6
-date: 2021.05.19
+date: 2022.08.01
 visible: true
 status: rnd
 kind: product
 subkind: art
-image: /images/content/materia/lighthouse/lighthouse-cover-thumb.webp
+image: /images/content/works/lighthouse/lighthouse-cover-thumb.webp
+client:
+  - "[[org-solonik]]"
+organizer:
+  - "[[org-nuanu]]"
 presented_at: []
 proofs: []
 media:
   - media-lighthouse-docs
+  - media-lighthouse-video
 ---
 
 ## Lighthouse
 
-**LV3 object · time-unfolded neuromandala · spiral “wind rose”**
+**Virtual architecture · real-time neuromandala tower · Bali / Nuanu City**
 
-**Lighthouse** (*Маяк*) is a **table-scale souvenir** from the third level of the Materia line: the neuromandala is **unfolded along time** into a vertical spiral. In cross-section the tower reads as a **wind rose** — the diagram changes shape at each height according to how wave intensities were distributed across the recorded session.
+**Lighthouse** is **not** a Materia jewellery piece — it is a **virtual architectural object**: a generative tower whose silhouette updates in **real time** from the **medium’s** brain state (the person being measured): relaxed, focused, tense, tired, and other regimes.
 
-## Concept
+The line was developed while ODA.dream worked on **Bali**, in the ecosystem of **[Nuanu City](https://www.nuanu.com/)** ([[org-nuanu|venue record]]), with **[[org-solonik|Sergey Solonik]]** as commissioner.
 
-From the product catalogue (~90×160×90 mm class): silvery matte body, **semi-transparent polymer insert** highlights the rhythm band the keeper chooses. Inscriptions can carry session date, place, bearer, felt sense, and a short statistical summary — a **navigational object** for inner weather, not a maritime toy.
+## City symbol → brain rhythms
 
-The TouchDesigner **Tower** studies in the archive (`Blended`, `Shaped` exports) document how alpha/beta/theta/gamma layers stack into a single beacon-like column.
+One of Nuanu’s landmarks is the **THK Tower** by **Mamou-Mani Ltd** (London) — Arthur Mamou-Mani, Krishna Bhat, Nina Pestel ([project reference](https://globalwoodtech.com/thk-tower/)). An early lighthouse sketch echoed an earlier studio project — the **Neurogon** lampshade (a Materia node will follow), where **object form was driven by brain rhythms**.
+
+The Lighthouse study reuses that logic with improved mesh algorithms: a **vertical neuromandala unfolded in time** — cross-sections read as a **wind rose** of wave bands, tier by tier.
 
 ## Method
 
-- record a session window (meditation, performance, or lab);
-- map spectral dynamics to **tier heights** around a central mast;
-- prototype laminates / shaped stacks; optional spin animation for explanation (video exports in archive).
+- EEG (or compatible) stream from the medium;
+- map spectral emphasis to **floor-by-floor section** and outer shell;
+- isolate single bands (alpha-only, theta-only) or **multi-rhythm blends**;
+- export shaped stacks and spin animations for presentation ([[media-lighthouse-docs|still studies]] · [[media-lighthouse-video|motion]]).
 
-## Track
+TouchDesigner **Tower** studies in archive `LV3 Маяк` document alpha / theta / blended / shaped states.
 
-**R&D / catalogue object** — fabrication masters under `LV3 Маяк`. Not mixed with the [[fourth-dimension|Fourth Dimension]] pendant or [[oda-rings|ODA.dream Rings]]. Gallery: [[media-lighthouse-docs|shapes & blends]].
+## Relation to other lines
+
+Distinct from wearable **[[oda-rings|ODA.dream Rings]]** or table-scale enamel objects — this is **spatial, screen-native architecture**. For emotion-without-EEG jewellery see **[[emomandala|Emomandala]]**.
+
+**Status:** **R&D** — virtual prototype and motion catalogue; venue-specific deployment on request.
 
 ---RU---
 
 ## Маяк
 
-**Объект LV3 · развёртка нейромандалы по времени · спираль «роза ветров»**
+**Виртуальная архитектура · башня-нейромандала в реальном времени · Бали / Nuanu City**
 
-**Маяк** — **настольный сувенир** третьего уровня линии Материи: нейромандала **разворачивается по времени** в вертикальную спираль. В сечении башня читается как **роза ветров** — диаграмма меняет форму на каждой высоте по распределению интенсивностей волн в записанной сессии.
+**Маяк** — **не** украшение из Материи, а **виртуальный архитектурный объект**: генеративная башня, чей силуэт обновляется **в реальном времени** от состояния **медиума** (измеряемого человека): расслаблен, сконцентрирован, напряжён, устал и другие режимы.
 
-## Концепция
+Линия разрабатывалась, когда ODA.dream работали на **Бали**, в экосистеме **[Nuanu City](https://www.nuanu.com/)** ([[org-nuanu|площадка]]), заказчик — **[[org-solonik|Сергей Солоник]]**.
 
-Из каталога продуктов (класс ~90×160×90 мм): матовый серебристый корпус, **полупрозрачная вставка** выделяет выбранный ритм. Надписи могут нести дату, место, носителя, ощущение и краткую сводку сессии — **навигационный объект** для внутренней погоды, не морская игрушка.
+## Символ города → ритмы мозга
 
-Исследования **Tower** в TouchDesigner (экспорты `Blended`, `Shaped` в архиве) показывают, как слои α/β/θ/γ собираются в столб-маяк.
+Один из символов Nuanu — **башня THK** бюро **Mamou-Mani Ltd** (Лондон) — Arthur Mamou-Mani, Krishna Bhat, Nina Pestel ([описание проекта](https://globalwoodtech.com/thk-tower/)). Ранний эскиз маяка напомнил другой проект студии — плафон **Neurogon** (узел в Материи добавим позже), где **форму задавали ритмы мозга**.
+
+В «Маяке» та же логика с улучшенными алгоритмами построения: **вертикальная нейромандала, развёрнутая по времени** — сечения читаются как **роза ветров** полос ритмов, ярус за ярусом.
 
 ## Метод
 
-- запись окна сессии (медитация, перформанс, лаборатория);
-- разложение спектральной динамики по **ярусам высоты** вокруг ствола;
-- прототипы ламинатов / shaped-стеков; опционально spin-анимация для объяснения (видео в архиве).
+- поток ЭЭГ (или совместимый) от медиума;
+- перенос спектральных акцентов в **сечения по высоте** и оболочку;
+- выделение одного ритма (только альфа, только тета) или **смеси нескольких**;
+- экспорт shaped-стеков и spin-анимаций для презентации ([[media-lighthouse-docs|кадры]] · [[media-lighthouse-video|движение]]).
 
-## Трек
+Исследования **Tower** в TouchDesigner в архиве `LV3 Маяк` фиксируют состояния alpha / theta / blended / shaped.
 
-**R&D / каталожный объект** — мастера в `LV3 Маяк`. Не смешивать с кулоном [[fourth-dimension|4-е измерение]] или [[oda-rings|Кольца ODA.dream]]. Галерея: [[media-lighthouse-docs|формы и бленды]].
+## Связь с другими линиями
+
+Отдельно от носимых **[[oda-rings|Колец ODA.dream]]** и эмалевых объектов — это **пространственная, экранная архитектура**. Линия эмоций без ЭЭГ — **[[emomandala|Эмомандала]]**.
+
+**Статус:** **R&D** — виртуальный прототип и motion-каталог; развёртывание под площадку по запросу.

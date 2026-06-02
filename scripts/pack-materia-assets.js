@@ -21,14 +21,7 @@ const PACKS = [
       "LV2 Wave Based/Gen 1 - Arabovs Ring/Pictures/TDMovieOut.0.png",
     ],
   },
-  {
-    id: "lighthouse",
-    hero: "LV3 Маяк/Export/03_Shaped2.png",
-    gallery: [
-      "LV3 Маяк/Export/02_Blended2.png",
-      "LV3 Маяк/Blended.1.png",
-    ],
-  },
+  // lighthouse — use npm run pack:lighthouse
   // emomandala — use npm run pack:emomandala
 ];
 

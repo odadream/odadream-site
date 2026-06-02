@@ -22,6 +22,7 @@
     "pack:mom-baby": "node scripts/pack-mom-baby-assets.js",
     "pack:happiness": "node scripts/pack-happiness-assets.js",
     "pack:emomandala": "node scripts/pack-emomandala-assets.js",
+    "pack:lighthouse": "node scripts/pack-lighthouse-assets.js",
     "image:pack": "node scripts/pack-image.js",
     "deploy:check": "powershell -ExecutionPolicy Bypass -File scripts/check-deployment.ps1",
     "migrate:dry": "node scripts/migrate.js",

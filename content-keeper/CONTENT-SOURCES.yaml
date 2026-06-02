@@ -179,15 +179,23 @@ voronka:
 
 lighthouse:
   sources:
-    - path: D:/YandexDisk/_ODA2/Презентации/_Export/ODA.Dream - Обзор продуктов.pdf
-      type: media
-      priority: canonical
-      added: 2026-05-31
-      notes: Spiral souvenir p.9 (~90×160×90 mm).
     - path: D:/YandexDisk/_ODA2/Украшения и объекты/LV3 Маяк
       type: project_folder
       priority: canonical
       added: 2026-05-31
+      notes: |
+        Virtual architectural installation (hub-installations), not Materia jewellery.
+        Context: Bali · Nuanu City (nuanu.com); client Sergey Solonik (org-solonik).
+        THK Tower (Mamou-Mani) as city reference; Neurogon lampshade lineage (Materia node TBD).
+        npm run pack:lighthouse — alpha/theta states, blends, shaped sections, blended-spin + spin-twist m4v.
+    - path: https://www.nuanu.com/
+      type: text
+      priority: reference
+      added: 2026-06-02
+    - path: https://globalwoodtech.com/thk-tower/
+      type: text
+      priority: reference
+      added: 2026-06-02
 
 mom-baby:
   sources:

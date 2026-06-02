@@ -41,7 +41,7 @@ How can **self-reported and sensed emotion** become geometry without pretending 
 - capture emotional checkpoints over time;
 - run a p5.js random mandala feed and collect selected frames;
 - map the selected frame to geometry and enamel partitions for jewellery;
-- publish process boards — distinct from collective EEG souvenirs like [[lighthouse|Lighthouse]].
+- publish process boards — distinct from EEG spatial works like [[lighthouse|Lighthouse]].
 
 The first **pendant** was made as a **two-sided silver 925 + UV enamel** object:
 - front — enamel in recessed cells from the selected sketch;
@@ -87,7 +87,7 @@ The production story echoed other Materia objects: several workshops said fabric
 - отметки эмоций во времени;
 - генератор случайных мандал на p5.js и выбор резонирующего кадра;
 - перенос выбранного кадра в геометрию и эмалевые зоны;
-- процессные доски — отдельно от EEG-сувениров вроде [[lighthouse|Маяка]].
+- процессные доски — отдельно от EEG-пространственных работ вроде [[lighthouse|Маяка]].
 
 Первый **кулон** — **двусторонний объект из серебра 925 и УФ-эмали**:
 - лицевая сторона — эмаль в углублениях по эскизу;

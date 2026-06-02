@@ -18,7 +18,7 @@ Spatial works by ODA.dream — **fixed or modular environments** where the drama
 
 ### What holds the line together
 
-A shared substrate — **[[neuromandala|Neuromandala]]**, EEG/ pulse pipelines, **TouchDesigner**, projection and light — applied to different research questions: **collective synchrony** ([[sync-circle|Sync Circle]]), **honouring inner landscapes of a community** ([[honors|Neuro Honor Board]] · Skolkovo competition), **shadow and attention theatre** ([[potustoronniy|Beyond]]), **contemplative AI ritual** ([[dashran|Darshan Moment]]), **inclusive neuro-portraits** ([[another-people|Other People]]). Formats range from floor projection and character cards to pavilion architecture and semicircle meditation.
+A shared substrate — **[[neuromandala|Neuromandala]]**, EEG/ pulse pipelines, **TouchDesigner**, projection and light — applied to different research questions: **collective synchrony** ([[sync-circle|Sync Circle]]), **honouring inner landscapes of a community** ([[honors|Neuro Honor Board]] · Skolkovo competition), **shadow and attention theatre** ([[potustoronniy|Beyond]]), **contemplative AI ritual** ([[dashran|Darshan Moment]]), **inclusive neuro-portraits** ([[another-people|Other People]]), **virtual architecture from live brain states** ([[lighthouse|Lighthouse]] · Bali / Nuanu City). Formats range from floor projection and character cards to pavilion architecture, generative towers, and semicircle meditation.
 
 ### Production status
 
@@ -26,7 +26,7 @@ One line is **competition- or festival-ready documentation** (honors, sync-circl
 
 ### For curators and producers
 
-Bring a question about **how a space can make inner states public without turning people into specimens** — we ship the technical rider, media artefacts, and provenance on each work card. Object-scale pieces live under **[[hub-materia|Materia]]**.
+Bring a question about **how a space can make inner states public without turning people into specimens** — we ship the technical rider, media artefacts, and provenance on each work card. Wearable and table-scale artefacts live under **[[hub-materia|Materia]]**.
 
 ---RU---
 
@@ -36,7 +36,7 @@ Bring a question about **how a space can make inner states public without turnin
 
 ### Что объединяет линию
 
-Общий субстрат — **[[neuromandala|Нейромандала]]**, ЭЭГ/пульс, **TouchDesigner**, проекция и свет — в разных исследовательских вопросах: **коллективная синхронность** ([[sync-circle|Круг синхронизации]]), **внутренние ландшафты сообщества** ([[honors|Нейродоска почёта]] · конкурс Сколково), **теневой театр внимания** ([[potustoronniy|Потусторонний]]), **созерцательный ритуал с ИИ** ([[dashran|Момент Даршана]]), **инклюзивные нейропортреты** ([[another-people|Другие люди]]). Форматы — от напольной проекции и карточек персонажей до павильонной архитектуры и медитативного полукруга.
+Общий субстрат — **[[neuromandala|Нейромандала]]**, ЭЭГ/пульс, **TouchDesigner**, проекция и свет — в разных исследовательских вопросах: **коллективная синхронность** ([[sync-circle|Круг синхронизации]]), **внутренние ландшафты сообщества** ([[honors|Нейродоска почёта]] · конкурс Сколково), **теневой театр внимания** ([[potustoronniy|Потусторонний]]), **созерцательный ритуал с ИИ** ([[dashran|Момент Даршана]]), **инклюзивные нейропортреты** ([[another-people|Другие люди]]), **виртуальная архитектура из живого состояния мозга** ([[lighthouse|Маяк]] · Бали / Nuanu City). Форматы — от напольной проекции и карточек персонажей до павильонной архитектуры, генеративных башен и медитативного полукруга.
 
 ### Статус производства
 
@@ -44,4 +44,4 @@ Bring a question about **how a space can make inner states public without turnin
 
 ### Для кураторов и продюсеров
 
-Вопрос на входе: **как сделать внутренние состояния зримыми, не превращая человека в объект исследования** — на карточках работ: райдер, медиа, происхождение фактов. Объектный масштаб — в **[[hub-materia|Материи]]**.
+Вопрос на входе: **как сделать внутренние состояния зримыми, не превращая человека в объект исследования** — на карточках работ: райдер, медиа, происхождение фактов. Носимый и настольный масштаб — в **[[hub-materia|Материи]]**.
