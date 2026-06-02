@@ -10,6 +10,7 @@ kind: proof
 subkind: press
 proof_of:
   - "[[oda-rings]]"
+  - "[[mom-baby]]"
   - "[[hub-materia]]"
 issued_by: []
 publication: Synergy Crypto & NFT Forum
@@ -20,10 +21,10 @@ quote_ru: Первый публичный показ линии Материя �
 
 ## ODA.dream debut — Synergy Crypto & NFT Forum
 
-**6 August 2022 · Bali** — first forum appearance under the name **ODA.dream**, presenting the **[[oda-rings|ODA.dream Rings]]** origin story and the **Materia** direction. Archive: [[media-oda-rings-banner|Synergy banner PDF]].
+**6 August 2022 · Bali** — first forum appearance under the name **ODA.dream**, presenting the **[[oda-rings|ODA.dream Rings]]** origin story, the seed of **[[mom-baby|Mom & Baby]]** (Borzikh encounter), and the **Materia** direction. Archive: [[media-oda-rings-banner|Synergy banner PDF]].
 
 ---RU---
 
 ## Дебют ODA.dream — Synergy Crypto & NFT Forum
 
-**6 августа 2022 · Бали** — первое публичное выступление под именем **ODA.dream**: история **[[oda-rings|колец ODA.dream]]** и направление **Материя**. Архив: [[media-oda-rings-banner|PDF баннера Synergy]].
+**6 августа 2022 · Бали** — первое публичное выступление под именем **ODA.dream**: история **[[oda-rings|колец ODA.dream]]**, зачаток **[[mom-baby|Мама и Малыш]]** (встреча с Борзих) и направление **Материя**. Архив: [[media-oda-rings-banner|PDF баннера Synergy]].

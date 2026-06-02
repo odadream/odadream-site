@@ -39,14 +39,6 @@ const PACKS = [
     ],
   },
   {
-    id: "mom-baby",
-    hero: "LV2 Mom and Baby/Gen 2 - Borzih/Photos/Cover2_cut.jpg",
-    gallery: [
-      "LV2 Mom and Baby/Gen 1/_Export/Render1.png",
-      "LV2 Mom and Baby/Gen 2 - Borzih/_Export/Render1.jpg",
-    ],
-  },
-  {
     id: "emomandala",
     hero: "LV2 Emo-mandala/_Export/Render1.png",
     gallery: [

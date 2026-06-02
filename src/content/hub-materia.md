@@ -37,7 +37,7 @@ Designs are **generative**: each object is unique to the session that fed it. Yo
 - **[[oda-rings|ODA.dream Rings]]** — founding wedding bands (2020): dream sealed in metal; namesake of the duo.
 - **[[fourth-dimension|Fourth Dimension]]** — pendant from a **large collective meditation** (~2000 participants): a **two-minute** EEG window of the lead facilitator, sealed in silver and enamel.
 - **[[voronka|Funnel]]** — parametric Vortex set (pendant + earrings): flat mandala lofted in Grasshopper, four enamel rhythm layers.
-- **[[mom-baby|Mom & Baby]]** — intimate “Sasha pendant” lineage for early mother–child bond.
+- **[[mom-baby|Mom & Baby]]** — nested CTG pendant (gold core + white-gold shell); born at Synergy Bali 2022 with [[oda-rings|ODA.dream Rings]].
 - **[[lighthouse|Lighthouse]]** — LV3 table object: neuromandala **unfolded in time** as a spiral tower.
 
 ### Parallel lines (outside the EEG protocol)
@@ -73,7 +73,7 @@ For curators and commissioners: bring a **trace worth keeping**; we agree protoc
 - **[[oda-rings|Кольца ODA.dream]]** — обручальные кольца-исток (2020): мечта в металле; откуда имя дуэта.
 - **[[fourth-dimension|4-е измерение]]** — кулон из **коллективной медитации** (~2000 участников): **двухминутное** окно ЭЭГ ведущей, запечатлённое в серебре и эмали.
 - **[[voronka|Воронка]]** — параметрический Vortex (кулон + серьги): плоская мандала → объём в Grasshopper, четыре слоя эмали.
-- **[[mom-baby|Мама и Малыш]]** — камерная линия «кулон Саши» для связи матери и ребёнка.
+- **[[mom-baby|Мама и Малыш]]** — вложенный кулон по КТГ (ядро + оболочка); исток на Synergy Бали 2022 вместе с [[oda-rings|Кольцами ODA.dream]].
 - **[[lighthouse|Маяк]]** — объект LV3: нейромандала **развёрнута по времени** в спираль-башню.
 
 ### Параллельные линии (вне протокола ЭЭГ)

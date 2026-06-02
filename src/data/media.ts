@@ -688,21 +688,71 @@ export const MEDIA: Record<string, MediaAsset> = {
   "mom-baby-cover": {
     url: "/images/content/materia/mom-baby/mom-baby-cover.webp",
     poster: "/images/content/materia/mom-baby/mom-baby-cover-thumb.webp",
-    title: { en: "Mom & Baby pendant", ru: "Кулон Мама и Малыш" },
+    title: { en: "Mom & Baby · Borzikh pendant", ru: "Мама и Малыш · кулон Борзых" },
     subkind: "photo",
     subject: ["mom-baby", "media-mom-baby-docs"],
   },
-  "mom-baby-1": {
-    url: "/images/content/materia/mom-baby/mom-baby-1.webp",
-    title: { en: "Mom & Baby — render", ru: "Мама и Малыш — рендер" },
+  "mom-baby-main": {
+    url: "/images/content/materia/mom-baby/photo-borzikh-main.webp",
+    title: { en: "Borzikh pendant · Batur-like center", ru: "Кулон Борзых · центр как Батур" },
     subkind: "photo",
     subject: ["mom-baby", "media-mom-baby-docs"],
   },
-  "mom-baby-2": {
-    url: "/images/content/materia/mom-baby/mom-baby-2.webp",
-    title: { en: "Mom & Baby — fabrication", ru: "Мама и Малыш — изготовление" },
+  "mom-baby-parts": {
+    url: "/images/content/materia/mom-baby/photo-parts-two-pendants.webp",
+    title: { en: "Two pendant parts", ru: "Две части кулона" },
     subkind: "photo",
     subject: ["mom-baby", "media-mom-baby-docs"],
+  },
+  "mom-baby-leaves": {
+    url: "/images/content/materia/mom-baby/photo-on-leaves.webp",
+    title: { en: "Pendant on leaves", ru: "Украшение на фоне листьев" },
+    subkind: "photo",
+    subject: ["mom-baby", "media-mom-baby-docs"],
+  },
+  "mom-baby-gift-set": {
+    url: "/images/content/materia/mom-baby/photo-gift-set.webp",
+    title: { en: "Gift set", ru: "Подарочный набор" },
+    subkind: "photo",
+    subject: ["mom-baby", "media-mom-baby-docs"],
+  },
+  "mom-baby-rhino": {
+    url: "/images/content/materia/mom-baby/rhino-drawing.webp",
+    title: { en: "Rhinoceros drawing", ru: "Чертеж Rhinoceros" },
+    subkind: "photo",
+    subject: ["mom-baby", "media-mom-baby-docs"],
+  },
+  "mom-baby-baby-leg": {
+    url: "/images/content/materia/mom-baby/photo-baby-leg.webp",
+    title: { en: "Pendant on baby leg", ru: "Украшение на ножке младенца" },
+    subkind: "photo",
+    subject: ["mom-baby", "media-mom-baby-docs"],
+  },
+  "mom-baby-statuette": {
+    url: "/images/content/materia/mom-baby/photo-with-statuette.webp",
+    title: { en: "Pendant with statuette", ru: "Украшение на фоне статуэтки" },
+    subkind: "photo",
+    subject: ["mom-baby", "media-mom-baby-docs"],
+  },
+  "mom-baby-photo-iowa": {
+    url: "/images/content/materia/mom-baby/photo-iowa-gift.webp",
+    title: { en: "Archive · IOWA gift lineage", ru: "Архив · линия подарка IOWA" },
+    subkind: "photo",
+    subject: ["mom-baby", "media-mom-baby-docs", "proof-mom-baby-iowa-gift"],
+  },
+  "mom-baby-brochure-pdf": {
+    url: "/documents/mom-baby-brochure-v2.pdf",
+    poster: "/images/content/materia/mom-baby/mom-baby-cover-thumb.webp",
+    title: { en: "Sasha pendant · brochure PDF", ru: "Кулон «Саша» · буклет PDF" },
+    subkind: "text",
+    subject: ["mom-baby", "media-mom-baby-brochure"],
+  },
+  "mom-baby-drawings-pdf": {
+    url: "/documents/mom-baby-drawings-v220920.pdf",
+    poster: "/images/content/materia/mom-baby/mom-baby-cover-thumb.webp",
+    title: { en: "Sasha pendant · drawings v220920", ru: "Кулон «Саша» · чертежи v220920" },
+    subkind: "text",
+    subject: ["mom-baby", "media-mom-baby-drawings"],
   },
   "emomandala-cover": {
     url: "/images/content/materia/emomandala/emomandala-cover.webp",
