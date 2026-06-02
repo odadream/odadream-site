@@ -29,14 +29,7 @@ const PACKS = [
       "LV3 Маяк/Blended.1.png",
     ],
   },
-  {
-    id: "emomandala",
-    hero: "LV2 Emo-mandala/_Export/Render1.png",
-    gallery: [
-      "LV2 Emo-mandala/_Export/Mandala.png",
-      "LV2 Emo-mandala/_Export/Render5.png",
-    ],
-  },
+  // emomandala — use npm run pack:emomandala
 ];
 
 const MAX = 1920;

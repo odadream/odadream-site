@@ -769,20 +769,50 @@ export const MEDIA: Record<string, MediaAsset> = {
   "emomandala-cover": {
     url: "/images/content/materia/emomandala/emomandala-cover.webp",
     poster: "/images/content/materia/emomandala/emomandala-cover-thumb.webp",
-    title: { en: "Emomandala study", ru: "Эмомандала — этюд" },
+    title: { en: "Emomandala pendant · front", ru: "Кулон Эмомандала · лицевая" },
     subkind: "photo",
     subject: ["emomandala", "media-emomandala-docs"],
   },
-  "emomandala-1": {
-    url: "/images/content/materia/emomandala/emomandala-1.webp",
-    title: { en: "Emomandala — mandala plate", ru: "Эмомандала — мандала" },
+  "emomandala-pendant-front": {
+    url: "/images/content/materia/emomandala/photo-pendant-front.webp",
+    title: { en: "Pendant · front · UV enamel", ru: "Кулон · лицевая · УФ-эмаль" },
     subkind: "photo",
     subject: ["emomandala", "media-emomandala-docs"],
   },
-  "emomandala-2": {
-    url: "/images/content/materia/emomandala/emomandala-2.webp",
-    title: { en: "Emomandala — colour study", ru: "Эмомандала — цвет" },
+  "emomandala-pendant-back": {
+    url: "/images/content/materia/emomandala/photo-pendant-back.webp",
+    title: { en: "Pendant · back · QR passport", ru: "Кулон · оборот · QR-паспорт" },
     subkind: "photo",
     subject: ["emomandala", "media-emomandala-docs"],
+  },
+  "emomandala-mandala-rings": {
+    url: "/images/content/materia/emomandala/mandala-ring-sizes.webp",
+    title: { en: "Mandala · ring-count variants", ru: "Мандала · варианты колец" },
+    subkind: "photo",
+    subject: ["emomandala", "media-emomandala-docs"],
+  },
+  "emomandala-charm-render": {
+    url: "/images/content/materia/emomandala/render-charm.webp",
+    title: { en: "Charm · CAD render", ru: "Шарм · CAD-рендер" },
+    subkind: "photo",
+    subject: ["emomandala", "media-emomandala-docs"],
+  },
+  "emomandala-charm-photo": {
+    url: "/images/content/materia/emomandala/photo-charm.webp",
+    title: { en: "Charm · product photo", ru: "Шарм · фото изделия" },
+    subkind: "photo",
+    subject: ["emomandala", "media-emomandala-docs"],
+  },
+  "emomandala-laser-variations": {
+    url: "/images/content/materia/emomandala/laser-material-variations.webp",
+    title: { en: "Laser samples · multiple metals", ru: "Лазерные образцы · разные металлы" },
+    subkind: "photo",
+    subject: ["emomandala", "media-emomandala-docs", "collab-itmo"],
+  },
+  "emomandala-abundance-palette": {
+    url: "/images/content/materia/emomandala/abundance-color-palette.webp",
+    title: { en: "Abundance talisman · color palette", ru: "Талисман «Изобилие» · палитра" },
+    subkind: "photo",
+    subject: ["emomandala", "media-emomandala-docs", "proof-emomandala-abundance"],
   },
 };
