@@ -6,7 +6,7 @@ title_ru: Аудио
 short_en: MP3
 short_ru: МП3
 type: media
-media: /media/hub-debug/audio-placeholder.mp3
+media_url: /media/hub-debug/audio-placeholder.mp3
 order: 3
 date: 2026.02.06
 ---

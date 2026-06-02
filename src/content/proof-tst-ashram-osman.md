@@ -1,8 +1,8 @@
 ---
 id: proof-tst-ashram-osman
 parent: hub-testimonials
-title_en: tst-ashram-osman
-title_ru: tst-ashram-osman
+title_en: Ashram Studio — Birthday Celebration
+title_ru: Ашрам Студио — День рождения
 type: content
 visible: true
 date: 2024.06.25

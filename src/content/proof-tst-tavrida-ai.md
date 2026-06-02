@@ -1,8 +1,8 @@
 ---
 id: proof-tst-tavrida-ai
 parent: hub-testimonials
-title_en: tst-tavrida-ai
-title_ru: tst-tavrida-ai
+title_en: Tavrida.ART — Cultural Code of Russia
+title_ru: Таврида.АРТ — Культурный код России
 type: content
 visible: true
 date: 2025.08.01

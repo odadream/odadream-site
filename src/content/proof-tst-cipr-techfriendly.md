@@ -1,8 +1,8 @@
 ---
 id: proof-tst-cipr-techfriendly
 parent: hub-testimonials
-title_en: tst-cipr-techfriendly
-title_ru: tst-cipr-techfriendly
+title_en: CIPR TechFriendly — MindShow
+title_ru: ЦИПР TechFriendly — MindShow
 type: content
 visible: true
 date: 2026.05.01

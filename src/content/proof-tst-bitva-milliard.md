@@ -1,8 +1,8 @@
 ---
 id: proof-tst-bitva-milliard
 parent: hub-testimonials
-title_en: tst-bitva-milliard
-title_ru: tst-bitva-milliard
+title_en: Bitva za Milliard — Neuromandala
+title_ru: Битва за Миллиард — Нейромандала
 type: content
 visible: true
 date: 2024.01.01

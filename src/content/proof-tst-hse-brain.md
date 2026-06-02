@@ -1,11 +1,11 @@
 ---
 id: proof-tst-hse-brain
 parent: hub-testimonials
-title_en: tst-hse-brain
-title_ru: tst-hse-brain
+title_en: HSE — Beautiful About the Brain
+title_ru: ВШЭ — Красиво про мозг
 type: content
 visible: true
-date: 2025-05-01
+date: 2025.05.01
 kind: proof
 subkind: testimonial
 proof_of:

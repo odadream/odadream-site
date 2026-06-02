@@ -6,7 +6,7 @@ title_ru: Видео Страница
 short_en: PAGE
 short_ru: СТР
 type: content
-media: /media/hub-debug/video-placeholder.mp4
+media_url: /media/hub-debug/video-placeholder.mp4
 order: 2
 date: 2026.02.06
 ---

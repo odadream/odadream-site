@@ -1,8 +1,8 @@
 ---
 id: proof-tst-meditation-day
 parent: hub-testimonials
-title_en: tst-meditation-day
-title_ru: tst-meditation-day
+title_en: International Meditation Day
+title_ru: Международный день медитации
 type: content
 visible: true
 date: 2026.01.01
