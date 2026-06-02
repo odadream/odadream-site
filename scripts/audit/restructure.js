@@ -48,7 +48,7 @@ const PARENT_MOVES = {
   // Работы → Перформансы
   mindshow:                "hub-performances",
   neurobattle:             "hub-performances",
-  "cultural-neuro-code":   "hub-performances",
+  "cultural-neuro-code":   "hub-big-forms",
   "neuro-dance":           "hub-performances",
   neurosync:               "hub-performances",
   gong:                    "hub-performances",
