@@ -20,6 +20,7 @@
     "pack:fourth-dimension": "node scripts/pack-fourth-dimension-assets.js",
     "pack:voronka": "node scripts/pack-voronka-assets.js",
     "pack:mom-baby": "node scripts/pack-mom-baby-assets.js",
+    "pack:happiness": "node scripts/pack-happiness-assets.js",
     "image:pack": "node scripts/pack-image.js",
     "deploy:check": "powershell -ExecutionPolicy Bypass -File scripts/check-deployment.ps1",
     "migrate:dry": "node scripts/migrate.js",

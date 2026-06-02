@@ -30,15 +30,6 @@ const PACKS = [
     ],
   },
   {
-    id: "happiness",
-    hero: "OTH Снежинки/Postcard/Снежинка Счастье.png",
-    gallery: [
-      // folder name on disk: Продакшен (resolve via findInSnowflakes)
-      { find: "al_w004-cut.jpg" },
-      { find: "photo_2022-12-02_10-25-16.jpg" },
-    ],
-  },
-  {
     id: "emomandala",
     hero: "LV2 Emo-mandala/_Export/Render1.png",
     gallery: [

@@ -669,19 +669,31 @@ export const MEDIA: Record<string, MediaAsset> = {
   "happiness-cover": {
     url: "/images/content/materia/happiness/happiness-cover.webp",
     poster: "/images/content/materia/happiness/happiness-cover-thumb.webp",
-    title: { en: "Happiness snowflake", ru: "Снежинка Счастье" },
+    title: { en: "Happiness snowflake · gift set", ru: "Снежинка Счастье · подарочный набор" },
     subkind: "photo",
     subject: ["happiness", "media-happiness-docs"],
   },
-  "happiness-1": {
-    url: "/images/content/materia/happiness/happiness-1.webp",
-    title: { en: "Happiness — production still", ru: "Счастье — продакшн" },
+  "happiness-source-emoto": {
+    url: "/images/content/materia/happiness/source-emoto-outline.webp",
+    title: { en: "Emoto crystal · pendant outline", ru: "Кристалл Эмото · контур кулона" },
     subkind: "photo",
     subject: ["happiness", "media-happiness-docs"],
   },
-  "happiness-2": {
-    url: "/images/content/materia/happiness/happiness-2.webp",
-    title: { en: "Happiness — detail", ru: "Счастье — деталь" },
+  "happiness-photo-gift": {
+    url: "/images/content/materia/happiness/photo-gift-box.webp",
+    title: { en: "Gift box presentation", ru: "Подарочная коробка" },
+    subkind: "photo",
+    subject: ["happiness", "media-happiness-docs"],
+  },
+  "happiness-photo-front": {
+    url: "/images/content/materia/happiness/photo-front.webp",
+    title: { en: "Front · faceted snowflake", ru: "Лицевая сторона" },
+    subkind: "photo",
+    subject: ["happiness", "media-happiness-docs"],
+  },
+  "happiness-photo-back": {
+    url: "/images/content/materia/happiness/photo-back.webp",
+    title: { en: "Back · reverse facets", ru: "Оборотная сторона" },
     subkind: "photo",
     subject: ["happiness", "media-happiness-docs"],
   },
