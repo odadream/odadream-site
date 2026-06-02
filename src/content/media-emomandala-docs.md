@@ -20,14 +20,14 @@ access: public
 
 ## Emomandala — visuals
 
-![[/images/content/materia/emomandala/emomandala-cover.webp | Emotional mandala render]]
-![[/images/content/materia/emomandala/emomandala-1.webp | Mandala plate]]
-![[/images/content/materia/emomandala/emomandala-2.webp | Colour study]]
+![[/images/content/materia/emomandala/emomandala-cover.webp | Emotional mandala pendant · UV enamel]]
+![[/images/content/materia/emomandala/emomandala-1.webp | Generator-selected pattern]]
+![[/images/content/materia/emomandala/emomandala-2.webp | Material test · engraving direction]]
 
 ---RU---
 
 ## Эмомандала — визуалы
 
-![[/images/content/materia/emomandala/emomandala-cover.webp | Рендер эмоциональной мандалы]]
-![[/images/content/materia/emomandala/emomandala-1.webp | Мандала]]
-![[/images/content/materia/emomandala/emomandala-2.webp | Цветовой этюд]]
+![[/images/content/materia/emomandala/emomandala-cover.webp | Кулон Эмомандала · УФ-эмаль]]
+![[/images/content/materia/emomandala/emomandala-1.webp | Паттерн из генератора]]
+![[/images/content/materia/emomandala/emomandala-2.webp | Материал-тест · направление гравировки]]

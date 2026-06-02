@@ -16,6 +16,7 @@ Cards with id **`collab-*`** and **`kind: collaboration`** — persons or ensemb
 
 - [[collab-itb|Innovation Ballet Theatre — neuro-theatre]]
 - [[collab-kovylina|Elena Kovylina — Ancestors in the Noise]]
+- [[collab-itmo|ITMO research group — laser color engraving]]
 
 Institutions that **host** events remain **`org-*`** (`kind: organizer`). A collab card may link to an org via `related_org` when the partnership sits on an institutional base.
 
@@ -27,5 +28,6 @@ Institutions that **host** events remain **`org-*`** (`kind: organizer`). A coll
 
 - [[collab-itb|Инновационный театр балета — нейротеатр]]
 - [[collab-kovylina|Елена Ковылина — «Предки в шуме»]]
+- [[collab-itmo|Исследовательская группа ИТМО — цветная лазерная гравировка]]
 
 Институты, которые **проводят** события, остаются **`org-*`** (`kind: organizer`). У коллаб-карточки может быть `related_org`, если партнёрство опирается на учреждение.
