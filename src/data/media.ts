@@ -50,7 +50,7 @@ export const MEDIA: Record<string, MediaAsset> = {
 
   // --- BYOB 2026 / MindShow ---
   "byob-2026-hero": {
-    url: "/images/content/hub-events/event-byob-2026/neuromandala-installation.jpg",
+    url: "/images/content/events/byob-2026/neuromandala-installation.webp",
     title: {
       en: "Neuromandala installation — Mini BYOB 2026",
       ru: "Инсталляция Нейромандала — Мини BYOB 2026",
@@ -60,7 +60,7 @@ export const MEDIA: Record<string, MediaAsset> = {
 
   // --- BYOB 2020 / MultiSync ---
   "byob-2020-hero": {
-    url: "/images/content/hub-events/event-byob-2020/projection-pentagon.jpg",
+    url: "/images/content/events/byob-2020/projection-pentagon.webp",
     title: {
       en: "MultiSync projection — BYOB Moscow 2020",
       ru: "Проекция MultiSync — BYOB Moscow 2020",
@@ -117,7 +117,7 @@ export const MEDIA: Record<string, MediaAsset> = {
   },
   "mdsh-terraforming": {
     url: "https://www.youtube.com/watch?v=xUlotjPuXPA",
-    poster: "/images/content/neuromandala-cover.jpg",
+    poster: "/images/content/neuromandala-cover.webp",
     title: { en: "Terraforming — MIPT performance", ru: "Терраформинг — перформанс МФТИ" },
     subject: ["mindshow", "event-mipt-terraforming-2025", "neuromandala"],
   },
@@ -165,17 +165,17 @@ export const MEDIA: Record<string, MediaAsset> = {
 
   // --- Covers / generic ---
   "neuromandala-cover": {
-    url: "/images/content/neuromandala-cover.jpg",
+    url: "/images/content/neuromandala-cover.webp",
     title: { en: "Neuromandala", ru: "Нейромандала" },
     subject: ["neuromandala"],
   },
   "art-brain-cover": {
-    url: "/images/content/art-brain.jpg",
+    url: "/images/content/art-brain.webp",
     title: { en: "Art of Brain", ru: "Искусство мозга" },
     subject: ["art-brain", "beautiful-brain", "hub-debug-image", "hub-lectures"],
   },
   "jewellery-cover": {
-    url: "/images/content/jewellery.jpg",
+    url: "/images/content/jewellery.webp",
     title: { en: "Jewellery hub-materia", ru: "Ювелирные объекты" },
     subject: ["jewellery"],
   },
@@ -294,6 +294,52 @@ export const MEDIA: Record<string, MediaAsset> = {
     title: { en: "Beyond — technical layout", ru: "Потусторонний — техническая схема" },
     subkind: "sketch",
     subject: ["potustoronniy", "media-potustoronniy-deck"],
+  },
+
+  // --- Theatre of My Name (TIM) — Dzen essay series ---
+  "tim-dzen-part-1": {
+    url: "https://dzen.ru/a/Zv7Ih1xeTxz0-AAl",
+    poster: "/images/nodes/theatre-my-name.svg",
+    title: {
+      en: "TIM · Part 1 — Authentic Movement",
+      ru: "ТИМ · ч. 1 — Аутентичное движение",
+    },
+    subkind: "text",
+    subject: ["theatre-my-name", "media-theatre-my-name-dzen"],
+    mirrors: { dzen: "https://dzen.ru/a/Zv7Ih1xeTxz0-AAl" },
+  },
+  "tim-dzen-part-2": {
+    url: "https://dzen.ru/a/Zv7Jx3oJ7DdDCZtI",
+    poster: "/images/nodes/theatre-my-name.svg",
+    title: {
+      en: "TIM · Part 2 — Family constellations",
+      ru: "ТИМ · ч. 2 — Расстановки",
+    },
+    subkind: "text",
+    subject: ["theatre-my-name", "media-theatre-my-name-dzen"],
+    mirrors: { dzen: "https://dzen.ru/a/Zv7Jx3oJ7DdDCZtI" },
+  },
+  "tim-dzen-part-3": {
+    url: "https://dzen.ru/a/ZwOYsUR-qk5GPdQU",
+    poster: "/images/nodes/theatre-my-name.svg",
+    title: {
+      en: "TIM · Part 3 — Playback & psychodrama",
+      ru: "ТИМ · ч. 3 — Плейбек и психодрама",
+    },
+    subkind: "text",
+    subject: ["theatre-my-name", "media-theatre-my-name-dzen"],
+    mirrors: { dzen: "https://dzen.ru/a/ZwOYsUR-qk5GPdQU" },
+  },
+  "tim-dzen-part-4": {
+    url: "https://dzen.ru/a/ZzTCFPdiD0vbmNw6",
+    poster: "/images/nodes/theatre-my-name.svg",
+    title: {
+      en: "TIM · Part 4 — Metaphorical cards",
+      ru: "ТИМ · ч. 4 — Метафорические карты",
+    },
+    subkind: "text",
+    subject: ["theatre-my-name", "media-theatre-my-name-dzen"],
+    mirrors: { dzen: "https://dzen.ru/a/ZzTCFPdiD0vbmNw6" },
   },
 
   // --- Sync Circle (group neuro-audio installation) ---

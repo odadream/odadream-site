@@ -13,16 +13,17 @@ subkind: lab
 date_start: 2024-11-08
 venue: "Innovation Cultural Centre, Kaluga"
 organizer:
+  - "[[org-golyzhibina]]"
   - "[[org-itb]]"
   - "[[org-ikc]]"
 products:
-  - "[[neuro-dance]]"
+  - "[[theatre-my-name]]"
   - "[[neurosync]]"
 ---
 
 ## Internal lab (8 November 2024)
 
-Closed laboratory with the **[[org-itb|Innovation Ballet Theatre]]** on applying neurointerfaces in dance — continuation of the friendship formed at [[event-kod-provincii|Code of Province]].
+Closed laboratory organised by **[[org-golyzhibina|Ksenia Golyzhibina]]** with the **[[org-itb|Innovation Ballet Theatre]]** at [[org-ikc|ICC]] — neurointerfaces in dance; **[[theatre-my-name|Theatre of My Name]]** and **[[neurosync|Neurosync]]** on the programme. Continuation of the line from [[event-kod-provincii|Code of Province]].
 
 Documentation from this session appears in a film about the ballet theatre (metadata pending — INFO-DEBTS).
 
@@ -30,6 +31,6 @@ Documentation from this session appears in a film about the ballet theatre (meta
 
 ## Внутренняя лаборатория (8 ноября 2024)
 
-Закрытая лаборатория с **[[org-itb|театром балета ИКЦ]]** по применению нейроинтерфейсов в танце — продолжение знакомства на [[event-kod-provincii|«Коде провинции»]].
+Закрытая лаборатория, организатор **[[org-golyzhibina|Ксения Голыжбина]]**, **[[org-itb|театр балета ИКЦ]]** на базе [[org-ikc|ИКЦ]] — нейроинтерфейсы в танце; в программе **[[theatre-my-name|Театр Имени Меня]]** и **[[neurosync|Нейросинхронизация]]**. Продолжение линии с [[event-kod-provincii|«Кода провинции»]].
 
 Материалы сессии вошли в фильм о театре (метаданные — INFO-DEBTS).

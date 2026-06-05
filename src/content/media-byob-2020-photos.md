@@ -23,7 +23,7 @@ Photos from **BYOB Moscow**, 15 August 2020 — **[[multisync|MultiSync]]** form
 
 _Add more shots below as they are published._
 
-![[/images/content/hub-events/event-byob-2020/projection-pentagon.jpg | MultiSync projection with pentagon graph — BYOB Moscow 2020]]
+![[/images/content/events/byob-2020/projection-pentagon.webp | MultiSync projection with pentagon graph — BYOB Moscow 2020]]
 
 ---RU---
 
@@ -33,4 +33,4 @@ _Add more shots below as they are published._
 
 _По мере публикации сюда добавляются остальные кадры._
 
-![[/images/content/hub-events/event-byob-2020/projection-pentagon.jpg | Проекция MultiSync с пентаграммой — BYOB Moscow 2020]]
+![[/images/content/events/byob-2020/projection-pentagon.webp | Проекция MultiSync с пентаграммой — BYOB Moscow 2020]]

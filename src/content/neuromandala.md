@@ -8,7 +8,7 @@ tags:
   - technology
   - geometry
   - brainwave
-image: /images/content/neuromandala-cover.jpg
+image: /images/content/neuromandala-cover.webp
 date: 2026.05.29
 order: 0
 visible: true

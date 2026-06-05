@@ -23,7 +23,7 @@ Photos from **Mini BYOB 3** (28 February 2026, Moscow) — **[[mindshow|MindShow
 
 _Add more shots via `npm run photos:add`._
 
-![[/images/content/hub-events/event-byob-2026/neuromandala-installation.jpg | Neuromandala v1.0 Solo — multi-wall projection, Mini BYOB 2026]]
+![[/images/content/events/byob-2026/neuromandala-installation.webp | Neuromandala v1.0 Solo — multi-wall projection, Mini BYOB 2026]]
 
 ---RU---
 
@@ -33,4 +33,4 @@ _Add more shots via `npm run photos:add`._
 
 _Новые кадры: `npm run photos:add`._
 
-![[/images/content/hub-events/event-byob-2026/neuromandala-installation.jpg | Нейромандала v1.0 Solo — мультипроекция, Мини BYOB 2026]]
+![[/images/content/events/byob-2026/neuromandala-installation.webp | Нейромандала v1.0 Solo — мультипроекция, Мини BYOB 2026]]

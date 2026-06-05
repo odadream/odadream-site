@@ -12,7 +12,7 @@ proof_of:
   - "[[neuromandala]]"
 publication: Forum "Battle for a Billion"
 publication_date: 2024-01-01
-asset: /images/content/collab_2024_ODA_Bitva_za_milliard.webp
+asset: /images/content/proofs/collab_2024_ODA_Bitva_za_milliard.webp
 ---
 
 ## Letter of appreciation — "Neuromandala" art installation

@@ -15,8 +15,8 @@ subkind: photo
 about:
   - "[[event-byob-2019]]"
   - "[[mindshow]]"
-image: /images/content/hub-works/byob-2019-mindgrid.png
-media_url: /images/content/hub-works/byob-2019-mindgrid.png
+image: /images/content/works/byob-2019-mindgrid.webp
+media_url: /images/content/works/byob-2019-mindgrid.webp
 ---
 
 ## Mind Grid — event neuro-portrait
@@ -25,7 +25,7 @@ Installation-experiment at **BYOB**, Basmanny Dvor, 22 December 2019. A single c
 
 Shown as **MindGrid**, the early public name for the same line now documented as **[[mindshow|MindShow]]**.
 
-![[/images/content/hub-works/byob-2019-mindgrid.png | Mind Grid — BYOB 2019]]
+![[/images/content/works/byob-2019-mindgrid.webp | Mind Grid — BYOB 2019]]
 
 ---RU---
 
@@ -35,4 +35,4 @@ Shown as **MindGrid**, the early public name for the same line now documented as
 
 Для публики — под именем **MindGrid**, раннее название той же линии, сейчас **[[mindshow|MindShow]]**.
 
-![[/images/content/hub-works/byob-2019-mindgrid.png | Mind Grid — BYOB 2019]]
+![[/images/content/works/byob-2019-mindgrid.webp | Mind Grid — BYOB 2019]]

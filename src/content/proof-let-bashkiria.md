@@ -12,7 +12,7 @@ proof_of:
   - "[[mindshow]]"
 publication: TSKhR — first digital plein air, Shulgan-Tash
 publication_date: 2025-01-01
-asset: /images/content/collab_2025_ODA_Shulgan_Tash.webp
+asset: /images/content/proofs/collab_2025_ODA_Shulgan_Tash.webp
 ---
 
 ## Participation — first digital plein air in Bashkiria

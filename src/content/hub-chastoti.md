@@ -7,7 +7,7 @@ type: content
 tags:
   - festival
   - science-art
-image: /images/content/neuromandala-cover.jpg
+image: /images/content/neuromandala-cover.webp
 order: 0
 date: 2026.04.07
 ---
@@ -22,7 +22,7 @@ In this setting, we focus on one core question: how a personal mental state can 
 
 The format combines EEG capture, generative graphics, and a participatory mode in which the viewer is not only an observer but also a co-author of the visual process.
 
-![[https://www.youtube.com/watch?v=1g9FDBRSa5w | Neuromandala teaser | /images/content/neuromandala-cover.jpg]]
+![[https://www.youtube.com/watch?v=1g9FDBRSa5w | Neuromandala teaser | /images/content/neuromandala-cover.webp]]
 
 ## Why This Event Matters
 
@@ -42,7 +42,7 @@ The format combines EEG capture, generative graphics, and a participatory mode i
 
 Формат объединяет ЭЭГ-считывание, генеративную графику и партисипаторный режим, где зритель выступает не только наблюдателем, но и соавтором визуального процесса.
 
-![[https://www.youtube.com/watch?v=1g9FDBRSa5w | Тизер Neuromandala | /images/content/neuromandala-cover.jpg]]
+![[https://www.youtube.com/watch?v=1g9FDBRSa5w | Тизер Neuromandala | /images/content/neuromandala-cover.webp]]
 
 ## Почему это событие важно
 

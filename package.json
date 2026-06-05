@@ -24,6 +24,8 @@
     "pack:emomandala": "node scripts/pack-emomandala-assets.js",
     "pack:lighthouse": "node scripts/pack-lighthouse-assets.js",
     "image:pack": "node scripts/pack-image.js",
+    "media:cleanup": "node scripts/pack-media-cleanup.js",
+    "media:audit": "node scripts/_audit-media.js",
     "deploy:check": "powershell -ExecutionPolicy Bypass -File scripts/check-deployment.ps1",
     "migrate:dry": "node scripts/migrate.js",
     "migrate:run": "node scripts/migrate.js --write",

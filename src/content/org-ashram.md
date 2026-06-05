@@ -19,6 +19,7 @@ subkind: corporate
 
 Related engagements in the ODA.dream hub-registry:
 
+- [[event-ashram-tim|Theatre of My Name — recurring sessions]] (from 2023)
 - [[event-ashram-birthday-2024|Ashram Studio birthday celebration]] (2024.06.25)
 - [[event-cipr-mindshow-2026|MindShow at TechFriendly / CIPR]] (2026.05.01)
 
@@ -28,5 +29,6 @@ Related engagements in the ODA.dream hub-registry:
 
 Связанные участия в реестре ODA.dream:
 
+- [[event-ashram-tim|Театр Имени Меня — серия практик]] (с 2023)
 - [[event-ashram-birthday-2024|День рождения студии Ashram]] (2024.06.25)
 - [[event-cipr-mindshow-2026|MindShow на TechFriendly / ЦИПР]] (2026.05.01)

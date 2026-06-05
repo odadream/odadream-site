@@ -11,7 +11,7 @@ subkind: letter
 issued_by:
   - "[[org-moscow2030]]"
 publication_date: 2025-01-01
-asset: /images/content/collab_2025_ODA_Moskva_2030_Olga.webp
+asset: /images/content/proofs/collab_2025_ODA_Moskva_2030_Olga.webp
 ---
 
 ## Letter of appreciation — Moscow 2030, forum-festival participation

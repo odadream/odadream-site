@@ -14,7 +14,7 @@ date: 2026.05.27
 We are an art–science duo. Our work is grounded in **applied neuroscience and brain-signal processing**, and lives in four registers:
 
 - 🎭 [[hub-big-forms|Big forms]] — flagship theatrical productions: [[schrodinger|Schrödinger]], [[interference|Interference of Realities]], [[ancestors|Ancestors in the Noise]]; cross-register programme [[cultural-neuro-code|Cultural Neuro Code]].
-- 🎤 [[hub-performances|Performances]] — site-specific, one-evening works: live VJ, neuro-dance, sync circles, master-classes.
+- 🎤 [[hub-performances|Performances]] — site-specific, one-evening works: live VJ, [[theatre-my-name|Theatre of My Name]], sync circles, master-classes.
 - 🏛 [[hub-installations|Installations]] — stationary objects that operate without a performer: from Skolkovo's Honor Board to community sync circles.
 - 🧱 [[hub-materia|Materia]] — physical artefacts: prints, jewellery, sculptural objects with embedded brain data.
 
@@ -29,7 +29,7 @@ Each piece carries its provenance — where it was shown, who commissioned it, w
 Мы — арт-научный дуэт. Наша работа основана на **прикладной нейронауке и обработке сигналов мозга**, и существует в четырёх форматах:
 
 - 🎭 [[hub-big-forms|Большие формы]] — флагманские театральные постановки: [[schrodinger|Шрёдингер]], [[interference|Интерференция реальностей]], [[ancestors|Предки в шуме]]; сквозная программа [[cultural-neuro-code|Культурный нейрокод]].
-- 🎤 [[hub-performances|Перформансы]] — site-specific работы для одного вечера: live VJ, нейроарт-танец, sync circles, мастер-классы.
+- 🎤 [[hub-performances|Перформансы]] — site-specific работы для одного вечера: live VJ, [[theatre-my-name|Театр Имени Меня]], sync circles, мастер-классы.
 - 🏛 [[hub-installations|Инсталляции]] — стационарные объекты, работающие без исполнителя: от Нейродоски почёта в Сколково до коллективных sync circles.
 - 🧱 [[hub-materia|Материя]] — физические артефакты: отпечатки, ювелирные объекты, скульптуры с зашитыми данными мозга.
 

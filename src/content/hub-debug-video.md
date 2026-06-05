@@ -21,7 +21,7 @@ Service page for validating video-node behavior with controlled media reference.
 - fallback behavior when file is unavailable;
 - poster/title rendering in embedded wiki-media syntax.
 
-![[/media/hub-debug/video-placeholder.mp4 | Debug Video Placeholder | /images/content/neuromandala-cover.jpg]]
+![[/media/hub-debug/video-placeholder.mp4 | Debug Video Placeholder | /images/content/neuromandala-cover.webp]]
 
 ---RU---
 
@@ -35,4 +35,4 @@ Service page for validating video-node behavior with controlled media reference.
 - fallback-поведение при недоступном файле;
 - рендер заголовка и обложки в wiki-media синтаксисе.
 
-![[/media/hub-debug/video-placeholder.mp4 | Debug Video Placeholder | /images/content/neuromandala-cover.jpg]]
+![[/media/hub-debug/video-placeholder.mp4 | Debug Video Placeholder | /images/content/neuromandala-cover.webp]]

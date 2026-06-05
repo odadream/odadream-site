@@ -14,6 +14,7 @@ date: 2026.05.30
 
 Cards with id **`collab-*`** and **`kind: collaboration`** — persons or ensembles we work with **on equal terms** (not event hosts or commercial clients).
 
+- [[collab-korichina|Yulia Korichina — TIM early co-author · Korablik 2020]]
 - [[collab-itb|Innovation Ballet Theatre — neuro-theatre]]
 - [[collab-kovylina|Elena Kovylina — Ancestors in the Noise]]
 - [[collab-itmo|ITMO research group — laser color engraving]]
@@ -26,6 +27,7 @@ Institutions that **host** events remain **`org-*`** (`kind: organizer`). A coll
 
 Карточки с id **`collab-*`** и **`kind: collaboration`** — персоны или коллективы, с которыми мы вступаем в **равное со-творчество** (не организаторы мероприятий и не коммерческие заказчики).
 
+- [[collab-korichina|Юлия Коричина — ранний со-автор ТИМ · Кораблик 2020]]
 - [[collab-itb|Инновационный театр балета — нейротеатр]]
 - [[collab-kovylina|Елена Ковылина — «Предки в шуме»]]
 - [[collab-itmo|Исследовательская группа ИТМО — цветная лазерная гравировка]]

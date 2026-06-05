@@ -14,7 +14,7 @@ proof_of:
 issued_by:
   - "[[org-wildmint]]"
 publication_date: 2025-01-01
-asset: /images/content/collab_2025_ODA_Dikaya_myata.webp
+asset: /images/content/proofs/collab_2025_ODA_Dikaya_myata.webp
 ---
 
 ## Letter of appreciation — Wild Mint, "Neuromandala" lecture & performance

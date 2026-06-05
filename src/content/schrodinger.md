@@ -48,7 +48,7 @@ ODA.dream and the company **explain the loop**: thought becomes mandala (includi
 
 ### Line in the Lotus graph
 
-- **2024** — [[event-kod-provincii|Code of Province]]: first meeting with **[[collab-itb|ITB]]** (Ksenia Golyzhibina); lecture + [[neuro-dance|Neuro Dance]] + [[neurosync|Neurosync]].
+- **2024** — [[event-kod-provincii|Code of Province]]: first meeting with **[[collab-itb|ITB]]** (Ksenia Golyzhibina); lecture + [[theatre-my-name|Theatre of My Name]] + [[neurosync|Neurosync]].
 - **Nov 2024** — [[event-itb-lab-2024-11|internal ITB lab]] on neurointerfaces in dance.
 - **2025** — closing lab at **[[event-tsiolkovsky-2025|Tsiolkovsky Festival]]**, invitation from [[org-senatova|Anna Senatova]].
 - **2026** — successor line: premiere [[interference|Interference of Realities]] at **[[event-tsiolkovsky-2026|2026 festival opening]]**.
@@ -77,7 +77,7 @@ ODA.dream и труппа **раскрывают контур**: мысль ст
 
 ### Линия в графе
 
-- **2024** — [[event-kod-provincii|«Код провинции»]]: знакомство с **[[collab-itb|ИТБ]]** (Ксения Голыжбина); лекция + [[neuro-dance|нейро-танец]] + [[neurosync|нейросинхронизация]].
+- **2024** — [[event-kod-provincii|«Код провинции»]]: знакомство с **[[collab-itb|ИТБ]]** (Ксения Голыжбина); лекция + [[theatre-my-name|Театр Имени Меня]] + [[neurosync|нейросинхронизация]].
 - **Нояб. 2024** — [[event-itb-lab-2024-11|внутренняя лаборатория ИТБ]].
 - **2025** — закрывающая лаборатория **[[event-tsiolkovsky-2025|фестиваля Циолковского]]**, приглашение [[org-senatova|А. И. Сенатовой]].
 - **2026** — следующая ступень: премьера [[interference|«Интерференция реальностей»]] на **[[event-tsiolkovsky-2026|открытии фестиваля 2026]]**.

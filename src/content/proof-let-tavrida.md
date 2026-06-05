@@ -14,7 +14,7 @@ proof_of:
 issued_by:
   - "[[org-tavrida]]"
 publication_date: 2025-01-01
-asset: /images/content/collab_2025_ODA_Tavrida_II.webp
+asset: /images/content/proofs/collab_2025_ODA_Tavrida_II.webp
 ---
 
 ## Letter of appreciation — Tavrida.ART, "Cultural Code of Russia"

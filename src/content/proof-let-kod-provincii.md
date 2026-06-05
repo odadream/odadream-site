@@ -10,7 +10,7 @@ kind: proof
 subkind: letter
 publication: 'Conference "CODE: Provinces", Kaluga'
 publication_date: 2024-01-01
-asset: /images/content/collab_2024_ODA_Kod_provintsii_Daler.webp
+asset: /images/content/proofs/collab_2024_ODA_Kod_provintsii_Daler.webp
 ---
 
 ## Letter of appreciation — speaker participation
