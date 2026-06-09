@@ -5,7 +5,7 @@ title_en: Mom & Baby — gift to Katya IOWA
 title_ru: Мама и Малыш — подарок Кате IOWA
 type: content
 visible: true
-date: 2022.09.01
+updated: 2022.09.01
 kind: proof
 subkind: press
 proof_of:

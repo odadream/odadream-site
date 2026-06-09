@@ -6,16 +6,19 @@ title_ru: Внутренняя лаборатория ИТБ — нейроин�
 type: content
 tags: [lab, dance, private]
 visible: false
-date: 2024.11.08
+updated: 2024.11.08
 order: 2
 kind: event
 subkind: lab
 date_start: 2024-11-08
-venue: "Innovation Cultural Centre, Kaluga"
+city_en: Kaluga
+city_ru: Калуга
 organizer:
   - "[[org-golyzhibina]]"
   - "[[org-itb]]"
   - "[[org-ikc]]"
+venues:
+  - org-ikc
 products:
   - "[[theatre-my-name]]"
   - "[[neurosync]]"

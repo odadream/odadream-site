@@ -9,7 +9,7 @@ tags:
   - white
 order: 5
 visible: true
-date: 2026.05.27
+updated: 2026.05.27
 ---
 
 ## Recognition & Awards

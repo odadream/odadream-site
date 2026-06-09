@@ -7,7 +7,7 @@ type: content
 tags:
   - illusion
   - mind
-date: 2026.02.10
+updated: 2026.02.10
 order: 2
 visible: true
 status: concept

@@ -5,7 +5,7 @@ title_en: ODA.dream debut — Synergy Crypto & NFT Forum, Bali
 title_ru: Дебют ODA.dream — Synergy Crypto & NFT Forum, Бали
 type: content
 visible: true
-date: 2022.08.06
+updated: 2022.08.06
 kind: proof
 subkind: press
 proof_of:

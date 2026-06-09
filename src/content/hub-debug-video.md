@@ -8,7 +8,7 @@ short_ru: СТР
 type: content
 media_url: /media/hub-debug/video-placeholder.mp4
 order: 2
-date: 2026.02.06
+updated: 2026.02.06
 ---
 
 ## VIDEO TEST

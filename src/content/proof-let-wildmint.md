@@ -5,7 +5,7 @@ title_en: Letter of appreciation — Wild Mint, "Neuromandala" lecture & perform
 title_ru: Благодарность — Дикая Мята, лекция и перформанс «Нейромандала»
 type: content
 visible: true
-date: 2025.01.01
+updated: 2025.01.01
 kind: proof
 subkind: letter
 proof_of:

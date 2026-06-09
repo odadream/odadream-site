@@ -6,7 +6,7 @@ title_ru: Исследовательская группа ИТМО
 type: content
 tags: [collab, research, laser]
 visible: true
-date: 2023.01.15
+updated: 2023.01.15
 kind: collaboration
 subkind: lab
 products:

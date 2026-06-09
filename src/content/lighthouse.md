@@ -11,7 +11,7 @@ tags:
   - bali
   - generative
 order: 6
-date: 2022.08.01
+updated: 2022.08.01
 visible: true
 status: rnd
 kind: product

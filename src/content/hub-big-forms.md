@@ -5,7 +5,7 @@ title_en: Big Forms
 title_ru: Большие формы
 type: hub
 tags: [theater, flagship]
-date: 2026.05.30
+updated: 2026.05.30
 ---
 
 ## Big forms

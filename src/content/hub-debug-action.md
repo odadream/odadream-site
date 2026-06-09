@@ -8,7 +8,7 @@ short_ru: ДЕЙСТВ
 type: action
 tags: [lightning, zap]
 order: 5
-date: 2026.02.06
+updated: 2026.02.06
 ---
 
 ## ACTION TEST

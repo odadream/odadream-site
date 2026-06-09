@@ -9,14 +9,17 @@ tags:
   - wellness
   - theatre-my-name
 visible: true
-date: 2023.09.08
+updated: 2023.09.08
 order: 1
 kind: event
 subkind: workshop
 date_start: 2023-09-08
-venue: Ashram Studio, Moscow
+city_en: Moscow
+city_ru: Москва
 organizer:
   - "[[org-ashram]]"
+venues:
+  - org-ashram
 products:
   - "[[theatre-my-name]]"
 ---

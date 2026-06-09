@@ -5,7 +5,7 @@ title_en: Members of the Creative Union of Artists of Russia (TSKhR) — Multime
 title_ru: Члены Творческого союза художников России (ТСХР) — секции мультимедиа и научного искусства
 type: content
 visible: true
-date: 2025.01.01
+updated: 2025.01.01
 kind: proof
 subkind: award
 publication_date: 2025-01-01

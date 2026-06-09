@@ -5,7 +5,7 @@ title_en: Letter of appreciation — contribution to the award
 title_ru: Благодарность — вклад в организацию премии
 type: content
 visible: true
-date: 2025.01.01
+updated: 2025.01.01
 kind: proof
 subkind: letter
 publication: Technologies & Innovations (National Business Award)

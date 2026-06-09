@@ -8,7 +8,7 @@ short_ru: Кадры
 type: content
 tags: [lighthouse, neuromandala, tower]
 order: 0
-date: 2022.08.01
+updated: 2022.08.01
 visible: true
 kind: media
 subkind: photo

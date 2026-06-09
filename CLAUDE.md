@@ -18,7 +18,7 @@ npm run assets:clean     # Wipe generated SVGs.
 npm run assets:map       # Write scripts/CONTENT_TREE.md — hierarchy dump + orphan detection.
 
 npm run version:sync     # Propagate versions.json → package.json, src/constants.ts SITE_VERSION, README badge, metadata.json, changelog.md
-npm run dates:sync       # Update frontmatter `date` from git last-commit date for each .md
+npm run dates:sync       # Set frontmatter `updated` from file mtime (page revision, not event date)
 npm run registry:sync    # Sync content registry
 ```
 

@@ -8,7 +8,7 @@ tags:
   - proof
   - letter
 visible: true
-date: 2025.12.15
+updated: 2025.12.15
 order: 0
 kind: proof
 subkind: letter

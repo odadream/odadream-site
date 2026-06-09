@@ -8,7 +8,7 @@ short_ru: Дебют
 type: content
 tags: [theatre-my-name, korablik, archive]
 order: 8
-date: 2020.03.15
+updated: 2020.03.15
 visible: true
 kind: media
 subkind: photo

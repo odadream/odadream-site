@@ -6,7 +6,7 @@ title_ru: CultTech Association
 type: content
 tags: [kind/organizer, organizer/ngo]
 visible: true
-date: 2026.05.30
+updated: 2026.05.30
 kind: organizer
 subkind: ngo
 website: https://culttech.at

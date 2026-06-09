@@ -9,7 +9,7 @@ tags:
   - science-art
 image: /images/content/neuromandala-cover.webp
 order: 0
-date: 2026.04.07
+updated: 2026.04.07
 ---
 
 ## CHASTOTI

@@ -8,7 +8,7 @@ tags:
   - event-byob
   - hub-registry
 order: 0
-date: 2019.12.22
+updated: 2019.12.22
 visible: true
 kind: event
 subkind: festival

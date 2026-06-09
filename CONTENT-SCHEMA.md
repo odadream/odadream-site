@@ -1,6 +1,6 @@
 # CONTENT-SCHEMA — стандарт карточек ODA.dream
 
-**Версия:** 1.2 · **Дата:** 2026.06.02  
+**Версия:** 1.4 · **Дата:** 2026.06.02  
 **Статус:** единый источник правды по архитектуре базы знаний и контента сайта.
 
 Документ описывает все типы карточек в `src/content/`, их поля, типы свойств Obsidian, связи между карточками и вспомогательные реестры в `data/registry/`.
@@ -12,7 +12,7 @@
 | Слой | Путь | Роль |
 |------|------|------|
 | **Карточки сайта** | `src/content/*.md` | Навигация Lotus, страницы, provenance на odadream.art |
-| **Реестры** | `data/registry/*.yaml` | Ledgers для синхронизации (`proofs.yaml`, `organizations.yaml`, `works.yaml`; `engagements.yaml` — **снимок**, не редактировать вручную) |
+| **Реестры** | `data/registry/*.yaml` | `organizations.yaml`, `works.yaml` — справочники; `engagements.yaml`, `proofs.yaml` — **снимки** из `.md` (целевое состояние, см. §9 и `content-keeper/BACKLOG.md`) |
 | **Медиа-каталог** | `src/data/media.ts` | Канонические URL/постеры для `![[media:id]]` |
 | **Таксономия UI** | `src/data/taxonomy.ts` | Подписи и бейджи для `subkind` |
 
@@ -33,6 +33,8 @@
 | `media` | Сразу открывает lightbox | Film / Image / AudioLines |
 | `action` | Внешняя ссылка / действие | Zap |
 
+> **`type: media` ≠ `kind: media`:** первое — поведение Lotus (сразу lightbox), второе — роль в provenance (документирующая работа с `about`). Сейчас оба допустимы; развести семантику в UI/audit — [`BACKLOG` BL-001](content-keeper/BACKLOG.md#bl-001-развести-typemedia-и-kindmedia).
+
 ### 2.2 `kind` — семантическая роль в графе provenance
 
 | `kind`          | Назначение                                     | Префикс id / файла                                                   |
@@ -42,7 +44,7 @@
 | `organizer`     | Организация, площадка, куратор как сущность    | `org-*`                                                              |
 | `collaboration` | Равное со-творчество                           | `collab-*`                                                           |
 | `proof`         | Награда, письмо, отзыв, пресса                 | `proof-*`                                                            |
-| `media`         | Медиа-работа (фото/видео/эскиз как узел)       | `media-*`, `work-*` >> убрать неоднозначность, оставить только media |
+| `media`         | Медиа-работа (фото/видео/эскиз как узел)       | `media-*` только (префикс `work-*` — deprecated, см. BL-002) |
 
 **Навигационные hub-страницы** (`hub-works`, `hub-events`, …) обычно имеют `type: hub` и **не задают** `kind` — они только группируют детей.
 
@@ -72,20 +74,21 @@ flowchart TB
 
 Применяются к любой `.md` в `src/content/`, если не указано иное.
 
-| Поле | Obsidian | Обяз. | Описание |
-|------|----------|-------|----------|
-| `id` | Text | **да** | Уникальный id (kebab-case). Совпадает с именем файла без `.md`. |
-| `parent` | Link | **да** | Родитель в Lotus-графе. У корня `home` — нет (задаётся в `constants.ts`). |
-| `title_en` | Text | **да** | Заголовок EN |
-| `title_ru` | Text | **да** | Заголовок RU |
-| `type` | Text | **да** | `hub` \| `content` \| `media` \| `action` |
-| `date` | Text | рек. | Дата последнего изменения контента. Формат **`YYYY.MM.DD`** (точки). |
-| `tags` | Tags | нет | Произвольные теги. Служебный: `hub-registry` — строка реестра участий. |
-| `order` | Number | нет | Порядок в сетке Lotus (0–8) |
-| `visible` | Checkbox | нет | `false` скрывает из сетки (по умолчанию виден) |
-| `image` | Text | нет | URL обложки; иначе генерируется `public/images/nodes/{id}.svg` |
-| `short_en` / `short_ru` | Text | нет | Короткий заголовок для плотного UI |
-| `external_link` | Text | нет | URL для `type: action` или внешний источник у proof |
+| Поле                    | Obsidian | Обяз.  | Описание                                                                  |
+| ----------------------- | -------- | ------ | ------------------------------------------------------------------------- |
+| `id`                    | Text     | **да** | Уникальный id (kebab-case). Совпадает с именем файла без `.md`.           |
+| `parent`                | Link     | **да** | Родитель в Lotus-графе. У корня `home` — нет (задаётся в `constants.ts`). |
+| `title_en` / `title_ru` | Text     | **да** | Заголовок EN / RU                                                         |
+| `type`                  | Text     | **да** | `hub` \| `content` \| `media` \| `action`                                 |
+| `updated`               | Text     | рек.   | Дата последнего обновления **страницы** (не дата события). **`YYYY.MM.DD`**. `npm run dates:sync` |
+| `tags`                  | Tags     | нет    | Произвольные теги. Служебный: `hub-registry` — строка реестра участий.    |
+| `order`                 | Number   | нет    | Порядок в сетке Lotus (0–8)                                               |
+| `visible`               | Checkbox | нет    | `false` скрывает из сетки (по умолчанию виден)                            |
+| `image`                 | Text     | нет    | URL обложки; иначе генерируется `public/images/nodes/{id}.svg`            |
+| `short_en` / `short_ru` | Text     | нет    | Короткий заголовок для плотного UI                                        |
+| `external_link`         | Text     | нет    | URL для `type: action` или внешний источник у proof                       |
+
+> **Соглашение Obsidian:** все поля-**связи** и списки id в §4 — тип **List** (plain id) или **List (Link)** при `[[wiki-links]]`. Исключение: `tags` — **Tags**. Сверка vault с каноном — [`BACKLOG` BL-004](content-keeper/BACKLOG.md#bl-004-obsidian-list-на-всех-relation-полях).
 
 ### Тело заметки
 
@@ -121,39 +124,43 @@ flowchart TB
 
 **Шаблон:** `src/content/_templates/event.md` · **Серия:** `event-series.md` · **Base:** `events.base` (фильтр `hub-registry`)
 
-| Поле | Obsidian | Обяз. | Связь | Описание |
-|------|----------|-------|-------|----------|
-| `kind` | Text | **да** | — | `event` |
-| `subkind` | Text | **да** | taxonomy | `festival`, `lecture`, `exhibition`, `competition`, `series`, … |
-| `date_start` | Date | **да** | — | Начало. **`YYYY-MM-DD`** (ISO, для Obsidian Date) |
-| `date_end` | Date | нет | — | Конец (ISO) |
-| `venue` | Text | нет | — | Свободная строка площадки (legacy / краткая метка) |
-| `organizer` | List | рек. | → `organizer` | Организатор(ы). Wiki-link `[[org-*]]` или plain id |
-| `client` | List | нет | → `organizer` | Коммерческий заказчик (≠ organizer) |
-| `products` | List | рек. | → `product` | Показанные работы |
-| `collaborators` | List | нет | → `collaboration` | Партнёры со-творчества |
-| `proofs` | List | нет | → `proof` | Связанные пруфы |
-| `media` | List | нет | → `media.ts` | Прикреплённые asset id |
-| `attendance` | Object | нет | — | `{ visitors: Number, contacts: Number }` |
-| `external_site` | Text | нет | — | Лендинг события |
+Единая таблица полей. Колонка **R** — обязательно / типично для карточек с тегом `hub-registry` (таблица `events.base`, страница `hub-registry`).
 
-#### Поля реестра участий (`tags: hub-registry`)
+**Три даты — не путать:**
 
-Используются в таблице `events.base` и на странице `hub-registry`. Синхронизируются скриптом `npm run sync:fields`.
+| Поле | Смысл | Формат |
+|------|--------|--------|
+| `updated` | Когда последний раз правили **страницу** | `YYYY.MM.DD` |
+| `date_start` / `date_end` | Когда прошло **мероприятие** | `YYYY-MM-DD` |
+| `publication_date` | У пруфов — дата публикации / выдачи | `YYYY-MM-DD` |
 
-| Поле | Obsidian | Связь | Описание |
-|------|----------|-------|----------|
-| `orgs` | List | → `organizer` | Организаторы (plain id, без `[[ ]]`) |
-| `venues` | List | → `organizer` | Площадки |
-| `city_en` / `city_ru` | Text | — | Город EN / RU |
-| `relationship` | Text | — | `invited` \| `commercial` \| `award` \| `competition` |
-| `format` | Text | — | Формат участия: `mindshow`, `lecture`, `installation`, … |
-| `card` | Checkbox | — | Показывать карточку в реестре |
-| `showcase` | Checkbox | — | Витринное участие |
-| `letter` | Checkbox | — | Есть благодарственное письмо |
-| `site_media` | List | нет | Медиа для сайта (пути / id) |
+| Поле | Obsidian | Обяз. | Связь | R | Описание |
+|------|----------|-------|-------|---|----------|
+| `kind` | Text | **да** | — | | `event` |
+| `subkind` | Text | **да** | taxonomy | **да** | `festival`, `lecture`, `exhibition`, `competition`, `series`, … |
+| `date_start` | Date | **да** | — | **да** | Дата **мероприятия** (начало). **`YYYY-MM-DD`** (ISO) |
+| `date_end` | Date | нет | — | | Дата мероприятия (конец, ISO) |
+| `organizer` | List | рек. | → `organizer` | | Организатор(ы) для provenance. На **R**: derived из `orgs` + `venues` скриптом `sync:fields` |
+| `client` | List | нет | → `organizer` | | Коммерческий заказчик (≠ organizer) |
+| `products` | List | рек. | → `product` | | Показанные работы |
+| `collaborators` | List | нет | → `collaboration` | | Партнёры со-творчества |
+| `proofs` | List | нет | → `proof` | | Связанные пруфы |
+| `media` | List | нет | → `media.ts` | | Ключи asset id из `src/data/media.ts` |
+| `orgs` | List | — | → `organizer` | **да** | Организаторы реестра (plain id) |
+| `venues` | List | — | → `organizer` | | Площадки реестра (plain id) |
+| `city_en` / `city_ru` | Text | — | — | **да** | Город EN / RU для колонки реестра |
+| `relationship` | Text | — | — | **да** | `invited` \| `commercial` \| `award` \| `competition` |
+| `format` | Text | — | — | **да** | Формат участия: `mindshow`, `lecture`, `installation`, … |
+| `card` | Checkbox | нет | — | | Показывать карточку в реестре |
+| `showcase` | Checkbox | нет | — | | Витринное участие |
+| `letter` | Checkbox | нет | — | | Есть благодарственное письмо |
+| `site_media` | List | нет | — | | Медиа для сайта (пути / id) |
+| `attendance` | Object | нет | — | | `{ visitors: Number, contacts: Number }` |
+| `external_site` | Text | нет | — | | Лендинг события |
 
-> **Связь `organizer` ↔ `orgs`/`venues`:** для карточек с `hub-registry` скрипт `sync:fields` заполняет `organizer` как объединение `orgs` + `venues` (wiki-links) для provenance на сайте.
+> **Тег `hub-registry`:** включает событие в `events.base` и публичную таблицу `hub-registry`. Редактируй **R**-поля в `.md`; `engagements.yaml` — снимок (`npm run registry:sync`).
+>
+> **Связь `organizer` ↔ `orgs`/`venues`:** на R-карточках `sync:fields` собирает `organizer` = `orgs` ∪ `venues` (wiki-links) для provenance на сайте. Пиши канон в `orgs`/`venues`, не дублируй вручную в `organizer`.
 
 #### Серия событий (`subkind: series`)
 
@@ -195,39 +202,34 @@ Hub-родитель (`type: hub`) без дат участия. Каждая р
 
 ### 4.5 `proof` — пруф (награда, письмо, отзыв, пресса)
 
-**Шаблон:** `src/content/_templates/proof.md` · **Base:** `proofs.base`  
-**Ledger:** `data/registry/proofs.yaml` (источник для `npm run sync:fields`)
+**Шаблон:** `src/content/_templates/proof.md` · **Base:** `proofs.base`
 
-| Поле                    | Obsidian | Обяз.   | Связь                             | Описание                                                                                              |
-| ----------------------- | -------- | ------- | --------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `kind`                  | Text     | **да**  | —                                 | `proof`                                                                                               |
-| `subkind`               | Text     | **да**  | taxonomy                          | `award`, `letter`, `testimonial`, `press`, `review`, `interview` (не `hub-press` — устарело, см. §14) |
-| `proof_of`              | List     | **да**  | → `product` \| `event` \| `home`* | К чему относится пруф                                                                                 |
-| `issued_by`             | List     | **да**† | → `organizer` или Text            | Кто выдал / источник                                                                                  |
-| `publication`           | Text     | нет†    | —                                 | Название издания / оргкомитета (для press)                                                            |
-| `publication_date`      | Date     | нет     | —                                 | Дата публикации (ISO)                                                                                 |
-| `asset`                 | Text     | нет     | —                                 | Путь к скану: `/images/proofs/...`                                                                    |
-| `quote_en` / `quote_ru` | Text     | нет     | —                                 | Цитата (testimonial)                                                                                  |
-| `external_link`         | Text     | нет     | —                                 | URL статьи / сюжета                                                                                   |
+**Источник правды:** `src/content/proof-*.md`.  
+**Сейчас (переходно):** `data/registry/proofs.yaml` ещё питает `npm run sync:fields` → `.md`.  
+**Целевое:** yaml как **снимок** из `.md` (как `engagements.yaml`) — [`BACKLOG` BL-003](content-keeper/BACKLOG.md#bl-003-proofsyaml--снимок-из-md).
 
-\* `home` — студийный scope (корневой узел сайта); в audit может фигурировать как «виртуальная» ссылка.  
-† Для press достаточно `publication` **или** `issued_by`. Синхронизатор заполняет `issued_by` из `org` / `source_*` в yaml.
+| Поле | Obsidian | Обяз. | Связь | Описание |
+|------|----------|-------|-------|----------|
+| `kind` | Text | **да** | — | `proof` |
+| `subkind` | Text | **да** | taxonomy | `award`, `letter`, `testimonial`, `press`, `review`, `interview` (не `hub-press`, см. §14) |
+| `proof_of` | List | **да** | → `product` \| `event` \| `home`* | К чему относится пруф (канон связей) |
+| `issued_by` | List | **да**† | → `organizer` или Text | Кто выдал / источник |
+| `publication` | Text | нет† | — | Издание / оргкомитет (press) |
+| `publication_date` | Date | нет | — | Дата публикации (ISO) |
+| `asset` | Text | нет | — | Скан: `/images/content/proofs/...` |
+| `quote_en` / `quote_ru` | Text | нет | — | Цитата (testimonial) |
+| `external_link` | Text | нет | — | URL статьи / сюжета |
+| `tier` | Text | нет | — | `flagship` \| `strong` \| `standard` (dossier; сейчас часто только в yaml) |
+| `scope` | Text | нет | — | `studio` \| `work` |
+| `work` | List | нет | → `product` | Продукт (legacy yaml; сводить в `proof_of`) |
+| `eng` | List | нет | → `event` | Событие (legacy yaml; сводить в `proof_of`) |
+| `subject` | List | нет | → `product` \| `home` | Studio-scope (legacy yaml) |
+| `source_en` / `source_ru` | Text | нет | — | Текстовый эмитент без `org-*` карточки |
 
-#### Поля только в `proofs.yaml` (не в .md)
+\* `home` — студийный scope; в audit — «виртуальная» ссылка на корень.  
+† Для press: `publication` **или** `issued_by`. Поля `work` / `eng` / `org` в yaml — **миграционные**; не дублировать вручную после переноса в `proof_of` / `issued_by`.
 
-| Поле yaml | Описание |
-|-----------|----------|
-| `id` | Ключ записи в ledger |
-| `site_node` | Переопределение id файла (`proof-mipt-letter` ↔ `mipt-letter`) |
-| `alias_of` | Алиас на другую запись yaml |
-| `work` | → `product` id |
-| `eng` | → `event` id (дата/орг не дублируются) |
-| `subject` | → `product` \| `home` (studio scope) |
-| `org` | → `organizer` |
-| `tier` | `flagship` \| `strong` \| `standard` |
-| `scope` | `studio` \| `work` |
-| `source_ru` / `source_en` | Текстовый эмитент, если нет org-карточки |
-| `url`, `media` | Ссылка и скан для миграции в .md |
+> **Снимок yaml:** ключ `id` в ledger (короткий, `let-portal`) может отличаться от имени файла (`proof-let-portal.md`). Переопределение — `site_node` (deprecated после BL-003). Не редактировать yaml вручную в целевом процессе.
 
 ---
 
@@ -304,19 +306,19 @@ erDiagram
 
 | Тип Obsidian | Поля |
 |--------------|------|
-| **Text** | `id`, `title_*`, `venue`, `publication`, `city_*`, `format`, `relationship`, `website`, `asset`, `quote_*`, `external_*`, `status`, `subkind`, `kind`, `type` |
-| **Date** | `date_start`, `date_end`, `publication_date` |
+| **Text** | `id`, `title_*`, `updated`, `publication`, `city_*`, `format`, `relationship`, `website`, `asset`, `quote_*`, `external_*`, `status`, `subkind`, `kind`, `type` |
+| **Date** | `date_start`, `date_end`, `publication_date` (только даты **событий** и публикаций) |
 | **Number** | `order`, `attendance.visitors`, `attendance.contacts` |
 | **Checkbox** | `visible`, `for_sale`, `card`, `showcase`, `letter` |
 | **Tags** | `tags` |
-| **List** | все relation-поля (`products`, `proof_of`, …) |
-| **List (Link)** | relation-поля, если в списке только `[[wiki-links]]` |
+| **List** | все relation-поля §4 (`products`, `orgs`, `venues`, `proof_of`, `issued_by`, `about`, …) |
+| **List (Link)** | те же поля, если в vault только `[[wiki-links]]` |
 
 ### Форматы дат
 
 | Поле | Формат | Пример |
 |------|--------|--------|
-| `date` | `YYYY.MM.DD` | `2025.12.09` |
+| `updated` | `YYYY.MM.DD` | `2026.06.02` |
 | `date_start`, `date_end`, `publication_date` | `YYYY-MM-DD` | `2025-12-09` |
 
 > Obsidian иногда портит Date-поля при редактировании. Команда **`npm run registry:repair-dates`** восстанавливает `date_start` на registry-карточках.
@@ -340,18 +342,19 @@ erDiagram
 ## 9. Конвейер синхронизации
 
 ```text
-src/content/*.md  ──►  npm run sync:fields  ──►  обогащение полей из data/registry/
-        │                                              │
-        └────────────►  npm run registry:sync  ──►  hub-registry.md + engagements.yaml
+src/content/*.md  ──►  npm run sync:fields  ──►  даты, organizer←orgs+venues, proof←yaml (переходно)
+        │
+        └────────────►  npm run registry:sync  ──►  hub-registry.md + engagements.yaml (+ proofs.yaml целевое)
         │
         └────────────►  npm run audit  ──►  content-keeper/PHASE-F-AUDIT.md
 ```
 
 | Команда | Действие |
 |---------|----------|
-| `npm run sync:fields` | Даты событий, organizer←orgs+venues, proof↔yaml, proofs[] на events |
-| `npm run registry:sync` | Таблица на `hub-registry` + org stubs из yaml |
+| `npm run sync:fields` | Даты событий, `organizer`←`orgs`+`venues`, proof←yaml (**переходно**), `proofs[]` на events |
+| `npm run registry:sync` | Таблица `hub-registry` + `engagements.yaml` из `event-*.md`; org stubs из `organizations.yaml` |
 | `npm run registry:repair-dates` | Починка `date_start` после Obsidian |
+| `npm run dates:sync` | `updated` ← mtime файла (ревизия страницы) |
 | `npm run assets:generate` | SVG-фоны для новых id |
 | `npm run assets:map` | Дерево контента + сироты |
 
@@ -430,7 +433,7 @@ event-{серия}-{YYYY}                  # редакция серии
 
 **Один факт — один файл.** Не плодить синонимы (`proof-portal-1st` при наличии `proof-award-portal-visioning`).
 
-Запись в `data/registry/proofs.yaml` может иметь короткий `id` (`let-portal`); файл на сайте — всегда `proof-let-portal.md` (связь через `site_node` в yaml при расхождении).
+Имя файла: `proof-let-portal.md` = `id: proof-let-portal`. Короткий ключ yaml (`let-portal`) — legacy снимка; сводить к id файла (BL-003).
 
 ### 10.5 Продукты (без префикса)
 
@@ -515,9 +518,9 @@ hub-{раздел}
 1. Имя файла по §10 → скопировать шаблон из `_templates/`
 2. Заполнить `parent`, `title_en`, `title_ru`, `kind`, `subkind`
 3. Проставить связи (`products`, `proof_of`, …) **wiki-link или plain id**
-4. Для registry-события: тег `hub-registry` + `date_start`, `orgs`, `venues`, `city_ru`
-5. Для пруфа из ledger: строка в `data/registry/proofs.yaml` → `npm run sync:fields`
-6. `npm run assets:generate` · `npm run assets:map` · `npm run build`
+4. Для registry-события: тег `hub-registry` + поля с колонкой **R** в §4.2 (`date_start`, `orgs`, `city_*`, …)
+5. Для пруфа: заполнить `src/content/proof-*.md` (связи в `proof_of` / `issued_by`). Yaml — снимок после `registry:sync` (целевое, BL-003)
+6. `npm run sync:fields` · `npm run registry:sync` · `npm run assets:generate` · `npm run assets:map` · `npm run build`
 
 ---
 
@@ -541,15 +544,16 @@ hub-{раздел}
 
 | Концепт | **Канон** (пиши здесь) | Дубль / legacy | Кто заполняет |
 |---------|------------------------|----------------|---------------|
-| Дата события | `date_start` (ISO) | `date` (точки) — зеркало для Lotus `lastModified` | ты + `sync:fields` |
-| Город (registry) | `city_en`, `city_ru` | `venue: Moscow` — **не использовать** на `hub-registry` | ты; `venue` снимается sync |
+| Дата мероприятия | `date_start`, `date_end` (ISO) | — | ты |
+| Ревизия страницы | `updated` (`YYYY.MM.DD`) | `date` — **удалено**, путало с событием | ты + `dates:sync` |
+| Город | `city_en`, `city_ru` | `venue` — **удалено** | ты |
 | Организаторы (registry) | `orgs`, `venues` (plain id) | `organizer` (wiki-links) — **derived** | Obsidian → `sync:fields` → provenance |
 | Обложка узла | `image` | `media_url` — синоним парсера | ты |
-| Скан пруфа | `asset` | `media` в proofs.yaml при миграции | yaml → `sync:fields` |
+| Скан пруфа | `asset` | `media` в proofs.yaml | md; yaml снимок после BL-003 |
+| Связи пруфа | `proof_of`, `issued_by` | `work`, `eng`, `org`, `subject` в yaml | md (миграция BL-003) |
 | Медиа на продукте | `media: [id]` | → `src/data/media.ts` | ты |
 | Пресса (md) | `kind: proof`, `subkind: press` | `subkind: hub-press` — **deprecated** | карточка |
-| Пресса (yaml ledger) | `kind: press` | `kind: hub-press` — **deprecated** | proofs.yaml |
-| Семантика yaml proof | `work`, `eng`, `subject`, `org` | не путать с md `kind: proof` | proofs.yaml |
+| Пресса (yaml ledger) | `kind: press` в снимке | `kind: hub-press` — **deprecated** | снимок proofs.yaml |
 | Роль org в реестре | `organizations.yaml` → `kind` | `client` \| `venue` \| `institution` \| `partner` | yaml (≠ md `subkind`) |
 | Один факт — одна карточка | `proof-award-*`, `proof-tst-*` | `proof-portal-1st`, `proof-cipr-quote` — алиасы, **удалять** | редактор |
 
@@ -590,7 +594,11 @@ hub-{раздел}
 | `subkind: hub-press`, yaml `kind: hub-press` | deprecated | `press` |
 | Дубли proof (`proof-portal-1st`, `proof-cipr-quote`) | удалять | `proof-award-portal-visioning`, `proof-tst-cipr-techfriendly` |
 | `aliases` в frontmatter | Obsidian-only | сайт не читает; для vault-навигации |
-| `venue` на registry-событиях | deprecated | `city_en` / `city_ru` + `venues` |
+| Поле `date` (frontmatter) | удалено | `updated` — ревизия страницы; событие → `date_start` |
+| Поле `venue` | удалено | `city_en` / `city_ru` + `venues` (org-id площадки) |
+| Префикс `work-*` для `kind: media` | deprecated | `media-{subject}-{descriptor}` |
+| Ручное редактирование `proofs.yaml` | переходно | `proof-*.md` → снимок yaml (BL-003) |
+| `site_node` / `alias_of` в proofs.yaml | deprecated | id файла = `id` frontmatter |
 
 ---
 
@@ -598,10 +606,11 @@ hub-{раздел}
 
 Рекомендуемые типы свойств vault: `.obsidian/types.json`. Минимум:
 
-- `date`, `date_start`, `date_end`, `publication_date` → **Date**
+- `date_start`, `date_end`, `publication_date` → **Date**
+- `updated` → **Text** (`YYYY.MM.DD`) или **Date** (если Obsidian не портит точки)
 - `tags` → **Tags**
 - `kind`, `subkind`, `type`, `status`, `format`, `relationship` → **Text**
-- relation-списки → **List** (при plain id) или **List (Link)** (при `[[wiki]]`)
+- все relation-поля §3–§4 → **List** или **List (Link)** (см. BL-004)
 
 ---
 
@@ -613,9 +622,10 @@ hub-{раздел}
 | `.cursor/rules/lotus-cms.mdc` | Правила редактирования CMS |
 | `scripts/CONTENT_TREE.md` | Дерево узлов (`npm run assets:map`) |
 | `content-keeper/PHASE-F-AUDIT.md` | Последний аудит целостности |
-| `data/registry/proofs.yaml` | Ledger пруфов |
+| `data/registry/proofs.yaml` | Снимок пруфов (переходно: источник sync; целевое — из `.md`) |
 | `data/registry/organizations.yaml` | Имена и роли организаций для реестра |
 | `data/registry/works.yaml` | Каталог работ + `format_keys` |
+| `content-keeper/BACKLOG.md` | Архитектурный долг CMS (задачи на код) |
 
 ---
 

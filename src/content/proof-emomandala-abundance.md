@@ -5,7 +5,7 @@ title_en: Emomandala — Abundance talisman (23 Mar 2023)
 title_ru: Эмомандала — талисман «Изобилие» (23.03.2023)
 type: content
 visible: true
-date: 2023.03.23
+updated: 2023.03.23
 kind: proof
 subkind: press
 proof_of:

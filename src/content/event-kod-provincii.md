@@ -6,12 +6,13 @@ title_ru: Код провинции — научная хореографиче�
 type: content
 tags: [dance, science, conference]
 visible: true
-date: 2024.01.01
+updated: 2024.01.01
 order: 2
 kind: event
 subkind: conference
 date_start: 2024-01-01
-venue: Kaluga region
+city_en: Kaluga region
+city_ru: Калужская область
 organizer:
   - "[[org-golyzhibina]]"
   - "[[org-panasenko]]"

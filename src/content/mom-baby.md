@@ -10,7 +10,7 @@ tags:
   - pregnancy
   - ctg
 order: 3
-date: 2022.10.14
+updated: 2022.10.14
 visible: true
 status: production
 kind: product

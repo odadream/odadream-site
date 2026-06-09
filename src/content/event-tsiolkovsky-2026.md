@@ -10,7 +10,7 @@ tags:
   - premiere
   - hub-registry
 visible: true
-date: 2026.05.16
+updated: 2026.05.16
 order: 1
 kind: event
 subkind: festival

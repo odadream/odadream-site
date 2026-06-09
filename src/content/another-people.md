@@ -11,7 +11,7 @@ tags:
   - neuromandala
 order: 5
 visible: true
-date: 2025.02.20
+updated: 2025.02.20
 status: rnd
 kind: product
 subkind: art

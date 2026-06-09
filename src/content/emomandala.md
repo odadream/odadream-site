@@ -9,7 +9,7 @@ tags:
   - diary
   - generative
 order: 5
-date: 2022.11.10
+updated: 2022.11.10
 visible: true
 status: production
 kind: product

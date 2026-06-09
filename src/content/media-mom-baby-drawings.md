@@ -8,7 +8,7 @@ short_ru: Чертежи
 type: content
 tags: [mom-baby, technical]
 order: 2
-date: 2022.09.20
+updated: 2022.09.20
 visible: true
 kind: media
 subkind: text

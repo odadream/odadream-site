@@ -4,7 +4,7 @@ title_en: oda.dream
 title_ru: oda.dream
 type: hub
 tags: [lotus, galaxy]
-date: 2026.02.13
+updated: 2026.02.13
 ---
 
 ## Interface to the Digital Subconscious

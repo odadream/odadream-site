@@ -8,7 +8,7 @@ short_ru: Фото
 type: content
 tags: [event-byob, mindshow]
 order: 1
-date: 2026.02.28
+updated: 2026.02.28
 visible: true
 kind: media
 subkind: photo

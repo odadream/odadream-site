@@ -8,7 +8,7 @@ short_ru: Галерея
 type: content
 tags: [sync-circle, diagram, installation]
 order: 1
-date: 2021.03.19
+updated: 2021.03.19
 visible: true
 kind: media
 subkind: photo

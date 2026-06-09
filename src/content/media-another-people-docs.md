@@ -8,7 +8,7 @@ short_ru: Документация
 type: content
 tags: [another-people, exhibition, presentation]
 order: 0
-date: 2025.02.20
+updated: 2025.02.20
 visible: true
 kind: media
 subkind: photo

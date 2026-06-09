@@ -8,7 +8,7 @@ tags:
   - profile
   - duo
 order: 1
-date: 2026.04.07
+updated: 2026.04.07
 ---
 
 ## ODA.DREAM CV

@@ -174,7 +174,9 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
       ? uniqueById(prov.inverse.works_about)
       : [];
 
-  const hasDates = node.date_start || node.date_end || node.venue;
+  const cityLabel =
+    node.city && (node.city[lang] || node.city.en || node.city.ru);
+  const hasDates = node.date_start || node.date_end || cityLabel;
   const hasStats =
     typeof node.attendance?.visitors === "number" ||
     typeof node.attendance?.contacts === "number";
@@ -349,10 +351,10 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
                 {node.date_end && node.date_end !== node.date_start ? ` — ${node.date_end}` : ""}
               </span>
             )}
-            {node.venue && (
+            {cityLabel && (
               <span className="inline-flex items-center gap-1.5 px-2 py-1 ring-1 ring-border/40 text-[11px] font-mono text-txt-muted">
                 <MapPin className="w-3 h-3" strokeWidth={1.5} />
-                {node.venue}
+                {cityLabel}
               </span>
             )}
           </Section>

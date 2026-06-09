@@ -10,7 +10,7 @@ tags:
   - jewellery
 order: 2
 visible: true
-date: 2026.05.31
+updated: 2026.05.31
 aliases:
   - hub-materia
   - objects

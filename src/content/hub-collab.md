@@ -7,7 +7,7 @@ type: hub
 tags: [handshake, network]
 order: 4
 visible: true
-date: 2026.05.25
+updated: 2026.05.25
 ---
 
 ## COLLABORATION

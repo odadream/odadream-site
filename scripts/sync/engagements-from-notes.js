@@ -38,7 +38,7 @@ function pickEngagement(fm, fallbackId) {
 
   const row = {
     id,
-    date: normalizeRegistryDate(fm.date_start ?? fm.date),
+    date: normalizeRegistryDate(fm.date_start),
     city_en: fm.city_en ?? "",
     city_ru: fm.city_ru ?? "",
     relationship: fm.relationship || "invited",
@@ -121,7 +121,6 @@ function mergeRegistryIntoEventFm(eventFm, row) {
     kind: eventFm.kind || "event",
     subkind: row.subkind || eventFm.subkind,
     date_start: row.date || eventFm.date_start,
-    date: row.date ? row.date.replace(/-/g, ".") : eventFm.date,
   };
 
   if (row.orgs?.length) merged.orgs = row.orgs;
@@ -147,7 +146,6 @@ function defaultEngCard(row) {
     tags: ["hub-registry"],
     visible: false,
     date_start: row.date,
-    date: row.date?.replace(/-/g, "."),
     subkind: row.subkind,
     orgs: row.orgs,
     venues: row.venues,

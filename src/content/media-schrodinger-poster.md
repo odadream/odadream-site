@@ -8,7 +8,7 @@ short_ru: Афиша
 type: content
 tags: [schrodinger, poster, tsiolkovsky]
 order: 2
-date: 2025.05.22
+updated: 2025.05.22
 visible: true
 kind: media
 subkind: photo

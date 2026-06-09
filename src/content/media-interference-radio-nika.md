@@ -8,7 +8,7 @@ short_ru: Радио
 type: content
 tags: [interference, interview, radio, press]
 order: 5
-date: 2026.05.16
+updated: 2026.05.16
 visible: true
 kind: media
 subkind: interview

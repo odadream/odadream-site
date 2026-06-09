@@ -9,7 +9,7 @@ tags:
   - sound
 order: 3
 visible: true
-date: 2026.02.12
+updated: 2026.02.12
 kind: product
 subkind: education
 ---

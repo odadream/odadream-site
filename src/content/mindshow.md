@@ -8,7 +8,7 @@ tags:
   - stage
   - light
 order: 4
-date: 2026.05.29
+updated: 2026.05.29
 status: production
 kind: product
 subkind: art

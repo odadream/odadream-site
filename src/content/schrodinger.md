@@ -10,7 +10,7 @@ tags:
   - collective
 order: 1
 visible: true
-date: 2025.05.22
+updated: 2025.05.22
 status: production
 kind: product
 subkind: art

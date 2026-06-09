@@ -6,7 +6,7 @@ title_ru: Елена Ковылина
 type: content
 tags: [collab, performance, culttech]
 visible: true
-date: 2026.05.30
+updated: 2026.05.30
 kind: collaboration
 subkind: person
 related_org:

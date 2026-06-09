@@ -8,7 +8,7 @@ short_ru: Хроника
 type: content
 tags: [oda-rings, instagram, origin]
 order: 0
-date: 2020.03.20
+updated: 2020.03.20
 visible: true
 kind: media
 subkind: photo

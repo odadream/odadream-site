@@ -5,7 +5,7 @@ title_en: International Meditation Day
 title_ru: Международный день медитации
 type: content
 visible: true
-date: 2026.01.01
+updated: 2026.01.01
 kind: proof
 subkind: testimonial
 proof_of:

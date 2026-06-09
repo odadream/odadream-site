@@ -5,7 +5,7 @@ title_en: 1st place — ART × TECHNOLOGY competition, Skolkovo Innovation Cente
 title_ru: 1-е место — конкурс «ART × TECHNOLOGY», Технопарк «Сколково»
 type: content
 visible: true
-date: 2026.01.01
+updated: 2026.01.01
 kind: proof
 subkind: award
 proof_of:

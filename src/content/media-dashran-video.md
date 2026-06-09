@@ -8,7 +8,7 @@ short_ru: Видео
 type: content
 tags: [dashran, video, dzen]
 order: 0
-date: 2025.04.07
+updated: 2025.04.07
 visible: true
 kind: media
 subkind: video

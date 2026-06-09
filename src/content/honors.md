@@ -10,7 +10,7 @@ tags:
   - skolkovo
 order: 1
 visible: true
-date: 2026.04.20
+updated: 2026.04.20
 status: rnd
 kind: product
 subkind: art

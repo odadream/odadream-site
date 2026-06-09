@@ -6,7 +6,7 @@ title_ru: Инновационный культурный центр, Калуг
 type: content
 tags: [kind/organizer, organizer/venue]
 visible: true
-date: 2026.05.30
+updated: 2026.05.30
 kind: organizer
 subkind: venue
 ---

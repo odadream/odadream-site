@@ -46,7 +46,6 @@ const stats = {
   eventDates: 0,
   eventOrganizer: 0,
   registryCity: 0,
-  registryVenueStripped: 0,
   proofSync: 0,
   eventProofs: 0,
 };
@@ -90,22 +89,15 @@ function syncEventDates(engDateHints) {
     const { fm, body } = md;
     let iso =
       normalizeRegistryDate(fm.date_start) ||
-      normalizeRegistryDate(fm.date) ||
       engDateHints.get(fm.id) ||
       EVENT_DATE_HINTS[fm.id] ||
       "";
 
     if (!iso) continue;
 
-    const dotDate = iso.replace(/-/g, ".");
-    const changed =
-      normalizeRegistryDate(fm.date_start) !== iso ||
-      normalizeRegistryDate(fm.date) !== iso;
-
-    if (!changed && fm.date === dotDate) continue;
+    if (normalizeRegistryDate(fm.date_start) === iso) continue;
 
     fm.date_start = iso;
-    fm.date = dotDate;
     stats.eventDates++;
     writeMd(p, fm, body, { dryRun: DRY_RUN });
     log("date", fm.id, iso);
@@ -130,17 +122,10 @@ function syncRegistryEventCards() {
     const { fm, body } = md;
     let touched = false;
 
-    const iso = normalizeRegistryDate(fm.date_start ?? fm.date);
-    if (iso) {
-      if (fm.date_start !== iso) {
-        fm.date_start = iso;
-        touched = true;
-      }
-      const dot = iso.replace(/-/g, ".");
-      if (fm.date !== dot) {
-        fm.date = dot;
-        touched = true;
-      }
+    const iso = normalizeRegistryDate(fm.date_start);
+    if (iso && fm.date_start !== iso) {
+      fm.date_start = iso;
+      touched = true;
     }
 
     const orgIds = [
@@ -173,12 +158,6 @@ function syncRegistryEventCards() {
       fm.city_ru = "Нижний Новгород";
       touched = true;
       stats.registryCity++;
-    }
-
-    if (fm.venue && (fm.city_en || fm.city_ru)) {
-      delete fm.venue;
-      touched = true;
-      stats.registryVenueStripped++;
     }
 
     if (touched) {
@@ -237,7 +216,6 @@ function syncProofsFromYaml(byNodeId) {
     const iso = normalizeRegistryDate(rec.date);
     if (iso) {
       if (!fm.publication_date) fm.publication_date = iso;
-      if (!fm.date) fm.date = iso.replace(/-/g, ".");
       touched = true;
     }
 
@@ -318,7 +296,7 @@ console.log("\n══ SUMMARY ════════════════�
 console.log(`  event date_start:     ${stats.eventDates}`);
 console.log(`  registry organizer:   ${stats.eventOrganizer}`);
 console.log(`  registry city_ru:     ${stats.registryCity}`);
-console.log(`  registry venue drop:  ${stats.registryVenueStripped}`);
+console.log(``);
 console.log(`  proof yaml → md:      ${stats.proofSync}`);
 console.log(`  event proofs[]:       ${stats.eventProofs}`);
 if (DRY_RUN) console.log("\n→ Run without --dry-run to apply, then npm run registry:sync");

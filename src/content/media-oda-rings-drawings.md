@@ -8,7 +8,7 @@ short_ru: Чертёж
 type: content
 tags: [oda-rings, technical]
 order: 1
-date: 2022.09.27
+updated: 2022.09.27
 visible: true
 kind: media
 subkind: text

@@ -8,7 +8,7 @@ short_ru: Фото
 type: content
 tags: [schrodinger, photo, tsiolkovsky]
 order: 1
-date: 2025.05.22
+updated: 2025.05.22
 visible: true
 kind: media
 subkind: photo

@@ -8,7 +8,7 @@ tags:
   - hub-registry
   - mindshow
 visible: true
-date: 2024.06.25
+updated: 2024.06.25
 order: 1
 kind: event
 date_start: 2024-06-25

@@ -8,7 +8,7 @@ short_ru: Визуалы
 type: content
 tags: [mom-baby, ctg]
 order: 0
-date: 2022.10.14
+updated: 2022.10.14
 visible: true
 kind: media
 subkind: photo

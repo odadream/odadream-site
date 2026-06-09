@@ -8,7 +8,7 @@ short_ru: Фото
 type: content
 tags: [theatre-my-name, photo]
 order: 1
-date: 2024.03.15
+updated: 2024.03.15
 visible: true
 kind: media
 subkind: photo

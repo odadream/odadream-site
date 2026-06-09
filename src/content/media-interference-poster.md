@@ -8,7 +8,7 @@ short_ru: Афиша
 type: content
 tags: [interference, poster, print]
 order: 2
-date: 2026.05.16
+updated: 2026.05.16
 visible: true
 kind: media
 subkind: photo

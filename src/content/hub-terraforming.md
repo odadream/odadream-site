@@ -8,7 +8,7 @@ tags:
   - exhibition
   - neuroart
 order: 1
-date: 2026.05.29
+updated: 2026.05.29
 ---
 
 ## Terraforming

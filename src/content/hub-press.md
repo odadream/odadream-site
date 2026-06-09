@@ -8,7 +8,7 @@ tags:
   - newspaper
   - digital
 order: 2
-date: 2026.05.27
+updated: 2026.05.27
 ---
 
 ## PRESS

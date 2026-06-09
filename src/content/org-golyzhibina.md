@@ -9,7 +9,7 @@ tags:
   - choreography
   - dance
 visible: false
-date: 2024.01.01
+updated: 2024.01.01
 kind: organizer
 subkind: curator
 date_start: 2024-01-01

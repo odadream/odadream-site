@@ -8,7 +8,7 @@ short_ru: Плакаты
 type: content
 tags: [interference, plakat, educational]
 order: 3
-date: 2026.05.16
+updated: 2026.05.16
 visible: true
 kind: media
 subkind: photo

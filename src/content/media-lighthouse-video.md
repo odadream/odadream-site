@@ -8,7 +8,7 @@ short_ru: Видео
 type: content
 tags: [lighthouse, video, tower]
 order: 1
-date: 2022.08.01
+updated: 2022.08.01
 visible: true
 kind: media
 subkind: video

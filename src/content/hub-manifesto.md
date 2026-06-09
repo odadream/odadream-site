@@ -8,7 +8,7 @@ tags:
   - text
   - hub-manifesto
 order: 0
-date: 2026.02.06
+updated: 2026.02.06
 ---
 
 ## MANIFESTO

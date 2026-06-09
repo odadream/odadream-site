@@ -9,7 +9,7 @@ tags:
   - lotus
 order: 0
 visible: true
-date: 2026.05.25
+updated: 2026.05.25
 ---
 
 ## FOR INSTITUTIONS & COLLECTORS

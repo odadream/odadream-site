@@ -9,7 +9,7 @@ tags:
   - meditation
 order: 6
 visible: true
-date: 2026.02.10
+updated: 2026.02.10
 status: concept
 kind: product
 subkind: art

@@ -5,7 +5,7 @@ title_en: Mom & Baby — Borzikh commission (Synergy Forum, Bali)
 title_ru: Мама и Малыш — заказ Борзих (форум Synergy, Бали)
 type: content
 visible: true
-date: 2022.08.06
+updated: 2022.08.06
 kind: proof
 subkind: press
 proof_of:

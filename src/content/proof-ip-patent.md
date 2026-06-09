@@ -5,7 +5,7 @@ title_en: Neuromandala — patent application filed
 title_ru: Нейромандала — патентная заявка подана
 type: content
 visible: true
-date: 2026.01.01
+updated: 2026.01.01
 kind: proof
 subkind: award
 proof_of:

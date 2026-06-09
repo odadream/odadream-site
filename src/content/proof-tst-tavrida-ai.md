@@ -5,7 +5,7 @@ title_en: Tavrida.ART — Cultural Code of Russia
 title_ru: Таврида.АРТ — Культурный код России
 type: content
 visible: true
-date: 2025.08.01
+updated: 2025.08.01
 kind: proof
 subkind: testimonial
 proof_of:

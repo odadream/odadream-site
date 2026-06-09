@@ -62,7 +62,7 @@ const loadFileNodes = (): LotusNode[] => {
                 attendance: partialNode.attendance,
                 date_start: partialNode.date_start,
                 date_end: partialNode.date_end,
-                venue: partialNode.venue,
+                city: partialNode.city,
                 publication: partialNode.publication,
                 publication_date: partialNode.publication_date,
                 asset: partialNode.asset,

@@ -134,7 +134,7 @@ export const fileToNode = (
     externalLink: attributes.external_link,
     visible: attributes.visible !== false,
     status: attributes.status,
-    lastModified: attributes.date,
+    lastModified: toString(attributes.updated) || toString(attributes.date),
     order: attributes.order,
   };
 
@@ -171,8 +171,14 @@ export const fileToNode = (
   if (date_start) node.date_start = date_start;
   const date_end = toString(attributes.date_end);
   if (date_end) node.date_end = date_end;
-  const venue = toString(attributes.venue);
-  if (venue) node.venue = venue;
+  const city_en = toString(attributes.city_en);
+  const city_ru = toString(attributes.city_ru);
+  if (city_en || city_ru) {
+    node.city = {
+      en: city_en || city_ru || "",
+      ru: city_ru || city_en || "",
+    };
+  }
   const publication = toString(attributes.publication);
   if (publication) node.publication = publication;
   const publication_date = toString(attributes.publication_date);

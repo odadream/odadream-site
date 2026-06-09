@@ -8,7 +8,7 @@ short_ru: ТЗ
 type: content
 tags: [fourth-dimension, technical]
 order: 1
-date: 2023.02.02
+updated: 2023.02.02
 visible: true
 kind: media
 subkind: text

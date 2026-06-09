@@ -5,7 +5,7 @@ title_en: Letter of appreciation — expert participation
 title_ru: Благодарность — экспертное участие
 type: content
 visible: true
-date: 2025.01.01
+updated: 2025.01.01
 kind: proof
 subkind: letter
 publication: '"Voice of Society" project'

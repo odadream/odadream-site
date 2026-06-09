@@ -5,7 +5,7 @@ title_en: Contacts
 title_ru: Контакты
 type: action
 tags: [signal, antenna]
-date: 2026.02.10
+updated: 2026.02.10
 order: 1
 ---
 

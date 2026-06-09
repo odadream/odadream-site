@@ -9,7 +9,7 @@ tags:
   - somatics
   - dance
 visible: false
-date: 2020.03.15
+updated: 2020.03.15
 kind: organizer
 subkind: curator
 date_start: 2020-03-15

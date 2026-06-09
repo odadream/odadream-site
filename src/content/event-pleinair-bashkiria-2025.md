@@ -9,7 +9,7 @@ tags:
 kind: event
 subkind: exhibition
 date_start: 2025-01-01
-date: 2025.01.01
+updated: 2025.01.01
 city_en: Shulgan-Tash, Bashkortostan
 city_ru: Шульган-Таш, Башкирия
 orgs: []

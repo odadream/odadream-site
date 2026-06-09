@@ -8,7 +8,7 @@ short_ru: МП3
 type: media
 media_url: /media/hub-debug/audio-placeholder.mp3
 order: 3
-date: 2026.02.06
+updated: 2026.02.06
 ---
 
 ## AUDIO TEST

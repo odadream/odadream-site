@@ -6,7 +6,7 @@ title_ru: <Название RU>
 type: content
 tags: []
 visible: true
-date: 2026.01.01
+updated: 2026.01.01
 kind: organizer
 subkind: university
 website: https://

@@ -5,7 +5,7 @@ title_en: Letter of appreciation — conference participation
 title_ru: Благодарность — участие в конференции
 type: content
 visible: true
-date: 2024.01.01
+updated: 2024.01.01
 kind: proof
 subkind: letter
 publication: Tech Week

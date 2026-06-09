@@ -8,7 +8,7 @@ tags:
   - hub-registry
   - lecture
 visible: true
-date: 2024.01.01
+updated: 2024.01.01
 order: 0
 kind: event
 date_start: 2024-01-01

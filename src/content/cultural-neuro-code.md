@@ -9,7 +9,7 @@ tags:
   - neurofeedback
   - research
 order: 3
-date: 2026.04.07
+updated: 2026.04.07
 status: rnd
 kind: product
 subkind: art

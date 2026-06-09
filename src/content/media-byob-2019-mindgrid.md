@@ -8,7 +8,7 @@ short_ru: Mind Grid
 type: content
 tags: [event-byob, mindshow]
 order: 1
-date: 2019.12.22
+updated: 2019.12.22
 visible: true
 kind: media
 subkind: photo

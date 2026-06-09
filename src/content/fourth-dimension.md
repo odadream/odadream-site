@@ -9,7 +9,7 @@ tags:
   - pendant
   - neuromandala
 order: 1
-date: 2023.02.02
+updated: 2023.02.02
 visible: true
 status: production
 kind: product

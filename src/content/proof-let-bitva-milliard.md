@@ -5,7 +5,7 @@ title_en: Letter of appreciation — "Neuromandala" art installation
 title_ru: Благодарность — арт-инсталляция «Нейромандала»
 type: content
 visible: true
-date: 2024.01.01
+updated: 2024.01.01
 kind: proof
 subkind: letter
 proof_of:

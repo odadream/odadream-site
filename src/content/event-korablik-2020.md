@@ -9,12 +9,13 @@ tags:
   - somatics
   - debut
 visible: true
-date: 2020.03.15
+updated: 2020.03.15
 order: 0
 kind: event
 subkind: workshop
 date_start: 2020-03-15
-venue: Korablik
+city_en: Korablik
+city_ru: Кораблик
 organizer:
   - "[[org-korichina]]"
 collaborators:

@@ -5,7 +5,7 @@ title_en: Participation — first digital plein air in Bashkiria
 title_ru: Участие — первый цифровой пленэр в Башкирии
 type: content
 visible: true
-date: 2025.01.01
+updated: 2025.01.01
 kind: proof
 subkind: letter
 proof_of:

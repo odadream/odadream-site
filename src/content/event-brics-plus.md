@@ -9,7 +9,7 @@ kind: event
 subkind: forum
 order: 4
 date_start: 2024-10-01
-date: 2024.10.01
+updated: 2024.10.01
 ---
 
 ## BRICS+

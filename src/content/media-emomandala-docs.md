@@ -8,7 +8,7 @@ short_ru: Визуалы
 type: content
 tags: [emomandala, charm, laser]
 order: 0
-date: 2023.03.23
+updated: 2023.03.23
 visible: true
 kind: media
 subkind: photo

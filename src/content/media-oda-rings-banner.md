@@ -8,7 +8,7 @@ short_ru: Баннер
 type: content
 tags: [oda-rings, synergy, bali]
 order: 2
-date: 2022.08.06
+updated: 2022.08.06
 visible: true
 kind: media
 subkind: photo

@@ -9,7 +9,7 @@ tags:
   - paint
 order: 4
 visible: true
-date: 2026.05.25
+updated: 2026.05.25
 aliases:
   - hub-creators
   - for-artists

@@ -5,7 +5,7 @@ title_en: Letter of appreciation — speaker participation
 title_ru: Благодарность — выступление спикером
 type: content
 visible: true
-date: 2024.01.01
+updated: 2024.01.01
 kind: proof
 subkind: letter
 publication: 'Conference "CODE: Provinces", Kaluga'

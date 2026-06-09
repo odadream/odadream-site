@@ -9,7 +9,7 @@ tags:
   - abstract
 order: 7
 visible: true
-date: 2026.02.12
+updated: 2026.02.12
 kind: product
 subkind: education
 ---

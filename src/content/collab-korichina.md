@@ -6,7 +6,7 @@ title_ru: Юлия Коричина
 type: content
 tags: [collab, somatics, dance]
 visible: true
-date: 2020.03.15
+updated: 2020.03.15
 kind: collaboration
 subkind: person
 related_org:

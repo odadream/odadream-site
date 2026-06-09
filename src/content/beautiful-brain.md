@@ -5,7 +5,7 @@ title_en: Beautiful About the Brain
 title_ru: Красиво про мозг
 type: content
 tags: [lecture, neuroscience]
-date: 2026.05.29
+updated: 2026.05.29
 order: 1
 status: production
 kind: product

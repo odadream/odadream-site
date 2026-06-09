@@ -7,7 +7,7 @@ type: content
 tags: [emotion, generator, p5js]
 status: rnd
 visible: true
-date: 2022.08.20
+updated: 2022.08.20
 kind: product
 subkind: tech
 ---

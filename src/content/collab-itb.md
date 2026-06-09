@@ -6,7 +6,7 @@ title_ru: Инновационный театр балета
 type: content
 tags: [collab, theater, kaluga]
 visible: true
-date: 2026.05.30
+updated: 2026.05.30
 kind: collaboration
 subkind: ensemble
 related_org:

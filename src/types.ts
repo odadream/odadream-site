@@ -107,7 +107,10 @@ export interface LotusNode {
   /** Maturity status of a work, shown as a badge: production | rnd | concept | patent */
   status?: "production" | "rnd" | "concept" | "patent";
 
-  /** Date string (YYYY.MM.DD) representing when this specific node was last updated */
+  /**
+   * Page revision date (YYYY.MM.DD), from frontmatter `updated`.
+   * Not the event date — use date_start / date_end for that.
+   */
   lastModified?: string;
 
   /**
@@ -188,8 +191,8 @@ export interface LotusNode {
   /** Event end date (ISO YYYY-MM-DD). */
   date_end?: string;
 
-  /** Free-form venue label. */
-  venue?: string;
+  /** Event city (bilingual), from city_en / city_ru frontmatter. */
+  city?: LocalizedString;
 
   /** Publication source for press/interview proofs. */
   publication?: string;

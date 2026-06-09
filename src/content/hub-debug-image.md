@@ -8,7 +8,7 @@ short_ru: ФОТО
 type: content
 tags: [photo, camera]
 order: 4
-date: 2026.02.06
+updated: 2026.02.06
 ---
 
 ## IMAGE TEST

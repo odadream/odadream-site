@@ -5,7 +5,7 @@ title_en: Letter of appreciation — Tavrida.ART, "Cultural Code of Russia"
 title_ru: Благодарность — Таврида.АРТ, фестиваль «Культурный код России»
 type: content
 visible: true
-date: 2025.01.01
+updated: 2025.01.01
 kind: proof
 subkind: letter
 proof_of:

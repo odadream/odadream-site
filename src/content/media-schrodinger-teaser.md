@@ -8,7 +8,7 @@ short_ru: Тизер
 type: content
 tags: [schrodinger, video, teaser]
 order: 0
-date: 2025.05.22
+updated: 2025.05.22
 visible: true
 kind: media
 subkind: video

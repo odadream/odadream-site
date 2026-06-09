@@ -9,7 +9,7 @@ tags:
   - science-art
   - experiment
 order: 0
-date: 2026.05.16
+updated: 2026.05.16
 status: production
 kind: product
 subkind: art

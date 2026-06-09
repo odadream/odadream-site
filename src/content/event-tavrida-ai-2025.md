@@ -8,7 +8,7 @@ tags:
   - hub-registry
   - installation
 visible: true
-date: 2025.08.01
+updated: 2025.08.01
 order: 5
 kind: event
 date_start: 2025-08-01

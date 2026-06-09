@@ -8,7 +8,7 @@ short_ru: Документация
 type: content
 tags: [dashran, play-digital-art, documentation]
 order: 1
-date: 2025.02.22
+updated: 2025.02.22
 visible: true
 kind: media
 subkind: photo

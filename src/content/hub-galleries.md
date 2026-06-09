@@ -9,7 +9,7 @@ tags:
   - white
 order: 3
 visible: true
-date: 2026.05.25
+updated: 2026.05.25
 ---
 
 ## FOR GALLERIES & ART SPACES

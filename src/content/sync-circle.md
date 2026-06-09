@@ -10,7 +10,7 @@ tags:
   - multisync
 order: 2
 visible: true
-date: 2021.03.19
+updated: 2021.03.19
 status: rnd
 kind: product
 subkind: art

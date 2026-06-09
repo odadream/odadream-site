@@ -10,7 +10,7 @@ tags:
 status: rnd
 order: 1
 visible: true
-date: 2026.05.29
+updated: 2026.05.29
 kind: product
 subkind: tech
 presented_at:

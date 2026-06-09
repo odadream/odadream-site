@@ -8,7 +8,7 @@ short_ru: Дзен
 type: content
 tags: [theatre-my-name, dzen, essay]
 order: 0
-date: 2024.10.03
+updated: 2024.10.03
 visible: true
 kind: media
 subkind: text

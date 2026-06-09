@@ -8,7 +8,7 @@ short_ru: Буклет
 type: content
 tags: [mom-baby]
 order: 1
-date: 2022.09.20
+updated: 2022.09.20
 visible: true
 kind: media
 subkind: text

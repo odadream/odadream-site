@@ -8,7 +8,7 @@ short_ru: Видео
 type: content
 tags: [sync-circle, video, demo]
 order: 0
-date: 2021.03.19
+updated: 2021.03.19
 visible: true
 kind: media
 subkind: video

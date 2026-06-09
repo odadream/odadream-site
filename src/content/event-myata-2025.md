@@ -6,11 +6,12 @@ title_ru: Дикая Мята — инсталляция Нейромандал�
 type: content
 tags:
   - hub-registry
-date: 2025.06.01
+updated: 2025.06.01
 kind: event
 subkind: festival
 date_start: 2025-06-01
-venue: ""
+city_en: Moscow
+city_ru: Москва
 organizer:
   - "[[org-wildmint]]"
 products:

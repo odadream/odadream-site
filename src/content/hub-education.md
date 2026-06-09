@@ -9,7 +9,7 @@ tags:
   - signal
 order: 1
 visible: true
-date: 2026.05.25
+updated: 2026.05.25
 ---
 
 ## FOR EDUCATION

@@ -5,7 +5,7 @@ title_en: Letter of appreciation — Moscow 2030, forum-festival participation
 title_ru: Благодарность — Москва 2030, участие в подготовке форума-фестиваля
 type: content
 visible: true
-date: 2025.01.01
+updated: 2025.01.01
 kind: proof
 subkind: letter
 issued_by:

@@ -8,7 +8,7 @@ tags: []
 kind: event
 subkind: festival
 date_start: 2025-01-01
-date: 2025.01.01
+updated: 2025.01.01
 ---
 
 ## Gong Fest 2025

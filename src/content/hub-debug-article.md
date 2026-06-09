@@ -8,7 +8,7 @@ short_ru: ТЕКСТ
 type: content
 tags: [paper, read]
 order: 1
-date: 2026.02.06
+updated: 2026.02.06
 ---
 
 ## STYLE GUIDE

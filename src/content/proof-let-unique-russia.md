@@ -5,7 +5,7 @@ title_en: Diploma — "Digital Art & AI" panel, 6th exhibition-forum
 title_ru: Диплом — панель «Цифровое искусство и ИИ», VI выставка-форум
 type: content
 visible: true
-date: 2026.01.01
+updated: 2026.01.01
 kind: proof
 subkind: letter
 publication: Unique Russia (Gostiny Dvor, Moscow)

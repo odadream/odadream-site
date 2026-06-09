@@ -31,11 +31,11 @@ function repairCard(filePath) {
   if (!isRegistryCard(parsed.fm, name)) return null;
 
   const id = parsed.fm.id || path.basename(filePath, ".md");
-  const current = parsed.fm.date_start ?? parsed.fm.date;
+  const current = parsed.fm.date_start;
   let next = normalizeRegistryDate(current);
 
   if (!next || isBrokenRegistryDate(current)) {
-    next = normalizeRegistryDate(parsed.fm.date);
+    return null;
   }
 
   if (!next) return null;

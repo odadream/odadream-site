@@ -5,7 +5,7 @@ title_en: TSKhR publication on the first digital plein air in Bashkiria
 title_ru: Публикация ТСХР о первом цифровом пленэре в Башкирии
 type: content
 visible: true
-date: 2025.01.01
+updated: 2025.01.01
 kind: proof
 subkind: press
 proof_of:

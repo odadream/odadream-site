@@ -9,7 +9,7 @@ tags:
   - meditation
 order: 1
 visible: true
-date: 2026.02.10
+updated: 2026.02.10
 kind: product
 subkind: education
 presented_at:

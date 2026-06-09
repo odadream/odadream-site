@@ -9,7 +9,7 @@ tags:
   - party
 order: 6
 visible: false
-date: 2026.05.25
+updated: 2026.05.25
 ---
 
 ## FOR EVENTS

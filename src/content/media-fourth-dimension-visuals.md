@@ -8,7 +8,7 @@ short_ru: Визуалы
 type: content
 tags: [fourth-dimension, neuromandala]
 order: 0
-date: 2023.02.02
+updated: 2023.02.02
 visible: true
 kind: media
 subkind: photo

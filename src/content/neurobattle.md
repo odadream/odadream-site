@@ -8,7 +8,7 @@ tags:
   - esports
   - brain
 image: /images/nodes/neurobattle.webp
-date: 2026.05.29
+updated: 2026.05.29
 order: 1
 status: production
 kind: product

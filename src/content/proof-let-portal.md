@@ -5,7 +5,7 @@ title_en: Diploma — Portal 2030–2050 (Visioning win)
 title_ru: Диплом — Портал 2030–2050 (победа в «Виджеинг»)
 type: content
 visible: true
-date: 2025.01.01
+updated: 2025.01.01
 kind: proof
 subkind: letter
 proof_of:

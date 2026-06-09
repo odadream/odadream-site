@@ -5,7 +5,7 @@ title_en: Bitva za Milliard — Neuromandala
 title_ru: Битва за Миллиард — Нейромандала
 type: content
 visible: true
-date: 2024.01.01
+updated: 2024.01.01
 kind: proof
 subkind: testimonial
 proof_of:

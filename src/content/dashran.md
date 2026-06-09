@@ -11,7 +11,7 @@ tags:
   - generative
 order: 3
 visible: true
-date: 2025.02.22
+updated: 2025.02.22
 status: rnd
 kind: product
 subkind: art

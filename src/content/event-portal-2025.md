@@ -8,7 +8,7 @@ tags:
   - hub-registry
   - mindshow
 visible: true
-date: 2025.01.01
+updated: 2025.01.01
 order: 0
 kind: event
 date_start: 2025-01-01

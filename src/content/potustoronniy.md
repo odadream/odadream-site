@@ -10,7 +10,7 @@ tags:
   - shadow-theatre
 order: 4
 visible: true
-date: 2008.01.01
+updated: 2008.01.01
 status: rnd
 kind: product
 subkind: art

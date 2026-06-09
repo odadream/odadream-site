@@ -8,7 +8,7 @@ short_ru: Визуалы
 type: content
 tags: [voronka, jewellery, parametric]
 order: 0
-date: 2023.01.30
+updated: 2023.01.30
 visible: true
 kind: media
 subkind: photo

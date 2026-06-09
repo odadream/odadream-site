@@ -9,7 +9,7 @@ tags:
   - geometry
   - brainwave
 image: /images/content/neuromandala-cover.webp
-date: 2026.05.29
+updated: 2026.05.29
 order: 0
 visible: true
 status: patent

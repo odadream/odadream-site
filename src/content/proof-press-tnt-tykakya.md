@@ -5,7 +5,7 @@ title_en: Neurobattle segment on mainstream entertainment TV
 title_ru: Сегмент Нейробитвы в шоу на федеральном ТВ
 type: content
 visible: true
-date: 2020.01.01
+updated: 2020.01.01
 kind: proof
 subkind: press
 proof_of:

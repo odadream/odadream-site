@@ -9,7 +9,7 @@ tags:
 kind: event
 subkind: exhibition
 date_start: 2024-01-01
-date: 2024.01.01
+updated: 2024.01.01
 city_en: Moscow, Fonvizinskaya
 city_ru: Москва, м. Фонвизинская
 orgs: []

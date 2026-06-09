@@ -9,7 +9,7 @@ tags:
   - silver
   - emoto
 order: 4
-date: 2022.12.01
+updated: 2022.12.01
 visible: true
 status: production
 kind: product

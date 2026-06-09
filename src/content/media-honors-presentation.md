@@ -8,7 +8,7 @@ short_ru: Презентация
 type: content
 tags: [honors, skolkovo, presentation]
 order: 0
-date: 2026.03.18
+updated: 2026.03.18
 visible: true
 kind: media
 subkind: photo

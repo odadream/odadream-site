@@ -5,7 +5,7 @@ title_en: CIPR TechFriendly — MindShow
 title_ru: ЦИПР TechFriendly — MindShow
 type: content
 visible: true
-date: 2026.05.01
+updated: 2026.05.01
 kind: proof
 subkind: testimonial
 proof_of:

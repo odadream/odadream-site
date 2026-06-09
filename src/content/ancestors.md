@@ -7,7 +7,7 @@ type: content
 tags: [performance, culttech]
 order: 2
 visible: true
-date: 2026.01.01
+updated: 2026.01.01
 status: rnd
 kind: product
 subkind: art

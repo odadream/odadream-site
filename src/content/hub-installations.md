@@ -9,7 +9,7 @@ tags:
   - neuromandala
   - spatial
 visible: true
-date: 2026.05.31
+updated: 2026.05.31
 ---
 
 ## Installations

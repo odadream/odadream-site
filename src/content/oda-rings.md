@@ -10,7 +10,7 @@ tags:
   - eeg
   - origin
 order: 0
-date: 2020.03.20
+updated: 2020.03.20
 visible: true
 status: production
 kind: product

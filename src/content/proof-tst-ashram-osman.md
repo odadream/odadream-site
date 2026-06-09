@@ -5,7 +5,7 @@ title_en: Ashram Studio — Birthday Celebration
 title_ru: Ашрам Студио — День рождения
 type: content
 visible: true
-date: 2024.06.25
+updated: 2024.06.25
 kind: proof
 subkind: testimonial
 proof_of:

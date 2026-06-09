@@ -7,7 +7,7 @@ type: hub
 tags: [registry, collaboration]
 order: 2
 visible: true
-date: 2026.05.30
+updated: 2026.05.30
 ---
 
 ## Co-creative partners

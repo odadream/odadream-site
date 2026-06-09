@@ -8,7 +8,7 @@ short_ru: Визуалы
 type: content
 tags: [happiness, snowflake, emoto]
 order: 0
-date: 2022.12.11
+updated: 2022.12.11
 visible: true
 kind: media
 subkind: photo

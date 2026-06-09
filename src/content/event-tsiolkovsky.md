@@ -9,7 +9,7 @@ subkind: series
 tags:
   - festival
   - kaluga
-date: 2026.05.30
+updated: 2026.05.30
 date_start: 2026-05-30
 ---
 

@@ -8,7 +8,7 @@ short_ru: Полная запись
 type: content
 tags: [interference, recording, art-object]
 order: 0
-date: 2026.05.16
+updated: 2026.05.16
 visible: true
 kind: media
 subkind: video

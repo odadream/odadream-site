@@ -8,7 +8,7 @@ short_ru: Дек
 type: content
 tags: [potustoronniy, presentation, light]
 order: 1
-date: 2008.01.01
+updated: 2008.01.01
 visible: true
 kind: media
 subkind: photo

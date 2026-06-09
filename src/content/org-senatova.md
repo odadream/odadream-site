@@ -6,7 +6,7 @@ title_ru: Анна Иосифовна Сенатова
 type: content
 tags: [kind/organizer, organizer/curator]
 visible: true
-date: 2026.05.30
+updated: 2026.05.30
 kind: organizer
 subkind: curator
 ---

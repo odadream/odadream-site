@@ -5,7 +5,7 @@ title_en: CultTech Lab 2026 grant, Vienna — "Ancestors in the Noise" with Elen
 title_ru: Грант CultTech Lab 2026, Вена — проект «Ancestors in the Noise» с Еленой Ковылиной
 type: content
 visible: true
-date: 2026.01.01
+updated: 2026.01.01
 kind: proof
 subkind: award
 proof_of:
