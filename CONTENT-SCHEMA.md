@@ -1,6 +1,6 @@
 # CONTENT-SCHEMA — стандарт карточек ODA.dream
 
-**Версия:** 1.1 · **Дата:** 2026.06.02  
+**Версия:** 1.2 · **Дата:** 2026.06.02  
 **Статус:** единый источник правды по архитектуре базы знаний и контента сайта.
 
 Документ описывает все типы карточек в `src/content/`, их поля, типы свойств Obsidian, связи между карточками и вспомогательные реестры в `data/registry/`.
@@ -357,20 +357,139 @@ src/content/*.md  ──►  npm run sync:fields  ──►  обогащени�
 
 ---
 
-## 10. Именование файлов и id
+## 10. Именование файлов в `src/content/`
 
-| Сущность | Файл | `id` |
-|----------|------|------|
-| Продукт | `mindshow.md` | `mindshow` |
-| Событие | `event-portal-2025.md` | `event-portal-2025` |
-| Участие (legacy eng) | `eng-audi-brand.md` | `eng-audi-brand` |
-| Организация | `org-hse.md` | `org-hse` |
-| Пруф | `proof-let-portal.md` | `proof-let-portal` |
-| Коллаб | `collab-kovylina.md` | `collab-kovylina` |
-| Hub | `hub-works.md` | `hub-works` |
-| Медиа-узел | `media-interference-photos.md` | `media-interference-photos` |
+### 10.1 Общие правила
 
-**Инвариант:** `id` в frontmatter = имя файла без `.md`. Родитель `parent` должен существовать, иначе узел станет сиротой.
+| Правило | Требование |
+|---------|------------|
+| **Папка** | Только `src/content/` (плоский список, без подпапок) |
+| **Расширение** | `.md` |
+| **Регистр** | только `kebab-case` (строчные латиница, цифры, дефис) |
+| **Символы** | латиница `a–z`, цифры `0–9`, дефис `-`; без пробелов, подчёркиваний, кириллицы в имени файла |
+| **id ↔ файл** | **`id` в frontmatter = имя файла без `.md`** (обязательный инвариант) |
+| **Уникальность** | один id — один файл; дубликаты id запрещены |
+| **Родитель** | `parent` должен указывать на существующий узел (кроме корня `home` в `constants.ts`) |
+| **После переименования** | `npm run assets:generate` (SVG по id) · `npm run assets:map` (проверка сирот) |
+
+Шаблоны и служебные файлы: `src/content/_templates/` — не узлы сайта, префикс `_` игнорируется загрузчиком.
+
+### 10.2 Префикс по типу карточки
+
+Префикс имени файла **согласован** с `kind` (см. §2.2). Новые карточки создавай **только** по каноническим шаблонам ниже.
+
+| `kind` / роль | Префикс файла | Шаблон имени | Пример |
+|---------------|---------------|--------------|--------|
+| Hub (навигация) | `hub-` | `hub-{тема}` | `hub-works.md` |
+| `product` | *(нет)* | `{slug}` | `mindshow.md`, `neuromandala.md` |
+| `event` | `event-` | `event-{slug}-{год}` | `event-portal-2025.md` |
+| `event` (серия) | `event-` | `event-{серия}` + дети `…-{YYYY}` | `event-gong-fest.md` → `event-gong-fest-2025.md` |
+| `organizer` | `org-` | `org-{slug}` | `org-hse.md` |
+| `collaboration` | `collab-` | `collab-{slug}` | `collab-kovylina.md` |
+| `proof` | `proof-` | `proof-{роль}-{slug}` | `proof-let-portal.md` |
+| `media` | `media-` | `media-{subject}-{descriptor}` | `media-interference-photos.md` |
+
+### 10.3 События (`event-*`)
+
+```
+event-{краткий-slug}-{YYYY}           # однодневное / основной случай
+event-{краткий-slug}-{YYYY-MM}        # если важен месяц (редко)
+event-{серия}                         # hub серии (subkind: series)
+event-{серия}-{YYYY}                  # редакция серии
+```
+
+**Рекомендации для slug:**
+- продукт или формат: `event-cipr-mindshow-2026`, `event-hse-beautiful-brain-2025`
+- площадка/бренд: `event-mipt-terraforming-2025`, `event-dano-ekoniva-2025`
+- программа: `event-portal-2025`, `event-tavrida-ai-2025`
+
+**Registry:** публичный реестр участий — те же `event-*` + тег `hub-registry` (редактирование через `events.base`).
+
+**Legacy (не создавать новые):**
+| Паттерн | Статус | Замена |
+|---------|--------|--------|
+| `eng-{slug}` | deprecated | `event-{slug}-{год}` + `hub-registry` |
+| `pleinair-{место}` | исторический | новые пленэры → `event-pleinair-{место}-{год}` |
+| `unique-russia` | исторический id | новые выставки → `event-*` |
+
+### 10.4 Пруфы (`proof-*`)
+
+Второй сегмент после `proof-` отражает **роль** (≈ `subkind`):
+
+| Сегмент | `subkind` | Пример файла |
+|---------|-----------|--------------|
+| `award` | award | `proof-award-portal-visioning.md` |
+| `let` | letter | `proof-let-portal.md` |
+| `tst` | testimonial | `proof-tst-hse-brain.md` |
+| `press` | press | `proof-press-ntv-metro.md` |
+| `cred` | award (studio credentials) | `proof-cred-tskhr.md` |
+| `ip` | award (IP) | `proof-ip-trademark.md` |
+
+Свободный slug после роли: организация, событие или тема — `proof-mipt-letter`, `proof-mom-baby-borzikh-origin`.
+
+**Один факт — один файл.** Не плодить синонимы (`proof-portal-1st` при наличии `proof-award-portal-visioning`).
+
+Запись в `data/registry/proofs.yaml` может иметь короткий `id` (`let-portal`); файл на сайте — всегда `proof-let-portal.md` (связь через `site_node` в yaml при расхождении).
+
+### 10.5 Продукты (без префикса)
+
+```
+{семантический-slug}
+```
+
+Slug = устойчивое имя работы на английском, без года и без `event-`:
+`mindshow`, `beautiful-brain`, `mom-baby`, `theatre-my-name`.
+
+Не вкладывать в имя продукта организатора или дату — они живут на `event-*`.
+
+### 10.6 Организации (`org-*`)
+
+```
+org-{короткий-id}
+```
+
+`короткий-id` — узнаваемый бренд или фамилия: `org-hse`, `org-moscow2030`, `org-kapitsa`.  
+Имена для таблиц реестра — в `data/registry/organizations.yaml` (`name_ru` / `name_en`).
+
+### 10.7 Медиа-узлы (`media-*`)
+
+```
+media-{subject}-{descriptor}
+```
+
+`subject` — продукт или событие; `descriptor` — тип материала: `photos`, `docs`, `teaser`, `archive`.
+
+Пример: `media-theatre-my-name-photos.md` · `about: [[theatre-my-name]]`.
+
+Для встраиваемых роликов без отдельной страницы используй `src/data/media.ts` и `![[media:id]]` — **файл не нужен**.
+
+### 10.8 Hub-страницы (`hub-*`)
+
+```
+hub-{раздел}
+```
+
+Только навигация (`type: hub`), обычно **без** `kind`.  
+Примеры: `hub-events`, `hub-registry`, `hub-letters`, `hub-debug-video`.
+
+### 10.9 Антипаттерны
+
+| Нельзя | Почему |
+|--------|--------|
+| `Event_Portal_2025.md` | не kebab-case |
+| `event-портал-2025.md` | кириллица в имени файла |
+| id `event-portal` в файле `portal-2025.md` | id ≠ имя файла |
+| два файла на один факт | разъезжается provenance |
+| `proof-foo` без роли (`award`/`let`/…) | непредсказуемая сортировка и Base-фильтры |
+| править только `engagements.yaml` | снимок; правда в `event-*.md` |
+
+### 10.10 Чеклист имени нового файла
+
+1. Выбери `kind` → префикс из §10.2  
+2. Собери slug по §10.3–10.7  
+3. `имя-файла.md` = `{id}.md` = значение `id:` в frontmatter  
+4. Скопируй шаблон из `_templates/`  
+5. `npm run assets:generate` · `npm run assets:map`
 
 ---
 
@@ -390,7 +509,7 @@ src/content/*.md  ──►  npm run sync:fields  ──►  обогащени�
 
 ## 12. Чеклист новой карточки
 
-1. Скопировать шаблон → переименовать файл под `id`
+1. Имя файла по §10 → скопировать шаблон из `_templates/`
 2. Заполнить `parent`, `title_en`, `title_ru`, `kind`, `subkind`
 3. Проставить связи (`products`, `proof_of`, …) **wiki-link или plain id**
 4. Для registry-события: тег `hub-registry` + `date_start`, `orgs`, `venues`, `city_ru`
