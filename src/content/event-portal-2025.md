@@ -12,17 +12,19 @@ updated: 2025.01.01
 order: 0
 kind: event
 date_start: 2025-01-01
-organizer:
-  - "[[org-moscow2030]]"
-  - "[[org-skolkovo]]"
 products:
   - "[[mindshow]]"
 subkind: competition
 aliases:
   - event-portal-2025
-venues:
+orgs:
   - org-moscow2030
   - org-skolkovo
+venues:
+  - org-skolkovo
+client: []
+partners: []
+collaborators: []
 city_en: Moscow
 city_ru: Москва
 relationship: award
@@ -32,6 +34,9 @@ letter: true
 proofs:
   - "[[proof-award-portal-visioning]]"
   - "[[proof-let-portal]]"
+organizer:
+  - "[[org-moscow2030]]"
+  - "[[org-skolkovo]]"
 ---
 
 ## Visioning competition win — Portal 2030–2050

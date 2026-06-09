@@ -1,6 +1,6 @@
 # Phase F — TODO
 
-Generated: 2026-06-09T11:05:35.976Z
+Generated: 2026-06-09T12:18:15.738Z
 
 Items are grouped by **who fixes them** so non-trivial work isn't blocked on mechanical tasks.
 
@@ -67,12 +67,9 @@ Hub pages contain bullet lists of `[[…]]`. These are navigation by hand. Decis
 
 ## G. Orphans (informational)
 
-Total: 31. These are leaf nodes nobody points at and that anchor nothing themselves. Many are legitimate (standalone lectures, untouched practices). Audit list:
+Total: 29. These are leaf nodes nobody points at and that anchor nothing themselves. Many are legitimate (standalone lectures, untouched practices). Audit list:
 
 - `brain-hack.md` (kind: product)
-- `collab-itb.md` (kind: collaboration)
-- `collab-itmo.md` (kind: collaboration)
-- `collab-korichina.md` (kind: collaboration)
 - `cultural-neuro-code.md` (kind: product)
 - `emomandala-os.md` (kind: product)
 - `event-audi-brand-2024.md` (kind: event)
@@ -97,6 +94,7 @@ Total: 31. These are leaf nodes nobody points at and that anchor nothing themsel
 - `neuromandala-os.md` (kind: product)
 - `org-culture-sport-uao.md` (kind: organizer)
 - `org-inforce.md` (kind: organizer)
+- `org-itb.md` (kind: organizer)
 - `sound-brain.md` (kind: product)
 - `taste-brain.md` (kind: product)
 - `unique-russia.md` (kind: event)

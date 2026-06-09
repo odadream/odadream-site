@@ -18,12 +18,15 @@ city_ru: Москва
 orgs:
   - org-kalashnikova
 venues: []
+client: []
+partners: []
+collaborators: []
 relationship: invited
 format: multisync
-organizer:
-  - "[[org-kalashnikova]]"
 products:
   - "[[multisync]]"
+organizer:
+  - "[[org-kalashnikova]]"
 ---
 
 ## BYOB 2020

@@ -14,9 +14,13 @@ subkind: exhibition
 orgs:
   - org-audi
 venues: []
+client: []
+partners: []
+collaborators: []
 relationship: commercial
 format: installation
 organizer:
   - "[[org-audi]]"
 ---
+
 

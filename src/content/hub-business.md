@@ -38,7 +38,7 @@ This is not a party trick. It is a moment of genuine experience that most people
 Full engagement log → [[hub-registry|Experience Registry]]
 
 <!-- hub-registry:commercial-list -->
-- [[event-dano-ekoniva-2025|Neurobattle at DANO Olympiad]] — EkoNiva
+- [[event-dano-ekoniva-2025|Neurobattle at DANO Olympiad]] — HSE University, T-Bank
 - [[event-tavrida-ai-2025|AI festival Cultural Code of Russia]] — Tavrida.ART
 - [[event-merck-corporate|Merck corporate science-art format]] — Merck
 - [[event-ashram-birthday-2024|Ashram Studio birthday celebration]] — Ashram Studio (Natali Osman)
@@ -108,7 +108,7 @@ _ODA.dream — это тот опыт._
 Полный журнал участий → [[hub-registry|Реестр опыта]]
 
 <!-- hub-registry:commercial-list-ru -->
-- [[event-dano-ekoniva-2025|Нейробитва на Олимпиаде DANO]] — ЭкоНива
+- [[event-dano-ekoniva-2025|Нейробитва на Олимпиаде DANO]] — НИУ ВШЭ, Т-Банк
 - [[event-tavrida-ai-2025|Фестиваль ИИ «Культурный код России»]] — Таврида.АРТ
 - [[event-merck-corporate|Корпоративный science-art формат Merck]] — Merck (Мерц)
 - [[event-ashram-birthday-2024|День рождения студии Ashram]] — Студия Ashram (Натали Осман)

@@ -1,6 +1,6 @@
 # Phase F — Content audit
 
-Generated: 2026-06-09T11:05:35.976Z
+Generated: 2026-06-09T12:18:15.738Z
 
 ## Summary
 
@@ -15,10 +15,11 @@ Generated: 2026-06-09T11:05:35.976Z
 - Conformance gaps: **0**
 - Body smells: **10**
 - Missing referenced ids: **20**
-- Orphan nodes: **31**
+- Orphan nodes: **29**
 - Duplicate candidates: **0**
 - Proof drift — md-only / yaml-only / no-relations: **0 / 0 / 0**
 - Gratitude mentions / without link: **4 / 1**
+- Event role warnings: **1**
 
 ## 1. Conformance gaps
 
@@ -67,9 +68,6 @@ _None — all kinded nodes have required fields._
 ## 4. Orphan nodes (no inbound refs, no children)
 
 - `brain-hack.md` (kind: product)
-- `collab-itb.md` (kind: collaboration)
-- `collab-itmo.md` (kind: collaboration)
-- `collab-korichina.md` (kind: collaboration)
 - `cultural-neuro-code.md` (kind: product)
 - `emomandala-os.md` (kind: product)
 - `event-audi-brand-2024.md` (kind: event)
@@ -94,6 +92,7 @@ _None — all kinded nodes have required fields._
 - `neuromandala-os.md` (kind: product)
 - `org-culture-sport-uao.md` (kind: organizer)
 - `org-inforce.md` (kind: organizer)
+- `org-itb.md` (kind: organizer)
 - `sound-brain.md` (kind: product)
 - `taste-brain.md` (kind: product)
 - `unique-russia.md` (kind: event)
@@ -114,3 +113,7 @@ _None._
 - `hub-registry.md` — has proof link: **NO**
 - `proof-let-hse-beautiful-brain.md` — has proof link: yes
 - `proof-mipt-letter.md` — has proof link: yes
+
+## 8. Event role warnings
+
+- `event-portal-2025.md` (org-venue-overlap) — same id in orgs and venues: org-skolkovo

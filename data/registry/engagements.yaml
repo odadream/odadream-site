@@ -9,9 +9,12 @@
   subkind: festival
   format: performance
   orgs:
-    - org-neiry
-  venues:
     - org-tsiolkovsky
+  venues:
+    - org-ikc
+  client: []
+  partners:
+    - org-neiry
   title_ru: «Интерференция реальностей» — Фестиваль Циолковского
   title_en: Interference of Realities — Tsiolkovsky Festival
   showcase: true
@@ -22,10 +25,12 @@
   relationship: invited
   subkind: forum
   format: mindshow
-  orgs:
-    - org-ashram
+  orgs: []
   venues:
     - org-cipr
+  client:
+    - org-ashram
+  partners: []
   title_ru: MindShow на TechFriendly / ЦИПР
   title_en: MindShow at TechFriendly / CIPR
 - id: event-byob-2026
@@ -38,6 +43,8 @@
   orgs:
     - org-kalashnikova
   venues: []
+  client: []
+  partners: []
   title_ru: BYOB 2026
   title_en: BYOB 2026
 - id: event-dano-ekoniva-2025
@@ -48,10 +55,12 @@
   subkind: olympiad
   format: neurobattle
   orgs:
-    - org-ekoniva
-  venues:
     - org-hse
     - org-tbank
+  venues: []
+  client:
+    - org-ekoniva
+  partners: []
   title_ru: Нейробитва на Олимпиаде DANO
   title_en: Neurobattle at DANO Olympiad
 - id: event-mipt-terraforming-2025
@@ -65,6 +74,8 @@
     - org-kapitsa
   venues:
     - org-mipt
+  client: []
+  partners: []
   title_ru: Терраформинг — выставка МФТИ
   title_en: Terraforming — MIPT exhibition
   showcase: true
@@ -77,22 +88,24 @@
   format: installation
   orgs:
     - org-tavrida
-  venues:
-    - org-tavrida
+  venues: []
+  client: []
+  partners: []
   title_ru: Фестиваль ИИ «Культурный код России»
   title_en: AI festival Cultural Code of Russia
   letter: true
 - id: event-myata-2025
   date: 2025-06-01
-  city_en: ""
-  city_ru: ""
+  city_en: Moscow
+  city_ru: Москва
   relationship: invited
   subkind: festival
   format: mindshow
   orgs:
     - org-wildmint
-  venues:
-    - org-wildmint
+  venues: []
+  client: []
+  partners: []
   title_ru: Дикая Мята — инсталляция Нейромандала
   title_en: Wild Mint festival — neuromandala installation
   letter: true
@@ -105,8 +118,9 @@
   format: lecture
   orgs:
     - org-hse
-  venues:
-    - org-hse
+  venues: []
+  client: []
+  partners: []
   title_ru: «Красиво про мозг» — НИУ ВШЭ
   title_en: Beautiful About the Brain — HSE University
   letter: true
@@ -117,12 +131,12 @@
   relationship: invited
   subkind: lecture
   format: lecture
-  orgs:
-    - org-bauman
-    - org-moscow2030
+  orgs: []
   venues:
     - org-bauman
     - org-moscow2030
+  client: []
+  partners: []
   title_ru: Лекция про брейнхакинг — МГТУ им. Баумана
   title_en: Brain-hacking lecture — Bauman MSTU
 - id: event-merck-corporate
@@ -135,6 +149,8 @@
   orgs:
     - org-merck
   venues: []
+  client: []
+  partners: []
   title_ru: Корпоративный science-art формат Merck
   title_en: Merck corporate science-art format
 - id: event-pleinair-bashkiria-2025
@@ -146,6 +162,8 @@
   format: installation
   orgs: []
   venues: []
+  client: []
+  partners: []
   title_ru: Цифровой плэнер в Башкирии
   title_en: Digital plein-air, Bashkiria
 - id: event-portal-2025
@@ -159,8 +177,9 @@
     - org-moscow2030
     - org-skolkovo
   venues:
-    - org-moscow2030
     - org-skolkovo
+  client: []
+  partners: []
   title_ru: Победа «Виджеинг» — Портал 2030–2050
   title_en: Visioning competition win — Portal 2030–2050
   showcase: true
@@ -174,8 +193,9 @@
   format: lecture
   orgs:
     - org-sberbank
-  venues:
-    - org-sberbank
+  venues: []
+  client: []
+  partners: []
   title_ru: Science-art лекция для Сбербанка
   title_en: Science-art lecture for Sberbank
 - id: event-tpp-mindshow-2025
@@ -187,8 +207,9 @@
   format: mindshow
   orgs:
     - org-cci
-  venues:
-    - org-cci
+  venues: []
+  client: []
+  partners: []
   title_ru: MindShow — саммит Russian Digital Creative
   title_en: MindShow — Russian Digital Creative summit
 - id: event-ashram-birthday-2024
@@ -200,8 +221,9 @@
   format: mindshow
   orgs:
     - org-ashram
-  venues:
-    - org-ashram
+  venues: []
+  client: []
+  partners: []
   title_ru: День рождения студии Ashram
   title_en: Ashram Studio birthday celebration
 - id: event-audi-brand-2024
@@ -214,6 +236,8 @@
   orgs:
     - org-audi
   venues: []
+  client: []
+  partners: []
   title_ru: Брендовая активация Audi
   title_en: Audi brand activation
 - id: event-gonchar-private-2024
@@ -225,6 +249,8 @@
   format: lecture
   orgs: []
   venues: []
+  client: []
+  partners: []
   title_ru: Частное нейрошоу — Ната Гончар
   title_en: Private neuro-show — Nata Gonchar
 - id: event-lamborghini-brand-2024
@@ -237,6 +263,8 @@
   orgs:
     - org-lamborghini
   venues: []
+  client: []
+  partners: []
   title_ru: Брендовая активация Lamborghini
   title_en: Lamborghini brand activation
 - id: event-pleinair-metro-2024
@@ -248,6 +276,8 @@
   format: installation
   orgs: []
   venues: []
+  client: []
+  partners: []
   title_ru: Плэнер в метро
   title_en: Plein-air in Metro
 - id: event-byob-2020
@@ -260,6 +290,8 @@
   orgs:
     - org-kalashnikova
   venues: []
+  client: []
+  partners: []
   title_ru: BYOB 2020
   title_en: BYOB 2020
 - id: event-byob-2019
@@ -272,5 +304,7 @@
   orgs:
     - org-kalashnikova
   venues: []
+  client: []
+  partners: []
   title_ru: BYOB 2019
   title_en: BYOB 2019

@@ -12,22 +12,23 @@ updated: 2024.06.25
 order: 1
 kind: event
 date_start: 2024-06-25
-organizer:
-  - "[[org-ashram]]"
-  - "[[org-ashram]]"
 products:
   - "[[mindshow]]"
 subkind: private_show
 orgs:
   - org-ashram
-venues:
-  - org-ashram
+venues: []
+client: []
+partners: []
+collaborators: []
 city_en: Moscow
 city_ru: Москва
 relationship: commercial
 format: mindshow
 proofs:
   - "[[proof-tst-ashram-osman]]"
+organizer:
+  - "[[org-ashram]]"
 ---
 
 ## Ashram Studio birthday celebration

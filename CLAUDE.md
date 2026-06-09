@@ -77,9 +77,12 @@ Nodes carry semantic relationship fields in frontmatter — all are lists of nod
 | `subkind` | — | Data-driven subtype; see `src/data/taxonomy.ts` |
 | `presented_at` | product→event | Events where this product was shown |
 | `products` | event→product | Products shown at this event |
-| `organizer` | event→org | Who hosted the event |
+| `orgs` | event→org | Organizer(s) — canonical; `organizer` is derived mirror for UI compat |
+| `venues` | event→org | Venue(s) where the event took place |
+| `partners` | event→org | Partner / sponsor (in-kind, tech support) |
 | `client` | event→org | Commercial client (distinct from organizer) |
 | `collaborators` | product/event→collab | Equal co-creative partners |
+| `organizer` | event→org | **Derived** from `orgs` by `sync:fields`; do not hand-edit |
 | `proofs` | subject→proof | Evidence nodes (awards, press, etc.) |
 | `proof_of` | proof→subject | What this proof attests |
 | `about` | media→subject | What media work documents |
@@ -133,7 +136,7 @@ File IDs follow semantic prefixes by kind:
 ## Before committing content changes
 
 1. Frontmatter valid: `id` matches filename, `parent` resolves, `---RU---` present.
-2. Provenance IDs (`organizer`, `products`, `proofs`, etc.) must point to existing node IDs — typos silently produce empty provenance.
+2. Provenance IDs (`orgs`, `venues`, `partners`, `client`, `products`, `proofs`, etc.) must point to existing node IDs — typos silently produce empty provenance. Roles are **event-scoped** — same `org-*` can be `partners` on one event and `orgs` on another.
 3. New media assets added to `src/data/media.ts` before referencing them with `![[media:id]]`.
 4. `npm run assets:map` — no orphans.
 5. `npm run assets:generate` if any nodes were added/renamed.

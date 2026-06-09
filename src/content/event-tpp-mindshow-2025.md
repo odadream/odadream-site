@@ -12,17 +12,21 @@ updated: 2025.01.01
 order: 1
 kind: event
 date_start: 2025-01-01
-organizer:
-  - "[[org-cci]]"
 products:
   - "[[mindshow]]"
 subkind: forum
-venues:
+orgs:
   - org-cci
+venues: []
+client: []
+partners: []
+collaborators: []
 city_en: Moscow
 city_ru: Москва
 relationship: invited
 format: mindshow
+organizer:
+  - "[[org-cci]]"
 ---
 
 ## MindShow — Russian Digital Creative summit

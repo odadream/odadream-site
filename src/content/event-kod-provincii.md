@@ -13,9 +13,13 @@ subkind: conference
 date_start: 2024-01-01
 city_en: Kaluga region
 city_ru: Калужская область
-organizer:
-  - "[[org-golyzhibina]]"
-  - "[[org-panasenko]]"
+orgs:
+  - org-golyzhibina
+  - org-panasenko
+venues: []
+client: []
+partners: []
+collaborators: []
 products:
   - "[[feedback-empathy-brain]]"
   - "[[theatre-my-name]]"

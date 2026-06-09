@@ -13,12 +13,14 @@ subkind: lab
 date_start: 2024-11-08
 city_en: Kaluga
 city_ru: Калуга
-organizer:
-  - "[[org-golyzhibina]]"
-  - "[[org-itb]]"
-  - "[[org-ikc]]"
+orgs:
+  - org-golyzhibina
 venues:
   - org-ikc
+collaborators:
+  - collab-itb
+client: []
+partners: []
 products:
   - "[[theatre-my-name]]"
   - "[[neurosync]]"

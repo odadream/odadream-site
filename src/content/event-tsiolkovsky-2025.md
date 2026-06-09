@@ -13,11 +13,15 @@ subkind: festival
 date_start: 2025-05-22
 city_en: Kaluga
 city_ru: Калуга
-organizer:
-  - "[[org-tsiolkovsky]]"
-  - "[[org-senatova]]"
-  - "[[org-itb]]"
-  - "[[org-ikc]]"
+orgs:
+  - org-tsiolkovsky
+venues:
+  - org-ikc
+partners:
+  - org-senatova
+collaborators:
+  - collab-itb
+client: []
 products:
   - "[[schrodinger]]"
 ---

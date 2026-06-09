@@ -14,9 +14,13 @@ subkind: exhibition
 orgs:
   - org-lamborghini
 venues: []
+client: []
+partners: []
+collaborators: []
 relationship: commercial
 format: installation
 organizer:
   - "[[org-lamborghini]]"
 ---
+
 

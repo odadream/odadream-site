@@ -6,7 +6,7 @@ title_ru: III Международный день медитации
 type: content
 tags: [registry, partner]
 visible: false
-updated: 2026.05.25
+date: 2026.05.25
 ---
 
 ## 3rd International Meditation Day

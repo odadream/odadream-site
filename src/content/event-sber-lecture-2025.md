@@ -12,18 +12,19 @@ updated: 2025.01.01
 order: 4
 kind: event
 date_start: 2025-01-01
-organizer:
-  - "[[org-sberbank]]"
-  - "[[org-sberbank]]"
 subkind: lecture
 orgs:
   - org-sberbank
-venues:
-  - org-sberbank
+venues: []
+client: []
+partners: []
+collaborators: []
 city_en: Moscow
 city_ru: Москва
 relationship: invited
 format: lecture
+organizer:
+  - "[[org-sberbank]]"
 ---
 
 ## Science-art lecture for Sberbank

@@ -146,10 +146,22 @@ export interface LotusNode {
   /** Products shown at this event. */
   products?: string[];
 
-  /** Organizer(s) of this event. */
+  /**
+   * Event organizer(s) — canonical role field (`orgs` on event cards).
+   * `organizer` is a derived wiki-link mirror; prefer `orgs` in provenance.
+   */
+  orgs?: string[];
+
+  /** Venue(s) where the event took place (`org-*` with subkind venue). */
+  venues?: string[];
+
+  /** Partner / sponsor (in-kind, tech support) on this event. */
+  partners?: string[];
+
+  /** @deprecated Derived from `orgs` by sync:fields — do not author manually. */
   organizer?: string[];
 
-  /** Commercial client / stand host (distinct from event organizer). */
+  /** Commercial client / commissioning party (distinct from organizer). */
   client?: string[];
 
   /**

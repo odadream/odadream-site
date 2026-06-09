@@ -15,21 +15,25 @@ order: 1
 kind: event
 subkind: festival
 date_start: 2026-05-16
-organizer:
-  - "[[org-neiry]]"
-  - "[[org-tsiolkovsky]]"
 products:
   - "[[interference]]"
 proofs: []
 orgs:
-  - org-neiry
-venues:
   - org-tsiolkovsky
+venues:
+  - org-ikc
+client: []
+partners:
+  - org-neiry
+collaborators:
+  - collab-itb
 city_en: Kaluga
 city_ru: Калуга
 relationship: competition
 format: performance
 showcase: true
+organizer:
+  - "[[org-tsiolkovsky]]"
 ---
 
 ## Interference of Realities — opening performance (2026)

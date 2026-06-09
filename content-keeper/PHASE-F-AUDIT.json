@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09T11:05:35.976Z",
+  "generated_at": "2026-06-09T12:18:15.738Z",
   "counts": {
     "byKind": {
       "product": 34,
@@ -15,7 +15,7 @@
   "conformance_gaps": 0,
   "body_smells": 10,
   "missing_refs": 20,
-  "orphans": 31,
+  "orphans": 29,
   "duplicates": 0,
   "proof_drift": {
     "md_only": 0,
@@ -24,6 +24,7 @@
   },
   "gratitude_mentions": 4,
   "gratitude_without_link": 1,
+  "role_warnings": 1,
   "detail": {
     "conformance": [],
     "bodySmells": [
@@ -250,21 +251,6 @@
         "file": "brain-hack.md"
       },
       {
-        "id": "collab-itb",
-        "kind": "collaboration",
-        "file": "collab-itb.md"
-      },
-      {
-        "id": "collab-itmo",
-        "kind": "collaboration",
-        "file": "collab-itmo.md"
-      },
-      {
-        "id": "collab-korichina",
-        "kind": "collaboration",
-        "file": "collab-korichina.md"
-      },
-      {
         "id": "cultural-neuro-code",
         "kind": "product",
         "file": "cultural-neuro-code.md"
@@ -385,6 +371,11 @@
         "file": "org-inforce.md"
       },
       {
+        "id": "org-itb",
+        "kind": "organizer",
+        "file": "org-itb.md"
+      },
+      {
         "id": "sound-brain",
         "kind": "product",
         "file": "sound-brain.md"
@@ -426,6 +417,14 @@
         "id": "proof-mipt-letter",
         "file": "proof-mipt-letter.md",
         "hasLink": true
+      }
+    ],
+    "roleWarnings": [
+      {
+        "id": "event-portal-2025",
+        "file": "event-portal-2025.md",
+        "warning": "org-venue-overlap",
+        "detail": "same id in orgs and venues: org-skolkovo"
       }
     ]
   }

@@ -144,6 +144,9 @@ export const fileToNode = (
 
   node.presented_at = unwrapList(attributes.presented_at);
   node.products = unwrapList(attributes.products);
+  node.orgs = unwrapList(attributes.orgs);
+  node.venues = unwrapList(attributes.venues);
+  node.partners = unwrapList(attributes.partners);
   node.organizer = unwrapList(attributes.organizer);
   node.client = unwrapList(attributes.client);
   node.collaborators = unwrapList(attributes.collaborators);

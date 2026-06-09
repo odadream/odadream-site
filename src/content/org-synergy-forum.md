@@ -6,7 +6,7 @@ title_ru: Synergy Crypto & NFT Forum
 type: content
 tags: [registry, partner]
 visible: false
-updated: 2026.05.25
+date: 2026.05.25
 ---
 
 ## Synergy Crypto & NFT Forum

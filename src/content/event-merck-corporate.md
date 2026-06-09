@@ -12,15 +12,19 @@ updated: 2025.01.01
 order: 3
 kind: event
 date_start: 2025-01-01
-organizer:
-  - "[[org-merck]]"
 subkind: conference
 orgs:
   - org-merck
+venues: []
+client: []
+partners: []
+collaborators: []
 city_en: Moscow
 city_ru: Москва
 relationship: commercial
 format: lecture
+organizer:
+  - "[[org-merck]]"
 ---
 
 ## Merck corporate science-art format

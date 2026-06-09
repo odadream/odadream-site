@@ -13,6 +13,11 @@ export interface Provenance {
   // Direct (from this node's frontmatter)
   presented_at: LotusNode[];
   products: LotusNode[];
+  /** Event organizer(s) — from `orgs` (canonical). */
+  orgs: LotusNode[];
+  venues: LotusNode[];
+  partners: LotusNode[];
+  /** @deprecated Alias of `orgs` for legacy UI paths. */
   organizer: LotusNode[];
   client: LotusNode[];
   collaborators: LotusNode[];
@@ -26,26 +31,21 @@ export interface Provenance {
 
   // Inverse (computed: who points back to this node)
   inverse: {
-    /** Events that listed this product in `products` (inverse of event → product). */
     presented_here: LotusNode[];
-    /** Products that listed this event in `presented_at` (inverse of product → event). */
     shown_in: LotusNode[];
-    /** Nodes that listed this node in their `organizer` (= events organized by this org). */
+    /** Events that listed this org in `orgs`. */
     organized_events: LotusNode[];
-    /** Events that listed this node in `client` (= engagements where this org was the client). */
+    /** Events that listed this org in `venues`. */
+    venue_events: LotusNode[];
+    /** Events that listed this org in `partners`. */
+    partner_events: LotusNode[];
     client_events: LotusNode[];
-    /** Products / events that listed this collab in `collaborators`. */
     coauthored_products: LotusNode[];
     coauthored_events: LotusNode[];
-    /** Products listed on events this organizer hosted (rollup). */
     products_from_events: LotusNode[];
-    /** Nodes that listed this node in their `proofs` (= subjects this proof attests). */
     proves: LotusNode[];
-    /** Nodes that listed this node in their `proof_of` (= proofs about this subject). */
     proofs_about: LotusNode[];
-    /** Media works that listed this node in `about` (= artifacts documenting this subject). */
     works_about: LotusNode[];
-    /** Nodes that listed this node in their `issued_by` (= proofs issued by this org). */
     proofs_issued: LotusNode[];
   };
 }
@@ -54,6 +54,8 @@ interface InverseIndex {
   presented_here: Map<string, LotusNode[]>;
   shown_in: Map<string, LotusNode[]>;
   organized_events: Map<string, LotusNode[]>;
+  venue_events: Map<string, LotusNode[]>;
+  partner_events: Map<string, LotusNode[]>;
   client_events: Map<string, LotusNode[]>;
   coauthored_products: Map<string, LotusNode[]>;
   coauthored_events: Map<string, LotusNode[]>;
@@ -61,7 +63,6 @@ interface InverseIndex {
   proofs_about: Map<string, LotusNode[]>;
   works_about: Map<string, LotusNode[]>;
   proofs_issued: Map<string, LotusNode[]>;
-  /** Pre-computed rollup: organizer id → unique products across all events it hosted. */
   products_from_events: Map<string, LotusNode[]>;
 }
 
@@ -71,12 +72,15 @@ const pushTo = (map: Map<string, LotusNode[]>, key: string, value: LotusNode) =>
   else map.set(key, [value]);
 };
 
+/** Canonical organizer ids on an event (`orgs`, fallback legacy `organizer`). */
+export const eventOrgIds = (node: LotusNode): string[] => {
+  if (node.orgs?.length) return node.orgs;
+  if (node.organizer?.length) return node.organizer;
+  return [];
+};
+
 let cached: { registry: Map<string, LotusNode>; index: InverseIndex } | null = null;
 
-/**
- * Build the reverse index over a node registry. Cached by reference identity.
- * If you call with a different registry, the index is rebuilt.
- */
 function getIndex(registry: Map<string, LotusNode>): InverseIndex {
   if (cached && cached.registry === registry) return cached.index;
 
@@ -84,6 +88,8 @@ function getIndex(registry: Map<string, LotusNode>): InverseIndex {
     presented_here: new Map(),
     shown_in: new Map(),
     organized_events: new Map(),
+    venue_events: new Map(),
+    partner_events: new Map(),
     client_events: new Map(),
     coauthored_products: new Map(),
     coauthored_events: new Map(),
@@ -96,11 +102,14 @@ function getIndex(registry: Map<string, LotusNode>): InverseIndex {
 
   registry.forEach((node) => {
     node.presented_at?.forEach((id) => pushTo(index.shown_in, id, node));
-    // Only events "show" products; collaboration.products = co-authored works (not venues).
     if (node.kind === "event") {
       node.products?.forEach((id) => pushTo(index.presented_here, id, node));
     }
-    node.organizer?.forEach((id) => pushTo(index.organized_events, id, node));
+    if (node.kind === "event") {
+      eventOrgIds(node).forEach((id) => pushTo(index.organized_events, id, node));
+      node.venues?.forEach((id) => pushTo(index.venue_events, id, node));
+      node.partners?.forEach((id) => pushTo(index.partner_events, id, node));
+    }
     node.client?.forEach((id) => pushTo(index.client_events, id, node));
     if (node.kind === "product" || node.kind === "event") {
       node.collaborators?.forEach((id) => {
@@ -114,8 +123,6 @@ function getIndex(registry: Map<string, LotusNode>): InverseIndex {
     node.issued_by?.forEach((id) => pushTo(index.proofs_issued, id, node));
   });
 
-  // Second pass — organizer → unique products via the events it hosted.
-  // Done once at index build instead of on every organizer page render.
   index.organized_events.forEach((events, organizerId) => {
     const seen = new Set<string>();
     const products: LotusNode[] = [];
@@ -153,10 +160,6 @@ const resolveMedia = (ids?: string[]) => {
     .filter((m): m is { id: string; asset: MediaAsset } => !!m.asset);
 };
 
-/**
- * Inverse index built once at module load: nodeId → assets that list this id
- * in their `subject`. Backfilled by `scripts/migrate/media-subject.js`.
- */
 const MEDIA_BY_SUBJECT = (() => {
   const map = new Map<string, Array<{ id: string; asset: MediaAsset }>>();
   for (const [id, asset] of Object.entries(MEDIA)) {
@@ -169,7 +172,6 @@ const MEDIA_BY_SUBJECT = (() => {
   return map;
 })();
 
-/** Merge direct + inverse media, dedup by asset id. */
 const collectMedia = (node: LotusNode) => {
   const direct = resolveMedia(node.media);
   const inverse = MEDIA_BY_SUBJECT.get(node.id) ?? [];
@@ -183,19 +185,22 @@ const collectMedia = (node: LotusNode) => {
   return out;
 };
 
-/**
- * Resolve direct + inverse provenance for a node.
- * Returns a fully-populated Provenance object — empty arrays where nothing matches.
- */
 export function getProvenance(
   node: LotusNode,
   registry: Map<string, LotusNode>,
 ): Provenance {
   const idx = getIndex(registry);
+  const orgs = resolveAll(eventOrgIds(node), registry);
+  const venues = resolveAll(node.venues, registry);
+  const partners = resolveAll(node.partners, registry);
+
   return {
     presented_at: resolveAll(node.presented_at, registry),
     products: resolveAll(node.products, registry),
-    organizer: resolveAll(node.organizer, registry),
+    orgs,
+    venues,
+    partners,
+    organizer: orgs,
     client: resolveAll(node.client, registry),
     collaborators: resolveAll(node.collaborators, registry),
     related_org: resolveAll(node.related_org, registry),
@@ -209,6 +214,8 @@ export function getProvenance(
       presented_here: idx.presented_here.get(node.id) ?? [],
       shown_in: idx.shown_in.get(node.id) ?? [],
       organized_events: idx.organized_events.get(node.id) ?? [],
+      venue_events: idx.venue_events.get(node.id) ?? [],
+      partner_events: idx.partner_events.get(node.id) ?? [],
       client_events: idx.client_events.get(node.id) ?? [],
       coauthored_products: idx.coauthored_products.get(node.id) ?? [],
       coauthored_events: idx.coauthored_events.get(node.id) ?? [],
@@ -221,15 +228,13 @@ export function getProvenance(
   };
 }
 
-/**
- * Quick check: does this node have ANY provenance data worth rendering?
- * Used by ProvenancePanel to decide whether to mount.
- */
 export function hasAnyProvenance(p: Provenance): boolean {
   return (
     p.presented_at.length > 0 ||
     p.products.length > 0 ||
-    p.organizer.length > 0 ||
+    p.orgs.length > 0 ||
+    p.venues.length > 0 ||
+    p.partners.length > 0 ||
     p.client.length > 0 ||
     p.collaborators.length > 0 ||
     p.related_org.length > 0 ||
@@ -242,6 +247,8 @@ export function hasAnyProvenance(p: Provenance): boolean {
     p.inverse.presented_here.length > 0 ||
     p.inverse.shown_in.length > 0 ||
     p.inverse.organized_events.length > 0 ||
+    p.inverse.venue_events.length > 0 ||
+    p.inverse.partner_events.length > 0 ||
     p.inverse.client_events.length > 0 ||
     p.inverse.coauthored_products.length > 0 ||
     p.inverse.coauthored_events.length > 0 ||

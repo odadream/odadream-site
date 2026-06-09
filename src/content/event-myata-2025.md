@@ -12,8 +12,6 @@ subkind: festival
 date_start: 2025-06-01
 city_en: Moscow
 city_ru: Москва
-organizer:
-  - "[[org-wildmint]]"
 products:
   - "[[neuromandala]]"
 proofs:
@@ -21,11 +19,17 @@ proofs:
 media: []
 aliases:
   - event-myata-2025
-venues:
+orgs:
   - org-wildmint
+venues: []
+client: []
+partners: []
+collaborators: []
 relationship: invited
 format: mindshow
 letter: true
+organizer:
+  - "[[org-wildmint]]"
 ---
 
 ## Wild Mint festival — neuromandala installation

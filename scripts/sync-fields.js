@@ -128,10 +128,9 @@ function syncRegistryEventCards() {
       touched = true;
     }
 
-    const orgIds = [
-      ...(Array.isArray(fm.orgs) ? fm.orgs : []),
-      ...(Array.isArray(fm.venues) ? fm.venues : []),
-    ].map((x) => String(x).replace(/^\[\[|\]\]$/g, "").split("|")[0].trim());
+    const orgIds = (Array.isArray(fm.orgs) ? fm.orgs : [])
+      .map((x) => String(x).replace(/^\[\[|\]\]$/g, "").split("|")[0].trim())
+      .filter(Boolean);
 
     if (orgIds.length) {
       const organizer = orgIds.map(wl);

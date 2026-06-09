@@ -12,13 +12,14 @@ updated: 2025.01.01
 order: 0
 kind: event
 date_start: 2025-01-01
-organizer:
-  - "[[org-bauman]]"
-  - "[[org-moscow2030]]"
 subkind: lecture
+orgs: []
 venues:
   - org-bauman
   - org-moscow2030
+client: []
+partners: []
+collaborators: []
 city_en: Moscow
 city_ru: Москва
 relationship: invited

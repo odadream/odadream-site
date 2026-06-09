@@ -14,8 +14,9 @@ city_en: ""
 city_ru: ""
 orgs: []
 venues: []
-organizer: []
 client: []
+partners: []
+collaborators: []
 products: []
 proofs: []
 media: []

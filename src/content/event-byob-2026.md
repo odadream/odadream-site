@@ -18,12 +18,15 @@ city_ru: Москва
 orgs:
   - org-kalashnikova
 venues: []
+client: []
+partners: []
+collaborators: []
 relationship: invited
 format: mindshow
-organizer:
-  - "[[org-kalashnikova]]"
 products:
   - "[[mindshow]]"
+organizer:
+  - "[[org-kalashnikova]]"
 ---
 
 ## BYOB 2026

@@ -16,10 +16,12 @@ subkind: workshop
 date_start: 2023-09-08
 city_en: Moscow
 city_ru: Москва
-organizer:
-  - "[[org-ashram]]"
-venues:
+orgs:
   - org-ashram
+venues: []
+client: []
+partners: []
+collaborators: []
 products:
   - "[[theatre-my-name]]"
 ---

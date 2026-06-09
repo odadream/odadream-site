@@ -46,6 +46,8 @@ function pickEngagement(fm, fallbackId) {
     format: fm.format || undefined,
     orgs: asIdList(fm.orgs?.length ? fm.orgs : fm.organizer),
     venues: asIdList(fm.venues),
+    client: asIdList(fm.client),
+    partners: asIdList(fm.partners),
     title_ru: fm.title_ru || "",
     title_en: fm.title_en || "",
   };
@@ -67,6 +69,8 @@ export function engagementToFrontmatter(eng) {
     subkind: eng.subkind || undefined,
     orgs: eng.orgs?.length ? eng.orgs : undefined,
     venues: eng.venues?.length ? eng.venues : undefined,
+    client: eng.client?.length ? eng.client : undefined,
+    partners: eng.partners?.length ? eng.partners : undefined,
     city_en: eng.city_en || undefined,
     city_ru: eng.city_ru || undefined,
     relationship: eng.relationship || undefined,
@@ -125,6 +129,8 @@ function mergeRegistryIntoEventFm(eventFm, row) {
 
   if (row.orgs?.length) merged.orgs = row.orgs;
   if (row.venues?.length) merged.venues = row.venues;
+  if (row.client?.length) merged.client = row.client;
+  if (row.partners?.length) merged.partners = row.partners;
   if (row.city_en) merged.city_en = row.city_en;
   if (row.city_ru) merged.city_ru = row.city_ru;
   if (row.relationship) merged.relationship = row.relationship;
@@ -149,6 +155,8 @@ function defaultEngCard(row) {
     subkind: row.subkind,
     orgs: row.orgs,
     venues: row.venues,
+    client: row.client,
+    partners: row.partners,
     city_en: row.city_en || undefined,
     city_ru: row.city_ru || undefined,
     relationship: row.relationship,

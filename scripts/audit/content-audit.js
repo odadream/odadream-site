@@ -27,9 +27,14 @@ const REQUIRED = {
 };
 
 const REL_FIELDS = [
-  "presented_at", "products", "organizer", "client",
-  "proofs", "proof_of", "about", "issued_by",
+  "presented_at", "products", "organizer", "orgs", "venues", "partners",
+  "client", "collaborators", "proofs", "proof_of", "about", "issued_by",
 ];
+
+const unwrapList = (arr) =>
+  (Array.isArray(arr) ? arr : [])
+    .map((s) => unwrapWikilink(s))
+    .filter((s) => typeof s === "string" && s.length > 0);
 
 const KIND_PREFIX = [
   [/^proof-/, "proof"],
@@ -114,6 +119,7 @@ const report = {
   duplicates: [],      // [{a, b, reason}]
   proofDrift: { mdOnly: [], yamlOnly: [], missingRelations: [] },
   gratitude: [],       // {id, file, hasLink}
+  roleWarnings: [],  // {id, file, warning, detail}
   counts: { byKind: {}, total: nodes.size },
 };
 
@@ -170,7 +176,35 @@ for (const node of nodes.values()) {
     }
   }
 
-  // 3. Body smells (post ---RU--- split: scan WHOLE body — duplication can be in either)
+  // 3. Event-scoped role warnings
+  if (fm.kind === "event") {
+    const orgIds = unwrapList(fm.orgs);
+    const venueIds = unwrapList(fm.venues);
+    const overlap = orgIds.filter((oid) => venueIds.includes(oid));
+    if (overlap.length) {
+      report.roleWarnings.push({
+        id,
+        file,
+        warning: "org-venue-overlap",
+        detail: `same id in orgs and venues: ${overlap.join(", ")}`,
+      });
+    }
+    const organizerIds = unwrapList(fm.organizer);
+    if (organizerIds.length) {
+      const a = [...organizerIds].sort().join(",");
+      const b = [...orgIds].sort().join(",");
+      if (a !== b) {
+        report.roleWarnings.push({
+          id,
+          file,
+          warning: "organizer-not-derived",
+          detail: `organizer [${organizerIds.join(", ")}] ≠ orgs [${orgIds.join(", ")}]`,
+        });
+      }
+    }
+  }
+
+  // 4. Body smells (post ---RU--- split: scan WHOLE body — duplication can be in either)
   const bodyStr = String(body ?? "");
   if (bodyStr) {
     // (a) consecutive `- [[…]]` lines
@@ -265,6 +299,7 @@ const jsonReport = {
   },
   gratitude_mentions: report.gratitude.length,
   gratitude_without_link: report.gratitude.filter((g) => !g.hasLink).length,
+  role_warnings: report.roleWarnings.length,
   detail: {
     conformance: report.conformance,
     bodySmells: report.bodySmells,
@@ -275,6 +310,7 @@ const jsonReport = {
     duplicates: report.duplicates,
     proofDrift: report.proofDrift,
     gratitude: report.gratitude,
+    roleWarnings: report.roleWarnings,
   },
 };
 
@@ -297,6 +333,7 @@ md.push(`- Orphan nodes: **${report.orphans.length}**`);
 md.push(`- Duplicate candidates: **${report.duplicates.length}**`);
 md.push(`- Proof drift — md-only / yaml-only / no-relations: **${report.proofDrift.mdOnly.length} / ${report.proofDrift.yamlOnly.length} / ${report.proofDrift.missingRelations.length}**`);
 md.push(`- Gratitude mentions / without link: **${report.gratitude.length} / ${report.gratitude.filter((g) => !g.hasLink).length}**`);
+md.push(`- Event role warnings: **${report.roleWarnings.length}**`);
 
 md.push("\n## 1. Conformance gaps\n");
 if (!report.conformance.length) md.push("_None — all kinded nodes have required fields._");
@@ -342,6 +379,10 @@ for (const r of report.proofDrift.missingRelations) md.push(`- \`${r.id}\` — m
 md.push("\n## 7. Gratitude-letter mentions\n");
 if (!report.gratitude.length) md.push("_None._");
 else for (const g of report.gratitude) md.push(`- \`${g.file}\` — has proof link: ${g.hasLink ? "yes" : "**NO**"}`);
+
+md.push("\n## 8. Event role warnings\n");
+if (!report.roleWarnings.length) md.push("_None._");
+else for (const w of report.roleWarnings) md.push(`- \`${w.file}\` (${w.warning}) — ${w.detail}`);
 
 fs.writeFileSync(path.join(OUT_DIR, "PHASE-F-AUDIT.md"), md.join("\n") + "\n", "utf8");
 

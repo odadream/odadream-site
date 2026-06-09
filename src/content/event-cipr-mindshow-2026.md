@@ -12,16 +12,16 @@ updated: 2026.05.01
 order: 0
 kind: event
 date_start: 2026-05-01
-organizer:
-  - "[[org-ashram]]"
-  - "[[org-cipr]]"
 products:
   - "[[mindshow]]"
 subkind: forum
-orgs:
-  - org-ashram
+orgs: []
 venues:
   - org-cipr
+client:
+  - org-ashram
+partners: []
+collaborators: []
 city_en: Nizhny Novgorod
 city_ru: Нижний Новгород
 relationship: invited

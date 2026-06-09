@@ -16,8 +16,11 @@ subkind: workshop
 date_start: 2020-03-15
 city_en: Korablik
 city_ru: Кораблик
-organizer:
-  - "[[org-korichina]]"
+orgs:
+  - org-korichina
+venues: []
+client: []
+partners: []
 collaborators:
   - "[[collab-korichina]]"
 products:

@@ -188,8 +188,12 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
         kind: KIND_LABELS[node.kind][lang],
         when: "Когда / где",
         organizer: "Организатор",
+        venue: "Площадка",
+        partner: "Партнёр / спонсор",
         client: "Заказчик",
         clientEngagements: "Участия как заказчик",
+        venueEvents: "События на площадке",
+        partnerEvents: "Партнёрские участия",
         collaborators: "Со-творчество",
         relatedOrg: "Институциональный контекст",
         coauthoredWorks: "Совместные работы",
@@ -222,8 +226,12 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
         kind: KIND_LABELS[node.kind][lang],
         when: "When / where",
         organizer: "Organizer",
+        venue: "Venue",
+        partner: "Partner / sponsor",
         client: "Client",
         clientEngagements: "Engagements as client",
+        venueEvents: "Events at venue",
+        partnerEvents: "Partner engagements",
         collaborators: "Co-creation",
         relatedOrg: "Institutional context",
         coauthoredWorks: "Joint works",
@@ -361,9 +369,27 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
         )}
 
         {/* ORGANIZERS (events) ------------------------------------------ */}
-        {prov.organizer.length > 0 && (
+        {prov.orgs.length > 0 && node.kind === "event" && (
           <Section label={T.organizer} icon={Users}>
-            {prov.organizer.map((n) => (
+            {prov.orgs.map((n) => (
+              <NodeChip key={n.id} node={n} lang={lang} onClick={jumpToId} />
+            ))}
+          </Section>
+        )}
+
+        {/* VENUES (events) ------------------------------------------------ */}
+        {prov.venues.length > 0 && node.kind === "event" && (
+          <Section label={T.venue} icon={iconFor("MapPin")}>
+            {prov.venues.map((n) => (
+              <NodeChip key={n.id} node={n} lang={lang} onClick={jumpToId} />
+            ))}
+          </Section>
+        )}
+
+        {/* PARTNERS (events) ---------------------------------------------- */}
+        {prov.partners.length > 0 && node.kind === "event" && (
+          <Section label={T.partner} icon={iconFor("HeartHandshake")}>
+            {prov.partners.map((n) => (
               <NodeChip key={n.id} node={n} lang={lang} onClick={jumpToId} />
             ))}
           </Section>
@@ -446,6 +472,22 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
         )}
 
         {/* ORGANIZED EVENTS (organizer view) ---------------------------- */}
+        {prov.inverse.venue_events.length > 0 && node.kind === "organizer" && (
+          <Section label={T.venueEvents} icon={iconFor("MapPin")}>
+            {prov.inverse.venue_events.map((n) => (
+              <NodeChip key={n.id} node={n} lang={lang} onClick={jumpToId} />
+            ))}
+          </Section>
+        )}
+
+        {prov.inverse.partner_events.length > 0 && node.kind === "organizer" && (
+          <Section label={T.partnerEvents} icon={iconFor("HeartHandshake")}>
+            {prov.inverse.partner_events.map((n) => (
+              <NodeChip key={n.id} node={n} lang={lang} onClick={jumpToId} />
+            ))}
+          </Section>
+        )}
+
         {prov.inverse.organized_events.length > 0 && node.kind === "organizer" && (
           <Section label={T.organized} icon={iconFor("Calendar")}>
             {prov.inverse.organized_events.map((n) => (

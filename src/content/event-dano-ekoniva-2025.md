@@ -12,22 +12,24 @@ updated: 2025.12.17
 order: 1
 kind: event
 date_start: 2025-12-17
-organizer:
-  - "[[org-ekoniva]]"
-  - "[[org-hse]]"
-  - "[[org-tbank]]"
 products:
   - "[[neurobattle]]"
 subkind: olympiad
-orgs:
+client:
   - org-ekoniva
-venues:
+orgs:
   - org-hse
   - org-tbank
+venues: []
+partners: []
+collaborators: []
 city_en: Moscow
 city_ru: Москва
 relationship: commercial
 format: neurobattle
+organizer:
+  - "[[org-hse]]"
+  - "[[org-tbank]]"
 ---
 
 ## Neurobattle at DANO Olympiad

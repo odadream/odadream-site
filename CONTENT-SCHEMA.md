@@ -1,6 +1,6 @@
 # CONTENT-SCHEMA — стандарт карточек ODA.dream
 
-**Версия:** 1.4 · **Дата:** 2026.06.02  
+**Версия:** 1.5 · **Дата:** 2026.06.02  
 **Статус:** единый источник правды по архитектуре базы знаний и контента сайта.
 
 Документ описывает все типы карточек в `src/content/`, их поля, типы свойств Obsidian, связи между карточками и вспомогательные реестры в `data/registry/`.
@@ -140,14 +140,15 @@ flowchart TB
 | `subkind` | Text | **да** | taxonomy | **да** | `festival`, `lecture`, `exhibition`, `competition`, `series`, … |
 | `date_start` | Date | **да** | — | **да** | Дата **мероприятия** (начало). **`YYYY-MM-DD`** (ISO) |
 | `date_end` | Date | нет | — | | Дата мероприятия (конец, ISO) |
-| `organizer` | List | рек. | → `organizer` | | Организатор(ы) для provenance. На **R**: derived из `orgs` + `venues` скриптом `sync:fields` |
-| `client` | List | нет | → `organizer` | | Коммерческий заказчик (≠ organizer) |
+| `orgs` | List | рек. | → `organizer` | **да** | **Организатор(ы)** события (plain id). Канон — пиши здесь |
+| `venues` | List | нет | → `organizer` | | **Площадка(и)** — где прошло (plain id org-*) |
+| `partners` | List | нет | → `organizer` | | **Партнёр / спонсор** — in-kind, техподдержка (plain id) |
+| `client` | List | нет | → `organizer` | | **Коммерческий заказчик** (≠ organizer) |
+| `collaborators` | List | нет | → `collaboration` | | **Со-творчество** (collab-*) |
+| `organizer` | List | — | → `organizer` | | **Derived** — зеркало `orgs` (wiki-links), пишет `sync:fields`; не дублировать вручную |
 | `products` | List | рек. | → `product` | | Показанные работы |
-| `collaborators` | List | нет | → `collaboration` | | Партнёры со-творчества |
 | `proofs` | List | нет | → `proof` | | Связанные пруфы |
 | `media` | List | нет | → `media.ts` | | Ключи asset id из `src/data/media.ts` |
-| `orgs` | List | — | → `organizer` | **да** | Организаторы реестра (plain id) |
-| `venues` | List | — | → `organizer` | | Площадки реестра (plain id) |
 | `city_en` / `city_ru` | Text | — | — | **да** | Город EN / RU для колонки реестра |
 | `relationship` | Text | — | — | **да** | `invited` \| `commercial` \| `award` \| `competition` |
 | `format` | Text | — | — | **да** | Формат участия: `mindshow`, `lecture`, `installation`, … |
@@ -160,7 +161,25 @@ flowchart TB
 
 > **Тег `hub-registry`:** включает событие в `events.base` и публичную таблицу `hub-registry`. Редактируй **R**-поля в `.md`; `engagements.yaml` — снимок (`npm run registry:sync`).
 >
-> **Связь `organizer` ↔ `orgs`/`venues`:** на R-карточках `sync:fields` собирает `organizer` = `orgs` ∪ `venues` (wiki-links) для provenance на сайте. Пиши канон в `orgs`/`venues`, не дублируй вручную в `organizer`.
+> **Связь `organizer` ↔ `orgs`:** на R-карточках `sync:fields` собирает `organizer` = `orgs` (wiki-links) — **только** для обратной совместимости UI. Provenance на сайте индексирует `orgs`, `venues`, `partners`, `client` **раздельно** (§5). Не дублируй один id в `orgs` и `venues` на одном событии.
+
+#### Роли на событии (event-scoped)
+
+Роль задаётся **на карточке события**, не на org. Одна сущность (`org-neiry`) может быть партнёром на одном event и организатором на другом.
+
+| Роль | Поле | Указывает на | Пример |
+|------|------|--------------|--------|
+| Организатор | `orgs` | `org-*` | Фестиваль Циолковского |
+| Площадка | `venues` | `org-*` | ИКЦ, ВШЭ (физическая площадка) |
+| Партнёр / спонсор | `partners` | `org-*` | Neiry (техподдержка) |
+| Заказчик | `client` | `org-*` | EkoNiva (коммерческий заказ) |
+| Со-творчество | `collaborators` | `collab-*` | ITB × ODA.dream |
+| Исполнитель ODA | `products` | `product` | MindShow, Interference |
+| Гость / VIP | — | — | **не в scope** — см. [BL-005](content-keeper/BACKLOG.md#bl-005-guests--notable-participants) |
+
+`organizations.yaml` → `kind` (`venue`, `partner`, …) — **справочная подсказка**, не event-role.
+
+Колонки таблицы `hub-registry` (**Орг / Площадка / Город**) не меняются — партнёр и заказчик видны в provenance на странице события.
 
 #### Серия событий (`subkind: series`)
 
@@ -179,7 +198,7 @@ Hub-родитель (`type: hub`) без дат участия. Каждая р
 | `website` | Text | рек. | — | Официальный сайт |
 | `date_start` | Date | нет | — | Дата появления в базе (опционально) |
 
-**Обратные связи** (вычисляются на сайте, не дублировать вручную): события, где `organizer` / `client` / `venues` / `orgs` указывают на этот id.
+**Обратные связи** (вычисляются на сайте, не дублировать вручную): `organized_events` ← `orgs`; `venue_events` ← `venues`; `partner_events` ← `partners`; `client_events` ← `client`.
 
 Для отображения имён в таблице реестра используется **`data/registry/organizations.yaml`** (`name_ru`, `name_en`).
 
@@ -259,7 +278,7 @@ Hub-родитель (`type: hub`) без дат участия. Каждая р
 ```mermaid
 erDiagram
   PRODUCT ||--o{ EVENT : "presented_at / products"
-  EVENT ||--o{ ORGANIZER : "organizer / client / orgs / venues"
+  EVENT ||--o{ ORGANIZER : "orgs / venues / partners / client"
   EVENT ||--o{ PROOF : "proofs"
   PRODUCT ||--o{ PROOF : "proofs / proof_of"
   PROOF }o--|| ORGANIZER : "issued_by"
@@ -276,8 +295,11 @@ erDiagram
 |------|---------|--------------|-----------------|
 | `presented_at` | product | event | `products` на event |
 | `products` | event | product | `presented_at` на product |
-| `organizer` | event | organizer | `organized_events` |
+| `orgs` | event | organizer | `organized_events` |
+| `venues` | event | organizer | `venue_events` |
+| `partners` | event | organizer | `partner_events` |
 | `client` | event | organizer | `client_events` |
+| `organizer` | event | organizer | alias → `organized_events` (derived из `orgs`) |
 | `collaborators` | product, event | collaboration | `coauthored_*` |
 | `proofs` | product, event, collaboration | proof | `proofs_about` |
 | `proof_of` | proof | product, event, home | `proves` |
@@ -311,7 +333,7 @@ erDiagram
 | **Number** | `order`, `attendance.visitors`, `attendance.contacts` |
 | **Checkbox** | `visible`, `for_sale`, `card`, `showcase`, `letter` |
 | **Tags** | `tags` |
-| **List** | все relation-поля §4 (`products`, `orgs`, `venues`, `proof_of`, `issued_by`, `about`, …) |
+| **List** | все relation-поля §4 (`products`, `orgs`, `venues`, `partners`, `proof_of`, `issued_by`, `about`, …) |
 | **List (Link)** | те же поля, если в vault только `[[wiki-links]]` |
 
 ### Форматы дат
@@ -342,7 +364,7 @@ erDiagram
 ## 9. Конвейер синхронизации
 
 ```text
-src/content/*.md  ──►  npm run sync:fields  ──►  даты, organizer←orgs+venues, proof←yaml (переходно)
+src/content/*.md  ──►  npm run sync:fields  ──►  даты, organizer←orgs, proof←yaml (переходно)
         │
         └────────────►  npm run registry:sync  ──►  hub-registry.md + engagements.yaml (+ proofs.yaml целевое)
         │
@@ -351,7 +373,7 @@ src/content/*.md  ──►  npm run sync:fields  ──►  даты, organizer
 
 | Команда | Действие |
 |---------|----------|
-| `npm run sync:fields` | Даты событий, `organizer`←`orgs`+`venues`, proof←yaml (**переходно**), `proofs[]` на events |
+| `npm run sync:fields` | Даты событий, `organizer`←`orgs`, proof←yaml (**переходно**), `proofs[]` на events |
 | `npm run registry:sync` | Таблица `hub-registry` + `engagements.yaml` из `event-*.md`; org stubs из `organizations.yaml` |
 | `npm run registry:repair-dates` | Починка `date_start` после Obsidian |
 | `npm run dates:sync` | `updated` ← mtime файла (ревизия страницы) |
@@ -547,14 +569,14 @@ hub-{раздел}
 | Дата мероприятия | `date_start`, `date_end` (ISO) | — | ты |
 | Ревизия страницы | `updated` (`YYYY.MM.DD`) | `date` — **удалено**, путало с событием | ты + `dates:sync` |
 | Город | `city_en`, `city_ru` | `venue` — **удалено** | ты |
-| Организаторы (registry) | `orgs`, `venues` (plain id) | `organizer` (wiki-links) — **derived** | Obsidian → `sync:fields` → provenance |
+| Роли на событии | `orgs`, `venues`, `partners`, `client`, `collaborators` | `organizer` (wiki-links) — **derived** только из `orgs` | Obsidian → `sync:fields` → provenance |
+| Роль org в yaml | `organizations.yaml` → `kind` | подсказка, **не** event-role | yaml-справочник |
 | Обложка узла | `image` | `media_url` — синоним парсера | ты |
 | Скан пруфа | `asset` | `media` в proofs.yaml | md; yaml снимок после BL-003 |
 | Связи пруфа | `proof_of`, `issued_by` | `work`, `eng`, `org`, `subject` в yaml | md (миграция BL-003) |
 | Медиа на продукте | `media: [id]` | → `src/data/media.ts` | ты |
 | Пресса (md) | `kind: proof`, `subkind: press` | `subkind: hub-press` — **deprecated** | карточка |
 | Пресса (yaml ledger) | `kind: press` в снимке | `kind: hub-press` — **deprecated** | снимок proofs.yaml |
-| Роль org в реестре | `organizations.yaml` → `kind` | `client` \| `venue` \| `institution` \| `partner` | yaml (≠ md `subkind`) |
 | Один факт — одна карточка | `proof-award-*`, `proof-tst-*` | `proof-portal-1st`, `proof-cipr-quote` — алиасы, **удалять** | редактор |
 
 ### Два разных `kind` у пруфов

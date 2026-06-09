@@ -12,14 +12,14 @@ updated: 2025.12.09
 order: 0
 kind: event
 date_start: 2025-12-09
-organizer:
-  - "[[org-kapitsa]]"
-  - "[[org-mipt]]"
 subkind: exhibition
 orgs:
   - org-kapitsa
 venues:
   - org-mipt
+client: []
+partners: []
+collaborators: []
 city_en: Moscow
 city_ru: Москва
 relationship: invited
@@ -27,6 +27,8 @@ format: installation
 showcase: true
 proofs:
   - "[[proof-mipt-letter]]"
+organizer:
+  - "[[org-kapitsa]]"
 ---
 
 ## Terraforming — MIPT exhibition

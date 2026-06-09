@@ -6,7 +6,7 @@ title_ru: Форум «Битва за миллиард»
 type: content
 tags: [registry, partner]
 visible: false
-updated: 2026.05.25
+date: 2026.05.25
 ---
 
 ## Battle for a Billion forum
