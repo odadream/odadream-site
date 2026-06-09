@@ -1,6 +1,6 @@
 ---
 id: org-merck
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Merck
 title_ru: Merck (Мерц)
 type: content

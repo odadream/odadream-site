@@ -26,12 +26,21 @@ const ENG_PATH = path.join(DATA_DIR, "engagements.yaml");
 const WORKS_PATH = path.join(DATA_DIR, "works.yaml");
 const PROOFS_PATH = path.join(DATA_DIR, "proofs.yaml");
 
-const REL_LABELS = {
-  commercial: { en: "Commercial", ru: "Коммерческий заказ" },
-  invited: { en: "Expert invitation", ru: "Экспертное приглашение" },
-  award: { en: "Award / competition", ru: "Награда / конкурс" },
-  competition: { en: "Competition / festival", ru: "Конкурс / фестиваль" },
-  internal: { en: "Internal", ru: "Внутреннее" },
+// Event subkind labels — mirrors src/data/taxonomy.ts (event kind)
+const EVENT_SUBKIND = {
+  series: { en: "Event series", ru: "Серия событий" },
+  festival: { en: "Festival", ru: "Фестиваль" },
+  lab: { en: "Lab", ru: "Лаборатория" },
+  expo: { en: "Exhibition", ru: "Выставка" },
+  exhibition: { en: "Exhibition", ru: "Выставка" },
+  forum: { en: "Forum", ru: "Форум" },
+  lecture: { en: "Lecture", ru: "Лекция" },
+  school: { en: "School", ru: "Школа" },
+  olympiad: { en: "Olympiad", ru: "Олимпиада" },
+  private_show: { en: "Private show", ru: "Закрытый показ" },
+  workshop: { en: "Workshop", ru: "Воркшоп" },
+  conference: { en: "Conference", ru: "Конференция" },
+  competition: { en: "Competition", ru: "Конкурс" },
 };
 
 const ORG_KIND = {
@@ -42,8 +51,8 @@ const ORG_KIND = {
 };
 
 const REGISTRY_ID = "hub-registry";
-const REGISTRY_ORGS_ID = "hub-registry-orgs";
 const MARKER_NS = "hub-registry";
+const ORG_PARENT = "hub-world";
 
 const loadYaml = (filePath) => readYamlFile(filePath) ?? [];
 
@@ -69,23 +78,70 @@ function formatDate(d) {
   return String(d).replace(/-/g, ".");
 }
 
-function engTableRow(eng, omap, lang) {
+function subkindLabel(subkind, lang) {
+  if (!subkind) return "—";
+  const meta = EVENT_SUBKIND[subkind];
+  if (meta) return meta[lang];
+  const pretty = subkind.replace(/_/g, " ");
+  return pretty.charAt(0).toUpperCase() + pretty.slice(1);
+}
+
+function engTitleCell(eng, lang, publicCardIds) {
   const title = lang === "ru" ? eng.title_ru : eng.title_en;
-  const rel =
-    REL_LABELS[eng.relationship]?.[lang] || eng.relationship;
+  return publicCardIds.has(eng.id) ? `[[${eng.id}|${title}]]` : title;
+}
+
+function resolveSubkind(eng, contentMeta) {
+  if (eng.subkind) return eng.subkind;
+  const fromContent = contentMeta.get(eng.id)?.subkind;
+  if (fromContent) return fromContent;
+  const byFormat = {
+    neurobattle: "competition",
+    mindshow: "festival",
+    lecture: "lecture",
+    installation: "expo",
+    performance: "festival",
+  };
+  return byFormat[eng.format] || "";
+}
+
+function engTableRow(eng, omap, lang, publicCardIds, contentMeta) {
   const orgs = orgNames(eng.orgs, omap, lang);
   const venues = orgNames(eng.venues, omap, lang);
   const city = eng.city || "—";
   const date = formatDate(eng.date) || "—";
-  const link = `[[${eng.id}|${title}]]`;
-  return `| ${date} | ${link} | ${rel} | ${orgs} | ${venues} | ${city} |`;
+  const type = subkindLabel(resolveSubkind(eng, contentMeta), lang);
+  const title = engTitleCell(eng, lang, publicCardIds);
+  return `| ${date} | ${title} | ${type} | ${orgs} | ${venues} | ${city} |`;
 }
 
 function sortEngagements(engagements) {
   return [...engagements].sort((a, b) => String(b.date).localeCompare(String(a.date)));
 }
 
-function buildRegistryTables(engagements, omap) {
+function buildContentMetaMap() {
+  const meta = new Map();
+  const publicCardIds = new Set();
+  for (const f of fs.readdirSync(CONTENT_DIR)) {
+    if (!f.endsWith(".md")) continue;
+    const raw = fs.readFileSync(path.join(CONTENT_DIR, f), "utf-8");
+    const fm = raw.match(/^---\s*\r?\n([\s\S]*?)\r?\n---/);
+    if (!fm) continue;
+    const body = fm[1];
+    const idm = body.match(/^id:\s*(.+)$/m);
+    if (!idm) continue;
+    const id = idm[1].trim();
+    const subm = body.match(/^subkind:\s*(.+)$/m);
+    const kindm = body.match(/^kind:\s*event\s*$/m);
+    const vism = body.match(/^visible:\s*(.+)$/m);
+    const visible = !vism || vism[1].trim() !== "false";
+    if (subm) meta.set(id, { subkind: subm[1].trim() });
+    if (kindm && visible) publicCardIds.add(id);
+  }
+  return { meta, publicCardIds };
+}
+
+function buildRegistryTables(engagements, omap, publicCardIds, contentMeta) {
   const commercial = engagements.filter((e) => e.relationship === "commercial");
   const expert = engagements.filter((e) =>
     ["invited", "award", "competition"].includes(e.relationship),
@@ -93,16 +149,17 @@ function buildRegistryTables(engagements, omap) {
   const all = sortEngagements(engagements);
 
   const headerEn =
-    "| Date | Engagement | Type | Client / org | Venue | City |\n|------|------------|------|--------------|-------|------|";
+    "| Date | Engagement | Event type | Client / org | Venue | City |\n|------|------------|------------|--------------|-------|------|";
   const headerRu =
-    "| Дата | Участие | Тип | Заказчик / орг. | Площадка | Город |\n|------|---------|-----|-----------------|----------|-------|";
+    "| Дата | Участие | Тип события | Заказчик / орг. | Площадка | Город |\n|------|---------|-------------|-----------------|----------|-------|";
 
-  const enAll = all.map((e) => engTableRow(e, omap, "en")).join("\n");
-  const ruAll = all.map((e) => engTableRow(e, omap, "ru")).join("\n");
-  const enCommercial = commercial.map((e) => engTableRow(e, omap, "en")).join("\n");
-  const enExpert = expert.map((e) => engTableRow(e, omap, "en")).join("\n");
-  const ruCommercial = commercial.map((e) => engTableRow(e, omap, "ru")).join("\n");
-  const ruExpert = expert.map((e) => engTableRow(e, omap, "ru")).join("\n");
+  const row = (e, lang) => engTableRow(e, omap, lang, publicCardIds, contentMeta);
+  const enAll = all.map((e) => row(e, "en")).join("\n");
+  const ruAll = all.map((e) => row(e, "ru")).join("\n");
+  const enCommercial = commercial.map((e) => row(e, "en")).join("\n");
+  const enExpert = expert.map((e) => row(e, "en")).join("\n");
+  const ruCommercial = commercial.map((e) => row(e, "ru")).join("\n");
+  const ruExpert = expert.map((e) => row(e, "ru")).join("\n");
 
   return {
     commercial,
@@ -148,7 +205,7 @@ function writeOrgNode(org, engagements, omap) {
 
   const body = `---
 id: ${org.id}
-parent: ${REGISTRY_ORGS_ID}
+parent: ${ORG_PARENT}
 title_en: ${org.name_en}
 title_ru: ${org.name_ru}
 type: content
@@ -178,72 +235,16 @@ ${listRu || "_Пока нет связанных записей._"}
   return true;
 }
 
-function writeEngNode(eng, omap) {
-  const filePath = path.join(CONTENT_DIR, `${eng.id}.md`);
-  if (fs.existsSync(filePath)) {
-    return false;
-  }
-
-  const relEn = REL_LABELS[eng.relationship]?.en || eng.relationship;
-  const relRu = REL_LABELS[eng.relationship]?.ru || eng.relationship;
-  const parent =
-    eng.relationship === "commercial"
-      ? "hub-registry-commercial"
-      : "hub-registry-expert";
-
-  const mediaBlock =
-    eng.site_media?.length && eng.site_media[0]
-      ? `\n![[${eng.site_media[0]}]]\n`
-      : "";
-
-  const body = `---
-id: ${eng.id}
-parent: ${parent}
-title_en: ${eng.title_en}
-title_ru: ${eng.title_ru}
-type: content
-tags: [registry, ${eng.format || "event"}]
-visible: true
-date: ${formatDate(eng.date) || "2026.05.25"}
-order: 0
----
-
-## ${eng.title_en}
-
-**Type:** ${relEn}  
-**Date:** ${formatDate(eng.date) || "—"}  
-**City:** ${eng.city || "—"}  
-**Format:** ${eng.format || "—"}  
-**Organizations:** ${orgNames(eng.orgs, omap, "en")}  
-**Venues:** ${orgNames(eng.venues, omap, "en")}
-${mediaBlock}
----RU---
-
-## ${eng.title_ru}
-
-**Тип:** ${relRu}  
-**Дата:** ${formatDate(eng.date) || "—"}  
-**Город:** ${eng.city || "—"}  
-**Формат:** ${eng.format || "—"}  
-**Организации:** ${orgNames(eng.orgs, omap, "ru")}  
-**Площадки:** ${orgNames(eng.venues, omap, "ru")}
-${mediaBlock}
-`;
-
-  fs.writeFileSync(path.join(CONTENT_DIR, `${eng.id}.md`), body);
-  return true;
-}
-
 function orgKindLabel(kind, lang) {
   return ORG_KIND[kind]?.[lang] || kind || "—";
 }
 
-function writeRegistryHub(tables, omap, orgs, awardsEn, awardsRu) {
+function writeRegistryHub(tables, orgs, awardsEn, awardsRu) {
   const orgTableEn = orgs
-    .map((o) => `| [[${o.id}|${o.name_en}]] | ${orgKindLabel(o.kind, "en")} |`)
+    .map((o) => `| ${o.name_en} | ${orgKindLabel(o.kind, "en")} |`)
     .join("\n");
   const orgTableRu = orgs
-    .map((o) => `| [[${o.id}|${o.name_ru}]] | ${orgKindLabel(o.kind, "ru")} |`)
+    .map((o) => `| ${o.name_ru} | ${orgKindLabel(o.kind, "ru")} |`)
     .join("\n");
 
   const body = `---
@@ -260,15 +261,11 @@ date: 2026.05.25
 
 ## EXPERIENCE REGISTRY
 
-Single ledger of ODA.dream public footprint: **every recorded engagement**, **organizations we worked with**, and **awards & recognition**.
+Public record of ODA.dream footprint: **engagements**, **partner organizations**, and **awards & recognition**.
 
-Narrative case studies live in [[hub-events|Events]]; scans of diplomas and letters → [[hub-letters|Recognition & Awards]].
+Narrative case studies → [[hub-events|Events]]. Diplomas and letters of appreciation → [[hub-letters|Recognition & Awards]].
 
-Drill-down: [[hub-registry-commercial|Commercial]] · [[hub-registry-expert|Expert appearances]] · [[hub-registry-orgs|Organizations]]
-
-Source of truth: \`data/registry/*.yaml\` — update YAML, then \`npm run registry:sync\`.
-
-## All engagements
+## Engagements
 
 ${tables.headerEn}
 ${tables.enAll || "| — | — | — | — | — | — |"}
@@ -286,21 +283,15 @@ Letters and diploma scans → [[hub-letters|Recognition & Awards]]
 |--------------|------|
 ${orgTableEn}
 
-Full org index → [[hub-registry-orgs|Organizations]]
-
 ---RU---
 
 ## РЕЕСТР ОПЫТА
 
-Единый журнал публичного следа ODA.dream: **все зафиксированные участия**, **организации**, **награды и признание**.
+Публичный журнал следа ODA.dream: **участия**, **организации-партнёры**, **награды и признание**.
 
-Нарративные кейсы — в [[hub-events|События]]; сканы дипломов и писем → [[hub-letters|Признание и награды]].
+Нарративные кейсы → [[hub-events|События]]. Дипломы и благодарственные письма → [[hub-letters|Признание и награды]].
 
-Детализация: [[hub-registry-commercial|Коммерция]] · [[hub-registry-expert|Экспертные приглашения]] · [[hub-registry-orgs|Организации]]
-
-Источник правды: \`data/registry/*.yaml\` — правки в YAML, затем \`npm run registry:sync\`.
-
-## Все участия
+## Участия
 
 ${tables.headerRu}
 ${tables.ruAll || "| — | — | — | — | — | — |"}
@@ -317,84 +308,31 @@ ${awardsRu.rows || "| — | — | — | — | — | — |"}
 | Организация | Роль |
 |-------------|------|
 ${orgTableRu}
-
-Полный индекс → [[hub-registry-orgs|Организации]]
 `;
 
   fs.writeFileSync(path.join(CONTENT_DIR, "hub-registry.md"), body);
 }
 
-function writeSubHub(id, titleEn, titleRu, parent, introEn, introRu, linksEn, linksRu) {
-  const body = `---
-id: ${id}
-parent: ${parent}
-title_en: ${titleEn}
-title_ru: ${titleRu}
-type: hub
-tags: [registry]
-order: ${id === "hub-registry-commercial" ? 0 : 1}
-visible: true
-date: 2026.05.25
----
-
-${introEn}
-
-${linksEn}
-
-Full tables → [[${REGISTRY_ID}|Experience Registry]]
-
----RU---
-
-${introRu}
-
-${linksRu}
-
-Полные таблицы → [[${REGISTRY_ID}|Реестр опыта]]
-`;
-
-  fs.writeFileSync(path.join(CONTENT_DIR, `${id}.md`), body);
+function patchOrgParents() {
+  for (const f of fs.readdirSync(CONTENT_DIR)) {
+    if (!f.startsWith("org-") || !f.endsWith(".md")) continue;
+    const full = path.join(CONTENT_DIR, f);
+    let raw = fs.readFileSync(full, "utf-8");
+    if (!raw.includes("tags: [registry") && !raw.includes("parent: hub-registry-orgs")) continue;
+    if (!raw.includes("parent: hub-registry-orgs")) continue;
+    raw = raw.replace(/^parent:\s*hub-registry-orgs\s*$/m, `parent: ${ORG_PARENT}`);
+    fs.writeFileSync(full, raw);
+  }
 }
 
-function writeRegistryOrgsHub(orgs, omap) {
-  const orgListEn = orgs
-    .map((o) => `- [[${o.id}|${o.name_en}]] — ${orgKindLabel(o.kind, "en")}`)
-    .join("\n");
-  const orgListRu = orgs
-    .map((o) => `- [[${o.id}|${o.name_ru}]] — ${orgKindLabel(o.kind, "ru")}`)
-    .join("\n");
-
-  const body = `---
-id: ${REGISTRY_ORGS_ID}
-parent: ${REGISTRY_ID}
-title_en: Organizations
-title_ru: Организации
-type: content
-tags: [registry]
-order: 2
-visible: true
-date: 2026.05.25
----
-
-## ORGANIZATIONS
-
-Clients, venues, and institutions linked to engagements in the registry. Each \`[[org-…]]\` node can be wiki-linked from event and product cards.
-
-Full table → [[${REGISTRY_ID}|Experience Registry]]
-
-${orgListEn}
-
----RU---
-
-## ОРГАНИЗАЦИИ
-
-Заказчики, площадки и институции из реестра участий. Каждая \`[[org-…]]\` — скрытая карточка для wiki-ссылок.
-
-Полная таблица → [[${REGISTRY_ID}|Реестр опыта]]
-
-${orgListRu}
-`;
-
-  fs.writeFileSync(path.join(CONTENT_DIR, "hub-registry-orgs.md"), body);
+function removeRegistrySubHubs() {
+  for (const id of ["hub-registry-commercial", "hub-registry-expert", "hub-registry-orgs"]) {
+    const file = path.join(CONTENT_DIR, `${id}.md`);
+    if (fs.existsSync(file)) {
+      fs.unlinkSync(file);
+      console.log(`  - Removed ${id}.md`);
+    }
+  }
 }
 
 function buildCommercialList(engagements, omap, lang) {
@@ -481,67 +419,21 @@ const works = fs.existsSync(WORKS_PATH) ? loadYaml(WORKS_PATH) : [];
 const proofs = fs.existsSync(PROOFS_PATH) ? loadYaml(PROOFS_PATH) : [];
 const omap = orgMap(orgs);
 const engById = new Map(engagements.map((e) => [e.id, e]));
-const tables = buildRegistryTables(engagements, omap);
+const { meta: contentMeta, publicCardIds } = buildContentMetaMap();
+const tables = buildRegistryTables(engagements, omap, publicCardIds, contentMeta);
 
 cleanupOldGenerated();
+removeRegistrySubHubs();
+patchOrgParents();
 
 const awardsEn = buildAwardsTable(proofs, omap, engById, "en");
 const awardsRu = buildAwardsTable(proofs, omap, engById, "ru");
 
-writeRegistryHub(tables, omap, orgs, awardsEn, awardsRu);
-writeRegistryOrgsHub(orgs, omap);
-
-const commercialCards = engagements.filter(
-  (e) => e.relationship === "commercial" && e.card,
-);
-const expertCards = engagements.filter(
-  (e) => ["invited", "award", "competition"].includes(e.relationship) && e.card,
-);
-
-const commLinksEn = commercialCards
-  .map((e) => `- [[${e.id}|${e.title_en}]]`)
-  .join("\n");
-const commLinksRu = commercialCards
-  .map((e) => `- [[${e.id}|${e.title_ru}]]`)
-  .join("\n");
-const expLinksEn = expertCards
-  .map((e) => `- [[${e.id}|${e.title_en}]]`)
-  .join("\n");
-const expLinksRu = expertCards
-  .map((e) => `- [[${e.id}|${e.title_ru}]]`)
-  .join("\n");
-
-writeSubHub(
-  "hub-registry-commercial",
-  "Commercial",
-  "Коммерция",
-  REGISTRY_ID,
-  "## COMMERCIAL ENGAGEMENTS\n\nPaid commissions — brand and private productions.",
-  "## КОММЕРЧЕСКИЕ ЗАКАЗЫ\n\nПлатные заказы — брендовые и частные продакшены.",
-  commLinksEn,
-  commLinksRu,
-);
-
-writeSubHub(
-  "hub-registry-expert",
-  "Expert Appearances",
-  "Экспертные приглашения",
-  REGISTRY_ID,
-  "## EXPERT APPEARANCES\n\nForums, universities, festivals — invited as speakers or artists.",
-  "## ЭКСПЕРТНЫЕ ПРИГЛАШЕНИЯ\n\nФорумы, вузы, фестивали — приглашённые спикеры и художники.",
-  expLinksEn,
-  expLinksRu,
-);
+writeRegistryHub(tables, orgs, awardsEn, awardsRu);
 
 for (const org of orgs) {
   if (writeOrgNode(org, engagements, omap)) {
     console.log(`  ✅ ${org.id}.md`);
-  }
-}
-
-for (const eng of engagements) {
-  if (eng.card && writeEngNode(eng, omap)) {
-    console.log(`  ✅ ${eng.id}.md`);
   }
 }
 

@@ -1,6 +1,6 @@
 ---
 id: org-golyzhibina
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Ksenia Golyzhibina
 title_ru: Ксения Голыжбина
 type: content

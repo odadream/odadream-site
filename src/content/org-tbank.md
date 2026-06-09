@@ -1,6 +1,6 @@
 ---
 id: org-tbank
-parent: hub-registry-orgs
+parent: hub-world
 title_en: T-Bank
 title_ru: Т-Банк
 type: content

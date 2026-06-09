@@ -35,7 +35,7 @@ This is not a party trick. It is a moment of genuine experience that most people
 
 ## Commercial clients
 
-Full hub-registry (single source of truth) → [[hub-registry-commercial|Commercial engagements]] · [[hub-registry|Experience Registry]]
+Full engagement log → [[hub-registry|Experience Registry]]
 
 <!-- hub-registry:commercial-list -->
 - [[event-dano-ekoniva-2025|Neurobattle at DANO Olympiad]] — EkoNiva
@@ -48,7 +48,7 @@ Full hub-registry (single source of truth) → [[hub-registry-commercial|Commerc
 
 Used at: annual galas · leadership retreats · innovation days · brand launches · anniversary hub-events
 
-Expert invitations (not paid commissions) → [[hub-registry-expert|Expert appearances]] · [[hub-letters|Recognition & awards]]
+Expert invitations and recognition → [[hub-registry|Experience Registry]] · [[hub-letters|Recognition & awards]]
 
 ## Technical coordination
 
@@ -105,7 +105,7 @@ _ODA.dream — это тот опыт._
 
 ## Коммерческие заказы
 
-Полный реестр (единый источник правды) → [[hub-registry-commercial|Коммерческие заказы]] · [[hub-registry|Реестр опыта]]
+Полный журнал участий → [[hub-registry|Реестр опыта]]
 
 <!-- hub-registry:commercial-list-ru -->
 - [[event-dano-ekoniva-2025|Нейробитва на Олимпиаде DANO]] — ЭкоНива
@@ -118,7 +118,7 @@ _ODA.dream — это тот опыт._
 
 Форматы применения: ежегодные галы · стратегические сессии · дни инноваций · запуски брендов · юбилейные мероприятия
 
-Экспертные приглашения (без оплаты) → [[hub-registry-expert|Экспертные приглашения]] · [[hub-letters|Признание и награды]]
+Экспертные приглашения и признание → [[hub-registry|Реестр опыта]] · [[hub-letters|Признание и награды]]
 
 ## Техническая координация
 

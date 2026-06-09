@@ -1,6 +1,6 @@
 ---
 id: org-ashram
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Ashram Studio (Natali Osman)
 title_ru: Студия Ashram (Натали Осман)
 type: content

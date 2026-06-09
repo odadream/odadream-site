@@ -1,6 +1,6 @@
 ---
 id: org-nuanu
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Nuanu City (Bali)
 title_ru: Nuanu City (Бали)
 type: content

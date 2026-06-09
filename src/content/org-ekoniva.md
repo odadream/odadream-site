@@ -1,6 +1,6 @@
 ---
 id: org-ekoniva
-parent: hub-registry-orgs
+parent: hub-world
 title_en: EkoNiva
 title_ru: ЭкоНива
 type: content

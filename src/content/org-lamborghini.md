@@ -1,6 +1,6 @@
 ---
 id: org-lamborghini
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Lamborghini
 title_ru: Lamborghini
 type: content

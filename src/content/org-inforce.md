@@ -1,6 +1,6 @@
 ---
 id: org-inforce
-parent: hub-registry-orgs
+parent: hub-world
 title_en: inForce
 title_ru: inForce
 type: content

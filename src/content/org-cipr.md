@@ -1,6 +1,6 @@
 ---
 id: org-cipr
-parent: hub-registry-orgs
+parent: hub-world
 title_en: CIPR
 title_ru: ЦИПР
 type: content

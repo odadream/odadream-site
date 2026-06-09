@@ -38,7 +38,7 @@ You source the event, manage the client relationship, and coordinate the program
 - **Members of the Creative Union of Artists of Russia (TSKhR) — Multimedia & Scientific Art sections** (2025)
 <!-- /hub-registry:credentials -->
 
-**Commercial clients** → [[hub-registry-commercial|Commercial hub-registry]]:
+**Commercial clients** → [[hub-registry|Experience Registry]]:
 
 <!-- hub-registry:commercial-list -->
 - [[event-dano-ekoniva-2025|Neurobattle at DANO Olympiad]] — EkoNiva
@@ -49,7 +49,7 @@ You source the event, manage the client relationship, and coordinate the program
 - [[eng-audi-brand|Audi brand activation]] — Audi
 <!-- /hub-registry:commercial-list -->
 
-**Expert appearances** → [[hub-registry-expert|Expert hub-registry]]:
+**Expert appearances** → [[hub-registry|Experience Registry]]:
 
 <!-- hub-registry:expert-list -->
 - [[event-cipr-mindshow-2026|MindShow at TechFriendly / CIPR]]
@@ -116,7 +116,7 @@ We don't touch your client relationship. You own the account.
 - **Члены Творческого союза художников России (ТСХР) — секции мультимедиа и научного искусства** (2025)
 <!-- /hub-registry:credentials-ru -->
 
-**Коммерческие заказы** → [[hub-registry-commercial|Реестр коммерции]]:
+**Коммерческие заказы** → [[hub-registry|Реестр опыта]]:
 
 <!-- hub-registry:commercial-list-ru -->
 - [[event-dano-ekoniva-2025|Нейробитва на Олимпиаде DANO]] — ЭкоНива
@@ -127,7 +127,7 @@ We don't touch your client relationship. You own the account.
 - [[eng-audi-brand|Брендовая активация Audi]] — Audi
 <!-- /hub-registry:commercial-list-ru -->
 
-**Экспертные приглашения** → [[hub-registry-expert|Реестр экспертизы]]:
+**Экспертные приглашения** → [[hub-registry|Реестр опыта]]:
 
 <!-- hub-registry:expert-list-ru -->
 - [[event-cipr-mindshow-2026|MindShow на TechFriendly / ЦИПР]]

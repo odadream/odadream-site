@@ -61,11 +61,11 @@ Popular science presentations on the brain, perception, communication, and atten
 
 ## Commercial clients
 
-See [[hub-registry-commercial|Commercial hub-registry]] (updated via `npm run hub-registry:sync`).
+See [[hub-registry|Experience Registry]].
 
 ## Expert appearances (invited)
 
-See [[hub-registry-expert|Expert hub-registry]] · [[hub-letters|Recognition & awards]]
+See [[hub-registry|Experience Registry]] · [[hub-letters|Recognition & awards]]
 
 ---
 
@@ -134,11 +134,11 @@ _Communication session terminated._
 
 ## Коммерческие заказы
 
-См. [[hub-registry-commercial|Реестр коммерции]] (обновляется через `npm run hub-registry:sync`).
+См. [[hub-registry|Реестр опыта]].
 
 ## Экспертные приглашения
 
-См. [[hub-registry-expert|Реестр экспертизы]] · [[hub-letters|Признание и награды]]
+См. [[hub-registry|Реестр опыта]] · [[hub-letters|Признание и награды]]
 
 ---
 

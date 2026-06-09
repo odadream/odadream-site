@@ -1,6 +1,6 @@
 ---
 id: org-audi
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Audi
 title_ru: Audi
 type: content

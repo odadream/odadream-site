@@ -24,7 +24,7 @@ date: 2026.02.10
 - [[hub-press | Press]] - selected media and institutional references.
 - [[hub-testimonials | Testimonials]] - verified quotes and social proof.
 - [[hub-letters | Recognition & Awards]] - awards, diplomas, and hub-letters of appreciation with documentary evidence.
-- [[hub-registry | Experience Registry]] - full ledger of engagements, organizations, and awards (single source of truth).
+- [[hub-registry | Experience Registry]] - public ledger of engagements, organizations, and awards.
 
 ## How to read this branch
 
@@ -46,7 +46,7 @@ Start with `Manifesto` for worldview, move to `Team` and `CV` for execution capa
 - [[hub-press | Пресса]] - выбранные медийные и институциональные подтверждения.
 - [[hub-testimonials | Отзывы]] - верифицированные цитаты и социальное доказательство.
 - [[hub-letters | Признание и награды]] - награды, дипломы и благодарственные письма с документальными подтверждениями.
-- [[hub-registry | Реестр опыта]] - полный журнал участий, организаций и наград (единый источник правды).
+- [[hub-registry | Реестр опыта]] - публичный журнал участий, организаций и наград.
 
 ## Как читать эту ветку
 

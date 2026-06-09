@@ -1,6 +1,6 @@
 ---
 id: org-korichina
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Yulia Korichina
 title_ru: Юлия Коричина
 type: content

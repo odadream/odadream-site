@@ -1,7 +1,7 @@
 # Project Content Tree
-Generated: 05.06.2026, 13:42:10
+Generated: 09.06.2026, 11:34:40
 
-Total Nodes: 221
+Total Nodes: 223
 
 ## 🌳 Site Hierarchy
 
@@ -336,9 +336,19 @@ Total Nodes: 221
     │       │     ├─ 🖼️ `media:nrbt-veter`
     │       │     └─ 🖼️ `media:nrbt-tnt`
     │       ├── **neurosync** (Neurosync)
-    │       └── **theatre-my-name** (Theatre of My Name)
-    │           └── **media-theatre-my-name-dzen** (Theatre of My Name — Dzen series) [📂 1]
-    │                 └─ 🖼️ `/images/nodes/theatre-my-name.svg`
+    │       └── **theatre-my-name** (Theatre of My Name) [📂 1]
+    │             ├─ 🖼️ `/images/content/works/theatre-my-name/tim-kod-p...`
+    │           ├── **media-theatre-my-name-archive** (Korablik 2020 — debut archive) [📂 1]
+    │           │     └─ 🖼️ `/images/content/works/theatre-my-name/tim-korab...`
+    │           ├── **media-theatre-my-name-dzen** (Theatre of My Name — Dzen series) [📂 1]
+    │           │     └─ 🖼️ `/images/nodes/theatre-my-name.svg`
+    │           └── **media-theatre-my-name-photos** (Theatre of My Name — photo report) [📂 6]
+    │                 ├─ 🖼️ `/images/content/works/theatre-my-name/tim-kod-p...`
+    │                 ├─ 🖼️ `/images/content/works/theatre-my-name/tim-kod-p...`
+    │                 ├─ 🖼️ `/images/content/works/theatre-my-name/tim-kod-p...`
+    │                 ├─ 🖼️ `/images/content/works/theatre-my-name/tim-ashra...`
+    │                 ├─ 🖼️ `/images/content/works/theatre-my-name/tim-ashra...`
+    │                 └─ 🖼️ `/images/content/works/theatre-my-name/tim-ashra...`
     └── **hub-world** (World)
         ├── **awards** (Awards)
         ├── **clients** (Clients)
@@ -393,38 +403,7 @@ Total Nodes: 221
         │   ├── **proof-press-tnt-tykakya** (Neurobattle segment on mainstream entertainment TV)
         │   ├── **proof-press-tskhr-bashkiria** (TSKhR publication on the first digital plein air in Bashkiria)
         │   └── **proof-press-vecherka** (Coverage of an ODA.dream public event)
-        ├── **hub-registry-orgs** (Organizations)
-        │   ├── **org-ashram** (Ashram Studio (Natali Osman))
-        │   ├── **org-audi** (Audi)
-        │   ├── **org-bauman** (Bauman MSTU)
-        │   ├── **org-cci** (CCI of Russian Federation)
-        │   ├── **org-cipr** (CIPR)
-        │   ├── **org-culttech** (CultTech Association)
-        │   ├── **org-culture-sport-uao** (Culture and Sport of Moscow South Administrative Okrug)
-        │   ├── **org-ekoniva** (EkoNiva)
-        │   ├── **org-golyzhibina** (Ksenia Golyzhibina)
-        │   ├── **org-hse** (HSE University)
-        │   ├── **org-ikc** (Innovation Cultural Centre, Kaluga)
-        │   ├── **org-inforce** (inForce)
-        │   ├── **org-itb** (Innovation Ballet Theatre (ICC))
-        │   ├── **org-kalashnikova** (Ekaterina Kalashnikova)
-        │   ├── **org-kapitsa** (Ekaterina Kapitsa)
-        │   ├── **org-korichina** (Yulia Korichina)
-        │   ├── **org-lamborghini** (Lamborghini)
-        │   ├── **org-merck** (Merck)
-        │   ├── **org-mipt** (MIPT)
-        │   ├── **org-moscow2030** (Moscow 2030)
-        │   ├── **org-neiry** (Neiry Group)
-        │   ├── **org-nuanu** (Nuanu City (Bali))
-        │   ├── **org-panasenko** (Elena Panasenko)
-        │   ├── **org-sberbank** (Sberbank)
-        │   ├── **org-senatova** (Anna Iosifovna Senatova)
-        │   ├── **org-skolkovo** (Skolkovo Innovation Center)
-        │   ├── **org-solonik** (Sergey Solonik)
-        │   ├── **org-tavrida** (Tavrida.ART)
-        │   ├── **org-tbank** (T-Bank)
-        │   ├── **org-tsiolkovsky** (Tsiolkovsky Festival)
-        │   └── **org-wildmint** (Wild Mint Festival)
+        ├── **hub-registry** (Experience Registry)
         ├── **hub-testimonials** (Testimonials)
         │   ├── **proof-cipr-quote** (CIPR — Testimonial quote)
         │   ├── **proof-tst-ashram-osman** (Ashram Studio — Birthday Celebration)
@@ -433,6 +412,37 @@ Total Nodes: 221
         │   ├── **proof-tst-hse-brain** (HSE — Beautiful About the Brain)
         │   ├── **proof-tst-meditation-day** (International Meditation Day)
         │   └── **proof-tst-tavrida-ai** (Tavrida.ART — Cultural Code of Russia)
+        ├── **org-ashram** (Ashram Studio (Natali Osman))
+        ├── **org-audi** (Audi)
+        ├── **org-bauman** (Bauman MSTU)
+        ├── **org-cci** (CCI of Russian Federation)
+        ├── **org-cipr** (CIPR)
+        ├── **org-culttech** (CultTech Association)
+        ├── **org-culture-sport-uao** (Culture and Sport of Moscow South Administrative Okrug)
+        ├── **org-ekoniva** (EkoNiva)
+        ├── **org-golyzhibina** (Ksenia Golyzhibina)
+        ├── **org-hse** (HSE University)
+        ├── **org-ikc** (Innovation Cultural Centre, Kaluga)
+        ├── **org-inforce** (inForce)
+        ├── **org-itb** (Innovation Ballet Theatre (ICC))
+        ├── **org-kalashnikova** (Ekaterina Kalashnikova)
+        ├── **org-kapitsa** (Ekaterina Kapitsa)
+        ├── **org-korichina** (Yulia Korichina)
+        ├── **org-lamborghini** (Lamborghini)
+        ├── **org-merck** (Merck)
+        ├── **org-mipt** (MIPT)
+        ├── **org-moscow2030** (Moscow 2030)
+        ├── **org-neiry** (Neiry Group)
+        ├── **org-nuanu** (Nuanu City (Bali))
+        ├── **org-panasenko** (Elena Panasenko)
+        ├── **org-sberbank** (Sberbank)
+        ├── **org-senatova** (Anna Iosifovna Senatova)
+        ├── **org-skolkovo** (Skolkovo Innovation Center)
+        ├── **org-solonik** (Sergey Solonik)
+        ├── **org-tavrida** (Tavrida.ART)
+        ├── **org-tbank** (T-Bank)
+        ├── **org-tsiolkovsky** (Tsiolkovsky Festival)
+        ├── **org-wildmint** (Wild Mint Festival)
         └── **partners** (Partners)
 
 ## 📊 Media Manifest
@@ -491,7 +501,9 @@ Total Nodes: 221
 | media-schrodinger-teaser | 1 | `media:schrd-teaser` |
 | media-sync-circle-gallery | 9 | `/images/content/works/sync-circle/sync-circle-hero-thumb.webp`<br/>`/images/content/works/sync-circle/sync-circle-hero.webp`<br/>`/images/content/works/sync-circle/sync-circle-mandala.webp`<br/>`/images/content/works/sync-circle/sync-circle-mvc.webp`<br/>`/images/content/works/sync-circle/sync-circle-dimensions.webp`<br/>`/images/content/works/sync-circle/sync-circle-states.webp`<br/>`/images/content/works/sync-circle/sync-circle-chairs-1.webp`<br/>`/images/content/works/sync-circle/sync-circle-chairs-2.webp`<br/>`/images/content/works/sync-circle/sync-circle-chairs-3.webp` |
 | media-sync-circle-video | 2 | `media:sync-video`<br/>`media:sync-video-lines` |
+| media-theatre-my-name-archive | 1 | `/images/content/works/theatre-my-name/tim-korablik-2020-archive.webp` |
 | media-theatre-my-name-dzen | 1 | `/images/nodes/theatre-my-name.svg` |
+| media-theatre-my-name-photos | 6 | `/images/content/works/theatre-my-name/tim-kod-provincii-hero-thumb.webp`<br/>`/images/content/works/theatre-my-name/tim-kod-provincii-hero.webp`<br/>`/images/content/works/theatre-my-name/tim-kod-provincii-02.webp`<br/>`/images/content/works/theatre-my-name/tim-ashram-2024-06.webp`<br/>`/images/content/works/theatre-my-name/tim-ashram-2024-07.webp`<br/>`/images/content/works/theatre-my-name/tim-ashram-2025-07.webp` |
 | media-voronka-docs | 7 | `/images/content/materia/voronka/voronka-cover-thumb.webp`<br/>`/images/content/materia/voronka/neuromandala-source.webp`<br/>`/images/content/materia/voronka/render-hero.webp`<br/>`/images/content/materia/voronka/render-exploded.webp`<br/>`/images/content/materia/voronka/render-section.webp`<br/>`/images/content/materia/voronka/photo-set.webp`<br/>`/images/content/materia/voronka/photo-detail.webp` |
 | mindshow | 9 | `media:mdsh-demo-v5`<br/>`media-byob-2019-mindgrid`<br/>`media-byob-2026-photos`<br/>`media:mdsh-hypercube`<br/>`media:mdsh-tpp`<br/>`media:mdsh-urban-forum`<br/>`media:mdsh-wildmint`<br/>`media:mdsh-ashram`<br/>`media:mdsh-terraforming` |
 | mom-baby | 1 | `/images/content/materia/mom-baby/mom-baby-cover-thumb.webp` |
@@ -504,4 +516,5 @@ Total Nodes: 221
 | schrodinger | 1 | `/images/content/works/schrodinger-2025-poster-thumb.webp` |
 | sound-brain | 1 | `https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3` |
 | sync-circle | 1 | `/images/content/works/sync-circle/sync-circle-hero-thumb.webp` |
+| theatre-my-name | 1 | `/images/content/works/theatre-my-name/tim-kod-provincii-hero-thumb.webp` |
 | voronka | 1 | `/images/content/materia/voronka/voronka-cover-thumb.webp` |

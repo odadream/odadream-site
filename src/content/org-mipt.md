@@ -1,6 +1,6 @@
 ---
 id: org-mipt
-parent: hub-registry-orgs
+parent: hub-world
 title_en: MIPT
 title_ru: МФТИ
 type: content

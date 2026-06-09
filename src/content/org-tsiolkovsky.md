@@ -1,6 +1,6 @@
 ---
 id: org-tsiolkovsky
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Tsiolkovsky Festival
 title_ru: Фестиваль Циолковского
 type: content

@@ -1,6 +1,6 @@
 ---
 id: org-kalashnikova
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Ekaterina Kalashnikova
 title_ru: Екатерина Калашникова
 type: content

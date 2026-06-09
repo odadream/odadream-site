@@ -16,7 +16,7 @@ date: 2026.05.27
 
 An **archive of hub-letters of appreciation, diplomas, and certificates** from organizers — forums, universities, festivals, and public programs where ODA.dream was recognized as a speaker or artist (not a commercial vendor list). Each artifact has documentary evidence (scan) and, where recorded, links to the same engagement in `data/hub-registry/`.
 
-For **paid brand commissions** → [[hub-business|Corporate & brands]]. For the full engagement log → [[hub-registry-expert|Expert hub-registry]].
+For **paid brand commissions** → [[hub-business|Corporate & brands]]. For the full engagement log → [[hub-registry|Experience Registry]].
 
 <!-- hub-registry:letters-all -->
 - **Diploma — "Digital Art & AI" panel, 6th exhibition-forum** — Unique Russia (Gostiny Dvor, Moscow) (2026) ![[/images/content/proofs/collab_2026_ODA_Gostinyy_dvor.webp | Diploma — "Digital Art & AI" panel, 6th exhibition-forum]]
@@ -40,7 +40,7 @@ For **paid brand commissions** → [[hub-business|Corporate & brands]]. For the 
 
 **Архив благодарственных писем, дипломов и сертификатов** от организаторов — форумы, вузы, фестивали и публичные программы, где ODA.dream приглашали как спикеров или художников (это не список коммерческих заказчиков). У каждого артефакта есть документальное подтверждение (скан) и, где зафиксировано, ссылка на то же участие в `data/hub-registry/`.
 
-**Платные брендовые заказы** → [[hub-business|Корпоративным клиентам]]. Полный журнал участий → [[hub-registry-expert|Реестр экспертизы]].
+**Платные брендовые заказы** → [[hub-business|Корпоративным клиентам]]. Полный журнал участий → [[hub-registry|Реестр опыта]].
 
 <!-- hub-registry:letters-all-ru -->
 - **Диплом — панель «Цифровое искусство и ИИ», VI выставка-форум** — Уникальная Россия (Гостиный двор, Москва) (2026) ![[/images/content/proofs/collab_2026_ODA_Gostinyy_dvor.webp | Диплом — панель «Цифровое искусство и ИИ», VI выставка-форум]]

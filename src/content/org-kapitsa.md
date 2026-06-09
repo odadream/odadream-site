@@ -1,6 +1,6 @@
 ---
 id: org-kapitsa
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Ekaterina Kapitsa
 title_ru: Екатерина Капица
 type: content

@@ -1,6 +1,6 @@
 ---
 id: org-panasenko
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Elena Panasenko
 title_ru: Елена Панасенко
 type: content

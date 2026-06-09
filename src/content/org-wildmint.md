@@ -1,6 +1,6 @@
 ---
 id: org-wildmint
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Wild Mint Festival
 title_ru: Дикая Мята
 type: content

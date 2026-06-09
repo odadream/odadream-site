@@ -1,6 +1,6 @@
 ---
 id: org-ikc
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Innovation Cultural Centre, Kaluga
 title_ru: Инновационный культурный центр, Калуга
 type: content

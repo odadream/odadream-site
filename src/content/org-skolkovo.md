@@ -1,6 +1,6 @@
 ---
 id: org-skolkovo
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Skolkovo Innovation Center
 title_ru: Технопарк «Сколково»
 type: content

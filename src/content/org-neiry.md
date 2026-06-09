@@ -1,6 +1,6 @@
 ---
 id: org-neiry
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Neiry Group
 title_ru: Neiry Group
 type: content

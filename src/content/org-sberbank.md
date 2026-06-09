@@ -1,6 +1,6 @@
 ---
 id: org-sberbank
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Sberbank
 title_ru: Сбербанк
 type: content

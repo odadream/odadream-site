@@ -1,6 +1,6 @@
 ---
 id: org-culttech
-parent: hub-registry-orgs
+parent: hub-world
 title_en: CultTech Association
 title_ru: CultTech Association
 type: content

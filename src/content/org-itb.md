@@ -1,6 +1,6 @@
 ---
 id: org-itb
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Innovation Ballet Theatre (ICC)
 title_ru: Инновационный театр балета (ИКЦ)
 type: content

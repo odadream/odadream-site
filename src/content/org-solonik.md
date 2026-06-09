@@ -1,6 +1,6 @@
 ---
 id: org-solonik
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Sergey Solonik
 title_ru: Сергей Солоник
 type: content

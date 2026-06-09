@@ -1,6 +1,6 @@
 ---
 id: org-moscow2030
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Moscow 2030
 title_ru: Москва 2030
 type: content

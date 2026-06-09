@@ -18,7 +18,7 @@ organizer:
   - "[[org-skolkovo]]"
 products:
   - "[[mindshow]]"
-subkind: forum
+subkind: competition
 aliases:
   - event-portal-2025
 ---

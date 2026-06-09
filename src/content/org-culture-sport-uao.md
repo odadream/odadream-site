@@ -1,6 +1,6 @@
 ---
 id: org-culture-sport-uao
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Culture and Sport of Moscow South Administrative Okrug
 title_ru: Культура и спорт ЮАО
 type: content

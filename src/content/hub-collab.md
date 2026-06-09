@@ -31,11 +31,9 @@ Format-specific requirements → [[hub-lectures|Lectures]] (technical rider), [[
 | Neurobattle booth | 9 m²+ zone, screen 65″+, table, 2 chairs, 220 V | 2 neurointerfaces, laptop, software, 2 operators |
 | MindShow booth | 6 m²+ zone, screen 65″+, table, chair, 220 V | Neurointerface, laptop, software, artist + host |
 
-## Commercial track & expert appearances
+## Engagement log
 
-**Paid commissions** (brand or private production) → [[hub-registry-commercial|Commercial hub-registry]] · [[hub-business|Corporate & brands]]
-
-**Invitations as experts** (forums, universities, festivals) → [[hub-registry-expert|Expert hub-registry]] · [[hub-letters|Recognition & awards]]
+**Engagement log** → [[hub-registry|Experience Registry]] · [[hub-business|Corporate & brands]] · [[hub-letters|Recognition & awards]]
 
 ## For Institutions & Collectors
 
@@ -95,11 +93,9 @@ If you are not sure which section fits — write to us directly: [[hub-contacts|
 | Стенд «Нейробитва» | Зона от 9 м², экран 65″+, стол, 2 стула, 220 В | 2 нейроинтерфейса, ноутбук, ПО, 2 оператора |
 | Стенд «Майнд-шоу» | Зона от 6 м², экран 65″+, стол, стул, 220 В | Нейроинтерфейс, ноутбук, ПО, артист и ведущий |
 
-## Коммерция и экспертные приглашения
+## Журнал участий
 
-**Платные заказы** (бренд или частный продакшн) → [[hub-registry-commercial|Реестр коммерции]] · [[hub-business|Корпоративным клиентам]]
-
-**Приглашения как эксперты** (форумы, вузы, фестивали) → [[hub-registry-expert|Реестр экспертизы]] · [[hub-letters|Признание и награды]]
+**Журнал участий** → [[hub-registry|Реестр опыта]] · [[hub-business|Корпоративным клиентам]] · [[hub-letters|Признание и награды]]
 
 ## Институциям и коллекционерам
 

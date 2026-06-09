@@ -99,7 +99,7 @@ The format hub-works equally well with diverse audiences — **from young people
 7. [[beautiful-brain|Beautiful About the Brain]] — flagship lecture format (also charity and institutional variants).
 8. [[event-ashram-birthday-2024|Ashram Studio — public talk]] — ![[media:lec-ashram]]
 
-Full log → [[hub-registry-expert|Expert hub-registry]]
+Full log → [[hub-registry|Experience Registry]]
 
 
 **Bring a lecture to your program →** [[hub-education|Education]]
@@ -198,7 +198,7 @@ Ready to integrate a lecture into your festival or event — one that doesn’t 
 7. [[beautiful-brain|«Красиво про мозг»]] — флагманский формат лекции (также благотворительные и институциональные варианты).
 8. [[event-ashram-birthday-2024|Ashram Studio — публичный talk]] — ![[media:lec-ashram]]
 
-Полный журнал → [[hub-registry-expert|Реестр экспертизы]]
+Полный журнал → [[hub-registry|Реестр опыта]]
 
 
 **Привести лекцию в вашу программу →** [[hub-education|Образованию]]

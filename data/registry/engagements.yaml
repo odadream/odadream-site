@@ -1,11 +1,13 @@
 # ODA.dream engagements — one row per participation
-# relationship: commercial | invited | award | competition | internal
-# card: true → generate src/content/eng-*.md detail page
+# relationship: commercial | invited | award | competition | internal (internal ledger only)
+# subkind: event type per taxonomy (kind: event) — shown on public Experience Registry
+# card: legacy flag; public case studies live in src/content/event-*.md
 
 - id: event-dano-ekoniva-2025
   date: 2025.12.17
   city: Moscow
   relationship: commercial
+  subkind: olympiad
   format: neurobattle
   orgs: [org-ekoniva]
   venues: [org-hse, org-tbank]
@@ -19,6 +21,7 @@
   date: 2025.08.01
   city: ""
   relationship: commercial
+  subkind: school
   format: installation
   orgs: [org-tavrida]
   venues: [org-tavrida]
@@ -31,6 +34,7 @@
   date: 2025.01.01
   city: Moscow
   relationship: commercial
+  subkind: conference
   format: lecture
   orgs: [org-merck]
   venues: []
@@ -42,6 +46,7 @@
   date: 2024.06.25
   city: Moscow
   relationship: commercial
+  subkind: private_show
   format: mindshow
   orgs: [org-ashram]
   venues: [org-ashram]
@@ -54,6 +59,7 @@
   date: 2024.01.01
   city: ""
   relationship: commercial
+  subkind: expo
   format: installation
   orgs: [org-lamborghini]
   venues: []
@@ -65,6 +71,7 @@
   date: 2024.01.01
   city: ""
   relationship: commercial
+  subkind: expo
   format: installation
   orgs: [org-audi]
   venues: []
@@ -76,6 +83,7 @@
   date: 2026.05.01
   city: Nizhny Novgorod
   relationship: invited
+  subkind: forum
   format: mindshow
   orgs: [org-ashram]
   venues: [org-cipr]
@@ -87,6 +95,7 @@
   date: 2025.01.01
   city: Moscow
   relationship: invited
+  subkind: lecture
   format: lecture
   orgs: [org-sberbank]
   venues: [org-sberbank]
@@ -99,6 +108,7 @@
   date: 2025.01.01
   city: Moscow
   relationship: award
+  subkind: competition
   format: mindshow
   orgs: []
   venues: [org-moscow2030, org-skolkovo]
@@ -112,6 +122,7 @@
   date: 2025-05-01
   city: Moscow
   relationship: invited
+  subkind: lecture
   format: lecture
   orgs: [org-hse]
   venues: [org-hse]
@@ -124,6 +135,7 @@
   date: 2025.12.09
   city: Moscow
   relationship: invited
+  subkind: exhibition
   format: installation
   orgs: [org-kapitsa]
   venues: [org-mipt]
@@ -136,6 +148,7 @@
   date: 2025.01.01
   city: Moscow
   relationship: invited
+  subkind: lecture
   format: lecture
   orgs: []
   venues: [org-bauman, org-moscow2030]
@@ -148,6 +161,7 @@
   date: 2025.01.01
   city: Moscow
   relationship: invited
+  subkind: forum
   format: mindshow
   orgs: []
   venues: [org-cci]
@@ -160,6 +174,7 @@
   date: 2026.05.16
   city: Kaluga
   relationship: competition
+  subkind: festival
   format: performance
   orgs: [org-neiry]
   venues: [org-tsiolkovsky]
@@ -172,6 +187,7 @@
   date: 2025.01.01
   city: ""
   relationship: invited
+  subkind: festival
   format: mindshow
   orgs: []
   venues: [org-wildmint]
@@ -184,6 +200,7 @@
   date: 2024.01.01
   city: Moscow
   relationship: invited
+  subkind: private_show
   format: lecture
   orgs: []
   venues: []

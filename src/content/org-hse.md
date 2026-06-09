@@ -1,6 +1,6 @@
 ---
 id: org-hse
-parent: hub-registry-orgs
+parent: hub-world
 title_en: HSE University
 title_ru: НИУ ВШЭ
 type: content

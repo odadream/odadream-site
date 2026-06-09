@@ -1,6 +1,6 @@
 ---
 id: org-cci
-parent: hub-registry-orgs
+parent: hub-world
 title_en: CCI of Russian Federation
 title_ru: ТПП РФ
 type: content

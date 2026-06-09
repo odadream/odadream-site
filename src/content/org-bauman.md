@@ -1,6 +1,6 @@
 ---
 id: org-bauman
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Bauman MSTU
 title_ru: МГТУ им. Баумана
 type: content

@@ -1,6 +1,6 @@
 ---
 id: org-tavrida
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Tavrida.ART
 title_ru: Таврида.АРТ
 type: content

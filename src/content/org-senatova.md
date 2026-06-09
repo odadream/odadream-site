@@ -1,6 +1,6 @@
 ---
 id: org-senatova
-parent: hub-registry-orgs
+parent: hub-world
 title_en: Anna Iosifovna Senatova
 title_ru: Анна Иосифовна Сенатова
 type: content
