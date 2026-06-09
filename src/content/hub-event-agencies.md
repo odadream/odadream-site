@@ -109,7 +109,7 @@ We don't touch your client relationship. You own the account.
 - **1-е место — конкурс «ART × TECHNOLOGY», Технопарк «Сколково»** (2026) — проект «Нейродоска почёта» · 80 000 ₽
 - **Официальная заявка — Prix Ars Electronica & STARTS Prize** (2026)
 - **Грант CultTech Lab 2026, Вена — проект «Ancestors in the Noise» с Еленой Ковылиной** (2026) — грант на продакшн до EUR 2 500 · показ на CultTech Summit, ноябрь 2026
-- **1-е место — VJ-конкурс «Видженинг», Портал 2030–2050** (2025) — приз 200 000 ₽
+- **1-е место — VJ-конкурс «Виджеинг», Портал 2030–2050** (2025) — приз 200 000 ₽
 - **ODA.Dream® — зарегистрированный товарный знак (Роспатент)** (2026)
 - **Нейромандала — патентная заявка подана** (2026)
 - **7 лет на рынке · 80+ событий · 1 500+ участников · 10+ городов** (2026)
@@ -132,7 +132,7 @@ We don't touch your client relationship. You own the account.
 <!-- hub-registry:expert-list-ru -->
 - [[event-cipr-mindshow-2026|MindShow на TechFriendly / ЦИПР]]
 - [[event-sber-lecture-2025|Science-art лекция для Сбербанка]]
-- [[event-portal-2025|Победа «Видженинг» — Портал 2030–2050]]
+- [[event-portal-2025|Победа «Виджеинг» — Портал 2030–2050]]
 - [[event-hse-beautiful-brain-2025|«Красиво про мозг» — НИУ ВШЭ]]
 - [[event-mipt-terraforming-2025|Терраформинг — выставка МФТИ]]
 - [[event-bauman-moscow2030-2025|Лекция про брейнхакинг — МГТУ им. Баумана]]

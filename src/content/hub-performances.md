@@ -13,7 +13,7 @@ Context-bound acts by ODA.dream — shorter than **[[hub-big-forms|big forms]]**
 
 ### Anchor work
 
-**[[theatre-my-name|Theatre of My Name]]** (ТИМ) — flagship participatory practice: a **witness** records an EEG **neuromandala** with a personal request; **movers** dance it without knowing the request; feedback closes the loop. Debut **15 March 2020** (Korichina · Korablik retreat). Documented in a [four-part Dzen series](https://dzen.ru/a/Zv7Ih1xeTxz0-AAl); **50+ participants** across dozens of sessions.
+**[[theatre-my-name|Theatre of My Name]]** (ТИМ) — flagship **sci-art performance** and participatory practice: open EEG **neuromandala**, collective mandala dance, witness/mover roles. Debut **15 March 2020** at Korablik with **[[collab-korichina|Yulia Korichina]]**. [Dzen series](https://dzen.ru/a/Zv7Ih1xeTxz0-AAl); scales to **50 participants**.
 
 Other performance lines in the graph include **[[neurosync|Neurosync]]**, **[[gong|Gong]]**, and lecture-performances under **[[hub-lectures|Lectures]]**.
 
@@ -25,6 +25,6 @@ Other performance lines in the graph include **[[neurosync|Neurosync]]**, **[[go
 
 ### Опорная работа
 
-**[[theatre-my-name|Театр Имени Меня]]** (ТИМ) — флагманская партисипаторная практика: **свидетель** записывает **нейромандалу** по ЭЭГ с личным запросом; **движущиеся** танцуют её, не зная запроса; обратная связь замыкает круг. Дебют **15 марта 2020** (Коричина · ретрит «Кораблик»). Описание — [серия из четырёх статей на Дзене](https://dzen.ru/a/Zv7Ih1xeTxz0-AAl); **50+ участников** за десятки проведений.
+**[[theatre-my-name|Театр Имени Меня]]** (ТИМ) — флагманский **sci-art перформанс** и партисипаторная практика: открытая **нейромандала** по ЭЭГ, коллективный танец мандал, роли свидетеля и движущегося. Дебют **15 марта 2020** на «Кораблике» с **[[collab-korichina|Юлией Коричиной]]**. [Серия на Дзене](https://dzen.ru/a/Zv7Ih1xeTxz0-AAl); масштаб до **50 участников**.
 
 Другие перформанс-линии в графе: **[[neurosync|Нейросинхронизация]]**, **[[gong|Гонг]]**, лекции-перформансы в **[[hub-lectures|Лектории]]**.

@@ -115,6 +115,27 @@ const getPathFromUrl = (): LotusNode[] => {
   return [ROOT_NODE];
 };
 
+/** Serialized into history.pushState for browser back/forward sync. */
+type NavHistoryState = { id: string; history: string[] };
+
+const historyIds = (stack: LotusNode[]): string[] =>
+  stack.map((n) => n.id);
+
+const historyFromIds = (
+  ids: string[],
+  registry: Map<string, LotusNode>,
+): LotusNode[] =>
+  ids
+    .map((id) => registry.get(id))
+    .filter((n): n is LotusNode => n !== undefined);
+
+const buildUrl = (nodeId: string, lang: Language): string => {
+  const p = new URLSearchParams();
+  if (nodeId !== ROOT_NODE.id) p.set("id", nodeId);
+  p.set("lang", lang);
+  return `${window.location.pathname}?${p.toString()}`;
+};
+
 // --- HELPER: LANG DETECTION ---
 const getInitialLang = (): Language => {
   if (typeof window === "undefined") return "en";
@@ -218,13 +239,22 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
     (node: LotusNode) => {
       if (node.type === "media") {
         setLightboxMedia(node);
+        return;
+      }
+      const origin = path[path.length - 1];
+      const canonicalPath = findPathToNode(ROOT_NODE, node.id);
+      const target = canonicalPath?.[canonicalPath.length - 1] ?? node;
+      const isGridChild =
+        origin.children?.some((c) => c.id === node.id) ?? false;
+      // Cross-branch hops (tabs, map, etc.) remember origin; grid children stay hierarchical.
+      if (origin.id !== node.id && !isGridChild) {
+        setHistoryStack((prev) => [...prev, origin]);
+      }
+      preloadLotusGrid(target, nodeRegistry, lang);
+      if (canonicalPath) {
+        setPath(canonicalPath);
       } else {
-        const canonicalPath = findPathToNode(ROOT_NODE, node.id);
-        const target =
-          canonicalPath?.[canonicalPath.length - 1] ?? node;
-        preloadLotusGrid(target, nodeRegistry, lang);
         setPath((prev) => {
-          if (canonicalPath) return canonicalPath;
           if (prev.some((n) => n.id === node.id)) {
             const idx = prev.findIndex((n) => n.id === node.id);
             return prev.slice(0, idx + 1);
@@ -233,7 +263,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
         });
       }
     },
-    [nodeRegistry, lang],
+    [path, nodeRegistry, lang],
   );
 
   /**
@@ -300,6 +330,13 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
     (targetId: string) => {
       if (!targetId) return;
       const id = targetId.toLowerCase();
+      const origin = path[path.length - 1];
+
+      const rememberOrigin = (nextId: string) => {
+        if (origin.id !== nextId) {
+          setHistoryStack((prev) => [...prev, origin]);
+        }
+      };
 
       if (id === "navigator") {
         triggerNavigatorHighlight();
@@ -307,23 +344,22 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
         return;
       }
       if (id === "home" || id === "root" || id === "hub-home") {
+        rememberOrigin(ROOT_NODE.id);
+        preloadLotusGrid(ROOT_NODE, nodeRegistry, lang);
         setPath([ROOT_NODE]);
         return;
       }
       const newPath = findPathToNode(ROOT_NODE, targetId);
       if (newPath) {
-        setHistoryStack([]);
-        preloadLotusGrid(
-          newPath[newPath.length - 1],
-          nodeRegistry,
-          lang,
-        );
+        const target = newPath[newPath.length - 1];
+        rememberOrigin(target.id);
+        preloadLotusGrid(target, nodeRegistry, lang);
         setPath(newPath);
         return;
       }
       const node = nodeRegistry.get(targetId) ?? nodeRegistry.get(id);
       if (node) {
-        setHistoryStack([]);
+        rememberOrigin(node.id);
         preloadLotusGrid(node, nodeRegistry, lang);
         setPath((prev) => {
           if (prev.some((n) => n.id === node.id)) {
@@ -334,7 +370,7 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
         });
       }
     },
-    [isDesktop, triggerNavigatorHighlight, nodeRegistry, lang],
+    [path, isDesktop, triggerNavigatorHighlight, nodeRegistry, lang],
   );
 
   const toggleLang = useCallback(() => {
@@ -386,10 +422,22 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
+  // Seed the current entry so popstate can restore context stack on first back.
+  useEffect(() => {
+    try {
+      window.history.replaceState(
+        { id: currentNode.id, history: historyIds(historyStack) },
+        "",
+        buildUrl(currentNode.id, lang),
+      );
+    } catch (e) {
+      /* ignore */
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- mount only
+  }, []);
+
   useEffect(() => {
     // Skip pushState when navigation was triggered by browser back/forward (popstate).
-    // In that case replaceState already ran inside handlePopState; pushing again
-    // would create a duplicate history entry.
     if (isPopStateRef.current) {
       isPopStateRef.current = false;
       return;
@@ -399,39 +447,43 @@ export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
       const params = new URLSearchParams(window.location.search);
       const expectedId = currentId !== ROOT_NODE.id ? currentId : null;
       if (params.get("id") !== expectedId || params.get("lang") !== lang) {
-        const p = new URLSearchParams();
-        if (currentId !== ROOT_NODE.id) p.set("id", currentId);
-        p.set("lang", lang);
         window.history.pushState(
-          { id: currentId },
+          { id: currentId, history: historyIds(historyStack) },
           "",
-          `${window.location.pathname}?${p.toString()}`,
+          buildUrl(currentId, lang),
         );
       }
     } catch (e) {
       /* ignore */
     }
-  }, [currentNode, lang]);
+  }, [currentNode, lang, historyStack]);
 
   useEffect(() => {
     updateMetaTags(currentNode, lang, ROOT_NODE.id);
   }, [currentNode, lang]);
 
   useEffect(() => {
-    const handlePopState = () => {
-      isPopStateRef.current = true; // prevents URL-sync effect from pushing a duplicate entry
+    const handlePopState = (event: PopStateEvent) => {
+      isPopStateRef.current = true;
       const nextPath = getPathFromUrl();
       const target = nextPath[nextPath.length - 1];
       if (target) preloadLotusGrid(target, nodeRegistry, lang);
       setPath(nextPath);
-      // Restore lang from URL on browser back/forward
+      const state = event.state as NavHistoryState | null;
+      setHistoryStack(
+        state?.history
+          ? historyFromIds(state.history, nodeRegistry)
+          : [],
+      );
       try {
         const urlLang = new URLSearchParams(window.location.search).get("lang");
         if (urlLang === "en" || urlLang === "ru") {
           setLang(urlLang as Language);
           localStorage.setItem("oda_lang", urlLang);
         }
-      } catch (e) { /* ignore */ }
+      } catch (e) {
+        /* ignore */
+      }
     };
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);

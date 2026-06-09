@@ -28,5 +28,5 @@ Related engagements in the ODA.dream hub-registry:
 
 Связанные участия в реестре ODA.dream:
 
-- [[event-portal-2025|Победа «Видженинг» — Портал 2030–2050]] (2025.01.01)
+- [[event-portal-2025|Победа «Виджеинг» — Портал 2030–2050]] (2025.01.01)
 - [[honors|Нейродоска почёта]] — 1-е место, конкурс ART × TECHNOLOGY (2026)

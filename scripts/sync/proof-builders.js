@@ -135,6 +135,27 @@ export function listAwards(proofs, lang) {
     .join("\n");
 }
 
+export function buildAwardsTable(proofs, omap, engById, lang) {
+  const header =
+    lang === "ru"
+      ? "| Год | Награда / признание | Кто вручил | Работа | Участие | Детали |\n|-----|-------------------|------------|--------|---------|--------|"
+      : "| Year | Award / recognition | Issuer | Work | Engagement | Details |\n|------|---------------------|--------|------|------------|---------|";
+
+  const rows = proofsOf(proofs, "award")
+    .map((p) => {
+      const title = txt(p, "title", lang);
+      const year = pYear(p) || "—";
+      const source = proofSource(p, omap, engById, lang) || "—";
+      const work = p.work ? `[[${p.work}]]` : "—";
+      const eng = p.eng ? `[[${p.eng}]]` : "—";
+      const note = txt(p, "note", lang) || "—";
+      return `| ${year} | ${title} | ${source} | ${work} | ${eng} | ${note} |`;
+    })
+    .join("\n");
+
+  return { header, rows };
+}
+
 export function listPress(proofs, omap, engById, lang) {
   return proofsOf(proofs, "press")
     .map((p) => {

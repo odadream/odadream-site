@@ -341,6 +341,61 @@ export const MEDIA: Record<string, MediaAsset> = {
     subject: ["theatre-my-name", "media-theatre-my-name-dzen"],
     mirrors: { dzen: "https://dzen.ru/a/ZzTCFPdiD0vbmNw6" },
   },
+  "tim-kod-provincii-hero": {
+    url: "/images/content/works/theatre-my-name/tim-kod-provincii-hero.webp",
+    poster: "/images/content/works/theatre-my-name/tim-kod-provincii-hero-thumb.webp",
+    title: {
+      en: "Code of Province 2024 · TIM session",
+      ru: "Код провинции 2024 · сессия ТИМ",
+    },
+    subkind: "photo",
+    subject: ["theatre-my-name", "event-kod-provincii", "media-theatre-my-name-photos"],
+  },
+  "tim-kod-provincii-02": {
+    url: "/images/content/works/theatre-my-name/tim-kod-provincii-02.webp",
+    title: {
+      en: "Code of Province 2024 · group field",
+      ru: "Код провинции 2024 · групповое поле",
+    },
+    subkind: "photo",
+    subject: ["theatre-my-name", "event-kod-provincii", "media-theatre-my-name-photos"],
+  },
+  "tim-ashram-2024-06": {
+    url: "/images/content/works/theatre-my-name/tim-ashram-2024-06.webp",
+    title: {
+      en: "Ashram · private practice · Jun 2024",
+      ru: "Ashram · частная практика · июн 2024",
+    },
+    subkind: "photo",
+    subject: ["theatre-my-name", "event-ashram-tim", "media-theatre-my-name-photos"],
+  },
+  "tim-ashram-2024-07": {
+    url: "/images/content/works/theatre-my-name/tim-ashram-2024-07.webp",
+    title: {
+      en: "Ashram · private practice · Jul 2024",
+      ru: "Ashram · частная практика · июл 2024",
+    },
+    subkind: "photo",
+    subject: ["theatre-my-name", "event-ashram-tim", "media-theatre-my-name-photos"],
+  },
+  "tim-ashram-2025-07": {
+    url: "/images/content/works/theatre-my-name/tim-ashram-2025-07.webp",
+    title: {
+      en: "Ashram · private practice · Jul 2025",
+      ru: "Ashram · частная практика · июл 2025",
+    },
+    subkind: "photo",
+    subject: ["theatre-my-name", "event-ashram-tim", "media-theatre-my-name-photos"],
+  },
+  "tim-korablik-2020-archive": {
+    url: "/images/content/works/theatre-my-name/tim-korablik-2020-archive.webp",
+    title: {
+      en: "Korablik 2020 · debut · Yulia Korichina",
+      ru: "Кораблик 2020 · дебют · Юлия Коричина",
+    },
+    subkind: "photo",
+    subject: ["theatre-my-name", "event-korablik-2020", "media-theatre-my-name-archive", "collab-korichina"],
+  },
 
   // --- Sync Circle (group neuro-audio installation) ---
   "sync-video": {

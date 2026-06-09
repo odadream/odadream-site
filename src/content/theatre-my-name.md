@@ -15,6 +15,7 @@ visible: true
 status: production
 kind: product
 subkind: art
+image: /images/content/works/theatre-my-name/tim-kod-provincii-hero-thumb.webp
 aliases:
   - neuro-dance
 external_site: https://dzen.ru/a/Zv7Ih1xeTxz0-AAl
@@ -34,30 +35,23 @@ organizer:
   - "[[org-panasenko]]"
 media:
   - media-theatre-my-name-dzen
+  - media-theatre-my-name-photos
+  - media-theatre-my-name-archive
 ---
 
 ## Theatre of My Name (TIM)
 
-**Projective body practice · witness · neuromandala · group dance**
+**Sci-art performance · participatory body practice · witness · neuromandala · group dance**
 
-**Theatre of My Name** (ТИМ, formerly *Neuro Art Dance*) is a participatory performance protocol: one **witness** records a **[[neuromandala|Neuromandala]]** from their EEG while holding a personal request; the **movers** dance that mandala **without knowing the request**, then give verbal feedback. The witness sees their inner question reflected through others’ bodies — often with uncanny accuracy.
+**Theatre of My Name** (ТИМ, formerly *Neuro Art Dance*) is first a **sci-art performance**: EEG rhythms become a visible **[[neuromandala|Neuromandala]]** on screen, and the group reads it through movement. As a **practice**, one **witness** holds a personal request while their mandala is recorded **in the open**; **movers** dance that mandala **without knowing the request**, then give verbal feedback. The witness sees their inner question reflected through others’ bodies — often with uncanny accuracy.
 
 ### Origin · debut **15 March 2020**
 
-The practice was born at **[[event-korablik-2020|Korablik]]** (Moscow region) — a bodywork retreat **organised by [[org-korichina|Yulia Korichina]]**, with **[[collab-korichina|Korichina]]** as early **co-author** of the protocol. ODA.dream brought the neuromandala setup; Julia spontaneously invited participants to **sing and dance** the mandalas on screen. The effect was immediate: observers said *“everything you did was about me”* and *“how did you read my thoughts?”* That evening became the **debut** of what later crystallised as **Theatre of My Name**.
+The format was born at **[[event-korablik-2020|Korablik]]** (Moscow region) — a bodywork retreat hosted and co-shaped by **[[collab-korichina|Yulia Korichina]]**. ODA.dream brought the neuromandala setup; Yulia spontaneously invited participants to **sing, dance, and collectively move one another’s mandalas** on screen. The effect was immediate: observers said *“everything you did was about me”* and *“how did you read my thoughts?”* That evening became the **debut** of **Theatre of My Name**.
 
-### Track record
+### Scale
 
-The format has been facilitated **dozens of times**; **more than 50 people** have passed through the witness and mover roles. Sessions are documented on camera so each stage — request, mandala, dance, feedback — can be reviewed later.
-
-### Where it was hosted (provenance)
-
-| Context | Organiser |
-|---------|-----------|
-| [[event-korablik-2020|Korablik · debut]] (2020) | [[org-korichina|Yulia Korichina]] |
-| [[event-ashram-tim|Ashram Studio]] — recurring | [[org-ashram|Natali Osman · Ashram Studio]] |
-| [[event-kod-provincii|Code of Province]] (2024) | [[org-golyzhibina|Ksenia Golyzhibina]] · [[org-panasenko|Elena Panasenko]] |
-| [[event-itb-lab-2024-11|ITB internal lab]] (Nov 2024) | [[org-golyzhibina|Ksenia Golyzhibina]] |
+Facilitated **dozens of times**; gatherings scale to **up to 50 participants** in witness and mover roles.
 
 ### Roles (TIM vs Authentic Movement)
 
@@ -68,23 +62,21 @@ The format has been facilitated **dozens of times**; **more than 50 people** hav
 | **Movers** | Fully inward | Half-inward, half responding to witness + mandala on screen |
 | **Closure** | Shared reflection | Feedback from each mover to witness |
 
-In one short arc the group unpacks a large slice of semi-conscious material: inner request, **EEG rhythm mandala**, danced interpretation, and mirrored feedback.
+In one short arc the group unpacks a large slice of semi-conscious material: inner request, **open EEG rhythm mandala**, danced interpretation, and mirrored feedback.
 
 ### Session arc (facilitator script v2)
 
 Typical group **3–7 people**, about **2 hours** — timed for wholeness and closure:
 
-1. Introduction · practice overview  
+1. Introduction · performance frame and practice overview  
 2. Entry sharing · expectations and body sense  
-3. **Request formulation** + hidden **EEG capture** (e.g. Muse headband) → neuromandala build  
+3. **Request formulation** + **open EEG capture** (e.g. Muse headband) → neuromandala build — visible to the group  
 4. **Brownian movement** warm-up → sharing → shake → **shavasana** + second mandala  
-5. **Authentic movement in pairs** · two rounds  
-6. **Neuromandala dance** — collective dance of each witness mandala (~1.5 min each)  
-7. Group sharing · WhatsApp capture for AI-assisted debrief  
-8. Rhythm literacy · mandala reading · AI commentary pass  
-9. **Integration** — compare mandalas from opening, shavasana, and AI view  
-
-Larger formats (up to ~50 participants, 3 h, two gadgets) are documented in the studio archive.
+5. **Play & lightness** — games that lower seriousness, a return to childhood (replaces heavy “authentic” pair work)  
+6. **Neuromandala dance** — the group collectively **moves and dances each witness mandala** on screen (~1.5 min each), as Yulia first proposed at Korablik  
+7. Group sharing  
+8. Rhythm literacy · mandala reading  
+9. **Integration** — compare mandalas from opening and shavasana  
 
 ### Lineage (Dzen essay series)
 
@@ -95,32 +87,23 @@ Published comparisons on **Yandex Dzen** — see [[media-theatre-my-name-dzen|fo
 3. **Playback theatre** & **psychodrama** — improvised collective expression; TIM adds an **EEG layer** and rotates witness/mover roles  
 4. **OH / MAC cards** — double projection: mandala as “card” for movers, movers as “cards” for witness  
 
-**Status:** **Production** — open format; recurring at [[event-ashram-tim|Ashram Studio]], plus [[event-kod-provincii|Code of Province 2024]], [[event-itb-lab-2024-11|ITB lab 2024]], and private retreats.
+Field photos: [[media-theatre-my-name-photos|conference & Ashram]] · [[media-theatre-my-name-archive|Korablik debut archive]].
 
 ---RU---
 
 ## Театр Имени Меня (ТИМ)
 
-**Проективная телесная практика · свидетель · нейромандала · групповой танец**
+**Sci-art перформанс · партисипаторная телесная практика · свидетель · нейромандала · групповой танец**
 
-**Театр Имени Меня** (ТИМ, ранее *Нейро-арт-танец*) — партисипаторный перформанс-протокол: **свидетель** записывает **[[neuromandala|Нейромандалу]]** по ЭЭГ с личным запросом; **движущиеся** танцуют мандалу **не зная запроса**, затем дают словесную обратную связь. Свидетель видит свой внутренний вопрос в теле других — часто с поразительной точностью.
+**Театр Имени Меня** (ТИМ, ранее *Нейро-арт-танец*) — в первую очередь **sci-art перформанс**: ритмы ЭЭГ становятся видимой **[[neuromandala|нейромандалой]]** на экране, и группа читает её телом. Как **практика** — **свидетель** формулирует личный запрос, пока мандала пишется **открыто**; **движущиеся** танцуют её **не зная запроса**, затем дают словесную обратную связь. Свидетель видит свой внутренний вопрос в теле других — часто с поразительной точностью.
 
 ### Исток · дебют **15 марта 2020**
 
-Практика родилась на **[[event-korablik-2020|«Кораблике»]]** (Подмосковье) — ретрите, **организованном [[org-korichina|Юлией Коричиной]]**, с **[[collab-korichina|Коричиной]]** как ранним **со-автором** протокола. ODA.dream привезли нейромандалу; Юля спонтанно предложила участникам **«запеть и потанцевать»** мандалы на экране. Эффект был мгновенным: *«всё, что вы делали — про меня»*, *«вы что, читали мои мысли?»* Этот вечер стал **дебютом** того, что позже оформилось как **Театр Имени Меня**.
+Формат родился на **[[event-korablik-2020|«Кораблике»]]** (Подмосковье) — ретрите, который принимала и со-формировала **[[collab-korichina|Юлия Коричина]]**. ODA.dream привезли нейромандалу; Юля спонтанно предложила участникам **«запеть, потанцевать и коллективно подвигать нейромандалы друг друга»** на экране. Эффект был мгновенным: *«всё, что вы делали — про меня»*, *«вы что, читали мои мысли?»* Этот вечер стал **дебютом** **Театра Имени Меня**.
 
-### Опыт проведения
+### Масштаб
 
-Формат проводился **десятки раз**; через роли свидетеля и движущегося прошли **более 50 человек**. Процесс снимается на камеру — запрос, мандала, танец, обратная связь — чтобы разбирать материал после сессии.
-
-### Где проводили (провенанс)
-
-| Контекст | Организатор |
-|----------|-------------|
-| [[event-korablik-2020|Кораблик · дебют]] (2020) | [[org-korichina|Юлия Коричина]] |
-| [[event-ashram-tim|Студия Ashram]] — неоднократно | [[org-ashram|Натали Осман · Ashram Studio]] |
-| [[event-kod-provincii|Код провинции]] (2024) | [[org-golyzhibina|Ксения Голыжбина]] · [[org-panasenko|Елена Панасенко]] |
-| [[event-itb-lab-2024-11|Внутренняя лаборатория ИТБ]] (нояб. 2024) | [[org-golyzhibina|Ксения Голыжбина]] |
+Проводился **десятки раз**; формат масштабируется до **50 участников** в ролях свидетеля и движущегося.
 
 ### Роли (ТИМ vs аутентичное движение)
 
@@ -131,23 +114,21 @@ Published comparisons on **Yandex Dzen** — see [[media-theatre-my-name-dzen|fo
 | **Движущиеся** | Полностью внутрь | Наполовину внутрь, наполовину — отклик на свидетеля и мандалу |
 | **Завершение** | Обмен впечатлениями | Обратная связь от каждого движущегося свидетелю |
 
-За короткий промежуток группа распаковывает большой объём полубессознательного: запрос, **мандала ритмов ЭЭГ**, танец-интерпретация, зеркальная обратная связь.
+За короткий промежуток группа распаковывает большой объём полубессознательного: запрос, **открытая мандала ритмов ЭЭГ**, танец-интерпретация, зеркальная обратная связь.
 
 ### Ход сессии (сценарий v2)
 
 Типичная группа **3–7 человек**, около **2 часов** — с ощущением целостности и завершённости:
 
-1. Введение · рамка практики  
+1. Введение · рамка перформанса и практики  
 2. Входной шеринг · ожидания и тело  
-3. **Формулировка запроса** + скрытая **запись ЭЭГ** (напр. Muse) → построение нейромандалы  
+3. **Формулировка запроса** + **открытая запись ЭЭГ** (напр. Muse) → построение нейромандалы — видна группе  
 4. **Броуновское движение** → шеринг → тряска → **шавассана** + вторая мандала  
-5. **Аутентичное движение в парах** · два такта  
-6. **Танец нейромандал** — коллективный танец мандал свидетелей (~1,5 мин каждая)  
-7. Общий шеринг · фиксация в WhatsApp для разбора с ИИ  
-8. Ритмы мозга · чтение мандалы · просмотр с ИИ  
-9. **Интеграция** — сравнение мандал начала, шавасаны и ИИ-прохода  
-
-В архиве также описан расширенный формат (до ~50 участников, 3 ч, два гаджета).
+5. **Игры и лёгкость** — снижение серьёзности, возвращение в детство (вместо тяжёлой парной «аутентички»)  
+6. **Танец нейромандал** — группа **коллективно двигает и танцует мандалы свидетелей** на экране (~1,5 мин каждая), как Юля предложила на «Кораблике»  
+7. Общий шеринг  
+8. Ритмы мозга · чтение мандалы  
+9. **Интеграция** — сравнение мандал начала и шавасаны  
 
 ### Родословная (серия на Дзене)
 
@@ -158,4 +139,4 @@ Published comparisons on **Yandex Dzen** — see [[media-theatre-my-name-dzen|fo
 3. **Плейбек-театр** и **психодрама** — импровизация и групповое выражение; ТИМ добавляет **слой ЭЭГ** и ротацию ролей  
 4. **ОХ / МАК-карты** — двойная проекция: мандала как «карта» для движущихся, движущиеся как «карты» для свидетеля  
 
-**Статус:** **Производство** — открытый формат; серия в [[event-ashram-tim|Ashram Studio]], а также [[event-kod-provincii|«Код провинции» 2024]], [[event-itb-lab-2024-11|лаборатория ИТБ 2024]] и частные ретриты.
+Фото с площадок: [[media-theatre-my-name-photos|конференция и Ashram]] · [[media-theatre-my-name-archive|архив дебюта на «Кораблике»]].

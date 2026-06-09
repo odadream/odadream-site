@@ -2,7 +2,7 @@
 id: proof-award-portal-visioning
 parent: hub-letters
 title_en: 1st place — VJ competition "Visioning", Portal 2030–2050
-title_ru: 1-е место — VJ-конкурс «Видженинг», Портал 2030–2050
+title_ru: 1-е место — VJ-конкурс «Виджеинг», Портал 2030–2050
 type: content
 visible: true
 date: 2025.01.01
@@ -20,6 +20,6 @@ publication_date: 2025-01-01
 
 ---RU---
 
-## 1-е место — VJ-конкурс «Видженинг», Портал 2030–2050
+## 1-е место — VJ-конкурс «Виджеинг», Портал 2030–2050
 
 приз 200 000 ₽

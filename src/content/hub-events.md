@@ -28,6 +28,8 @@ Start from these core cases:
 
 If you are discovering us for the first time, open `Portal` and `BYOB` first: they show the trajectory from early experiments to award-level cases.
 
+Full log of engagements, organizers, and awards → [[hub-registry|Experience Registry]].
+
 ---RU---
 
 ## СОБЫТИЯ
@@ -46,3 +48,5 @@ If you are discovering us for the first time, open `Portal` and `BYOB` first: th
 - [[hub-terraforming|Терраформинг]] — эксперимент на пересечении среды, восприятия и коллективного отклика.
 
 Если вы только знакомитесь с проектом, начните с `Портал` и `BYOB`: в этих нодах видна эволюция от ранних экспериментов до зрелых кейсов.
+
+Полный журнал участий, организаторов и наград → [[hub-registry|Реестр опыта]].

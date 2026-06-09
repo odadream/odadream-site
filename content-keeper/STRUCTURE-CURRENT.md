@@ -34,7 +34,7 @@ Authoritative snapshot of `parent` relationships across all nodes in `src/conten
       - **`unique-russia`** — Unique Russia 2026 / Уникальная Россия 2026 _[kind: event, subkind: exhibition]_
     - **`hub-festivals`** — Festivals / Фестивали _[type: hub]_
       - **`event-portal`** — Portal / Портал _[kind: event, subkind: series]_
-        - **`event-portal-2025`** — Visioning competition win — Portal 2030–2050 / Победа «Видженинг» — Портал 2030–2050 _[kind: event, subkind: forum]_
+        - **`event-portal-2025`** — Visioning competition win — Portal 2030–2050 / Победа «Виджеинг» — Портал 2030–2050 _[kind: event, subkind: forum]_
         - **`event-portal-2024`** — Portal 2030–2050 (2024) / Портал 2030–2050 (2024) _[kind: event, subkind: festival]_
       - **`event-byob`** — BYOB _[kind: event, subkind: series]_
         - **`event-byob-2019`** — BYOB 2019 _[kind: event, subkind: festival]_
@@ -141,11 +141,11 @@ Authoritative snapshot of `parent` relationships across all nodes in `src/conten
       - **`proof-tst-tavrida-ai`** — tst-tavrida-ai _[kind: proof, subkind: testimonial]_
     - **`hub-letters`** — Recognition & Awards / Признание и награды
       - **`proof-mipt-letter`** — MIPT — Letter of recognition / МФТИ — Благодарственное письмо _[kind: proof, subkind: letter]_
-      - **`proof-portal-1st`** — 1st place — Visioning VJ competition, Portal 2030–2050 / 1-е место — VJ-конкурс «Видженинг», Портал 2030–2050 _[kind: proof, subkind: award]_
+      - **`proof-portal-1st`** — 1st place — Visioning VJ competition, Portal 2030–2050 / 1-е место — VJ-конкурс «Виджеинг», Портал 2030–2050 _[kind: proof, subkind: award]_
       - **`proof-hse-beautiful-brain`** — HSE — Beautiful About the Brain / ВШЭ — «Красиво про мозг» _[kind: proof, subkind: letter]_
       - **`proof-award-ars-electronica`** — Official submission — Prix Ars Electronica & STARTS Prize / Официальная заявка — Prix Ars Electronica & STARTS Prize _[kind: proof, subkind: award]_
       - **`proof-award-culttech-vienna`** — CultTech Lab 2026 grant, Vienna — "Ancestors in the Noise" with Elena Kovylina / Грант CultTech Lab 2026, Вена — проект «Ancestors in the Noise» с Еленой Ковылиной _[kind: proof, subkind: award]_
-      - **`proof-award-portal-visioning`** — 1st place — VJ competition "Visioning", Portal 2030–2050 / 1-е место — VJ-конкурс «Видженинг», Портал 2030–2050 _[kind: proof, subkind: award]_
+      - **`proof-award-portal-visioning`** — 1st place — VJ competition "Visioning", Portal 2030–2050 / 1-е место — VJ-конкурс «Виджеинг», Портал 2030–2050 _[kind: proof, subkind: award]_
       - **`proof-award-skolkovo-arttech`** — 1st place — ART × TECHNOLOGY competition, Skolkovo Innovation Center / 1-е место — конкурс «ART × TECHNOLOGY», Технопарк «Сколково» _[kind: proof, subkind: award]_
       - **`proof-cred-track-record`** — 7 years on market · 80+ hub-events · 1,500+ participants · 10+ cities / 7 лет на рынке · 80+ событий · 1 500+ участников · 10+ городов _[kind: proof, subkind: award]_
       - **`proof-cred-tskhr`** — Members of the Creative Union of Artists of Russia (TSKhR) — Multimedia & Scientific Art sections / Члены Творческого союза художников России (ТСХР) — секции мультимедиа и научного искусства _[kind: proof, subkind: award]_
@@ -157,7 +157,7 @@ Authoritative snapshot of `parent` relationships across all nodes in `src/conten
       - **`proof-let-kod-provincii`** — Letter of appreciation — speaker participation / Благодарность — выступление спикером _[kind: proof, subkind: letter]_
       - **`proof-let-media-experts`** — Letter of appreciation — "Cultural Code of North Ossetia" exhibition / Благодарность — выставка «Культурный код Северной Осетии» _[kind: proof, subkind: letter]_
       - **`proof-let-moscow2030`** — Letter of appreciation — Moscow 2030, forum-festival participation / Благодарность — Москва 2030, участие в подготовке форума-фестиваля _[kind: proof, subkind: letter]_
-      - **`proof-let-portal`** — Diploma — Portal 2030–2050 (Visioning win) / Диплом — Портал 2030–2050 (победа в «Видженинг») _[kind: proof, subkind: letter]_
+      - **`proof-let-portal`** — Diploma — Portal 2030–2050 (Visioning win) / Диплом — Портал 2030–2050 (победа в «Виджеинг») _[kind: proof, subkind: letter]_
       - **`proof-let-tavrida`** — Letter of appreciation — Tavrida.ART, "Cultural Code of Russia" / Благодарность — Таврида.АРТ, фестиваль «Культурный код России» _[kind: proof, subkind: letter]_
       - **`proof-let-techweek`** — Letter of appreciation — conference participation / Благодарность — участие в конференции _[kind: proof, subkind: letter]_
       - **`proof-let-tpp-techinno`** — Letter of appreciation — contribution to the award / Благодарность — вклад в организацию премии _[kind: proof, subkind: letter]_
