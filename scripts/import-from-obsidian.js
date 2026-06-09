@@ -47,6 +47,18 @@ function walkMd(dir, out = []) {
   return out;
 }
 
+function asIdList(value) {
+  if (!value) return [];
+  const list = Array.isArray(value) ? value : [value];
+  return list
+    .map((s) => {
+      if (typeof s !== "string") return "";
+      const m = s.match(/^\[\[([^\]|]+)/);
+      return m ? m[1].trim() : s.trim();
+    })
+    .filter(Boolean);
+}
+
 function noteToEngagement(fm, filePath) {
   const id =
     fm.site_id ||
@@ -73,7 +85,7 @@ function noteToEngagement(fm, filePath) {
     date: fm.date || fm.event_date || "",
     city: fm.city || "",
     relationship,
-    format: fm.format || "event",
+    products: asIdList(fm.products),
     orgs,
     venues,
     title_ru: fm.title_ru || fm.title || path.basename(filePath, ".md"),

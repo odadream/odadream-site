@@ -26,7 +26,6 @@ client: []
 partners: []
 collaborators: []
 relationship: invited
-format: mindshow
 letter: true
 organizer:
   - "[[org-wildmint]]"

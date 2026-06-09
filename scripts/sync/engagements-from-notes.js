@@ -43,7 +43,7 @@ function pickEngagement(fm, fallbackId) {
     city_ru: fm.city_ru ?? "",
     relationship: fm.relationship || "invited",
     subkind: fm.subkind || "",
-    format: fm.format || undefined,
+    products: asIdList(fm.products),
     orgs: asIdList(fm.orgs?.length ? fm.orgs : fm.organizer),
     venues: asIdList(fm.venues),
     client: asIdList(fm.client),
@@ -74,7 +74,7 @@ export function engagementToFrontmatter(eng) {
     city_en: eng.city_en || undefined,
     city_ru: eng.city_ru || undefined,
     relationship: eng.relationship || undefined,
-    format: eng.format || undefined,
+    products: eng.products?.length ? eng.products : undefined,
     card: eng.card !== undefined ? eng.card : undefined,
     showcase: eng.showcase || undefined,
     letter: eng.letter || undefined,
@@ -134,7 +134,7 @@ function mergeRegistryIntoEventFm(eventFm, row) {
   if (row.city_en) merged.city_en = row.city_en;
   if (row.city_ru) merged.city_ru = row.city_ru;
   if (row.relationship) merged.relationship = row.relationship;
-  if (row.format) merged.format = row.format;
+  if (row.products?.length) merged.products = row.products.map((id) => `[[${id}]]`);
   if (row.showcase) merged.showcase = true;
   if (row.letter) merged.letter = true;
 
@@ -160,7 +160,7 @@ function defaultEngCard(row) {
     city_en: row.city_en || undefined,
     city_ru: row.city_ru || undefined,
     relationship: row.relationship,
-    format: row.format,
+    products: row.products?.length ? row.products.map((id) => `[[${id}]]`) : undefined,
   };
 }
 

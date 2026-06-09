@@ -76,7 +76,7 @@ Nodes carry semantic relationship fields in frontmatter — all are lists of nod
 | `kind` | — | Semantic role: `product \| event \| organizer \| collaboration \| proof \| media` |
 | `subkind` | — | Data-driven subtype; see `src/data/taxonomy.ts` |
 | `presented_at` | product→event | Events where this product was shown |
-| `products` | event→product | Products shown at this event |
+| `products` | event→product | Products shown at this event — **required** for hub-registry (replaces deprecated `format`) |
 | `orgs` | event→org | Organizer(s) — canonical; `organizer` is derived mirror for UI compat |
 | `venues` | event→org | Venue(s) where the event took place |
 | `partners` | event→org | Partner / sponsor (in-kind, tech support) |

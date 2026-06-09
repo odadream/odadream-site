@@ -15,10 +15,11 @@ city_ru: Шульган-Таш, Башкирия
 orgs: []
 venues: []
 relationship: invited
-format: installation
 proofs:
   - "[[proof-let-bashkiria]]"
   - "[[proof-press-tskhr-bashkiria]]"
+products:
+  - "[[neuromandala]]"
 ---
 
 ## Digital plein-air, Bashkiria

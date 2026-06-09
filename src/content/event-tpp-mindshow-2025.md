@@ -24,7 +24,6 @@ collaborators: []
 city_en: Moscow
 city_ru: Москва
 relationship: invited
-format: mindshow
 organizer:
   - "[[org-cci]]"
 ---

@@ -16,7 +16,8 @@ subkind: private_show
 city_en: Moscow
 city_ru: Москва
 relationship: invited
-format: lecture
+products:
+  - "[[mindshow]]"
 ---
 
 ## Private neuro-show — Nata Gonchar

@@ -71,11 +71,21 @@ function proofsOf(proofs, kind, workId) {
 
 // --- inline highlight strings (used inside the dossier module) ---
 
-function casesInline(work, engagements, omap, lang, limit) {
-  const keys = work.format_keys || [];
-  if (!keys.length) return "";
+function eventMatchesWork(e, work, productIndex) {
+  const prods = e.products || [];
+  if (!prods.length) return false;
+  const workId = work.node || work.id;
+  if (prods.includes(workId)) return true;
+  const hubChildren = productIndex?.byParent?.get(workId);
+  if (hubChildren) return prods.some((p) => hubChildren.has(p));
+  return false;
+}
+
+function casesInline(work, engagements, omap, lang, limit, productIndex) {
+  const workId = work.node || work.id;
+  if (!workId) return "";
   return engagements
-    .filter((e) => keys.includes(e.format))
+    .filter((e) => eventMatchesWork(e, work, productIndex))
     .sort((a, b) => String(b.date).localeCompare(String(a.date)))
     .slice(0, limit)
     .map((e) => {
@@ -113,9 +123,9 @@ function topTestimonial(proofs, omap, engById, workId, lang) {
 
 // --- per-work dossier module ---
 
-export function buildDossier(work, proofs, engagements, omap, engById, lang) {
+export function buildDossier(work, proofs, engagements, omap, engById, lang, productIndex) {
   const lines = [];
-  const cases = casesInline(work, engagements, omap, lang, 3);
+  const cases = casesInline(work, engagements, omap, lang, 3, productIndex);
   const aw = awardsInline(proofs, work.id, lang, 2);
   const pr = pressInline(proofs, omap, engById, work.id, lang, 3);
   const voice = topTestimonial(proofs, omap, engById, work.id, lang);

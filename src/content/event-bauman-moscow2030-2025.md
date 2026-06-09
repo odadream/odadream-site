@@ -23,7 +23,8 @@ collaborators: []
 city_en: Moscow
 city_ru: Москва
 relationship: invited
-format: lecture
+products:
+  - "[[brain-hack]]"
 ---
 
 ## Brain-hacking lecture — Bauman MSTU

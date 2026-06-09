@@ -1,6 +1,6 @@
 # CONTENT-SCHEMA — стандарт карточек ODA.dream
 
-**Версия:** 1.5 · **Дата:** 2026.06.02  
+**Версия:** 1.6 · **Дата:** 2026.06.02  
 **Статус:** единый источник правды по архитектуре базы знаний и контента сайта.
 
 Документ описывает все типы карточек в `src/content/`, их поля, типы свойств Obsidian, связи между карточками и вспомогательные реестры в `data/registry/`.
@@ -74,19 +74,19 @@ flowchart TB
 
 Применяются к любой `.md` в `src/content/`, если не указано иное.
 
-| Поле                    | Obsidian | Обяз.  | Описание                                                                  |
-| ----------------------- | -------- | ------ | ------------------------------------------------------------------------- |
-| `id`                    | Text     | **да** | Уникальный id (kebab-case). Совпадает с именем файла без `.md`.           |
-| `parent`                | Link     | **да** | Родитель в Lotus-графе. У корня `home` — нет (задаётся в `constants.ts`). |
-| `title_en` / `title_ru` | Text     | **да** | Заголовок EN / RU                                                         |
-| `type`                  | Text     | **да** | `hub` \| `content` \| `media` \| `action`                                 |
+| Поле                    | Obsidian | Обяз.  | Описание                                                                                          |
+| ----------------------- | -------- | ------ | ------------------------------------------------------------------------------------------------- |
+| `id`                    | Text     | **да** | Уникальный id (kebab-case). Совпадает с именем файла без `.md`.                                   |
+| `parent`                | Link     | **да** | Родитель в Lotus-графе. У корня `home` — нет (задаётся в `constants.ts`).                         |
+| `title_en` / `title_ru` | Text     | **да** | Заголовок EN / RU                                                                                 |
+| `type`                  | List     | **да** | `hub` \| `content` \| `media` \| `action`                                                         |
 | `updated`               | Text     | рек.   | Дата последнего обновления **страницы** (не дата события). **`YYYY.MM.DD`**. `npm run dates:sync` |
-| `tags`                  | Tags     | нет    | Произвольные теги. Служебный: `hub-registry` — строка реестра участий.    |
-| `order`                 | Number   | нет    | Порядок в сетке Lotus (0–8)                                               |
-| `visible`               | Checkbox | нет    | `false` скрывает из сетки (по умолчанию виден)                            |
-| `image`                 | Text     | нет    | URL обложки; иначе генерируется `public/images/nodes/{id}.svg`            |
-| `short_en` / `short_ru` | Text     | нет    | Короткий заголовок для плотного UI                                        |
-| `external_link`         | Text     | нет    | URL для `type: action` или внешний источник у proof                       |
+| `tags`                  | Tags     | нет    | Произвольные теги. Служебный: `hub-registry` — строка реестра участий.                            |
+| `order`                 | Number   | нет    | Порядок в сетке Lotus (0–8)                                                                       |
+| `visible`               | Checkbox | нет    | `false` скрывает из сетки (по умолчанию виден)                                                    |
+| `image`                 | Text     | нет    | URL обложки; иначе генерируется `public/images/nodes/{id}.svg`                                    |
+| `short_en` / `short_ru` | Text     | нет    | Короткий заголовок для плотного UI                                                                |
+| `external_link`         | Text     | нет    | URL для `type: action` или внешний источник у proof                                               |
 
 > **Соглашение Obsidian:** все поля-**связи** и списки id в §4 — тип **List** (plain id) или **List (Link)** при `[[wiki-links]]`. Исключение: `tags` — **Tags**. Сверка vault с каноном — [`BACKLOG` BL-004](content-keeper/BACKLOG.md#bl-004-obsidian-list-на-всех-relation-полях).
 
@@ -107,16 +107,16 @@ flowchart TB
 
 **Шаблон:** `src/content/_templates/product.md` · **Base:** `products.base`
 
-| Поле | Obsidian | Обяз. | Связь | Описание |
-|------|----------|-------|-------|----------|
-| `kind` | Text | **да** | — | `product` |
-| `subkind` | Text | **да** | taxonomy | `art` \| `education` \| `tech` \| `game` |
-| `status` | Text | нет | — | `production` \| `rnd` \| `concept` \| `patent` |
-| `presented_at` | List | рек. | → `event` | События, где показывали работу |
-| `proofs` | List | нет | → `proof` | Пруфы о работе |
-| `media` | List | нет | → `media.ts` id | Ключи из `src/data/media.ts`, **не** wiki-links |
-| `external_site` | Text | нет | — | Внешний сайт работы |
-| `external_site_label_en` / `_ru` | Text | нет | — | Подпись кнопки внешнего сайта |
+| Поле                             | Obsidian | Обяз.  | Связь           | Описание                                        |
+| -------------------------------- | -------- | ------ | --------------- | ----------------------------------------------- |
+| `kind`                           | Text     | **да** | —               | `product`                                       |
+| `subkind`                        | List     | **да** | taxonomy        | `art` \| `education` \| `tech` \| `game`        |
+| `status`                         | List     | нет    | —               | `production` \| `rnd` \| `concept` \| `patent`  |
+| `presented_at`                   | List     | рек.   | → `event`       | События, где показывали работу                  |
+| `proofs`                         | List     | нет    | → `proof`       | Пруфы о работе                                  |
+| `media`                          | List     | нет    | → `media.ts` id | Ключи из `src/data/media.ts`, **не** wiki-links |
+| `external_site`                  | Text     | нет    | —               | Внешний сайт работы                             |
+| `external_site_label_en` / `_ru` | Text     | нет    | —               | Подпись кнопки внешнего сайта                   |
 
 ---
 
@@ -134,30 +134,29 @@ flowchart TB
 | `date_start` / `date_end` | Когда прошло **мероприятие** | `YYYY-MM-DD` |
 | `publication_date` | У пруфов — дата публикации / выдачи | `YYYY-MM-DD` |
 
-| Поле | Obsidian | Обяз. | Связь | R | Описание |
-|------|----------|-------|-------|---|----------|
-| `kind` | Text | **да** | — | | `event` |
-| `subkind` | Text | **да** | taxonomy | **да** | `festival`, `lecture`, `exhibition`, `competition`, `series`, … |
-| `date_start` | Date | **да** | — | **да** | Дата **мероприятия** (начало). **`YYYY-MM-DD`** (ISO) |
-| `date_end` | Date | нет | — | | Дата мероприятия (конец, ISO) |
-| `orgs` | List | рек. | → `organizer` | **да** | **Организатор(ы)** события (plain id). Канон — пиши здесь |
-| `venues` | List | нет | → `organizer` | | **Площадка(и)** — где прошло (plain id org-*) |
-| `partners` | List | нет | → `organizer` | | **Партнёр / спонсор** — in-kind, техподдержка (plain id) |
-| `client` | List | нет | → `organizer` | | **Коммерческий заказчик** (≠ organizer) |
-| `collaborators` | List | нет | → `collaboration` | | **Со-творчество** (collab-*) |
-| `organizer` | List | — | → `organizer` | | **Derived** — зеркало `orgs` (wiki-links), пишет `sync:fields`; не дублировать вручную |
-| `products` | List | рек. | → `product` | | Показанные работы |
-| `proofs` | List | нет | → `proof` | | Связанные пруфы |
-| `media` | List | нет | → `media.ts` | | Ключи asset id из `src/data/media.ts` |
-| `city_en` / `city_ru` | Text | — | — | **да** | Город EN / RU для колонки реестра |
-| `relationship` | Text | — | — | **да** | `invited` \| `commercial` \| `award` \| `competition` |
-| `format` | Text | — | — | **да** | Формат участия: `mindshow`, `lecture`, `installation`, … |
-| `card` | Checkbox | нет | — | | Показывать карточку в реестре |
-| `showcase` | Checkbox | нет | — | | Витринное участие |
-| `letter` | Checkbox | нет | — | | Есть благодарственное письмо |
-| `site_media` | List | нет | — | | Медиа для сайта (пути / id) |
-| `attendance` | Object | нет | — | | `{ visitors: Number, contacts: Number }` |
-| `external_site` | Text | нет | — | | Лендинг события |
+| Поле                  | Obsidian | Обяз.  | Связь             | R      | Описание                                                                               |
+| --------------------- | -------- | ------ | ----------------- | ------ | -------------------------------------------------------------------------------------- |
+| `kind`                | List     | **да** | —                 |        | `event`                                                                                |
+| `subkind`             | List     | **да** | taxonomy          | **да** | `festival`, `lecture`, `exhibition`, `competition`, `series`, …                        |
+| `date_start`          | Date     | **да** | —                 | **да** | Дата **мероприятия** (начало). **`YYYY-MM-DD`** (ISO)                                  |
+| `date_end`            | Date     | нет    | —                 |        | Дата мероприятия (конец, ISO)                                                          |
+| `orgs`                | List     | рек.   | → `organizer`     | **да** | **Организатор(ы)** события (plain id). Канон — пиши здесь                              |
+| `venues`              | List     | нет    | → `organizer`     |        | **Площадка(и)** — где прошло (plain id org-*)                                          |
+| `partners`            | List     | нет    | → `organizer`     |        | **Партнёр / спонсор** — in-kind, техподдержка (plain id)                               |
+| `client`              | List     | нет    | → `organizer`     |        | **Коммерческий заказчик** (≠ organizer)                                                |
+| `collaborators`       | List     | нет    | → `collaboration` |        | **Со-творчество** (collab-*)                                                           |
+| `organizer`           | List     | —      | → `organizer`     |        | **Derived** — зеркало `orgs` (wiki-links), пишет `sync:fields`; не дублировать вручную |
+| `products`            | List     | **да**† | → `product`    | **да** | Показанные работы — **канон участия ODA** (вместо удалённого `format`)                 |
+| `proofs`              | List     | нет    | → `proof`         |        | Связанные пруфы                                                                        |
+| `media`               | List     | нет    | → `media.ts`      |        | Ключи asset id из `src/data/media.ts`                                                  |
+| `city_en` / `city_ru` | Text     | —      | —                 | **да** | Город EN / RU для колонки реестра                                                      |
+| `relationship`        | Text     | —      | —                 | **да** | `invited` \| `commercial` \| `award` \| `competition`                                  |
+| `card`                | Checkbox | нет    | —                 |        | Показывать карточку в реестре                                                          |
+| `showcase`            | Checkbox | нет    | —                 |        | Витринное участие                                                                      |
+| `letter`              | Checkbox | нет    | —                 |        | Есть благодарственное письмо                                                           |
+| `site_media`          | List     | нет    | —                 |        | Медиа для сайта (пути / id)                                                            |
+| `attendance`          | Object   | нет    | —                 |        | `{ visitors: Number, contacts: Number }`                                               |
+| `external_site`       | Text     | нет    | —                 |        | Лендинг события                                                                        |
 
 > **Тег `hub-registry`:** включает событие в `events.base` и публичную таблицу `hub-registry`. Редактируй **R**-поля в `.md`; `engagements.yaml` — снимок (`npm run registry:sync`).
 >
@@ -174,7 +173,7 @@ flowchart TB
 | Партнёр / спонсор | `partners` | `org-*` | Neiry (техподдержка) |
 | Заказчик | `client` | `org-*` | EkoNiva (коммерческий заказ) |
 | Со-творчество | `collaborators` | `collab-*` | ITB × ODA.dream |
-| Исполнитель ODA | `products` | `product` | MindShow, Interference |
+| Исполнитель ODA | `products` | `product` | MindShow, Interference — **обязательно** для `hub-registry` |
 | Гость / VIP | — | — | **не в scope** — см. [BL-005](content-keeper/BACKLOG.md#bl-005-guests--notable-participants) |
 
 `organizations.yaml` → `kind` (`venue`, `partner`, …) — **справочная подсказка**, не event-role.
@@ -191,12 +190,12 @@ Hub-родитель (`type: hub`) без дат участия. Каждая р
 
 **Шаблон:** `src/content/_templates/organizer.md` · **Base:** `organizers.base`
 
-| Поле | Obsidian | Обяз. | Связь | Описание |
-|------|----------|-------|-------|----------|
-| `kind` | Text | **да** | — | `organizer` |
-| `subkind` | Text | **да** | taxonomy | `university`, `corporate`, `venue`, `curator`, `gov`, `media`, `ngo` |
-| `website` | Text | рек. | — | Официальный сайт |
-| `date_start` | Date | нет | — | Дата появления в базе (опционально) |
+| Поле         | Obsidian | Обяз.  | Связь    | Описание                                                             |
+| ------------ | -------- | ------ | -------- | -------------------------------------------------------------------- |
+| `kind`       | List     | **да** | —        | `organizer`                                                          |
+| `subkind`    | List     | **да** | taxonomy | `university`, `corporate`, `venue`, `curator`, `gov`, `media`, `ngo` |
+| `website`    | Text     | рек.   | —        | Официальный сайт                                                     |
+| `date_start` | Date     | нет    | —        | Дата появления в базе (опционально)                                  |
 
 **Обратные связи** (вычисляются на сайте, не дублировать вручную): `organized_events` ← `orgs`; `venue_events` ← `venues`; `partner_events` ← `partners`; `client_events` ← `client`.
 
@@ -208,14 +207,14 @@ Hub-родитель (`type: hub`) без дат участия. Каждая р
 
 **Шаблон:** `src/content/_templates/collaboration.md`
 
-| Поле | Obsidian | Обяз. | Связь | Описание |
-|------|----------|-------|-------|----------|
-| `kind` | Text | **да** | — | `collaboration` |
-| `subkind` | Text | **да** | taxonomy | `person`, `duo`, `ensemble`, `institution` |
-| `related_org` | List | нет | → `organizer` | Институциональный якорь (площадка) |
-| `products` | List | рек. | → `product` | Совместные работы |
-| `collab_events` | List | нет | → `event` | События линии коллаборации |
-| `proofs` | List | нет | → `proof` | Пруфы |
+| Поле            | Obsidian | Обяз.  | Связь         | Описание                                   |
+| --------------- | -------- | ------ | ------------- | ------------------------------------------ |
+| `kind`          | List     | **да** | —             | `collaboration`                            |
+| `subkind`       | List     | **да** | taxonomy      | `person`, `duo`, `ensemble`, `institution` |
+| `related_org`   | List     | нет    | → `organizer` | Институциональный якорь (площадка)         |
+| `products`      | List     | рек.   | → `product`   | Совместные работы                          |
+| `collab_events` | List     | нет    | → `event`     | События линии коллаборации                 |
+| `proofs`        | List     | нет    | → `proof`     | Пруфы                                      |
 
 ---
 
@@ -227,23 +226,23 @@ Hub-родитель (`type: hub`) без дат участия. Каждая р
 **Сейчас (переходно):** `data/registry/proofs.yaml` ещё питает `npm run sync:fields` → `.md`.  
 **Целевое:** yaml как **снимок** из `.md` (как `engagements.yaml`) — [`BACKLOG` BL-003](content-keeper/BACKLOG.md#bl-003-proofsyaml--снимок-из-md).
 
-| Поле | Obsidian | Обяз. | Связь | Описание |
-|------|----------|-------|-------|----------|
-| `kind` | Text | **да** | — | `proof` |
-| `subkind` | Text | **да** | taxonomy | `award`, `letter`, `testimonial`, `press`, `review`, `interview` (не `hub-press`, см. §14) |
-| `proof_of` | List | **да** | → `product` \| `event` \| `home`* | К чему относится пруф (канон связей) |
-| `issued_by` | List | **да**† | → `organizer` или Text | Кто выдал / источник |
-| `publication` | Text | нет† | — | Издание / оргкомитет (press) |
-| `publication_date` | Date | нет | — | Дата публикации (ISO) |
-| `asset` | Text | нет | — | Скан: `/images/content/proofs/...` |
-| `quote_en` / `quote_ru` | Text | нет | — | Цитата (testimonial) |
-| `external_link` | Text | нет | — | URL статьи / сюжета |
-| `tier` | Text | нет | — | `flagship` \| `strong` \| `standard` (dossier; сейчас часто только в yaml) |
-| `scope` | Text | нет | — | `studio` \| `work` |
-| `work` | List | нет | → `product` | Продукт (legacy yaml; сводить в `proof_of`) |
-| `eng` | List | нет | → `event` | Событие (legacy yaml; сводить в `proof_of`) |
-| `subject` | List | нет | → `product` \| `home` | Studio-scope (legacy yaml) |
-| `source_en` / `source_ru` | Text | нет | — | Текстовый эмитент без `org-*` карточки |
+| Поле                      | Obsidian | Обяз.   | Связь                             | Описание                                                                                   |
+| ------------------------- | -------- | ------- | --------------------------------- | ------------------------------------------------------------------------------------------ |
+| `kind`                    | List     | **да**  | —                                 | `proof`                                                                                    |
+| `subkind`                 | List     | **да**  | taxonomy                          | `award`, `letter`, `testimonial`, `press`, `review`, `interview` (не `hub-press`, см. §14) |
+| `proof_of`                | List     | **да**  | → `product` \| `event` \| `home`* | К чему относится пруф (канон связей)                                                       |
+| `issued_by`               | List     | **да**† | → `organizer` или Text            | Кто выдал / источник                                                                       |
+| `publication`             | Text     | нет†    | —                                 | Издание / оргкомитет (press)                                                               |
+| `publication_date`        | Date     | нет     | —                                 | Дата публикации (ISO)                                                                      |
+| `asset`                   | Text     | нет     | —                                 | Скан: `/images/content/proofs/...`                                                         |
+| `quote_en` / `quote_ru`   | Text     | нет     | —                                 | Цитата (testimonial)                                                                       |
+| `external_link`           | Text     | нет     | —                                 | URL статьи / сюжета                                                                        |
+| `tier`                    | List     | нет     | —                                 | `flagship` \| `strong` \| `standard` (dossier; сейчас часто только в yaml)                 |
+| `scope`                   | List     | нет     | —                                 | `studio` \| `work`                                                                         |
+| `work`                    | List     | нет     | → `product`                       | Продукт (legacy yaml; сводить в `proof_of`)                                                |
+| `eng`                     | List     | нет     | → `event`                         | Событие (legacy yaml; сводить в `proof_of`)                                                |
+| `subject`                 | List     | нет     | → `product` \| `home`             | Studio-scope (legacy yaml)                                                                 |
+| `source_en` / `source_ru` | Text     | нет     | —                                 | Текстовый эмитент без `org-*` карточки                                                     |
 
 \* `home` — студийный scope; в audit — «виртуальная» ссылка на корень.  
 † Для press: `publication` **или** `issued_by`. Поля `work` / `eng` / `org` в yaml — **миграционные**; не дублировать вручную после переноса в `proof_of` / `issued_by`.
@@ -256,16 +255,16 @@ Hub-родитель (`type: hub`) без дат участия. Каждая р
 
 **Шаблон:** `src/content/_templates/media-work.md` · **Base:** `media.base`
 
-| Поле | Obsidian | Обяз. | Связь | Описание |
-|------|----------|-------|-------|----------|
-| `kind` | Text | **да** | — | `media` |
-| `subkind` | Text | **да** | taxonomy | `video`, `photo`, `sketch`, `teaser`, `post`, `text` |
-| `about` | List | **да** | → `product` \| `event` | Что документирует работа |
-| `image` / `media_url` | Text | нет | — | Файл / URL |
-| `access` | Text | нет | — | `public` \| `restricted` \| `private` |
-| `for_sale` | Checkbox | нет | — | Доступно к покупке / лицензии |
-| `purchase_url` | Text | нет | — | Ссылка на покупку |
-| `preview_media` | Text | нет | → `media.ts` | Тизер при `restricted` |
+| Поле                  | Obsidian | Обяз.  | Связь                  | Описание                                             |
+| --------------------- | -------- | ------ | ---------------------- | ---------------------------------------------------- |
+| `kind`                | List     | **да** | —                      | `media`                                              |
+| `subkind`             | List     | **да** | taxonomy               | `video`, `photo`, `sketch`, `teaser`, `post`, `text` |
+| `about`               | List     | **да** | → `product` \| `event` | Что документирует работа                             |
+| `image` / `media_url` | Text     | нет    | —                      | Файл / URL                                           |
+| `access`              | Text     | нет    | —                      | `public` \| `restricted` \| `private`                |
+| `for_sale`            | Checkbox | нет    | —                      | Доступно к покупке / лицензии                        |
+| `purchase_url`        | Text     | нет    | —                      | Ссылка на покупку                                    |
+| `preview_media`       | Text     | нет    | → `media.ts`           | Тизер при `restricted`                               |
 
 > **Два способа медиа:** (1) узел `kind: media` в content; (2) asset в `src/data/media.ts`, встраиваемый через `![[media:id]]` без отдельной карточки.
 
@@ -328,7 +327,7 @@ erDiagram
 
 | Тип Obsidian | Поля |
 |--------------|------|
-| **Text** | `id`, `title_*`, `updated`, `publication`, `city_*`, `format`, `relationship`, `website`, `asset`, `quote_*`, `external_*`, `status`, `subkind`, `kind`, `type` |
+| **Text** | `id`, `title_*`, `updated`, `publication`, `city_*`, `relationship`, `website`, `asset`, `quote_*`, `external_*`, `status`, `subkind`, `kind`, `type` |
 | **Date** | `date_start`, `date_end`, `publication_date` (только даты **событий** и публикаций) |
 | **Number** | `order`, `attendance.visitors`, `attendance.contacts` |
 | **Checkbox** | `visible`, `for_sale`, `card`, `showcase`, `letter` |
@@ -553,10 +552,10 @@ hub-{раздел}
 | Поле | Видно на `hub-registry` | Источник правды | Примеры |
 |------|-------------------------|-----------------|---------|
 | `subkind` | **да** (колонка «Тип») | frontmatter события | `lecture`, `competition`, `exhibition` |
-| `format` | нет | frontmatter | `mindshow`, `lecture`, `installation` — формат участия |
+| `products` | нет (в provenance на сайте) | frontmatter | `mindshow`, `beautiful-brain`, `neuromandala` — **какая работа** показывалась |
 | `relationship` | нет | frontmatter | `commercial`, `invited`, `award`, `competition` — внутренние списки |
 
-`format` связывается с продуктами через `data/registry/works.yaml` → `format_keys` (автоподбор участий в dossier).
+Dossier в `works.yaml` подбирает кейсы по `products` в `engagements.yaml` (прямое совпадение id или дочерний product hub-узла).
 
 `relationship` питает маркеры в `hub-business` / `hub-event-agencies` (commercial / expert), **не** публичную таблицу реестра.
 
@@ -599,7 +598,6 @@ hub-{раздел}
 | `node` | id `.md` страницы |
 | `category` | `art` \| `education` \| `tech` → мапится в `subkind` продукта |
 | `status` | `production` \| `rnd` \| `concept` \| `patent` |
-| `format_keys` | Список значений `format` в событиях, относящихся к этой работе |
 | `funnel` | Hub для маршрутизации B2B (`hub-business`, …) |
 
 ---
@@ -618,6 +616,8 @@ hub-{раздел}
 | `aliases` в frontmatter | Obsidian-only | сайт не читает; для vault-навигации |
 | Поле `date` (frontmatter) | удалено | `updated` — ревизия страницы; событие → `date_start` |
 | Поле `venue` | удалено | `city_en` / `city_ru` + `venues` (org-id площадки) |
+| Поле `format` | удалено | `products[]` — ссылка на работу ODA |
+| `works.yaml` `format_keys` | удалено | dossier по `products` в engagements |
 | Префикс `work-*` для `kind: media` | deprecated | `media-{subject}-{descriptor}` |
 | Ручное редактирование `proofs.yaml` | переходно | `proof-*.md` → снимок yaml (BL-003) |
 | `site_node` / `alias_of` в proofs.yaml | deprecated | id файла = `id` frontmatter |
@@ -631,7 +631,7 @@ hub-{раздел}
 - `date_start`, `date_end`, `publication_date` → **Date**
 - `updated` → **Text** (`YYYY.MM.DD`) или **Date** (если Obsidian не портит точки)
 - `tags` → **Tags**
-- `kind`, `subkind`, `type`, `status`, `format`, `relationship` → **Text**
+- `kind`, `subkind`, `type`, `status`, `relationship` → **Text**
 - все relation-поля §3–§4 → **List** или **List (Link)** (см. BL-004)
 
 ---
@@ -646,7 +646,7 @@ hub-{раздел}
 | `content-keeper/PHASE-F-AUDIT.md` | Последний аудит целостности |
 | `data/registry/proofs.yaml` | Снимок пруфов (переходно: источник sync; целевое — из `.md`) |
 | `data/registry/organizations.yaml` | Имена и роли организаций для реестра |
-| `data/registry/works.yaml` | Каталог работ + `format_keys` |
+| `data/registry/works.yaml` | Каталог работ + funnel |
 | `content-keeper/BACKLOG.md` | Архитектурный долг CMS (задачи на код) |
 
 ---

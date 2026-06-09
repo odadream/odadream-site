@@ -22,7 +22,6 @@ client: []
 partners: []
 collaborators: []
 relationship: invited
-format: multisync
 products:
   - "[[multisync]]"
 organizer:

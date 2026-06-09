@@ -23,12 +23,13 @@ collaborators: []
 city_en: Moscow
 city_ru: Москва
 relationship: invited
-format: installation
 showcase: true
 proofs:
   - "[[proof-mipt-letter]]"
 organizer:
   - "[[org-kapitsa]]"
+products:
+  - "[[neuromandala]]"
 ---
 
 ## Terraforming — MIPT exhibition

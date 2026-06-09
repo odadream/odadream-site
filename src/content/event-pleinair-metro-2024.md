@@ -15,9 +15,10 @@ city_ru: Москва, м. Фонвизинская
 orgs: []
 venues: []
 relationship: invited
-format: installation
 proofs:
   - "[[proof-press-ntv-metro]]"
+products:
+  - "[[neuromandala]]"
 ---
 
 ## Plein-air in Metro

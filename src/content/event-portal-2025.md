@@ -28,7 +28,6 @@ collaborators: []
 city_en: Moscow
 city_ru: Москва
 relationship: award
-format: mindshow
 showcase: true
 letter: true
 proofs:

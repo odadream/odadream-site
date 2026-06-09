@@ -22,7 +22,6 @@ client: []
 partners: []
 collaborators: []
 relationship: invited
-format: mindshow
 products:
   - "[[mindshow]]"
 organizer:

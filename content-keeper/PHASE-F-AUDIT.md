@@ -1,6 +1,6 @@
 # Phase F — Content audit
 
-Generated: 2026-06-09T12:18:15.738Z
+Generated: 2026-06-09T15:36:04.244Z
 
 ## Summary
 
@@ -15,7 +15,7 @@ Generated: 2026-06-09T12:18:15.738Z
 - Conformance gaps: **0**
 - Body smells: **10**
 - Missing referenced ids: **20**
-- Orphan nodes: **29**
+- Orphan nodes: **26**
 - Duplicate candidates: **0**
 - Proof drift — md-only / yaml-only / no-relations: **0 / 0 / 0**
 - Gratitude mentions / without link: **4 / 1**
@@ -67,8 +67,6 @@ _None — all kinded nodes have required fields._
 
 ## 4. Orphan nodes (no inbound refs, no children)
 
-- `brain-hack.md` (kind: product)
-- `cultural-neuro-code.md` (kind: product)
 - `emomandala-os.md` (kind: product)
 - `event-audi-brand-2024.md` (kind: event)
 - `event-bauman-moscow2030-2025.md` (kind: event)
@@ -88,7 +86,6 @@ _None — all kinded nodes have required fields._
 - `hyperscan-scene-engine.md` (kind: product)
 - `journey.md` (kind: product)
 - `meditation-brain.md` (kind: product)
-- `neuroaesthetics-lec.md` (kind: product)
 - `neuromandala-os.md` (kind: product)
 - `org-culture-sport-uao.md` (kind: organizer)
 - `org-inforce.md` (kind: organizer)

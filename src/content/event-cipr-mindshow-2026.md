@@ -25,7 +25,6 @@ collaborators: []
 city_en: Nizhny Novgorod
 city_ru: Нижний Новгород
 relationship: invited
-format: mindshow
 proofs:
   - "[[proof-tst-cipr-techfriendly]]"
 ---

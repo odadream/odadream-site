@@ -7,7 +7,8 @@
   city_ru: Калуга
   relationship: competition
   subkind: festival
-  format: performance
+  products:
+    - interference
   orgs:
     - org-tsiolkovsky
   venues:
@@ -24,7 +25,8 @@
   city_ru: Нижний Новгород
   relationship: invited
   subkind: forum
-  format: mindshow
+  products:
+    - mindshow
   orgs: []
   venues:
     - org-cipr
@@ -39,7 +41,8 @@
   city_ru: Москва
   relationship: invited
   subkind: festival
-  format: mindshow
+  products:
+    - mindshow
   orgs:
     - org-kalashnikova
   venues: []
@@ -53,7 +56,8 @@
   city_ru: Москва
   relationship: commercial
   subkind: olympiad
-  format: neurobattle
+  products:
+    - neurobattle
   orgs:
     - org-hse
     - org-tbank
@@ -69,7 +73,8 @@
   city_ru: Москва
   relationship: invited
   subkind: exhibition
-  format: installation
+  products:
+    - neuromandala
   orgs:
     - org-kapitsa
   venues:
@@ -85,7 +90,8 @@
   city_ru: ""
   relationship: commercial
   subkind: school
-  format: installation
+  products:
+    - cultural-neuro-code
   orgs:
     - org-tavrida
   venues: []
@@ -100,7 +106,8 @@
   city_ru: Москва
   relationship: invited
   subkind: festival
-  format: mindshow
+  products:
+    - neuromandala
   orgs:
     - org-wildmint
   venues: []
@@ -115,7 +122,8 @@
   city_ru: Москва
   relationship: invited
   subkind: lecture
-  format: lecture
+  products:
+    - beautiful-brain
   orgs:
     - org-hse
   venues: []
@@ -130,7 +138,8 @@
   city_ru: Москва
   relationship: invited
   subkind: lecture
-  format: lecture
+  products:
+    - brain-hack
   orgs: []
   venues:
     - org-bauman
@@ -145,7 +154,8 @@
   city_ru: Москва
   relationship: commercial
   subkind: conference
-  format: lecture
+  products:
+    - neuroaesthetics-lec
   orgs:
     - org-merck
   venues: []
@@ -159,7 +169,8 @@
   city_ru: Шульган-Таш, Башкирия
   relationship: invited
   subkind: exhibition
-  format: installation
+  products:
+    - neuromandala
   orgs: []
   venues: []
   client: []
@@ -172,7 +183,8 @@
   city_ru: Москва
   relationship: award
   subkind: competition
-  format: mindshow
+  products:
+    - mindshow
   orgs:
     - org-moscow2030
     - org-skolkovo
@@ -190,7 +202,8 @@
   city_ru: Москва
   relationship: invited
   subkind: lecture
-  format: lecture
+  products:
+    - neuroaesthetics-lec
   orgs:
     - org-sberbank
   venues: []
@@ -204,7 +217,8 @@
   city_ru: Москва
   relationship: invited
   subkind: forum
-  format: mindshow
+  products:
+    - mindshow
   orgs:
     - org-cci
   venues: []
@@ -218,7 +232,8 @@
   city_ru: Москва
   relationship: commercial
   subkind: private_show
-  format: mindshow
+  products:
+    - mindshow
   orgs:
     - org-ashram
   venues: []
@@ -232,7 +247,8 @@
   city_ru: ""
   relationship: commercial
   subkind: exhibition
-  format: installation
+  products:
+    - mindshow
   orgs:
     - org-audi
   venues: []
@@ -246,7 +262,8 @@
   city_ru: Москва
   relationship: invited
   subkind: private_show
-  format: lecture
+  products:
+    - mindshow
   orgs: []
   venues: []
   client: []
@@ -259,7 +276,8 @@
   city_ru: ""
   relationship: commercial
   subkind: exhibition
-  format: installation
+  products:
+    - mindshow
   orgs:
     - org-lamborghini
   venues: []
@@ -273,7 +291,8 @@
   city_ru: Москва, м. Фонвизинская
   relationship: invited
   subkind: exhibition
-  format: installation
+  products:
+    - neuromandala
   orgs: []
   venues: []
   client: []
@@ -286,7 +305,8 @@
   city_ru: Москва
   relationship: invited
   subkind: festival
-  format: multisync
+  products:
+    - multisync
   orgs:
     - org-kalashnikova
   venues: []
@@ -300,7 +320,8 @@
   city_ru: Москва
   relationship: invited
   subkind: festival
-  format: mindshow
+  products:
+    - mindshow
   orgs:
     - org-kalashnikova
   venues: []

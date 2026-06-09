@@ -11,6 +11,7 @@
 | [BL-003](#bl-003-proofsyaml--снимок-из-md) | высокий | sync / registry | open |
 | [BL-004](#bl-004-obsidian-list-на-всех-relation-полях) | средний | vault / types.json | open |
 | [BL-005](#bl-005-guests--notable-participants) | низкий | event fields | open |
+| [BL-006](#bl-006-удалить-format--только-products) | — | event fields | **done** |
 
 ---
 
@@ -100,10 +101,25 @@
 
 ---
 
+## BL-006: удалить `format` — только `products`
+
+**Статус:** выполнено (CONTENT-SCHEMA v1.6).
+
+**Было:** поле `format` дублировало `products`; dossier в `works.yaml` использовал `format_keys`.
+
+**Стало:**
+- Канон участия ODA на событии — `products[]` (обязательно для `hub-registry`).
+- `engagements.yaml` хранит `products`, не `format`.
+- `proof-builders.casesInline` матчит по `products` (в т.ч. дочерние product hub-узлов).
+- Миграция: `scripts/migrate/remove-format-field.js`.
+
+---
+
 ## Выполнено (архив)
 
 | ID | Коммит / дата | Кратко |
 |----|---------------|--------|
+| BL-006 | 2026.06.02 | Удалён `format`; dossier по `products` |
 | — | 2026.06.02 | Event-scoped roles: `orgs`, `venues`, `partners`; provenance inverse; миграция hub-registry |
 | — | 2026.06.02 `c48353c` | `date` → `updated`; удалено поле `venue` |
 | — | 2026.06.02 `bcf3a40` | `eng-*` / `pleinair-*` → `event-*`; HSE letter; `expo` → `exhibition` |

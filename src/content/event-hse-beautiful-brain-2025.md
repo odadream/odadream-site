@@ -22,12 +22,13 @@ collaborators: []
 city_en: Moscow
 city_ru: Москва
 relationship: invited
-format: lecture
 letter: true
 proofs:
   - "[[proof-let-hse-beautiful-brain]]"
 organizer:
   - "[[org-hse]]"
+products:
+  - "[[beautiful-brain]]"
 ---
 
 ## Beautiful About the Brain — HSE University

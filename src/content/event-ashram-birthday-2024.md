@@ -24,7 +24,6 @@ collaborators: []
 city_en: Moscow
 city_ru: Москва
 relationship: commercial
-format: mindshow
 proofs:
   - "[[proof-tst-ashram-osman]]"
 organizer:

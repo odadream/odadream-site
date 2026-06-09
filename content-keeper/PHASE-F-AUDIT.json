@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09T12:18:15.738Z",
+  "generated_at": "2026-06-09T15:36:04.244Z",
   "counts": {
     "byKind": {
       "product": 34,
@@ -15,7 +15,7 @@
   "conformance_gaps": 0,
   "body_smells": 10,
   "missing_refs": 20,
-  "orphans": 29,
+  "orphans": 26,
   "duplicates": 0,
   "proof_drift": {
     "md_only": 0,
@@ -246,16 +246,6 @@
     ],
     "orphans": [
       {
-        "id": "brain-hack",
-        "kind": "product",
-        "file": "brain-hack.md"
-      },
-      {
-        "id": "cultural-neuro-code",
-        "kind": "product",
-        "file": "cultural-neuro-code.md"
-      },
-      {
         "id": "emomandala-os",
         "kind": "product",
         "file": "emomandala-os.md"
@@ -349,11 +339,6 @@
         "id": "meditation-brain",
         "kind": "product",
         "file": "meditation-brain.md"
-      },
-      {
-        "id": "neuroaesthetics-lec",
-        "kind": "product",
-        "file": "neuroaesthetics-lec.md"
       },
       {
         "id": "neuromandala-os",

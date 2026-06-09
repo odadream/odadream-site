@@ -101,16 +101,27 @@ function engTitleCell(eng, lang, publicCardIds) {
 
 function resolveSubkind(eng, contentMeta) {
   if (eng.subkind) return eng.subkind;
-  const fromContent = contentMeta.get(eng.id)?.subkind;
-  if (fromContent) return fromContent;
-  const byFormat = {
-    neurobattle: "competition",
-    mindshow: "festival",
-    lecture: "lecture",
-    installation: "exhibition",
-    performance: "festival",
-  };
-  return byFormat[eng.format] || "";
+  return contentMeta.get(eng.id)?.subkind || "";
+}
+
+function buildProductIndex() {
+  const byParent = new Map();
+  for (const f of fs.readdirSync(CONTENT_DIR)) {
+    if (!f.endsWith(".md")) continue;
+    const raw = fs.readFileSync(path.join(CONTENT_DIR, f), "utf-8");
+    const fm = raw.match(/^---\s*\r?\n([\s\S]*?)\r?\n---/);
+    if (!fm) continue;
+    const body = fm[1];
+    const idm = body.match(/^id:\s*(.+)$/m);
+    const parentm = body.match(/^parent:\s*(.+)$/m);
+    const kindm = body.match(/^kind:\s*product\s*$/m);
+    if (!idm || !parentm || !kindm) continue;
+    const id = idm[1].trim();
+    const parent = parentm[1].trim();
+    if (!byParent.has(parent)) byParent.set(parent, new Set());
+    byParent.get(parent).add(id);
+  }
+  return { byParent };
 }
 
 function engTableRow(eng, omap, lang, publicCardIds, contentMeta) {
@@ -428,6 +439,7 @@ const proofs = fs.existsSync(PROOFS_PATH) ? loadYaml(PROOFS_PATH) : [];
 const omap = orgMap(orgs);
 const engById = new Map(engagements.map((e) => [e.id, e]));
 const { meta: contentMeta, publicCardIds } = buildContentMetaMap();
+const productIndex = buildProductIndex();
 const tables = buildRegistryTables(engagements, omap, publicCardIds, contentMeta);
 
 cleanupOldGenerated();
@@ -465,8 +477,8 @@ for (const work of works) {
   const file = path.join(CONTENT_DIR, fname);
   let touched = false;
   const variants = [
-    [`dossier:${work.id}`, buildDossier(work, proofs, engagements, omap, engById, "en")],
-    [`dossier:${work.id}-ru`, buildDossier(work, proofs, engagements, omap, engById, "ru")],
+    [`dossier:${work.id}`, buildDossier(work, proofs, engagements, omap, engById, "en", productIndex)],
+    [`dossier:${work.id}-ru`, buildDossier(work, proofs, engagements, omap, engById, "ru", productIndex)],
   ];
   for (const [markerId, content] of variants) {
     if (fileHasMarker(file, markerId)) {

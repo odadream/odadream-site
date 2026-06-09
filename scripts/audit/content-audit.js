@@ -202,6 +202,23 @@ for (const node of nodes.values()) {
         });
       }
     }
+    if (fm.format) {
+      report.roleWarnings.push({
+        id,
+        file,
+        warning: "deprecated-format",
+        detail: `remove format: ${fm.format} — use products[]`,
+      });
+    }
+    const tags = Array.isArray(fm.tags) ? fm.tags : fm.tags ? [fm.tags] : [];
+    if (tags.includes("hub-registry") && !unwrapList(fm.products).length) {
+      report.roleWarnings.push({
+        id,
+        file,
+        warning: "registry-no-products",
+        detail: "hub-registry event should list products[]",
+      });
+    }
   }
 
   // 4. Body smells (post ---RU--- split: scan WHOLE body — duplication can be in either)

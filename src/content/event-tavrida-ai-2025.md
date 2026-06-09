@@ -20,13 +20,14 @@ client: []
 partners: []
 collaborators: []
 relationship: commercial
-format: installation
 letter: true
 proofs:
   - "[[proof-tst-tavrida-ai]]"
   - "[[proof-let-tavrida]]"
 organizer:
   - "[[org-tavrida]]"
+products:
+  - "[[cultural-neuro-code]]"
 ---
 
 ## AI festival Cultural Code of Russia

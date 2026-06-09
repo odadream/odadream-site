@@ -7,14 +7,6 @@ import {
   isoDate, wikilink, nonEmptyList, log, fileExists,
 } from "./lib.js";
 
-// engagements.yaml `format` → product node id
-const FORMAT_PRODUCT = {
-  neurobattle: "neurobattle",
-  mindshow: "mindshow",
-  performance: "interference",
-  // installation / lecture: no canonical product
-};
-
 // engagements.yaml `relationship` → event subkind (when unambiguous)
 const RELATIONSHIP_SUBKIND = {
   competition: "competition",
@@ -53,14 +45,13 @@ export function runEngagements({ dryRun }) {
 
     if (e.client) md.fm.client = [wikilink(e.client)];
 
-    const productId = FORMAT_PRODUCT[e.format];
-    if (productId) md.fm.products = [wikilink(productId)];
+    if (e.products?.length) md.fm.products = e.products.map(wikilink);
 
     writeMd(filePath, md.fm, md.body, { dryRun });
     updated++;
     const parts = [`→ event`];
     if (subkind) parts.push(`/${subkind}`);
-    if (productId) parts.push(`· ${productId}`);
+    if (e.products?.length) parts.push(`· products:${e.products.length}`);
     if (uniqOrgs.length) parts.push(`· orgs:${uniqOrgs.length}`);
     log("ok", `${e.id}.md`, parts.join(" "));
   }

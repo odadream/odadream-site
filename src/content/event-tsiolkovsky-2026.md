@@ -30,7 +30,6 @@ collaborators:
 city_en: Kaluga
 city_ru: Калуга
 relationship: competition
-format: performance
 showcase: true
 organizer:
   - "[[org-tsiolkovsky]]"

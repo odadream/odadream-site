@@ -18,9 +18,10 @@ client: []
 partners: []
 collaborators: []
 relationship: commercial
-format: installation
 organizer:
   - "[[org-lamborghini]]"
+products:
+  - "[[mindshow]]"
 ---
 
 

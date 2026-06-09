@@ -22,9 +22,10 @@ collaborators: []
 city_en: Moscow
 city_ru: Москва
 relationship: invited
-format: lecture
 organizer:
   - "[[org-sberbank]]"
+products:
+  - "[[neuroaesthetics-lec]]"
 ---
 
 ## Science-art lecture for Sberbank

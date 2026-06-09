@@ -26,7 +26,6 @@ collaborators: []
 city_en: Moscow
 city_ru: Москва
 relationship: commercial
-format: neurobattle
 organizer:
   - "[[org-hse]]"
   - "[[org-tbank]]"

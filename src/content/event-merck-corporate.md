@@ -22,9 +22,10 @@ collaborators: []
 city_en: Moscow
 city_ru: Москва
 relationship: commercial
-format: lecture
 organizer:
   - "[[org-merck]]"
+products:
+  - "[[neuroaesthetics-lec]]"
 ---
 
 ## Merck corporate science-art format

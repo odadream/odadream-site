@@ -6,9 +6,9 @@
 #   tech       — Технологические разработки (Neuromandala platform, hyperscanning — where patents live)
 #
 # status: production | rnd | concept | patent
-# node:        id of the src/content/*.md page this work renders on (provenance is injected there)
-# format_keys: values of `format` in engagements.yaml that belong to this work (drives auto-provenance)
-# funnel:      hub-collab page a producer should be routed to from this work
+# node:   id of the src/content/*.md page this work renders on (provenance is injected there)
+# funnel: hub-collab page a producer should be routed to from this work
+# Dossier «Shown at» picks engagements whose `products` includes node id (or child product under hub node).
 #
 # Canonical anchor (Chudodeystvo "Продукты и услуги"): Перформанс, Игры, Инсталляция,
 # Ювелирка, MindShow, Bio-IMAG → art · Лекции/МК/Лабы, Практики, Нейро-замеры → education ·
@@ -20,7 +20,6 @@
   status: production
   title_ru: Парадокс Победы
   title_en: Paradox of Victory
-  format_keys: [neurobattle]
   funnel: hub-business
 
 - id: mindshow
@@ -29,7 +28,6 @@
   status: production
   title_ru: MindShow
   title_en: MindShow
-  format_keys: [mindshow]
   funnel: hub-institutions
 
 - id: interference
@@ -38,7 +36,6 @@
   status: production
   title_ru: Интерференция реальностей
   title_en: Interference of Realities
-  format_keys: [performance]
   funnel: hub-institutions
 
 - id: schrodinger
@@ -47,7 +44,6 @@
   status: rnd
   title_ru: Проект «Шрёдингер»
   title_en: Project Schrödinger
-  format_keys: []
   funnel: hub-institutions
 
 - id: sync-circle
@@ -56,7 +52,6 @@
   status: rnd
   title_ru: Круг синхронизации
   title_en: Sync Circle
-  format_keys: []
   funnel: hub-institutions
 
 - id: cultural-neuro-code
@@ -65,7 +60,6 @@
   status: rnd
   title_ru: Культурный нейрокод
   title_en: Cultural Neuro Code
-  format_keys: []
   funnel: hub-big-forms
 
 - id: heritage
@@ -74,7 +68,6 @@
   status: rnd
   title_ru: Наследие
   title_en: Heritage
-  format_keys: []
   funnel: hub-institutions
 
 - id: potustoronniy
@@ -83,7 +76,6 @@
   status: rnd
   title_ru: Потусторонний
   title_en: Beyond
-  format_keys: []
   funnel: hub-institutions
 
 - id: dashran
@@ -92,7 +84,6 @@
   status: concept
   title_ru: Момент Даршана
   title_en: Darshan Moment
-  format_keys: []
   funnel: hub-institutions
 
 - id: brain-hack
@@ -101,7 +92,6 @@
   status: concept
   title_ru: Взлом мозга
   title_en: Brain Hack
-  format_keys: []
   funnel: hub-business
 
 - id: journey
@@ -110,7 +100,6 @@
   status: concept
   title_ru: Путешествие к себе
   title_en: Journey to Yourself
-  format_keys: []
   funnel: hub-business
 
 - id: emomandala
@@ -119,7 +108,6 @@
   status: rnd
   title_ru: Эмомандала
   title_en: Emomandala
-  format_keys: []
   funnel: hub-galleries
 
 - id: jewellery
@@ -128,7 +116,6 @@
   status: rnd
   title_ru: Ювелирные объекты
   title_en: Jewellery Objects
-  format_keys: []
   funnel: hub-galleries
 
 - id: mom-baby
@@ -137,7 +124,6 @@
   status: concept
   title_ru: Мама и малыш
   title_en: Mom and Baby
-  format_keys: []
   funnel: hub-galleries
 
 - id: hub-lectures
@@ -146,7 +132,6 @@
   status: production
   title_ru: Лекции-перформансы
   title_en: Lecture-Performances
-  format_keys: [lecture]
   funnel: hub-education
 
 - id: hub-practices
@@ -155,7 +140,6 @@
   status: rnd
   title_ru: Практики
   title_en: Practices
-  format_keys: [practice]
   funnel: hub-education
 
 - id: neuromandala
@@ -164,7 +148,6 @@
   status: patent
   title_ru: Нейромандала
   title_en: Neuromandala
-  format_keys: [installation]
   funnel: hub-institutions
 
 - id: multisync
@@ -173,5 +156,4 @@
   status: rnd
   title_ru: Гиперсканирование (MultiSync)
   title_en: Hyperscanning (MultiSync)
-  format_keys: []
   funnel: hub-institutions
