@@ -1,6 +1,6 @@
 /**
  * Load engagement rows for hub-registry from src/content event cards.
- * Source: event-*.md / eng-*.md with tag hub-registry (edited via events.base in Obsidian).
+ * Source: event-*.md with tag hub-registry (edited via events.base in Obsidian).
  * Writes data/registry/engagements.yaml as a derived snapshot.
  */
 import fs from "fs";
@@ -28,10 +28,8 @@ function tagList(fm) {
   return Array.isArray(fm.tags) ? fm.tags : [fm.tags];
 }
 
-function isRegistryCard(fm, filename) {
-  if (tagList(fm).includes("hub-registry")) return true;
-  if (filename.startsWith("eng-") && fm.kind === "event") return true;
-  return false;
+function isRegistryCard(fm) {
+  return tagList(fm).includes("hub-registry");
 }
 
 function pickEngagement(fm, fallbackId) {
@@ -84,11 +82,11 @@ export function loadEngagementsFromContent(contentDir = CONTENT_DIR) {
   const rows = [];
   for (const name of fs.readdirSync(contentDir)) {
     if (!name.endsWith(".md")) continue;
-    if (!name.startsWith("event-") && !name.startsWith("eng-")) continue;
+    if (!name.startsWith("event-")) continue;
 
     const parsed = readMd(path.join(contentDir, name));
     if (!parsed) continue;
-    if (!isRegistryCard(parsed.fm, name)) continue;
+    if (!isRegistryCard(parsed.fm)) continue;
 
     const row = pickEngagement(parsed.fm, path.basename(name, ".md"));
     if (row) rows.push(row);

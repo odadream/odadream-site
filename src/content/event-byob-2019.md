@@ -4,14 +4,22 @@ parent: event-byob
 title_en: BYOB 2019
 title_ru: BYOB 2019
 type: content
-tags: [event-byob]
+tags:
+  - event-byob
+  - hub-registry
 order: 0
 date: 2019.12.22
 visible: true
 kind: event
 subkind: festival
 date_start: 2019-12-22
-venue: "Moscow"
+city_en: Moscow
+city_ru: Москва
+orgs:
+  - org-kalashnikova
+venues: []
+relationship: invited
+format: mindshow
 organizer:
   - "[[org-kalashnikova]]"
 products:

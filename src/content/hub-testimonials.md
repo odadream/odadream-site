@@ -24,10 +24,6 @@ Verified words from organizers, institutions, and partners — about the duo and
 >
 > — Tavrida.ART (2025)
 
-> «for conducting an immersive lecture "Beautiful About the Brain" that united neurophysiology, EEG technologies, and science-art»
->
-> — HSE University (2025)
-
 > «for the birthday celebration of Ashram studio — a neuro-art experience that resonated deeply with our wellness community»
 >
 > — Ashram Studio (Natali Osman) (2024)
@@ -55,10 +51,6 @@ Verified words from organizers, institutions, and partners — about the duo and
 > «за участие в первом фестивале ИИ «Культурный код России», интерес к проекту и создание своей работы»
 >
 > — Таврида.АРТ (2025)
-
-> «за проведение иммерсивной лекции «Красиво про мозг», объединившей нейрофизиологию, ЭЭГ-технологии и science-art»
->
-> — НИУ ВШЭ (2025)
 
 > «за нейро-арт-опыт на праздновании дня рождения студии Ашрам, который глубоко отозвался в нашем велнес-сообществе»
 >

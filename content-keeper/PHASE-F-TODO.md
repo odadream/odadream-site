@@ -1,6 +1,6 @@
 # Phase F — TODO
 
-Generated: 2026-06-09T09:18:51.129Z
+Generated: 2026-06-09T11:05:35.976Z
 
 Items are grouped by **who fixes them** so non-trivial work isn't blocked on mechanical tasks.
 
@@ -27,7 +27,7 @@ Pilot proof .md files exist without a matching record in `proofs.yaml`. Either b
 | `ODA.dream — сводка трека` | product | proof-cred-track-record.issued_by |
 | `Tech Week` | product | proof-let-techweek.issued_by |
 | `home` | product | proof-award-ars-electronica.proof_of; proof-cred-track-record.proof_of; proof-cred-tskhr.proof_of; proof-ip-trademark.proof_of; proof-let-golos-obshchestva.proof_of |
-| `test issuer` | product | proof-emomandala-abundance.issued_by |
+| `Архив студии · линейка талисманов` | product | proof-emomandala-abundance.issued_by |
 | `Архив студии · параллельный заказ` | product | proof-mom-baby-iowa-gift.issued_by |
 | `Вечерняя Москва` | product | proof-press-vecherka.issued_by |
 | `Конференция «КОД: Провинции», Калуга` | product | proof-let-kod-provincii.issued_by |
@@ -45,8 +45,7 @@ Pilot proof .md files exist without a matching record in `proofs.yaml`. Either b
 
 ## E. Human decision — duplicates
 
-- `hub-events` ⇄ `hub-host-events` — same title_en (undefined). Decide: rename, merge, or keep (different audiences).
-- `proof-hse-beautiful-brain` ⇄ `proof-tst-hse-brain` — same title_en (proof). Decide: rename, merge, or keep (different audiences).
+_None._
 
 ## F. Human decision — body smells
 
@@ -58,7 +57,7 @@ Hub pages contain bullet lists of `[[…]]`. These are navigation by hand. Decis
 - `emomandala.md` — Provenance
 - `event-portal.md` — 6 link bullets in 2 block(s)
 - `hub-business.md` — 12 link bullets in 2 block(s)
-- `hub-event-agencies.md` — 40 link bullets in 6 block(s)
+- `hub-event-agencies.md` — 44 link bullets in 6 block(s)
 - `hub-events.md` — 12 link bullets in 2 block(s)
 - `hub-lectures.md` — 12 link bullets in 2 block(s)
 - `hub-registry-collabs.md` — 8 link bullets in 2 block(s)
@@ -76,15 +75,17 @@ Total: 31. These are leaf nodes nobody points at and that anchor nothing themsel
 - `collab-korichina.md` (kind: collaboration)
 - `cultural-neuro-code.md` (kind: product)
 - `emomandala-os.md` (kind: product)
-- `eng-audi-brand.md` (kind: event)
-- `eng-lamborghini-brand.md` (kind: event)
+- `event-audi-brand-2024.md` (kind: event)
 - `event-bauman-moscow2030-2025.md` (kind: event)
 - `event-bitva-milliard-2024.md` (kind: event)
 - `event-brics-plus.md` (kind: event)
 - `event-gonchar-private-2024.md` (kind: event)
 - `event-gong-fest-2024.md` (kind: event)
 - `event-gong-fest-2025.md` (kind: event)
+- `event-lamborghini-brand-2024.md` (kind: event)
 - `event-merck-corporate.md` (kind: event)
+- `event-pleinair-bashkiria-2025.md` (kind: event)
+- `event-pleinair-metro-2024.md` (kind: event)
 - `event-portal-2024.md` (kind: event)
 - `event-sber-lecture-2025.md` (kind: event)
 - `event-techweek.md` (kind: event)
@@ -96,8 +97,6 @@ Total: 31. These are leaf nodes nobody points at and that anchor nothing themsel
 - `neuromandala-os.md` (kind: product)
 - `org-culture-sport-uao.md` (kind: organizer)
 - `org-inforce.md` (kind: organizer)
-- `pleinair-bashkiria.md` (kind: event)
-- `pleinair-metro.md` (kind: event)
 - `sound-brain.md` (kind: product)
 - `taste-brain.md` (kind: product)
 - `unique-russia.md` (kind: event)

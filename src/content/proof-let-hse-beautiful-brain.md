@@ -1,5 +1,5 @@
 ---
-id: proof-hse-beautiful-brain
+id: proof-let-hse-beautiful-brain
 parent: hub-letters
 title_en: HSE — Beautiful About the Brain
 title_ru: ВШЭ — «Красиво про мозг»

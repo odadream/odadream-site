@@ -1,22 +1,22 @@
 # Phase F — Content audit
 
-Generated: 2026-06-09T09:18:51.129Z
+Generated: 2026-06-09T11:05:35.976Z
 
 ## Summary
 
-- Total nodes: **228**
+- Total nodes: **225**
   - (no kind): 49
   - collaboration: 4
   - event: 37
   - media: 34
   - organizer: 31
   - product: 34
-  - proof: 39
+  - proof: 36
 - Conformance gaps: **0**
 - Body smells: **10**
 - Missing referenced ids: **20**
 - Orphan nodes: **31**
-- Duplicate candidates: **2**
+- Duplicate candidates: **0**
 - Proof drift — md-only / yaml-only / no-relations: **0 / 0 / 0**
 - Gratitude mentions / without link: **4 / 1**
 
@@ -32,7 +32,7 @@ _None — all kinded nodes have required fields._
 ### manual-link-list (8)
 - `event-portal.md` — 6 link bullets in 2 block(s)
 - `hub-business.md` — 12 link bullets in 2 block(s)
-- `hub-event-agencies.md` — 40 link bullets in 6 block(s)
+- `hub-event-agencies.md` — 44 link bullets in 6 block(s)
 - `hub-events.md` — 12 link bullets in 2 block(s)
 - `hub-lectures.md` — 12 link bullets in 2 block(s)
 - `hub-registry-collabs.md` — 8 link bullets in 2 block(s)
@@ -48,7 +48,7 @@ _None — all kinded nodes have required fields._
 | `ODA.dream — сводка трека` | product | proof-cred-track-record.issued_by |
 | `Tech Week` | product | proof-let-techweek.issued_by |
 | `home` | product | proof-award-ars-electronica.proof_of, proof-cred-track-record.proof_of, proof-cred-tskhr.proof_of, proof-ip-trademark.proof_of, proof-let-golos-obshchestva.proof_of, proof-let-kod-provincii.proof_of, proof-let-media-experts.proof_of, proof-let-moscow2030.proof_of, proof-let-techweek.proof_of, proof-let-tpp-techinno.proof_of, proof-let-unique-russia.proof_of, proof-oda-synergy-forum-2022.proof_of, proof-press-cyens-cyprus.proof_of, proof-press-vecherka.proof_of |
-| `test issuer` | product | proof-emomandala-abundance.issued_by |
+| `Архив студии · линейка талисманов` | product | proof-emomandala-abundance.issued_by |
 | `Архив студии · параллельный заказ` | product | proof-mom-baby-iowa-gift.issued_by |
 | `Вечерняя Москва` | product | proof-press-vecherka.issued_by |
 | `Конференция «КОД: Провинции», Калуга` | product | proof-let-kod-provincii.issued_by |
@@ -72,15 +72,17 @@ _None — all kinded nodes have required fields._
 - `collab-korichina.md` (kind: collaboration)
 - `cultural-neuro-code.md` (kind: product)
 - `emomandala-os.md` (kind: product)
-- `eng-audi-brand.md` (kind: event)
-- `eng-lamborghini-brand.md` (kind: event)
+- `event-audi-brand-2024.md` (kind: event)
 - `event-bauman-moscow2030-2025.md` (kind: event)
 - `event-bitva-milliard-2024.md` (kind: event)
 - `event-brics-plus.md` (kind: event)
 - `event-gonchar-private-2024.md` (kind: event)
 - `event-gong-fest-2024.md` (kind: event)
 - `event-gong-fest-2025.md` (kind: event)
+- `event-lamborghini-brand-2024.md` (kind: event)
 - `event-merck-corporate.md` (kind: event)
+- `event-pleinair-bashkiria-2025.md` (kind: event)
+- `event-pleinair-metro-2024.md` (kind: event)
 - `event-portal-2024.md` (kind: event)
 - `event-sber-lecture-2025.md` (kind: event)
 - `event-techweek.md` (kind: event)
@@ -92,16 +94,13 @@ _None — all kinded nodes have required fields._
 - `neuromandala-os.md` (kind: product)
 - `org-culture-sport-uao.md` (kind: organizer)
 - `org-inforce.md` (kind: organizer)
-- `pleinair-bashkiria.md` (kind: event)
-- `pleinair-metro.md` (kind: event)
 - `sound-brain.md` (kind: product)
 - `taste-brain.md` (kind: product)
 - `unique-russia.md` (kind: event)
 
 ## 5. Duplicate candidates (same title_en within kind)
 
-- `hub-events` ⇄ `hub-host-events` — same title_en (undefined)
-- `proof-hse-beautiful-brain` ⇄ `proof-tst-hse-brain` — same title_en (proof)
+_None._
 
 ## 6. Proof drift
 
@@ -113,5 +112,5 @@ _None — all kinded nodes have required fields._
 
 - `beautiful-brain.md` — has proof link: yes
 - `hub-registry.md` — has proof link: **NO**
-- `proof-hse-beautiful-brain.md` — has proof link: yes
+- `proof-let-hse-beautiful-brain.md` — has proof link: yes
 - `proof-mipt-letter.md` — has proof link: yes

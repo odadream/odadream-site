@@ -1,7 +1,7 @@
 ---
 id: hub-host-events
 parent: hub-collab
-title_en: Events
+title_en: For Events
 title_ru: Ивенты
 type: content
 tags:

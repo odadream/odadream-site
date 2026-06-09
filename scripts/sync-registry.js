@@ -1,6 +1,6 @@
 /**
  * Sync Experience Registry to Lotus CMS.
- * Editable source: src/content/event-*.md + eng-*.md (tag hub-registry) via events.base
+ * Editable source: src/content/event-*.md (tag hub-registry) via events.base
  * Run: npm run registry:sync  (after npm run sync:fields when yaml/proofs change)
  */
 import fs from "fs";
@@ -34,7 +34,6 @@ const EVENT_SUBKIND = {
   series: { en: "Event series", ru: "Серия событий" },
   festival: { en: "Festival", ru: "Фестиваль" },
   lab: { en: "Lab", ru: "Лаборатория" },
-  expo: { en: "Exhibition", ru: "Выставка" },
   exhibition: { en: "Exhibition", ru: "Выставка" },
   forum: { en: "Forum", ru: "Форум" },
   lecture: { en: "Lecture", ru: "Лекция" },
@@ -108,7 +107,7 @@ function resolveSubkind(eng, contentMeta) {
     neurobattle: "competition",
     mindshow: "festival",
     lecture: "lecture",
-    installation: "expo",
+    installation: "exhibition",
     performance: "festival",
   };
   return byFormat[eng.format] || "";

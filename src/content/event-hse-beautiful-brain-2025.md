@@ -26,8 +26,7 @@ relationship: invited
 format: lecture
 letter: true
 proofs:
-  - "[[proof-tst-hse-brain]]"
-  - "[[proof-hse-beautiful-brain]]"
+  - "[[proof-let-hse-beautiful-brain]]"
 ---
 
 ## Beautiful About the Brain — HSE University

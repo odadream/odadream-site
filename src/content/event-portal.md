@@ -50,7 +50,7 @@ For ODA.dream, this platform became a bridge between R&D formats and institution
 
 - [[mindshow|MindShow]] — core format used in Portal cases.
 - [[hub-events|Events]] — broader timeline and related event cases.
-- [[hub-pleinair|Digital Plein Air]] — neighboring line of public urban/media deployment.
+- [[hub-exhibitions|Exhibitions]] — neighboring line of public urban/media deployment.
 
 ---RU---
 
@@ -90,4 +90,4 @@ For ODA.dream, this platform became a bridge between R&D formats and institution
 
 - [[mindshow|MindShow]] — базовый формат, использованный в кейсах Портала.
 - [[hub-events|События]] — общая лента событий и соседние кейсы.
-- [[hub-pleinair|Цифровой пленэр]] — параллельная линия городских и полевых показов.
+- [[hub-exhibitions|Выставки]] — параллельная линия городских и полевых показов.

@@ -4,14 +4,22 @@ parent: event-byob
 title_en: BYOB 2026
 title_ru: BYOB 2026
 type: content
-tags: [event-byob]
+tags:
+  - event-byob
+  - hub-registry
 order: 2
 date: 2026.02.28
 visible: true
 kind: event
 subkind: festival
 date_start: 2026-02-28
-venue: "Moscow"
+city_en: Moscow
+city_ru: Москва
+orgs:
+  - org-kalashnikova
+venues: []
+relationship: invited
+format: mindshow
 organizer:
   - "[[org-kalashnikova]]"
 products:

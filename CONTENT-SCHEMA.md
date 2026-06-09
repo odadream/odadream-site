@@ -35,14 +35,14 @@
 
 ### 2.2 `kind` — семантическая роль в графе provenance
 
-| `kind` | Назначение | Префикс id / файла |
-|--------|------------|-------------------|
-| `product` | Произведение, продукт, лекция как работа | `mindshow`, `neuromandala`, … |
-| `event` | Событие, участие, выставка, лекция на площадке | `event-*`, `pleinair-*`, `eng-*` |
-| `organizer` | Организация, площадка, куратор как сущность | `org-*` |
-| `collaboration` | Равное со-творчество | `collab-*` |
-| `proof` | Награда, письмо, отзыв, пресса | `proof-*` |
-| `media` | Медиа-работа (фото/видео/эскиз как узел) | `media-*`, `work-*` |
+| `kind`          | Назначение                                     | Префикс id / файла                                                   |
+| --------------- | ---------------------------------------------- | -------------------------------------------------------------------- |
+| `product`       | Произведение, продукт, лекция как работа       | `mindshow`, `neuromandala`, …                                        |
+| `event`         | Событие, участие, выставка, лекция на площадке | `event-*`                                                            |
+| `organizer`     | Организация, площадка, куратор как сущность    | `org-*`                                                              |
+| `collaboration` | Равное со-творчество                           | `collab-*`                                                           |
+| `proof`         | Награда, письмо, отзыв, пресса                 | `proof-*`                                                            |
+| `media`         | Медиа-работа (фото/видео/эскиз как узел)       | `media-*`, `work-*` >> убрать неоднозначность, оставить только media |
 
 **Навигационные hub-страницы** (`hub-works`, `hub-events`, …) обычно имеют `type: hub` и **не задают** `kind` — они только группируют детей.
 
@@ -198,17 +198,17 @@ Hub-родитель (`type: hub`) без дат участия. Каждая р
 **Шаблон:** `src/content/_templates/proof.md` · **Base:** `proofs.base`  
 **Ledger:** `data/registry/proofs.yaml` (источник для `npm run sync:fields`)
 
-| Поле | Obsidian | Обяз. | Связь | Описание |
-|------|----------|-------|-------|----------|
-| `kind` | Text | **да** | — | `proof` |
-| `subkind` | Text | **да** | taxonomy | `award`, `letter`, `testimonial`, `press`, `review`, `interview` (не `hub-press` — устарело, см. §14) |
-| `proof_of` | List | **да** | → `product` \| `event` \| `home`* | К чему относится пруф |
-| `issued_by` | List | **да**† | → `organizer` или Text | Кто выдал / источник |
-| `publication` | Text | нет† | — | Название издания / оргкомитета (для press) |
-| `publication_date` | Date | нет | — | Дата публикации (ISO) |
-| `asset` | Text | нет | — | Путь к скану: `/images/proofs/...` |
-| `quote_en` / `quote_ru` | Text | нет | — | Цитата (testimonial) |
-| `external_link` | Text | нет | — | URL статьи / сюжета |
+| Поле                    | Obsidian | Обяз.   | Связь                             | Описание                                                                                              |
+| ----------------------- | -------- | ------- | --------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `kind`                  | Text     | **да**  | —                                 | `proof`                                                                                               |
+| `subkind`               | Text     | **да**  | taxonomy                          | `award`, `letter`, `testimonial`, `press`, `review`, `interview` (не `hub-press` — устарело, см. §14) |
+| `proof_of`              | List     | **да**  | → `product` \| `event` \| `home`* | К чему относится пруф                                                                                 |
+| `issued_by`             | List     | **да**† | → `organizer` или Text            | Кто выдал / источник                                                                                  |
+| `publication`           | Text     | нет†    | —                                 | Название издания / оргкомитета (для press)                                                            |
+| `publication_date`      | Date     | нет     | —                                 | Дата публикации (ISO)                                                                                 |
+| `asset`                 | Text     | нет     | —                                 | Путь к скану: `/images/proofs/...`                                                                    |
+| `quote_en` / `quote_ru` | Text     | нет     | —                                 | Цитата (testimonial)                                                                                  |
+| `external_link`         | Text     | нет     | —                                 | URL статьи / сюжета                                                                                   |
 
 \* `home` — студийный scope (корневой узел сайта); в audit может фигурировать как «виртуальная» ссылка.  
 † Для press достаточно `publication` **или** `issued_by`. Синхронизатор заполняет `issued_by` из `org` / `source_*` в yaml.
@@ -406,6 +406,7 @@ event-{серия}-{YYYY}                  # редакция серии
 **Registry:** публичный реестр участий — те же `event-*` + тег `hub-registry` (редактирование через `events.base`).
 
 **Legacy (не создавать новые):**
+
 | Паттерн | Статус | Замена |
 |---------|--------|--------|
 | `eng-{slug}` | deprecated | `event-{slug}-{год}` + `hub-registry` |
@@ -420,7 +421,7 @@ event-{серия}-{YYYY}                  # редакция серии
 |---------|-----------|--------------|
 | `award` | award | `proof-award-portal-visioning.md` |
 | `let` | letter | `proof-let-portal.md` |
-| `tst` | testimonial | `proof-tst-hse-brain.md` |
+| `tst` | testimonial | `proof-tst-cipr-techfriendly.md` |
 | `press` | press | `proof-press-ntv-metro.md` |
 | `cred` | award (studio credentials) | `proof-cred-tskhr.md` |
 | `ip` | award (IP) | `proof-ip-trademark.md` |
@@ -471,6 +472,8 @@ hub-{раздел}
 
 Только навигация (`type: hub`), обычно **без** `kind`.  
 Примеры: `hub-events`, `hub-registry`, `hub-letters`, `hub-debug-video`.
+
+**Не путать:** `hub-events` (публичная лента событий, `parent: hub-home`) и `hub-host-events` (B2B-обзор форматов для организаторов, `parent: hub-collab`, `title_en: For Events`) — разные узлы, не дубли.
 
 ### 10.9 Антипаттерны
 
@@ -579,7 +582,8 @@ hub-{раздел}
 
 | Элемент | Статус | Замена |
 |---------|--------|--------|
-| Префикс `eng-*` | legacy | `event-*` + тег `hub-registry`; `eng-*` всё ещё подхватывается sync |
+| Префикс `eng-*` | удалён | `event-*` + тег `hub-registry` |
+| `subkind: expo` | удалён | `exhibition` (единственный subkind в taxonomy) |
 | `parent: events`, `letters`, `research`, `registry-orgs` | мёртвые id в старых шаблонах | `hub-events`, `hub-letters`, `hub-works`, `hub-world` |
 | `data/registry/engagements/` | удалён | `src/content/event-*.md` |
 | `hub-registry-commercial`, `-expert`, `-orgs` | удалены | единый `hub-registry` |

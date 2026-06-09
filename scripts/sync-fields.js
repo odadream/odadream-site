@@ -31,8 +31,8 @@ const hasLink = (arr, id) =>
 const PROOF_YAML_ALIASES = {};
 
 const EVENT_DATE_HINTS = {
-  "pleinair-bashkiria": "2025-01-01",
-  "pleinair-metro": "2024-01-01",
+  "event-pleinair-bashkiria-2025": "2025-01-01",
+  "event-pleinair-metro-2024": "2024-01-01",
   "unique-russia": "2026-01-01",
   "event-bitva-milliard-2024": "2024-01-01",
   "event-techweek": "2024-01-01",
@@ -124,9 +124,7 @@ function syncRegistryEventCards() {
       : md.fm.tags
         ? [md.fm.tags]
         : [];
-    const isRegistry =
-      tags.includes("hub-registry") ||
-      (file.startsWith("eng-") && md.fm.kind === "event");
+    const isRegistry = tags.includes("hub-registry");
     if (!isRegistry) continue;
 
     const { fm, body } = md;

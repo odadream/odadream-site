@@ -1,5 +1,5 @@
 # Project Content Tree
-Generated: 09.06.2026, 12:05:58
+Generated: 09.06.2026, 14:04:35
 
 Total Nodes: 225
 
@@ -13,7 +13,7 @@ Total Nodes: 225
     │   ├── **hub-creators** (Artists)
     │   ├── **hub-education** (For Education)
     │   ├── **hub-event-agencies** (For Agencies)
-    │   ├── **hub-host-events** (Events) [📂 3]
+    │   ├── **hub-host-events** (For Events) [📂 3]
     │   │     ├─ 🖼️ `media:nrbt-dano`
     │   │     ├─ 🖼️ `media:mdsh-tpp`
     │   │     └─ 🖼️ `media:lec-gonchar`
@@ -47,13 +47,13 @@ Total Nodes: 225
     │   │   │     └─ 🖼️ `/images/content/lectures-sber.webp`
     │   │   └── **event-tavrida-ai-2025** (AI festival Cultural Code of Russia)
     │   ├── **hub-exhibitions** (Exhibitions)
+    │   │   ├── **event-pleinair-bashkiria-2025** (Digital plein-air, Bashkiria)
+    │   │   ├── **event-pleinair-metro-2024** (Plein-air in Metro)
     │   │   ├── **hub-chastoti** (Chastoti) [📂 2]
     │   │   │     ├─ 🖼️ `/images/content/neuromandala-cover.webp`
     │   │   │     └─ 🖼️ `https://www.youtube.com/watch?v=1g9FDBRSa5w`
     │   │   ├── **hub-terraforming** (Terraforming)
     │   │   │   └── **event-mipt-terraforming-2025** (Terraforming — MIPT exhibition)
-    │   │   ├── **pleinair-bashkiria** (Digital plein-air, Bashkiria)
-    │   │   ├── **pleinair-metro** (Plein-air in Metro)
     │   │   └── **unique-russia** (Unique Russia 2026)
     │   ├── **hub-festivals** (Festivals)
     │   │   ├── **event-byob** (BYOB)
@@ -103,7 +103,7 @@ Total Nodes: 225
     │     ├─ 🖼️ `media:lec-ashram`
     │     ├─ 🖼️ `media:art-brain-cover`
     │   ├── **beautiful-brain** (Beautiful About the Brain) [📂 2]
-    │   │     ├─ 🖼️ `proof-hse-beautiful-brain`
+    │   │     ├─ 🖼️ `proof-let-hse-beautiful-brain`
     │   │     └─ 🖼️ `media:art-brain-cover`
     │   ├── **brain-hack** (Brain Hack)
     │   ├── **feedback-empathy-brain** (Empathy)
@@ -353,11 +353,12 @@ Total Nodes: 225
         ├── **awards** (Awards)
         ├── **clients** (Clients)
         ├── **collabs** (Collabs)
-        ├── **eng-audi-brand** (Audi brand activation)
-        ├── **eng-lamborghini-brand** (Lamborghini brand activation)
+        ├── **event-audi-brand-2024** (Audi brand activation)
+        ├── **event-lamborghini-brand-2024** (Lamborghini brand activation)
         ├── **hub-cv** (CV)
-        ├── **hub-letters** (Recognition & Awards) [📂 13]
+        ├── **hub-letters** (Recognition & Awards) [📂 14]
         │     ├─ 🖼️ `/images/content/proofs/collab_2026_ODA_Gostinyy...`
+        │     ├─ 🖼️ `/images/proofs/proof-mipt-letter.webp`
         │     ├─ 🖼️ `/images/content/proofs/collab_2025_ODA_Portal.webp`
         │     ├─ 🖼️ `/images/content/proofs/collab_2025_ODA_Tavrida_...`
         │     ├─ 🖼️ `/images/content/proofs/collab_2025_ODA_VShE_ch2...`
@@ -377,13 +378,13 @@ Total Nodes: 225
         │   ├── **proof-cred-track-record** (7 years on market · 80+ hub-events · 1,500+ participants · 10+ cities)
         │   ├── **proof-cred-tskhr** (Members of the Creative Union of Artists of Russia (TSKhR) — Multimedia & Scientific Art sections)
         │   ├── **proof-emomandala-abundance** (Emomandala — Abundance talisman (23 Mar 2023))
-        │   ├── **proof-hse-beautiful-brain** (HSE — Beautiful About the Brain) [📂 1]
-        │   │     └─ 🖼️ `/images/content/proofs/collab_2025_ODA_VShE_ch2...`
         │   ├── **proof-ip-patent** (Neuromandala — patent application filed)
         │   ├── **proof-ip-trademark** (ODA.Dream® — registered trademark (Rospatent))
         │   ├── **proof-let-bashkiria** (Participation — first digital plein air in Bashkiria)
         │   ├── **proof-let-bitva-milliard** (Letter of appreciation — "Neuromandala" art installation)
         │   ├── **proof-let-golos-obshchestva** (Letter of appreciation — expert participation)
+        │   ├── **proof-let-hse-beautiful-brain** (HSE — Beautiful About the Brain) [📂 1]
+        │   │     └─ 🖼️ `/images/content/proofs/collab_2025_ODA_VShE_ch2...`
         │   ├── **proof-let-kod-provincii** (Letter of appreciation — speaker participation)
         │   ├── **proof-let-media-experts** (Letter of appreciation — "Cultural Code of North Ossetia" exhibition)
         │   ├── **proof-let-moscow2030** (Letter of appreciation — Moscow 2030, forum-festival participation)
@@ -396,8 +397,7 @@ Total Nodes: 225
         │   ├── **proof-mipt-letter** (MIPT — Letter of recognition)
         │   ├── **proof-mom-baby-borzikh-origin** (Mom & Baby — Borzikh commission (Synergy Forum, Bali))
         │   ├── **proof-mom-baby-iowa-gift** (Mom & Baby — gift to Katya IOWA)
-        │   ├── **proof-oda-synergy-forum-2022** (ODA.dream debut — Synergy Crypto & NFT Forum, Bali)
-        │   └── **proof-portal-1st** (1st place — Visioning VJ competition, Portal 2030–2050)
+        │   └── **proof-oda-synergy-forum-2022** (ODA.dream debut — Synergy Crypto & NFT Forum, Bali)
         ├── **hub-manifesto** (Manifesto)
         ├── **hub-press** (Press)
         │   ├── **proof-press-cyens-cyprus** (International collaboration inquiry on the neuro-art methodology)
@@ -407,16 +407,15 @@ Total Nodes: 225
         │   └── **proof-press-vecherka** (Coverage of an ODA.dream public event)
         ├── **hub-registry** (Experience Registry)
         ├── **hub-testimonials** (Testimonials)
-        │   ├── **proof-cipr-quote** (CIPR — Testimonial quote)
         │   ├── **proof-tst-ashram-osman** (Ashram Studio — Birthday Celebration)
         │   ├── **proof-tst-bitva-milliard** (Bitva za Milliard — Neuromandala)
         │   ├── **proof-tst-cipr-techfriendly** (CIPR TechFriendly — MindShow)
-        │   ├── **proof-tst-hse-brain** (HSE — Beautiful About the Brain)
         │   ├── **proof-tst-meditation-day** (International Meditation Day)
         │   └── **proof-tst-tavrida-ai** (Tavrida.ART — Cultural Code of Russia)
         ├── **org-ashram** (Ashram Studio (Natali Osman))
         ├── **org-audi** (Audi)
         ├── **org-bauman** (Bauman MSTU)
+        ├── **org-bitva-milliard** (Battle for a Billion forum)
         ├── **org-cci** (CCI of Russian Federation)
         ├── **org-cipr** (CIPR)
         ├── **org-culttech** (CultTech Association)
@@ -431,6 +430,7 @@ Total Nodes: 225
         ├── **org-kapitsa** (Ekaterina Kapitsa)
         ├── **org-korichina** (Yulia Korichina)
         ├── **org-lamborghini** (Lamborghini)
+        ├── **org-meditation-day** (3rd International Meditation Day)
         ├── **org-merck** (Merck)
         ├── **org-mipt** (MIPT)
         ├── **org-moscow2030** (Moscow 2030)
@@ -441,6 +441,7 @@ Total Nodes: 225
         ├── **org-senatova** (Anna Iosifovna Senatova)
         ├── **org-skolkovo** (Skolkovo Innovation Center)
         ├── **org-solonik** (Sergey Solonik)
+        ├── **org-synergy-forum** (Synergy Crypto & NFT Forum)
         ├── **org-tavrida** (Tavrida.ART)
         ├── **org-tbank** (T-Bank)
         ├── **org-tsiolkovsky** (Tsiolkovsky Festival)
@@ -453,7 +454,7 @@ Total Nodes: 225
 |---------|-------------|-------|
 | ancestors | 3 | `/images/content/works/ancestors-hero.webp`<br/>`media:ancestors-hero`<br/>`media:ancestors-sketch` |
 | another-people | 1 | `/images/content/works/another-people/other-people-gallery-thumb.webp` |
-| beautiful-brain | 2 | `proof-hse-beautiful-brain`<br/>`media:art-brain-cover` |
+| beautiful-brain | 2 | `proof-let-hse-beautiful-brain`<br/>`media:art-brain-cover` |
 | dashran | 1 | `/images/content/works/dashran/dashran-tech-render-b-thumb.webp` |
 | emomandala | 1 | `/images/content/materia/emomandala/emomandala-cover-thumb.webp` |
 | event-ashram-birthday-2024 | 1 | `/images/content/mindshow_ashram.webp` |
@@ -471,7 +472,7 @@ Total Nodes: 225
 | hub-debug-video | 2 | `/media/hub-debug/video-placeholder.mp4`<br/>`/images/content/neuromandala-cover.webp` |
 | hub-host-events | 3 | `media:nrbt-dano`<br/>`media:mdsh-tpp`<br/>`media:lec-gonchar` |
 | hub-lectures | 8 | `media:lec-gonchar`<br/>`media:lec-bauman`<br/>`media:lec-tavrida`<br/>`media:lec-sber`<br/>`media:lec-ikc`<br/>`media:lec-tskhr`<br/>`media:lec-ashram`<br/>`media:art-brain-cover` |
-| hub-letters | 13 | `/images/content/proofs/collab_2026_ODA_Gostinyy_dvor.webp`<br/>`/images/content/proofs/collab_2025_ODA_Portal.webp`<br/>`/images/content/proofs/collab_2025_ODA_Tavrida_II.webp`<br/>`/images/content/proofs/collab_2025_ODA_VShE_ch2.webp`<br/>`/images/content/proofs/collab_2025_ODA_Moskva_2030_Olga.webp`<br/>`/images/content/proofs/collab_2025_ODA_Severnaya_Osetiya_Media_Eksperty.webp`<br/>`/images/content/proofs/collab_2025_ODA_Dikaya_myata.webp`<br/>`/images/content/proofs/collab_2025_ODA_Shulgan_Tash.webp`<br/>`/images/content/proofs/collab_2025_ODA_TPP.webp`<br/>`/images/content/proofs/collab_2025_ODA_Khaskel.webp`<br/>`/images/content/proofs/collab_2024_ODA_TechWeek_Olya.webp`<br/>`/images/content/proofs/collab_2024_ODA_Bitva_za_milliard.webp`<br/>`/images/content/proofs/collab_2024_ODA_Kod_provintsii_Daler.webp` |
+| hub-letters | 14 | `/images/content/proofs/collab_2026_ODA_Gostinyy_dvor.webp`<br/>`/images/proofs/proof-mipt-letter.webp`<br/>`/images/content/proofs/collab_2025_ODA_Portal.webp`<br/>`/images/content/proofs/collab_2025_ODA_Tavrida_II.webp`<br/>`/images/content/proofs/collab_2025_ODA_VShE_ch2.webp`<br/>`/images/content/proofs/collab_2025_ODA_Moskva_2030_Olga.webp`<br/>`/images/content/proofs/collab_2025_ODA_Severnaya_Osetiya_Media_Eksperty.webp`<br/>`/images/content/proofs/collab_2025_ODA_Dikaya_myata.webp`<br/>`/images/content/proofs/collab_2025_ODA_Shulgan_Tash.webp`<br/>`/images/content/proofs/collab_2025_ODA_TPP.webp`<br/>`/images/content/proofs/collab_2025_ODA_Khaskel.webp`<br/>`/images/content/proofs/collab_2024_ODA_TechWeek_Olya.webp`<br/>`/images/content/proofs/collab_2024_ODA_Bitva_za_milliard.webp`<br/>`/images/content/proofs/collab_2024_ODA_Kod_provintsii_Daler.webp` |
 | interference | 1 | `/images/content/works/interference-2026-poster-thumb.webp` |
 | lighthouse | 1 | `/images/content/works/lighthouse/lighthouse-cover-thumb.webp` |
 | media-another-people-docs | 7 | `/images/content/works/another-people/other-people-gallery-thumb.webp`<br/>`/images/content/works/another-people/other-people-gallery.webp`<br/>`/images/content/works/another-people/other-people-character-card.webp`<br/>`/images/content/works/another-people/other-people-eeg-session.webp`<br/>`/images/content/works/another-people/other-people-neuromandala.webp`<br/>`/images/content/works/another-people/other-people-workshop.webp`<br/>`/images/content/works/another-people/other-people-portrait.webp` |
@@ -514,7 +515,7 @@ Total Nodes: 225
 | neuromandala | 2 | `/images/content/neuromandala-cover.webp`<br/>`media:neuromandala-cover` |
 | oda-rings | 1 | `/images/content/materia/oda-rings/oda-rings-cover-thumb.webp` |
 | potustoronniy | 1 | `/images/content/works/potustoronniy/potustoronniy-cover-thumb.webp` |
-| proof-hse-beautiful-brain | 1 | `/images/content/proofs/collab_2025_ODA_VShE_ch2.webp` |
+| proof-let-hse-beautiful-brain | 1 | `/images/content/proofs/collab_2025_ODA_VShE_ch2.webp` |
 | schrodinger | 1 | `/images/content/works/schrodinger-2025-poster-thumb.webp` |
 | sound-brain | 1 | `https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3` |
 | sync-circle | 1 | `/images/content/works/sync-circle/sync-circle-hero-thumb.webp` |

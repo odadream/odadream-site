@@ -13,7 +13,7 @@ subkind: education
 presented_at:
   - "[[event-hse-beautiful-brain-2025]]"
 proofs:
-  - "[[proof-hse-beautiful-brain]]"
+  - "[[proof-let-hse-beautiful-brain]]"
 media:
   - art-brain-cover
 ---
@@ -43,9 +43,9 @@ Modular topics in the [[hub-lectures|Lectures]] hub (Art of Brain, Sound & Brain
 
 **Book a lecture →** [[hub-education|Education]] · [[hub-contacts|Contacts]]
 
-Institutional track: [[event-hse-beautiful-brain-2025|HSE University, May 2025]] · [[proof-hse-beautiful-brain|letter of appreciation]]
+Institutional track: [[event-hse-beautiful-brain-2025|HSE University, May 2025]] · [[proof-let-hse-beautiful-brain|letter of appreciation]]
 
-![[proof-hse-beautiful-brain]]
+![[proof-let-hse-beautiful-brain]]
 
 ![[media:art-brain-cover]]
 
@@ -76,8 +76,8 @@ Institutional track: [[event-hse-beautiful-brain-2025|HSE University, May 2025]]
 
 **Пригласить лекцию →** [[hub-education|Образованию]] · [[hub-contacts|Контакты]]
 
-Институциональный трек: [[event-hse-beautiful-brain-2025|НИУ ВШЭ, май 2025]] · [[proof-hse-beautiful-brain|благодарственное письмо]]
+Институциональный трек: [[event-hse-beautiful-brain-2025|НИУ ВШЭ, май 2025]] · [[proof-let-hse-beautiful-brain|благодарственное письмо]]
 
-![[proof-hse-beautiful-brain]]
+![[proof-let-hse-beautiful-brain]]
 
 ![[media:art-brain-cover]]

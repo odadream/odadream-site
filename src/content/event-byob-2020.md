@@ -4,14 +4,22 @@ parent: event-byob
 title_en: BYOB 2020
 title_ru: BYOB 2020
 type: content
-tags: [event-byob]
+tags:
+  - event-byob
+  - hub-registry
 order: 1
 date: 2020.08.15
 visible: true
 kind: event
 subkind: festival
 date_start: 2020-08-15
-venue: "Moscow"
+city_en: Moscow
+city_ru: Москва
+orgs:
+  - org-kalashnikova
+venues: []
+relationship: invited
+format: multisync
 organizer:
   - "[[org-kalashnikova]]"
 products:

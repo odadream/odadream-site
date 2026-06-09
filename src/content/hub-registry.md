@@ -22,6 +22,7 @@ Narrative case studies → [[hub-events|Events]]. Diplomas and letters of apprec
 |------|-------|------|-----------|-------|------|
 | 2026.05.16 | [[event-tsiolkovsky-2026|Interference of Realities — Tsiolkovsky Festival]] | Festival | Neiry Group | Tsiolkovsky Festival | Kaluga |
 | 2026.05.01 | [[event-cipr-mindshow-2026|MindShow at TechFriendly / CIPR]] | Forum | Ashram Studio (Natali Osman) | CIPR | Nizhny Novgorod |
+| 2026.02.28 | [[event-byob-2026|BYOB 2026]] | Festival | Ekaterina Kalashnikova | — | Moscow |
 | 2025.12.17 | [[event-dano-ekoniva-2025|Neurobattle at DANO Olympiad]] | Olympiad | EkoNiva | HSE University, T-Bank | Moscow |
 | 2025.12.09 | [[event-mipt-terraforming-2025|Terraforming — MIPT exhibition]] | Exhibition | Ekaterina Kapitsa | MIPT | Moscow |
 | 2025.08.01 | [[event-tavrida-ai-2025|AI festival Cultural Code of Russia]] | School | Tavrida.ART | Tavrida.ART | — |
@@ -29,13 +30,17 @@ Narrative case studies → [[hub-events|Events]]. Diplomas and letters of apprec
 | 2025.05.01 | [[event-hse-beautiful-brain-2025|Beautiful About the Brain — HSE University]] | Lecture | HSE University | HSE University | Moscow |
 | 2025.01.01 | [[event-bauman-moscow2030-2025|Brain-hacking lecture — Bauman MSTU]] | Lecture | Bauman MSTU, Moscow 2030 | Bauman MSTU, Moscow 2030 | Moscow |
 | 2025.01.01 | [[event-merck-corporate|Merck corporate science-art format]] | Conference | Merck | — | Moscow |
+| 2025.01.01 | [[event-pleinair-bashkiria-2025|Digital plein-air, Bashkiria]] | Exhibition | — | — | Shulgan-Tash, Bashkortostan |
 | 2025.01.01 | [[event-portal-2025|Visioning competition win — Portal 2030–2050]] | Competition | Moscow 2030, Skolkovo Innovation Center | Moscow 2030, Skolkovo Innovation Center | Moscow |
 | 2025.01.01 | [[event-sber-lecture-2025|Science-art lecture for Sberbank]] | Lecture | Sberbank | Sberbank | Moscow |
 | 2025.01.01 | [[event-tpp-mindshow-2025|MindShow — Russian Digital Creative summit]] | Forum | CCI of Russian Federation | CCI of Russian Federation | Moscow |
 | 2024.06.25 | [[event-ashram-birthday-2024|Ashram Studio birthday celebration]] | Private show | Ashram Studio (Natali Osman) | Ashram Studio (Natali Osman) | Moscow |
 | 2024.01.01 | Audi brand activation | Exhibition | Audi | — | — |
-| 2024.01.01 | Lamborghini brand activation | Exhibition | Lamborghini | — | — |
 | 2024.01.01 | [[event-gonchar-private-2024|Private neuro-show — Nata Gonchar]] | Private show | — | — | Moscow |
+| 2024.01.01 | Lamborghini brand activation | Exhibition | Lamborghini | — | — |
+| 2024.01.01 | [[event-pleinair-metro-2024|Plein-air in Metro]] | Exhibition | — | — | Moscow, Fonvizinskaya |
+| 2020.08.15 | [[event-byob-2020|BYOB 2020]] | Festival | Ekaterina Kalashnikova | — | Moscow |
+| 2019.12.22 | [[event-byob-2019|BYOB 2019]] | Festival | Ekaterina Kalashnikova | — | Moscow |
 
 ## Awards & recognition
 
@@ -100,6 +105,7 @@ Letters and diploma scans → [[hub-letters|Recognition & Awards]]
 |------|----------|-----|-------------|----------|------|
 | 2026.05.16 | [[event-tsiolkovsky-2026|«Интерференция реальностей» — Фестиваль Циолковского]] | Фестиваль | Neiry Group | Фестиваль Циолковского | Калуга |
 | 2026.05.01 | [[event-cipr-mindshow-2026|MindShow на TechFriendly / ЦИПР]] | Форум | Студия Ashram (Натали Осман) | ЦИПР | Нижний Новгород |
+| 2026.02.28 | [[event-byob-2026|BYOB 2026]] | Фестиваль | Екатерина Калашникова | — | Москва |
 | 2025.12.17 | [[event-dano-ekoniva-2025|Нейробитва на Олимпиаде DANO]] | Олимпиада | ЭкоНива | НИУ ВШЭ, Т-Банк | Москва |
 | 2025.12.09 | [[event-mipt-terraforming-2025|Терраформинг — выставка МФТИ]] | Выставка | Екатерина Капица | МФТИ | Москва |
 | 2025.08.01 | [[event-tavrida-ai-2025|Фестиваль ИИ «Культурный код России»]] | Школа | Таврида.АРТ | Таврида.АРТ | — |
@@ -107,13 +113,17 @@ Letters and diploma scans → [[hub-letters|Recognition & Awards]]
 | 2025.05.01 | [[event-hse-beautiful-brain-2025|«Красиво про мозг» — НИУ ВШЭ]] | Лекция | НИУ ВШЭ | НИУ ВШЭ | Москва |
 | 2025.01.01 | [[event-bauman-moscow2030-2025|Лекция про брейнхакинг — МГТУ им. Баумана]] | Лекция | МГТУ им. Баумана, Москва 2030 | МГТУ им. Баумана, Москва 2030 | Москва |
 | 2025.01.01 | [[event-merck-corporate|Корпоративный science-art формат Merck]] | Конференция | Merck (Мерц) | — | Москва |
+| 2025.01.01 | [[event-pleinair-bashkiria-2025|Цифровой плэнер в Башкирии]] | Выставка | — | — | Шульган-Таш, Башкирия |
 | 2025.01.01 | [[event-portal-2025|Победа «Виджеинг» — Портал 2030–2050]] | Конкурс | Москва 2030, Технопарк «Сколково» | Москва 2030, Технопарк «Сколково» | Москва |
 | 2025.01.01 | [[event-sber-lecture-2025|Science-art лекция для Сбербанка]] | Лекция | Сбербанк | Сбербанк | Москва |
 | 2025.01.01 | [[event-tpp-mindshow-2025|MindShow — саммит Russian Digital Creative]] | Форум | ТПП РФ | ТПП РФ | Москва |
 | 2024.06.25 | [[event-ashram-birthday-2024|День рождения студии Ashram]] | Закрытый показ | Студия Ashram (Натали Осман) | Студия Ashram (Натали Осман) | Москва |
 | 2024.01.01 | Брендовая активация Audi | Выставка | Audi | — | — |
-| 2024.01.01 | Брендовая активация Lamborghini | Выставка | Lamborghini | — | — |
 | 2024.01.01 | [[event-gonchar-private-2024|Частное нейрошоу — Ната Гончар]] | Закрытый показ | — | — | Москва |
+| 2024.01.01 | Брендовая активация Lamborghini | Выставка | Lamborghini | — | — |
+| 2024.01.01 | [[event-pleinair-metro-2024|Плэнер в метро]] | Выставка | — | — | Москва, м. Фонвизинская |
+| 2020.08.15 | [[event-byob-2020|BYOB 2020]] | Фестиваль | Екатерина Калашникова | — | Москва |
+| 2019.12.22 | [[event-byob-2019|BYOB 2019]] | Фестиваль | Екатерина Калашникова | — | Москва |
 
 ## Награды и признание
 

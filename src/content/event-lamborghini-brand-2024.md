@@ -1,5 +1,5 @@
 ---
-id: eng-lamborghini-brand
+id: event-lamborghini-brand-2024
 parent: hub-world
 title_en: Lamborghini brand activation
 title_ru: Брендовая активация Lamborghini
@@ -10,7 +10,7 @@ tags:
 visible: false
 date_start: 2024-01-01
 date: 2024.01.01
-subkind: expo
+subkind: exhibition
 orgs:
   - org-lamborghini
 venues: []
@@ -19,5 +19,4 @@ format: installation
 organizer:
   - "[[org-lamborghini]]"
 ---
-
 

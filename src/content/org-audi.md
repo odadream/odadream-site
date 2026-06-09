@@ -20,7 +20,7 @@ date_start: 2026-05-25
 
 Related engagements in the ODA.dream hub-registry:
 
-- [[eng-audi-brand|Audi brand activation]] (2024.01.01)
+- [[event-audi-brand-2024|Audi brand activation]] (2024.01.01)
 
 ---RU---
 
@@ -28,4 +28,4 @@ Related engagements in the ODA.dream hub-registry:
 
 Связанные участия в реестре ODA.dream:
 
-- [[eng-audi-brand|Брендовая активация Audi]] (2024.01.01)
+- [[event-audi-brand-2024|Брендовая активация Audi]] (2024.01.01)

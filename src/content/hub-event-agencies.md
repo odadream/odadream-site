@@ -45,8 +45,8 @@ You source the event, manage the client relationship, and coordinate the program
 - [[event-tavrida-ai-2025|AI festival Cultural Code of Russia]] — Tavrida.ART
 - [[event-merck-corporate|Merck corporate science-art format]] — Merck
 - [[event-ashram-birthday-2024|Ashram Studio birthday celebration]] — Ashram Studio (Natali Osman)
-- [[eng-audi-brand|Audi brand activation]] — Audi
-- [[eng-lamborghini-brand|Lamborghini brand activation]] — Lamborghini
+- [[event-audi-brand-2024|Audi brand activation]] — Audi
+- [[event-lamborghini-brand-2024|Lamborghini brand activation]] — Lamborghini
 <!-- /hub-registry:commercial-list -->
 
 **Expert appearances** → [[hub-registry|Experience Registry]]:
@@ -54,10 +54,12 @@ You source the event, manage the client relationship, and coordinate the program
 <!-- hub-registry:expert-list -->
 - [[event-tsiolkovsky-2026|Interference of Realities — Tsiolkovsky Festival]]
 - [[event-cipr-mindshow-2026|MindShow at TechFriendly / CIPR]]
+- [[event-byob-2026|BYOB 2026]]
 - [[event-mipt-terraforming-2025|Terraforming — MIPT exhibition]]
 - [[event-myata-2025|Wild Mint festival — neuromandala installation]]
 - [[event-hse-beautiful-brain-2025|Beautiful About the Brain — HSE University]]
 - [[event-bauman-moscow2030-2025|Brain-hacking lecture — Bauman MSTU]]
+- [[event-pleinair-bashkiria-2025|Digital plein-air, Bashkiria]]
 - [[event-portal-2025|Visioning competition win — Portal 2030–2050]]
 - [[event-sber-lecture-2025|Science-art lecture for Sberbank]]
 - [[event-tpp-mindshow-2025|MindShow — Russian Digital Creative summit]]
@@ -123,8 +125,8 @@ We don't touch your client relationship. You own the account.
 - [[event-tavrida-ai-2025|Фестиваль ИИ «Культурный код России»]] — Таврида.АРТ
 - [[event-merck-corporate|Корпоративный science-art формат Merck]] — Merck (Мерц)
 - [[event-ashram-birthday-2024|День рождения студии Ashram]] — Студия Ashram (Натали Осман)
-- [[eng-audi-brand|Брендовая активация Audi]] — Audi
-- [[eng-lamborghini-brand|Брендовая активация Lamborghini]] — Lamborghini
+- [[event-audi-brand-2024|Брендовая активация Audi]] — Audi
+- [[event-lamborghini-brand-2024|Брендовая активация Lamborghini]] — Lamborghini
 <!-- /hub-registry:commercial-list-ru -->
 
 **Экспертные приглашения** → [[hub-registry|Реестр опыта]]:
@@ -132,10 +134,12 @@ We don't touch your client relationship. You own the account.
 <!-- hub-registry:expert-list-ru -->
 - [[event-tsiolkovsky-2026|«Интерференция реальностей» — Фестиваль Циолковского]]
 - [[event-cipr-mindshow-2026|MindShow на TechFriendly / ЦИПР]]
+- [[event-byob-2026|BYOB 2026]]
 - [[event-mipt-terraforming-2025|Терраформинг — выставка МФТИ]]
 - [[event-myata-2025|Дикая Мята — инсталляция Нейромандала]]
 - [[event-hse-beautiful-brain-2025|«Красиво про мозг» — НИУ ВШЭ]]
 - [[event-bauman-moscow2030-2025|Лекция про брейнхакинг — МГТУ им. Баумана]]
+- [[event-pleinair-bashkiria-2025|Цифровой плэнер в Башкирии]]
 - [[event-portal-2025|Победа «Виджеинг» — Портал 2030–2050]]
 - [[event-sber-lecture-2025|Science-art лекция для Сбербанка]]
 - [[event-tpp-mindshow-2025|MindShow — саммит Russian Digital Creative]]

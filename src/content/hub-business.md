@@ -42,8 +42,8 @@ Full engagement log → [[hub-registry|Experience Registry]]
 - [[event-tavrida-ai-2025|AI festival Cultural Code of Russia]] — Tavrida.ART
 - [[event-merck-corporate|Merck corporate science-art format]] — Merck
 - [[event-ashram-birthday-2024|Ashram Studio birthday celebration]] — Ashram Studio (Natali Osman)
-- [[eng-audi-brand|Audi brand activation]] — Audi
-- [[eng-lamborghini-brand|Lamborghini brand activation]] — Lamborghini
+- [[event-audi-brand-2024|Audi brand activation]] — Audi
+- [[event-lamborghini-brand-2024|Lamborghini brand activation]] — Lamborghini
 <!-- /hub-registry:commercial-list -->
 
 Used at: annual galas · leadership retreats · innovation days · brand launches · anniversary hub-events
@@ -112,8 +112,8 @@ _ODA.dream — это тот опыт._
 - [[event-tavrida-ai-2025|Фестиваль ИИ «Культурный код России»]] — Таврида.АРТ
 - [[event-merck-corporate|Корпоративный science-art формат Merck]] — Merck (Мерц)
 - [[event-ashram-birthday-2024|День рождения студии Ashram]] — Студия Ashram (Натали Осман)
-- [[eng-audi-brand|Брендовая активация Audi]] — Audi
-- [[eng-lamborghini-brand|Брендовая активация Lamborghini]] — Lamborghini
+- [[event-audi-brand-2024|Брендовая активация Audi]] — Audi
+- [[event-lamborghini-brand-2024|Брендовая активация Lamborghini]] — Lamborghini
 <!-- /hub-registry:commercial-list-ru -->
 
 Форматы применения: ежегодные галы · стратегические сессии · дни инноваций · запуски брендов · юбилейные мероприятия

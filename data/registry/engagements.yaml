@@ -28,6 +28,18 @@
     - org-cipr
   title_ru: MindShow на TechFriendly / ЦИПР
   title_en: MindShow at TechFriendly / CIPR
+- id: event-byob-2026
+  date: 2026-02-28
+  city_en: Moscow
+  city_ru: Москва
+  relationship: invited
+  subkind: festival
+  format: mindshow
+  orgs:
+    - org-kalashnikova
+  venues: []
+  title_ru: BYOB 2026
+  title_en: BYOB 2026
 - id: event-dano-ekoniva-2025
   date: 2025-12-17
   city_en: Moscow
@@ -125,6 +137,17 @@
   venues: []
   title_ru: Корпоративный science-art формат Merck
   title_en: Merck corporate science-art format
+- id: event-pleinair-bashkiria-2025
+  date: 2025-01-01
+  city_en: Shulgan-Tash, Bashkortostan
+  city_ru: Шульган-Таш, Башкирия
+  relationship: invited
+  subkind: exhibition
+  format: installation
+  orgs: []
+  venues: []
+  title_ru: Цифровой плэнер в Башкирии
+  title_en: Digital plein-air, Bashkiria
 - id: event-portal-2025
   date: 2025-01-01
   city_en: Moscow
@@ -181,30 +204,18 @@
     - org-ashram
   title_ru: День рождения студии Ashram
   title_en: Ashram Studio birthday celebration
-- id: eng-audi-brand
+- id: event-audi-brand-2024
   date: 2024-01-01
   city_en: ""
   city_ru: ""
   relationship: commercial
-  subkind: expo
+  subkind: exhibition
   format: installation
   orgs:
     - org-audi
   venues: []
   title_ru: Брендовая активация Audi
   title_en: Audi brand activation
-- id: eng-lamborghini-brand
-  date: 2024-01-01
-  city_en: ""
-  city_ru: ""
-  relationship: commercial
-  subkind: expo
-  format: installation
-  orgs:
-    - org-lamborghini
-  venues: []
-  title_ru: Брендовая активация Lamborghini
-  title_en: Lamborghini brand activation
 - id: event-gonchar-private-2024
   date: 2024-01-01
   city_en: Moscow
@@ -216,3 +227,50 @@
   venues: []
   title_ru: Частное нейрошоу — Ната Гончар
   title_en: Private neuro-show — Nata Gonchar
+- id: event-lamborghini-brand-2024
+  date: 2024-01-01
+  city_en: ""
+  city_ru: ""
+  relationship: commercial
+  subkind: exhibition
+  format: installation
+  orgs:
+    - org-lamborghini
+  venues: []
+  title_ru: Брендовая активация Lamborghini
+  title_en: Lamborghini brand activation
+- id: event-pleinair-metro-2024
+  date: 2024-01-01
+  city_en: Moscow, Fonvizinskaya
+  city_ru: Москва, м. Фонвизинская
+  relationship: invited
+  subkind: exhibition
+  format: installation
+  orgs: []
+  venues: []
+  title_ru: Плэнер в метро
+  title_en: Plein-air in Metro
+- id: event-byob-2020
+  date: 2020-08-15
+  city_en: Moscow
+  city_ru: Москва
+  relationship: invited
+  subkind: festival
+  format: multisync
+  orgs:
+    - org-kalashnikova
+  venues: []
+  title_ru: BYOB 2020
+  title_en: BYOB 2020
+- id: event-byob-2019
+  date: 2019-12-22
+  city_en: Moscow
+  city_ru: Москва
+  relationship: invited
+  subkind: festival
+  format: mindshow
+  orgs:
+    - org-kalashnikova
+  venues: []
+  title_ru: BYOB 2019
+  title_en: BYOB 2019
