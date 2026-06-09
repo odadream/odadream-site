@@ -9,6 +9,11 @@ date: 2026.01.01
 kind: proof
 subkind: award
 publication_date: 2026-01-01
+proof_of:
+  - "[[home]]"
+issued_by:
+  - ODA.dream — сводка трека
+publication: ODA.dream — track record summary
 ---
 
 ## 7 years on market · 80+ hub-events · 1,500+ participants · 10+ cities

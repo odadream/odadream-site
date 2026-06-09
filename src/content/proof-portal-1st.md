@@ -4,7 +4,9 @@ parent: hub-letters
 title_en: 1st place — Visioning VJ competition, Portal 2030–2050
 title_ru: 1-е место — VJ-конкурс «Виджеинг», Портал 2030–2050
 type: content
-tags: [proof, award]
+tags:
+  - proof
+  - award
 visible: true
 date: 2025.09.01
 order: 1
@@ -13,8 +15,10 @@ subkind: award
 proof_of:
   - "[[mindshow]]"
   - "[[event-portal-2025]]"
-publication: "Portal 2030–2050 / Moscow 2030 forum"
+publication: Portal 2030–2050 / Moscow 2030 forum
 publication_date: 2025-09-01
+issued_by:
+  - "[[org-moscow2030]]"
 ---
 
 ## 1st place — Visioning VJ competition

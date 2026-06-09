@@ -15,7 +15,20 @@ date_start: 2025-05-01
 venue: Moscow
 organizer:
   - "[[org-hse]]"
+  - "[[org-hse]]"
 subkind: lecture
+orgs:
+  - org-hse
+venues:
+  - org-hse
+city_en: Moscow
+city_ru: Москва
+relationship: invited
+format: lecture
+letter: true
+proofs:
+  - "[[proof-tst-hse-brain]]"
+  - "[[proof-hse-beautiful-brain]]"
 ---
 
 ## Beautiful About the Brain — HSE University

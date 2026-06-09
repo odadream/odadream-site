@@ -11,6 +11,10 @@ subkind: letter
 publication: Unique Russia (Gostiny Dvor, Moscow)
 publication_date: 2026-01-01
 asset: /images/content/proofs/collab_2026_ODA_Gostinyy_dvor.webp
+proof_of:
+  - "[[home]]"
+issued_by:
+  - Уникальная Россия (Гостиный двор, Москва)
 ---
 
 ## Diploma — "Digital Art & AI" panel, 6th exhibition-forum

@@ -20,6 +20,15 @@ organizer:
 products:
   - "[[neurobattle]]"
 subkind: olympiad
+orgs:
+  - org-ekoniva
+venues:
+  - org-hse
+  - org-tbank
+city_en: Moscow
+city_ru: Москва
+relationship: commercial
+format: neurobattle
 ---
 
 ## Neurobattle at DANO Olympiad

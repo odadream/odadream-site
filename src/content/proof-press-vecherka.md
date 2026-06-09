@@ -10,6 +10,10 @@ kind: proof
 subkind: hub-press
 publication: Vechernyaya Moskva
 publication_date: 2025-01-01
+proof_of:
+  - "[[home]]"
+issued_by:
+  - Вечерняя Москва
 ---
 
 ## Coverage of an ODA.dream public event

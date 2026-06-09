@@ -2,21 +2,36 @@ filters:
   and:
     - file.folder == "src/content"
     - kind == "event"
+    - file.hasTag("hub-registry")
 views:
   - type: table
-    name: События
+    name: Участия
     order:
       - file.name
-      - subkind
-      - date_start
-      - venue
-      - organizer
-      - products
-    sort: []
+    sort:
+      - property: date_start
+        direction: DESC
     columnSize:
-      file.name: 260
-      subkind: 100
-      date_start: 110
-      venue: 200
-      organizer: 200
-      products: 240
+      note.date_start: 120
+      note.title_ru: 280
+      note.subkind: 120
+      note.orgs: 180
+      note.venues: 200
+      note.city_ru: 120
+    properties:
+      date_start:
+        displayName: Дата
+      title_ru:
+        displayName: Название
+      subkind:
+        displayName: Тип
+      orgs:
+        displayName: Организатор
+      venues:
+        displayName: Площадка
+      city_ru:
+        displayName: Город
+      title_en:
+        displayName: Title (EN)
+      city_en:
+        displayName: City (EN)

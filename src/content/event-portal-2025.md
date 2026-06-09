@@ -21,6 +21,18 @@ products:
 subkind: competition
 aliases:
   - event-portal-2025
+venues:
+  - org-moscow2030
+  - org-skolkovo
+city_en: Moscow
+city_ru: Москва
+relationship: award
+format: mindshow
+showcase: true
+letter: true
+proofs:
+  - "[[proof-award-portal-visioning]]"
+  - "[[proof-let-portal]]"
 ---
 
 ## Visioning competition win — Portal 2030–2050

@@ -119,6 +119,10 @@ File IDs follow semantic prefixes by kind:
 
 `.github/workflows/deploy.yml`: push to `main` → build → deploy to `gh-pages` → optionally create a GitHub Release if the version changed. No staging environment.
 
+## Content schema
+
+**[`CONTENT-SCHEMA.md`](CONTENT-SCHEMA.md)** — canonical reference for card types (`kind`), frontmatter fields, Obsidian property types, provenance relations, registry fields, and sync commands (`sync:fields`, `registry:sync`).
+
 ## Conventions
 
 - Components: functional only, PascalCase filenames; hooks `use*`; node IDs and content filenames are kebab-case and must match (`id: lectures-neuroplasticity` ↔ `lectures-neuroplasticity.md`).

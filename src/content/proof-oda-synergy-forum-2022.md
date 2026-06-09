@@ -12,7 +12,9 @@ proof_of:
   - "[[oda-rings]]"
   - "[[mom-baby]]"
   - "[[hub-materia]]"
-issued_by: []
+  - "[[home]]"
+issued_by:
+  - "[[org-synergy-forum]]"
 publication: Synergy Crypto & NFT Forum
 publication_date: 2022-08-06
 quote_en: First public presentation of the Materia line and the founding rings story — banner «ODA × dream».

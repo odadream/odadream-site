@@ -19,6 +19,16 @@ organizer:
 products:
   - "[[mindshow]]"
 subkind: forum
+orgs:
+  - org-ashram
+venues:
+  - org-cipr
+city_en: Nizhny Novgorod
+city_ru: Нижний Новгород
+relationship: invited
+format: mindshow
+proofs:
+  - "[[proof-tst-cipr-techfriendly]]"
 ---
 
 ## MindShow at TechFriendly / CIPR

@@ -18,6 +18,12 @@ organizer:
 products:
   - "[[mindshow]]"
 subkind: forum
+venues:
+  - org-cci
+city_en: Moscow
+city_ru: Москва
+relationship: invited
+format: mindshow
 ---
 
 ## MindShow — Russian Digital Creative summit

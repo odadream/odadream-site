@@ -11,6 +11,7 @@ visible: false
 date: 2026.05.25
 kind: organizer
 subkind: curator
+date_start: 2026-05-25
 ---
 
 ## Ekaterina Kapitsa

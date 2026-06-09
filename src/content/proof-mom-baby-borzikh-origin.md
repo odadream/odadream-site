@@ -10,7 +10,8 @@ kind: proof
 subkind: press
 proof_of:
   - "[[mom-baby]]"
-issued_by: []
+issued_by:
+  - "[[org-synergy-forum]]"
 publication: Synergy Crypto & NFT Forum · field encounter
 publication_date: 2022-08-06
 quote_en: Alexandra Borzikh (7 months pregnant) measured at the forum; CTG traces of mother and child became the nested Sasha pendant — yellow-gold core, white-gold shell.

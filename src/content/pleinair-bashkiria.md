@@ -7,6 +7,8 @@ type: content
 tags: []
 kind: event
 subkind: exhibition
+date_start: 2025-01-01
+date: 2025.01.01
 ---
 
 ## Digital plein-air, Bashkiria

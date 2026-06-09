@@ -11,6 +11,7 @@ visible: false
 date: 2026.05.25
 kind: organizer
 subkind: gov
+date_start: 2026-05-25
 ---
 
 ## Culture and Sport of Moscow South Administrative Okrug

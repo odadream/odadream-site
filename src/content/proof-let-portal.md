@@ -13,6 +13,8 @@ proof_of:
   - "[[event-portal-2025]]"
 publication_date: 2025-01-01
 asset: /images/content/proofs/collab_2025_ODA_Portal.webp
+issued_by:
+  - "[[org-moscow2030]]"
 ---
 
 ## Diploma — Portal 2030–2050 (Visioning win)

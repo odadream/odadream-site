@@ -17,6 +17,13 @@ organizer:
   - "[[org-bauman]]"
   - "[[org-moscow2030]]"
 subkind: lecture
+venues:
+  - org-bauman
+  - org-moscow2030
+city_en: Moscow
+city_ru: Москва
+relationship: invited
+format: lecture
 ---
 
 ## Brain-hacking lecture — Bauman MSTU

@@ -14,6 +14,10 @@ kind: event
 date_start: 2024-01-01
 venue: Moscow
 subkind: private_show
+city_en: Moscow
+city_ru: Москва
+relationship: invited
+format: lecture
 ---
 
 ## Private neuro-show — Nata Gonchar

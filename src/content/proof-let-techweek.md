@@ -11,6 +11,10 @@ subkind: letter
 publication: Tech Week
 publication_date: 2024-01-01
 asset: /images/content/proofs/collab_2024_ODA_TechWeek_Olya.webp
+proof_of:
+  - "[[home]]"
+issued_by:
+  - Tech Week
 ---
 
 ## Letter of appreciation — conference participation

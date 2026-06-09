@@ -14,7 +14,18 @@ kind: event
 date_start: 2025-08-01
 organizer:
   - "[[org-tavrida]]"
+  - "[[org-tavrida]]"
 subkind: school
+orgs:
+  - org-tavrida
+venues:
+  - org-tavrida
+relationship: commercial
+format: installation
+letter: true
+proofs:
+  - "[[proof-tst-tavrida-ai]]"
+  - "[[proof-let-tavrida]]"
 ---
 
 ## AI festival Cultural Code of Russia

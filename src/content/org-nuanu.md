@@ -11,6 +11,7 @@ visible: false
 date: 2022.08.01
 kind: organizer
 subkind: venue
+date_start: 2022-08-01
 ---
 
 ## Nuanu City (Bali)

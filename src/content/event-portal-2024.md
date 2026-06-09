@@ -7,6 +7,8 @@ type: content
 tags: []
 kind: event
 subkind: festival
+date_start: 2024-01-01
+date: 2024.01.01
 ---
 
 ## Portal 2030–2050 (2024)

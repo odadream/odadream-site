@@ -4,8 +4,9 @@ parent: hub-festivals
 title_en: Wild Mint festival — neuromandala installation
 title_ru: Дикая Мята — инсталляция Нейромандала
 type: content
-tags: []
-date: 2025.01.01
+tags:
+  - hub-registry
+date: 2025.06.01
 kind: event
 subkind: festival
 date_start: 2025-06-01
@@ -19,6 +20,11 @@ proofs:
 media: []
 aliases:
   - event-myata-2025
+venues:
+  - org-wildmint
+relationship: invited
+format: mindshow
+letter: true
 ---
 
 ## Wild Mint festival — neuromandala installation

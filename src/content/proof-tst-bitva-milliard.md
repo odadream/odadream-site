@@ -14,6 +14,8 @@ publication: Organizing committee of the III forum "Bitva za Milliard"
 publication_date: 2024-01-01
 quote_en: for the art installation "Neuromandala" that united art, science, and technology
 quote_ru: за арт-инсталляцию «Нейромандала», объединившую искусство, науку и технологии
+issued_by:
+  - "[[org-bitva-milliard]]"
 ---
 
 ## tst-bitva-milliard

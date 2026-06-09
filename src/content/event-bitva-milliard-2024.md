@@ -8,6 +8,8 @@ tags: []
 kind: event
 subkind: forum
 order: 3
+date_start: 2024-01-01
+date: 2024.01.01
 ---
 
 ## Battle for a Billion 2024

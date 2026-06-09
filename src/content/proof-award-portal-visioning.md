@@ -12,6 +12,8 @@ proof_of:
   - "[[mindshow]]"
   - "[[event-portal-2025]]"
 publication_date: 2025-01-01
+issued_by:
+  - "[[org-moscow2030]]"
 ---
 
 ## 1st place — VJ competition "Visioning", Portal 2030–2050

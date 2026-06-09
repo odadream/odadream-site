@@ -1,204 +1,214 @@
-# ODA.dream engagements — one row per participation
-# relationship: commercial | invited | award | competition | internal (internal ledger only)
-# subkind: event type per taxonomy (kind: event) — shown on public Experience Registry
-# card: legacy flag; public case studies live in src/content/event-*.md
-
-- id: event-dano-ekoniva-2025
-  date: 2025.12.17
-  city: Moscow
-  relationship: commercial
-  subkind: olympiad
-  format: neurobattle
-  orgs: [org-ekoniva]
-  venues: [org-hse, org-tbank]
-  title_ru: Нейробитва на Олимпиаде DANO
-  title_en: Neurobattle at DANO Olympiad
-  card: true
-  showcase: false
-  site_media: [/images/content/neurobattle_dano.webp]
-
-- id: event-tavrida-ai-2025
-  date: 2025.08.01
-  city: ""
-  relationship: commercial
-  subkind: school
-  format: installation
-  orgs: [org-tavrida]
-  venues: [org-tavrida]
-  title_ru: Фестиваль ИИ «Культурный код России»
-  title_en: AI festival Cultural Code of Russia
-  card: true
-  letter: true
-
-- id: event-merck-corporate
-  date: 2025.01.01
-  city: Moscow
-  relationship: commercial
-  subkind: conference
-  format: lecture
-  orgs: [org-merck]
-  venues: []
-  title_ru: Корпоративный science-art формат Merck
-  title_en: Merck corporate science-art format
-  card: true
-
-- id: event-ashram-birthday-2024
-  date: 2024.06.25
-  city: Moscow
-  relationship: commercial
-  subkind: private_show
-  format: mindshow
-  orgs: [org-ashram]
-  venues: [org-ashram]
-  title_ru: День рождения студии Ashram
-  title_en: Ashram Studio birthday celebration
-  card: true
-  site_media: [/images/content/mindshow_ashram.webp]
-
-- id: eng-lamborghini-brand
-  date: 2024.01.01
-  city: ""
-  relationship: commercial
-  subkind: expo
-  format: installation
-  orgs: [org-lamborghini]
-  venues: []
-  title_ru: Брендовая активация Lamborghini
-  title_en: Lamborghini brand activation
-  card: false
-
-- id: eng-audi-brand
-  date: 2024.01.01
-  city: ""
-  relationship: commercial
-  subkind: expo
-  format: installation
-  orgs: [org-audi]
-  venues: []
-  title_ru: Брендовая активация Audi
-  title_en: Audi brand activation
-  card: false
-
-- id: event-cipr-mindshow-2026
-  date: 2026.05.01
-  city: Nizhny Novgorod
-  relationship: invited
-  subkind: forum
-  format: mindshow
-  orgs: [org-ashram]
-  venues: [org-cipr]
-  title_ru: MindShow на TechFriendly / ЦИПР
-  title_en: MindShow at TechFriendly / CIPR
-  card: true
-
-- id: event-sber-lecture-2025
-  date: 2025.01.01
-  city: Moscow
-  relationship: invited
-  subkind: lecture
-  format: lecture
-  orgs: [org-sberbank]
-  venues: [org-sberbank]
-  title_ru: Science-art лекция для Сбербанка
-  title_en: Science-art lecture for Sberbank
-  card: true
-  site_media: [/images/content/lectures-sber.webp]
-
-- id: event-portal-2025
-  date: 2025.01.01
-  city: Moscow
-  relationship: award
-  subkind: competition
-  format: mindshow
-  orgs: []
-  venues: [org-moscow2030, org-skolkovo]
-  title_ru: Победа «Виджеинг» — Портал 2030–2050
-  title_en: Visioning competition win — Portal 2030–2050
-  card: true
-  showcase: true
-  letter: true
-
-- id: event-hse-beautiful-brain-2025
-  date: 2025-05-01
-  city: Moscow
-  relationship: invited
-  subkind: lecture
-  format: lecture
-  orgs: [org-hse]
-  venues: [org-hse]
-  title_ru: «Красиво про мозг» — НИУ ВШЭ
-  title_en: Beautiful About the Brain — HSE University
-  card: true
-  letter: true
-
-- id: event-mipt-terraforming-2025
-  date: 2025.12.09
-  city: Moscow
-  relationship: invited
-  subkind: exhibition
-  format: installation
-  orgs: [org-kapitsa]
-  venues: [org-mipt]
-  title_ru: Терраформинг — выставка МФТИ
-  title_en: Terraforming — MIPT exhibition
-  card: true
-  showcase: true
-
-- id: event-bauman-moscow2030-2025
-  date: 2025.01.01
-  city: Moscow
-  relationship: invited
-  subkind: lecture
-  format: lecture
-  orgs: []
-  venues: [org-bauman, org-moscow2030]
-  title_ru: Лекция про брейнхакинг — МГТУ им. Баумана
-  title_en: Brain-hacking lecture — Bauman MSTU
-  card: true
-  site_media: [/images/content/lectures-moscow2030.webp]
-
-- id: event-tpp-mindshow-2025
-  date: 2025.01.01
-  city: Moscow
-  relationship: invited
-  subkind: forum
-  format: mindshow
-  orgs: []
-  venues: [org-cci]
-  title_ru: MindShow — саммит Russian Digital Creative
-  title_en: MindShow — Russian Digital Creative summit
-  card: true
-  site_media: [/images/content/mindshow_tpp.webp]
+# Generated from src/content/event-*.md (tag: hub-registry)
+# Edit in Obsidian → events.base → npm run registry:sync
 
 - id: event-tsiolkovsky-2026
-  date: 2026.05.16
-  city: Kaluga
+  date: 2026-05-16
+  city_en: Kaluga
+  city_ru: Калуга
   relationship: competition
   subkind: festival
   format: performance
-  orgs: [org-neiry]
-  venues: [org-tsiolkovsky]
+  orgs:
+    - org-neiry
+  venues:
+    - org-tsiolkovsky
   title_ru: «Интерференция реальностей» — Фестиваль Циолковского
   title_en: Interference of Realities — Tsiolkovsky Festival
-  card: true
   showcase: true
-
+- id: event-cipr-mindshow-2026
+  date: 2026-05-01
+  city_en: Nizhny Novgorod
+  city_ru: Нижний Новгород
+  relationship: invited
+  subkind: forum
+  format: mindshow
+  orgs:
+    - org-ashram
+  venues:
+    - org-cipr
+  title_ru: MindShow на TechFriendly / ЦИПР
+  title_en: MindShow at TechFriendly / CIPR
+- id: event-dano-ekoniva-2025
+  date: 2025-12-17
+  city_en: Moscow
+  city_ru: Москва
+  relationship: commercial
+  subkind: olympiad
+  format: neurobattle
+  orgs:
+    - org-ekoniva
+  venues:
+    - org-hse
+    - org-tbank
+  title_ru: Нейробитва на Олимпиаде DANO
+  title_en: Neurobattle at DANO Olympiad
+- id: event-mipt-terraforming-2025
+  date: 2025-12-09
+  city_en: Moscow
+  city_ru: Москва
+  relationship: invited
+  subkind: exhibition
+  format: installation
+  orgs:
+    - org-kapitsa
+  venues:
+    - org-mipt
+  title_ru: Терраформинг — выставка МФТИ
+  title_en: Terraforming — MIPT exhibition
+  showcase: true
+- id: event-tavrida-ai-2025
+  date: 2025-08-01
+  city_en: ""
+  city_ru: ""
+  relationship: commercial
+  subkind: school
+  format: installation
+  orgs:
+    - org-tavrida
+  venues:
+    - org-tavrida
+  title_ru: Фестиваль ИИ «Культурный код России»
+  title_en: AI festival Cultural Code of Russia
+  letter: true
 - id: event-myata-2025
-  date: 2025.01.01
-  city: ""
+  date: 2025-06-01
+  city_en: ""
+  city_ru: ""
   relationship: invited
   subkind: festival
   format: mindshow
-  orgs: []
-  venues: [org-wildmint]
-  title_ru: Нейромандала — Дикая Мята
-  title_en: Neuromandala — Wild Mint Festival
-  card: false
+  orgs:
+    - org-wildmint
+  venues:
+    - org-wildmint
+  title_ru: Дикая Мята — инсталляция Нейромандала
+  title_en: Wild Mint festival — neuromandala installation
   letter: true
-
+- id: event-hse-beautiful-brain-2025
+  date: 2025-05-01
+  city_en: Moscow
+  city_ru: Москва
+  relationship: invited
+  subkind: lecture
+  format: lecture
+  orgs:
+    - org-hse
+  venues:
+    - org-hse
+  title_ru: «Красиво про мозг» — НИУ ВШЭ
+  title_en: Beautiful About the Brain — HSE University
+  letter: true
+- id: event-bauman-moscow2030-2025
+  date: 2025-01-01
+  city_en: Moscow
+  city_ru: Москва
+  relationship: invited
+  subkind: lecture
+  format: lecture
+  orgs:
+    - org-bauman
+    - org-moscow2030
+  venues:
+    - org-bauman
+    - org-moscow2030
+  title_ru: Лекция про брейнхакинг — МГТУ им. Баумана
+  title_en: Brain-hacking lecture — Bauman MSTU
+- id: event-merck-corporate
+  date: 2025-01-01
+  city_en: Moscow
+  city_ru: Москва
+  relationship: commercial
+  subkind: conference
+  format: lecture
+  orgs:
+    - org-merck
+  venues: []
+  title_ru: Корпоративный science-art формат Merck
+  title_en: Merck corporate science-art format
+- id: event-portal-2025
+  date: 2025-01-01
+  city_en: Moscow
+  city_ru: Москва
+  relationship: award
+  subkind: competition
+  format: mindshow
+  orgs:
+    - org-moscow2030
+    - org-skolkovo
+  venues:
+    - org-moscow2030
+    - org-skolkovo
+  title_ru: Победа «Виджеинг» — Портал 2030–2050
+  title_en: Visioning competition win — Portal 2030–2050
+  showcase: true
+  letter: true
+- id: event-sber-lecture-2025
+  date: 2025-01-01
+  city_en: Moscow
+  city_ru: Москва
+  relationship: invited
+  subkind: lecture
+  format: lecture
+  orgs:
+    - org-sberbank
+  venues:
+    - org-sberbank
+  title_ru: Science-art лекция для Сбербанка
+  title_en: Science-art lecture for Sberbank
+- id: event-tpp-mindshow-2025
+  date: 2025-01-01
+  city_en: Moscow
+  city_ru: Москва
+  relationship: invited
+  subkind: forum
+  format: mindshow
+  orgs:
+    - org-cci
+  venues:
+    - org-cci
+  title_ru: MindShow — саммит Russian Digital Creative
+  title_en: MindShow — Russian Digital Creative summit
+- id: event-ashram-birthday-2024
+  date: 2024-06-25
+  city_en: Moscow
+  city_ru: Москва
+  relationship: commercial
+  subkind: private_show
+  format: mindshow
+  orgs:
+    - org-ashram
+  venues:
+    - org-ashram
+  title_ru: День рождения студии Ashram
+  title_en: Ashram Studio birthday celebration
+- id: eng-audi-brand
+  date: 2024-01-01
+  city_en: ""
+  city_ru: ""
+  relationship: commercial
+  subkind: expo
+  format: installation
+  orgs:
+    - org-audi
+  venues: []
+  title_ru: Брендовая активация Audi
+  title_en: Audi brand activation
+- id: eng-lamborghini-brand
+  date: 2024-01-01
+  city_en: ""
+  city_ru: ""
+  relationship: commercial
+  subkind: expo
+  format: installation
+  orgs:
+    - org-lamborghini
+  venues: []
+  title_ru: Брендовая активация Lamborghini
+  title_en: Lamborghini brand activation
 - id: event-gonchar-private-2024
-  date: 2024.01.01
-  city: Moscow
+  date: 2024-01-01
+  city_en: Moscow
+  city_ru: Москва
   relationship: invited
   subkind: private_show
   format: lecture
@@ -206,5 +216,3 @@
   venues: []
   title_ru: Частное нейрошоу — Ната Гончар
   title_en: Private neuro-show — Nata Gonchar
-  card: true
-  site_media: [/images/content/lectures-gonchar.webp]

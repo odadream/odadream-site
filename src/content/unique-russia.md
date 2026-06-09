@@ -7,6 +7,8 @@ type: content
 tags: []
 kind: event
 subkind: exhibition
+date_start: 2026-01-01
+date: 2026.01.01
 ---
 
 ## Unique Russia 2026

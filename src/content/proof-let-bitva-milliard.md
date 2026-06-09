@@ -13,6 +13,8 @@ proof_of:
 publication: Forum "Battle for a Billion"
 publication_date: 2024-01-01
 asset: /images/content/proofs/collab_2024_ODA_Bitva_za_milliard.webp
+issued_by:
+  - "[[org-bitva-milliard]]"
 ---
 
 ## Letter of appreciation — "Neuromandala" art installation

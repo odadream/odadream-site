@@ -15,7 +15,16 @@ date_start: 2025-01-01
 venue: Moscow
 organizer:
   - "[[org-sberbank]]"
+  - "[[org-sberbank]]"
 subkind: lecture
+orgs:
+  - org-sberbank
+venues:
+  - org-sberbank
+city_en: Moscow
+city_ru: Москва
+relationship: invited
+format: lecture
 ---
 
 ## Science-art lecture for Sberbank

@@ -6,8 +6,11 @@ title_ru: Циолковский
 type: hub
 kind: event
 subkind: series
-tags: [festival, kaluga]
+tags:
+  - festival
+  - kaluga
 date: 2026.05.30
+date_start: 2026-05-30
 ---
 
 ## Tsiolkovsky Festival

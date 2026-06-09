@@ -32,6 +32,7 @@
   kind: award
   tier: flagship
   scope: studio
+  subject: home
   date: 2026.01.01
   source_ru: Ars Electronica, Линц, Австрия
   source_en: Ars Electronica, Linz, Austria
@@ -42,6 +43,7 @@
   kind: award
   tier: flagship
   scope: studio
+  subject: collab-kovylina
   date: 2026.01.01
   source_ru: CultTech Association, Австрия
   source_en: CultTech Association, Austria
@@ -57,6 +59,7 @@
   scope: work
   work: mindshow
   eng: event-portal-2025
+  org: org-moscow2030
   date: 2025.01.01
   title_ru: 1-е место — VJ-конкурс «Виджеинг», Портал 2030–2050
   title_en: 1st place — VJ competition "Visioning", Portal 2030–2050
@@ -67,7 +70,10 @@
   kind: award
   tier: strong
   scope: studio
+  subject: home
   date: 2026.01.01
+  source_ru: Роспатент
+  source_en: Rospatent
   title_ru: ODA.Dream® — зарегистрированный товарный знак (Роспатент)
   title_en: ODA.Dream® — registered trademark (Rospatent)
 
@@ -77,6 +83,8 @@
   scope: work
   work: neuromandala
   date: 2026.01.01
+  source_ru: ФИПС / патентная заявка
+  source_en: Rospatent / patent application
   title_ru: Нейромандала — патентная заявка подана
   title_en: Neuromandala — patent application filed
 
@@ -84,7 +92,10 @@
   kind: award
   tier: standard
   scope: studio
+  subject: home
   date: 2025.01.01
+  source_ru: Творческий союз художников России (ТСХР)
+  source_en: Creative Union of Artists of Russia (TSKhR)
   title_ru: Члены Творческого союза художников России (ТСХР) — секции мультимедиа и научного искусства
   title_en: Members of the Creative Union of Artists of Russia (TSKhR) — Multimedia & Scientific Art sections
 
@@ -92,7 +103,10 @@
   kind: award
   tier: standard
   scope: studio
+  subject: home
   date: 2026.01.01
+  source_ru: ODA.dream — сводка трека
+  source_en: ODA.dream — track record summary
   title_ru: 7 лет на рынке · 80+ событий · 1 500+ участников · 10+ городов
   title_en: 7 years on market · 80+ hub-events · 1,500+ participants · 10+ cities
 
@@ -138,6 +152,7 @@
   kind: hub-press
   tier: strong
   scope: studio
+  subject: home
   date: 2025.01.01
   source_ru: Вечерняя Москва
   source_en: Vechernyaya Moskva
@@ -148,6 +163,7 @@
   kind: hub-press
   tier: standard
   scope: studio
+  subject: home
   date: 2026.01.01
   source_ru: CYENS Centre of Excellence, Кипр
   source_en: CYENS Centre of Excellence, Cyprus
@@ -207,6 +223,7 @@
   tier: standard
   scope: work
   work: neuromandala
+  org: org-bitva-milliard
   date: 2024.01.01
   source_ru: Оргкомитет III форума «Битва за миллиард»
   source_en: Organizing committee of the III forum "Bitva za Milliard"
@@ -218,6 +235,7 @@
   tier: standard
   scope: work
   work: neuromandala
+  org: org-meditation-day
   date: 2026.01.01
   source_ru: Оргкомитет III Международного дня медитации
   source_en: Organizing committee, 3rd International Meditation Day
@@ -232,6 +250,7 @@
   scope: work
   work: mindshow
   eng: event-portal-2025
+  org: org-moscow2030
   date: 2025.01.01
   title_ru: Диплом — Портал 2030–2050 (победа в «Виджеинг»)
   title_en: Diploma — Portal 2030–2050 (Visioning win)
@@ -241,6 +260,7 @@
   kind: letter
   tier: strong
   scope: studio
+  subject: home
   date: 2026.01.01
   source_ru: Уникальная Россия (Гостиный двор, Москва)
   source_en: Unique Russia (Gostiny Dvor, Moscow)
@@ -252,6 +272,7 @@
   kind: letter
   tier: standard
   scope: studio
+  subject: home
   org: org-moscow2030
   date: 2025.01.01
   title_ru: Благодарность — Москва 2030, участие в подготовке форума-фестиваля
@@ -275,6 +296,7 @@
   kind: letter
   tier: standard
   scope: studio
+  subject: home
   date: 2025.01.01
   source_ru: Медиа Эксперты — проект «Великая Россия»
   source_en: Media Experts — "Great Russia" project
@@ -322,6 +344,7 @@
   kind: letter
   tier: standard
   scope: studio
+  subject: home
   date: 2025.01.01
   source_ru: Технологии и Инновации (Национальная бизнес-премия)
   source_en: Technologies & Innovations (National Business Award)
@@ -333,6 +356,7 @@
   kind: letter
   tier: standard
   scope: studio
+  subject: home
   date: 2024.01.01
   source_ru: Tech Week
   source_en: Tech Week
@@ -345,6 +369,7 @@
   tier: standard
   scope: work
   work: neuromandala
+  org: org-bitva-milliard
   date: 2024.01.01
   source_ru: Форум «Битва за миллиард»
   source_en: Forum "Battle for a Billion"
@@ -356,6 +381,7 @@
   kind: letter
   tier: standard
   scope: studio
+  subject: home
   date: 2024.01.01
   source_ru: 'Конференция «КОД: Провинции», Калуга'
   source_en: 'Conference "CODE: Provinces", Kaluga'
@@ -367,9 +393,83 @@
   kind: letter
   tier: standard
   scope: studio
+  subject: home
   date: 2025.01.01
   source_ru: Проект «Голос Общества»
   source_en: '"Voice of Society" project'
   title_ru: Благодарность — экспертное участие
   title_en: Letter of appreciation — expert participation
   media: /images/content/proofs/collab_2025_ODA_Khaskel.webp
+
+# ============================ CONTENT-AUTHORED (site_node overrides) ============================
+
+- id: mipt-letter
+  kind: letter
+  tier: strong
+  scope: work
+  eng: event-mipt-terraforming-2025
+  org: org-mipt
+  site_node: proof-mipt-letter
+  date: 2025.12.15
+  title_ru: МФТИ — Благодарственное письмо
+  title_en: MIPT — Letter of recognition
+  media: /images/proofs/proof-mipt-letter.webp
+
+- id: emomandala-abundance
+  kind: press
+  tier: standard
+  scope: work
+  work: emomandala
+  site_node: proof-emomandala-abundance
+  date: 2023.03.23
+  source_ru: Архив студии · линейка талисманов
+  source_en: Studio archive · talisman line
+  title_ru: Эмомандала — талисман «Изобилие»
+  title_en: Emomandala — Abundance talisman
+
+- id: oda-synergy-2022
+  kind: press
+  tier: strong
+  scope: studio
+  subject: home
+  work: oda-rings
+  org: org-synergy-forum
+  site_node: proof-oda-synergy-forum-2022
+  date: 2022.08.06
+  source_en: Synergy Crypto & NFT Forum, Bali
+  source_ru: Synergy Crypto & NFT Forum, Бали
+  title_ru: Дебют ODA.dream — Synergy Crypto & NFT Forum, Бали
+  title_en: ODA.dream debut — Synergy Crypto & NFT Forum, Bali
+
+- id: mom-baby-borzikh
+  kind: press
+  tier: standard
+  scope: work
+  work: mom-baby
+  org: org-synergy-forum
+  site_node: proof-mom-baby-borzikh-origin
+  date: 2022.08.06
+  source_en: Synergy Crypto & NFT Forum · field encounter
+  source_ru: Synergy Crypto & NFT Forum · полевой контакт
+  title_ru: Мама и Малыш — заказ Борзих (форум Synergy, Бали)
+  title_en: Mom & Baby — Borzikh commission (Synergy Forum, Bali)
+
+- id: mom-baby-iowa
+  kind: press
+  tier: standard
+  scope: work
+  work: mom-baby
+  site_node: proof-mom-baby-iowa-gift
+  date: 2022.09.01
+  source_en: Studio archive · parallel commission
+  source_ru: Архив студии · параллельный заказ
+  title_ru: Мама и Малыш — подарок Кате IOWA
+  title_en: Mom & Baby — gift to Katya IOWA
+
+- id: portal-1st
+  site_node: proof-portal-1st
+  alias_of: award-portal-visioning
+
+- id: cipr-quote
+  site_node: proof-cipr-quote
+  alias_of: tst-cipr-techfriendly

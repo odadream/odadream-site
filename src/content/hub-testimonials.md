@@ -34,11 +34,11 @@ Verified words from organizers, institutions, and partners — about the duo and
 
 > «for live neuro-mandala visualization at the 3rd International Meditation Day»
 >
-> — Organizing committee, 3rd International Meditation Day (2026)
+> — 3rd International Meditation Day (2026)
 
 > «for the art installation "Neuromandala" that united art, science, and technology»
 >
-> — Organizing committee of the III forum "Bitva za Milliard" (2024)
+> — Battle for a Billion forum (2024)
 <!-- /hub-registry:testimonials-all -->
 
 ---RU---
@@ -66,9 +66,9 @@ Verified words from organizers, institutions, and partners — about the duo and
 
 > «за живую визуализацию нейромандалы на III Международном дне медитации»
 >
-> — Оргкомитет III Международного дня медитации (2026)
+> — III Международный день медитации (2026)
 
 > «за арт-инсталляцию «Нейромандала», объединившую искусство, науку и технологии»
 >
-> — Оргкомитет III форума «Битва за миллиард» (2024)
+> — Форум «Битва за миллиард» (2024)
 <!-- /hub-registry:testimonials-all-ru -->

@@ -1,5 +1,11 @@
-# ODA.dream organization hub-registry — single source of truth
+# ODA.dream organizations — names for hub-registry tables & wiki-links
+# Edit here, then:  npm run registry:sync
+#
 # kind: client | venue | institution | partner
+#   client      — paying customer / commissioning party
+#   institution — university, bank, government body
+#   venue       — festival, forum site, exhibition hall
+#   partner     — co-producer, curator-as-partner
 
 - id: org-ekoniva
   name_ru: ЭкоНива
@@ -130,3 +136,18 @@
   name_ru: CultTech Association
   name_en: CultTech Association
   kind: ngo
+
+- id: org-bitva-milliard
+  name_ru: Форум «Битва за миллиард»
+  name_en: Battle for a Billion forum
+  kind: partner
+
+- id: org-meditation-day
+  name_ru: III Международный день медитации
+  name_en: 3rd International Meditation Day
+  kind: partner
+
+- id: org-synergy-forum
+  name_ru: Synergy Crypto & NFT Forum
+  name_en: Synergy Crypto & NFT Forum
+  kind: partner

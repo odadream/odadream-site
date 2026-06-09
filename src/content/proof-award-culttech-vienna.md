@@ -10,6 +10,7 @@ kind: proof
 subkind: award
 proof_of:
   - "[[ancestors]]"
+  - "[[collab-kovylina]]"
 issued_by:
   - "[[org-culttech]]"
 publication: CultTech Association, Austria

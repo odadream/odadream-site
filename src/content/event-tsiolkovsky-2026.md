@@ -4,7 +4,11 @@ parent: event-tsiolkovsky
 title_en: Interference of Realities — Tsiolkovsky Festival
 title_ru: «Интерференция реальностей» — Фестиваль Циолковского
 type: content
-tags: [performance, festival, premiere]
+tags:
+  - performance
+  - festival
+  - premiere
+  - hub-registry
 visible: true
 date: 2026.05.16
 order: 1
@@ -13,13 +17,20 @@ subkind: festival
 date_start: 2026-05-16
 venue: Kaluga
 organizer:
-  - "[[org-tsiolkovsky]]"
-  - "[[org-itb]]"
-  - "[[org-ikc]]"
   - "[[org-neiry]]"
+  - "[[org-tsiolkovsky]]"
 products:
   - "[[interference]]"
 proofs: []
+orgs:
+  - org-neiry
+venues:
+  - org-tsiolkovsky
+city_en: Kaluga
+city_ru: Калуга
+relationship: competition
+format: performance
+showcase: true
 ---
 
 ## Interference of Realities — opening performance (2026)

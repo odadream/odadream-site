@@ -10,7 +10,8 @@ kind: proof
 subkind: press
 proof_of:
   - "[[mom-baby]]"
-issued_by: []
+issued_by:
+  - Архив студии · параллельный заказ
 publication: Studio archive · parallel commission
 publication_date: 2022-09-01
 quote_en: While the nested pendant was in development, one piece was gifted to singer Katya IOWA — she was pregnant at the same time.

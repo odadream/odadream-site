@@ -4,7 +4,9 @@ parent: hub-testimonials
 title_en: CIPR — Testimonial quote
 title_ru: ЦИПР — Отзыв
 type: content
-tags: [proof, testimonial]
+tags:
+  - proof
+  - testimonial
 visible: true
 date: 2026.06.01
 order: 0
@@ -15,10 +17,10 @@ proof_of:
   - "[[event-cipr-mindshow-2026]]"
 issued_by:
   - "[[org-cipr]]"
-publication: "CIPR — Digital Industry of Industrial Russia forum"
+publication: CIPR — Digital Industry of Industrial Russia forum
 publication_date: 2026-06-01
-quote_en: "For the joint presentation at TechFriendly Weekend, part of the CIPR — Digital Industry of Industrial Russia forum."
-quote_ru: "За совместное выступление на TechFriendly Weekend в рамках форума ЦИПР — Цифровая индустрия промышленной России."
+quote_en: For the joint presentation at TechFriendly Weekend, part of the CIPR — Digital Industry of Industrial Russia forum.
+quote_ru: За совместное выступление на TechFriendly Weekend в рамках форума ЦИПР — Цифровая индустрия промышленной России.
 ---
 
 ## CIPR — Testimonial

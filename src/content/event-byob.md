@@ -13,6 +13,7 @@ tags:
 order: 3
 date: 2026.05.29
 visible: true
+date_start: 2026-05-29
 ---
 
 ## BYOB

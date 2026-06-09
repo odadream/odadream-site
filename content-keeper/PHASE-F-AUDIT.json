@@ -1,214 +1,44 @@
 {
-  "generated_at": "2026-05-30T17:52:21.857Z",
+  "generated_at": "2026-06-09T09:18:51.129Z",
   "counts": {
     "byKind": {
-      "product": 32,
-      "(no kind)": 48,
-      "event": 29,
-      "media": 8,
-      "organizer": 22,
-      "proof": 35
+      "product": 34,
+      "(no kind)": 49,
+      "collaboration": 4,
+      "event": 37,
+      "media": 34,
+      "organizer": 31,
+      "proof": 39
     },
-    "total": 174
+    "total": 228
   },
-  "conformance_gaps": 26,
-  "body_smells": 9,
-  "missing_refs": 0,
-  "orphans": 60,
-  "duplicates": 1,
+  "conformance_gaps": 0,
+  "body_smells": 10,
+  "missing_refs": 20,
+  "orphans": 31,
+  "duplicates": 2,
   "proof_drift": {
-    "md_only": 3,
+    "md_only": 0,
     "yaml_only": 0,
-    "missing_relations": 25
+    "missing_relations": 0
   },
-  "gratitude_mentions": 3,
-  "gratitude_without_link": 0,
+  "gratitude_mentions": 4,
+  "gratitude_without_link": 1,
   "detail": {
-    "conformance": [
-      {
-        "id": "event-bitva-milliard-2024",
-        "file": "event-bitva-milliard-2024.md",
-        "missing": [
-          "date_start"
-        ]
-      },
-      {
-        "id": "event-brics-plus",
-        "file": "event-brics-plus.md",
-        "missing": [
-          "date_start"
-        ]
-      },
-      {
-        "id": "event-kod-provincii",
-        "file": "event-kod-provincii.md",
-        "missing": [
-          "date_start"
-        ]
-      },
-      {
-        "id": "event-techweek",
-        "file": "event-techweek.md",
-        "missing": [
-          "date_start"
-        ]
-      },
-      {
-        "id": "event-gong-fest-2024",
-        "file": "event-gong-fest-2024.md",
-        "missing": [
-          "date_start"
-        ]
-      },
-      {
-        "id": "event-gong-fest-2025",
-        "file": "event-gong-fest-2025.md",
-        "missing": [
-          "date_start"
-        ]
-      },
-      {
-        "id": "pleinair-bashkiria",
-        "file": "pleinair-bashkiria.md",
-        "missing": [
-          "date_start"
-        ]
-      },
-      {
-        "id": "pleinair-metro",
-        "file": "pleinair-metro.md",
-        "missing": [
-          "date_start"
-        ]
-      },
-      {
-        "id": "event-portal-2024",
-        "file": "event-portal-2024.md",
-        "missing": [
-          "date_start"
-        ]
-      },
-      {
-        "id": "proof-award-ars-electronica",
-        "file": "proof-award-ars-electronica.md",
-        "missing": [
-          "proof_of"
-        ]
-      },
-      {
-        "id": "proof-award-culttech-vienna",
-        "file": "proof-award-culttech-vienna.md",
-        "missing": [
-          "proof_of"
-        ]
-      },
-      {
-        "id": "proof-cred-track-record",
-        "file": "proof-cred-track-record.md",
-        "missing": [
-          "proof_of"
-        ]
-      },
-      {
-        "id": "proof-cred-tskhr",
-        "file": "proof-cred-tskhr.md",
-        "missing": [
-          "proof_of"
-        ]
-      },
-      {
-        "id": "proof-ip-trademark",
-        "file": "proof-ip-trademark.md",
-        "missing": [
-          "proof_of"
-        ]
-      },
-      {
-        "id": "proof-let-golos-obshchestva",
-        "file": "proof-let-golos-obshchestva.md",
-        "missing": [
-          "proof_of"
-        ]
-      },
-      {
-        "id": "proof-let-kod-provincii",
-        "file": "proof-let-kod-provincii.md",
-        "missing": [
-          "proof_of"
-        ]
-      },
-      {
-        "id": "proof-let-media-experts",
-        "file": "proof-let-media-experts.md",
-        "missing": [
-          "proof_of"
-        ]
-      },
-      {
-        "id": "proof-let-moscow2030",
-        "file": "proof-let-moscow2030.md",
-        "missing": [
-          "proof_of"
-        ]
-      },
-      {
-        "id": "proof-let-techweek",
-        "file": "proof-let-techweek.md",
-        "missing": [
-          "proof_of"
-        ]
-      },
-      {
-        "id": "proof-let-tpp-techinno",
-        "file": "proof-let-tpp-techinno.md",
-        "missing": [
-          "proof_of"
-        ]
-      },
-      {
-        "id": "proof-let-unique-russia",
-        "file": "proof-let-unique-russia.md",
-        "missing": [
-          "proof_of"
-        ]
-      },
-      {
-        "id": "proof-press-cyens-cyprus",
-        "file": "proof-press-cyens-cyprus.md",
-        "missing": [
-          "proof_of"
-        ]
-      },
-      {
-        "id": "proof-press-vecherka",
-        "file": "proof-press-vecherka.md",
-        "missing": [
-          "proof_of"
-        ]
-      },
-      {
-        "id": "event-tsiolkovsky-2025",
-        "file": "event-tsiolkovsky-2025.md",
-        "missing": [
-          "date_start"
-        ]
-      },
-      {
-        "id": "tsiolkovsky-2026",
-        "file": "tsiolkovsky-2026.md",
-        "missing": [
-          "date_start"
-        ]
-      },
-      {
-        "id": "unique-russia",
-        "file": "unique-russia.md",
-        "missing": [
-          "date_start"
-        ]
-      }
-    ],
+    "conformance": [],
     "bodySmells": [
+      {
+        "id": "emomandala",
+        "file": "emomandala.md",
+        "smell": "provenance-header",
+        "detail": "Provenance"
+      },
+      {
+        "id": "event-portal",
+        "file": "event-portal.md",
+        "smell": "manual-link-list",
+        "detail": "6 link bullets in 2 block(s)"
+      },
       {
         "id": "hub-business",
         "file": "hub-business.md",
@@ -234,10 +64,10 @@
         "detail": "12 link bullets in 2 block(s)"
       },
       {
-        "id": "event-portal",
-        "file": "event-portal.md",
+        "id": "hub-registry-collabs",
+        "file": "hub-registry-collabs.md",
         "smell": "manual-link-list",
-        "detail": "6 link bullets in 2 block(s)"
+        "detail": "8 link bullets in 2 block(s)"
       },
       {
         "id": "hub-world",
@@ -246,40 +76,193 @@
         "detail": "14 link bullets in 2 block(s)"
       },
       {
-        "id": "interference",
-        "file": "interference.md",
-        "smell": "manual-link-list",
-        "detail": "6 link bullets in 2 block(s)"
+        "id": "mom-baby",
+        "file": "mom-baby.md",
+        "smell": "provenance-header",
+        "detail": "Provenance"
       },
       {
-        "id": "posustoronniy",
-        "file": "posustoronniy.md",
-        "smell": "manual-link-list",
-        "detail": "6 link bullets in 2 block(s)"
-      },
-      {
-        "id": "sync-circle",
-        "file": "sync-circle.md",
+        "id": "org-ashram",
+        "file": "org-ashram.md",
         "smell": "manual-link-list",
         "detail": "6 link bullets in 2 block(s)"
       }
     ],
-    "missingRefs": [],
+    "missingRefs": [
+      {
+        "id": "home",
+        "kind_guess": "product",
+        "referenced_by": [
+          "proof-award-ars-electronica.proof_of",
+          "proof-cred-track-record.proof_of",
+          "proof-cred-tskhr.proof_of",
+          "proof-ip-trademark.proof_of",
+          "proof-let-golos-obshchestva.proof_of",
+          "proof-let-kod-provincii.proof_of",
+          "proof-let-media-experts.proof_of",
+          "proof-let-moscow2030.proof_of",
+          "proof-let-techweek.proof_of",
+          "proof-let-tpp-techinno.proof_of",
+          "proof-let-unique-russia.proof_of",
+          "proof-oda-synergy-forum-2022.proof_of",
+          "proof-press-cyens-cyprus.proof_of",
+          "proof-press-vecherka.proof_of"
+        ]
+      },
+      {
+        "id": "Ars Electronica, Линц, Австрия",
+        "kind_guess": "product",
+        "referenced_by": [
+          "proof-award-ars-electronica.issued_by"
+        ]
+      },
+      {
+        "id": "ODA.dream — сводка трека",
+        "kind_guess": "product",
+        "referenced_by": [
+          "proof-cred-track-record.issued_by"
+        ]
+      },
+      {
+        "id": "Творческий союз художников России (ТСХР)",
+        "kind_guess": "product",
+        "referenced_by": [
+          "proof-cred-tskhr.issued_by"
+        ]
+      },
+      {
+        "id": "test issuer",
+        "kind_guess": "product",
+        "referenced_by": [
+          "proof-emomandala-abundance.issued_by"
+        ]
+      },
+      {
+        "id": "ФИПС / патентная заявка",
+        "kind_guess": "product",
+        "referenced_by": [
+          "proof-ip-patent.issued_by"
+        ]
+      },
+      {
+        "id": "Роспатент",
+        "kind_guess": "product",
+        "referenced_by": [
+          "proof-ip-trademark.issued_by"
+        ]
+      },
+      {
+        "id": "ТСХР — первый цифровой пленэр, Шульган-Таш",
+        "kind_guess": "product",
+        "referenced_by": [
+          "proof-let-bashkiria.issued_by"
+        ]
+      },
+      {
+        "id": "Проект «Голос Общества»",
+        "kind_guess": "product",
+        "referenced_by": [
+          "proof-let-golos-obshchestva.issued_by"
+        ]
+      },
+      {
+        "id": "Конференция «КОД: Провинции», Калуга",
+        "kind_guess": "product",
+        "referenced_by": [
+          "proof-let-kod-provincii.issued_by"
+        ]
+      },
+      {
+        "id": "Медиа Эксперты — проект «Великая Россия»",
+        "kind_guess": "product",
+        "referenced_by": [
+          "proof-let-media-experts.issued_by"
+        ]
+      },
+      {
+        "id": "Tech Week",
+        "kind_guess": "product",
+        "referenced_by": [
+          "proof-let-techweek.issued_by"
+        ]
+      },
+      {
+        "id": "Технологии и Инновации (Национальная бизнес-премия)",
+        "kind_guess": "product",
+        "referenced_by": [
+          "proof-let-tpp-techinno.issued_by"
+        ]
+      },
+      {
+        "id": "Уникальная Россия (Гостиный двор, Москва)",
+        "kind_guess": "product",
+        "referenced_by": [
+          "proof-let-unique-russia.issued_by"
+        ]
+      },
+      {
+        "id": "Архив студии · параллельный заказ",
+        "kind_guess": "product",
+        "referenced_by": [
+          "proof-mom-baby-iowa-gift.issued_by"
+        ]
+      },
+      {
+        "id": "CYENS Centre of Excellence, Кипр",
+        "kind_guess": "product",
+        "referenced_by": [
+          "proof-press-cyens-cyprus.issued_by"
+        ]
+      },
+      {
+        "id": "НТВ",
+        "kind_guess": "product",
+        "referenced_by": [
+          "proof-press-ntv-metro.issued_by"
+        ]
+      },
+      {
+        "id": "ТНТ, «Ты как Я»",
+        "kind_guess": "product",
+        "referenced_by": [
+          "proof-press-tnt-tykakya.issued_by"
+        ]
+      },
+      {
+        "id": "ТСХР",
+        "kind_guess": "product",
+        "referenced_by": [
+          "proof-press-tskhr-bashkiria.issued_by"
+        ]
+      },
+      {
+        "id": "Вечерняя Москва",
+        "kind_guess": "product",
+        "referenced_by": [
+          "proof-press-vecherka.issued_by"
+        ]
+      }
+    ],
     "orphans": [
-      {
-        "id": "ancestors",
-        "kind": "product",
-        "file": "ancestors.md"
-      },
-      {
-        "id": "another-people",
-        "kind": "product",
-        "file": "another-people.md"
-      },
       {
         "id": "brain-hack",
         "kind": "product",
         "file": "brain-hack.md"
+      },
+      {
+        "id": "collab-itb",
+        "kind": "collaboration",
+        "file": "collab-itb.md"
+      },
+      {
+        "id": "collab-itmo",
+        "kind": "collaboration",
+        "file": "collab-itmo.md"
+      },
+      {
+        "id": "collab-korichina",
+        "kind": "collaboration",
+        "file": "collab-korichina.md"
       },
       {
         "id": "cultural-neuro-code",
@@ -287,14 +270,19 @@
         "file": "cultural-neuro-code.md"
       },
       {
-        "id": "dashran",
+        "id": "emomandala-os",
         "kind": "product",
-        "file": "dashran.md"
+        "file": "emomandala-os.md"
       },
       {
-        "id": "emomandala",
-        "kind": "product",
-        "file": "emomandala.md"
+        "id": "eng-audi-brand",
+        "kind": "event",
+        "file": "eng-audi-brand.md"
+      },
+      {
+        "id": "eng-lamborghini-brand",
+        "kind": "event",
+        "file": "eng-lamborghini-brand.md"
       },
       {
         "id": "event-bauman-moscow2030-2025",
@@ -317,14 +305,24 @@
         "file": "event-gonchar-private-2024.md"
       },
       {
-        "id": "event-kod-provincii",
+        "id": "event-gong-fest-2024",
         "kind": "event",
-        "file": "event-kod-provincii.md"
+        "file": "event-gong-fest-2024.md"
+      },
+      {
+        "id": "event-gong-fest-2025",
+        "kind": "event",
+        "file": "event-gong-fest-2025.md"
       },
       {
         "id": "event-merck-corporate",
         "kind": "event",
         "file": "event-merck-corporate.md"
+      },
+      {
+        "id": "event-portal-2024",
+        "kind": "event",
+        "file": "event-portal-2024.md"
       },
       {
         "id": "event-sber-lecture-2025",
@@ -337,34 +335,9 @@
         "file": "event-techweek.md"
       },
       {
-        "id": "feedback-empathy-brain",
-        "kind": "product",
-        "file": "feedback-empathy-brain.md"
-      },
-      {
-        "id": "event-gong-fest-2024",
-        "kind": "event",
-        "file": "event-gong-fest-2024.md"
-      },
-      {
-        "id": "event-gong-fest-2025",
-        "kind": "event",
-        "file": "event-gong-fest-2025.md"
-      },
-      {
         "id": "gong",
         "kind": "product",
         "file": "gong.md"
-      },
-      {
-        "id": "happiness",
-        "kind": "product",
-        "file": "happiness.md"
-      },
-      {
-        "id": "honors",
-        "kind": "product",
-        "file": "honors.md"
       },
       {
         "id": "hyperscan-scene-engine",
@@ -377,24 +350,9 @@
         "file": "journey.md"
       },
       {
-        "id": "lighthouse",
-        "kind": "product",
-        "file": "lighthouse.md"
-      },
-      {
         "id": "meditation-brain",
         "kind": "product",
         "file": "meditation-brain.md"
-      },
-      {
-        "id": "mom-baby",
-        "kind": "product",
-        "file": "mom-baby.md"
-      },
-      {
-        "id": "neuro-dance",
-        "kind": "product",
-        "file": "neuro-dance.md"
       },
       {
         "id": "neuroaesthetics-lec",
@@ -407,16 +365,6 @@
         "file": "neuromandala-os.md"
       },
       {
-        "id": "neurosync",
-        "kind": "product",
-        "file": "neurosync.md"
-      },
-      {
-        "id": "org-audi",
-        "kind": "organizer",
-        "file": "org-audi.md"
-      },
-      {
         "id": "org-culture-sport-uao",
         "kind": "organizer",
         "file": "org-culture-sport-uao.md"
@@ -425,11 +373,6 @@
         "id": "org-inforce",
         "kind": "organizer",
         "file": "org-inforce.md"
-      },
-      {
-        "id": "org-lamborghini",
-        "kind": "organizer",
-        "file": "org-lamborghini.md"
       },
       {
         "id": "pleinair-bashkiria",
@@ -442,99 +385,9 @@
         "file": "pleinair-metro.md"
       },
       {
-        "id": "event-portal-2024",
-        "kind": "event",
-        "file": "event-portal-2024.md"
-      },
-      {
-        "id": "posustoronniy",
-        "kind": "product",
-        "file": "posustoronniy.md"
-      },
-      {
-        "id": "proof-award-ars-electronica",
-        "kind": "proof",
-        "file": "proof-award-ars-electronica.md"
-      },
-      {
-        "id": "proof-award-culttech-vienna",
-        "kind": "proof",
-        "file": "proof-award-culttech-vienna.md"
-      },
-      {
-        "id": "proof-cred-track-record",
-        "kind": "proof",
-        "file": "proof-cred-track-record.md"
-      },
-      {
-        "id": "proof-cred-tskhr",
-        "kind": "proof",
-        "file": "proof-cred-tskhr.md"
-      },
-      {
-        "id": "proof-ip-trademark",
-        "kind": "proof",
-        "file": "proof-ip-trademark.md"
-      },
-      {
-        "id": "proof-let-golos-obshchestva",
-        "kind": "proof",
-        "file": "proof-let-golos-obshchestva.md"
-      },
-      {
-        "id": "proof-let-kod-provincii",
-        "kind": "proof",
-        "file": "proof-let-kod-provincii.md"
-      },
-      {
-        "id": "proof-let-media-experts",
-        "kind": "proof",
-        "file": "proof-let-media-experts.md"
-      },
-      {
-        "id": "proof-let-moscow2030",
-        "kind": "proof",
-        "file": "proof-let-moscow2030.md"
-      },
-      {
-        "id": "proof-let-techweek",
-        "kind": "proof",
-        "file": "proof-let-techweek.md"
-      },
-      {
-        "id": "proof-let-tpp-techinno",
-        "kind": "proof",
-        "file": "proof-let-tpp-techinno.md"
-      },
-      {
-        "id": "proof-let-unique-russia",
-        "kind": "proof",
-        "file": "proof-let-unique-russia.md"
-      },
-      {
-        "id": "proof-press-cyens-cyprus",
-        "kind": "proof",
-        "file": "proof-press-cyens-cyprus.md"
-      },
-      {
-        "id": "proof-press-vecherka",
-        "kind": "proof",
-        "file": "proof-press-vecherka.md"
-      },
-      {
-        "id": "schrodinger",
-        "kind": "product",
-        "file": "schrodinger.md"
-      },
-      {
         "id": "sound-brain",
         "kind": "product",
         "file": "sound-brain.md"
-      },
-      {
-        "id": "sync-circle",
-        "kind": "product",
-        "file": "sync-circle.md"
       },
       {
         "id": "taste-brain",
@@ -542,29 +395,9 @@
         "file": "taste-brain.md"
       },
       {
-        "id": "event-tsiolkovsky-2025",
-        "kind": "event",
-        "file": "event-tsiolkovsky-2025.md"
-      },
-      {
-        "id": "tsiolkovsky-2026",
-        "kind": "event",
-        "file": "tsiolkovsky-2026.md"
-      },
-      {
-        "id": "two-waves",
-        "kind": "product",
-        "file": "two-waves.md"
-      },
-      {
         "id": "unique-russia",
         "kind": "event",
         "file": "unique-russia.md"
-      },
-      {
-        "id": "voronka",
-        "kind": "product",
-        "file": "voronka.md"
       }
     ],
     "duplicates": [
@@ -574,186 +407,30 @@
           "hub-host-events"
         ],
         "reason": "same title_en (undefined)"
+      },
+      {
+        "ids": [
+          "proof-hse-beautiful-brain",
+          "proof-tst-hse-brain"
+        ],
+        "reason": "same title_en (proof)"
       }
     ],
     "proofDrift": {
-      "mdOnly": [
-        "proof-cipr-quote",
-        "proof-mipt-letter",
-        "proof-portal-1st"
-      ],
+      "mdOnly": [],
       "yamlOnly": [],
-      "missingRelations": [
-        {
-          "id": "proof-award-ars-electronica",
-          "missing": [
-            "proof_of",
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-award-culttech-vienna",
-          "missing": [
-            "proof_of",
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-award-portal-visioning",
-          "missing": [
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-cred-track-record",
-          "missing": [
-            "proof_of",
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-cred-tskhr",
-          "missing": [
-            "proof_of",
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-ip-patent",
-          "missing": [
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-ip-trademark",
-          "missing": [
-            "proof_of",
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-let-bashkiria",
-          "missing": [
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-let-bitva-milliard",
-          "missing": [
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-let-golos-obshchestva",
-          "missing": [
-            "proof_of",
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-let-kod-provincii",
-          "missing": [
-            "proof_of",
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-let-media-experts",
-          "missing": [
-            "proof_of",
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-let-moscow2030",
-          "missing": [
-            "proof_of"
-          ]
-        },
-        {
-          "id": "proof-let-portal",
-          "missing": [
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-let-techweek",
-          "missing": [
-            "proof_of",
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-let-tpp-techinno",
-          "missing": [
-            "proof_of",
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-let-unique-russia",
-          "missing": [
-            "proof_of",
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-portal-1st",
-          "missing": [
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-press-cyens-cyprus",
-          "missing": [
-            "proof_of",
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-press-ntv-metro",
-          "missing": [
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-press-tnt-tykakya",
-          "missing": [
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-press-tskhr-bashkiria",
-          "missing": [
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-press-vecherka",
-          "missing": [
-            "proof_of",
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-tst-bitva-milliard",
-          "missing": [
-            "issued_by"
-          ]
-        },
-        {
-          "id": "proof-tst-meditation-day",
-          "missing": [
-            "issued_by"
-          ]
-        }
-      ]
+      "missingRelations": []
     },
     "gratitude": [
       {
         "id": "beautiful-brain",
         "file": "beautiful-brain.md",
         "hasLink": true
+      },
+      {
+        "id": "hub-registry",
+        "file": "hub-registry.md",
+        "hasLink": false
       },
       {
         "id": "proof-hse-beautiful-brain",

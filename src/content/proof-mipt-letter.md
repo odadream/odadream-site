@@ -4,7 +4,9 @@ parent: hub-letters
 title_en: MIPT — Letter of recognition
 title_ru: МФТИ — Благодарственное письмо
 type: content
-tags: [proof, letter]
+tags:
+  - proof
+  - letter
 visible: true
 date: 2025.12.15
 order: 0

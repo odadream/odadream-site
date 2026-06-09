@@ -11,6 +11,7 @@ tags:
   - city
 order: 2
 date: 2026.02.06
+date_start: 2026-02-06
 ---
 
 ## PORTAL

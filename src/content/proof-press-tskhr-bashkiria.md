@@ -13,6 +13,8 @@ proof_of:
 publication: TSKhR
 publication_date: 2025-01-01
 external_link: https://tcxp.ru/news/regions/v-bashkirii-proshel-pervyy-cifrovoy-plener
+issued_by:
+  - ТСХР
 ---
 
 ## TSKhR publication on the first digital plein air in Bashkiria

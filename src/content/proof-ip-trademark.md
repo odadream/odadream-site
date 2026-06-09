@@ -9,6 +9,11 @@ date: 2026.01.01
 kind: proof
 subkind: award
 publication_date: 2026-01-01
+proof_of:
+  - "[[home]]"
+issued_by:
+  - Роспатент
+publication: Rospatent
 ---
 
 ## ODA.Dream® — registered trademark (Rospatent)

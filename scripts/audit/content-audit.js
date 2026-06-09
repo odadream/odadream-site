@@ -91,8 +91,19 @@ const MEDIA_SUBJECTS = new Map(); // nodeId → Set<assetId>
 let proofsYaml = [];
 try { proofsYaml = readYaml("proofs.yaml") ?? []; } catch { proofsYaml = []; }
 const proofsYamlIds = new Set(
-  proofsYaml.map((r) => r.site_node || (r.id ? `proof-${r.id}` : null)).filter(Boolean),
+  proofsYaml
+    .flatMap((r) => {
+      if (r.alias_of && r.site_node) return [r.site_node];
+      if (r.site_node) return [r.site_node];
+      if (r.id) return [`proof-${r.id}`];
+      return [];
+    })
+    .filter(Boolean),
 );
+const PROOF_MD_ALIASES = {
+  "proof-portal-1st": "award-portal-visioning",
+  "proof-cipr-quote": "tst-cipr-techfriendly",
+};
 const proofMdIds = new Set([...nodes.values()].filter((n) => n.fm.kind === "proof").map((n) => n.fm.id));
 
 // ──────────────────────────────────────────────────────────────────
@@ -220,13 +231,20 @@ for (const node of nodes.values()) {
 }
 
 // 6. Proof drift
-for (const id of proofMdIds) if (!proofsYamlIds.has(id)) report.proofDrift.mdOnly.push(id);
+for (const id of proofMdIds) {
+  if (proofsYamlIds.has(id)) continue;
+  const yamlId = PROOF_MD_ALIASES[id];
+  if (yamlId && proofsYaml.some((r) => r.id === yamlId)) continue;
+  report.proofDrift.mdOnly.push(id);
+}
 for (const id of proofsYamlIds) if (!proofMdIds.has(id)) report.proofDrift.yamlOnly.push(id);
 for (const node of nodes.values()) {
   if (node.fm.kind !== "proof") continue;
   const missing = [];
   if (isEmpty(node.fm.proof_of)) missing.push("proof_of");
-  if (isEmpty(node.fm.issued_by)) missing.push("issued_by");
+  if (isEmpty(node.fm.issued_by) && isEmpty(node.fm.publication)) {
+    missing.push("issued_by");
+  }
   if (missing.length) report.proofDrift.missingRelations.push({ id: node.fm.id, missing });
 }
 

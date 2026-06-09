@@ -10,6 +10,10 @@ kind: proof
 subkind: award
 publication: Ars Electronica, Linz, Austria
 publication_date: 2026-01-01
+proof_of:
+  - "[[home]]"
+issued_by:
+  - Ars Electronica, Линц, Австрия
 ---
 
 ## Official submission — Prix Ars Electronica & STARTS Prize

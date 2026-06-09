@@ -11,6 +11,10 @@ subkind: letter
 publication: Technologies & Innovations (National Business Award)
 publication_date: 2025-01-01
 asset: /images/content/proofs/collab_2025_ODA_TPP.webp
+proof_of:
+  - "[[home]]"
+issued_by:
+  - Технологии и Инновации (Национальная бизнес-премия)
 ---
 
 ## Letter of appreciation — contribution to the award

@@ -12,6 +12,7 @@ visible: false
 date: 2020.03.15
 kind: organizer
 subkind: curator
+date_start: 2020-03-15
 ---
 
 ## Yulia Korichina

@@ -16,6 +16,12 @@ venue: Moscow
 organizer:
   - "[[org-merck]]"
 subkind: conference
+orgs:
+  - org-merck
+city_en: Moscow
+city_ru: Москва
+relationship: commercial
+format: lecture
 ---
 
 ## Merck corporate science-art format

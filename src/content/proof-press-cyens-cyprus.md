@@ -10,6 +10,10 @@ kind: proof
 subkind: hub-press
 publication: CYENS Centre of Excellence, Cyprus
 publication_date: 2026-01-01
+proof_of:
+  - "[[home]]"
+issued_by:
+  - CYENS Centre of Excellence, Кипр
 ---
 
 ## International collaboration inquiry on the neuro-art methodology

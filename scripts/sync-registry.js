@@ -1,5 +1,6 @@
 /**
- * Sync event registry from data/registry/*.yaml to Lotus CMS content files.
+ * Sync Experience Registry to Lotus CMS.
+ * Editable source: data/registry/engagements/*.md (Obsidian → events.base)
  * Run: npm run registry:sync
  */
 import fs from "fs";
@@ -7,6 +8,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { parse as parseYaml } from "yaml";
 import { readYamlFile } from "./migrate/lib.js";
+import { resolveEngagements } from "./sync/engagements-from-notes.js";
+import { formatRegistryDateForSite } from "./sync/registry-date.js";
 import {
   buildDossier,
   buildAwardsTable,
@@ -74,8 +77,14 @@ function orgNames(ids, map, lang) {
 }
 
 function formatDate(d) {
-  if (!d) return "";
-  return String(d).replace(/-/g, ".");
+  return formatRegistryDateForSite(d) === "—" ? "" : formatRegistryDateForSite(d);
+}
+
+function cityLabel(eng, lang) {
+  const en = eng.city_en ?? eng.city ?? "";
+  const ru = eng.city_ru ?? "";
+  const val = lang === "ru" ? ru || en : en || ru;
+  return val || "—";
 }
 
 function subkindLabel(subkind, lang) {
@@ -108,7 +117,7 @@ function resolveSubkind(eng, contentMeta) {
 function engTableRow(eng, omap, lang, publicCardIds, contentMeta) {
   const orgs = orgNames(eng.orgs, omap, lang);
   const venues = orgNames(eng.venues, omap, lang);
-  const city = eng.city || "—";
+  const city = cityLabel(eng, lang);
   const date = formatDate(eng.date) || "—";
   const type = subkindLabel(resolveSubkind(eng, contentMeta), lang);
   const title = engTitleCell(eng, lang, publicCardIds);
@@ -149,9 +158,9 @@ function buildRegistryTables(engagements, omap, publicCardIds, contentMeta) {
   const all = sortEngagements(engagements);
 
   const headerEn =
-    "| Date | Engagement | Event type | Client / org | Venue | City |\n|------|------------|------------|--------------|-------|------|";
+    "| Date | Title | Type | Organizer | Venue | City |\n|------|-------|------|-----------|-------|------|";
   const headerRu =
-    "| Дата | Участие | Тип события | Заказчик / орг. | Площадка | Город |\n|------|---------|-------------|-----------------|----------|-------|";
+    "| Дата | Название | Тип | Организатор | Площадка | Город |\n|------|----------|-----|-------------|----------|------|";
 
   const row = (e, lang) => engTableRow(e, omap, lang, publicCardIds, contentMeta);
   const enAll = all.map((e) => row(e, "en")).join("\n");
@@ -414,7 +423,7 @@ function cleanupOldGenerated() {
 console.log("\n🔄 REGISTRY SYNC\n");
 
 const orgs = loadYaml(ORGS_PATH);
-const engagements = loadYaml(ENG_PATH);
+const engagements = resolveEngagements(DATA_DIR);
 const works = fs.existsSync(WORKS_PATH) ? loadYaml(WORKS_PATH) : [];
 const proofs = fs.existsSync(PROOFS_PATH) ? loadYaml(PROOFS_PATH) : [];
 const omap = orgMap(orgs);

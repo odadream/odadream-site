@@ -11,6 +11,10 @@ subkind: letter
 publication: Media Experts — "Great Russia" project
 publication_date: 2025-01-01
 asset: /images/content/proofs/collab_2025_ODA_Severnaya_Osetiya_Media_Eksperty.webp
+proof_of:
+  - "[[home]]"
+issued_by:
+  - Медиа Эксперты — проект «Великая Россия»
 ---
 
 ## Letter of appreciation — "Cultural Code of North Ossetia" exhibition

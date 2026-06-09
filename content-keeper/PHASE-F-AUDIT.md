@@ -1,173 +1,117 @@
 # Phase F — Content audit
 
-Generated: 2026-05-30T17:52:21.857Z
+Generated: 2026-06-09T09:18:51.129Z
 
 ## Summary
 
-- Total nodes: **174**
-  - (no kind): 48
-  - event: 29
-  - media: 8
-  - organizer: 22
-  - product: 32
-  - proof: 35
-- Conformance gaps: **26**
-- Body smells: **9**
-- Missing referenced ids: **0**
-- Orphan nodes: **60**
-- Duplicate candidates: **1**
-- Proof drift — md-only / yaml-only / no-relations: **3 / 0 / 25**
-- Gratitude mentions / without link: **3 / 0**
+- Total nodes: **228**
+  - (no kind): 49
+  - collaboration: 4
+  - event: 37
+  - media: 34
+  - organizer: 31
+  - product: 34
+  - proof: 39
+- Conformance gaps: **0**
+- Body smells: **10**
+- Missing referenced ids: **20**
+- Orphan nodes: **31**
+- Duplicate candidates: **2**
+- Proof drift — md-only / yaml-only / no-relations: **0 / 0 / 0**
+- Gratitude mentions / without link: **4 / 1**
 
 ## 1. Conformance gaps
 
-- `event-bitva-milliard-2024.md` (id: event-bitva-milliard-2024) — missing: date_start
-- `event-brics-plus.md` (id: event-brics-plus) — missing: date_start
-- `event-kod-provincii.md` (id: event-kod-provincii) — missing: date_start
-- `event-techweek.md` (id: event-techweek) — missing: date_start
-- `event-gong-fest-2024.md` (id: event-gong-fest-2024) — missing: date_start
-- `event-gong-fest-2025.md` (id: event-gong-fest-2025) — missing: date_start
-- `pleinair-bashkiria.md` (id: pleinair-bashkiria) — missing: date_start
-- `pleinair-metro.md` (id: pleinair-metro) — missing: date_start
-- `event-portal-2024.md` (id: event-portal-2024) — missing: date_start
-- `proof-award-ars-electronica.md` (id: proof-award-ars-electronica) — missing: proof_of
-- `proof-award-culttech-vienna.md` (id: proof-award-culttech-vienna) — missing: proof_of
-- `proof-cred-track-record.md` (id: proof-cred-track-record) — missing: proof_of
-- `proof-cred-tskhr.md` (id: proof-cred-tskhr) — missing: proof_of
-- `proof-ip-trademark.md` (id: proof-ip-trademark) — missing: proof_of
-- `proof-let-golos-obshchestva.md` (id: proof-let-golos-obshchestva) — missing: proof_of
-- `proof-let-kod-provincii.md` (id: proof-let-kod-provincii) — missing: proof_of
-- `proof-let-media-experts.md` (id: proof-let-media-experts) — missing: proof_of
-- `proof-let-moscow2030.md` (id: proof-let-moscow2030) — missing: proof_of
-- `proof-let-techweek.md` (id: proof-let-techweek) — missing: proof_of
-- `proof-let-tpp-techinno.md` (id: proof-let-tpp-techinno) — missing: proof_of
-- `proof-let-unique-russia.md` (id: proof-let-unique-russia) — missing: proof_of
-- `proof-press-cyens-cyprus.md` (id: proof-press-cyens-cyprus) — missing: proof_of
-- `proof-press-vecherka.md` (id: proof-press-vecherka) — missing: proof_of
-- `event-tsiolkovsky-2025.md` (id: event-tsiolkovsky-2025) — missing: date_start
-- `tsiolkovsky-2026.md` (id: tsiolkovsky-2026) — missing: date_start
-- `unique-russia.md` (id: unique-russia) — missing: date_start
+_None — all kinded nodes have required fields._
 
 ## 2. Body smells
 
-### manual-link-list (9)
+### provenance-header (2)
+- `emomandala.md` — Provenance
+- `mom-baby.md` — Provenance
+### manual-link-list (8)
+- `event-portal.md` — 6 link bullets in 2 block(s)
 - `hub-business.md` — 12 link bullets in 2 block(s)
 - `hub-event-agencies.md` — 40 link bullets in 6 block(s)
 - `hub-events.md` — 12 link bullets in 2 block(s)
 - `hub-lectures.md` — 12 link bullets in 2 block(s)
-- `event-portal.md` — 6 link bullets in 2 block(s)
+- `hub-registry-collabs.md` — 8 link bullets in 2 block(s)
 - `hub-world.md` — 14 link bullets in 2 block(s)
-- `interference.md` — 6 link bullets in 2 block(s)
-- `posustoronniy.md` — 6 link bullets in 2 block(s)
-- `sync-circle.md` — 6 link bullets in 2 block(s)
+- `org-ashram.md` — 6 link bullets in 2 block(s)
 
 ## 3. Missing referenced ids (→ stubs)
 
-_None — every wikilink resolves._
+| missing_id | kind_guess | referenced_by |
+|---|---|---|
+| `Ars Electronica, Линц, Австрия` | product | proof-award-ars-electronica.issued_by |
+| `CYENS Centre of Excellence, Кипр` | product | proof-press-cyens-cyprus.issued_by |
+| `ODA.dream — сводка трека` | product | proof-cred-track-record.issued_by |
+| `Tech Week` | product | proof-let-techweek.issued_by |
+| `home` | product | proof-award-ars-electronica.proof_of, proof-cred-track-record.proof_of, proof-cred-tskhr.proof_of, proof-ip-trademark.proof_of, proof-let-golos-obshchestva.proof_of, proof-let-kod-provincii.proof_of, proof-let-media-experts.proof_of, proof-let-moscow2030.proof_of, proof-let-techweek.proof_of, proof-let-tpp-techinno.proof_of, proof-let-unique-russia.proof_of, proof-oda-synergy-forum-2022.proof_of, proof-press-cyens-cyprus.proof_of, proof-press-vecherka.proof_of |
+| `test issuer` | product | proof-emomandala-abundance.issued_by |
+| `Архив студии · параллельный заказ` | product | proof-mom-baby-iowa-gift.issued_by |
+| `Вечерняя Москва` | product | proof-press-vecherka.issued_by |
+| `Конференция «КОД: Провинции», Калуга` | product | proof-let-kod-provincii.issued_by |
+| `Медиа Эксперты — проект «Великая Россия»` | product | proof-let-media-experts.issued_by |
+| `НТВ` | product | proof-press-ntv-metro.issued_by |
+| `Проект «Голос Общества»` | product | proof-let-golos-obshchestva.issued_by |
+| `Роспатент` | product | proof-ip-trademark.issued_by |
+| `ТНТ, «Ты как Я»` | product | proof-press-tnt-tykakya.issued_by |
+| `ТСХР — первый цифровой пленэр, Шульган-Таш` | product | proof-let-bashkiria.issued_by |
+| `ТСХР` | product | proof-press-tskhr-bashkiria.issued_by |
+| `Творческий союз художников России (ТСХР)` | product | proof-cred-tskhr.issued_by |
+| `Технологии и Инновации (Национальная бизнес-премия)` | product | proof-let-tpp-techinno.issued_by |
+| `Уникальная Россия (Гостиный двор, Москва)` | product | proof-let-unique-russia.issued_by |
+| `ФИПС / патентная заявка` | product | proof-ip-patent.issued_by |
 
 ## 4. Orphan nodes (no inbound refs, no children)
 
-- `ancestors.md` (kind: product)
-- `another-people.md` (kind: product)
 - `brain-hack.md` (kind: product)
+- `collab-itb.md` (kind: collaboration)
+- `collab-itmo.md` (kind: collaboration)
+- `collab-korichina.md` (kind: collaboration)
 - `cultural-neuro-code.md` (kind: product)
-- `dashran.md` (kind: product)
-- `emomandala.md` (kind: product)
+- `emomandala-os.md` (kind: product)
+- `eng-audi-brand.md` (kind: event)
+- `eng-lamborghini-brand.md` (kind: event)
 - `event-bauman-moscow2030-2025.md` (kind: event)
 - `event-bitva-milliard-2024.md` (kind: event)
 - `event-brics-plus.md` (kind: event)
 - `event-gonchar-private-2024.md` (kind: event)
-- `event-kod-provincii.md` (kind: event)
-- `event-merck-corporate.md` (kind: event)
-- `event-sber-lecture-2025.md` (kind: event)
-- `event-techweek.md` (kind: event)
-- `feedback-empathy-brain.md` (kind: product)
 - `event-gong-fest-2024.md` (kind: event)
 - `event-gong-fest-2025.md` (kind: event)
+- `event-merck-corporate.md` (kind: event)
+- `event-portal-2024.md` (kind: event)
+- `event-sber-lecture-2025.md` (kind: event)
+- `event-techweek.md` (kind: event)
 - `gong.md` (kind: product)
-- `happiness.md` (kind: product)
-- `honors.md` (kind: product)
 - `hyperscan-scene-engine.md` (kind: product)
 - `journey.md` (kind: product)
-- `lighthouse.md` (kind: product)
 - `meditation-brain.md` (kind: product)
-- `mom-baby.md` (kind: product)
-- `neuro-dance.md` (kind: product)
 - `neuroaesthetics-lec.md` (kind: product)
 - `neuromandala-os.md` (kind: product)
-- `neurosync.md` (kind: product)
-- `org-audi.md` (kind: organizer)
 - `org-culture-sport-uao.md` (kind: organizer)
 - `org-inforce.md` (kind: organizer)
-- `org-lamborghini.md` (kind: organizer)
 - `pleinair-bashkiria.md` (kind: event)
 - `pleinair-metro.md` (kind: event)
-- `event-portal-2024.md` (kind: event)
-- `posustoronniy.md` (kind: product)
-- `proof-award-ars-electronica.md` (kind: proof)
-- `proof-award-culttech-vienna.md` (kind: proof)
-- `proof-cred-track-record.md` (kind: proof)
-- `proof-cred-tskhr.md` (kind: proof)
-- `proof-ip-trademark.md` (kind: proof)
-- `proof-let-golos-obshchestva.md` (kind: proof)
-- `proof-let-kod-provincii.md` (kind: proof)
-- `proof-let-media-experts.md` (kind: proof)
-- `proof-let-moscow2030.md` (kind: proof)
-- `proof-let-techweek.md` (kind: proof)
-- `proof-let-tpp-techinno.md` (kind: proof)
-- `proof-let-unique-russia.md` (kind: proof)
-- `proof-press-cyens-cyprus.md` (kind: proof)
-- `proof-press-vecherka.md` (kind: proof)
-- `schrodinger.md` (kind: product)
 - `sound-brain.md` (kind: product)
-- `sync-circle.md` (kind: product)
 - `taste-brain.md` (kind: product)
-- `event-tsiolkovsky-2025.md` (kind: event)
-- `tsiolkovsky-2026.md` (kind: event)
-- `two-waves.md` (kind: product)
 - `unique-russia.md` (kind: event)
-- `voronka.md` (kind: product)
 
 ## 5. Duplicate candidates (same title_en within kind)
 
 - `hub-events` ⇄ `hub-host-events` — same title_en (undefined)
+- `proof-hse-beautiful-brain` ⇄ `proof-tst-hse-brain` — same title_en (proof)
 
 ## 6. Proof drift
 
-### Md-only (in src/content/ but not in proofs.yaml) — 3
-- `proof-cipr-quote`
-- `proof-mipt-letter`
-- `proof-portal-1st`
+### Md-only (in src/content/ but not in proofs.yaml) — 0
 ### Yaml-only (in proofs.yaml but no .md) — 0
-### Proofs missing required relations — 25
-- `proof-award-ars-electronica` — missing: proof_of, issued_by
-- `proof-award-culttech-vienna` — missing: proof_of, issued_by
-- `proof-award-portal-visioning` — missing: issued_by
-- `proof-cred-track-record` — missing: proof_of, issued_by
-- `proof-cred-tskhr` — missing: proof_of, issued_by
-- `proof-ip-patent` — missing: issued_by
-- `proof-ip-trademark` — missing: proof_of, issued_by
-- `proof-let-bashkiria` — missing: issued_by
-- `proof-let-bitva-milliard` — missing: issued_by
-- `proof-let-golos-obshchestva` — missing: proof_of, issued_by
-- `proof-let-kod-provincii` — missing: proof_of, issued_by
-- `proof-let-media-experts` — missing: proof_of, issued_by
-- `proof-let-moscow2030` — missing: proof_of
-- `proof-let-portal` — missing: issued_by
-- `proof-let-techweek` — missing: proof_of, issued_by
-- `proof-let-tpp-techinno` — missing: proof_of, issued_by
-- `proof-let-unique-russia` — missing: proof_of, issued_by
-- `proof-portal-1st` — missing: issued_by
-- `proof-press-cyens-cyprus` — missing: proof_of, issued_by
-- `proof-press-ntv-metro` — missing: issued_by
-- `proof-press-tnt-tykakya` — missing: issued_by
-- `proof-press-tskhr-bashkiria` — missing: issued_by
-- `proof-press-vecherka` — missing: proof_of, issued_by
-- `proof-tst-bitva-milliard` — missing: issued_by
-- `proof-tst-meditation-day` — missing: issued_by
+### Proofs missing required relations — 0
 
 ## 7. Gratitude-letter mentions
 
 - `beautiful-brain.md` — has proof link: yes
+- `hub-registry.md` — has proof link: **NO**
 - `proof-hse-beautiful-brain.md` — has proof link: yes
 - `proof-mipt-letter.md` — has proof link: yes

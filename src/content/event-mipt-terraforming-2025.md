@@ -17,6 +17,17 @@ organizer:
   - "[[org-kapitsa]]"
   - "[[org-mipt]]"
 subkind: exhibition
+orgs:
+  - org-kapitsa
+venues:
+  - org-mipt
+city_en: Moscow
+city_ru: Москва
+relationship: invited
+format: installation
+showcase: true
+proofs:
+  - "[[proof-mipt-letter]]"
 ---
 
 ## Terraforming — MIPT exhibition
