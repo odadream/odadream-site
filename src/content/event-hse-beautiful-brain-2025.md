@@ -12,7 +12,6 @@ date: 2025.05.01
 order: 2
 kind: event
 date_start: 2025-05-01
-venue: Moscow
 organizer:
   - "[[org-hse]]"
   - "[[org-hse]]"

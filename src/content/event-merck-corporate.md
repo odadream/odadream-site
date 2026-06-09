@@ -12,7 +12,6 @@ date: 2025.01.01
 order: 3
 kind: event
 date_start: 2025-01-01
-venue: Moscow
 organizer:
   - "[[org-merck]]"
 subkind: conference

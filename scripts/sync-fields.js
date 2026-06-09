@@ -28,10 +28,7 @@ const hasLink = (arr, id) =>
     (s) => typeof s === "string" && (s === id || s === wl(id) || s.includes(id)),
   );
 
-const PROOF_YAML_ALIASES = {
-  "proof-portal-1st": "award-portal-visioning",
-  "proof-cipr-quote": "tst-cipr-techfriendly",
-};
+const PROOF_YAML_ALIASES = {};
 
 const EVENT_DATE_HINTS = {
   "pleinair-bashkiria": "2025-01-01",
@@ -49,6 +46,7 @@ const stats = {
   eventDates: 0,
   eventOrganizer: 0,
   registryCity: 0,
+  registryVenueStripped: 0,
   proofSync: 0,
   eventProofs: 0,
 };
@@ -177,6 +175,12 @@ function syncRegistryEventCards() {
       fm.city_ru = "Нижний Новгород";
       touched = true;
       stats.registryCity++;
+    }
+
+    if (fm.venue && (fm.city_en || fm.city_ru)) {
+      delete fm.venue;
+      touched = true;
+      stats.registryVenueStripped++;
     }
 
     if (touched) {
@@ -316,6 +320,7 @@ console.log("\n══ SUMMARY ════════════════�
 console.log(`  event date_start:     ${stats.eventDates}`);
 console.log(`  registry organizer:   ${stats.eventOrganizer}`);
 console.log(`  registry city_ru:     ${stats.registryCity}`);
+console.log(`  registry venue drop:  ${stats.registryVenueStripped}`);
 console.log(`  proof yaml → md:      ${stats.proofSync}`);
 console.log(`  event proofs[]:       ${stats.eventProofs}`);
 if (DRY_RUN) console.log("\n→ Run without --dry-run to apply, then npm run registry:sync");

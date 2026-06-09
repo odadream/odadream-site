@@ -47,8 +47,8 @@ Narrative case studies → [[hub-events|Events]]. Diplomas and letters of apprec
 | 2025 | 1st place — VJ competition "Visioning", Portal 2030–2050 | Moscow 2030 | [[mindshow]] | [[event-portal-2025]] | 200,000 RUB prize |
 | 2026 | ODA.Dream® — registered trademark (Rospatent) | Rospatent | — | — | — |
 | 2026 | Neuromandala — patent application filed | Rospatent / patent application | [[neuromandala]] | — | — |
-| 2026 | 7 years on market · 80+ hub-events · 1,500+ participants · 10+ cities | — | — | — | — |
-| 2025 | Members of the Creative Union of Artists of Russia (TSKhR) — Multimedia & Scientific Art sections | — | — | — | — |
+| 2026 | 7 years on market · 80+ hub-events · 1,500+ participants · 10+ cities | ODA.dream — track record summary | — | — | — |
+| 2025 | Members of the Creative Union of Artists of Russia (TSKhR) — Multimedia & Scientific Art sections | Creative Union of Artists of Russia (TSKhR) | — | — | — |
 
 Letters and diploma scans → [[hub-letters|Recognition & Awards]]
 
@@ -125,8 +125,8 @@ Letters and diploma scans → [[hub-letters|Recognition & Awards]]
 | 2025 | 1-е место — VJ-конкурс «Виджеинг», Портал 2030–2050 | Москва 2030 | [[mindshow]] | [[event-portal-2025]] | приз 200 000 ₽ |
 | 2026 | ODA.Dream® — зарегистрированный товарный знак (Роспатент) | Роспатент | — | — | — |
 | 2026 | Нейромандала — патентная заявка подана | ФИПС / патентная заявка | [[neuromandala]] | — | — |
-| 2026 | 7 лет на рынке · 80+ событий · 1 500+ участников · 10+ городов | — | — | — | — |
-| 2025 | Члены Творческого союза художников России (ТСХР) — секции мультимедиа и научного искусства | — | — | — | — |
+| 2026 | 7 лет на рынке · 80+ событий · 1 500+ участников · 10+ городов | ODA.dream — сводка трека | — | — | — |
+| 2025 | Члены Творческого союза художников России (ТСХР) — секции мультимедиа и научного искусства | Творческий союз художников России (ТСХР) | — | — | — |
 
 Письма и сканы дипломов → [[hub-letters|Признание и награды]]
 

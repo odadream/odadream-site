@@ -100,10 +100,7 @@ const proofsYamlIds = new Set(
     })
     .filter(Boolean),
 );
-const PROOF_MD_ALIASES = {
-  "proof-portal-1st": "award-portal-visioning",
-  "proof-cipr-quote": "tst-cipr-techfriendly",
-};
+const PROOF_MD_ALIASES = {};
 const proofMdIds = new Set([...nodes.values()].filter((n) => n.fm.kind === "proof").map((n) => n.fm.id));
 
 // ──────────────────────────────────────────────────────────────────

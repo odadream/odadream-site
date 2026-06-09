@@ -12,7 +12,6 @@ date: 2026.05.01
 order: 0
 kind: event
 date_start: 2026-05-01
-venue: Nizhny Novgorod
 organizer:
   - "[[org-ashram]]"
   - "[[org-cipr]]"

@@ -15,7 +15,6 @@ order: 1
 kind: event
 subkind: festival
 date_start: 2026-05-16
-venue: Kaluga
 organizer:
   - "[[org-neiry]]"
   - "[[org-tsiolkovsky]]"

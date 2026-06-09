@@ -1,5 +1,5 @@
 # ODA.dream proof ledger — single source of truth for the whole "digital footprint".
-# Awards, hub-letters/certificates, hub-testimonials, and hub-press in one place. No duplication:
+# Awards, letters, testimonials, and press in one place. No duplication:
 # each record LINKS to existing ids (work / eng / org) instead of restating their facts.
 #
 # kind:   award | letter | testimonial | press
@@ -10,7 +10,7 @@
 # org:    id from organizations.yaml     (issuer / outlet, when it exists as an org)
 # source_ru/source_en: free-text issuer or outlet when not an org (magazines, committees, people)
 # title_*: award wording / letter subject / article headline
-# quote_*: testimonial text          url: hub-press link          media: scan / thumbnail
+# quote_*: testimonial text          url: press link             media: scan / thumbnail
 
 # ============================ AWARDS & IP ============================
 
@@ -113,7 +113,7 @@
 # ============================ PRESS ============================
 
 - id: press-ntv-metro
-  kind: hub-press
+  kind: press
   tier: flagship
   scope: work
   work: mindshow
@@ -125,7 +125,7 @@
   url: https://www.ntv.ru/novosti/2887676/
 
 - id: press-tnt-tykakya
-  kind: hub-press
+  kind: press
   tier: flagship
   scope: work
   work: neurobattle
@@ -137,7 +137,7 @@
   url: https://dzen.ru/embed/vY9PlkGfKPUc?from_block=partner&from=zen&mute=0&autoplay=0&tv=0
 
 - id: press-tskhr-bashkiria
-  kind: hub-press
+  kind: press
   tier: strong
   scope: work
   work: mindshow
@@ -149,7 +149,7 @@
   url: https://tcxp.ru/news/regions/v-bashkirii-proshel-pervyy-cifrovoy-plener
 
 - id: press-vecherka
-  kind: hub-press
+  kind: press
   tier: strong
   scope: studio
   subject: home
@@ -160,7 +160,7 @@
   title_en: Coverage of an ODA.dream public event
 
 - id: press-cyens-cyprus
-  kind: hub-press
+  kind: press
   tier: standard
   scope: studio
   subject: home
@@ -465,11 +465,3 @@
   source_ru: Архив студии · параллельный заказ
   title_ru: Мама и Малыш — подарок Кате IOWA
   title_en: Mom & Baby — gift to Katya IOWA
-
-- id: portal-1st
-  site_node: proof-portal-1st
-  alias_of: award-portal-visioning
-
-- id: cipr-quote
-  site_node: proof-cipr-quote
-  alias_of: tst-cipr-techfriendly

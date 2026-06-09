@@ -7,7 +7,7 @@ type: content
 visible: true
 date: 2026.01.01
 kind: proof
-subkind: hub-press
+subkind: press
 publication: CYENS Centre of Excellence, Cyprus
 publication_date: 2026-01-01
 proof_of:

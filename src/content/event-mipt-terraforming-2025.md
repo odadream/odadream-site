@@ -12,7 +12,6 @@ date: 2025.12.09
 order: 0
 kind: event
 date_start: 2025-12-09
-venue: Moscow
 organizer:
   - "[[org-kapitsa]]"
   - "[[org-mipt]]"

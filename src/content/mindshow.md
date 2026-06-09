@@ -20,8 +20,8 @@ presented_at:
   - "[[event-tpp-mindshow-2025]]"
   - "[[event-cipr-mindshow-2026]]"
 proofs:
-  - "[[proof-portal-1st]]"
-  - "[[proof-cipr-quote]]"
+  - "[[proof-award-portal-visioning]]"
+  - "[[proof-tst-cipr-techfriendly]]"
 media:
   - mdsh-demo-v5
   - mdsh-hypercube

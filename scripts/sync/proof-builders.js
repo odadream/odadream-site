@@ -55,9 +55,17 @@ function proofSource(p, omap, engById, lang) {
   return "";
 }
 
+function proofLedgerKind(p, kind) {
+  if (kind === "press") return p.kind === "press" || p.kind === "hub-press";
+  return p.kind === kind;
+}
+
 function proofsOf(proofs, kind, workId) {
   return proofs
-    .filter((p) => p.kind === kind && (workId ? p.work === workId : true))
+    .filter(
+      (p) =>
+        proofLedgerKind(p, kind) && (workId ? p.work === workId : true),
+    )
     .sort(sortProofs);
 }
 

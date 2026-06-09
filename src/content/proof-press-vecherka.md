@@ -7,7 +7,7 @@ type: content
 visible: true
 date: 2025.01.01
 kind: proof
-subkind: hub-press
+subkind: press
 publication: Vechernyaya Moskva
 publication_date: 2025-01-01
 proof_of:

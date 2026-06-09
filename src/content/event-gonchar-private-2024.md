@@ -12,7 +12,6 @@ date: 2024.01.01
 order: 0
 kind: event
 date_start: 2024-01-01
-venue: Moscow
 subkind: private_show
 city_en: Moscow
 city_ru: Москва

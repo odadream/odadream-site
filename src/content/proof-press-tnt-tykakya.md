@@ -7,7 +7,7 @@ type: content
 visible: true
 date: 2020.01.01
 kind: proof
-subkind: hub-press
+subkind: press
 proof_of:
   - "[[neurobattle]]"
 publication: TNT, "Ty kak Ya"

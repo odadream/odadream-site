@@ -12,7 +12,6 @@ date: 2025.12.17
 order: 1
 kind: event
 date_start: 2025-12-17
-venue: Moscow
 organizer:
   - "[[org-ekoniva]]"
   - "[[org-hse]]"
