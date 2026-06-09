@@ -1,6 +1,6 @@
 ---
 id: proof-<short>
-parent: letters
+parent: hub-letters
 title_en: <Title EN>
 title_ru: <Заголовок RU>
 type: content

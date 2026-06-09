@@ -1,6 +1,6 @@
 ---
 id: <kebab-id>
-parent: events
+parent: hub-events
 title_en: <Title EN>
 title_ru: <Заголовок RU>
 type: content
@@ -10,7 +10,10 @@ kind: event
 subkind: festival
 date_start: 2026-01-01
 date_end: 2026-01-02
-venue: ""
+city_en: ""
+city_ru: ""
+orgs: []
+venues: []
 organizer: []
 client: []
 products: []

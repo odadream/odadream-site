@@ -1,7 +1,7 @@
 /**
  * Sync Experience Registry to Lotus CMS.
- * Editable source: data/registry/engagements/*.md (Obsidian → events.base)
- * Run: npm run registry:sync
+ * Editable source: src/content/event-*.md + eng-*.md (tag hub-registry) via events.base
+ * Run: npm run registry:sync  (after npm run sync:fields when yaml/proofs change)
  */
 import fs from "fs";
 import path from "path";

@@ -2,10 +2,10 @@
 # Awards, hub-letters/certificates, hub-testimonials, and hub-press in one place. No duplication:
 # each record LINKS to existing ids (work / eng / org) instead of restating their facts.
 #
-# kind:   award | letter | testimonial | hub-press
+# kind:   award | letter | testimonial | press
 # tier:   flagship | strong | standard   (weight; Forbes / federal TV / Ars Electronica = flagship)
 # scope:  studio | work
-# work:   id from hub-works.yaml            (when scope: work → attaches to that work's page)
+# work:   id from works.yaml                (when scope: work → attaches to that work's page)
 # eng:    id from engagements.yaml       (date / org / venue are pulled from there, not restated)
 # org:    id from organizations.yaml     (issuer / outlet, when it exists as an org)
 # source_ru/source_en: free-text issuer or outlet when not an org (magazines, committees, people)

@@ -1,6 +1,6 @@
 ---
 id: org-<short>
-parent: registry-orgs
+parent: hub-world
 title_en: <Name EN>
 title_ru: <Название RU>
 type: content

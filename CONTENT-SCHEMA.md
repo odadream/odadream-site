@@ -1,6 +1,6 @@
 # CONTENT-SCHEMA — стандарт карточек ODA.dream
 
-**Версия:** 1.0 · **Дата:** 2026.06.02  
+**Версия:** 1.1 · **Дата:** 2026.06.02  
 **Статус:** единый источник правды по архитектуре базы знаний и контента сайта.
 
 Документ описывает все типы карточек в `src/content/`, их поля, типы свойств Obsidian, связи между карточками и вспомогательные реестры в `data/registry/`.
@@ -12,7 +12,7 @@
 | Слой | Путь | Роль |
 |------|------|------|
 | **Карточки сайта** | `src/content/*.md` | Навигация Lotus, страницы, provenance на odadream.art |
-| **Реестры** | `data/registry/*.yaml` | Машиночитаемые ledgers для синхронизации полей и таблиц |
+| **Реестры** | `data/registry/*.yaml` | Ledgers для синхронизации (`proofs.yaml`, `organizations.yaml`, `works.yaml`; `engagements.yaml` — **снимок**, не редактировать вручную) |
 | **Медиа-каталог** | `src/data/media.ts` | Канонические URL/постеры для `![[media:id]]` |
 | **Таксономия UI** | `src/data/taxonomy.ts` | Подписи и бейджи для `subkind` |
 
@@ -201,7 +201,7 @@ Hub-родитель (`type: hub`) без дат участия. Каждая р
 | Поле | Obsidian | Обяз. | Связь | Описание |
 |------|----------|-------|-------|----------|
 | `kind` | Text | **да** | — | `proof` |
-| `subkind` | Text | **да** | taxonomy | `award`, `letter`, `testimonial`, `press`, `review`, `interview` |
+| `subkind` | Text | **да** | taxonomy | `award`, `letter`, `testimonial`, `press`, `review`, `interview` (не `hub-press` — устарело, см. §14) |
 | `proof_of` | List | **да** | → `product` \| `event` \| `home`* | К чему относится пруф |
 | `issued_by` | List | **да**† | → `organizer` или Text | Кто выдал / источник |
 | `publication` | Text | нет† | — | Название издания / оргкомитета (для press) |
@@ -399,7 +399,90 @@ src/content/*.md  ──►  npm run sync:fields  ──►  обогащени�
 
 ---
 
-## 13. Связанные документы
+## 13. Три оси классификации события (registry)
+
+Не путать — это **разные поля**:
+
+| Поле | Видно на `hub-registry` | Источник правды | Примеры |
+|------|-------------------------|-----------------|---------|
+| `subkind` | **да** (колонка «Тип») | frontmatter события | `lecture`, `competition`, `exhibition` |
+| `format` | нет | frontmatter | `mindshow`, `lecture`, `installation` — формат участия |
+| `relationship` | нет | frontmatter | `commercial`, `invited`, `award`, `competition` — внутренние списки |
+
+`format` связывается с продуктами через `data/registry/works.yaml` → `format_keys` (автоподбор участий в dossier).
+
+`relationship` питает маркеры в `hub-business` / `hub-event-agencies` (commercial / expert), **не** публичную таблицу реестра.
+
+---
+
+## 14. Канон полей (что писать, что не дублировать)
+
+| Концепт | **Канон** (пиши здесь) | Дубль / legacy | Кто заполняет |
+|---------|------------------------|----------------|---------------|
+| Дата события | `date_start` (ISO) | `date` (точки) — зеркало для Lotus `lastModified` | ты + `sync:fields` |
+| Город (registry) | `city_en`, `city_ru` | `venue: Moscow` — **не использовать** на `hub-registry` | ты; `venue` снимается sync |
+| Организаторы (registry) | `orgs`, `venues` (plain id) | `organizer` (wiki-links) — **derived** | Obsidian → `sync:fields` → provenance |
+| Обложка узла | `image` | `media_url` — синоним парсера | ты |
+| Скан пруфа | `asset` | `media` в proofs.yaml при миграции | yaml → `sync:fields` |
+| Медиа на продукте | `media: [id]` | → `src/data/media.ts` | ты |
+| Пресса (md) | `kind: proof`, `subkind: press` | `subkind: hub-press` — **deprecated** | карточка |
+| Пресса (yaml ledger) | `kind: press` | `kind: hub-press` — **deprecated** | proofs.yaml |
+| Семантика yaml proof | `work`, `eng`, `subject`, `org` | не путать с md `kind: proof` | proofs.yaml |
+| Роль org в реестре | `organizations.yaml` → `kind` | `client` \| `venue` \| `institution` \| `partner` | yaml (≠ md `subkind`) |
+| Один факт — одна карточка | `proof-award-*`, `proof-tst-*` | `proof-portal-1st`, `proof-cipr-quote` — алиасы, **удалять** | редактор |
+
+### Два разных `kind` у пруфов
+
+| Слой | Поле | Значение |
+|------|------|----------|
+| `.md` | `kind` | всегда `proof` |
+| `.md` | `subkind` | `award` \| `letter` \| `testimonial` \| `press` … |
+| `proofs.yaml` | `kind` | тип записи ledger: `award`, `letter`, `testimonial`, `press` (не `proof`) |
+
+---
+
+## 15. `data/registry/works.yaml`
+
+Каталог продуктов для dossier и внутренней аналитики (не дублирует `src/content`).
+
+| Поле | Описание |
+|------|----------|
+| `id` | Ключ работы (обычно = id продукта) |
+| `node` | id `.md` страницы |
+| `category` | `art` \| `education` \| `tech` → мапится в `subkind` продукта |
+| `status` | `production` \| `rnd` \| `concept` \| `patent` |
+| `format_keys` | Список значений `format` в событиях, относящихся к этой работе |
+| `funnel` | Hub для маршрутизации B2B (`hub-business`, …) |
+
+---
+
+## 16. Legacy и deprecated
+
+| Элемент | Статус | Замена |
+|---------|--------|--------|
+| Префикс `eng-*` | legacy | `event-*` + тег `hub-registry`; `eng-*` всё ещё подхватывается sync |
+| `parent: events`, `letters`, `research`, `registry-orgs` | мёртвые id в старых шаблонах | `hub-events`, `hub-letters`, `hub-works`, `hub-world` |
+| `data/registry/engagements/` | удалён | `src/content/event-*.md` |
+| `hub-registry-commercial`, `-expert`, `-orgs` | удалены | единый `hub-registry` |
+| `subkind: hub-press`, yaml `kind: hub-press` | deprecated | `press` |
+| Дубли proof (`proof-portal-1st`, `proof-cipr-quote`) | удалять | `proof-award-portal-visioning`, `proof-tst-cipr-techfriendly` |
+| `aliases` в frontmatter | Obsidian-only | сайт не читает; для vault-навигации |
+| `venue` на registry-событиях | deprecated | `city_en` / `city_ru` + `venues` |
+
+---
+
+## 17. Obsidian `types.json`
+
+Рекомендуемые типы свойств vault: `.obsidian/types.json`. Минимум:
+
+- `date`, `date_start`, `date_end`, `publication_date` → **Date**
+- `tags` → **Tags**
+- `kind`, `subkind`, `type`, `status`, `format`, `relationship` → **Text**
+- relation-списки → **List** (при plain id) или **List (Link)** (при `[[wiki]]`)
+
+---
+
+## 18. Связанные документы
 
 | Документ | Содержание |
 |----------|------------|
@@ -408,7 +491,8 @@ src/content/*.md  ──►  npm run sync:fields  ──►  обогащени�
 | `scripts/CONTENT_TREE.md` | Дерево узлов (`npm run assets:map`) |
 | `content-keeper/PHASE-F-AUDIT.md` | Последний аудит целостности |
 | `data/registry/proofs.yaml` | Ledger пруфов |
-| `data/registry/organizations.yaml` | Имена организаций для реестра |
+| `data/registry/organizations.yaml` | Имена и роли организаций для реестра |
+| `data/registry/works.yaml` | Каталог работ + `format_keys` |
 
 ---
 

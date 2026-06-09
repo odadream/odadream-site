@@ -13,7 +13,7 @@ date: 2026.05.27
 
 ## PRESS
 
-Media, broadcasts, and public mentions that document the visibility of ODA.dream — federal TV, festival and institutional publications, international references. Maintained as a single ledger in `data/hub-registry/proofs.yaml` (kind: hub-press); higher-tier coverage (federal TV, Forbes-level outlets) is surfaced first.
+Media, broadcasts, and public mentions that document the visibility of ODA.dream — federal TV, festival and institutional publications, international references. Maintained as a single ledger in `data/registry/proofs.yaml` (`kind: press` in yaml · `subkind: press` on cards); higher-tier coverage (federal TV, Forbes-level outlets) is surfaced first.
 
 <!-- hub-registry:press-all -->
 - **Synergy Crypto & NFT Forum** — ODA.dream debut — Synergy Crypto & NFT Forum, Bali (2022)

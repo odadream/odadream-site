@@ -1,12 +1,15 @@
 ---
 id: <series-id>
-parent: events
+parent: hub-festivals
 title_en: <Series name EN>
 title_ru: <Название серии RU>
 type: hub
+kind: event
+subkind: series
+date_start: 2024-01-01
+date: 2024.01.01
 tags: [festival-series]
 order: 0
-date: 2026.01.01
 visible: true
 ---
 

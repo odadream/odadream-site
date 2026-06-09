@@ -1,6 +1,6 @@
 ---
 id: <kebab-id>
-parent: research
+parent: hub-works
 title_en: <Title EN>
 title_ru: <Заголовок RU>
 type: content
