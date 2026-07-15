@@ -13,7 +13,13 @@ order: 8
 
 Tracking the architectural metamorphosis of the ODA.dream.
 
-### v1.2.0 (Current)
+### v1.2.1 (Current)
+**Art–Science Positioning**
+**Date:** 2026.07.15
+
+ODA.dream is now positioned consistently as an artist duo working across art, science, and technology. The [[interference|Interference of Realities]] page now presents the work as a participatory art–science performance-lecture using computer vision and EEG hyperscanning to form a parallel stage reality, with clear scientific and ethical boundaries.
+
+### v1.2.0
 **Content Expansion**
 **Date:** 2026.05.25
 
@@ -104,7 +110,13 @@ Initial prototype built on Eleventy.js using raw WebGL shaders. The birth of the
 
 Отслеживание архитектурных метаморфоз ODA.dream.
 
-### v1.2.0 (Текущая)
+### v1.2.1 (Текущая)
+**Арт-сайенс позиционирование**
+**Дата:** 2026.07.15
+
+Позиционирование ODA.dream приведено к единой формулировке: художественный дуэт, работающий на пересечении искусства, науки и технологий. Страница [[interference|«Интерференции реальностей»]] теперь представляет работу как партисипаторный арт-сайенс спектакль-лекцию, где компьютерное зрение и ЭЭГ-гиперсканирование формируют параллельную сценическую реальность, с ясным описанием научных и этических границ.
+
+### v1.2.0
 **Расширение контента**
 **Дата:** 2026.05.25
 

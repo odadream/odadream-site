@@ -4,18 +4,18 @@ title_en: oda.dream
 title_ru: oda.dream
 type: hub
 tags: [lotus, galaxy]
-updated: 2026.02.13
+updated: 2026.07.15
 ---
 
-## Interface to the Digital Subconscious
+## Art, Science & Technology
 
-You are at the center of ODA.dream creative duo's interface—a hub-research space where **artistic, technological, and educational** projects converge into a unified architecture of experience.
+**ODA.dream is an artist duo founded by Olga and Daler Arabov, working across art, science, and technology.** We create participatory performances, media-art works, installations, and research-led public formats.
 
-Here, _interface_ is understood not as an instrumental shell, but as a _way of organizing perception_. It connects biological attention and machine processes, forming a field for questions about boundaries: **where does your consciousness end and code begin? Where lies the border between observer and observed, between tool and extension of the body?**
+Our practice works with embodiment, perception, collective attention, and the relationships between people and technical systems. Depending on the project, our tools include **neurotechnology, EEG, computer vision, biointerfaces, generative systems, and live performance**.
 
-> "The screen is not a window, but a mirror of the nervous system".
+In selected works, EEG records neurophysiological signals and turns their patterns into visual or sonic artistic material. The data is not a diagnosis, a reading of thoughts or emotions, or an autonomous author of the work. It is one layer in a situation created by artists, performers, participants, and technology together.
 
-We explore _human—human, human—computer, and human—computer—human_ connections through the lens of consciousness and attention, embodiment and perception, feedback-empathy-brain and communication. Our tools are neurointerfaces and biointerfaces. **Our themes are the relationships between past, present, and possible future scenarios.**
+Our current touring work, **[[interference|Interference of Realities]]**, is a participatory art–science performance-lecture. Its audience helps assemble five live scenes, while computer vision and EEG hyperscanning form a parallel stage reality.
 
 ## Open Space
 
@@ -45,15 +45,15 @@ _The journey is nonlinear._
 
 ---RU---
 
-## Интерфейс Цифрового Подсознания
+## Искусство, наука и технологии
 
-Вы находитесь в центре интерфейса творческого дуэта ODA.dream — исследовательского пространства, где **художественные, технологические и образовательные** проекты собраны в единую архитектуру опыта.
+**ODA.dream — арт-сайенс дуэт Ольги и Далера Арабовых.** Мы создаём партисипаторные перформансы, произведения медиаискусства, инсталляции и публичные исследовательские форматы на пересечении искусства, науки и технологий.
 
-Здесь _интерфейс_ понимается не как инструментальная оболочка, а как _способ организации восприятия_. Он соединяет биологическое внимание и машинные процессы, формируя поле для вопросов о границах: **где заканчивается ваше сознание и начинается код? Где проходит граница между наблюдателем и наблюдаемым, между инструментом и продолжением тела?**
+Наша практика работает с телесностью, восприятием, коллективным вниманием и отношениями между людьми и техническими системами. В зависимости от проекта мы используем **нейротехнологии, ЭЭГ, компьютерное зрение, биоинтерфейсы, генеративные системы и живой перформанс**.
 
-> "Экран — это не окно, а зеркало нервной системы".
+В отдельных работах ЭЭГ регистрирует нейрофизиологические сигналы и переводит их паттерны в визуальный или звуковой художественный материал. Эти данные не являются диагностикой, чтением мыслей или эмоций и не выступают автономным автором произведения. Это один из слоёв ситуации, которую вместе создают художники, исполнители, участники и технологии.
 
-Мы исследуем связи _человек—человек, человек—компьютер, человек—компьютер—человек_ через призму сознания и внимания, телесности и восприятия, эмпатии и коммуникации. Наши инструменты — нейроинтерфейсы и биоинтерфейсы. **Наши темы — отношения прошлого, настоящего и возможных сценариев будущего.**
+Наша актуальная гастрольная работа **[[interference|«Интерференция реальностей»]]** — партисипаторный арт-сайенс спектакль-лекция. Зрители участвуют в сборке пяти живых сцен, а компьютерное зрение и ЭЭГ-гиперсканирование формируют параллельную сценическую реальность.
 
 ## Пространство открыто
 

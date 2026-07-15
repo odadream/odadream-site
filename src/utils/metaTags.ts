@@ -4,7 +4,7 @@ import { Language } from "../types";
 const BASE_URL = "https://odadream.art";
 const DEFAULT_IMAGE = `${BASE_URL}/images/assets/oda_preview.png`;
 const DEFAULT_DESCRIPTION =
-  "Neuroart and brain–computer interfaces at the intersection of art, technology, and consciousness.";
+  "ODA.dream is an artist duo working across art, science, and technology through participatory performance, media art, neurotechnology, EEG, and computer vision.";
 
 const setMeta = (selector: string, value: string) => {
   const el = document.querySelector(selector);
@@ -40,7 +40,7 @@ export const updateMetaTags = (
   const isRoot = node.id === rootId;
   const nodeTitle = node.title[lang] || node.title.en;
   const fullTitle = isRoot
-    ? "ODA.dream | Wellness Art Tech"
+    ? "ODA.dream | Art, Science & Technology"
     : `${nodeTitle} | ODA.dream`;
 
   const rawDesc = node.description[lang] || node.description.en || "";

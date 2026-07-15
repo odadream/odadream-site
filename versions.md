@@ -4,6 +4,19 @@
 > Do not edit manually. Use `npm run version:sync` after updating `versions.json`.
 
 
+## v1.2.1 - Art–Science Positioning | Арт-сайенс позиционирование
+**Date:** 2026.07.15
+
+ODA.dream is now positioned consistently as an artist duo working across art, science, and technology. The [[interference|Interference of Realities]] page now presents the work as a participatory art–science performance-lecture using computer vision and EEG hyperscanning to form a parallel stage reality, with clear scientific and ethical boundaries.
+
+---
+
+**Дата:** 2026.07.15
+
+Позиционирование ODA.dream приведено к единой формулировке: художественный дуэт, работающий на пересечении искусства, науки и технологий. Страница [[interference|«Интерференции реальностей»]] теперь представляет работу как партисипаторный арт-сайенс спектакль-лекцию, где компьютерное зрение и ЭЭГ-гиперсканирование формируют параллельную сценическую реальность, с ясным описанием научных и этических границ.
+
+---
+
 ## v1.2.0 - Content Expansion | Расширение контента
 **Date:** 2026.05.25
 

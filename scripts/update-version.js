@@ -63,11 +63,11 @@ console.log(`\n🔄 SYNCHRONIZING VERSION: ${currentVersion}...\n`);
 const pkg = JSON.parse(fs.readFileSync(PACKAGE_PATH, "utf-8"));
 if (pkg.version !== currentVersion) {
   pkg.version = currentVersion;
-  fs.writeFileSync(PACKAGE_PATH, JSON.stringify(pkg, null, 2));
   console.log(`✅ Updated package.json to ${currentVersion}`);
 } else {
   console.log(`- package.json already up to date.`);
 }
+fs.writeFileSync(PACKAGE_PATH, `${JSON.stringify(pkg, null, 2)}\n`);
 
 // 2. UPDATE CONSTANTS.TS
 let constantsContent = fs.readFileSync(CONSTANTS_PATH, "utf-8");
@@ -86,10 +86,11 @@ if (constantsContent.match(versionRegex)) {
 // Use static project description instead of auto-generated from versions
 const metadata = {
   name: `odadream-site-v${currentVersion}`,
-  description: "ODA.dream - интерфейс для цифрового подсознания. Иммерсивное портфолио и интерактивная арт-инсталляция с уникальной системой навигации «Цветущий Лотос».",
+  description:
+    "ODA.dream — художественный дуэт на пересечении искусства, науки и технологий: партисипаторные перформансы, медиаискусство, нейротехнологии, ЭЭГ и компьютерное зрение.",
   requestFramePermissions: [],
 };
-fs.writeFileSync(METADATA_PATH, JSON.stringify(metadata, null, 2));
+fs.writeFileSync(METADATA_PATH, `${JSON.stringify(metadata, null, 2)}\n`);
 console.log(`✅ Updated metadata.json`);
 
 // 4. UPDATE README.MD

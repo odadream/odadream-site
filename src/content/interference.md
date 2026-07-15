@@ -5,11 +5,14 @@ title_en: Interference of Realities
 title_ru: Интерференция реальностей
 type: content
 tags:
-  - theater
-  - science-art
-  - experiment
+  - art-science
+  - participatory-performance
+  - media-art
+  - neurotechnology
+  - eeg-hyperscanning
+  - computer-vision
 order: 0
-updated: 2026.05.16
+updated: 2026.07.15
 status: production
 kind: product
 subkind: art
@@ -19,8 +22,8 @@ presented_at:
 collaborators:
   - "[[collab-itb]]"
 external_site: https://interference.odadream.art
-external_site_label_en: Full project archive
-external_site_label_ru: Полный архив проекта
+external_site_label_en: Touring & project site
+external_site_label_ru: Гастроли и сайт проекта
 media:
   - intf-poster
   - intf-hero
@@ -30,100 +33,70 @@ proofs: []
 
 ## Interference of Realities
 
-**Neuro-theatre premiere · improvisation · science art**
+**Participatory art–science performance-lecture · neurotechnology · media art**
 
-A neuro-performance improvisation and live science-art experiment: the audience becomes a co-author of what happens on stage. The action is built in real time and **does not repeat**. Neurotechnology reads participants' attention, arousal, and neurophysiological patterns — scenography, sound, and the performers' behaviour respond in a closed feedback loop between hall and stage.
+**Interference of Realities** is a live performance-lecture assembled with its audience. Spectators help build five improvised scenes through choices, movement, and direct participation. The work combines live theatre, computer vision, and EEG hyperscanning to explore how a physical event and its data-mediated image can coexist and diverge.
 
-Premiered **16 May 2026, 19:00** at [[org-ikc|ICC Kaluga]] as the **opening performance** of the **[[event-tsiolkovsky-2026|XIV Tsiolkovsky Festival]]** (theme *Horizons*). Co-production **ODA.dream** × **[[collab-itb|Innovation Ballet Theatre]]**. Technology partner: **[[org-neiry|Neiry Group]]** (Neiry Headband Pro). Not in repertoire yet — awaiting repeat bookings. Poster, photo report, plakats, and radio interview — petals in the Lotus grid and in Provenance. Extended programme, FAQ, and post-premiere archive → [interference.odadream.art](https://interference.odadream.art).
+Premiered on **16 May 2026** at [[org-ikc|Innovation Cultural Center, Kaluga]] as part of the **[[event-tsiolkovsky-2026|XIV Tsiolkovsky Festival]]**. Co-produced by **ODA.dream** and the **[[collab-itb|Innovation Ballet Theatre]]**, with **[[org-neiry|Neiry Group]]** as technology partner. The performance is available for international touring, festivals, theatres, and interdisciplinary media-art programmes. Technical rider, full documentation, and booking information → [interference.odadream.art](https://interference.odadream.art).
 
-### Concept
+### Dramaturgy of two realities
 
-We took questions from quantum physics and phenomenology of consciousness and moved them into theatre — not to prove a thesis, but to **experience** it: *can collective attention in the hall change the course of events?*
+The performance brings together three interdependent layers:
 
-Three layers overlap in every run:
+1. **The physical stage** — performers and audience participants assemble five scenes in real time.
+2. **The external data layer** — computer vision follows positions and movement on stage and translates them into a live visual system.
+3. **The internal data layer** — EEG hyperscanning records neurophysiological signals from performers and audience participants and visualises patterns of neural synchronisation.
 
-1. **Physical** — bodies, sound, and movement in the [[org-ikc|ICC]] space; without presence there is no event.
-2. **Internal** — EEG registers brain rhythms (alpha, beta, gamma): relaxation, focus, engagement. Measured live and used as stage material.
-3. **Imaginary** — what emerges when physical and internal states superimpose. **Interference** here is a mechanism, not a metaphor.
+Together these layers form a **parallel stage reality** with its own behaviour. It is not an exact digital twin and it does not simply illustrate the physical action: at times the two realities converge, and at times they diverge.
 
-> Collective attention and synchronization are a resource. The performance creates a space to explore how a shared experience is formed — not an answer, but a question.
+### Method and boundaries
 
-### Method
+- The premiere used **12 EEG headsets** in parallel: six worn by performers and six by audience volunteers.
+- EEG data is treated as artistic material within a designed visual system. It is not medical diagnostics and does not read thoughts or emotions.
+- Neither EEG nor computer vision autonomously controls the performance. Light, sound, choreography, participation, and dramaturgy remain distinct elements of the complete artistic score.
+- Audience participation and the EEG layer are related but not interchangeable: spectators co-create the scenes through their choices and actions, while hyperscanning makes one neurophysiological relation visible.
 
-- **12 live neurointerfaces** in parallel: **6 on performers**, **6 on audience volunteers** — among the first full-scale multi-channel live EEG theatre runs in Russia.
-- **Neiry Headband Pro** headsets pass EEG to the show's media system; visuals and sound follow state changes, not a fixed score.
-- **[[mindshow|MindShow]] / Neuromandala** — generative visual field at the core of the neuro-theatrical interface.
-- **Creative team:** neuro-art direction ODA.dream (Olga & Daler Arabov); choreography **Ksenia Golyzhibina**; music **Alexander Shesternin** (live set); lighting **Arkady Lavrentiev**; production **[[org-senatova|Anna Senatova]]**; performers — **[[collab-itb|ITB]]** company and audience with headsets.
-- **~60–70 minutes**, no intermission. Registration required; age **12+**.
+**Creative team:** art direction and technology — ODA.dream (Olga and Daler Arabov); artistic direction — **[[org-senatova|Anna Senatova]]**; direction — **Ksenia Golyzhibina**; original music, live set, and sound design — **Alexander Shesternin**; lighting — **Arkady Lavrentiev**; performers — the **[[collab-itb|Innovation Ballet Theatre]]** company and audience participants.
 
-### Evening arc (16 May 2026)
+### Development line
 
-| Time | Phase |
-|------|--------|
-| ~18:30 | Doors, intro talk, familiarization with headsets |
-| ~19:00 | Premiere begins — audience wears neurointerfaces |
-| ~19:45 | Interactive act — collective hall state shapes scenography and sound |
-| ~20:30 | Finale, equipment off, discussion with authors |
-
-Approximate times — an improvisation is not tied to the minute.
-
-### Line in the Lotus graph
-
-- **2024** — [[event-kod-provincii|Code of Province]]: first meeting with **[[collab-itb|ITB]]** (Ksenia Golyzhibina).
-- **Nov 2024** — [[event-itb-lab-2024-11|internal ITB lab]] on neurointerfaces in dance.
-- **2025** — [[event-tsiolkovsky-2025|XIII Tsiolkovsky Festival]]: closing lab **[[schrodinger|Project Schrödinger]]** (8 devices, work-in-progress format).
-- **Autumn 2025 – winter 2026** — co-production with ITB at ICC; Neiry integration; project site and registration open.
-- **2026** — **this premiere** opens **[[event-tsiolkovsky-2026|XIV festival]]** — full-evening score, 12 channels, ~150 in the hall (largest audience for ODA.dream's theatrical format to date).
-
-Theatrical references in the dramaturgy: Stanislavsky's pursuit of authentic actor experience; Evreinov's viewer as co-creator of reality. Quantum frame: Everett's many-worlds and Minsky on consciousness — the act of observation as part of the event.
+- **2024** — [[event-kod-provincii|Code of Province]]: first collaboration with Ksenia Golyzhibina and ITB.
+- **November 2024** — [[event-itb-lab-2024-11|internal ITB laboratory]] with neurointerfaces and dance.
+- **2025** — [[event-tsiolkovsky-2025|XIII Tsiolkovsky Festival]]: work-in-progress **[[schrodinger|Project Schrödinger]]**.
+- **2026** — premiere of **Interference of Realities**, developed into a full-evening participatory performance.
 
 ---RU---
 
 ## Интерференция реальностей
 
-**Нейротеатральная премьера · импровизация · science art**
+**Партисипаторный арт-сайенс спектакль-лекция · нейротехнологии · медиаискусство**
 
-Нейроспектакль-импровизация и живой эксперимент научного искусства: зритель становится **соавтором** происходящего. Действие создаётся в реальном времени и **не повторяется**. Нейротехнологии считывают внимание, уровень возбуждения и нейрофизиологические паттерны участников — сценография, звук и поведение артистов откликаются в замкнутом контуре обратной связи между залом и сценой.
+**«Интерференция реальностей»** — живой спектакль-лекция, который собирается вместе со зрителями. Через выбор, движение и непосредственное участие аудитория помогает создать пять импровизационных сцен. Работа соединяет живой театр, компьютерное зрение и ЭЭГ-гиперсканирование, исследуя, как физическое событие и его опосредованный данными образ могут сосуществовать и расходиться.
 
-Премьера **16 мая 2026, 19:00** в [[org-ikc|ИКЦ Калуга]] — **открывающий перформанс** **[[event-tsiolkovsky-2026|XIV фестиваля «Циолковский фест»]]** (тема «Горизонты»). Со-постановка **ODA.dream** × **[[collab-itb|Инновационный театр балета ИКЦ]]**. Технологический партнёр — **[[org-neiry|Neiry Group]]** (Neiry Headband Pro). Пока **не в репертуаре** — ждёт повторных приглашений. Афиша, фоторепортаж, плакаты и радиоинтервью — лепестки в лотосе и в провенансе. Расширенная программа, FAQ и архив после премьеры → [interference.odadream.art](https://interference.odadream.art).
+Премьера состоялась **16 мая 2026 года** в [[org-ikc|Инновационном культурном центре, Калуга]] в рамках **[[event-tsiolkovsky-2026|XIV «Циолковского феста»]]**. Спектакль создан **ODA.dream** совместно с **[[collab-itb|Инновационным театром балета]]**, технологический партнёр — **[[org-neiry|Neiry Group]]**. Работа доступна для международных гастролей, фестивалей, театров и междисциплинарных программ медиаискусства. Технический райдер, полная документация и контакты для приглашений → [interference.odadream.art](https://interference.odadream.art).
 
-### Концепция
+### Драматургия двух реальностей
 
-Мы взяли вопросы, которые ставит квантовая физика и феноменология сознания, и перенесли их в театральное пространство — **не чтобы доказать**, а **чтобы пережить**: *может ли коллективное состояние зрителей влиять на ход событий?*
+В спектакле соединяются три взаимозависимых слоя:
 
-Три слоя накладываются в каждом показе:
+1. **Физическая сцена** — исполнители и зрители-участники собирают пять сцен в реальном времени.
+2. **Внешний слой данных** — компьютерное зрение отслеживает положение и движение на сцене и переводит их в живую визуальную систему.
+3. **Внутренний слой данных** — ЭЭГ-гиперсканирование регистрирует нейрофизиологические сигналы исполнителей и участников из зала и визуализирует паттерны нейронной синхронизации.
 
-1. **Физический** — тела, звук и движение в пространстве [[org-ikc|ИКЦ]]; без присутствия нет события.
-2. **Внутренний** — ЭЭГ регистрирует ритмы мозга (альфа, бета, гамма): расслабление, концентрация, вовлечённость. Считывается в реальном времени и становится сценическим материалом.
-3. **Воображаемый** — то, что возникает, когда физическое и внутреннее накладываются друг на друга. **Интерференция** здесь — механизм, не метафора.
+Вместе эти слои формируют **параллельную сценическую реальность**, которая развивается по собственным законам. Это не точный цифровой двойник и не простая иллюстрация физического действия: иногда две реальности сходятся, а иногда расходятся.
 
-> Коллективное внимание и синхронизация — это ресурс. Спектакль создаёт пространство, в котором участники исследуют, как формируется их общий опыт — не ответ, а вопрос.
+### Метод и границы
 
-### Метод
+- На премьере параллельно использовались **12 ЭЭГ-гарнитур**: шесть у исполнителей и шесть у зрителей-добровольцев.
+- Данные ЭЭГ становятся художественным материалом внутри спроектированной визуальной системы. Это не медицинская диагностика и не чтение мыслей или эмоций.
+- Ни ЭЭГ, ни компьютерное зрение не управляют спектаклем автономно. Свет, звук, хореография, участие аудитории и драматургия остаются самостоятельными элементами общей художественной партитуры.
+- Участие зрителей и ЭЭГ-слой связаны, но не тождественны: аудитория становится соавтором сцен через выбор и действие, а гиперсканирование делает видимой одну из нейрофизиологических связей.
 
-- **12 живых нейроинтерфейсов** параллельно: **6 на артистах**, **6 на зрителях-добровольцах** — один из первых полноформатных многоканальных театральных показов с живым ЭЭГ в России.
-- Гарнитуры **Neiry Headband Pro** передают ЭЭГ в медиасистему спектакля; визуал и звук следуют за состоянием, а не за фиксированной партитурой.
-- **[[mindshow|MindShow]] / Нейромандала** — генеративное визуальное поле в основе нейротеатрального интерфейса.
-- **Команда:** нейро-арт-режиссура ODA.dream (Ольга и Далер Арабовы); хореограф **Ксения Голыжбина**; музыка **Александр Шестернин** (live-set); свет **Аркадий Лаврентьев**; продюсирование **[[org-senatova|Анна Сенатова]]**; исполнители — труппа **[[collab-itb|ИТБ]]** и зрители с обручами.
-- **~60–70 минут**, без антракта. Вход по регистрации; возраст **12+**.
+**Команда:** художественно-технологическое решение — ODA.dream (Ольга и Далер Арабовы); художественное руководство — **[[org-senatova|Анна Сенатова]]**; постановка — **Ксения Голыжбина**; оригинальная музыка, live set и саунд-дизайн — **Александр Шестернин**; свет — **Аркадий Лаврентьев**; исполнители — труппа **[[collab-itb|Инновационного театра балета]]** и зрители-участники.
 
-### Ход вечера (16 мая 2026)
+### Линия развития
 
-| Время | Фаза |
-|-------|------|
-| ~18:30 | Открытие пространства, вводная беседа, знакомство с гарнитурами |
-| ~19:00 | Начало премьеры — зрители надевают нейроинтерфейсы |
-| ~19:45 | Интерактивный акт — коллективное состояние зала влияет на сценографию и звук |
-| ~20:30 | Финал, демонтаж, обсуждение с авторами |
-
-Время ориентировочное — импровизация не привязана к минутам.
-
-### Линия в графе
-
-- **2024** — [[event-kod-provincii|«Код провинции»]]: знакомство с **[[collab-itb|ИТБ]]** (Ксения Голыжбина).
-- **Нояб. 2024** — [[event-itb-lab-2024-11|внутренняя лаборатория ИТБ]].
-- **2025** — [[event-tsiolkovsky-2025|XIII фестиваль Циолковского]]: закрывающая лаборатория **[[schrodinger|Проект Шрёдингер]]** (8 устройств, формат work-in-progress).
-- **Осень 2025 – зима 2026** — со-постановка с ИТБ на базе ИКЦ; интеграция Neiry; сайт проекта и регистрация.
-- **2026** — **эта премьера** открывает **[[event-tsiolkovsky-2026|XIV фестиваль]]** — полноформатная партитура, 12 каналов, ~150 человек в зале (крупнейшая аудитория театрального формата ODA.dream на сегодня).
-
-Театральные отсылки в драматургии: подлинное переживание у Станиславского; зритель как со-творец реальности у Евреинова. Квантовая рамка: многомировая интерпретация Эверетта и работы Менского о сознании — акт наблюдения как часть события.
+- **2024** — [[event-kod-provincii|«Код провинции»]]: начало сотрудничества с Ксенией Голыжбиной и ИТБ.
+- **Ноябрь 2024** — [[event-itb-lab-2024-11|внутренняя лаборатория ИТБ]] с нейроинтерфейсами и танцем.
+- **2025** — [[event-tsiolkovsky-2025|XIII «Циолковский фест»]]: work-in-progress **[[schrodinger|«Проект Шрёдингер»]]**.
+- **2026** — премьера **«Интерференции реальностей»** в формате полноформатного партисипаторного спектакля.
