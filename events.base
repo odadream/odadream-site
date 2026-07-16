@@ -2,7 +2,6 @@ filters:
   and:
     - file.folder == "src/content"
     - kind == "event"
-    - file.hasTag("hub-registry")
 views:
   - type: table
     name: Участия

@@ -230,7 +230,7 @@ title_ru: ${org.name_ru}
 type: content
 tags: [registry, ${org.kind}]
 visible: false
-date: 2026.05.25
+updated: 2026.05.25
 ---
 
 ## ${org.name_en}
@@ -275,7 +275,7 @@ type: content
 tags: [registry, network]
 order: 7
 visible: true
-date: 2026.05.25
+updated: 2026.05.25
 ---
 
 ## EXPERIENCE REGISTRY

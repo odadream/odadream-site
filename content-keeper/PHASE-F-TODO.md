@@ -1,6 +1,6 @@
 # Phase F — TODO
 
-Generated: 2026-06-09T15:36:04.244Z
+Generated: 2026-07-16T11:39:36.497Z
 
 Items are grouped by **who fixes them** so non-trivial work isn't blocked on mechanical tasks.
 
