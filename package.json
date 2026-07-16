@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "npm run analytics:check",
     "build": "npm run assets:generate && tsc && vite build",
     "preview": "vite preview",
     "assets:generate": "node scripts/generate-assets.js",
@@ -38,7 +39,9 @@
     "audit:structure": "node scripts/audit/dump-structure.js",
     "restructure:dry": "node scripts/audit/restructure.js",
     "restructure:run": "node scripts/audit/restructure.js --write",
-    "audit:checklist": "node scripts/audit/dump-checklist.js"
+    "audit:checklist": "node scripts/audit/dump-checklist.js",
+    "analytics:check": "node scripts/analytics-config.mjs check",
+    "analytics:verify-build": "node scripts/analytics-config.mjs verify-dist"
   },
   "dependencies": {
     "clsx": "^2.1.0",

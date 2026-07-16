@@ -173,6 +173,7 @@ export const Lightbox: React.FC<LightboxProps> = ({ isOpen, onClose, mediaUrl, t
                 ) : (
                     <video 
                         ref={videoRef}
+                        data-analytics-video="media"
                         src={cleanUrl} 
                         onCanPlay={handleLoaded}
                         onError={handleError}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { NavigationProvider, useNavigation, useLightbox } from "./context/NavigationContext";
 import { THEME } from "./styles/theme";
@@ -13,6 +13,10 @@ import { Lightbox } from "./components/Lightbox";
 const Layout: React.FC = () => {
   const { lang } = useNavigation();
   const { lightboxMedia, closeLightbox } = useLightbox();
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   return (
     <div className={THEME.layout.fullScreen}>
