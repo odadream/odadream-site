@@ -8,7 +8,7 @@ alwaysApply: false
 
 Specialized knowledge for working with the Lotus Graph content management system.
 
-> **Canonical schema:** [`CONTENT-SCHEMA.md`](../../CONTENT-SCHEMA.md) — card types, fields, Obsidian property types, provenance links, sync pipeline. Prefer that document as the single source of truth; this rule is a practical supplement.
+> **Canonical schema:** [`CONTENT-SCHEMA.md`](../../CONTENT-SCHEMA.md) — card types, fields, Obsidian property types, provenance links, sync pipeline. Schema wins over parser/code for organization; drift → [`content-keeper/BACKLOG.md`](../../content-keeper/BACKLOG.md). This rule is a practical supplement only.
 
 ## CMS Overview
 
@@ -58,7 +58,7 @@ parent: parent-node-id
 title_en: English Title
 title_ru: Русский Заголовок
 type: content
-date: 2024.03.20
+updated: 2024.03.20
 ---
 ```
 
@@ -155,7 +155,7 @@ title_en: Lectures
 title_ru: Лекции
 type: hub
 tags: [education, talks]
-date: 2024.03.20
+updated: 2024.03.20
 ---
 
 ## Lectures
@@ -190,7 +190,7 @@ title_en: Neuroplasticity and Art
 title_ru: Нейропластичность и искусство
 type: content
 tags: [neuroscience, brain, art]
-date: 2024.03.20
+updated: 2024.03.20
 order: 1
 ---
 
@@ -226,7 +226,7 @@ title_en: Demo Video
 title_ru: Демо Видео
 type: media
 tags: [video, demo]
-date: 2024.03.20
+updated: 2024.03.20
 ---
 
 ![[https://example.com/demo.mp4 | Demo Video | /images/covers/demo.jpg]]
@@ -253,7 +253,7 @@ title_en: Email Us
 title_ru: Напишите нам
 type: action
 tags: [contact]
-date: 2024.03.20
+updated: 2024.03.20
 ---
 
 mailto:hello@odadream.art

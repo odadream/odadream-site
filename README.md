@@ -70,7 +70,7 @@ title_en: My Page       # English Title
 title_ru: Моя Страница  # Russian Title
 type: content           # 'hub' (folder), 'content' (article), 'action' (link), 'media'
 tags: [art, code]       # Keywords displayed in the footer
-date: 2024.03.20        # Last modified date
+updated: 2024.03.20     # Page revision (YYYY.MM.DD); events use date_start (ISO)
 order: 1                # (Optional) Sort order in the grid (0-8)
 ---
 
@@ -174,6 +174,13 @@ Automation tools located in `scripts/`.
 
 - **Purpose**: Generates a `CONTENT_TREE.md` file in the `scripts/` folder.
 - **Why**: Provides a visual tree of your site structure and a manifest of all used media files. Useful for debugging "Orphaned" nodes (nodes with invalid parents).
+
+### Content schema & registry
+
+- **[`CONTENT-SCHEMA.md`](CONTENT-SCHEMA.md)** — canonical card fields, provenance, and registry rules (schema wins over code).
+- **[`content-keeper/BACKLOG.md`](content-keeper/BACKLOG.md)** — known gaps between schema and parser/scripts.
+- **`npm run audit`** — integrity check; report in `content-keeper/PHASE-F-AUDIT.md`.
+- **`npm run registry:sync`** — refresh `hub-registry` and org stubs from `data/registry/`.
 
 ---
 

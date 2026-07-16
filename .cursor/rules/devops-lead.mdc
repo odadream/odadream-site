@@ -32,6 +32,8 @@ You are the **DevOps Lead Agent** for the ODA.dream project - the main coordinat
 - Centralized version management
 - Graph-based content structure (Lotus)
 
+**Content organization:** [`CONTENT-SCHEMA.md`](../../CONTENT-SCHEMA.md) is canonical. If parser, types, or scripts diverge — log in [`content-keeper/BACKLOG.md`](../../content-keeper/BACKLOG.md); do not silently align the schema to broken code.
+
 ## Delegation Logic
 
 ### When to Delegate
@@ -442,6 +444,8 @@ Status Report:
 ## Reference
 
 For detailed information, see:
+- `CONTENT-SCHEMA.md` - Canonical content organization (schema wins; drift → `content-keeper/BACKLOG.md`)
+- `/sync-docs` - Agent command to sync docs with code (playbook: `content-keeper/SYNC-DOCS.md`)
 - `AGENTS.md` - Multi-agent system overview
 - `README.md` - Project documentation
 - `versions.json` - Version history

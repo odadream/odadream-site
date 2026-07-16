@@ -6,6 +6,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **ODA.dream** — bilingual (EN/RU) art-portfolio SPA built around a "Blossoming Lotus" spatial navigation graph. React 18 + TypeScript (strict) + Vite + Tailwind + Framer Motion. Deployed as a static site to GitHub Pages at odadream.art.
 
+## Экосистема ODA.dream
+
+Часть более широкой экосистемы студии (цены, кейсы событий, заявки на премии, тех-база, патент). Корневая карта — `D:\YandexDisk\_ODA2\CLAUDE.md`. Соседние сайты — `..\CLAUDE.md`. Конвейер заявок на премии, использующий этот сайт как источник портфолио, — `D:\YandexDisk\_ODA2\Премии\CLAUDE.md`.
+
 ## Commands
 
 ```bash
@@ -20,9 +24,28 @@ npm run assets:map       # Write scripts/CONTENT_TREE.md — hierarchy dump + or
 npm run version:sync     # Propagate versions.json → package.json, src/constants.ts SITE_VERSION, README badge, metadata.json, changelog.md
 npm run dates:sync       # Set frontmatter `updated` from file mtime (page revision, not event date)
 npm run registry:sync    # Sync content registry
+
+npm run audit            # scripts/audit/content-audit.js — provenance + dup + dangling-ref report → content-keeper/PHASE-*-AUDIT.{md,json}
+npm run photos:add ./folder  # pack-image.js + photo-pipeline.yaml → WebP + work-*.md
 ```
 
 There is no test runner, linter, or formatter wired up. `tsc --noEmit` (run inside `npm run build`) is the only static check.
+
+## Specialized guides
+
+`.cursor/rules/*.mdc` — domain-specific rules auto-loaded by Cursor; treat as supplements to this file:
+- `lotus-cms.mdc` — file-based CMS details (frontmatter, hierarchy, naming)
+- `project-architecture.mdc`, `content-manager.mdc`, `devops-lead.mdc`, `testing-standards.mdc`, `code-quality.mdc`, `deploy-release.mdc`
+
+Schema source of truth remains `CONTENT-SCHEMA.md` — rules are practical supplements, not overrides.
+
+## Migration / audit tooling
+
+- `scripts/audit/content-audit.js` (`npm run audit`) — generates `content-keeper/PHASE-*-AUDIT.{md,json}` plus a TODO of stub nodes; read-only.
+- `scripts/audit/dump-structure.js` — snapshot of the current lotus tree to `content-keeper/STRUCTURE-CURRENT.md`.
+- `scripts/audit/restructure.js` — declarative re-parenting / renames / stubs (dry-run by default; `--write` to apply, `--only=<phase>` to scope).
+- `scripts/migrate/*` — one-off migrations per kind (products / organizers / engagements / proofs); shared helpers in `scripts/migrate/lib.js` (`readMd`, `writeMd`, `listContentFiles`).
+- `scripts/import-from-obsidian.js` — pull engagements out of an Obsidian vault into `data/registry/engagements.yaml` (`--dry-run`, `--merge`, `--vault PATH`; `OBSIDIAN_EVENTS` env).
 
 ## Architecture
 
@@ -124,12 +147,12 @@ File IDs follow semantic prefixes by kind:
 
 ## Content schema
 
-**[`CONTENT-SCHEMA.md`](CONTENT-SCHEMA.md)** — canonical reference for card types (`kind`), frontmatter fields, Obsidian property types, provenance relations, registry fields, and sync commands (`sync:fields`, `registry:sync`).
+**[`CONTENT-SCHEMA.md`](CONTENT-SCHEMA.md)** — canonical reference for card types (`kind`), frontmatter fields, Obsidian property types, provenance relations, registry fields, and sync commands (`sync:fields`, `registry:sync`). **Schema wins over code** for how content is organized; parser/runtime drift is tracked in [`content-keeper/BACKLOG.md`](content-keeper/BACKLOG.md), not by silently editing the schema to match broken behavior.
 
 ## Conventions
 
 - Components: functional only, PascalCase filenames; hooks `use*`; node IDs and content filenames are kebab-case and must match (`id: lectures-neuroplasticity` ↔ `lectures-neuroplasticity.md`).
-- Dates in frontmatter use dots: `YYYY.MM.DD` (not dashes).
+- Dates: new structured fields (`date_start`, `date_end`, `publication_date`) use ISO `YYYY-MM-DD` for Obsidian date-picker compatibility. Legacy `date` fields in older content may still be `YYYY.MM.DD` — leave them unless doing an intentional migration.
 - Vite path alias: `@/*` → `src/*`.
 - The `content-keeper/` directory and `scripts/_archive/` are out-of-band tools and archived scripts respectively — not part of the runtime bundle.
 
@@ -141,3 +164,18 @@ File IDs follow semantic prefixes by kind:
 4. `npm run assets:map` — no orphans.
 5. `npm run assets:generate` if any nodes were added/renamed.
 6. `npm run build` to confirm `tsc` is clean.
+
+## Content enrichment workflow (bottom-up)
+
+Walking ~174 nodes leaf-first (atomic products/events → category hubs → root). Per-leaf process:
+
+1. Source materials tracked in `content-keeper/CONTENT-SOURCES.yaml` (path to project folder / canon text — so future auto-update can find them).
+2. Outstanding info needs go to `INFO-DEBTS.md` at repo root as `DEBT-NNN` entries.
+3. Status grades 🟢/🟡/🔴 come from `npm run audit` checklist (≥60 EN+RU words + per-kind required fields → 🟢).
+4. New images go through pack-image.js (Sharp → WebP master + thumb, 1920/800 max edge, q=82) into `public/images/content/works/`, then registered in `src/data/media.ts` before being referenced via `![[media:id]]`.
+
+**Do not draft hub bodies before their leaves are populated** — describing a category before knowing what it contains produces aspirational/fantasy content. Established rule from prior sessions.
+
+## Persistent memory
+
+Long-running context lives in `C:\Users\daler\.claude\projects\D--YandexDisk--ODA2------odadream-site\memory\` — index in `MEMORY.md`, one file per memory. Check there for prior decisions and user-feedback rules before re-deriving conventions from code.

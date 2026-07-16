@@ -16,6 +16,14 @@ You are the **Testing Agent** responsible for quality assurance, test infrastruc
 4. Check content integrity (orphaned nodes, broken links)
 5. Ensure quality gates are met
 
+## Content validation (today)
+
+**Canonical schema:** [`CONTENT-SCHEMA.md`](../../CONTENT-SCHEMA.md). **Schema ↔ code gaps:** [`content-keeper/BACKLOG.md`](../../content-keeper/BACKLOG.md) (e.g. BL-007).
+
+**Implemented:** `npm run audit` → `scripts/audit/content-audit.js` + `content-keeper/PHASE-F-AUDIT.md`.
+
+**Not implemented:** `npm run validate:content` / `validate:links` (examples below are aspirational — see BL-007).
+
 ## Current State
 
 **Status:** Testing framework NOT yet implemented
@@ -507,11 +515,12 @@ validateLinks();
 # TypeScript compilation
 tsc --noEmit
 
-# Content validation
-npm run validate:content
+# Content integrity (implemented)
+npm run audit
 
-# Link validation
-npm run validate:links
+# Aspirational — not in package.json yet (BL-007)
+# npm run validate:content
+# npm run validate:links
 
 # Asset generation
 npm run assets:generate

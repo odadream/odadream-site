@@ -6,6 +6,14 @@ This folder contains the multi-agent system configuration for managing the ODA.d
 
 The configuration implements a **DevOps Lead Agent** that coordinates specialized agents for content management, code quality, deployment, and testing.
 
+## Slash commands
+
+В Agent chat: **`/sync-docs`** — синхронизация документации с кодом и [`CONTENT-SCHEMA.md`](../CONTENT-SCHEMA.md); drift схема↔код → [`content-keeper/BACKLOG.md`](../content-keeper/BACKLOG.md).
+
+- Определение: [`.cursor/commands/sync-docs.md`](commands/sync-docs.md)
+- Playbook: [`content-keeper/SYNC-DOCS.md`](../content-keeper/SYNC-DOCS.md)
+- Журнал: [`content-keeper/SYNC-DOCS-LOG.md`](../content-keeper/SYNC-DOCS-LOG.md)
+
 ## Files
 
 ### AGENTS.md (Project Root)

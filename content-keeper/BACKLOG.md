@@ -2,7 +2,7 @@
 
 **Связь:** [`CONTENT-SCHEMA.md`](../CONTENT-SCHEMA.md) · **Обновлено:** 2026.06.02
 
-Задачи здесь — **изменения кода, парсера и конвейера**. Документ схемы описывает целевое состояние; реализация — по приоритету.
+**Правило приоритета:** [`CONTENT-SCHEMA.md`](../CONTENT-SCHEMA.md) — единый источник правды по **организации** карточек, полей и связей. Если парсер, типы, audit или скрипты ведут себя иначе — **не меняйте схему молча**; заведите или обновите пункт здесь. Задачи в BACKLOG — довести **код и конвейер** до схемы (или явно пересмотреть схему отдельным решением).
 
 | ID | Приоритет | Область | Статус |
 |----|-----------|---------|--------|
@@ -12,6 +12,9 @@
 | [BL-004](#bl-004-obsidian-list-на-всех-relation-полях) | средний | vault / types.json | open |
 | [BL-005](#bl-005-guests--notable-participants) | низкий | event fields | open |
 | [BL-006](#bl-006-удалить-format--только-products) | — | event fields | **done** |
+| [BL-007](#bl-007-validatecontent--целевые-скрипты-валидации) | низкий | testing / docs | open |
+| [BL-008](#bl-008-products-обязателен-для-hub-registry) | средний | audit / content | open |
+| [BL-009](#bl-009-legacy-date-в-парсере) | низкий | frontmatter | open |
 
 ---
 
@@ -97,7 +100,7 @@
 4. `scripts/audit/content-audit.js` — валидация id.
 5. `CONTENT-SCHEMA.md` — добавить в таблицу ролей §4.2.
 
-**Пока:** использовать `proof-tst-*` для отзывов VIP; роли event-scoped — `orgs` / `venues` / `partners` / `client` / `collaborators` (§4.2 v1.5).
+**Пока:** использовать `proof-tst-*` для отзывов VIP; роли event-scoped — `orgs` / `venues` / `partners` / `client` / `collaborators` (§4.2 v1.6).
 
 ---
 
@@ -112,6 +115,44 @@
 - `engagements.yaml` хранит `products`, не `format`.
 - `proof-builders.casesInline` матчит по `products` (в т.ч. дочерние product hub-узлов).
 - Миграция: `scripts/migrate/remove-format-field.js`.
+
+---
+
+## BL-007: `validate:content` — целевые скрипты валидации
+
+**Схема / docs:** целостность контента проверяется перед релизом.
+
+**Код сейчас:** в `package.json` есть `npm run audit` → `scripts/audit/content-audit.js` + `PHASE-F-AUDIT.md`. Скриптов `validate:content` и `validate:links` **нет**; `.cursor/rules/testing-standards.mdc` описывает их как будущие.
+
+**Целевое поведение (один из вариантов):**
+1. Алиасы `validate:content` → audit; или
+2. Отдельные `validate-content.js` / `validate-links.js` с exit code 1 при ошибках; audit остаётся отчётом.
+
+**Пока:** `npm run audit`; aspirational примеры в testing-standards помечены ссылкой на BL-007.
+
+---
+
+## BL-008: `products` обязателен для `hub-registry`
+
+**Схема:** §4.2 — `products` **да** для событий в `hub-registry` (участие ODA, строка реестра).
+
+**Код сейчас:**
+- `content-audit.js` — только **warning** `registry-no-products`, не в `REQUIRED.event`;
+- `contentLoader` / `tsc` — не блокируют сборку при пустом `products`.
+
+**Целевое поведение:** warning → error в audit; опционально fail в CI; `REQUIRED` для `parent: hub-registry` дополняется `products`.
+
+---
+
+## BL-009: legacy `date:` в парсере
+
+**Схема:** §4.1 — каноническое поле ревизии страницы `updated` (`YYYY.MM.DD`); `date:` deprecated.
+
+**Код сейчас:** `frontmatter.ts` — `lastModified: updated || date` (fallback на старое имя).
+
+**Целевое поведение:** после миграции всех `.md` убрать fallback; audit — предупреждение на `date:` в frontmatter.
+
+**Связанный doc-drift (не код):** `.cursor/ONBOARDING.md`, примеры в agent rules — см. `SYNC-DOCS-LOG.md`.
 
 ---
 

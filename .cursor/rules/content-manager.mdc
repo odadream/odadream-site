@@ -18,6 +18,8 @@ You are the **Content Manager Agent** specializing in the Lotus CMS system and b
 
 ## Frontmatter Schema
 
+**Canonical reference:** [`CONTENT-SCHEMA.md`](../../CONTENT-SCHEMA.md) — full field tables by `kind`; do not duplicate §4 here. Schema ↔ code gaps → [`content-keeper/BACKLOG.md`](../../content-keeper/BACKLOG.md).
+
 Every `.md` file MUST have this frontmatter structure:
 
 ```yaml
@@ -28,7 +30,7 @@ title_en: English Title     # Required
 title_ru: Русский Заголовок # Required
 type: content               # Required: hub|content|media|action
 tags: [tag1, tag2]          # Optional: keywords
-date: 2024.03.20            # Required: YYYY.MM.DD
+updated: 2024.03.20         # Page revision YYYY.MM.DD (not event date)
 order: 1                    # Optional: 0-8 for grid sorting
 ---
 ```
@@ -63,10 +65,12 @@ order: 1                    # Optional: 0-8 for grid sorting
 - Displayed in footer
 - Examples: `[art, neuroscience]`, `[event, interactive]`
 
-**date**
-- Last modified date
-- Format: YYYY.MM.DD (dots, not dashes)
+**updated**
+- Last modified **page** date (not `date_start` of events)
+- Format: YYYY.MM.DD · `npm run dates:sync` from file mtime
 - Example: `2024.03.20`
+
+**Event registry (`hub-registry`):** see [`CONTENT-SCHEMA.md`](../../CONTENT-SCHEMA.md) §4.2 — `products`, `orgs`, `venues`, `partners`, `client`; no `format`.
 
 **order**
 - Sort position in parent's grid (0-8)
@@ -148,7 +152,7 @@ title_en: Lectures
 title_ru: Лекции
 type: hub
 tags: [education, talks]
-date: 2024.03.20
+updated: 2024.03.20
 ---
 
 ## Lectures
@@ -174,7 +178,7 @@ title_en: Neuroplasticity
 title_ru: Нейропластичность
 type: content
 tags: [neuroscience, brain]
-date: 2024.03.20
+updated: 2024.03.20
 order: 1
 ---
 
@@ -201,7 +205,7 @@ title_en: Demo Video
 title_ru: Демо Видео
 type: media
 tags: [video, demo]
-date: 2024.03.20
+updated: 2024.03.20
 ---
 
 ![[https://example.com/demo.mp4 | Demo | /images/covers/demo.jpg]]
@@ -219,7 +223,7 @@ title_en: Email Us
 title_ru: Напишите нам
 type: action
 tags: [contact]
-date: 2024.03.20
+updated: 2024.03.20
 ---
 
 mailto:hello@odadream.art

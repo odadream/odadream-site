@@ -6,6 +6,14 @@
 
 ---
 
+## Slash commands | Команды
+
+| Command | Purpose |
+|---------|---------|
+| **`/sync-docs`** | Sync agent docs with code and [`CONTENT-SCHEMA.md`](CONTENT-SCHEMA.md); schema↔code drift → [`content-keeper/BACKLOG.md`](content-keeper/BACKLOG.md). Playbook: [`content-keeper/SYNC-DOCS.md`](content-keeper/SYNC-DOCS.md) |
+
+---
+
 ## Overview | Обзор
 
 This document describes the multi-agent architecture for managing the ODA.dream website in Cursor AI. The system consists of a main DevOps Lead Agent that coordinates specialized agents for content management, code quality, deployment, and testing.
@@ -244,6 +252,8 @@ IF task is complex (multiple areas)
 - [ ] All new content has bilingual titles and descriptions
 - [ ] `npm run assets:generate` executed for new nodes
 - [ ] `npm run assets:map` shows no orphaned nodes
+- [ ] `npm run audit` — content integrity (`content-keeper/PHASE-F-AUDIT.md`)
+- [ ] New fields match [`CONTENT-SCHEMA.md`](CONTENT-SCHEMA.md); schema↔code gaps logged in [`content-keeper/BACKLOG.md`](content-keeper/BACKLOG.md)
 - [ ] `versions.json` updated with bilingual changelog
 - [ ] `npm run version:sync` executed
 - [ ] Local build successful (`npm run build`)
@@ -265,6 +275,9 @@ IF task is complex (multiple areas)
 
 ### Critical Files
 
+- [`CONTENT-SCHEMA.md`](CONTENT-SCHEMA.md) - **Canonical** CMS schema (v1.6)
+- [`content-keeper/REGISTRY.md`](content-keeper/REGISTRY.md) - Event registry workflow
+- [`content-keeper/BACKLOG.md`](content-keeper/BACKLOG.md) - CMS architectural debt
 - [`package.json`](package.json) - Dependencies and npm scripts
 - [`versions.json`](versions.json) - Version history with bilingual descriptions
 - [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) - CI/CD pipeline
@@ -290,7 +303,9 @@ npm run assets:generate  # Generate SVG backgrounds
 npm run assets:clean     # Remove generated assets
 npm run assets:map       # Visualize content tree
 npm run version:sync     # Sync version across files
-npm run dates:sync       # Sync dates in content
+npm run dates:sync       # Sync updated from git last-commit per .md
+npm run audit            # Content audit → PHASE-F-AUDIT.md
+npm run registry:sync    # hub-registry + org stubs from engagements.yaml
 ```
 
 ---

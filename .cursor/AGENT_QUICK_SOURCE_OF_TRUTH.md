@@ -21,8 +21,13 @@ This file is a lightweight, low-drift reference for AI agents.
 
 ## Documentation Hygiene
 
-When updating architecture or process:
+**Bulk sync:** run `/sync-docs` in Agent chat (see `content-keeper/SYNC-DOCS.md`).
+
+**Canonical content schema:** `CONTENT-SCHEMA.md` wins over code; gaps → `content-keeper/BACKLOG.md`.
+
+When updating architecture or process manually:
 
 1. Update rule files in `.cursor/rules/` first.
 2. Then sync high-level docs (`AGENTS.md`, `.cursor/README.md`, `README.md`).
 3. Prefer durable wording over hardcoded counts (node totals, line counts).
+4. Log the run in `content-keeper/SYNC-DOCS-LOG.md` after `/sync-docs`.
