@@ -15,7 +15,7 @@ Our practice works with embodiment, perception, collective attention, and the re
 
 In selected works, EEG records neurophysiological signals and turns their patterns into visual or sonic artistic material. The data is not a diagnosis, a reading of thoughts or emotions, or an autonomous author of the work. It is one layer in a situation created by artists, performers, participants, and technology together.
 
-Our current touring work, **[[interference|Interference of Realities]]**, is a participatory art–science performance-lecture. Its audience helps assemble five live scenes, while computer vision and EEG hyperscanning form a parallel stage reality.
+Our current touring work, **[[interference|Interference of Realities]]**, is a participatory art–science performance-lecture. Its audience helps assemble five live scenes beside a hybrid parallel reality shaped through computer vision, EEG headsets and generative media.
 
 ## Open Space
 

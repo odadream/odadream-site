@@ -12,7 +12,7 @@ tags:
   - eeg-hyperscanning
   - computer-vision
 order: 0
-updated: 2026.07.15
+updated: 2026.07.16
 status: production
 kind: product
 subkind: art
@@ -35,26 +35,26 @@ proofs: []
 
 **Participatory art–science performance-lecture · neurotechnology · media art**
 
-**Interference of Realities** is a live performance-lecture assembled with its audience. Spectators help build five improvised scenes through choices, movement, and direct participation. The work combines live theatre, computer vision, and EEG hyperscanning to explore how a physical event and its data-mediated image can coexist and diverge.
+**Interference of Realities** is a live performance-lecture assembled with its audience. Spectators and the artistic team build five scenes through choices, movement and direct participation beside a parallel virtual reality that never fully explains its relationship with the physical action.
 
-Premiered on **16 May 2026** at [[org-ikc|Innovation Cultural Center, Kaluga]] as part of the **[[event-tsiolkovsky-2026|XIV Tsiolkovsky Festival]]**. Co-produced by **ODA.dream** and the **[[collab-itb|Innovation Ballet Theatre]]**, with **[[org-neiry|Neiry Group]]** as technology partner. The performance is available for international touring, festivals, theatres, and interdisciplinary media-art programmes. Technical rider, full documentation, and booking information → [interference.odadream.art](https://interference.odadream.art).
+Premiered on **16 May 2026** at [[org-ikc|Innovation Cultural Center, Kaluga]] as part of the **[[event-tsiolkovsky-2026|XIV Tsiolkovsky Festival]]**. Co-produced by **ODA.dream** and the **[[collab-itb|Innovation Ballet Theatre]]**, with **[[org-neiry|Neiry Group]]** as technology partner. We are looking for presenting venues and international development partners for the next version → [interference.odadream.art](https://interference.odadream.art).
 
 ### Dramaturgy of two realities
 
-The performance brings together three interdependent layers:
+The work distinguishes three artistic layers:
 
 1. **The physical stage** — performers and audience participants assemble five scenes in real time.
-2. **The external data layer** — computer vision follows positions and movement on stage and translates them into a live visual system.
-3. **The internal data layer** — EEG hyperscanning records neurophysiological signals from performers and audience participants and visualises patterns of neural synchronisation.
+2. **The outer layer** — computer vision, visible ArUco markers and the image of a body observed by a technical system.
+3. **The inner layer** — EEG headsets, collective attention and the question of how an internal process can be represented.
 
-Together these layers form a **parallel stage reality** with its own behaviour. It is not an exact digital twin and it does not simply illustrate the physical action: at times the two realities converge, and at times they diverge.
+The **parallel stage reality** has its own behaviour. It is not an exact digital twin and does not reveal the source of every apparent correspondence: the spectator must decide whether the realities have converged or whether the connection was measured, performed or imagined.
 
-### Method and boundaries
+### Artistic method
 
-- The premiere used **12 EEG headsets** in parallel: six worn by performers and six by audience volunteers.
-- EEG data is treated as artistic material within a designed visual system. It is not medical diagnostics and does not read thoughts or emotions.
-- Neither EEG nor computer vision autonomously controls the performance. Light, sound, choreography, participation, and dramaturgy remain distinct elements of the complete artistic score.
-- Audience participation and the EEG layer are related but not interchangeable: spectators co-create the scenes through their choices and actions, while hyperscanning makes one neurophysiological relation visible.
+- The audience contributes choices, stories, movement and direct participation.
+- Performers work within a dramaturgical score that combines prepared material and improvisation.
+- Music and lighting are composed live from instruments, prepared patterns and presets.
+- A hybrid virtual stage combines live sensing and generative media layers without turning into a transparent instrument display.
 
 **Creative team:** art direction and technology — ODA.dream (Olga and Daler Arabov); artistic direction — **[[org-senatova|Anna Senatova]]**; direction — **Ksenia Golyzhibina**; original music, live set, and sound design — **Alexander Shesternin**; lighting — **Arkady Lavrentiev**; performers — the **[[collab-itb|Innovation Ballet Theatre]]** company and audience participants.
 
@@ -63,7 +63,7 @@ Together these layers form a **parallel stage reality** with its own behaviour. 
 - **2024** — [[event-kod-provincii|Code of Province]]: first collaboration with Ksenia Golyzhibina and ITB.
 - **November 2024** — [[event-itb-lab-2024-11|internal ITB laboratory]] with neurointerfaces and dance.
 - **2025** — [[event-tsiolkovsky-2025|XIII Tsiolkovsky Festival]]: work-in-progress **[[schrodinger|Project Schrödinger]]**.
-- **2026** — premiere of **Interference of Realities**, developed into a full-evening participatory performance.
+- **2026** — artistic premiere of **Interference of Realities** and the beginning of its international touring and development line.
 
 ---RU---
 
@@ -71,26 +71,26 @@ Together these layers form a **parallel stage reality** with its own behaviour. 
 
 **Партисипаторный арт-сайенс спектакль-лекция · нейротехнологии · медиаискусство**
 
-**«Интерференция реальностей»** — живой спектакль-лекция, который собирается вместе со зрителями. Через выбор, движение и непосредственное участие аудитория помогает создать пять импровизационных сцен. Работа соединяет живой театр, компьютерное зрение и ЭЭГ-гиперсканирование, исследуя, как физическое событие и его опосредованный данными образ могут сосуществовать и расходиться.
+**«Интерференция реальностей»** — живой спектакль-лекция, который собирается вместе со зрителями. Через выбор, движение и непосредственное участие аудитория и команда создают пять сцен рядом с параллельной виртуальной реальностью, не объясняющей источник каждого совпадения с физическим действием.
 
-Премьера состоялась **16 мая 2026 года** в [[org-ikc|Инновационном культурном центре, Калуга]] в рамках **[[event-tsiolkovsky-2026|XIV «Циолковского феста»]]**. Спектакль создан **ODA.dream** совместно с **[[collab-itb|Инновационным театром балета]]**, технологический партнёр — **[[org-neiry|Neiry Group]]**. Работа доступна для международных гастролей, фестивалей, театров и междисциплинарных программ медиаискусства. Технический райдер, полная документация и контакты для приглашений → [interference.odadream.art](https://interference.odadream.art).
+Премьера состоялась **16 мая 2026 года** в [[org-ikc|Инновационном культурном центре, Калуга]] в рамках **[[event-tsiolkovsky-2026|XIV «Циолковского феста»]]**. Спектакль создан **ODA.dream** совместно с **[[collab-itb|Инновационным театром балета]]**, технологический партнёр — **[[org-neiry|Neiry Group]]**. Мы ищем площадки для репризы и международных партнёров по разработке следующей версии → [interference.odadream.art](https://interference.odadream.art).
 
 ### Драматургия двух реальностей
 
-В спектакле соединяются три взаимозависимых слоя:
+В работе различаются три художественных слоя:
 
 1. **Физическая сцена** — исполнители и зрители-участники собирают пять сцен в реальном времени.
-2. **Внешний слой данных** — компьютерное зрение отслеживает положение и движение на сцене и переводит их в живую визуальную систему.
-3. **Внутренний слой данных** — ЭЭГ-гиперсканирование регистрирует нейрофизиологические сигналы исполнителей и участников из зала и визуализирует паттерны нейронной синхронизации.
+2. **Внешний слой** — компьютерное зрение, видимые ArUco-маркеры и образ тела, наблюдаемого технической системой.
+3. **Внутренний слой** — EEG-гарнитуры, коллективное внимание и вопрос о том, как может быть представлен внутренний процесс.
 
-Вместе эти слои формируют **параллельную сценическую реальность**, которая развивается по собственным законам. Это не точный цифровой двойник и не простая иллюстрация физического действия: иногда две реальности сходятся, а иногда расходятся.
+**Параллельная сценическая реальность** развивается по собственным законам. Это не точный цифровой двойник: источник каждого видимого совпадения не раскрывается, и зритель решает, сошлись ли миры на самом деле или связь была измерена, исполнена либо воображена.
 
-### Метод и границы
+### Художественный метод
 
-- На премьере параллельно использовались **12 ЭЭГ-гарнитур**: шесть у исполнителей и шесть у зрителей-добровольцев.
-- Данные ЭЭГ становятся художественным материалом внутри спроектированной визуальной системы. Это не медицинская диагностика и не чтение мыслей или эмоций.
-- Ни ЭЭГ, ни компьютерное зрение не управляют спектаклем автономно. Свет, звук, хореография, участие аудитории и драматургия остаются самостоятельными элементами общей художественной партитуры.
-- Участие зрителей и ЭЭГ-слой связаны, но не тождественны: аудитория становится соавтором сцен через выбор и действие, а гиперсканирование делает видимой одну из нейрофизиологических связей.
+- Зрители вносят в спектакль выборы, истории, движение и непосредственное участие.
+- Артисты работают внутри драматургической партитуры, соединяя подготовленный материал и импровизацию.
+- Музыка и свет собираются live из инструментов, подготовленных паттернов и пресетов.
+- Гибридная виртуальная сцена соединяет sensing и генеративные цифровые слои, но не превращается в прозрачный приборный экран.
 
 **Команда:** художественно-технологическое решение — ODA.dream (Ольга и Далер Арабовы); художественное руководство — **[[org-senatova|Анна Сенатова]]**; постановка — **Ксения Голыжбина**; оригинальная музыка, live set и саунд-дизайн — **Александр Шестернин**; свет — **Аркадий Лаврентьев**; исполнители — труппа **[[collab-itb|Инновационного театра балета]]** и зрители-участники.
 
@@ -99,4 +99,4 @@ Together these layers form a **parallel stage reality** with its own behaviour. 
 - **2024** — [[event-kod-provincii|«Код провинции»]]: начало сотрудничества с Ксенией Голыжбиной и ИТБ.
 - **Ноябрь 2024** — [[event-itb-lab-2024-11|внутренняя лаборатория ИТБ]] с нейроинтерфейсами и танцем.
 - **2025** — [[event-tsiolkovsky-2025|XIII «Циолковский фест»]]: work-in-progress **[[schrodinger|«Проект Шрёдингер»]]**.
-- **2026** — премьера **«Интерференции реальностей»** в формате полноформатного партисипаторного спектакля.
+- **2026** — художественная премьера **«Интерференции реальностей»** и начало международной гастрольной и исследовательской линии.

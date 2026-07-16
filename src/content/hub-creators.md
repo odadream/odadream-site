@@ -24,7 +24,7 @@ We collaborate with artists, curators, performers, and creative technologists bu
 
 ## Recent co-productions
 
-**Interference of Realities** (Tsiolkovsky Festival, Kaluga, May 2026) — neuro-theater co-created with choreographer **Ksenia Golyzhibina** and composer **Alexander Shesternin**. ODA.dream developed the neuro-visual layer: 12 live EEG neurointerfaces on stage, translating performers' and participants' brain states into real-time generative imagery. Premiere, 150 attendees.
+**Interference of Realities** (Tsiolkovsky Festival, Kaluga, May 2026) — participatory art–science performance co-created with choreographer **Ksenia Golyzhibina** and composer **Alexander Shesternin**. ODA.dream developed a hybrid virtual stage using computer vision, EEG headsets and generative media. The audience and artistic team assembled five scenes live.
 
 **Ancestors in the Noise** — joint project with **Elena Kovylina** (performance artist, Venice Biennale participant, Moscow). Selected for **CultTech Lab 2026** (CultTech Association, Vienna) with a production grant. Work in development.
 

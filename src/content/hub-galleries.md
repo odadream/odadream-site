@@ -25,7 +25,7 @@ We collaborate with galleries, cultural centers, festivals, and museums working 
 
 **Terraforming at MIPT/Phystech** (Moscow, November–December 2025) — site-specific installation inside a scientific hub-research institution. Extended run with public workshops. Performance program December 9, 2025.
 
-**Interference of Realities** (Tsiolkovsky Festival, Kaluga, May 2026) — neuro-theater premiere. 12 live EEG neurointerfaces on stage. Co-created with choreographer Ksenia Golyzhibina and composer Alexander Shesternin. 150 attendees. Technology partner: Neiry Group.
+**Interference of Realities** (Tsiolkovsky Festival, Kaluga, May 2026) — participatory art–science performance with a hybrid virtual stage combining computer vision, EEG headsets and generative media. Co-created with choreographer Ksenia Golyzhibina and composer Alexander Shesternin. Technology partner: Neiry Group.
 
 ## International context
 
