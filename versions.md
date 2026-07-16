@@ -4,6 +4,19 @@
 > Do not edit manually. Use `npm run version:sync` after updating `versions.json`.
 
 
+## v1.2.2 - Consent-Based Analytics | Аналитика с согласием
+**Date:** 2026.07.16
+
+GA4 and Yandex Metrica are now integrated through an explicit consent layer, with manual page, interaction, form, and video events shared across ODA.dream projects. The [[interference|Interference of Realities]] presentation also preserves its artistic uncertainty while separating public framing from technical backstage documentation.
+
+---
+
+**Дата:** 2026.07.16
+
+GA4 и Яндекс Метрика подключены через явное согласие пользователя; для проектов ODA.dream унифицированы ручные события страниц, взаимодействий, форм и видео. Публичная подача [[interference|«Интерференции реальностей»]] сохраняет художественную неопределённость и отделена от технической backstage-документации.
+
+---
+
 ## v1.2.1 - Art–Science Positioning | Арт-сайенс позиционирование
 **Date:** 2026.07.15
 

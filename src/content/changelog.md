@@ -13,7 +13,13 @@ order: 8
 
 Tracking the architectural metamorphosis of the ODA.dream.
 
-### v1.2.1 (Current)
+### v1.2.2 (Current)
+**Consent-Based Analytics**
+**Date:** 2026.07.16
+
+GA4 and Yandex Metrica are now integrated through an explicit consent layer, with manual page, interaction, form, and video events shared across ODA.dream projects. The [[interference|Interference of Realities]] presentation also preserves its artistic uncertainty while separating public framing from technical backstage documentation.
+
+### v1.2.1
 **Art–Science Positioning**
 **Date:** 2026.07.15
 
@@ -110,7 +116,13 @@ Initial prototype built on Eleventy.js using raw WebGL shaders. The birth of the
 
 Отслеживание архитектурных метаморфоз ODA.dream.
 
-### v1.2.1 (Текущая)
+### v1.2.2 (Текущая)
+**Аналитика с согласием**
+**Дата:** 2026.07.16
+
+GA4 и Яндекс Метрика подключены через явное согласие пользователя; для проектов ODA.dream унифицированы ручные события страниц, взаимодействий, форм и видео. Публичная подача [[interference|«Интерференции реальностей»]] сохраняет художественную неопределённость и отделена от технической backstage-документации.
+
+### v1.2.1
 **Арт-сайенс позиционирование**
 **Дата:** 2026.07.15
 
