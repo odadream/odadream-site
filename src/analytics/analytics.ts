@@ -149,14 +149,7 @@ function setupGoogle(): void {
   window.dataLayer = window.dataLayer || [];
   window.gtag =
     window.gtag || ((...args: unknown[]) => window.dataLayer?.push(args));
-  window.gtag("consent", "default", {
-    analytics_storage: "denied",
-    ad_storage: "denied",
-    ad_user_data: "denied",
-    ad_personalization: "denied",
-  });
   window.gtag("js", new Date());
-  window.gtag("consent", "update", { analytics_storage: "granted" });
   window.gtag("config", googleId, {
     send_page_view: false,
     ...(debug ? { debug_mode: true } : {}),
@@ -213,7 +206,8 @@ export function trackEvent(
   const eventName = normalizedName(name);
   if (!eventName) return;
   const payload = { ...commonParameters(), ...parameters };
-  if (googleId) window.gtag?.("event", eventName, payload);
+  if (googleId)
+    window.gtag?.("event", eventName, { ...payload, send_to: googleId });
   if (hasMetricaId()) window.ym?.(metricaId, "reachGoal", eventName, payload);
   emitDebug(eventName, payload);
 }
@@ -230,7 +224,8 @@ export function trackPageView(): void {
     page_location: location,
     page_path: `${window.location.pathname}${window.location.search}${window.location.hash}`,
   };
-  if (googleId) window.gtag?.("event", "page_view", payload);
+  if (googleId)
+    window.gtag?.("event", "page_view", { ...payload, send_to: googleId });
   if (hasMetricaId()) {
     window.ym?.(metricaId, "hit", location, {
       title: document.title,
