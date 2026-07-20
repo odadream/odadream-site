@@ -54,6 +54,19 @@ function inspectConfig(env) {
   return { enabled, googleId, metricaId, consentMode, errors };
 }
 
+function inspectRuntime(config) {
+  const runtimePath = "src/analytics/analytics.ts";
+  if (!config.enabled || !config.googleId || !fs.existsSync(runtimePath)) {
+    return [];
+  }
+  const source = fs.readFileSync(runtimePath, "utf8");
+  return source.includes("window.dataLayer?.push(arguments)")
+    ? []
+    : [
+        "Google Tag queue must push the native arguments object; arrays are not executed by gtag.js.",
+      ];
+}
+
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const target = path.join(directory, entry.name);
@@ -62,6 +75,7 @@ function walk(directory) {
 }
 
 const config = inspectConfig(analyticsEnv());
+config.errors.push(...inspectRuntime(config));
 if (config.errors.length) {
   for (const error of config.errors) console.error(`ERROR: ${error}`);
   process.exit(1);

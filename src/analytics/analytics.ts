@@ -31,7 +31,7 @@ interface AnalyticsDebugApi {
 
 declare global {
   interface Window {
-    dataLayer?: unknown[][];
+    dataLayer?: unknown[];
     gtag?: (...args: unknown[]) => void;
     ym?: (...args: unknown[]) => void;
     __ODA_ANALYTICS__?: AnalyticsDebugApi;
@@ -144,21 +144,34 @@ function injectScript(id: string, src: string): Promise<void> {
   });
 }
 
-function setupGoogle(): void {
-  if (!googleId) return;
+function setupGoogle(): Promise<void> {
+  if (!googleId) return Promise.resolve();
   window.dataLayer = window.dataLayer || [];
   window.gtag =
-    window.gtag || ((...args: unknown[]) => window.dataLayer?.push(args));
-  window.gtag("js", new Date());
-  window.gtag("config", googleId, {
-    send_page_view: false,
-    ...(debug ? { debug_mode: true } : {}),
+    window.gtag ||
+    function gtag() {
+      // Google Tag requires the native Arguments object, not a rest-parameter array.
+      // eslint-disable-next-line prefer-rest-params
+      window.dataLayer?.push(arguments);
+    };
+  window.gtag("consent", "default", {
+    analytics_storage: "denied",
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    wait_for_update: 1000,
   });
-  void injectScript(
+  window.gtag("js", new Date());
+  return injectScript(
     "oda-google-tag",
     `https://www.googletagmanager.com/gtag/js?id=${googleId}`,
   )
     .then(() => {
+      window.gtag?.("consent", "update", { analytics_storage: "granted" });
+      window.gtag?.("config", googleId, {
+        send_page_view: false,
+        ...(debug ? { debug_mode: true } : {}),
+      });
       googleLoaded = true;
       emitDebug("google_loaded", googleId);
     })
@@ -466,9 +479,9 @@ export async function initAnalytics(): Promise<void> {
     return;
   }
   initialized = true;
-  setupGoogle();
   setupMetrica();
   installAutoTracking();
+  await setupGoogle();
   trackPageView();
   emitDebug("initialized", analyticsStatus());
 }
