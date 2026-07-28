@@ -7,6 +7,16 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
     />
+    <!-- Prefer / over /index.html for a single canonical URL (GitHub Pages). -->
+    <script>
+      if (location.pathname.endsWith("/index.html")) {
+        location.replace(
+          location.pathname.replace(/\/index\.html$/, "/") +
+            location.search +
+            location.hash,
+        );
+      }
+    </script>
 
     <!-- Primary Meta -->
     <title>ODA.dream | Art, Science &amp; Technology</title>
