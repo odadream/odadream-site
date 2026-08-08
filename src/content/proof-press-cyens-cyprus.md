@@ -1,15 +1,15 @@
 ---
 id: proof-press-cyens-cyprus
-parent: hub-press
+parent: hub-letters
 title_en: CYENS WIP Festival shortlist — 2nd place / runner-up
 title_ru: CYENS WIP Festival — шорт-лист и 2-е место
 type: content
 visible: true
 updated: 2026.08.09
 kind: proof
-subkind: press
+subkind: award
 publication: CYENS Centre of Excellence, Cyprus
-publication_date: 2026-01-01
+publication_date: 2026-06-22
 proof_of:
   - "[[home]]"
 issued_by:
