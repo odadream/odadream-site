@@ -12,7 +12,7 @@ proof_of:
   - "[[oda-rings]]"
   - "[[mom-baby]]"
   - "[[hub-materia]]"
-  - "[[home]]"
+  - "[[hub-home]]"
 issued_by:
   - "[[org-synergy-forum]]"
 publication: Synergy Crypto & NFT Forum

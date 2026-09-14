@@ -1,6 +1,6 @@
 # Phase F — TODO
 
-Generated: 2026-07-16T11:42:29.631Z
+Generated: 2026-09-14T08:03:52.519Z
 
 Items are grouped by **who fixes them** so non-trivial work isn't blocked on mechanical tasks.
 
@@ -17,31 +17,46 @@ These proofs lack `proof_of` / `issued_by` because the source YAML record has no
 
 Pilot proof .md files exist without a matching record in `proofs.yaml`. Either back-fill the YAML or accept them as content-authored:
 
+- `proof-award-ars-electronica`
+- `proof-award-culttech-vienna`
+- `proof-award-portal-visioning`
+- `proof-award-skolkovo-arttech`
+- `proof-cred-track-record`
+- `proof-cred-tskhr`
+- `proof-emomandala-abundance`
+- `proof-ip-patent`
+- `proof-ip-trademark`
+- `proof-let-bashkiria`
+- `proof-let-bitva-milliard`
+- `proof-let-golos-obshchestva`
+- `proof-let-hse-beautiful-brain`
+- `proof-let-kod-provincii`
+- `proof-let-media-experts`
+- `proof-let-moscow2030`
+- `proof-let-portal`
+- `proof-let-tavrida`
+- `proof-let-techweek`
+- `proof-let-tpp-techinno`
+- `proof-let-unique-russia`
+- `proof-let-wildmint`
+- `proof-mipt-letter`
+- `proof-mom-baby-borzikh-origin`
+- `proof-mom-baby-iowa-gift`
+- `proof-oda-synergy-forum-2022`
+- `proof-press-cyens-cyprus`
+- `proof-press-ntv-metro`
+- `proof-press-tnt-tykakya`
+- `proof-press-tskhr-bashkiria`
+- `proof-press-vecherka`
+- `proof-tst-ashram-osman`
+- `proof-tst-bitva-milliard`
+- `proof-tst-cipr-techfriendly`
+- `proof-tst-meditation-day`
+- `proof-tst-tavrida-ai`
 
 ## D. Stubs to create
 
-| missing_id | kind_guess | referenced_by |
-|---|---|---|
-| `Ars Electronica, Линц, Австрия` | product | proof-award-ars-electronica.issued_by |
-| `CYENS Centre of Excellence, Кипр` | product | proof-press-cyens-cyprus.issued_by |
-| `ODA.dream — сводка трека` | product | proof-cred-track-record.issued_by |
-| `Tech Week` | product | proof-let-techweek.issued_by |
-| `home` | product | proof-award-ars-electronica.proof_of; proof-cred-track-record.proof_of; proof-cred-tskhr.proof_of; proof-ip-trademark.proof_of; proof-let-golos-obshchestva.proof_of |
-| `Архив студии · линейка талисманов` | product | proof-emomandala-abundance.issued_by |
-| `Архив студии · параллельный заказ` | product | proof-mom-baby-iowa-gift.issued_by |
-| `Вечерняя Москва` | product | proof-press-vecherka.issued_by |
-| `Конференция «КОД: Провинции», Калуга` | product | proof-let-kod-provincii.issued_by |
-| `Медиа Эксперты — проект «Великая Россия»` | product | proof-let-media-experts.issued_by |
-| `НТВ` | product | proof-press-ntv-metro.issued_by |
-| `Проект «Голос Общества»` | product | proof-let-golos-obshchestva.issued_by |
-| `Роспатент` | product | proof-ip-trademark.issued_by |
-| `ТНТ, «Ты как Я»` | product | proof-press-tnt-tykakya.issued_by |
-| `ТСХР — первый цифровой пленэр, Шульган-Таш` | product | proof-let-bashkiria.issued_by |
-| `ТСХР` | product | proof-press-tskhr-bashkiria.issued_by |
-| `Творческий союз художников России (ТСХР)` | product | proof-cred-tskhr.issued_by |
-| `Технологии и Инновации (Национальная бизнес-премия)` | product | proof-let-tpp-techinno.issued_by |
-| `Уникальная Россия (Гостиный двор, Москва)` | product | proof-let-unique-russia.issued_by |
-| `ФИПС / патентная заявка` | product | proof-ip-patent.issued_by |
+_None — every wikilink resolves._
 
 ## E. Human decision — duplicates
 
@@ -64,6 +79,7 @@ Hub pages contain bullet lists of `[[…]]`. These are navigation by hand. Decis
 - `hub-world.md` — 14 link bullets in 2 block(s)
 - `mom-baby.md` — Provenance
 - `org-ashram.md` — 6 link bullets in 2 block(s)
+- `org-synergy-forum.md` — Provenance
 
 ## G. Orphans (informational)
 

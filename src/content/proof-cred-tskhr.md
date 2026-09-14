@@ -10,9 +10,9 @@ kind: proof
 subkind: award
 publication_date: 2025-01-01
 proof_of:
-  - "[[home]]"
+  - "[[hub-home]]"
 issued_by:
-  - Творческий союз художников России (ТСХР)
+  - "[[org-tskhr]]"
 publication: Creative Union of Artists of Russia (TSKhR)
 ---
 

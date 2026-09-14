@@ -11,7 +11,7 @@ subkind: press
 proof_of:
   - "[[emomandala]]"
 issued_by:
-  - Архив студии · линейка талисманов
+  - "[[hub-home]]"
 publication_date: 2023-03-23
 quote_en: Olga recorded the dataset for the Abundance talisman on 23 March 2023 — a personal Emomandala branch after the pendant and charm line.
 quote_ru: Ольга записала данные для талисмана «Изобилие» 23 марта 2023 — личная ветка Эмомандалы после линии кулона и шарма.

@@ -14,7 +14,7 @@ publication: TSKhR — first digital plein air, Shulgan-Tash
 publication_date: 2025-01-01
 asset: /images/content/proofs/collab_2025_ODA_Shulgan_Tash.webp
 issued_by:
-  - ТСХР — первый цифровой пленэр, Шульган-Таш
+  - "[[org-tskhr]]"
 ---
 
 ## Participation — first digital plein air in Bashkiria

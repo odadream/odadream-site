@@ -12,7 +12,7 @@ proof_of:
   - "[[neuromandala]]"
 publication_date: 2026-01-01
 issued_by:
-  - ФИПС / патентная заявка
+  - "[[org-fips]]"
 publication: Rospatent / patent application
 ---
 

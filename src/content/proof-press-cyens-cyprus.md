@@ -11,9 +11,9 @@ subkind: award
 publication: CYENS Centre of Excellence, Cyprus
 publication_date: 2026-06-22
 proof_of:
-  - "[[home]]"
+  - "[[hub-home]]"
 issued_by:
-  - CYENS Centre of Excellence, Кипр
+  - "[[org-cyens]]"
 ---
 
 ## CYENS WIP Festival shortlist — 2nd place / runner-up

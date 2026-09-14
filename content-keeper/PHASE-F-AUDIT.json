@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-16T11:42:29.631Z",
+  "generated_at": "2026-09-14T08:03:52.519Z",
   "counts": {
     "byKind": {
       "product": 34,
@@ -7,18 +7,18 @@
       "collaboration": 4,
       "event": 37,
       "media": 34,
-      "organizer": 31,
+      "organizer": 44,
       "proof": 36
     },
-    "total": 225
+    "total": 238
   },
   "conformance_gaps": 0,
-  "body_smells": 10,
-  "missing_refs": 20,
+  "body_smells": 11,
+  "missing_refs": 0,
   "orphans": 26,
   "duplicates": 0,
   "proof_drift": {
-    "md_only": 0,
+    "md_only": 36,
     "yaml_only": 0,
     "missing_relations": 0
   },
@@ -87,163 +87,15 @@
         "file": "org-ashram.md",
         "smell": "manual-link-list",
         "detail": "6 link bullets in 2 block(s)"
+      },
+      {
+        "id": "org-synergy-forum",
+        "file": "org-synergy-forum.md",
+        "smell": "provenance-header",
+        "detail": "Provenance"
       }
     ],
-    "missingRefs": [
-      {
-        "id": "home",
-        "kind_guess": "product",
-        "referenced_by": [
-          "proof-award-ars-electronica.proof_of",
-          "proof-cred-track-record.proof_of",
-          "proof-cred-tskhr.proof_of",
-          "proof-ip-trademark.proof_of",
-          "proof-let-golos-obshchestva.proof_of",
-          "proof-let-kod-provincii.proof_of",
-          "proof-let-media-experts.proof_of",
-          "proof-let-moscow2030.proof_of",
-          "proof-let-techweek.proof_of",
-          "proof-let-tpp-techinno.proof_of",
-          "proof-let-unique-russia.proof_of",
-          "proof-oda-synergy-forum-2022.proof_of",
-          "proof-press-cyens-cyprus.proof_of",
-          "proof-press-vecherka.proof_of"
-        ]
-      },
-      {
-        "id": "Ars Electronica, Линц, Австрия",
-        "kind_guess": "product",
-        "referenced_by": [
-          "proof-award-ars-electronica.issued_by"
-        ]
-      },
-      {
-        "id": "ODA.dream — сводка трека",
-        "kind_guess": "product",
-        "referenced_by": [
-          "proof-cred-track-record.issued_by"
-        ]
-      },
-      {
-        "id": "Творческий союз художников России (ТСХР)",
-        "kind_guess": "product",
-        "referenced_by": [
-          "proof-cred-tskhr.issued_by"
-        ]
-      },
-      {
-        "id": "Архив студии · линейка талисманов",
-        "kind_guess": "product",
-        "referenced_by": [
-          "proof-emomandala-abundance.issued_by"
-        ]
-      },
-      {
-        "id": "ФИПС / патентная заявка",
-        "kind_guess": "product",
-        "referenced_by": [
-          "proof-ip-patent.issued_by"
-        ]
-      },
-      {
-        "id": "Роспатент",
-        "kind_guess": "product",
-        "referenced_by": [
-          "proof-ip-trademark.issued_by"
-        ]
-      },
-      {
-        "id": "ТСХР — первый цифровой пленэр, Шульган-Таш",
-        "kind_guess": "product",
-        "referenced_by": [
-          "proof-let-bashkiria.issued_by"
-        ]
-      },
-      {
-        "id": "Проект «Голос Общества»",
-        "kind_guess": "product",
-        "referenced_by": [
-          "proof-let-golos-obshchestva.issued_by"
-        ]
-      },
-      {
-        "id": "Конференция «КОД: Провинции», Калуга",
-        "kind_guess": "product",
-        "referenced_by": [
-          "proof-let-kod-provincii.issued_by"
-        ]
-      },
-      {
-        "id": "Медиа Эксперты — проект «Великая Россия»",
-        "kind_guess": "product",
-        "referenced_by": [
-          "proof-let-media-experts.issued_by"
-        ]
-      },
-      {
-        "id": "Tech Week",
-        "kind_guess": "product",
-        "referenced_by": [
-          "proof-let-techweek.issued_by"
-        ]
-      },
-      {
-        "id": "Технологии и Инновации (Национальная бизнес-премия)",
-        "kind_guess": "product",
-        "referenced_by": [
-          "proof-let-tpp-techinno.issued_by"
-        ]
-      },
-      {
-        "id": "Уникальная Россия (Гостиный двор, Москва)",
-        "kind_guess": "product",
-        "referenced_by": [
-          "proof-let-unique-russia.issued_by"
-        ]
-      },
-      {
-        "id": "Архив студии · параллельный заказ",
-        "kind_guess": "product",
-        "referenced_by": [
-          "proof-mom-baby-iowa-gift.issued_by"
-        ]
-      },
-      {
-        "id": "CYENS Centre of Excellence, Кипр",
-        "kind_guess": "product",
-        "referenced_by": [
-          "proof-press-cyens-cyprus.issued_by"
-        ]
-      },
-      {
-        "id": "НТВ",
-        "kind_guess": "product",
-        "referenced_by": [
-          "proof-press-ntv-metro.issued_by"
-        ]
-      },
-      {
-        "id": "ТНТ, «Ты как Я»",
-        "kind_guess": "product",
-        "referenced_by": [
-          "proof-press-tnt-tykakya.issued_by"
-        ]
-      },
-      {
-        "id": "ТСХР",
-        "kind_guess": "product",
-        "referenced_by": [
-          "proof-press-tskhr-bashkiria.issued_by"
-        ]
-      },
-      {
-        "id": "Вечерняя Москва",
-        "kind_guess": "product",
-        "referenced_by": [
-          "proof-press-vecherka.issued_by"
-        ]
-      }
-    ],
+    "missingRefs": [],
     "orphans": [
       {
         "id": "emomandala-os",
@@ -378,7 +230,44 @@
     ],
     "duplicates": [],
     "proofDrift": {
-      "mdOnly": [],
+      "mdOnly": [
+        "proof-award-ars-electronica",
+        "proof-award-culttech-vienna",
+        "proof-award-portal-visioning",
+        "proof-award-skolkovo-arttech",
+        "proof-cred-track-record",
+        "proof-cred-tskhr",
+        "proof-emomandala-abundance",
+        "proof-ip-patent",
+        "proof-ip-trademark",
+        "proof-let-bashkiria",
+        "proof-let-bitva-milliard",
+        "proof-let-golos-obshchestva",
+        "proof-let-hse-beautiful-brain",
+        "proof-let-kod-provincii",
+        "proof-let-media-experts",
+        "proof-let-moscow2030",
+        "proof-let-portal",
+        "proof-let-tavrida",
+        "proof-let-techweek",
+        "proof-let-tpp-techinno",
+        "proof-let-unique-russia",
+        "proof-let-wildmint",
+        "proof-mipt-letter",
+        "proof-mom-baby-borzikh-origin",
+        "proof-mom-baby-iowa-gift",
+        "proof-oda-synergy-forum-2022",
+        "proof-press-cyens-cyprus",
+        "proof-press-ntv-metro",
+        "proof-press-tnt-tykakya",
+        "proof-press-tskhr-bashkiria",
+        "proof-press-vecherka",
+        "proof-tst-ashram-osman",
+        "proof-tst-bitva-milliard",
+        "proof-tst-cipr-techfriendly",
+        "proof-tst-meditation-day",
+        "proof-tst-tavrida-ai"
+      ],
       "yamlOnly": [],
       "missingRelations": []
     },

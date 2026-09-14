@@ -14,7 +14,7 @@ publication: NTV
 publication_date: 2024-01-01
 external_link: https://www.ntv.ru/novosti/2887676/
 issued_by:
-  - НТВ
+  - "[[org-ntv]]"
 ---
 
 ## NTV news feature on the digital plein air in the Moscow metro

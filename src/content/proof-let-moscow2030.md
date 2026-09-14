@@ -13,7 +13,7 @@ issued_by:
 publication_date: 2025-01-01
 asset: /images/content/proofs/collab_2025_ODA_Moskva_2030_Olga.webp
 proof_of:
-  - "[[home]]"
+  - "[[hub-home]]"
 ---
 
 ## Letter of appreciation — Moscow 2030, forum-festival participation

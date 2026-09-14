@@ -11,9 +11,9 @@ subkind: press
 publication: Vechernyaya Moskva
 publication_date: 2025-01-01
 proof_of:
-  - "[[home]]"
+  - "[[hub-home]]"
 issued_by:
-  - Вечерняя Москва
+  - "[[org-vecherka]]"
 ---
 
 ## Coverage of an ODA.dream public event

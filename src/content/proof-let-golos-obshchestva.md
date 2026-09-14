@@ -12,9 +12,9 @@ publication: '"Voice of Society" project'
 publication_date: 2025-01-01
 asset: /images/content/proofs/collab_2025_ODA_Khaskel.webp
 proof_of:
-  - "[[home]]"
+  - "[[hub-home]]"
 issued_by:
-  - Проект «Голос Общества»
+  - "[[org-golos-obshchestva]]"
 ---
 
 ## Letter of appreciation — expert participation

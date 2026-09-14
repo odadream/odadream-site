@@ -14,7 +14,7 @@ publication: TNT, "Ty kak Ya"
 publication_date: 2020-01-01
 external_link: https://dzen.ru/embed/vY9PlkGfKPUc?from_block=partner&from=zen&mute=0&autoplay=0&tv=0
 issued_by:
-  - ТНТ, «Ты как Я»
+  - "[[org-tnt]]"
 ---
 
 ## Neurobattle segment on mainstream entertainment TV

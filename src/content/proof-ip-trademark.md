@@ -10,9 +10,9 @@ kind: proof
 subkind: award
 publication_date: 2026-01-01
 proof_of:
-  - "[[home]]"
+  - "[[hub-home]]"
 issued_by:
-  - Роспатент
+  - "[[org-rospatent]]"
 publication: Rospatent
 ---
 
