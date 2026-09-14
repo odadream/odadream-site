@@ -11,7 +11,6 @@ import React, {
 import { LotusNode, Language, Theme } from "../types";
 import { ROOT_NODE, NODE_REGISTRY } from "../constants";
 import { findPathToNode } from "../utils/nodeHelpers";
-import { getDefaultNodeImage } from "../utils/mediaHelpers";
 import { preloadLotusGrid } from "../utils/preloadLotusGrid";
 import { updateMetaTags } from "../utils/metaTags";
 
@@ -93,8 +92,6 @@ const preloadNodeAssets = (node: LotusNode) => {
   if (node.children) {
     node.children.forEach((child) => {
       if (child.imageUrl) preloadImage(child.imageUrl);
-      // Also preload default generated assets if direct image missing
-      else preloadImage(getDefaultNodeImage(child.id));
     });
   }
 };

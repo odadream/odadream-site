@@ -33,7 +33,7 @@ Not a proof of "genetic destiny" — a living process of reconnection. The quest
 
 **Method as a chain.** Archive and migration history feed AI hypotheses about the gaps. DNA gives probabilities, never destiny. EEG measures the body's contact with memory — at rest, in focus, around family, around home, in performance. The latent space holds *regimes of the subject* (not literal ancestors). Biofeedback lets the performer experience matches and mismatches with her own "neuro-portrait of the lineage". AI is the co-author of gaps; measurement and metaphor are kept transparently separated.
 
-**Pilot in development** with [[collab-kovylina|Elena Kovylina]] under the **CultTech Lab 2026** Memory Track, submitted 04.04.2026 (see [[proof-award-culttech-vienna|grant record]]). Premiere planned for the CultTech Summit showcase, November 2026.
+**Pilot in development** with [[collab-kovylina|Elena Kovylina]], selected into the **CultTech Lab 2026** Memory Track (submitted 04.04.2026), completed the Vienna school and received a production grant of up to EUR 2,500 (see [[proof-award-culttech-vienna|grant record]]). CultTech Lab's own programme concluded after the school; the planned Summit showcase did not go ahead. The pilot itself continues independently.
 
 Distinct from the Kaluga neuro-theatre line ([[schrodinger|Schrödinger]] · [[interference|Interference]]) — there the score grows from a group of performers; here it grows from one body's lineage.
 
@@ -51,6 +51,6 @@ Distinct from the Kaluga neuro-theatre line ([[schrodinger|Schrödinger]] · [[i
 
 **Метод — цепочка.** Архив и история миграции питают AI-гипотезы о пробелах. ДНК даёт вероятности, не судьбу. ЭЭГ снимает контакт тела с памятью — в покое, в фокусе, рядом с семьёй, рядом с домом, в перформансе. Латентное поле держит *режимы субъекта* (не буквальных предков). БОС позволяет перформеру переживать совпадения и расхождения с собственным «нейропортретом рода». AI — соавтор пробелов; измерение и метафора прозрачно разделены.
 
-**Пилот в производстве** совместно с [[collab-kovylina|Еленой Ковылиной]] на треке Memory **CultTech Lab 2026**, подача 04.04.2026 (см. [[proof-award-culttech-vienna|запись о гранте]]). Премьера планируется на CultTech Summit, ноябрь 2026.
+**Пилот в производстве** совместно с [[collab-kovylina|Еленой Ковылиной]] — отбор на трек Memory **CultTech Lab 2026** (подача 04.04.2026), школа в Вене пройдена, получен грант на продакшн до EUR 2 500 (см. [[proof-award-culttech-vienna|запись о гранте]]). Собственная программа CultTech Lab завершилась после школы, запланированный показ на Summit не состоялся. Работа над пилотом продолжается независимо.
 
 Отдельно от калужской линии нейротеатра ([[schrodinger|Шрёдингер]] · [[interference|Интерференция]]) — там партитура растёт из группы исполнителей; здесь — из родовой линии одного тела.

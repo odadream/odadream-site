@@ -20,10 +20,10 @@ external_link: https://culttech.at/lab/memory-track
 
 ## CultTech Lab 2026 grant, Vienna — "Ancestors in the Noise" with Elena Kovylina
 
-production grant up to EUR 2,500 · showcase at CultTech Summit, Nov 2026
+production grant up to EUR 2,500 · Vienna school completed; CultTech Lab's own programme concluded after the school, so the planned Summit showcase did not go ahead
 
 ---RU---
 
 ## Грант CultTech Lab 2026, Вена — проект «Ancestors in the Noise» с Еленой Ковылиной
 
-грант на продакшн до EUR 2 500 · показ на CultTech Summit, ноябрь 2026
+грант на продакшн до EUR 2 500 · венская школа пройдена; собственная программа CultTech Lab завершилась после школы, запланированный показ на Summit не состоялся

@@ -14,7 +14,7 @@ kind: media
 subkind: text
 about:
   - "[[theatre-my-name]]"
-image: /images/nodes/theatre-my-name.svg
+image: /images/content/works/theatre-my-name/tim-kod-provincii-hero-thumb.webp
 access: public
 ---
 

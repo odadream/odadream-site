@@ -1,10 +1,170 @@
 
 import { LotusNode } from '../types';
 import { fileToNode } from './frontmatter';
-import { getMediaType, getDefaultNodeImage } from './mediaHelpers';
+import { MEDIA } from '../data/media';
+import { REAL_IMAGE_CATALOG } from '../data/realImageCatalog';
+import { getMediaType } from './mediaHelpers';
 
 const isNodeType = (t: unknown): t is LotusNode['type'] =>
     t === 'hub' || t === 'content' || t === 'action' || t === 'media';
+
+const isGeneratedNodeImage = (url?: string): boolean =>
+    !!url && /\/images\/nodes\//i.test(url);
+
+const isRealImage = (url?: string): url is string =>
+    !!url && getMediaType(url) === 'image' && !isGeneratedNodeImage(url);
+
+const relationFields: Array<keyof LotusNode> = [
+    'presented_at', 'products', 'orgs', 'venues', 'partners', 'organizer',
+    'client', 'collaborators', 'related_org', 'collab_events', 'proofs',
+    'proof_of', 'about', 'issued_by',
+];
+
+type ImageCandidate = { url: string; score: number };
+
+const getInlineVisualUrls = (node: LotusNode): Set<string> => {
+    const blocked = new Set<string>();
+    const body = `${node.description.en}\n${node.description.ru}`;
+
+    for (const match of body.matchAll(/!\[\[\s*media:([a-z0-9][a-z0-9_-]*)/gi)) {
+        const asset = MEDIA[match[1]];
+        if (!asset) continue;
+        if (asset.url) blocked.add(asset.url);
+        if (asset.poster) blocked.add(asset.poster);
+    }
+
+    for (const match of body.matchAll(/!\[\[\s*(\/(?:images|media)\/[^|\]\r\n]+)/gi)) {
+        blocked.add(match[1].trim());
+    }
+    for (const match of body.matchAll(/!\[[^\]]*\]\((\/(?:images|media)\/[^)\s]+)/gi)) {
+        blocked.add(match[1].trim());
+    }
+
+    return blocked;
+};
+
+const pushCandidate = (out: ImageCandidate[], url: unknown, score: number) => {
+    if (typeof url !== 'string' || !isRealImage(url)) return;
+    if (!out.some((candidate) => candidate.url === url)) out.push({ url, score });
+};
+
+/**
+ * Build and apply a real-image index for the whole graph.
+ *
+ * The old behaviour made every missing image resolve to /images/nodes/*.svg.
+ * That was useful during prototyping, but it made the public portfolio look
+ * like a generated demo. We now resolve in this order:
+ * authored cover/document → attached MediaAsset → curated catalog → related
+ * node/child. A URL is reserved after assignment, so two Lotus nodes do not
+ * silently receive the same visual while an unused real candidate exists.
+ */
+const assignRealImages = (nodeMap: Map<string, LotusNode>) => {
+    const nodes = [...nodeMap.values()];
+    const direct = new Map<string, ImageCandidate[]>();
+
+    for (const node of nodes) {
+        const candidates: ImageCandidate[] = [];
+        const inlineVisuals = getInlineVisualUrls(node);
+        const isMediaEntity = node.kind === 'media' || node.type === 'media';
+        const pushNodeCandidate = (url: unknown, score: number) => {
+            if (
+                !isMediaEntity &&
+                typeof url === 'string' &&
+                inlineVisuals.has(url)
+            ) return;
+            pushCandidate(candidates, url, score);
+        };
+
+        pushNodeCandidate(node.imageUrl, 0);
+        pushNodeCandidate(node.asset, 0);
+        pushNodeCandidate(node.mediaUrl, 1);
+
+        for (const mediaId of node.media ?? []) {
+            const asset = MEDIA[mediaId];
+            if (!asset) continue;
+            pushNodeCandidate(asset.url, 1);
+            pushNodeCandidate(asset.poster, 1);
+        }
+
+        for (const [mediaId, asset] of Object.entries(MEDIA)) {
+            if (!(asset.subject ?? []).includes(node.id)) continue;
+            pushNodeCandidate(asset.url, 1);
+            pushNodeCandidate(asset.poster, 1);
+            // Keep the media id discoverable in the debug report without
+            // changing the node schema or rendering path.
+            void mediaId;
+        }
+
+        for (const record of REAL_IMAGE_CATALOG) {
+            if (record.subjects.includes(node.id)) pushNodeCandidate(record.url, 2);
+        }
+        direct.set(node.id, candidates.sort((a, b) => a.score - b.score));
+    }
+
+    const collect = (node: LotusNode, seen = new Set<string>()): ImageCandidate[] => {
+        if (seen.has(node.id)) return [];
+        seen.add(node.id);
+        const out = [...(direct.get(node.id) ?? [])];
+
+        for (const field of relationFields) {
+            const ids = node[field];
+            if (!Array.isArray(ids)) continue;
+            for (const id of ids) {
+                const related = typeof id === 'string' ? nodeMap.get(id) : undefined;
+                if (!related) continue;
+                for (const candidate of collect(related, new Set(seen))) {
+                    pushCandidate(out, candidate.url, candidate.score + 3);
+                }
+            }
+        }
+
+        for (const child of node.children ?? []) {
+            for (const candidate of collect(child, new Set(seen))) {
+                pushCandidate(out, candidate.url, candidate.score + 3);
+            }
+        }
+        return out.sort((a, b) => a.score - b.score);
+    };
+
+    const rank = (node: LotusNode) => {
+        const kindRank: Record<string, number> = {
+            // Media nodes with a concrete inline image reserve it first;
+            // parent products/events then select a different real visual.
+            media: 0, product: 1, event: 2, proof: 3, collaboration: 4,
+        };
+        if (node.type === 'hub') return 5;
+        return kindRank[node.kind ?? ''] ?? 2;
+    };
+
+    const used = new Set<string>();
+    for (const node of nodes.sort((a, b) => rank(a) - rank(b) || a.id.localeCompare(b.id))) {
+        const inlineVisuals = getInlineVisualUrls(node);
+        // A persisted media node represents its own inline image, so it may
+        // reserve that image. All other nodes must not claim a visual already
+        // embedded in their own body (the embed will render it once).
+        const candidates = collect(node).filter(
+            (candidate) => node.kind === 'media' || node.type === 'media' || !inlineVisuals.has(candidate.url),
+        );
+        const selected = candidates.find((candidate) => !used.has(candidate.url));
+
+        if (selected) {
+            used.add(selected.url);
+            node.imageUrl = selected.url;
+            const mediaType = getMediaType(node.mediaUrl);
+            if (!node.mediaUrl || mediaType === 'image' || isGeneratedNodeImage(node.mediaUrl)) {
+                node.mediaUrl = selected.url;
+            }
+        } else if (isGeneratedNodeImage(node.imageUrl) || inlineVisuals.has(node.imageUrl ?? '')) {
+            // No fake replacement: a genuinely unillustrated node gets the
+            // normal icon/no-signal state instead of another generated tile.
+            node.imageUrl = undefined;
+            if (
+                isGeneratedNodeImage(node.mediaUrl) ||
+                inlineVisuals.has(node.mediaUrl ?? '')
+            ) node.mediaUrl = undefined;
+        }
+    }
+};
 
 /**
  * Loads all .md files from ../content/ using Vite's import.meta.glob
@@ -23,8 +183,9 @@ const loadFileNodes = (): LotusNode[] => {
         const partialNode = fileToNode(rawContent, filename);
         if (partialNode && partialNode.id) {
             
-            // Resolve media URL: Explicit -> Generated Default
-            const resolvedMediaUrl = partialNode.mediaUrl || getDefaultNodeImage(partialNode.id);
+            // Resolve media only from authored content. Generated SVG tiles are
+            // intentionally no longer injected into the public graph.
+            const resolvedMediaUrl = partialNode.mediaUrl;
 
             // Apply defaults for fields required by TS but optional in YAML
             const node: LotusNode = {
@@ -158,6 +319,8 @@ export const buildUnifiedGraph = (staticRoot: LotusNode): LotusNode => {
             });
         }
     });
+
+    assignRealImages(nodeMap);
 
     // Return the updated root
     return nodeMap.get(staticRoot.id) || staticRoot;

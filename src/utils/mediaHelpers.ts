@@ -13,7 +13,6 @@ export const attachPosterToUrl = (url: string, posterUrl?: string): string => {
         return url;
     }
 };
-
 /**
  * Extracts the original media URL and the custom poster URL.
  */
@@ -83,8 +82,4 @@ export const getMediaType = (url?: string): MediaType => {
 
     // Default fallback
     return 'image';
-};
-
-export const getDefaultNodeImage = (id: string): string => {
-  return `/images/nodes/${id}.svg`;
 };

@@ -7,7 +7,7 @@ type: content
 tags:
   - esports
   - brain
-image: /images/nodes/neurobattle.webp
+image: /images/content/neurobattle_gameplay.webp
 updated: 2026.05.29
 order: 1
 status: production

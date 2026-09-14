@@ -1,5 +1,4 @@
 import { LotusNode } from "./types";
-import { getDefaultNodeImage } from "./utils/mediaHelpers";
 import { buildUnifiedGraph } from "./utils/contentLoader";
 import { findNode } from "./utils/nodeHelpers";
 
@@ -63,7 +62,6 @@ const createSkeleton = (
     shortTitle: { en: titleEn, ru: titleRu },
     description: { en: "Loading...", ru: "Загрузка..." },
     type: "hub",
-    mediaUrl: getDefaultNodeImage(id),
     children: [], // Children are populated by contentLoader
   };
 };

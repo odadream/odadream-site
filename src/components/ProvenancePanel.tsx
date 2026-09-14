@@ -103,6 +103,15 @@ const uniqueById = (nodes: LotusNode[]): LotusNode[] => {
   return out;
 };
 
+const getInlineMediaIds = (node: LotusNode): Set<string> => {
+  const body = `${node.description.en}\n${node.description.ru}`;
+  return new Set(
+    [...body.matchAll(/!\[\[\s*media:([a-z0-9][a-z0-9_-]*)/gi)].map(
+      (match) => match[1],
+    ),
+  );
+};
+
 // ---------------------------------------------------------------------------
 // Stat — single number+label pair for event attendance
 // ---------------------------------------------------------------------------
@@ -601,9 +610,21 @@ export const ProvenancePanel: React.FC<{ node: LotusNode }> = ({ node }) => {
           // Dedup: skip MediaAssets whose `subject` already points at a media-node
           // we're rendering in the "Артефакты" section. Same content surfacing twice.
           const artifactIds = new Set(artifactsForSubject.map((n) => n.id));
-          const mediaToShow = prov.media.filter(
-            ({ asset }) => !(asset.subject ?? []).some((s) => artifactIds.has(s)),
+          const inlineMediaIds = getInlineMediaIds(node);
+          const usedVisuals = new Set(
+            [node.imageUrl, node.mediaUrl].filter((url): url is string => Boolean(url)),
           );
+          const mediaToShow = prov.media.filter(({ id, asset }) => {
+            if (inlineMediaIds.has(id)) return false;
+            if ((asset.subject ?? []).some((s) => artifactIds.has(s))) return false;
+
+            // The same photo can be registered once as a cover and once as a
+            // poster for a video. Keep the first occurrence only.
+            const visual = asset.poster || asset.url;
+            if (usedVisuals.has(visual)) return false;
+            usedVisuals.add(visual);
+            return true;
+          });
           if (!mediaToShow.length) return null;
           const FilmIcon = iconFor("Film");
           return (

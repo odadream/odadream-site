@@ -1,6 +1,5 @@
 import { LotusNode, Language } from "../types";
 import { parseContentAndExtractMedia } from "./contentProcessor";
-import { getDefaultNodeImage } from "./mediaHelpers";
 
 const preloadImage = (url?: string) => {
   if (!url) return;
@@ -11,7 +10,6 @@ const preloadImage = (url?: string) => {
 
 const preloadNodeImage = (node: LotusNode) => {
   if (node.imageUrl) preloadImage(node.imageUrl);
-  else preloadImage(getDefaultNodeImage(node.id));
 };
 
 /**

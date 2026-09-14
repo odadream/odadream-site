@@ -97,6 +97,22 @@ const toString = (v: unknown): string | undefined =>
   typeof v === "string" && v.trim() ? v : undefined;
 
 /**
+ * Use the first authored local image as a visual candidate when a node has no
+ * explicit cover. This keeps Obsidian's inline image and Lotus's thumbnail in
+ * sync without manufacturing a second placeholder asset.
+ */
+const firstInlineImage = (body: string): string | undefined => {
+  const wiki = body.match(/!\[\[\s*(\/(?:images|media)\/[^|\]\r\n]+?)(?:\s*\||\s*\]\])/i);
+  if (wiki?.[1]) return wiki[1].trim();
+
+  const markdown = body.match(/!\[[^\]]*\]\((\/(?:images|media)\/[^)\s]+)\)/i);
+  return markdown?.[1]?.trim();
+};
+
+const isGeneratedNodeImage = (value: unknown): boolean =>
+  typeof value === "string" && /\/images\/nodes\//i.test(value);
+
+/**
  * Converts parsed file data into a partial LotusNode structure.
  */
 export const fileToNode = (
@@ -111,6 +127,13 @@ export const fileToNode = (
     );
     return null;
   }
+
+  const authoredImage = toString(attributes.image);
+  const inlineImage = firstInlineImage(body);
+  const imageUrl =
+    !authoredImage || isGeneratedNodeImage(authoredImage)
+      ? inlineImage || authoredImage
+      : authoredImage;
 
   const node: Partial<LotusNode> = {
     id: attributes.id,
@@ -129,8 +152,8 @@ export const fileToNode = (
     },
     type: attributes.type || "content",
     tags: Array.isArray(attributes.tags) ? attributes.tags : [],
-    imageUrl: attributes.image,
-    mediaUrl: attributes.media_url || attributes.image,
+    imageUrl,
+    mediaUrl: attributes.media_url || imageUrl,
     externalLink: attributes.external_link,
     visible: attributes.visible !== false,
     status: attributes.status,

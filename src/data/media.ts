@@ -299,7 +299,7 @@ export const MEDIA: Record<string, MediaAsset> = {
   // --- Theatre of My Name (TIM) — Dzen essay series ---
   "tim-dzen-part-1": {
     url: "https://dzen.ru/a/Zv7Ih1xeTxz0-AAl",
-    poster: "/images/nodes/theatre-my-name.svg",
+    poster: "/images/content/works/theatre-my-name/tim-kod-provincii-hero-thumb.webp",
     title: {
       en: "TIM · Part 1 — Authentic Movement",
       ru: "ТИМ · ч. 1 — Аутентичное движение",
@@ -310,7 +310,7 @@ export const MEDIA: Record<string, MediaAsset> = {
   },
   "tim-dzen-part-2": {
     url: "https://dzen.ru/a/Zv7Jx3oJ7DdDCZtI",
-    poster: "/images/nodes/theatre-my-name.svg",
+    poster: "/images/content/works/theatre-my-name/tim-ashram-2024-06.webp",
     title: {
       en: "TIM · Part 2 — Family constellations",
       ru: "ТИМ · ч. 2 — Расстановки",
@@ -321,7 +321,7 @@ export const MEDIA: Record<string, MediaAsset> = {
   },
   "tim-dzen-part-3": {
     url: "https://dzen.ru/a/ZwOYsUR-qk5GPdQU",
-    poster: "/images/nodes/theatre-my-name.svg",
+    poster: "/images/content/works/theatre-my-name/tim-ashram-2024-07.webp",
     title: {
       en: "TIM · Part 3 — Playback & psychodrama",
       ru: "ТИМ · ч. 3 — Плейбек и психодрама",
@@ -332,7 +332,7 @@ export const MEDIA: Record<string, MediaAsset> = {
   },
   "tim-dzen-part-4": {
     url: "https://dzen.ru/a/ZzTCFPdiD0vbmNw6",
-    poster: "/images/nodes/theatre-my-name.svg",
+    poster: "/images/content/works/theatre-my-name/tim-ashram-2025-07.webp",
     title: {
       en: "TIM · Part 4 — Metaphorical cards",
       ru: "ТИМ · ч. 4 — Метафорические карты",
