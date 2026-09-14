@@ -84,7 +84,7 @@ flowchart TB
 | `tags`                  | Tags     | нет    | Произвольные теги. Служебный: `hub-registry` — строка реестра участий.                            |
 | `order`                 | Number   | нет    | Порядок в сетке Lotus (0–8)                                                                       |
 | `visible`               | Checkbox | нет    | `false` скрывает из сетки (по умолчанию виден)                                                    |
-| `image`                 | Text     | нет    | URL обложки; иначе генерируется `public/images/nodes/{id}.svg`                                    |
+| `image`                 | Text     | нет    | URL реальной обложки; если поле пустое, загрузчик ищет первое реальное inline-изображение или связанный MediaAsset. При отсутствии материала карточка остаётся без изображения. |
 | `short_en` / `short_ru` | Text     | нет    | Короткий заголовок для плотного UI                                                                |
 | `external_link`         | Text     | нет    | URL для `type: action` или внешний источник у proof                                               |
 

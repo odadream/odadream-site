@@ -1,5 +1,5 @@
 # Project Content Tree
-Generated: 16.07.2026, 14:42:31
+Generated: 14.09.2026, 10:42:14
 
 Total Nodes: 225
 
@@ -330,7 +330,7 @@ Total Nodes: 225
     │       │     ├─ 🖼️ `media:mdsh-ashram`
     │       │     └─ 🖼️ `media:mdsh-terraforming`
     │       ├── **neurobattle** (Neurobattle) [📂 5]
-    │       │     ├─ 🖼️ `/images/nodes/neurobattle.webp`
+    │       │     ├─ 🖼️ `/images/content/neurobattle_gameplay.webp`
     │       │     ├─ 🖼️ `media:nrbt-gameplay-v9`
     │       │     ├─ 🖼️ `media:nrbt-dano`
     │       │     ├─ 🖼️ `media:nrbt-veter`
@@ -341,7 +341,7 @@ Total Nodes: 225
     │           ├── **media-theatre-my-name-archive** (Korablik 2020 — debut archive) [📂 1]
     │           │     └─ 🖼️ `/images/content/works/theatre-my-name/tim-korab...`
     │           ├── **media-theatre-my-name-dzen** (Theatre of My Name — Dzen series) [📂 1]
-    │           │     └─ 🖼️ `/images/nodes/theatre-my-name.svg`
+    │           │     └─ 🖼️ `/images/content/works/theatre-my-name/tim-kod-p...`
     │           └── **media-theatre-my-name-photos** (Theatre of My Name — photo report) [📂 6]
     │                 ├─ 🖼️ `/images/content/works/theatre-my-name/tim-kod-p...`
     │                 ├─ 🖼️ `/images/content/works/theatre-my-name/tim-kod-p...`
@@ -397,10 +397,10 @@ Total Nodes: 225
         │   ├── **proof-mipt-letter** (MIPT — Letter of recognition)
         │   ├── **proof-mom-baby-borzikh-origin** (Mom & Baby — Borzikh commission (Synergy Forum, Bali))
         │   ├── **proof-mom-baby-iowa-gift** (Mom & Baby — gift to Katya IOWA)
-        │   └── **proof-oda-synergy-forum-2022** (ODA.dream debut — Synergy Crypto & NFT Forum, Bali)
+        │   ├── **proof-oda-synergy-forum-2022** (ODA.dream debut — Synergy Crypto & NFT Forum, Bali)
+        │   └── **proof-press-cyens-cyprus** (CYENS WIP Festival shortlist — 2nd place / runner-up)
         ├── **hub-manifesto** (Manifesto)
         ├── **hub-press** (Press)
-        │   ├── **proof-press-cyens-cyprus** (International collaboration inquiry on the neuro-art methodology)
         │   ├── **proof-press-ntv-metro** (NTV news feature on the digital plein air in the Moscow metro)
         │   ├── **proof-press-tnt-tykakya** (Neurobattle segment on mainstream entertainment TV)
         │   ├── **proof-press-tskhr-bashkiria** (TSKhR publication on the first digital plein air in Bashkiria)
@@ -505,13 +505,13 @@ Total Nodes: 225
 | media-sync-circle-gallery | 9 | `/images/content/works/sync-circle/sync-circle-hero-thumb.webp`<br/>`/images/content/works/sync-circle/sync-circle-hero.webp`<br/>`/images/content/works/sync-circle/sync-circle-mandala.webp`<br/>`/images/content/works/sync-circle/sync-circle-mvc.webp`<br/>`/images/content/works/sync-circle/sync-circle-dimensions.webp`<br/>`/images/content/works/sync-circle/sync-circle-states.webp`<br/>`/images/content/works/sync-circle/sync-circle-chairs-1.webp`<br/>`/images/content/works/sync-circle/sync-circle-chairs-2.webp`<br/>`/images/content/works/sync-circle/sync-circle-chairs-3.webp` |
 | media-sync-circle-video | 2 | `media:sync-video`<br/>`media:sync-video-lines` |
 | media-theatre-my-name-archive | 1 | `/images/content/works/theatre-my-name/tim-korablik-2020-archive.webp` |
-| media-theatre-my-name-dzen | 1 | `/images/nodes/theatre-my-name.svg` |
+| media-theatre-my-name-dzen | 1 | `/images/content/works/theatre-my-name/tim-kod-provincii-hero-thumb.webp` |
 | media-theatre-my-name-photos | 6 | `/images/content/works/theatre-my-name/tim-kod-provincii-hero-thumb.webp`<br/>`/images/content/works/theatre-my-name/tim-kod-provincii-hero.webp`<br/>`/images/content/works/theatre-my-name/tim-kod-provincii-02.webp`<br/>`/images/content/works/theatre-my-name/tim-ashram-2024-06.webp`<br/>`/images/content/works/theatre-my-name/tim-ashram-2024-07.webp`<br/>`/images/content/works/theatre-my-name/tim-ashram-2025-07.webp` |
 | media-voronka-docs | 7 | `/images/content/materia/voronka/voronka-cover-thumb.webp`<br/>`/images/content/materia/voronka/neuromandala-source.webp`<br/>`/images/content/materia/voronka/render-hero.webp`<br/>`/images/content/materia/voronka/render-exploded.webp`<br/>`/images/content/materia/voronka/render-section.webp`<br/>`/images/content/materia/voronka/photo-set.webp`<br/>`/images/content/materia/voronka/photo-detail.webp` |
 | mindshow | 9 | `media:mdsh-demo-v5`<br/>`media-byob-2019-mindgrid`<br/>`media-byob-2026-photos`<br/>`media:mdsh-hypercube`<br/>`media:mdsh-tpp`<br/>`media:mdsh-urban-forum`<br/>`media:mdsh-wildmint`<br/>`media:mdsh-ashram`<br/>`media:mdsh-terraforming` |
 | mom-baby | 1 | `/images/content/materia/mom-baby/mom-baby-cover-thumb.webp` |
 | multisync | 1 | `media-byob-2020-photos` |
-| neurobattle | 5 | `/images/nodes/neurobattle.webp`<br/>`media:nrbt-gameplay-v9`<br/>`media:nrbt-dano`<br/>`media:nrbt-veter`<br/>`media:nrbt-tnt` |
+| neurobattle | 5 | `/images/content/neurobattle_gameplay.webp`<br/>`media:nrbt-gameplay-v9`<br/>`media:nrbt-dano`<br/>`media:nrbt-veter`<br/>`media:nrbt-tnt` |
 | neuromandala | 2 | `/images/content/neuromandala-cover.webp`<br/>`media:neuromandala-cover` |
 | oda-rings | 1 | `/images/content/materia/oda-rings/oda-rings-cover-thumb.webp` |
 | potustoronniy | 1 | `/images/content/works/potustoronniy/potustoronniy-cover-thumb.webp` |

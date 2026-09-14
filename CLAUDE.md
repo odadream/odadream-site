@@ -135,7 +135,7 @@ File IDs follow semantic prefixes by kind:
 
 ### Procedural assets
 
-`scripts/generate-assets.js` reads all node IDs and emits a unique SVG per node into `public/images/nodes/{id}.svg`, seeded by ID so output is stable. Without this step nodes have no background. A node can override the generated SVG by setting `image: /images/content/custom.jpg` in frontmatter. **Always re-run `npm run assets:generate` after adding or renaming a node** — `npm run build` does it automatically; `npm run dev` does not.
+`scripts/generate-assets.js` still emits deterministic SVGs into `public/images/nodes/{id}.svg` for legacy tooling and archival previews. The public runtime does **not** use these generated tiles: it resolves real authored images, inline media, and related MediaAssets, otherwise leaving the card without an image. A node can set a real cover with `image: /images/content/custom.jpg` in frontmatter. `npm run assets:generate` remains part of the legacy build pipeline, but must not be treated as a source of public placeholder imagery.
 
 ### Version management
 
