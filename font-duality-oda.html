@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ODA.dream · Шрифтовая дуальность — смыслы и голоса</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=PT+Mono&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&family=Bricolage+Grotesque:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a0b0c;--surface:#121013;--surface2:#1a171b;--line:#231e24;--line2:#342c34;--ink:#eee3d8;--ink2:#a2988a;--ink3:#63594f;--ac1:#bd6f5c;--ac1hi:#e5a18c;--g1:rgba(189,111,92,.36);--ac2:#7ba98c;--ac2hi:#a9d3b5;--g2:rgba(123,169,140,.34)}
+html{background:var(--bg);overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:"PT Serif",serif;font-size:15px;line-height:1.6;min-height:100svh;-webkit-font-smoothing:antialiased}
+.grain{position:fixed;inset:0;z-index:95;pointer-events:none;opacity:.04;mix-blend-mode:screen;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E")}
+
+/* switcher */
+.bar{position:fixed;top:0;left:0;right:0;z-index:120;display:flex;align-items:center;gap:6px;padding:10px 16px;background:rgba(10,11,12,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);overflow-x:auto}
+.bar .lbl{font:500 10px "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);white-space:nowrap;margin-right:4px}
+.b{display:flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid var(--line2);border-radius:7px;background:var(--surface);cursor:pointer;white-space:nowrap;color:var(--ink2);font:500 10px "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.03em;transition:.15s}
+.b .dot{width:10px;height:10px;border-radius:50%;border:1px solid rgba(255,255,255,.15)}
+.b:hover{border-color:var(--ink3);color:var(--ink)}
+.b.active{border-color:var(--ac1);color:var(--ink);background:var(--surface2);box-shadow:0 0 0 1px var(--ac1),0 0 18px var(--g1)}
+.b.active .dot{box-shadow:0 0 10px var(--g2)}
+
+.canvas{max-width:1100px;margin:0 auto;padding:110px 22px 60px;position:relative;z-index:2}
+
+/* concept header */
+.concept{margin:0 0 60px;padding-bottom:40px;border-bottom:1px solid var(--line)}
+.concept .tag{font:600 10px "JetBrains Mono",monospace;color:var(--ac1hi);text-transform:uppercase;letter-spacing:.2em;margin-bottom:14px}
+.concept h1{font:700 clamp(26px,4vw,42px)/1.1 "Old Standard TT",serif;letter-spacing:-.01em;margin-bottom:16px}
+.concept h1 em{font-style:normal;color:var(--ac2hi);text-shadow:0 0 20px var(--g2)}
+.concept .lead{color:var(--ink2);font-size:16px;max-width:60ch;line-height:1.7;margin-bottom:20px}
+.concept .meta{display:flex;gap:24px;flex-wrap:wrap;font:500 10px "JetBrains Mono",monospace;color:var(--ink3);text-transform:uppercase;letter-spacing:.1em}
+.concept .meta span{display:flex;align-items:center;gap:6px}
+.concept .meta i{width:8px;height:8px;border-radius:2px;transform:rotate(45deg)}
+.concept .meta i.w{background:var(--ac1)}
+.concept .meta i.c{background:var(--ac2)}
+
+/* dual specimen */
+.dual{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:0 0 48px}
+.voice{background:var(--bg);padding:28px 24px}
+.voice .lbl{font:600 9px "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.18em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.voice .lbl i{width:6px;height:6px;border-radius:50%}
+.voice .lbl.iw i{background:var(--ac1);box-shadow:0 0 8px var(--g1)}
+.voice .lbl.ic i{background:var(--ac2);box-shadow:0 0 8px var(--g2)}
+.voice .display{margin-bottom:16px;line-height:1.08}
+.voice .display b{font-weight:inherit}
+.voice .display b.w{color:var(--ac1hi);text-shadow:0 0 18px var(--g1)}
+.voice .display b.c{color:var(--ac2hi);text-shadow:0 0 18px var(--g2)}
+.voice .accent{margin-bottom:14px;line-height:1.3}
+.voice .text{color:var(--ink2);line-height:1.7;max-width:42ch}
+.voice .mono{margin-top:14px;color:var(--ink3);letter-spacing:.06em;line-height:1.5}
+
+/* story block */
+.story{border:1px solid var(--line);border-left:2px solid var(--ac1);border-radius:0 10px 10px 0;background:linear-gradient(90deg,var(--surface),var(--bg));padding:20px 24px;margin:0 0 48px}
+.story .st{font:700 10px "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.16em;color:var(--ac1hi);margin-bottom:10px}
+.story p{color:var(--ink2);font-size:14px;line-height:1.7;max-width:70ch}
+.story p b{color:var(--ink)}
+
+/* section */
+section{margin:0 0 64px}
+.secno{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
+.secno .n{font:700 11px "JetBrains Mono",monospace;color:var(--ac1);letter-spacing:.08em}
+.secno h2{font:600 clamp(18px,2.8vw,26px)/1.2 "Old Standard TT",serif;letter-spacing:-.01em}
+
+/* full page render */
+.render{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg);margin:0 0 48px}
+.render .mockhead{display:flex;align-items:center;gap:16px;padding:12px 20px;border-bottom:1px solid var(--line);background:rgba(10,11,12,.8)}
+.render .mark{letter-spacing:-.01em}
+.render .mark i{font-style:normal;color:var(--ac1hi)}
+.render .mark i b{color:var(--ac2hi);font-weight:inherit}
+.render .nav{display:flex;gap:18px;margin-left:20px}
+.render .nav a{color:var(--ink2);text-decoration:none;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.render .nav a.on{color:var(--ac1hi)}
+.render .rhs{margin-left:auto;display:flex;align-items:center;gap:10px}
+.render .dot-live{width:6px;height:6px;border-radius:50%;background:var(--ac1);box-shadow:0 0 8px var(--g1);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.3}}
+.render .lang{font-size:10px;color:var(--ink3);text-transform:uppercase;letter-spacing:.1em}
+.render .lang b{color:var(--ink)}
+.render .hero{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;padding:36px 20px;align-items:center}
+.render .eyebrow{margin-bottom:12px}
+.render .eyebrow::before{content:"";display:inline-block;width:22px;height:1px;background:var(--ac1);margin-right:8px;vertical-align:middle}
+.render h1{margin-bottom:14px}
+.render h1 em{font-style:normal}
+.render h1 em.w{color:var(--ac1hi)}
+.render h1 em.c{color:var(--ac2hi)}
+.render .lead{color:var(--ink2);font-size:14px;max-width:40ch;line-height:1.7;margin-bottom:16px}
+.render .cta-row{display:flex;gap:10px;flex-wrap:wrap}
+.render .btn{font-size:11px;letter-spacing:.06em;padding:10px 16px;border-radius:5px;text-decoration:none;cursor:pointer;text-transform:uppercase}
+.render .btn.primary{background:var(--ac1);color:#0b0907}
+.render .btn.ghost{border:1px solid var(--line2);color:var(--ink)}
+.render .poster{position:relative;aspect-ratio:16/10;border:1px solid var(--line2);border-radius:8px;overflow:hidden;background:var(--surface)}
+.render .poster .orb{position:absolute;width:160px;height:160px;border-radius:50%;top:30%;left:44%;transform:translate(-50%,-50%);background:radial-gradient(circle at 42% 40%,var(--g1),transparent 58%),radial-gradient(circle at 62% 62%,var(--g2),transparent 60%);filter:blur(5px)}
+.render .poster .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;border:1px solid var(--ac1);background:rgba(10,11,12,.5);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--ac2hi);box-shadow:0 0 20px var(--g1)}
+.render .poster .tagline{position:absolute;left:12px;bottom:10px;font-size:9px;color:var(--ink2);text-transform:uppercase;letter-spacing:.12em;background:rgba(10,11,12,.7);padding:4px 8px;border:1px solid var(--line);border-radius:4px}
+.render .poster .dur{position:absolute;right:12px;bottom:10px;font-size:9px;color:var(--ac2hi);background:rgba(10,11,12,.7);padding:4px 8px;border:1px solid var(--line2);border-radius:4px}
+
+@media(max-width:820px){
+  .dual{grid-template-columns:1fr}
+  .render .hero{grid-template-columns:1fr}
+  .canvas{padding:100px 16px 40px}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<nav class="bar" aria-label="Шрифтовые дуальности">
+  <span class="lbl">Duality&nbsp;</span>
+  <button class="b active" data-d="marginalia"><span class="dot" style="background:linear-gradient(135deg,var(--ac1) 50%,var(--ac2) 50%)"></span>Пометы</button>
+  <button class="b" data-d="interference"><span class="dot" style="background:linear-gradient(135deg,#bd6f5c 50%,#5e7d8a 50%)"></span>Интерференция</button>
+  <button class="b" data-d="atlas"><span class="dot" style="background:linear-gradient(135deg,#7ba98c 50%,#c4775a 50%)"></span>Атлас</button>
+  <button class="b" data-d="neuro"><span class="dot" style="background:linear-gradient(135deg,#a9d3b5 50%,#e5a18c 50%)"></span>Нейросеть</button>
+</nav>
+
+<main class="canvas">
+
+  <div class="concept">
+    <div class="tag" id="cTag">Концепция</div>
+    <h1 id="cTitle"></h1>
+    <p class="lead" id="cLead"></p>
+    <div class="meta">
+      <span><i class="w"></i><span id="cWarm">warm</span></span>
+      <span><i class="c"></i><span id="cCold">cold</span></span>
+    </div>
+  </div>
+
+  <!-- dual specimen -->
+  <div class="dual">
+    <div class="voice" id="vWarm">
+      <div class="lbl iw"><i></i><span id="vWarmLbl">warm</span></div>
+      <div class="display" id="vWarmDisp"></div>
+      <div class="accent" id="vWarmAcc"></div>
+      <div class="text" id="vWarmTxt"></div>
+      <div class="mono" id="vWarmMono"></div>
+    </div>
+    <div class="voice" id="vCold">
+      <div class="lbl ic"><i></i><span id="vColdLbl">cold</span></div>
+      <div class="display" id="vColdDisp"></div>
+      <div class="accent" id="vColdAcc"></div>
+      <div class="text" id="vColdTxt"></div>
+      <div class="mono" id="vColdMono"></div>
+    </div>
+  </div>
+
+  <!-- story -->
+  <div class="story">
+    <div class="st" id="sTitle">Почему эта пара</div>
+    <p id="sText"></p>
+  </div>
+
+  <!-- full render -->
+  <section>
+    <div class="secno"><span class="n">01 /</span><h2>Как это живёт на странице</h2></div>
+    <div class="render">
+      <div class="mockhead">
+        <div class="mark" id="rMark">ODA.<i><b>d</b>ream</i></div>
+        <div class="nav"><a class="on">Works</a><a>Formats</a><a>Cooperation</a><a>Studio</a><a>Cases</a></div>
+        <div class="rhs"><span class="dot-live"></span><span class="lang"><b>RU</b> / EN</span></div>
+      </div>
+      <div class="hero">
+        <div>
+          <div class="eyebrow" id="rEyebrow">Participatory Art &amp; Science</div>
+          <h1 id="rH1">Мы делаем <em class="w">внимание</em> и <em class="c">связь</em> между людьми переживаемыми.</h1>
+          <p class="lead">Перформанс, движение, пространство, генеративные медиа и добровольно передаваемые биосигналы.</p>
+          <div class="cta-row">
+            <a class="btn primary">Посмотреть работы</a>
+            <a class="btn ghost">Найти формат сотрудничества</a>
+          </div>
+        </div>
+        <div class="poster">
+          <div class="orb"></div>
+          <button class="play">▶</button>
+          <span class="tagline">Interference of Realities · Kaluga 2026</span>
+          <span class="dur">00:42</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+(function(){
+const D = {
+  marginalia: {
+    tag: "Пометы на полях",
+    title: "Рука художника поверх <em>строгой</em> печати",
+    lead: "Marck Script — след руки, тело, импровизация, незавершённость. Old Standard TT — книжная полоса, архив, документ. Одна субстанция: рукотворная пометка на полях строгого протокола.",
+    warmLabel: "Рука · тело · Marck Script",
+    coldLabel: "Архив · документ · Old Standard TT",
+    warmDisp: '<b class="w">Мы делаем внимание</b> и связь',
+    coldDisp: '<b class="c">Мы делаем внимание</b> и связь',
+    warmAcc: "Participatory Art & Science",
+    coldAcc: "Participatory Art & Science",
+    warmTxt: "Перформанс, движение, пространство, генеративные медиа и добровольно передаваемые биосигналы. Технология создаёт условия, в которых люди замечают друг друга.",
+    coldTxt: "Перформанс, движение, пространство, генеративные медиа и добровольно передаваемые биосигналы. Технология создаёт условия, в которых люди замечают друг друга.",
+    warmMono: "01 / WORKS · 02 / FORMATS — 12×12 · 30′",
+    coldMono: "01 / WORKS · 02 / FORMATS — 12×12 · 30′",
+    story: "Почему <b>Marck Script + Old Standard TT</b>: Marck — рукописный, с характером, каждый глиф уникален (как след руки на бумаге). Old Standard — книжный, печатный, «зафиксированный». Параллельно с дуальностью ODA: <b>живое тело</b> (след, жест, импровизация) и <b>данные</b> (протокол, запись, фиксация). Рукописная пометка на полях строгого документа — как ЭЭГ-сигнал на фоне сценического пространства.",
+    render: { markFont: '"Old Standard TT",serif', markW: 700, markSize: "15px", markI: '"Marck Script",cursive', h1Font: '"Old Standard TT",serif', h1W: 700, h1Size: "clamp(24px,3.8vw,42px)", h1Lh: "1.08", h1Ls: "-.01em", eyebrowFont: '"Marck Script",cursive', eyebrowSize: "18px", eyebrowW: 400, eyebrowLs: ".01em", leadFont: '"PT Serif",serif', navFont: '"JetBrains Mono",monospace', navSize: "11px", btnFont: '"JetBrains Mono",monospace', tagFont: '"JetBrains Mono",monospace', durFont: '"JetBrains Mono",monospace' }
+  },
+  interference: {
+    tag: "Интерференция",
+    title: "Корпускула и <em>волна</em> на одной сцене",
+    lead: "IBM Plex Serif — тело, корень, ткань. IBM Plex Mono — интерфейс, строка, код. Один алфавит (IBM Plex), два регистра: один говорит о теле, другой — о данных.",
+    warmLabel: "Тело · корень · IBM Plex Serif",
+    coldLabel: "Интерфейс · строка · IBM Plex Mono",
+    warmDisp: '<b class="w">Мы делаем внимание</b> и связь',
+    coldDisp: '<b class="c">Мы делаем внимание</b> и связь',
+    warmAcc: "Participatory Art & Science",
+    coldAcc: "Participatory Art & Science",
+    warmTxt: "Перформанс, движение, пространство, генеративные медиа и добровольно передаваемые биосигналы. Технология создаёт условия, в которых люди замечают друг друга.",
+    coldTxt: "Перформанс, движение, пространство, генеративные медиа и добровольно передаваемые биосигналы. Технология создаёт условия, в которых люди замечают друг друга.",
+    warmMono: "01 / WORKS · 02 / FORMATS — 12×12 · 30′",
+    coldMono: "01 / WORKS · 02 / FORMATS — 12×12 · 30′",
+    story: "Почему <b>IBM Plex Serif + IBM Plex Mono</b>: одна дизайнерская система (IBM Plex), два мироощущения. Serif — человечный, тёплый, «корневой». Mono — точный, «сигнальный», интерфейсный. Это как <b>два измерения одного сигнала</b>: аналоговый (тело) и цифровой (данные). Каждая буква — одна и та же, но контекст разный: в Serif это «рассказ», в Mono — «запись».",
+    render: { markFont: '"IBM Plex Serif",serif', markW: 600, markSize: "15px", markI: '"IBM Plex Mono",monospace', h1Font: '"IBM Plex Serif",serif', h1W: 600, h1Size: "clamp(24px,3.8vw,42px)", h1Lh: "1.08", h1Ls: "-.005em", eyebrowFont: '"IBM Plex Mono",monospace', eyebrowSize: "11px", eyebrowW: 500, eyebrowLs: ".12em", leadFont: '"IBM Plex Serif",serif', navFont: '"IBM Plex Mono",monospace', navSize: "11px", btnFont: '"IBM Plex Mono",monospace', tagFont: '"IBM Plex Mono",monospace', durFont: '"IBM Plex Mono",monospace' }
+  },
+  atlas: {
+    tag: "Атлас состояний",
+    title: "Карта <em>внутреннего</em> ландшафта",
+    lead: "Cormorant Garamond — галерейный, тонкий, «внутренний». JetBrains Mono — инструмент, чертёж, координаты. Высокий контраст: хрупкость vs точность.",
+    warmLabel: "Внутренний · хрупкий · Cormorant",
+    coldLabel: "Чертёж · координаты · JetBrains",
+    warmDisp: '<b class="w">Мы делаем внимание</b> и связь',
+    coldDisp: '<b class="c">Мы делаем внимание</b> и связь',
+    warmAcc: "Participatory Art & Science",
+    coldAcc: "Participatory Art & Science",
+    warmTxt: "Перформанс, движение, пространство, генеративные медиа и добровольно передаваемые биосигналы. Технология создаёт условия, в которых люди замечают друг друга.",
+    coldTxt: "Перформанс, движение, пространство, генеративные медиа и добровольно передаваемые биосигналы. Технология создаёт условия, в которых люди замечают друг друга.",
+    warmMono: "01 / WORKS · 02 / FORMATS — 12×12 · 30′",
+    coldMono: "01 / WORKS · 02 / FORMATS — 12×12 · 30′",
+    story: "Почему <b>Cormorant Garamond + JetBrains Mono</b>: максимальный контраст. Cormorant — тонкий, изящный, почти прозрачный (как внутренний мир, который невозможно измерить). JetBrains — строгий, моноширинный, «чёрный ящик» (как интерфейс, который всё записывает). Это <b>два полюса</b>: субъективное переживание (невидимое) и объективные данные (видимые). Между ними — искусство ODA.",
+    render: { markFont: '"Cormorant Garamond",serif', markW: 600, markSize: "16px", markI: '"JetBrains Mono",monospace', h1Font: '"Cormorant Garamond",serif', h1W: 600, h1Size: "clamp(26px,4.2vw,46px)", h1Lh: "1.06", h1Ls: "-.015em", eyebrowFont: '"JetBrains Mono",monospace', eyebrowSize: "11px", eyebrowW: 500, eyebrowLs: ".12em", leadFont: '"Cormorant Garamond",serif', navFont: '"JetBrains Mono",monospace', navSize: "11px", btnFont: '"JetBrains Mono",monospace', tagFont: '"JetBrains Mono",monospace', durFont: '"JetBrains Mono",monospace' }
+  },
+  neuro: {
+    tag: "Нейросеть",
+    title: "Широкий <em>сигнал</em> и спокойный корень",
+    lead: "Bricolage Grotesque — современный, широкий, « data-viz ». PT Serif — читаемый, тёплый, « печатный ». Futurizм данных и традиция печатного слова.",
+    warmLabel: "Данные · широкий · Bricolage",
+    coldLabel: "Печать · корень · PT Serif",
+    warmDisp: '<b class="w">Мы делаем внимание</b> и связь',
+    coldDisp: '<b class="c">Мы делаем внимание</b> и связь',
+    warmAcc: "Participatory Art & Science",
+    coldAcc: "Participatory Art & Science",
+    warmTxt: "Перформанс, движение, пространство, генеративные медиа и добровольно передаваемые биосигналы. Технология создаёт условия, в которых люди замечают друг друга.",
+    coldTxt: "Перформанс, движение, пространство, генеративные медиа и добровольно передаваемые биосигналы. Технология создаёт условия, в которых люди замечают друг друга.",
+    warmMono: "01 / WORKS · 02 / FORMATS — 12×12 · 30′",
+    coldMono: "01 / WORKS · 02 / FORMATS — 12×12 · 30′",
+    story: "Почему <b>Bricolage Grotesque + PT Serif</b>: Bricolage — современный гротеск с характером, широкий, «цифровой». PT Serif — книжный, проверенный, «-analogовый». Это <b>два поколения</b>: новая медиа-культура и традиция печатного слова. Bricolage говорит «мы — технология», PT Serif говорит «мы — о людях».",
+    render: { markFont: '"Bricolage Grotesque",sans-serif', markW: 700, markSize: "15px", markI: '"PT Serif",serif', h1Font: '"Bricolage Grotesque",sans-serif', h1W: 700, h1Size: "clamp(24px,3.8vw,40px)", h1Lh: "1.08", h1Ls: "-.02em", eyebrowFont: '"PT Serif",serif', eyebrowSize: "14px", eyebrowW: 400, eyebrowLs: ".04em", leadFont: '"PT Serif",serif', navFont: '"JetBrains Mono",monospace', navSize: "11px", btnFont: '"JetBrains Mono",monospace', tagFont: '"JetBrains Mono",monospace', durFont: '"JetBrains Mono",monospace' }
+  }
+};
+
+const btns = Array.from(document.querySelectorAll(".b"));
+function apply(key){
+  const d = D[key]; if(!d) return;
+  btns.forEach(b=>b.classList.toggle("active", b.dataset.d===key));
+  document.getElementById("cTag").textContent = d.tag;
+  document.getElementById("cTitle").innerHTML = d.title;
+  document.getElementById("cLead").textContent = d.lead;
+  document.getElementById("cWarm").textContent = d.warmLabel;
+  document.getElementById("cCold").textContent = d.coldLabel;
+  document.getElementById("vWarmLbl").textContent = d.warmLabel;
+  document.getElementById("vColdLbl").textContent = d.coldLabel;
+  document.getElementById("vWarmDisp").innerHTML = d.warmDisp;
+  document.getElementById("vColdDisp").innerHTML = d.coldDisp;
+  document.getElementById("vWarmAcc").textContent = d.warmAcc;
+  document.getElementById("vColdAcc").textContent = d.coldAcc;
+  document.getElementById("vWarmTxt").textContent = d.warmTxt;
+  document.getElementById("vColdTxt").textContent = d.coldTxt;
+  document.getElementById("vWarmMono").textContent = d.warmMono;
+  document.getElementById("vColdMono").textContent = d.coldMono;
+  document.getElementById("sTitle").textContent = "Почему эта пара";
+  document.getElementById("sText").innerHTML = d.story;
+  const R = d.render;
+  const mark = document.querySelector(".render .mark");
+  mark.style.font = R.markW+" "+R.markSize+" "+R.markFont;
+  mark.querySelector("i").style.font = "normal "+R.markSize+" "+R.markI;
+  const h1 = document.getElementById("rH1");
+  h1.style.cssText = "font:"+R.h1W+" "+R.h1Size+"/"+R.h1Lh+" "+R.h1Font+";letter-spacing:"+R.h1Ls+";margin-bottom:14px";
+  const ey = document.getElementById("rEyebrow");
+  ey.style.cssText = "font:"+R.eyebrowW+" "+R.eyebrowSize+" "+R.eyebrowFont+";letter-spacing:"+R.eyebrowLs+";text-transform:uppercase;margin-bottom:12px;color:var(--ac1hi)";
+  document.querySelector(".render .lead").style.fontFamily = R.leadFont;
+  document.querySelectorAll(".render .nav a").forEach(a=>{a.style.fontFamily=R.navFont;a.style.fontSize=R.navSize});
+  document.querySelectorAll(".render .btn").forEach(b=>{b.style.fontFamily=R.btnFont});
+  document.querySelector(".render .tagline").style.fontFamily = R.tagFont;
+  document.querySelector(".render .dur").style.fontFamily = R.durFont;
+  document.body.offsetHeight;
+}
+btns.forEach(b=>b.addEventListener("click",()=>apply(b.dataset.d)));
+apply("marginalia");
+})();
+</script>
+</body>
+</html>
