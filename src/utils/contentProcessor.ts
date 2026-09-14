@@ -241,10 +241,16 @@ export const transformWikiLinks = (
     /\[\[\s*([^|\]]+?)\s*\|\s*([^\]]+?)\s*\]\]/g,
     "[$2](?internal=true&id=$1)",
   );
-  // [[Id]] -> [Id](?internal=true&id=Id)
+  // [[Id]] -> [Title](?internal=true&id=Id) (title resolved from the registry when known)
   processed = processed.replace(
     /\[\[\s*([^\]]+?)\s*\]\]/g,
-    "[$1](?internal=true&id=$1)",
+    (_, id) => {
+      const cleanId = id.trim().split("|")[0].trim();
+      const node = nodeRegistry?.get(cleanId);
+      const label =
+        node?.title?.[lang] || node?.title?.en || node?.shortTitle?.[lang] || cleanId;
+      return `[${label}](?internal=true&id=${cleanId})`;
+    },
   );
 
   return restoreCodeBlocks(processed, placeholders);

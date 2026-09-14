@@ -52,7 +52,7 @@ export const TextPanel: React.FC = () => {
     // Optimized: stripH1 uses Regex now, not split/join
     const noH1 = stripH1(raw);
     return transformWikiLinks(noH1, nodeRegistry, lang);
-  }, [currentNode.description, lang]);
+  }, [currentNode.description, lang, nodeRegistry]);
 
   // Detect placeholder/stub nodes: raw description very short AND no visible children
   const isShallowContent = useMemo(() => {

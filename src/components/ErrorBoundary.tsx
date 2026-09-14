@@ -1,5 +1,6 @@
 import { Component, ErrorInfo, ReactNode } from "react";
 import { AlertTriangle, RefreshCw, Copy, ChevronDown, ChevronUp } from "lucide-react";
+import { SITE_VERSION } from "../constants";
 
 interface Props {
   children?: ReactNode;
@@ -327,12 +328,13 @@ export class ErrorBoundary extends Component<Props, State> {
             {/* Footer hint */}
             <div className="mt-3 sm:mt-4 text-center text-[10px] sm:text-xs opacity-50">
               <p>Copy diagnostics and send to developer</p>
-              <p className="text-[9px] sm:text-[10px] mt-1">ODA.dream v{diagnostics.url.includes('localhost') ? 'dev' : '1.0.1'}</p>
+              <p className="text-[9px] sm:text-[10px] mt-1">ODA.dream v{diagnostics.url.includes('localhost') ? 'dev' : SITE_VERSION}</p>
             </div>
           </div>
 
-          {/* Noise overlay */}
-          <div className="fixed inset-0 pointer-events-none bg-[url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif')] opacity-[0.03] mix-blend-screen bg-cover" />
+          {/* Noise overlay — inline SVG feTurbulence, no third-party dependency */}
+          <div className="fixed inset-0 pointer-events-none opacity-[0.05] mix-blend-screen bg-cover"
+            style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E\")" }} />
         </div>
       );
     }

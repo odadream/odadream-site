@@ -94,7 +94,13 @@ const CornerBrackets = React.memo(
 
 const NoSignal = () => (
   <div className="absolute inset-0 flex flex-col items-center justify-center bg-transparent overflow-hidden mix-blend-screen pointer-events-none">
-    <div className="absolute inset-0 opacity-10 bg-[url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif')] bg-cover grayscale" />
+    <div
+      className="absolute inset-0 opacity-10 bg-cover grayscale"
+      style={{
+        backgroundImage:
+          "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E\")",
+      }}
+    />
     <AlertTriangle
       className="w-8 h-8 text-red-900 mb-2 animate-pulse relative z-10 opacity-70"
       strokeWidth={1}

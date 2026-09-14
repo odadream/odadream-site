@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { NavigationProvider, useNavigation, useLightbox } from "./context/NavigationContext";
 import { THEME } from "./styles/theme";
@@ -6,9 +6,22 @@ import { ErrorBoundary } from "./components/ErrorBoundary";
 
 // Components
 import { HeaderTabs } from "./components/HeaderTabs";
-import { TextPanel } from "./components/TextPanel";
-import { LotusGrid } from "./components/LotusGrid";
-import { Lightbox } from "./components/Lightbox";
+
+// Heavy tree-shaken panels are code-split so markdown/framer runtime only
+// loads when needed and the initial bundle stays under the 500 KB budget.
+const TextPanel = lazy(() =>
+  import("./components/TextPanel").then((m) => ({ default: m.TextPanel })),
+);
+const LotusGrid = lazy(() =>
+  import("./components/LotusGrid").then((m) => ({ default: m.LotusGrid })),
+);
+const Lightbox = lazy(() =>
+  import("./components/Lightbox").then((m) => ({ default: m.Lightbox })),
+);
+
+const PanelFallback: React.FC = () => (
+  <div className={THEME.layout.mainContent} aria-hidden="true" />
+);
 
 const Layout: React.FC = () => {
   const { lang } = useNavigation();
@@ -20,26 +33,28 @@ const Layout: React.FC = () => {
 
   return (
     <div className={THEME.layout.fullScreen}>
-      <AnimatePresence>
-        {lightboxMedia && (
-          <Lightbox
-            isOpen={!!lightboxMedia}
-            onClose={closeLightbox}
-            mediaUrl={lightboxMedia.mediaUrl}
-            title={lightboxMedia.title[lang]}
-          />
-        )}
-      </AnimatePresence>
-
       <HeaderTabs />
 
-      <main className={THEME.layout.mainContent}>
-        <section className={THEME.layout.textSection}>
-          <TextPanel />
-        </section>
+      <Suspense fallback={<PanelFallback />}>
+        <AnimatePresence>
+          {lightboxMedia && (
+            <Lightbox
+              isOpen={!!lightboxMedia}
+              onClose={closeLightbox}
+              mediaUrl={lightboxMedia.mediaUrl}
+              title={lightboxMedia.title[lang]}
+            />
+          )}
+        </AnimatePresence>
 
-        <LotusGrid />
-      </main>
+        <main className={THEME.layout.mainContent}>
+          <section className={THEME.layout.textSection}>
+            <TextPanel />
+          </section>
+
+          <LotusGrid />
+        </main>
+      </Suspense>
     </div>
   );
 };
