@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ODA.dream — Creative Technology, Performance &amp; International Co-production</title>
+<meta name="description" content="ODA.dream develops new forms of performance and collective human experience through art, neurotechnology and interactive systems. International co-production and creative-tech projects.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ODA.dream — Creative Technology, Performance & International Co-production">
+<meta property="og:description" content="New forms of human-to-human interaction through art and technology.">
+<meta property="og:image" content="../public/images/content/works/interference-2026-poster.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Manrope:wght@300;400;500&family=PT+Mono&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ft-display:"Bricolage Grotesque",sans-serif;--ft-display-w:600;
+  --ft-heading:"Bricolage Grotesque",sans-serif;--ft-heading-w:500;
+  --ft-body:"Manrope",sans-serif;--ft-body-w:400;--ft-body-w-strong:500;
+  --ft-eyebrow:"Bricolage Grotesque",sans-serif;--ft-eyebrow-w:500;
+  --ft-note:"PT Mono",monospace;--ft-note-w:500;--ft-note-w-light:400;--ft-note-w-strong:600;
+  --t-2xs:9px;--t-xs:10px;--t-sm:11px;--t-md:12px;--t-base:14px;--t-lg:15px;--t-xl:16px;
+  --t-2xl:18px;--t-3xl:20px;--t-4xl:24px;--t-5xl:28px;--t-6xl:32px;--t-7xl:40px;--t-8xl:52px;
+  --lh-none:1;--lh-tight:1.08;--lh-heading:1.2;--lh-snug:1.4;--lh-body:1.8;
+  --tr-neg2:-.02em;--tr-neg15:-.015em;--tr-neg1:-.01em;
+  --tr-note2:.02em;--tr-note:.05em;
+  --tr-w1:.08em;--tr-w2:.10em;--tr-w3:.12em;--tr-w4:.14em;--tr-w5:.16em;
+  --sp-0:2px;--sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:20px;--sp-6:24px;--sp-7:28px;--sp-8:32px;
+  --sp-10:40px;--sp-12:48px;--sp-14:56px;--sp-16:64px;--sp-20:80px;--sp-24:96px;--sp-28:112px;--sp-32:128px;
+  --r-1:4px;--r-2:8px;--r-3:12px;--r-4:16px;
+  --glass-soft:rgba(5,6,8,.6);--glass-1:rgba(5,6,8,.82);--glass-2:rgba(5,6,8,.92);
+  --alpha-fx-a:.035;--alpha-fx-b:.025;
+  --measure:1120px;--measure-text:54ch;--measure-narrow:42ch;
+  /* Analog — DEFAULT (warm) */
+  --bg:#050608;--surface:#0b0e13;--surface-2:#111720;--line:#1e1a1e;--line-2:#2e2830;
+  --ink:#eee3d8;--ink-2:#a2988a;--ink-3:#63594f;
+  --ac1:#bd6f5c;--ac1hi:#e5a18c;--g1:rgba(189,111,92,.32);
+  --ac2:#7ba98c;--ac2hi:#a9d3b5;--g2:rgba(123,169,140,.30);
+  --cta-text:#0c0a08;
+}
+body[data-color="signal"]{
+  --ink:#eef4f6;--ink-2:#9fb0ba;--ink-3:#5c6b76;--line:#1a232d;--line-2:#2b3743;
+  --ac1:#ffb45c;--ac1hi:#ffd9a3;--g1:rgba(255,180,92,.32);
+  --ac2:#3fd0f0;--ac2hi:#9ae6ff;--g2:rgba(63,208,240,.3);
+}
+html{background:var(--bg);scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);min-height:100svh;-webkit-font-smoothing:antialiased;transition:background .4s,color .4s;font-family:var(--ft-body);font-weight:var(--ft-body-w)}
+body *{transition:color .25s,border-color .25s,background-color .25s,box-shadow .25s}
+
+.ft-display{font-family:var(--ft-display);font-weight:var(--ft-display-w);letter-spacing:var(--tr-neg1)}
+.ft-heading{font-family:var(--ft-heading);font-weight:var(--ft-heading-w);letter-spacing:var(--tr-neg1)}
+.ft-eyebrow{font-family:var(--ft-eyebrow);font-weight:var(--ft-eyebrow-w);text-transform:uppercase;letter-spacing:var(--tr-w2)}
+.ft-note{font-family:var(--ft-note);font-weight:var(--ft-note-w);letter-spacing:var(--tr-note)}
+
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+.pix{display:inline-grid;grid-template-columns:repeat(4,3px);grid-auto-rows:3px;gap:1px;vertical-align:middle}
+.pix i{display:block;width:3px;height:3px;background:transparent}
+.pix.w i.o{background:var(--ac1);box-shadow:0 0 6px var(--g1)}
+.pix.c i.o{background:var(--ac2);box-shadow:0 0 6px var(--g2)}
+
+.grain{position:fixed;inset:0;z-index:95;pointer-events:none;opacity:var(--alpha-fx-a);mix-blend-mode:screen;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E")}
+
+/* NAV */
+.bar{position:fixed;top:0;left:0;right:0;z-index:120;display:flex;align-items:center;gap:var(--sp-3);padding:var(--sp-3) var(--sp-6);background:var(--glass-1);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:var(--sp-2);font-family:var(--ft-display);font-weight:600;font-size:var(--t-lg);letter-spacing:var(--tr-neg1);color:var(--ink)}
+.brand b{color:var(--ac1hi);font-weight:inherit}
+.brand .yrs{margin-left:var(--sp-1);font-family:var(--ft-note);font-weight:var(--ft-note-w);font-size:var(--t-2xs);color:var(--ink-3);letter-spacing:var(--tr-w4)}
+.bar .nav{display:flex;align-items:center;gap:var(--sp-4);margin-left:var(--sp-4)}
+.bar .nav a{color:var(--ink-2);font-size:var(--t-2xs);letter-spacing:var(--tr-w2);text-transform:uppercase;white-space:nowrap}
+.bar .nav a:hover{color:var(--ac1hi)}
+.bar .rhs{margin-left:auto;display:flex;align-items:center;gap:var(--sp-1)}
+.cbtn{display:flex;align-items:center;gap:var(--sp-2);padding:var(--sp-2) var(--sp-3);border:1px solid var(--line-2);border-radius:var(--r-2);background:var(--surface);color:var(--ink-2);font-family:var(--ft-note);font-weight:var(--ft-note-w-strong);font-size:var(--t-2xs);text-transform:uppercase;letter-spacing:var(--tr-w1);cursor:pointer}
+.cbtn:hover{border-color:var(--ink-3);color:var(--ink)}
+.cbtn.active{border-color:var(--ac1);color:var(--ink);box-shadow:0 0 0 1px var(--ac1),0 0 14px var(--g1)}
+.cbtn .dot{width:var(--sp-2);height:var(--sp-2);border-radius:2px}
+.cbtn[data-c="analog"] .dot{background:linear-gradient(135deg,#bd6f5c 50%,#7ba98c 50%)}
+.cbtn[data-c="signal"] .dot{background:linear-gradient(135deg,#ffb45c 50%,#3fd0f0 50%)}
+
+/* IMAGE-FX */
+.imgfx{position:relative;overflow:hidden;background:var(--surface)}
+.imgfx .ph{position:absolute;inset:0}
+.imgfx .ph img{width:100%;height:100%;object-fit:cover}
+.imgfx .shade{position:absolute;inset:0}
+.over{position:relative;z-index:2}
+
+/* SHARED */
+.eyebrow{display:flex;align-items:center;gap:var(--sp-2);margin-bottom:var(--sp-5);color:var(--ac1hi);font-family:var(--ft-eyebrow);font-weight:var(--ft-eyebrow-w);font-size:var(--t-sm);text-transform:uppercase;letter-spacing:var(--tr-w2)}
+.eyebrow .amp-s{font:600 1.1em var(--ft-display);background:linear-gradient(150deg,var(--ac1),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+
+.secrow{display:flex;align-items:baseline;gap:var(--sp-3);margin:0 0 var(--sp-6)}
+.secrow .n{font-family:var(--ft-note);font-weight:var(--ft-note-w-strong);font-size:var(--t-sm);color:var(--ac2hi);letter-spacing:var(--tr-w1)}
+.secrow h2{font-size:clamp(var(--t-2xl),2.6vw,var(--t-5xl));line-height:var(--lh-heading)}
+.secrow .r{margin-left:auto;font-family:var(--ft-note);font-weight:var(--ft-note-w);font-size:var(--t-2xs);color:var(--ink-3);text-transform:uppercase;letter-spacing:var(--tr-w4)}
+
+.btn{display:inline-flex;align-items:center;gap:var(--sp-2);font-family:var(--ft-note);font-weight:var(--ft-note-w-strong);font-size:var(--t-xs);letter-spacing:var(--tr-w2);padding:var(--sp-3) var(--sp-5);border-radius:var(--r-1);text-transform:uppercase;position:relative;cursor:pointer}
+.btn.primary{background:var(--ac1);color:var(--cta-text)}
+.btn.primary::after{content:"";position:absolute;right:-var(--sp-1);top:-var(--sp-1);width:var(--sp-2);height:var(--sp-2);background:var(--ac2);clip-path:polygon(0 0,100% 0,100% 100%)}
+.btn.ghost{border:1px solid rgba(235,240,242,.28);color:var(--ink);background:rgba(5,6,8,.3);backdrop-filter:blur(6px)}
+.btn.ghost:hover{border-color:var(--ac1);color:var(--ac1hi)}
+.btn .ar{color:var(--ac2hi)}
+
+/* 1 HERO */
+.hero{min-height:100svh;display:flex;align-items:flex-end}
+.hero .shade{background:linear-gradient(180deg,rgba(5,6,8,.4) 0%,transparent 28%,transparent 55%,rgba(5,6,8,.92) 100%)}
+.hero .hbody{max-width:var(--measure);margin:0 auto;width:100%;padding:var(--sp-12) var(--sp-6) var(--sp-16)}
+.hero h1{font-size:clamp(var(--t-5xl),5vw,var(--t-8xl));line-height:var(--lh-tight);letter-spacing:var(--tr-neg2);margin-bottom:var(--sp-5)}
+.hero h1 em{font-style:normal}
+.hero h1 em.w{color:var(--ac1hi);text-shadow:0 0 30px var(--g1)}
+.hero h1 em.c{color:var(--ac2hi);text-shadow:0 0 30px var(--g2)}
+.hero .lead{color:var(--ink-2);font-size:var(--t-lg);line-height:var(--lh-body);max-width:var(--measure-narrow);margin-bottom:var(--sp-6)}
+.hero .lead b{color:var(--ink);font-weight:var(--ft-body-w-strong)}
+.hero .cta-row{display:flex;gap:var(--sp-2);flex-wrap:wrap;margin-bottom:var(--sp-12)}
+.hero .run{border-top:1px solid rgba(235,240,242,.15);display:flex;gap:var(--sp-10);flex-wrap:wrap;padding-top:var(--sp-5)}
+.hero .run .st{font-size:var(--t-sm);color:var(--ink-3);letter-spacing:var(--tr-w3);text-transform:uppercase}
+.hero .run .st b{display:block;font-family:var(--ft-note);font-weight:var(--ft-note-w-strong);font-size:var(--t-xl);color:var(--ink);letter-spacing:var(--tr-note2);margin-bottom:var(--sp-1)}
+.hero .run .st b.w{color:var(--ac1hi)} .hero .run .st b.c{color:var(--ac2hi)}
+
+/* 2 DIFFERENCE */
+.diff{min-height:72svh;display:flex;align-items:flex-end}
+.diff .shade{background:linear-gradient(180deg,rgba(5,6,8,.45) 0%,transparent 32%,transparent 48%,rgba(5,6,8,.94) 100%)}
+.diff .dbody{max-width:var(--measure);margin:0 auto;width:100%;padding:var(--sp-12) var(--sp-6) var(--sp-14)}
+.diff .big{font-size:clamp(var(--t-3xl),4.5vw,var(--t-7xl));line-height:var(--lh-heading);letter-spacing:var(--tr-neg1);max-width:28ch;margin-bottom:var(--sp-6)}
+.diff .big .w{color:var(--ac1hi);text-shadow:0 0 24px var(--g1)}
+.diff .big .c{color:var(--ac2hi);text-shadow:0 0 24px var(--g2)}
+.diff .chips{display:flex;gap:var(--sp-2);flex-wrap:wrap}
+.diff .ch{display:flex;align-items:center;gap:var(--sp-2);padding:var(--sp-2) var(--sp-3);border:1px solid rgba(235,240,242,.22);border-radius:var(--r-2);background:rgba(5,6,8,.3);backdrop-filter:blur(6px);font:var(--ft-note-w) var(--t-sm) var(--ft-note);color:var(--ink-2);letter-spacing:var(--tr-note)}
+.diff .ch i{width:var(--sp-1);height:var(--sp-1);background:var(--ac2);box-shadow:0 0 8px var(--g2);flex:none}
+
+/* 3 METRICS */
+.metrics{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.metrics .inner{max-width:var(--measure);margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-0)}
+.metrics .m{padding:var(--sp-8) var(--sp-6);border-right:1px solid var(--line)}
+.metrics .m:last-child{border-right:none}
+.metrics .m .v{font-family:var(--ft-display);font-weight:700;font-size:clamp(var(--t-4xl),4vw,var(--t-7xl));line-height:var(--lh-tight);letter-spacing:var(--tr-neg2);color:var(--ac1hi);margin-bottom:var(--sp-2)}
+.metrics .m .v .accent{color:var(--ac2hi)}
+.metrics .m .k{font:var(--ft-note-w) var(--t-xs) var(--ft-note);color:var(--ink-3);text-transform:uppercase;letter-spacing:var(--tr-w3)}
+
+/* 4 PRODUCTS */
+.products{max-width:var(--measure);margin:0 auto;width:100%;padding:var(--sp-16) var(--sp-6)}
+.pgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--sp-4)}
+.pcard{position:relative;min-height:380px;display:block}
+.pcard .ph{position:absolute;inset:0}
+.pcard .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.pcard:hover .ph img{transform:scale(1.04)}
+.pcard .shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(5,6,8,.92) 100%)}
+.pcard .ptx{position:absolute;left:0;right:0;bottom:0;padding:var(--sp-6)}
+.pcard .ptag{display:inline-block;font:var(--ft-note-w) var(--t-2xs) var(--ft-note);color:var(--ac2hi);letter-spacing:var(--tr-w3);text-transform:uppercase;margin-bottom:var(--sp-2);padding:var(--sp-1) var(--sp-2);border:1px solid rgba(123,169,140,.3);border-radius:var(--r-1);background:rgba(5,6,8,.4);backdrop-filter:blur(4px)}
+.pcard .ptag.warm{color:var(--ac1hi);border-color:rgba(189,111,92,.3)}
+.pcard h3{font-size:var(--t-2xl);line-height:var(--lh-heading);margin-bottom:var(--sp-2);text-shadow:0 2px 12px rgba(5,6,8,.5)}
+.pcard p{color:var(--ink-2);font-size:var(--t-base);line-height:var(--lh-body);max-width:44ch}
+
+/* 5 CASE */
+.case{margin:0}
+.case-head{max-width:var(--measure);margin:0 auto;width:100%;padding:var(--sp-16) var(--sp-6) var(--sp-6)}
+.case .cgrid{display:grid;grid-template-columns:1.2fr .8fr;gap:var(--sp-6)}
+.case .cposter{min-height:540px}
+.case .cposter img{transition:transform 1.2s ease}
+.case .cposter:hover img{transform:scale(1.04)}
+.case .cposter .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:var(--sp-14);height:var(--sp-14);border-radius:var(--r-2);border:1px solid var(--ac2);background:var(--glass-soft);display:flex;align-items:center;justify-content:center;font:var(--ft-note-w) var(--t-md) var(--ft-note);color:var(--ac1hi);box-shadow:0 0 26px var(--g1);cursor:pointer;backdrop-filter:blur(4px)}
+.case .cposter .lab{position:absolute;bottom:var(--sp-4);left:var(--sp-4);font:var(--ft-note-w) var(--t-2xs) var(--ft-note);color:var(--ink-2);background:var(--glass-1);padding:var(--sp-1) var(--sp-2);border:1px solid var(--line);border-radius:var(--r-1)}
+.case h3{font-size:clamp(var(--t-4xl),4vw,var(--t-7xl));line-height:var(--lh-tight);letter-spacing:var(--tr-neg2);margin-bottom:var(--sp-4)}
+.case .lead{color:var(--ink-2);font-size:var(--t-lg);line-height:var(--lh-body);max-width:var(--measure-text);margin-bottom:var(--sp-5)}
+.case .lead b{color:var(--ink);font-weight:var(--ft-body-w-strong)}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-0) var(--sp-4);margin-bottom:var(--sp-5)}
+.facts .f{border-top:1px solid var(--line-2);padding:var(--sp-3) 0 var(--sp-2)}
+.facts .f .v{font-family:var(--ft-note);font-weight:var(--ft-note-w-strong);font-size:var(--t-2xl);line-height:var(--lh-heading);color:var(--ac1hi);margin-bottom:var(--sp-1)}
+.facts .f .v.c{color:var(--ac2hi)}
+.facts .f .k{font-family:var(--ft-note);font-weight:var(--ft-note-w);font-size:var(--t-2xs);color:var(--ink-3);text-transform:uppercase;letter-spacing:var(--tr-w3)}
+.case .cta-row{display:flex;gap:var(--sp-2);flex-wrap:wrap}
+
+/* GALLERY STRIP */
+.strip{margin:var(--sp-14) 0 0;padding-bottom:var(--sp-6)}
+.strip .shead{max-width:var(--measure);margin:0 auto 0;width:100%;padding:0 var(--sp-6)}
+.strip .track{display:flex;gap:var(--sp-2);overflow-x:auto;padding:var(--sp-4) var(--sp-6) var(--sp-6);scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none}
+.strip .track::-webkit-scrollbar{display:none}
+.strip .g{position:relative;flex:0 0 auto;width:min(60vw,700px);aspect-ratio:16/9;overflow:hidden;background:var(--surface);scroll-snap-align:start}
+.strip .g img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s ease}
+.strip .g:hover img{transform:scale(1.05)}
+.strip .g .gshade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,6,8,.88))}
+.strip .g .gl{position:absolute;left:var(--sp-3);bottom:var(--sp-3);font:var(--ft-note-w) var(--t-2xs) var(--ft-note);color:var(--ac2hi);letter-spacing:var(--tr-w3);text-transform:uppercase}
+.strip .g .gtx{position:absolute;right:var(--sp-3);bottom:var(--sp-3);font:var(--ft-note-w) var(--t-2xs) var(--ft-note);color:var(--ink-2);letter-spacing:var(--tr-note)}
+.strip .g .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:var(--sp-12);height:var(--sp-12);border-radius:var(--r-2);border:1px solid var(--ac2);background:var(--glass-soft);display:flex;align-items:center;justify-content:center;font:var(--ft-note-w) var(--t-md) var(--ft-note);color:var(--ac1hi);box-shadow:0 0 26px var(--g1);backdrop-filter:blur(4px)}
+
+/* 6 CO-PRODUCTION */
+.coprod{max-width:var(--measure);margin:0 auto;width:100%;padding:var(--sp-16) var(--sp-6)}
+.cols3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--sp-4)}
+.cols3 .col{position:relative;border-top:2px solid var(--line-2);padding-top:var(--sp-5)}
+.cols3 .col.hot{border-top-color:var(--ac1)}
+.cols3 .col.cold{border-top-color:var(--ac2)}
+.cols3 .col .gno{position:absolute;top:var(--sp-5);right:0;font-family:var(--ft-display);font-weight:700;font-size:var(--t-7xl);line-height:1;color:transparent;-webkit-text-stroke:1px var(--line);letter-spacing:var(--tr-neg2)}
+.cols3 .col h3{font-size:var(--t-lg);line-height:var(--lh-heading);margin-bottom:var(--sp-4);max-width:20ch}
+.cols3 .col.hot h3{color:var(--ac1hi)}
+.cols3 .col.cold h3{color:var(--ac2hi)}
+.cols3 .col .it{color:var(--ink-2);font-size:var(--t-base);line-height:var(--lh-body);margin-bottom:var(--sp-2);display:flex;gap:var(--sp-2)}
+.cols3 .col .it::before{content:"//";font-family:var(--ft-note);font-weight:var(--ft-note-w-strong);font-size:var(--t-xs);color:var(--ac2hi);flex:none}
+.cols3 .col.hot .it::before{color:var(--ac1hi)}
+.note-mono{margin-top:var(--sp-6);font:var(--ft-note-w-light) var(--t-xs) var(--ft-note);color:var(--ink-3);letter-spacing:var(--tr-note2);text-transform:uppercase}
+
+/* 7 NEUROSYNCHRONIZATION */
+.neurosync{position:relative;min-height:80svh;display:flex;align-items:center}
+.neurosync .shade{background:linear-gradient(180deg,rgba(5,6,8,.7) 0%,rgba(5,6,8,.55) 50%,rgba(5,6,8,.85) 100%)}
+.neurosync .nbody{max-width:var(--measure);margin:0 auto;width:100%;padding:var(--sp-16) var(--sp-6)}
+.neurosync h2{font-size:clamp(var(--t-4xl),5vw,var(--t-8xl));line-height:var(--lh-tight);letter-spacing:var(--tr-neg2);margin-bottom:var(--sp-8)}
+.neurosync h2 em{font-style:normal;color:var(--ac1hi);text-shadow:0 0 28px var(--g1)}
+.neurosync .cols{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-10)}
+.neurosync .cols p{color:var(--ink-2);font-size:var(--t-lg);line-height:var(--lh-body);margin-bottom:var(--sp-4)}
+.neurosync .cols p b{color:var(--ink);font-weight:var(--ft-body-w-strong)}
+.neurosync .vals{margin-top:var(--sp-10);border-top:1px solid rgba(235,240,242,.12);padding-top:var(--sp-6);display:flex;flex-wrap:wrap;gap:var(--sp-2)}
+.neurosync .vals span{font:var(--ft-note-w) var(--t-sm) var(--ft-note);color:var(--ink-3);letter-spacing:var(--tr-note);padding:var(--sp-1) 0}
+
+/* 8 WHY ODA */
+.why{max-width:var(--measure);margin:0 auto;width:100%;padding:var(--sp-16) var(--sp-6)}
+.cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-4)}
+.cards4 .cd{position:relative;padding-top:var(--sp-5)}
+.cards4 .cd::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--ac1),transparent 40%)}
+.cards4 .cd:nth-child(2n)::before{background:linear-gradient(90deg,var(--ac2),transparent 40%)}
+.cards4 .cd .n{font:var(--ft-note-w-strong) var(--t-2xs) var(--ft-note);color:var(--ac2hi);letter-spacing:var(--tr-w4);text-transform:uppercase;margin-bottom:var(--sp-3)}
+.cards4 .cd .n.sa{color:var(--ac1hi)}
+.cards4 .cd h3{font-size:var(--t-xl);line-height:var(--lh-heading);margin-bottom:var(--sp-2)}
+.cards4 .cd p{color:var(--ink-2);font-size:var(--t-base);line-height:var(--lh-body)}
+
+/* 9 TRACK RECORD */
+.track{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.track .inner{max-width:var(--measure);margin:0 auto;width:100%;padding:var(--sp-10) var(--sp-6)}
+.track .awards{margin-bottom:var(--sp-8)}
+.track .awards h3{font-size:var(--t-sm);color:var(--ink-3);text-transform:uppercase;letter-spacing:var(--tr-w3);margin-bottom:var(--sp-4)}
+.track .alist{display:flex;flex-wrap:wrap;gap:var(--sp-2)}
+.track .alist .a{display:flex;align-items:center;gap:var(--sp-2);padding:var(--sp-2) var(--sp-3);border:1px solid var(--line-2);border-radius:var(--r-2);background:var(--surface);font:var(--ft-note-w) var(--t-xs) var(--ft-note);color:var(--ink-2);letter-spacing:var(--tr-note)}
+.track .alist .a b{color:var(--ac1hi);font-weight:var(--ft-note-w-strong)}
+.track .alist .a .yr{color:var(--ink-3);margin-left:var(--sp-1)}
+.track .partners{margin-bottom:var(--sp-8)}
+.track .partners h3{font-size:var(--t-sm);color:var(--ink-3);text-transform:uppercase;letter-spacing:var(--tr-w3);margin-bottom:var(--sp-4)}
+.track .plist{display:flex;flex-wrap:wrap;gap:var(--sp-2)}
+.track .plist span{font:var(--ft-note-w) var(--t-xs) var(--ft-note);color:var(--ink-3);letter-spacing:var(--tr-note)}
+.track .plist span b{color:var(--ink-2);font-weight:var(--ft-note-w-strong)}
+
+/* 10 LOOKING FOR */
+.look{max-width:var(--measure);margin:0 auto;width:100%;padding:var(--sp-16) var(--sp-6)}
+.look .items{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-0) var(--sp-6);margin-bottom:var(--sp-6);border-top:1px solid var(--line)}
+.look .it{display:flex;gap:var(--sp-3);align-items:flex-start;color:var(--ink);font-size:var(--t-lg);line-height:var(--lh-snug);padding:var(--sp-4) 0;border-bottom:1px solid var(--line)}
+.look .it i{font-style:normal;font-family:var(--ft-note);font-weight:var(--ft-note-w-strong);color:var(--ac2hi);font-size:var(--t-sm);padding-top:var(--sp-1)}
+.look .note{color:var(--ink-2);font-size:var(--t-base);line-height:var(--lh-body);max-width:var(--measure-text)}
+.look .note b{color:var(--ac1hi);font-weight:var(--ft-body-w-strong)}
+
+/* 11 ABOUT */
+.about{max-width:var(--measure);margin:0 auto;width:100%;padding:var(--sp-16) var(--sp-6)}
+.about .grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4)}
+.about .card{padding-top:var(--sp-4);border-top:1px solid var(--line-2)}
+.about .card h3{font-size:var(--t-2xl);line-height:var(--lh-heading);margin-bottom:var(--sp-1)}
+.about .card .role{font:var(--ft-note-w) var(--t-xs) var(--ft-note);color:var(--ac2hi);letter-spacing:var(--tr-w3);text-transform:uppercase;margin-bottom:var(--sp-3)}
+.about .card p{color:var(--ink-2);font-size:var(--t-base);line-height:var(--lh-body)}
+
+/* 12 CTA */
+.cta{position:relative;min-height:80svh;display:flex;align-items:center;margin-top:var(--sp-14)}
+.cta .shade{background:linear-gradient(90deg,rgba(5,6,8,.9) 0%,rgba(5,6,8,.5) 45%,rgba(5,6,8,.12) 100%)}
+.cta .cbody{max-width:var(--measure);margin:0 auto;width:100%;padding:var(--sp-14) var(--sp-6)}
+.cta h2{font-size:clamp(var(--t-5xl),6vw,var(--t-8xl));line-height:var(--lh-tight);letter-spacing:var(--tr-neg2);margin-bottom:var(--sp-4)}
+.cta p{color:var(--ink-2);font-size:var(--t-lg);line-height:var(--lh-body);max-width:var(--measure-text);margin-bottom:var(--sp-6)}
+.cta .cta-row{display:flex;gap:var(--sp-2);flex-wrap:wrap;margin-bottom:var(--sp-8)}
+.contact-lines{display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--sp-4);max-width:720px}
+.contact-lines .cl{border-left:1px solid rgba(235,240,242,.2);padding-left:var(--sp-3)}
+.contact-lines .cl .k{font:var(--ft-note-w) var(--t-2xs) var(--ft-note);color:var(--ink-3);text-transform:uppercase;letter-spacing:var(--tr-w3);margin-bottom:var(--sp-1)}
+.contact-lines .cl a{font:var(--ft-note-w-strong) var(--t-md) var(--ft-note);color:var(--ac1hi);letter-spacing:var(--tr-note2)}
+.contact-lines .cl a:hover{color:var(--ac2hi)}
+
+.foot{max-width:var(--measure);margin:0 auto;width:100%;display:flex;justify-content:space-between;gap:var(--sp-4);flex-wrap:wrap;padding:var(--sp-5) var(--sp-6) var(--sp-6);border-top:1px solid var(--line)}
+.foot span{font:var(--ft-note-w) var(--t-2xs) var(--ft-note);color:var(--ink-3);letter-spacing:var(--tr-w2);text-transform:uppercase}
+
+@media(max-width:1000px){
+  .case .cgrid{grid-template-columns:1fr}
+  .case .cposter{min-height:400px}
+  .cards4{grid-template-columns:1fr 1fr}
+  .cols3{grid-template-columns:1fr}
+  .pgrid{grid-template-columns:1fr 1fr}
+  .metrics .inner{grid-template-columns:1fr 1fr}
+  .neurosync .cols{grid-template-columns:1fr}
+  .bar .nav{display:none}
+  .strip .g{width:min(78vw,560px)}
+}
+@media(max-width:640px){
+  .hero h1{font-size:clamp(var(--t-4xl),9vw,var(--t-6xl))}
+  .hero .run{gap:var(--sp-5)}
+  .cards4{grid-template-columns:1fr}
+  .pgrid{grid-template-columns:1fr}
+  .pcard{min-height:300px}
+  .metrics .inner{grid-template-columns:1fr}
+  .metrics .m{border-right:none;border-bottom:1px solid var(--line)}
+  .metrics .m:last-child{border-bottom:none}
+  .facts{grid-template-columns:1fr}
+  .look .items{grid-template-columns:1fr}
+  .about .grid{grid-template-columns:1fr}
+  .contact-lines{grid-template-columns:1fr}
+  .strip .g{width:88vw;aspect-ratio:16/10}
+  .case-head{padding-top:var(--sp-10)}
+  .coprod,.why,.look,.about{padding-top:var(--sp-10)}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<header class="bar">
+  <a class="brand" href="#top" data-i18n="brand"><span class="pix w" id="brandpix"></span><span>ODA.<b>dream</b></span><span class="yrs">creative-tech · international</span></a>
+  <nav class="nav">
+    <a href="#products">01 Works</a><a href="#case">02 Case</a><a href="#coproduction">03 Co-production</a><a href="#why">04 Why ODA</a><a href="#contact">05 Contact</a>
+  </nav>
+  <div class="rhs">
+    <button class="cbtn" data-lang="en">EN</button>
+    <button class="cbtn active" data-lang="ru">RU</button>
+    <button class="cbtn active" data-c="analog"><span class="dot"></span>Analog</button>
+    <button class="cbtn" data-c="signal"><span class="dot"></span>Signal</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 1 HERO -->
+  <section class="hero imgfx">
+    <div class="ph"><img src="../public/images/content/events/interference-2026/interference-2026-01.webp" alt="Collective performance — people, neurointerfaces, real-time data"></div>
+    <div class="shade"></div>
+    <div class="hbody over">
+      <div class="eyebrow" data-i18n="hero_eyebrow">Creative-tech R&amp;D studio · Participatory Art <span class="amp-s">&amp;</span> Science</div>
+      <h1 class="ft-display" data-i18n="hero_h1">New forms of <em class="w">human-to-human</em> interaction<br>through <em class="c">art and technology</em></h1>
+      <p class="lead ft-body" data-i18n="hero_lead">ODA.dream is an Art &amp; Science creative-tech studio developing performance and interactive formats where physiological signals, audience participation and real-time systems become part of the artistic language.</p>
+      <div class="cta-row ft-note">
+        <a class="btn primary" href="#products"><span data-i18n="cta_primary">Explore our works</span><span class="ar">→</span></a>
+        <a class="btn ghost" href="#contact"><span data-i18n="cta_ghost">Discuss international co-production</span></a>
+      </div>
+      <div class="run ft-note">
+        <div class="st"><b class="w" data-i18n="hero_m1_v">12 + 12</b><span data-i18n="hero_m1_k">performers + volunteers with neurointerfaces</span></div>
+        <div class="st"><b class="c" data-i18n="hero_m2_v">16 May 2026</b><span data-i18n="hero_m2_k">premiere · Tsiolkovsky Fest, IKC Kaluga</span></div>
+        <div class="st"><b data-i18n="hero_m3_v">real-time</b><span data-i18n="hero_m3_k">collective data becomes the scene</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 DIFFERENCE -->
+  <section class="diff imgfx">
+    <div class="ph"><img src="../public/images/content/events/interference-2026/interference-2026-03.webp" alt="The audience becomes the composition"></div>
+    <div class="shade"></div>
+    <div class="dbody over">
+      <div class="secrow" style="margin:0 0 var(--sp-5)"><span class="n">00 /</span><span class="r" data-i18n="diff_r">the difference</span></div>
+      <div class="big ft-display">
+        <span data-i18n="diff_1">We do not use neurotechnology to control machines.</span><br>
+        <span data-i18n="diff_2">We use technology to create <em class="c">new relationships between people</em>.</span>
+      </div>
+      <div class="chips">
+        <div class="ch"><i></i><span data-i18n="chip_1">collective attention</span></div>
+        <div class="ch"><i></i><span data-i18n="chip_2">audience as participant</span></div>
+        <div class="ch"><i></i><span data-i18n="chip_3">physiological data as dramaturgical material</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 METRICS -->
+  <section class="metrics">
+    <div class="inner">
+      <div class="m"><div class="v" data-i18n="met1_v">7 <span class="accent">years</span></div><div class="k" data-i18n="met1_k">on the market</div></div>
+      <div class="m"><div class="v" data-i18n="met2_v">80<span class="accent">+</span></div><div class="k" data-i18n="met2_k">events &amp; sessions</div></div>
+      <div class="m"><div class="v" data-i18n="met3_v">1 500<span class="accent">+</span></div><div class="k" data-i18n="met3_k">participants measured</div></div>
+      <div class="m"><div class="v" data-i18n="met4_v">10<span class="accent">+</span></div><div class="k" data-i18n="met4_k">cities</div></div>
+    </div>
+  </section>
+
+  <!-- 4 PRODUCTS -->
+  <section class="products" id="products">
+    <div class="secrow">
+      <span class="n">01 /</span><h2 class="ft-heading" data-i18n="prod_sec">Our works · formats &amp; technologies</h2>
+    </div>
+    <div class="pgrid">
+      <a class="pcard imgfx" href="https://interference.odadream.art" target="_blank" rel="noopener">
+        <div class="ph"><img src="../public/images/content/works/interference-2026-poster.webp" alt="Interferences of Realities"></div>
+        <div class="shade"></div>
+        <div class="ptx over">
+          <span class="ptag warm">performance</span>
+          <h3 class="ft-heading" data-i18n="p1_t">Interferences of Realities</h3>
+          <p data-i18n="p1_p">12 performers + 12 audience in neurointerfaces. Collective brain activity becomes the scenic system. Live.</p>
+        </div>
+      </a>
+      <a class="pcard imgfx" href="#products">
+        <div class="ph"><img src="../public/images/content/events/interference-2026/interference-2026-02.webp" alt="Project Schrödinger"></div>
+        <div class="shade"></div>
+        <div class="ptx over">
+          <span class="ptag warm">neuro-theatre</span>
+          <h3 class="ft-heading" data-i18n="p2_t">Project Schrödinger</h3>
+          <p data-i18n="p2_p">Collective neuro-theatre. 8 devices between audience and dancers. Science art as live biofeedback protocol.</p>
+        </div>
+      </a>
+      <a class="pcard imgfx" href="#products">
+        <div class="ph"><img src="../public/images/content/mindshow_portal.webp" alt="MindShow"></div>
+        <div class="shade"></div>
+        <div class="ptx over">
+          <span class="ptag">installation</span>
+          <h3 class="ft-heading">MindShow</h3>
+          <p data-i18n="p3_p">Personal audiovisual animation generated directly from neural signals and verbal narrative. 7 min per person.</p>
+        </div>
+      </a>
+      <a class="pcard imgfx" href="#products">
+        <div class="ph"><img src="../public/images/content/neurobattle_dano.webp" alt="Neurobattle — Paradox of Victory"></div>
+        <div class="shade"></div>
+        <div class="ptx over">
+          <span class="ptag">duel</span>
+          <h3 class="ft-heading" data-i18n="p4_t">Neurobattle · Paradox of Victory</h3>
+          <p data-i18n="p4_p">Two participants, one virtual object. Victory belongs not to the stronger, but to the more aware. 90-second rounds.</p>
+        </div>
+      </a>
+      <a class="pcard imgfx" href="#products">
+        <div class="ph"><img src="../public/images/content/neuromandala-cover.webp" alt="Neuromandala"></div>
+        <div class="shade"></div>
+        <div class="ptx over">
+          <span class="ptag">technology</span>
+          <h3 class="ft-heading">Neuromandala</h3>
+          <p data-i18n="p5_p">Core technology platform. Biosignals → living audiovisual form. Patent pending. The engine under all products.</p>
+        </div>
+      </a>
+      <a class="pcard imgfx" href="#products">
+        <div class="ph"><img src="../public/images/content/lectures-moscow2030.webp" alt="Lecture-performances"></div>
+        <div class="shade"></div>
+        <div class="ptx over">
+          <span class="ptag warm">education</span>
+          <h3 class="ft-heading" data-i18n="p6_t">Lecture-performances</h3>
+          <p data-i18n="p6_p">Neuroscience translated into live aesthetic experience. Real-time brain data on screen. Audience participates.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 5 FLAGSHIP CASE -->
+  <section class="case" id="case">
+    <div class="case-head">
+      <div class="secrow">
+        <span class="n">02 /</span><h2 class="ft-heading" data-i18n="case_sec">Flagship case · proven prototype</h2>
+      </div>
+      <div class="cgrid">
+        <a class="cposter imgfx" href="https://interference.odadream.art" target="_blank" rel="noopener">
+          <div class="ph"><img src="../public/images/content/works/interference-2026-poster.webp" alt="Interferences of Realities"></div>
+          <div class="shade" style="background:linear-gradient(180deg,transparent 55%,rgba(5,6,8,.85))"></div>
+          <span class="play">▶</span>
+          <span class="lab" data-i18n="case_v_dur">trailer · full video on project site</span>
+        </a>
+        <div>
+          <h3 class="ft-display">Interferences of Realities</h3>
+          <p class="lead ft-body" data-i18n="case_lead">A live performance where the <b>collective brain activity of twelve volunteer participants</b> becomes part of the scenic system. Twelve performers and twelve audience members wear neurointerfaces; their physiological data are processed in real time and shape the visual and scenic structure of the work. The audience does not watch an installation — it becomes the composition.</p>
+          <div class="facts">
+            <div class="f"><div class="v" data-i18n="case_f1_v">16.05.2026</div><div class="k" data-i18n="case_f1_k">premiere · Tsiolkovsky Fest, IKC Kaluga</div></div>
+            <div class="f"><div class="v c" data-i18n="case_f2_v">12 + 12</div><div class="k" data-i18n="case_f2_k">performers + volunteer participants</div></div>
+            <div class="f"><div class="v c" data-i18n="case_f3_v">live</div><div class="k" data-i18n="case_f3_k">collective data processing in real time</div></div>
+            <div class="f"><div class="v" data-i18n="case_f4_v">data → scene</div><div class="k" data-i18n="case_f4_k">physiology shapes visual and scenic structure</div></div>
+          </div>
+          <div class="cta-row ft-note">
+            <a class="btn primary" href="https://interference.odadream.art" target="_blank" rel="noopener"><span data-i18n="case_cta1">Full project</span><span class="ar">↗</span></a>
+            <a class="btn ghost" href="#gallery"><span data-i18n="case_cta2">Photos &amp; video</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GALLERY STRIP -->
+    <div class="strip" id="gallery">
+      <div class="shead"><div class="secrow"><span class="r">scroll →</span></div></div>
+      <div class="track">
+        <a class="g" href="https://interference.odadream.art" target="_blank" rel="noopener">
+          <img src="../public/images/content/events/interference-2026/interference-2026-04.webp" alt="visual layer">
+          <span class="gshade"></span><span class="play">▶</span><span class="gl">trailer</span><span class="gtx">interference.odadream.art</span>
+        </a>
+        <div class="g"><img src="../public/images/content/events/interference-2026/interference-2026-05.webp" alt=""><span class="gshade"></span><span class="gl">01</span><span class="gtx">stage</span></div>
+        <div class="g"><img src="../public/images/content/events/interference-2026/interference-2026-06.webp" alt=""><span class="gshade"></span><span class="gl">02</span><span class="gtx">data → scene</span></div>
+        <div class="g"><img src="../public/images/content/events/interference-2026/interference-2026-07.webp" alt=""><span class="gshade"></span><span class="gl">03</span><span class="gtx">collective</span></div>
+        <div class="g"><img src="../public/images/content/events/interference-2026/interference-2026-08.webp" alt=""><span class="gshade"></span><span class="gl">04</span><span class="gtx">real-time</span></div>
+        <div class="g"><img src="../public/images/content/events/interference-2026/interference-2026-09.webp" alt=""><span class="gshade"></span><span class="gl">05</span><span class="gtx">IKC Kaluga</span></div>
+        <div class="g"><img src="../public/images/content/events/byob-2026/neuromandala-installation.webp" alt=""><span class="gshade"></span><span class="gl">06</span><span class="gtx">neuromandala · BYOB</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 CO-PRODUCTION -->
+  <section class="coprod" id="coproduction">
+    <div class="secrow">
+      <span class="n">03 /</span><h2 class="ft-heading" data-i18n="cop_sec">From artwork to international co-production format</h2>
+    </div>
+    <div class="cols3">
+      <div class="col hot">
+        <span class="gno">A</span>
+        <h3 class="ft-heading" data-i18n="cop_a_t">ODA.dream brings</h3>
+        <div data-i18n="cop_a_1" class="it">artistic concept and IP</div>
+        <div data-i18n="cop_a_2" class="it">software core</div>
+        <div data-i18n="cop_a_3" class="it">neurointerface methodology</div>
+        <div data-i18n="cop_a_4" class="it">dramaturgical framework</div>
+        <div data-i18n="cop_a_5" class="it">creative and technical direction</div>
+        <div data-i18n="cop_a_6" class="it">compact core team / equipment</div>
+      </div>
+      <div class="col cold">
+        <span class="gno">B</span>
+        <h3 class="ft-heading" data-i18n="cop_b_t">Local partner provides</h3>
+        <div data-i18n="cop_b_1" class="it">venue</div>
+        <div data-i18n="cop_b_2" class="it">local performers</div>
+        <div data-i18n="cop_b_3" class="it">local technicians</div>
+        <div data-i18n="cop_b_4" class="it">production resources</div>
+        <div data-i18n="cop_b_5" class="it">local audience and community</div>
+        <div data-i18n="cop_b_6" class="it">local institutional context</div>
+      </div>
+      <div class="col">
+        <span class="gno">C</span>
+        <h3 class="ft-heading" data-i18n="cop_c_t">Result</h3>
+        <div data-i18n="cop_c_1" class="it">a new local version of the work</div>
+        <div data-i18n="cop_c_2" class="it">international co-production</div>
+        <div data-i18n="cop_c_3" class="it">local cultural relevance</div>
+        <div data-i18n="cop_c_4" class="it">export of Russian creative IP and expertise</div>
+        <div data-i18n="cop_c_5" class="it">scalable production — no heavy touring</div>
+      </div>
+    </div>
+    <div class="note-mono" data-i18n="cop_note">Proposed co-production model — currently being developed with international partners.</div>
+  </section>
+
+  <!-- 7 NEUROSYNCHRONIZATION -->
+  <section class="neurosync imgfx" id="neurosync">
+    <div class="ph"><img src="../public/images/content/events/interference-2026/interference-2026-07.webp" alt="Collective neurosynchronization — many people, one wave"></div>
+    <div class="shade"></div>
+    <div class="nbody over">
+      <h2 class="ft-display" data-i18n="ns_h"><em>Neuro</em>synchronization</h2>
+      <div class="cols">
+        <div>
+          <p data-i18n="ns_p1">The world accelerates. Technologies and mediums change one after another. Attention is fragmented. Stress grows. In this storm — we are here.</p>
+          <p data-i18n="ns_p2">Through our work, we create a <b>field of safety</b> for people. Not in spite of the storm — within it. Returning each person to themselves: to their body, their mind, their values.</p>
+          <p data-i18n="ns_p3">Not individually — but <b>collectively</b>. 5, 10, 100, 1000 people in a feedback loop. Neurosynchronization: when many catch the same wave.</p>
+        </div>
+        <div>
+          <p data-i18n="ns_p4">Empathy opens. People remember themselves — their childhood, their roots, their parents. They feel <b>connection, participation, alignment</b>.</p>
+          <p data-i18n="ns_p5">No internal state is bad or good. It is different in everyone. We show that we are all different — but connected, constantly interacting. Our reality is simultaneously subjective and collective, but it can be shaped through aligning interpretations, through removing blinders, through the unfamiliar that is kind, warm and engaging.</p>
+          <p data-i18n="ns_p6">This is an experience that cannot be forgotten.</p>
+        </div>
+      </div>
+      <div class="vals">
+        <span>kindness</span><span>·</span>
+        <span>safety</span><span>·</span>
+        <span>warmth</span><span>·</span>
+        <span>depth</span><span>·</span>
+        <span>trust</span><span>·</span>
+        <span>beauty</span><span>·</span>
+        <span>wholeness</span><span>·</span>
+        <span>diversity</span><span>·</span>
+        <span>openness</span><span>·</span>
+        <span>peace</span><span>·</span>
+        <span>care</span><span>·</span>
+        <span>mystery</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 WHY ODA -->
+  <section class="why" id="why">
+    <div class="secrow">
+      <span class="n">04 /</span><h2 class="ft-heading" data-i18n="why_sec">Why ODA.dream</h2>
+    </div>
+    <div class="cards4">
+      <div class="cd"><div class="n sa">01</div><h3 class="ft-heading" data-i18n="why1_t">Art + Technology</h3><p data-i18n="why1_p">Own artistic practice combined with engineering and software competence in one team.</p></div>
+      <div class="cd"><div class="n">02</div><h3 class="ft-heading" data-i18n="why2_t">Proven in live environments</h3><p data-i18n="why2_p">Real performances, festivals, corporate events and live audience.</p></div>
+      <div class="cd"><div class="n sa">03</div><h3 class="ft-heading" data-i18n="why3_t">Human-to-human focus</h3><p data-i18n="why3_p">Relationships, collectivity, attention and synchronization are the core of the research.</p></div>
+      <div class="cd"><div class="n">04</div><h3 class="ft-heading" data-i18n="why4_t">From prototype to format</h3><p data-i18n="why4_p">Not only artworks, but reproducible artistic-technological formats.</p></div>
+    </div>
+  </section>
+
+  <!-- 9 TRACK RECORD -->
+  <section class="track">
+    <div class="inner">
+      <div class="awards">
+        <h3 data-i18n="tr_aw">Awards &amp; recognition</h3>
+        <div class="alist">
+          <div class="a"><b>1st</b> ART × TECHNOLOGY, Skolkovo<span class="yr">2026</span></div>
+          <div class="a"><b>Prix Ars Electronica</b> &amp; STARTS Prize submission<span class="yr">2026</span></div>
+          <div class="a"><b>CultTech Lab</b> Vienna grant<span class="yr">2026</span></div>
+          <div class="a"><b>1st</b> VJ Visioning, Portal 2030<span class="yr">2025</span></div>
+          <div class="a"><b>CYENS WIP</b> Cyprus runner-up<span class="yr">2026</span></div>
+          <div class="a"><b>Patent</b> Neuromandala system<span class="yr">2026</span></div>
+          <div class="a"><b>Trademark</b> ODA.Dream registered<span class="yr">2026</span></div>
+        </div>
+      </div>
+      <div class="partners">
+        <h3 data-i18n="tr_pa">Partners &amp; clients</h3>
+        <div class="plist">
+          <span><b>EkoNiva</b></span>
+          <span><b>Tavrida.ART</b></span>
+          <span><b>Merck</b></span>
+          <span><b>Lamborghini</b></span>
+          <span><b>Audi</b></span>
+          <span><b>Sberbank</b></span>
+          <span><b>HSE University</b></span>
+          <span><b>MIPT</b></span>
+          <span><b>Bauman MSTU</b></span>
+          <span><b>T-Bank</b></span>
+          <span><b>CCI of Russia</b></span>
+          <span><b>Neiry</b></span>
+          <span><b>Innovation Ballet Theatre</b></span>
+          <span><b>Skolkovo</b></span>
+          <span><b>CultTech Austria</b></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 LOOKING FOR -->
+  <section class="look">
+    <div class="secrow">
+      <span class="n">05 /</span><h2 class="ft-heading" data-i18n="look_sec">We are currently looking for</h2>
+    </div>
+    <div class="items">
+      <div class="it"><i>01</i><span data-i18n="look_1">international co-production partners</span></div>
+      <div class="it"><i>02</i><span data-i18n="look_2">cultural institutions interested in commissioning local adaptations</span></div>
+      <div class="it"><i>03</i><span data-i18n="look_3">producers and creative-industry organisations with access to international markets</span></div>
+      <div class="it"><i>04</i><span data-i18n="look_4">pilot markets for 2027–2028</span></div>
+      <div class="it"><i>05</i><span data-i18n="look_5">partners for scalable creative-tech formats in performing arts, museums and major public events</span></div>
+    </div>
+    <div class="note" data-i18n="look_note">We are especially interested in projects where ODA.dream creates a <b>new work together with local performers, institutions and technology partners</b>.</div>
+  </section>
+
+  <!-- 11 ABOUT -->
+  <section class="about">
+    <div class="secrow">
+      <span class="n">06 /</span><h2 class="ft-heading" data-i18n="about_sec">About ODA.dream</h2>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3 class="ft-heading">Daler Arabov</h3>
+        <div class="role" data-i18n="about1_role">scientific / technological artist · creative technologist</div>
+        <p data-i18n="about1_p">Former head of fablab at Bauman Moscow State Technical University. Member of the Creative Union of Artists of Russia (ТСХР).</p>
+      </div>
+      <div class="card">
+        <h3 class="ft-heading">Olga Arabova</h3>
+        <div class="role" data-i18n="about2_role">co-founder · artist · project development</div>
+        <p data-i18n="about2_p">Artistic practice, project development and the studio behind the international formats.</p>
+      </div>
+    </div>
+    <div class="chips" style="margin-top:var(--sp-5)">
+      <span class="ch">Bauman MSTU</span><span class="ch">ТСХР</span><span class="ch">Neiry</span><span class="ch">IKC Kaluga</span><span class="ch">Tsiolkovsky Fest</span><span class="ch">BYOB</span>
+    </div>
+  </section>
+
+  <!-- 12 CTA -->
+  <section class="cta imgfx" id="contact">
+    <div class="ph"><img src="../public/images/content/events/interference-2026/interference-2026-07.webp" alt="Collective experience"></div>
+    <div class="shade"></div>
+    <div class="cbody over">
+      <h2 class="ft-display" data-i18n="cta_h">Let's build the next version together</h2>
+      <p data-i18n="cta_p">We are open to international co-production, commissions and strategic partnerships around new forms of live and interactive experience.</p>
+      <div class="cta-row ft-note">
+        <a class="btn primary" href="mailto:hi@odadream.art"><span data-i18n="cta_email">Email Daler &amp; the team</span><span class="ar">→</span></a>
+        <a class="btn ghost" href="https://t.me/odadream_info" target="_blank" rel="noopener"><span data-i18n="cta_tg">Telegram — fastest response</span></a>
+      </div>
+      <div class="contact-lines">
+        <div class="cl"><div class="k">email</div><a href="mailto:hi@odadream.art">hi@odadream.art</a></div>
+        <div class="cl"><div class="k">telegram</div><a href="https://t.me/odadream_info" target="_blank" rel="noopener">@odadream_info</a></div>
+        <div class="cl"><div class="k">main site</div><a href="https://odadream.art" target="_blank" rel="noopener">odadream.art</a></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <span>© 2018–2026 ODA.dream</span>
+  <span><span class="pix c" id="footpix"></span> Art &amp; Science · Wellness Art Tech</span>
+  <span>odadream.art · hi@odadream.art</span>
+</footer>
+
+<script>
+(function(){
+var DIAMOND=[1,0,0,1, 0,1,1,0, 0,1,1,0, 1,0,0,1];
+function fillPix(id,arr){var el=document.getElementById(id);if(el)el.innerHTML=arr.map(function(v){return '<i class="'+(v?'o':'')+'"></i>'}).join('')}
+fillPix('brandpix',DIAMOND);
+fillPix('footpix',DIAMOND);
+
+var I18N={
+  brand:{en:'<span class="pix w" id="brandpix"></span><span>ODA.<b>dream</b></span><span class="yrs">creative-tech · international</span>',ru:'<span class="pix w" id="brandpix"></span><span>ODA.<b>dream</b></span><span class="yrs">creative-tech · international</span>'},
+  hero_eyebrow:{en:'Creative-tech R&amp;D studio · Participatory Art <span class="amp-s">&amp;</span> Science',ru:'Creative-tech R&amp;D студия · Participatory Art <span class="amp-s">&amp;</span> Science'},
+  hero_h1:{en:'New forms of <em class="w">human-to-human</em> interaction<br>through <em class="c">art and technology</em>',ru:'Новые формы <em class="w">взаимодействия между людьми</em><br>через <em class="c">искусство и технологии</em>'},
+  hero_lead:{en:'ODA.dream is an Art &amp; Science creative-tech studio developing performance and interactive formats where physiological signals, audience participation and real-time systems become part of the artistic language.',ru:'ODA.dream — художественно-технологическая R&amp;D-студия, создающая перформативные и интерактивные форматы, в которых физиологические сигналы, участие зрителей и системы реального времени становятся частью художественного языка.'},
+  cta_primary:{en:'Explore our works',ru:'Наши работы'},
+  cta_ghost:{en:'Discuss international co-production',ru:'Обсудить международную копродукцию'},
+  hero_m1_v:{en:'12 + 12',ru:'12 + 12'},
+  hero_m1_k:{en:'performers + volunteers with neurointerfaces',ru:'исполнители + зрители с нейроинтерфейсами'},
+  hero_m2_v:{en:'16 May 2026',ru:'16 мая 2026'},
+  hero_m2_k:{en:'premiere · Tsiolkovsky Fest, IKC Kaluga',ru:'премьера · Циолковский Фест, ИКЦ Калуга'},
+  hero_m3_v:{en:'real-time',ru:'реальное время'},
+  hero_m3_k:{en:'collective data becomes the scene',ru:'коллективные данные становятся сценой'},
+  diff_r:{en:'the difference',ru:'различие'},
+  diff_1:{en:'We do not use neurotechnology to control machines.',ru:'Мы используем нейротехнологии не для управления объектами.'},
+  diff_2:{en:'We use technology to create <em class="c">new relationships between people</em>.',ru:'Мы используем их, чтобы создавать <em class="c">новые отношения между людьми</em>.'},
+  chip_1:{en:'collective attention',ru:'коллективное внимание'},
+  chip_2:{en:'audience as participant',ru:'зритель как участник'},
+  chip_3:{en:'physiological data as dramaturgical material',ru:'физиологические данные как драматургический материал'},
+  met1_v:{en:'7 <span class="accent">years</span>',ru:'7 <span class="accent">лет</span>'},
+  met1_k:{en:'on the market',ru:'на рынке'},
+  met2_v:{en:'80<span class="accent">+</span>',ru:'80<span class="accent">+</span>'},
+  met2_k:{en:'events &amp; sessions',ru:'мероприятий и сессий'},
+  met3_v:{en:'1 500<span class="accent">+</span>',ru:'1 500<span class="accent">+</span>'},
+  met3_k:{en:'participants measured',ru:'участников замерено'},
+  met4_v:{en:'10<span class="accent">+</span>',ru:'10<span class="accent">+</span>'},
+  met4_k:{en:'cities',ru:'городов'},
+  prod_sec:{en:'Our works · formats &amp; technologies',ru:'Наши работы · форматы и технологии'},
+  p1_t:{en:'Interferences of Realities',ru:'Интерференция реальностей'},
+  p1_p:{en:'12 performers + 12 audience in neurointerfaces. Collective brain activity becomes the scenic system. Live.',ru:'12 исполнителей + 12 зрителей с нейроинтерфейсами. Коллективная мозговая активность становится сценической системой. Live.'},
+  p2_t:{en:'Project Schrödinger',ru:'Проект «Шрёдингер»'},
+  p2_p:{en:'Collective neuro-theatre. 8 devices between audience and dancers. Science art as live biofeedback protocol.',ru:'Коллективный нейротеатр. 8 устройств между зрителями и танцорами. Science art как живой протокол биообратной связи.'},
+  p3_p:{en:'Personal audiovisual animation generated directly from neural signals and verbal narrative. 7 min per person.',ru:'Персональная аудиовизуальная анимация, генерируемая напрямую из нейросигналов и словесного нарратива. 7 мин на человека.'},
+  p4_t:{en:'Neurobattle · Paradox of Victory',ru:'Парадокс Победы'},
+  p4_p:{en:'Two participants, one virtual object. Victory belongs not to the stronger, but to the more aware. 90-second rounds.',ru:'Два участника, один виртуальный объект. Победа — не сильнейшему, а осознанному. 90-секундные раунды.'},
+  p5_p:{en:'Core technology platform. Biosignals → living audiovisual form. Patent pending. The engine under all products.',ru:'Базовая технологическая платформа. Биосигналы → живая аудиовизуальная форма. Заявка на патент. Движок всех продуктов.'},
+  p6_t:{en:'Lecture-performances',ru:'Лекции-перформансы'},
+  p6_p:{en:'Neuroscience translated into live aesthetic experience. Real-time brain data on screen. Audience participates.',ru:'Нейронаука, переведённая в живой эстетический опыт. Данные мозга в реальном времени на экране. Аудитория участвует.'},
+  case_sec:{en:'Flagship case · proven prototype',ru:'Флагманский кейс · доказанный прототип'},
+  case_lead:{en:'A live performance where the <b>collective brain activity of twelve volunteer participants</b> becomes part of the scenic system. Twelve performers and twelve audience members wear neurointerfaces; their physiological data are processed in real time and shape the visual and scenic structure of the work. The audience does not watch an installation — it becomes the composition.',ru:'Живой перформанс, в котором <b>коллективная нейронная активность двенадцати зрителей-добровольцев</b> становится частью сценической системы. Двенадцать исполнителей и двенадцать зрителей подключены к нейроинтерфейсам; их физиологические данные обрабатываются в реальном времени и управляют визуальной и сценической структурой. Зритель не наблюдает за инсталляцией — он становится её частью.'},
+  case_f1_v:{en:'16.05.2026',ru:'16.05.2026'},
+  case_f1_k:{en:'premiere · Tsiolkovsky Fest, IKC Kaluga',ru:'премьера · Циолковский Фест, ИКЦ Калуга'},
+  case_f2_v:{en:'12 + 12',ru:'12 + 12'},
+  case_f2_k:{en:'performers + volunteer participants',ru:'исполнители + зрители-добровольцы'},
+  case_f3_v:{en:'live',ru:'live'},
+  case_f3_k:{en:'collective data processing in real time',ru:'обработка коллективных данных в реальном времени'},
+  case_f4_v:{en:'data → scene',ru:'данные → сцена'},
+  case_f4_k:{en:'physiology shapes visual and scenic structure',ru:'физиология формирует визуальную и сценическую структуру'},
+  case_cta1:{en:'Full project',ru:'Полный проект'},
+  case_cta2:{en:'Photos &amp; video',ru:'Фото и видео'},
+  case_v_dur:{en:'trailer · full video on project site',ru:'трейлер · полное видео на сайте проекта'},
+  cop_sec:{en:'From artwork to international co-production format',ru:'От произведения к формату международной копродукции'},
+  cop_a_t:{en:'ODA.dream brings',ru:'Приносит ODA.dream'},
+  cop_a_1:{en:'artistic concept and IP',ru:'художественная концепция и IP'},
+  cop_a_2:{en:'software core',ru:'программное ядро'},
+  cop_a_3:{en:'neurointerface methodology',ru:'методика нейроинтерфейсов'},
+  cop_a_4:{en:'dramaturgical framework',ru:'драматургическая рамка'},
+  cop_a_5:{en:'creative and technical direction',ru:'художественное и техническое руководство'},
+  cop_a_6:{en:'compact core team / equipment',ru:'компактная команда / оборудование'},
+  cop_b_t:{en:'Local partner provides',ru:'Даёт локальный партнёр'},
+  cop_b_1:{en:'venue',ru:'площадка'},
+  cop_b_2:{en:'local performers',ru:'локальные исполнители'},
+  cop_b_3:{en:'local technicians',ru:'локальные техники'},
+  cop_b_4:{en:'production resources',ru:'производственные ресурсы'},
+  cop_b_5:{en:'local audience and community',ru:'локальная аудитория и сообщество'},
+  cop_b_6:{en:'local institutional context',ru:'локальный институциональный контекст'},
+  cop_c_t:{en:'Result',ru:'Результат'},
+  cop_c_1:{en:'a new local version of the work',ru:'новая локальная версия произведения'},
+  cop_c_2:{en:'international co-production',ru:'международная копродукция'},
+  cop_c_3:{en:'local cultural relevance',ru:'локальная культурная значимость'},
+  cop_c_4:{en:'export of Russian creative IP and expertise',ru:'экспорт российского креативного IP и экспертизы'},
+  cop_c_5:{en:'scalable production — no heavy touring',ru:'масштабируемое производство без тяжёлых гастролей'},
+  cop_note:{en:'Proposed co-production model — currently being developed with international partners.',ru:'Предлагаемая модель копродукции — в стадии развития с международными партнёрами.'},
+  ns_h:{en:'<em>Neuro</em>synchronization',ru:'<em>Нейро</em>синхронизация'},
+  ns_p1:{en:'The world accelerates. Technologies and mediums change one after another. Attention is fragmented. Stress grows. In this storm — we are here.',ru:'Мир ускоряется. Технологии и медиумы сменяют друг друга. Внимание раздроблено. Стресс нарастает. В этом шторме — мы здесь.'},
+  ns_p2:{en:'Through our work, we create a <b>field of safety</b> for people. Not in spite of the storm — within it. Returning each person to themselves: to their body, their mind, their values.',ru:'Через наше творчество мы создаём <b>поле безопасности</b> для человека. Не вопреки шторму — внутри него. Возвращая каждого к себе: к своему телу, разуму, ценностям.'},
+  ns_p3:{en:'Not individually — but <b>collectively</b>. 5, 10, 100, 1000 people in a feedback loop. Neurosynchronization: when many catch the same wave.',ru:'Не индивидуально — а <b>коллективно</b>. 5, 10, 100, 1000 человек в петле обратной связи. Нейросинхронизация: когда множество ловит одну волну.'},
+  ns_p4:{en:'Empathy opens. People remember themselves — their childhood, their roots, their parents. They feel <b>connection, participation, alignment</b>.',ru:'Открывается эмпатия. Люди вспоминают себя — своё детство, корни, родителей. Чувствуют <b>связность, сопричастность, согласованность</b>.'},
+  ns_p5:{en:'No internal state is bad or good. It is different in everyone. We show that we are all different — but connected, constantly interacting. Our reality is simultaneously subjective and collective, but it can be shaped through aligning interpretations, through removing blinders, through the unfamiliar that is kind, warm and engaging.',ru:'Нет плохого внутреннего состояния, нет хорошего. Оно у всех разное. Мы показываем, что все мы разные — но связаны, постоянно взаимодействуем. Наша реальность одновременно субъективна и коллективна, но её можно формировать через согласование интерпретаций, через снятие шор, через неизведанное, но доброе, тёплое и вовлекающее.'},
+  ns_p6:{en:'This is an experience that cannot be forgotten.',ru:'Это опыт, который невозможно забыть.'},
+  why_sec:{en:'Why ODA.dream',ru:'Почему ODA.dream'},
+  why1_t:{en:'Art + Technology',ru:'Искусство + Технологии'},
+  why1_p:{en:'Own artistic practice combined with engineering and software competence in one team.',ru:'Собственная художественная практика плюс инженерная и программная компетенция в одной команде.'},
+  why2_t:{en:'Proven in live environments',ru:'Доказано в живых форматах'},
+  why2_p:{en:'Real performances, festivals, corporate events and live audience.',ru:'Реальные перформансы, фестивали, корпоративные события и живая аудитория.'},
+  why3_t:{en:'Human-to-human focus',ru:'Фокус на человек-человек'},
+  why3_p:{en:'Relationships, collectivity, attention and synchronization are the core of the research.',ru:'Отношения, коллективность, внимание и синхронизация — ядро исследования.'},
+  why4_t:{en:'From prototype to format',ru:'От прототипа к формату'},
+  why4_p:{en:'Not only artworks, but reproducible artistic-technological formats.',ru:'Не только произведения, но воспроизводимые художественно-технологические форматы.'},
+  tr_aw:{en:'Awards &amp; recognition',ru:'Награды и признание'},
+  tr_pa:{en:'Partners &amp; clients',ru:'Партнёры и клиенты'},
+  look_sec:{en:'We are currently looking for',ru:'Мы сейчас ищем'},
+  look_1:{en:'international co-production partners',ru:'партнёров по международной копродукции'},
+  look_2:{en:'cultural institutions interested in commissioning local adaptations',ru:'культурные институции, заинтересованные в локальных адаптациях'},
+  look_3:{en:'producers and creative-industry organisations with access to international markets',ru:'продюсеров и организации креативных индустрий с доступом на международные рынки'},
+  look_4:{en:'pilot markets for 2027–2028',ru:'пилотные рынки на 2027–2028'},
+  look_5:{en:'partners for scalable creative-tech formats in performing arts, museums and major public events',ru:'партнёров для масштабируемых creative-tech форматов в перформативных искусствах, музеях и крупных публичных событиях'},
+  look_note:{en:'We are especially interested in projects where ODA.dream creates a <b>new work together with local performers, institutions and technology partners</b>.',ru:'Особенно интересны проекты, где ODA.dream создаёт <b>новую работу вместе с локальными исполнителями, институциями и технологическими партнёрами</b>.'},
+  about_sec:{en:'About ODA.dream',ru:'Об ODA.dream'},
+  about1_role:{en:'scientific / technological artist · creative technologist',ru:'научный / технологический художник · креативный технолог'},
+  about1_p:{en:'Former head of fablab at Bauman Moscow State Technical University. Member of the Creative Union of Artists of Russia (ТСХР).',ru:'Экс-руководитель fablab МГТУ им. Баумана. Член Творческого союза художников России (ТСХР).'},
+  about2_role:{en:'co-founder · artist · project development',ru:'со-основатель · художник · развитие проектов'},
+  about2_p:{en:'Artistic practice, project development and the studio behind the international formats.',ru:'Художественная практика, развитие проектов и студия международных форматов.'},
+  cta_h:{en:'Let\'s build the next version together',ru:'Давайте создадим следующую версию вместе'},
+  cta_p:{en:'We are open to international co-production, commissions and strategic partnerships around new forms of live and interactive experience.',ru:'Мы открыты к международной копродукции, заказам и стратегическим партнёрствам вокруг новых форм живого и интерактивного опыта.'},
+  cta_email:{en:'Email Daler &amp; the team',ru:'Написать команде'},
+  cta_tg:{en:'Telegram — fastest response',ru:'Telegram — быстрее всего'}
+};
+
+function applyLang(l){
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    var v=I18N[k]&&I18N[k][l];
+    if(v)el.innerHTML=v;
+  });
+  document.documentElement.setAttribute('lang',l);
+  lbtns.forEach(function(b){b.classList.toggle('active',b.dataset.lang===l)});
+  rePix();
+}
+function rePix(){fillPix('brandpix',DIAMOND);fillPix('footpix',DIAMOND);}
+
+var lbtns=Array.from(document.querySelectorAll('.cbtn[data-lang]'));
+lbtns.forEach(function(b){b.addEventListener('click',function(){applyLang(b.dataset.lang)})});
+
+var cbtns=Array.from(document.querySelectorAll('.cbtn[data-c]'));
+cbtns.forEach(function(b){b.addEventListener('click',function(){
+  document.body.setAttribute('data-color',b.dataset.c);
+  cbtns.forEach(function(x){x.classList.toggle('active',x.dataset.c===b.dataset.c)});
+})});
+})();
+</script>
+</body>
+</html>
