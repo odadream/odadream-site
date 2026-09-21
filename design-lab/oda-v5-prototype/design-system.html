@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>ODA.dream — design system</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">К содержимому</a>
+  <header class="site-header">
+    <div class="shell header-row">
+      <a class="wordmark" href="index.html" aria-label="ODA.dream — главная"><img src="assets/ODA-original.svg" alt="ODA.dream"></a>
+      <nav aria-label="Навигация макета">
+        <a href="index.html">Главная</a><a href="works.html">Работы</a><a class="active" href="design-system.html">Система</a>
+      </nav>
+      <div class="header-tools"><span class="lang-button" aria-label="Язык макета">RU</span></div>
+    </div>
+  </header>
+
+  <main id="main" class="system-page shell">
+    <section class="system-intro">
+      <div class="section-mark"><span>DS</span><span>ODA.dream / v5</span></div>
+      <div>
+        <h1>Система, в которой работа остаётся главным событием.</h1>
+        <p>Рабочий стенд для проверки визуальных правил до миграции. Он не является страницей будущего сайта: здесь показаны роли, значения и пограничные состояния интерфейса.</p>
+        <p class="system-stamp">ARTISTIC MATERIAL FIRST · UI AS DOCUMENTATION · 21.09.2026</p>
+      </div>
+    </section>
+
+    <section class="system-section">
+      <aside class="system-side"><b>01</b> Основание<p>Палитра разделяет материал, интерфейс и статус. Зелёный — точный навигационный сигнал, а не декоративный цвет.</p></aside>
+      <div class="system-content">
+        <p class="system-lede">Фон почти чёрный, но тёплый; текст не ослепительно-белый. Никаких скруглённых «плашек», теней или цветовых блоков без смысловой роли.</p>
+        <div class="system-grid">
+          <div class="swatch bg"><span class="token-id">C-01</span><span class="token-name">Canvas</span><span class="token-note">#161514 · основной фон</span></div>
+          <div class="swatch surface"><span class="token-id">C-02</span><span class="token-name">Surface</span><span class="token-note">#1c1b19 · вложенный слой</span></div>
+          <div class="swatch ink light"><span class="token-id">C-03</span><span class="token-name">Ink</span><span class="token-note">#f3f1ec · несущий текст</span></div>
+          <div class="swatch muted light"><span class="token-id">C-04</span><span class="token-name">Metadata</span><span class="token-note">#aaa79f · подписи</span></div>
+          <div class="swatch accent light"><span class="token-id">C-05</span><span class="token-name">Signal</span><span class="token-note">#00d884 · действие / фокус</span></div>
+          <div class="swatch line"><span class="token-id">C-06</span><span class="token-name">Rule</span><span class="token-note">#46443e · разделитель</span></div>
+          <div class="swatch alert light"><span class="token-id">C-07</span><span class="token-name">Caution</span><span class="token-note">#efb452 · требующее проверки</span></div>
+          <div class="swatch danger light"><span class="token-id">C-08</span><span class="token-name">Error</span><span class="token-note">#df716b · ошибка / отсутствует</span></div>
+        </div>
+        <div class="surface-row">
+          <div class="surface s0">S-00 · канва страницы<div class="gradient-chip"></div></div>
+          <div class="surface s1">S-01 · поверхность карточки<div class="texture-chip"></div></div>
+          <div class="surface s2">S-02 · приподнятый слой<br><br>Градиент — только для мягкого перехода в медиа. Текстура — не больше 4% непрозрачности и никогда под текстом.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="system-section">
+      <aside class="system-side"><b>02</b> Типографика<p>Manrope служит для чтения и художественного высказывания. JetBrains Mono — только для координат, фактов, интерфейса и provenance.</p></aside>
+      <div class="system-content">
+        <div class="type-list">
+          <div class="type-row"><div class="type-meta">T-01 · display</div><div class="type-example display">Внутреннее состояние как материал.</div><div class="type-spec">Manrope 500<br>38–70 / 1.0</div></div>
+          <div class="type-row"><div class="type-meta">T-02 · page title</div><div class="type-example h1">Интерференция реальностей</div><div class="type-spec">Manrope 500<br>30–51 / 1.1</div></div>
+          <div class="type-row"><div class="type-meta">T-03 · section</div><div class="type-example h2">Технология остаётся видимой.</div><div class="type-spec">Manrope 500<br>30 / 1.18</div></div>
+          <div class="type-row"><div class="type-meta">T-04 · body</div><div class="type-example body">Работа создаёт условия для наблюдения, а не выдает технологическую метафору за точное измерение внутреннего состояния.</div><div class="type-spec">JetBrains Mono 400<br>16 / 1.72</div></div>
+          <div class="type-row"><div class="type-meta">T-05 · meta</div><div class="type-example meta">16.05.2026 · Калуга · показ / документация</div><div class="type-spec">JetBrains Mono 500<br>11 / 1.6 · tracking .07em</div></div>
+          <div class="type-row"><div class="type-meta">T-06 · caption</div><div class="type-example caption">Премьера работы в Инновационном культурном центре. Фото: архив ODA.dream.</div><div class="type-spec">JetBrains Mono 400<br>10–11 / 1.5</div></div>
+        </div>
+        <div class="font-proof">
+          <div><h3>Manrope · кириллица проверена</h3><p>АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ<br>абвгдеёжзийклмнопрстуфхцчшщъыьэюя</p><p>Вес: 400 / 500 / 600 / 700. Выбран вместо Archivo: у Archivo в текущей поставке нет полной кириллицы.</p></div>
+          <div><h3>JetBrains Mono · кириллица проверена</h3><p style="font-family:var(--mono);font-size:16px">АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ<br>0123456789 · — → © №</p><p>Вес: 400 / 500 / 600. Лигатуры не используются: техническая строка должна быть буквально считываемой.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="system-section">
+      <aside class="system-side"><b>03</b> Ритм и сетка<p>Базовая единица — 4 px. На странице используются только показанные интервалы. Исключение — высота изображения, она определяется его пропорцией.</p></aside>
+      <div class="system-content">
+        <div class="measure-grid">
+          <div><p class="component-title">Интервалы</p><div class="scale-table">
+            <div class="scale-row"><b>S-01</b><span>4 px</span><i class="measure v4"></i></div><div class="scale-row"><b>S-02</b><span>8 px</span><i class="measure v8"></i></div><div class="scale-row"><b>S-03</b><span>12 px</span><i class="measure v12"></i></div><div class="scale-row"><b>S-04</b><span>16 px</span><i class="measure v16"></i></div><div class="scale-row"><b>S-05</b><span>24 px</span><i class="measure v24"></i></div><div class="scale-row"><b>S-06</b><span>32 px</span><i class="measure v32"></i></div><div class="scale-row"><b>S-07</b><span>48 px</span><i class="measure v48"></i></div><div class="scale-row"><b>S-08</b><span>64 px</span><i class="measure v64"></i></div><div class="scale-row"><b>S-09</b><span>96 px</span><i class="measure v96"></i></div><div class="scale-row"><b>S-10</b><span>128 px</span><i class="measure v128"></i></div>
+          </div></div>
+          <div><p class="component-title">Контейнер</p><div class="layout-sample"><div class="layout-card">12 колонок · gutter 20–25 px<br>широкий контейнер: 1360 px максимум<br>края: 16 px mobile / 40 px desktop</div><span class="layout-tag">GRID / VISUAL CHECK</span></div></div>
+        </div>
+        <div class="line-samples" style="margin-top:32px"><div class="line-sample"><div class="line"></div><span>L-01 · 1px #46443e<br>базовый разделитель</span></div><div class="line-sample"><div class="line strong"></div><span>L-02 · 1px #706d65<br>граница интерактива</span></div><div class="line-sample"><div class="line accent"></div><span>L-03 · 2px signal<br>активный маршрут / цитата</span></div></div>
+      </div>
+    </section>
+
+    <section class="system-section">
+      <aside class="system-side"><b>04</b> Навигация и действия<p>Интерфейс говорит тихо. Кнопка появляется только когда действие невозможно выразить ссылкой. Любая цель касания — минимум 44 × 44 px.</p></aside>
+      <div class="system-content component-grid">
+        <div class="component-sample wide"><p class="component-title">Меню · active / neutral</p><nav class="menu-sample" aria-label="Пример меню"><a class="current" href="#">Работы</a><a href="#">Практика</a><a href="#">Хроника</a><a href="#">Контакт</a></nav></div>
+        <div class="component-sample"><p class="component-title">Ссылки</p><div class="action-row"><a class="link-sample" href="#">Документация работы ↗</a><a class="link-sample" href="#">Вернуться к работам</a></div></div>
+        <div class="component-sample"><p class="component-title">Кнопки · только функциональные</p><div class="action-row"><button class="ui-button" type="button">Открыть медиа</button><button class="ui-button secondary" type="button">Скачать PDF</button><button class="ui-button" type="button" disabled>Недоступно</button></div></div>
+      </div>
+    </section>
+
+    <section class="system-section">
+      <aside class="system-side"><b>05</b> Материал и карточки<p>Карточка — это маршрут к работе. Она не содержит «маркетинговой» тени, градиентного фона или нескольких одинаково громких действий.</p></aside>
+      <div class="system-content component-grid">
+        <article class="component-sample card-sample"><p class="component-title">Карточка работы · primary</p><img class="card-media" src="../../public/images/content/events/interference-2026/interference-2026-01.webp" alt="Финал спектакля «Интерференция реальностей»"><div class="card-line"><div><h3>Интерференция реальностей</h3><p>Спектакль-лекция / 2026</p></div><span>01 ↗</span></div></article>
+        <article class="component-sample card-sample"><p class="component-title">Карточка работы · secondary</p><img class="card-media" src="../../public/images/content/mindshow_ufa.webp" alt="MindShow"><div class="card-line"><div><h3>MindShow</h3><p>Интерактивная инсталляция / показы</p></div><span>02</span></div></article>
+        <div class="component-sample wide"><p class="component-title">Подпись к медиа · provenance всегда внизу материала</p><div class="caption-sample"><span>Сцена и участники. Премьера, Калуга, 2026.</span><span>Фото: архив ODA.dream</span></div></div>
+      </div>
+    </section>
+
+    <section class="system-section">
+      <aside class="system-side"><b>06</b> Речь, медиа и состояния<p>Цитата — художественное высказывание, не отзыв. Ошибка — конкретное объяснение с путём восстановления, без тревожной драматизации.</p></aside>
+      <div class="system-content component-grid">
+        <div class="component-sample wide"><p class="component-title">Цитата</p><div class="quote-sample"><blockquote>«Данные здесь не объясняют человека — они становятся материалом для переживания и разговора».</blockquote><cite>ODA.dream · метод студии</cite></div></div>
+        <div class="component-sample wide"><p class="component-title">Галерея · по нажатию открывается lightbox</p><div class="gallery-sample"><figure><button type="button" class="system-image-button"><img src="../../public/images/content/events/interference-2026/interference-2026-03.webp" alt="Сцена спектакля «Интерференция реальностей»"></button><figcaption class="caption-sample"><span>01 / Сцена</span><span>Нажмите для просмотра</span></figcaption></figure><figure><button type="button" class="system-image-button"><img src="../../public/images/content/neurobattle_gameplay.webp" alt="Игровой экран Neurobattle"></button><figcaption class="caption-sample"><span>02 / Интерфейс работы</span><span>Архив ODA.dream</span></figcaption></figure></div></div>
+        <div class="component-sample wide"><p class="component-title">Ошибка / нет файла</p><div class="error-sample"><span class="error-code">×</span><div><strong>Материал временно недоступен</strong><p>Файл не был найден в архиве. Основное описание работы и связанные документы остаются доступны.</p></div><a class="link-sample" href="#">К документации ↗</a></div></div>
+      </div>
+    </section>
+    <p class="system-footer-note">Этот стенд фиксирует компоненты, которые можно переносить в новую архитектуру. Он намеренно не включает лотос, анимационные эффекты или рекламные CTA.</p>
+  </main>
+
+  <div class="system-lightbox" hidden aria-modal="true" role="dialog" aria-label="Увеличенное изображение"><button type="button" aria-label="Закрыть">×</button><img alt=""></div>
+  <footer class="site-footer shell"><span>ODA.dream © 2026</span><span>Design system / internal review</span><a href="index.html">К макету ↗</a></footer>
+  <script src="design-system.js" defer></script>
+</body>
+</html>
