@@ -46,6 +46,18 @@ for (const file of [
 const rootHtml = await readFile(resolve(root, 'index.html'), 'utf8');
 if (!rootHtml.includes('redirects') || !rootHtml.includes('https://odadream.art/en/'))
   fail('Root legacy bridge or canonical absent');
+const legacy = JSON.parse(await readFile('src/data/legacy-map.json', 'utf8'));
+for (const row of legacy) {
+  if (row.disposition === 'not-transferred') continue;
+  for (const target of [row.targetEn, row.targetRu]) {
+    const url = new URL(target, 'https://odadream.art');
+    const html = await readFile(resolve(root, url.pathname.slice(1), 'index.html'), 'utf8').catch(() =>
+      fail(`Legacy target missing: ${row.id} → ${target}`),
+    );
+    if (url.hash && !html.includes(`id="${decodeURIComponent(url.hash.slice(1))}"`))
+      fail(`Legacy anchor missing: ${row.id} → ${target}`);
+  }
+}
 const unresolved = await readFile(resolve(root, 'legacy/unavailable/index.html'), 'utf8');
 if (!unresolved.includes('noindex,follow')) fail('Legacy unavailable must be noindex');
 const sitemap = await readFile(resolve(root, 'sitemap-0.xml'), 'utf8');
