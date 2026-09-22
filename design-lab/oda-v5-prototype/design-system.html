@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
   <title>ODA.dream — design system</title>
-  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="refinement.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a class="skip" href="#main">К содержимому</a>
@@ -13,7 +13,7 @@
     <div class="shell header-row">
       <a class="wordmark" href="index.html" aria-label="ODA.dream — главная"><img src="assets/ODA-original.svg" alt="ODA.dream"></a>
       <nav id="nav" aria-label="Навигация макета">
-        <a href="index.html">Главная</a><a href="works.html">Работы</a><a class="active" href="design-system.html">Система</a>
+        <a href="index.html">Главная</a><a href="works.html">Работы</a><a class="active" aria-current="page" href="design-system.html">Система</a>
       </nav>
       <div class="header-tools"><span class="lang-button" aria-label="Язык макета">RU</span><button class="menu-button" aria-controls="nav" aria-expanded="false" aria-label="Открыть меню">☰</button></div>
     </div>
@@ -23,9 +23,9 @@
     <section class="system-intro">
       <div class="section-mark"><span>DS</span><span>ODA.dream / v5</span></div>
       <div>
-        <h1>Система, в которой работа остаётся главным событием.</h1>
+        <h1>Дизайн-система ODA.dream</h1>
         <p>Рабочий стенд для проверки визуальных правил до миграции. Он не является страницей будущего сайта: здесь показаны роли, значения и пограничные состояния интерфейса.</p>
-        <nav class="system-index" aria-label="Разделы системы"><a href="#system-1">Цвет</a><a href="#system-2">Шрифты</a><a href="#system-3">Ритм</a><a href="#system-4">Интерфейс</a><a href="#system-5">Карточки</a><a href="#system-6">Медиа</a><a href="#records">Документация</a><a href="#brand">Бренд</a></nav><p class="system-stamp">ARTISTIC MATERIAL FIRST · UI AS DOCUMENTATION · 21.09.2026</p>
+        <nav class="system-index" aria-label="Разделы системы"><a href="#system-1">Цвет</a><a href="#system-2">Шрифты</a><a href="#system-3">Ритм</a><a href="#system-4">Интерфейс</a><a href="#system-5">Карточки</a><a href="#system-6">Медиа</a><a href="#records">Документация</a><a href="#brand">Бренд</a></nav><p class="system-stamp">V5 · ТИПОГРАФИКА / МАТЕРИАЛ / ДОКУМЕНТАЦИЯ</p>
       </div>
     </section>
 
@@ -58,7 +58,7 @@
           <div class="type-row"><div class="type-meta">T-01 · display</div><div class="type-example display">Внутреннее состояние как материал.</div><div class="type-spec">Manrope 500<br>30–48 / 1.16</div></div>
           <div class="type-row"><div class="type-meta">T-02 · page title</div><div class="type-example h1">Интерференция реальностей</div><div class="type-spec">Manrope 500<br>28–40 / 1.16</div></div>
           <div class="type-row"><div class="type-meta">T-03 · section</div><div class="type-example h2">Технология остаётся видимой.</div><div class="type-spec">Manrope 500<br>30 / 1.18</div></div>
-          <div class="type-row"><div class="type-meta">T-04 · body</div><div class="type-example body">Работа создаёт условия для наблюдения, а не выдает технологическую метафору за точное измерение внутреннего состояния.</div><div class="type-spec">JetBrains Mono 400<br>16 / 1.72</div></div>
+          <div class="type-row"><div class="type-meta">T-04 · body</div><div class="type-example body">Работа создаёт условия для наблюдения, а не выдает технологическую метафору за точное измерение внутреннего состояния.</div><div class="type-spec">JetBrains Mono 400<br>16 / 1.65</div></div>
           <div class="type-row"><div class="type-meta">T-05 · meta</div><div class="type-example meta">16.05.2026 · Калуга · показ / документация</div><div class="type-spec">JetBrains Mono 500<br>12 / 1.6 · tracking .07em</div></div>
           <div class="type-row"><div class="type-meta">T-06 · caption</div><div class="type-example caption">Премьера работы в Инновационном культурном центре. Источник: архив ODA.dream.</div><div class="type-spec">JetBrains Mono 400<br>12 / 1.6</div></div>
         </div>
@@ -85,8 +85,8 @@
     <section class="system-section" id="system-4">
       <aside class="system-side"><b>04</b> Навигация и действия<p>Интерфейс говорит тихо. Кнопка появляется только когда действие невозможно выразить ссылкой. Отдельные элементы управления имеют высоту не менее 44 px.</p></aside>
       <div class="system-content component-grid">
-        <div class="component-sample wide"><p class="component-title">Меню · active / neutral</p><nav class="menu-sample" aria-label="Пример меню"><a class="current" href="interference.html#documentation">Работы</a><a href="interference.html#documentation">Практика</a><a href="interference.html#documentation">Хроника</a><a href="interference.html#documentation">Контакт</a></nav></div>
-        <div class="component-sample"><p class="component-title">Ссылки</p><div class="action-row"><a class="link-sample" href="interference.html#documentation">Документация работы ↗</a><a class="link-sample" href="interference.html#documentation">Вернуться к работам</a></div></div>
+        <div class="component-sample wide"><p class="component-title">Меню · active / neutral</p><nav class="menu-sample" aria-label="Пример меню"><a class="current" aria-current="page" href="works.html">Работы</a><a href="index.html#practice">Практика</a><a href="index.html#record">Хроника</a><a href="index.html#contact">Контакт</a></nav></div>
+        <div class="component-sample"><p class="component-title">Ссылки</p><div class="action-row"><a class="link-sample" href="interference.html#documentation">Документация работы ↗</a><a class="link-sample" href="works.html">Вернуться к работам</a></div></div>
         <div class="component-sample"><p class="component-title">Кнопки · только функциональные</p><div class="action-row"><button class="ui-button" type="button" data-open-gallery>Открыть медиа</button><button class="ui-button secondary" type="button" disabled>PDF не приложен</button><button class="ui-button" type="button" disabled>Недоступно</button></div></div>
       </div>
     </section>
@@ -94,7 +94,7 @@
     <section class="system-section" id="system-5">
       <aside class="system-side"><b>05</b> Материал и карточки<p>Карточка — это маршрут к работе. Изображение выступает на передний план; название, статус и подпись образуют одну компактную группу.</p></aside>
       <div class="system-content component-grid">
-        <article class="component-sample card-sample"><p class="component-title">Карточка работы · primary</p><img class="card-media" src="../../public/images/content/events/interference-2026/interference-2026-01.webp" alt="Финал спектакля «Интерференция реальностей»"><div class="card-line"><div><h3>Интерференция реальностей</h3><p>Спектакль-лекция / 2026</p></div><span>01 ↗</span></div></article>
+        <article class="component-sample card-sample"><p class="component-title">Карточка работы · primary</p><img class="card-media" src="../../public/images/content/events/interference-2026/interference-2026-01.webp" alt="Финал спектакля «Интерференция реальностей»"><div class="card-line"><div><h3>Интерференция реальностей</h3><p>Спектакль-лекция / 2026</p></div><span>01</span></div></article>
         <article class="component-sample card-sample"><p class="component-title">Карточка работы · secondary</p><img class="card-media" src="../../public/images/content/mindshow_ufa.webp" alt="MindShow"><div class="card-line"><div><h3>MindShow</h3><p>Интерактивная инсталляция / показы</p></div><span>02</span></div></article>
         <div class="component-sample wide"><p class="component-title">Подпись к медиа · provenance всегда внизу материала</p><div class="caption-sample"><span>Сцена и участники. Премьера, Калуга, 2026.</span><span>Источник: архив ODA.dream</span></div></div>
       </div>
@@ -125,7 +125,7 @@
     <p class="system-footer-note">Этот стенд фиксирует компоненты, которые можно переносить в новую архитектуру. Он намеренно не включает лотос, анимационные эффекты или рекламные CTA.</p>
   </main>
 
-  <div class="system-lightbox" hidden aria-modal="true" role="dialog" aria-label="Увеличенное изображение"><button type="button" aria-label="Закрыть">×</button><img alt=""></div>
+
   <footer class="site-footer shell"><span>ODA.dream © 2026</span><span>Design system / internal review</span><a href="index.html">К макету ↗</a></footer>
 
 <script src="media-viewer.js" defer></script></body>
