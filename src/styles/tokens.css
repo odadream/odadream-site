@@ -6,6 +6,7 @@
   --ink: #f3f1ec;
   --muted: #aaa79f;
   --line: rgba(243, 241, 236, 0.17);
+  --line-strong: rgba(243, 241, 236, 0.36);
   --soft-line: rgba(243, 241, 236, 0.09);
   --accent: #00d884;
   --max: 1360px;
@@ -21,4 +22,7 @@
   --s9: 96px;
   --mono: 'JetBrains Mono', monospace;
   --sans: 'Manrope', Arial, sans-serif;
+  --link-offset: 0.16em;
+  --motion-fast: 180ms ease;
+  --motion-media: 700ms ease;
 }

@@ -247,6 +247,101 @@ const breadcrumbSchema =
         if (image) image.src = '';
         trigger?.focus();
       });
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
+        ?.saveData;
+      const canMove = () => !reduceMotion.matches && !saveData;
+      const playPreview = (video: HTMLVideoElement | null) => {
+        if (!video || !canMove()) return;
+        video.preload = 'metadata';
+        video
+          .play()
+          .then(() => video.classList.add('is-playing'))
+          .catch(() => {});
+      };
+      const stopPreview = (video: HTMLVideoElement | null) => {
+        if (!video) return;
+        video.pause();
+        video.classList.remove('is-playing');
+      };
+      document.querySelectorAll<HTMLElement>('[data-motion-card]').forEach((card) => {
+        const video = card.querySelector<HTMLVideoElement>('video[data-preview]');
+        const activate = () => {
+          if (!canMove()) return;
+          card.classList.add('is-active');
+          playPreview(video);
+        };
+        const deactivate = () => {
+          card.classList.remove('is-active');
+          stopPreview(video);
+        };
+        card.addEventListener('mouseenter', activate);
+        card.addEventListener('mouseleave', deactivate);
+        card.addEventListener('focusin', activate);
+        card.addEventListener('focusout', deactivate);
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (window.matchMedia('(hover: none)').matches && entry.intersectionRatio >= 0.65) activate();
+            else if (window.matchMedia('(hover: none)').matches) deactivate();
+          },
+          { threshold: [0, 0.65, 1] },
+        );
+        observer.observe(card);
+      });
+      const carousel = document.querySelector<HTMLElement>('[data-carousel]');
+      if (carousel) {
+        const slides = [...carousel.querySelectorAll<HTMLElement>('[data-slide]')];
+        const position = carousel.querySelector<HTMLElement>('[data-carousel-position]');
+        let current = 0;
+        let timer: number | undefined;
+        const show = (next: number) => {
+          slides[current]?.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview);
+          slides[current].hidden = true;
+          current = (next + slides.length) % slides.length;
+          slides[current].hidden = false;
+          if (position)
+            position.textContent = `${String(current + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+          playPreview(slides[current].querySelector('video'));
+        };
+        const pause = () => {
+          window.clearInterval(timer);
+          timer = undefined;
+        };
+        const resume = () => {
+          pause();
+          if (canMove() && !document.hidden) timer = window.setInterval(() => show(current + 1), 8000);
+        };
+        carousel.querySelector('[data-carousel-prev]')?.addEventListener('click', () => {
+          show(current - 1);
+          resume();
+        });
+        carousel.querySelector('[data-carousel-next]')?.addEventListener('click', () => {
+          show(current + 1);
+          resume();
+        });
+        carousel.addEventListener('mouseenter', pause);
+        carousel.addEventListener('mouseleave', resume);
+        carousel.addEventListener('focusin', pause);
+        carousel.addEventListener('focusout', resume);
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) {
+            pause();
+            slides[current]?.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview);
+          } else {
+            playPreview(slides[current].querySelector('video'));
+            resume();
+          }
+        });
+        reduceMotion.addEventListener('change', () => {
+          if (canMove()) resume();
+          else {
+            pause();
+            slides.forEach((slide) => slide.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview));
+          }
+        });
+        playPreview(slides[0].querySelector('video'));
+        resume();
+      }
     </script>
   </body>
 </html>

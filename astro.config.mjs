@@ -9,7 +9,8 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/legacy/') && page !== 'https://odadream.art/',
+      filter: (page) =>
+        !page.includes('/legacy/') && !page.includes('/design-system/') && page !== 'https://odadream.art/',
       serialize: (item) => ({ ...item, lastmod: lastmod[new URL(item.url).pathname] }),
     }),
   ],

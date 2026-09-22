@@ -11,6 +11,7 @@ export interface Media {
   width?: number;
   height?: number;
   poster?: string;
+  previewSrc?: string;
   alt: Localized;
   caption: Localized;
   rights: Rights;
@@ -93,6 +94,7 @@ export interface Organization {
 export const media: Media[] = [
   {
     id: 'interference-stage',
+    previewSrc: '/video/interference-dawn.mp4',
     src: '/images/content/events/interference-2026/interference-2026-01.webp',
     mobileSrc: '/images/content/events/interference-2026/interference-2026-01-mobile.webp',
     width: 1732,

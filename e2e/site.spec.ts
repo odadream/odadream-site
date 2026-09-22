@@ -49,7 +49,7 @@ test('mobile navigation, media, lightbox and contact work without horizontal ove
     await expect(page.getByRole('navigation', { name: 'Main navigation' })).toBeVisible();
     await page.getByRole('button', { name: 'Open menu' }).click();
   }
-  await expect(page.locator('.feature-split img')).toBeVisible();
+  await expect(page.locator('.feature-slide:not([hidden]) img').first()).toBeVisible();
   await page.getByRole('button', { name: /Enlarge: Performers/ }).click();
   await expect(page.locator('#lightbox')).toHaveAttribute('open', '');
   await page.keyboard.press('Escape');
@@ -65,6 +65,27 @@ test('mobile navigation, media, lightbox and contact work without horizontal ove
     'href',
     'https://t.me/odadream_info',
   );
+});
+
+test('featured carousel, editorial links and card media follow the design grammar', async ({
+  page,
+  isMobile,
+}) => {
+  await page.goto('/ru/');
+  await expect(page.locator('.feature-slide:not([hidden]) h2')).toHaveText('Интерференция реальностей');
+  await expect(page.locator('.feature-slide:not([hidden]) .feature-kicker .index')).toHaveText('01');
+  await page.getByRole('button', { name: 'Следующая работа' }).click();
+  await expect(page.locator('.feature-slide:not([hidden]) h2')).toHaveText('Майнд-шоу');
+  await expect(page.locator('[data-carousel-position]')).toHaveText('02 / 03');
+  await expect(page.locator('.work-card__link').first()).toHaveCSS('text-decoration-line', 'none');
+  await expect(page.locator('.quiet-link').first()).toHaveCSS('text-decoration-line', 'underline');
+  if (isMobile) {
+    await page.locator('.work-card').first().scrollIntoViewIfNeeded();
+    await expect(page.locator('.work-card').first()).toHaveClass(/is-active/);
+  } else {
+    await page.locator('.work-card').first().hover();
+    await expect(page.locator('.work-card').first()).toHaveClass(/is-active/);
+  }
 });
 
 test('key pages have no serious or critical accessibility violations', async ({ page }) => {

@@ -1,5 +1,6 @@
 ---
 import MediaFigure from './MediaFigure.astro';
+import WorkCard from './WorkCard.astro';
 import { cases, evidence, formats, mediaById, organizations, people, works, workById } from '../data/site';
 import { caseUrl, formatUrl, workUrl, type Page } from '../lib/routes';
 interface Props {
@@ -19,6 +20,33 @@ const sectionName = {
   cases: ru ? 'Кейсы' : 'Cases',
   contact: ru ? 'Контакт' : 'Contact',
 };
+const featured = works.slice(0, 3);
+const timeline = [
+  {
+    year: '2019',
+    en: 'MindShow appears publicly at BYOB as MindGrid.',
+    ru: 'Первый публичный показ MindShow на BYOB под названием MindGrid.',
+    url: workUrl(lang, 'mindshow'),
+  },
+  {
+    year: '2020',
+    en: 'Two alpha rhythms become the material of ODA.dream Rings.',
+    ru: 'Два альфа-ритма становятся материалом колец ODA.dream.',
+    url: workUrl(lang, 'rings'),
+  },
+  {
+    year: '2025',
+    en: 'Project Schrödinger and Neurobattle enter live public contexts.',
+    ru: '«Шрёдингер» и «Нейробитва» выходят в публичное пространство.',
+    url: `/${lang}/cases/`,
+  },
+  {
+    year: '2026',
+    en: 'Interference of Realities premieres in Kaluga.',
+    ru: 'Премьера «Интерференции реальностей» в Калуге.',
+    url: caseUrl(lang, 'tsiolkovsky-2026'),
+  },
+];
 ---
 
 {page.kind === 'home' && (
@@ -33,29 +61,112 @@ const sectionName = {
       </p>
     </section>
     <div class="shell">
-      <div class="feature-split">
-        <MediaFigure id="interference-stage" lang={lang} priority />
-        <div>
-          <span class="eyebrow">01 / {ru ? 'Избранная работа' : 'Selected work'}</span>
-          <h2 class="feature-title">{works[0].title[lang]}</h2>
-          <p>{works[0].summary[lang]}</p>
-          <a class="quiet-link" href={workUrl(lang, 'interference')}>
-            {ru ? 'Смотреть работу' : 'Explore the work'} ↗
-          </a>
+      <div class="feature-carousel" aria-label={ru ? 'Избранные работы' : 'Featured works'} data-carousel>
+        {featured.map((item, i) => {
+          const image = mediaById(item.media[0]);
+          return (
+            <div class="feature-split feature-slide" data-slide hidden={i !== 0}>
+              <figure class="feature-visual">
+                <button
+                  class="media-open"
+                  type="button"
+                  data-lightbox
+                  data-src={image?.src}
+                  data-alt={image?.alt[lang]}
+                  data-caption={image?.caption[lang]}
+                  aria-label={`${ru ? 'Увеличить' : 'Enlarge'}: ${image?.alt[lang]}`}
+                >
+                  <img
+                    src={image?.src}
+                    alt={image?.alt[lang]}
+                    decoding="async"
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                    fetchpriority={i === 0 ? 'high' : undefined}
+                  />
+                  {image?.previewSrc && (
+                    <video
+                      muted
+                      playsinline
+                      loop
+                      preload="none"
+                      poster={image.src}
+                      aria-hidden="true"
+                      data-preview
+                    >
+                      <source src={image.previewSrc} type="video/mp4" />
+                    </video>
+                  )}
+                </button>
+                <figcaption>{image?.caption[lang]}</figcaption>
+              </figure>
+              <div class="feature-copy">
+                <div class="feature-kicker">
+                  <span class="index">{String(i + 1).padStart(2, '0')}</span>
+                  <span class="eyebrow">/ {ru ? 'Избранная работа' : 'Selected work'}</span>
+                </div>
+                <h2 class="feature-title">{item.title[lang]}</h2>
+                <p>{item.summary[lang]}</p>
+                <a class="quiet-link" href={workUrl(lang, item.id)}>
+                  {ru ? 'Смотреть работу' : 'Explore the work'} ↗
+                </a>
+              </div>
+            </div>
+          );
+        })}
+        <div class="carousel-controls">
+          <span class="eyebrow">
+            {ru ? 'Избранное' : 'Selected'} <span data-carousel-position>01 / 03</span>
+          </span>
+          <div>
+            <button type="button" data-carousel-prev aria-label={ru ? 'Предыдущая работа' : 'Previous work'}>
+              ←
+            </button>
+            <button type="button" data-carousel-next aria-label={ru ? 'Следующая работа' : 'Next work'}>
+              →
+            </button>
+          </div>
         </div>
       </div>
     </div>
     <section class="section shell section-grid">
       <div class="section-label">
         <span class="index">02</span>
-        <span class="eyebrow">{ru ? 'Практика' : 'Practice'}</span>
+        <span class="eyebrow">{ru ? 'Метод / медиум' : 'Method / medium'}</span>
       </div>
       <div class="section-body">
-        <h2>{ru ? 'Художественная форма первична.' : 'The artistic form comes first.'}</h2>
+        <h2>{ru ? 'Обратная связь как художественный медиум.' : 'Biofeedback as an artistic medium.'}</h2>
         <p>
           {ru
-            ? 'Мы работаем с вниманием, движением, рассказом и совместным восприятием. Сенсоры, код и генеративная графика нужны там, где они открывают новую драматургию, а не подменяют её.'
-            : 'We work with attention, movement, narrative and shared perception. Sensors, code and generative imagery matter when they open a new dramaturgy, not when they replace one.'}
+            ? 'Биологическая обратная связь превращает измеряемые сигналы тела в звук, изображение или движение. Участник видит, как его состояние влияет на произведение, и может исследовать эту связь вместе с другими.'
+            : 'Biofeedback translates measured bodily signals into sound, image or movement. A participant can see how their state affects the work and explore that relationship with others.'}
+        </p>
+        <div class="method-steps">
+          <p>
+            <span class="index">01</span>
+            <strong>{ru ? 'Сигнал' : 'Signal'}</strong>
+            {ru
+              ? 'Сенсор считывает ограниченный физиологический параметр, а не мысли или чувства.'
+              : 'A sensor reads a limited physiological signal, not thoughts or feelings.'}
+          </p>
+          <p>
+            <span class="index">02</span>
+            <strong>{ru ? 'Перевод' : 'Translation'}</strong>
+            {ru
+              ? 'Художественные правила преобразуют его в материал сцены.'
+              : 'Artistic rules translate it into stage material.'}
+          </p>
+          <p>
+            <span class="index">03</span>
+            <strong>{ru ? 'Опыт' : 'Experience'}</strong>
+            {ru
+              ? 'Человек наблюдает ответ среды и сам выбирает, как участвовать.'
+              : 'The person observes the response and chooses how to participate.'}
+          </p>
+        </div>
+        <p class="small-note">
+          {ru
+            ? 'Мы не ставим диагнозов и не считаем сигнал доказательством внутреннего состояния.'
+            : 'We do not diagnose people or claim that a signal proves an inner state.'}
         </p>
         <div class="link-row">
           <a class="quiet-link" href={`/${lang}/studio/`}>
@@ -76,24 +187,7 @@ const sectionName = {
         <h2>{ru ? 'Избранное' : 'Selected works'}</h2>
         <div class="work-grid">
           {works.map((item, i) => (
-            <article class="work-card">
-              <a href={workUrl(lang, item.id)}>
-                <img
-                  src={mediaById(item.media[0])?.src}
-                  alt={mediaById(item.media[0])?.alt[lang]}
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="meta">
-                  <span>
-                    {String(i + 1).padStart(2, '0')} / {item.category[lang]}
-                  </span>
-                  <span>{item.status[lang]}</span>
-                </div>
-                <h3>{item.title[lang]}</h3>
-                <p>{item.summary[lang]}</p>
-              </a>
-            </article>
+            <WorkCard item={item} index={i} lang={lang} />
           ))}
         </div>
       </div>
@@ -101,29 +195,26 @@ const sectionName = {
     <section class="section shell section-grid">
       <div class="section-label">
         <span class="index">04</span>
-        <span class="eyebrow">{ru ? 'Контекст' : 'Context'}</span>
+        <span class="eyebrow">{ru ? 'Хронология' : 'Timeline'}</span>
       </div>
       <div class="section-body">
-        <h2>{ru ? 'Работы в реальном пространстве' : 'Works in public space'}</h2>
+        <h2>{ru ? 'От первого показа к новым формам' : 'From first presentation to new forms'}</h2>
         <p>
           {ru
-            ? 'Фестивальные показы и отдельные заказы дают проверяемый контекст — с датой, местом, ролью команды и ссылкой на исходную запись.'
-            : 'Festival presentations and commissioned events provide verifiable context: date, place, our role and the underlying source record.'}
+            ? 'Краткая история практики с 2019 года. Даты и роли конкретных показов собраны в кейсах.'
+            : 'A short history of the practice since 2019. Dates and roles of specific presentations are documented in cases.'}
         </p>
-        {cases.slice(0, 3).map((item) => (
-          <div class="list-row">
-            <span class="meta">
-              {item.date} · {item.place[lang]}
-            </span>
-            <div>
-              <h3>{item.title[lang]}</h3>
-              <p>{item.summary[lang]}</p>
-            </div>
-            <a class="quiet-link" href={caseUrl(lang, item.id)}>
-              {ru ? 'Кейс' : 'Case'} ↗
-            </a>
-          </div>
-        ))}
+        <ol class="timeline">
+          {timeline.map((item) => (
+            <li>
+              <span class="index">{item.year}</span>
+              <p>{item[lang]}</p>
+              <a class="quiet-link" href={item.url}>
+                {ru ? 'Подробнее' : 'Explore'} ↗
+              </a>
+            </li>
+          ))}
+        </ol>
         <a class="quiet-link" href={`/${lang}/cases/`}>
           {ru ? 'Все кейсы' : 'All cases'} ↗
         </a>
@@ -132,6 +223,28 @@ const sectionName = {
     <section class="section shell section-grid">
       <div class="section-label">
         <span class="index">05</span>
+        <span class="eyebrow">{ru ? 'Благодарности' : 'Acknowledgements'}</span>
+      </div>
+      <div class="section-body">
+        <h2>{ru ? 'Работы создаются вместе.' : 'The work is made together.'}</h2>
+        <p>
+          {ru
+            ? 'Благодарим артистов, участников и команды площадок, вместе с которыми возникли эти работы. Роли организаций указаны рядом с конкретными событиями — это не список рекламных партнёров.'
+            : 'We thank performers, participants and venue teams who helped bring these works into being. Each organization’s role is documented with its event; this is not an endorsement list.'}
+        </p>
+        <p class="acknowledgements">
+          {ru
+            ? 'Инновационный театр балета · Инновационный культурный центр · участники BYOB и DANO'
+            : 'Innovation Ballet Theatre · Innovation Cultural Center · BYOB and DANO participants'}
+        </p>
+        <a class="quiet-link" href={`/${lang}/cases/`}>
+          {ru ? 'События и подтверждения' : 'Events and records'} ↗
+        </a>
+      </div>
+    </section>
+    <section class="section shell section-grid">
+      <div class="section-label">
+        <span class="index">06</span>
         <span class="eyebrow">{ru ? 'Связь' : 'Contact'}</span>
       </div>
       <div class="section-body">
@@ -162,24 +275,7 @@ const sectionName = {
     <section class="shell">
       <div class="work-grid">
         {works.map((item, i) => (
-          <article class="work-card">
-            <a href={workUrl(lang, item.id)}>
-              <img
-                src={mediaById(item.media[0])?.src}
-                alt={mediaById(item.media[0])?.alt[lang]}
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="meta">
-                <span>
-                  {String(i + 1).padStart(2, '0')} / {item.category[lang]}
-                </span>
-                <span>{item.status[lang]}</span>
-              </div>
-              <h3>{item.title[lang]}</h3>
-              <p>{item.summary[lang]}</p>
-            </a>
-          </article>
+          <WorkCard item={item} index={i} lang={lang} />
         ))}
       </div>
     </section>
