@@ -62,7 +62,11 @@ const unresolved = await readFile(resolve(root, 'legacy/unavailable/index.html')
 if (!unresolved.includes('noindex,follow')) fail('Legacy unavailable must be noindex');
 const sitemap = await readFile(resolve(root, 'sitemap-0.xml'), 'utf8');
 const lastmod = JSON.parse(await readFile('src/data/lastmod.json', 'utf8'));
-if (sitemap.includes('/legacy/') || sitemap.includes('<loc>https://odadream.art/</loc>'))
+if (
+  sitemap.includes('/legacy/') ||
+  sitemap.includes('/design-system/') ||
+  sitemap.includes('<loc>https://odadream.art/</loc>')
+)
   fail('Noncanonical route in sitemap');
 for (const path of pagePaths) {
   if (!sitemap.includes(`https://odadream.art${path}`)) fail(`Page absent from sitemap: ${path}`);

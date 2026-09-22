@@ -5,15 +5,16 @@ interface Props {
   item: Work;
   index: number;
   lang: Lang;
+  eager?: boolean;
 }
-const { item, index, lang } = Astro.props;
+const { item, index, lang, eager = false } = Astro.props;
 const media = mediaById(item.media[0]);
 ---
 
 <article class="work-card" data-motion-card>
   <a class="work-card__link" href={workUrl(lang, item.id)}>
     <span class="work-card__visual">
-      <img src={media?.src} alt={media?.alt[lang]} loading="lazy" decoding="async" />
+      <img src={media?.src} alt={media?.alt[lang]} loading={eager ? 'eager' : 'lazy'} decoding="async" />
       {media?.previewSrc && (
         <video muted playsinline loop preload="none" poster={media.src} aria-hidden="true" data-preview>
           <source src={media.previewSrc} type="video/mp4" />

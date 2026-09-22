@@ -88,6 +88,32 @@ test('featured carousel, editorial links and card media follow the design gramma
   }
 });
 
+test('V5 design stand shares tokens and live components with the site', async ({ page }) => {
+  await page.goto('/design-system/');
+  await expect(page.locator('meta[name=robots]')).toHaveAttribute('content', 'noindex,follow');
+  await expect(page.locator('.system-section')).toHaveCount(8);
+  await expect(page.locator('.work-card__link')).toHaveCount(2);
+  await page.locator('#system-05').scrollIntoViewIfNeeded();
+  await expect
+    .poll(() =>
+      page
+        .locator('#system-05 img')
+        .first()
+        .evaluate((image: HTMLImageElement) => image.naturalWidth),
+    )
+    .toBeGreaterThan(0);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
+  const back = await page.evaluate(() =>
+    getComputedStyle(document.documentElement).getPropertyValue('--plane-back').trim(),
+  );
+  await page.goto('/ru/');
+  expect(
+    await page.evaluate(() =>
+      getComputedStyle(document.documentElement).getPropertyValue('--plane-back').trim(),
+    ),
+  ).toBe(back);
+});
+
 test('key pages have no serious or critical accessibility violations', async ({ page }) => {
   for (const path of [
     '/en/',
@@ -95,6 +121,7 @@ test('key pages have no serious or critical accessibility violations', async ({ 
     '/en/works/interference-of-realities/',
     '/en/cases/dano-2025/',
     '/en/contact/',
+    '/design-system/',
   ]) {
     await page.goto(path);
     const results = await new AxeBuilder({ page }).analyze();

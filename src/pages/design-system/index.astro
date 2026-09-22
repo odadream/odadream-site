@@ -1,187 +1,418 @@
 ---
-import '../../styles/global.css';
-import '@fontsource/jetbrains-mono/latin-400.css';
-import '@fontsource/jetbrains-mono/cyrillic-400.css';
-import '@fontsource/manrope/latin-500.css';
-import '@fontsource/manrope/cyrillic-500.css';
-import { works } from '../../data/site';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MediaFigure from '../../components/MediaFigure.astro';
 import WorkCard from '../../components/WorkCard.astro';
+import { works } from '../../data/site';
+import '../../styles/design-system.css';
+const page = {
+  lang: 'ru' as const,
+  kind: 'home' as const,
+  path: '/ru/design-system/',
+  title: 'Дизайн-система V5 → V2 — ODA.dream',
+  description: 'Рабочая спецификация визуального языка ODA.dream.',
+};
+const sections = [
+  ['01', 'Основание'],
+  ['02', 'Типографика'],
+  ['03', 'Ритм и сетка'],
+  ['04', 'Навигация и действия'],
+  ['05', 'Материал и карточки'],
+  ['06', 'Речь, медиа и состояния'],
+  ['07', 'Документация'],
+  ['08', 'Бренд'],
+];
 ---
 
-<!doctype html>
-<html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex,nofollow" />
-    <title>Дизайн-система V2 — ODA.dream</title>
-  </head>
-  <body>
-    <main class="shell design-spec" id="main">
-      <p class="eyebrow">ODA.DREAM / DESIGN SYSTEM / V2</p>
-      <h1>
-        Материал — первый план.
-        <br />
-        Интерфейс — второй.
-      </h1>
-      <p class="lead">
-        Эта страница и публичный сайт используют один файл токенов и те же классы компонентов. Новые паттерны
-        сначала фиксируются здесь.
-      </p>
-      <section class="section">
+<BaseLayout page={page} canonicalPath="/design-system/" noindex>
+  <div class="shell system-page">
+    <section class="system-intro system-grid">
+      <div class="section-label">
+        <span class="index">DS</span>
+        <span class="eyebrow">ODA.DREAM / V5 → V2</span>
+      </div>
+      <div>
+        <h1>Система, в которой работа остаётся главным событием.</h1>
+        <p class="lead">
+          Рабочий стенд утверждённого визуального языка. Примеры ниже используют те же токены и компоненты,
+          что и публичные страницы. Новые паттерны главной дополняют систему, не заменяя её.
+        </p>
+        <nav class="system-index" aria-label="Разделы дизайн-системы">
+          {sections.map(([n, label]) => (
+            <a href={`#system-${n}`}>{label}</a>
+          ))}
+        </nav>
+        <p class="eyebrow system-stamp">ARTISTIC MATERIAL FIRST · UI AS DOCUMENTATION · 2026</p>
+      </div>
+    </section>
+
+    <section class="system-grid system-section" id="system-01">
+      <aside class="system-side">
         <div class="section-label">
           <span class="index">01</span>
-          <span class="eyebrow">Цвет и глубина</span>
+          <span class="eyebrow">Основание</span>
         </div>
-        <div class="token-grid">
-          <div style="background:var(--bg)">
-            Canvas
-            <br />
-            #161514
-          </div>
-          <div style="background:var(--surface)">
-            Surface
-            <br />
-            #1c1b19
-          </div>
-          <div style="background:var(--raised)">
-            Raised
-            <br />
-            #24221f
-          </div>
-          <div style="background:var(--accent);color:#111">
-            Signal
-            <br />
-            #00d884
-          </div>
-        </div>
-        <p class="small-note">
-          Зелёный — сигнал и индекс, не сплошная заливка. Глубина возникает из медиаматериала, тональных
-          плоскостей и иерархии текста, не из теней карточек.
+        <p>Палитра разделяет материал, интерфейс и статус. Зелёный — точный сигнал, не декоративный цвет.</p>
+      </aside>
+      <div class="system-content">
+        <p class="system-lede">
+          Три плана задают глубину: фон страницы, поверхность чтения, поднятый материал. Изображение остаётся
+          главным визуальным акцентом.
         </p>
-      </section>
-      <section class="section">
+        <div class="swatch-grid">
+          <div class="swatch swatch-back">
+            <span>PLANE / BACK</span>
+            <strong>#111110</strong>
+          </div>
+          <div class="swatch swatch-middle">
+            <span>PLANE / MIDDLE</span>
+            <strong>#1b1a18</strong>
+          </div>
+          <div class="swatch swatch-front">
+            <span>PLANE / FRONT</span>
+            <strong>#23211e</strong>
+          </div>
+          <div class="swatch swatch-ink">
+            <span>INK</span>
+            <strong>#f3f1ec</strong>
+          </div>
+          <div class="swatch swatch-muted">
+            <span>MUTED</span>
+            <strong>#aaa79f</strong>
+          </div>
+          <div class="swatch swatch-accent">
+            <span>SIGNAL</span>
+            <strong>#00d884</strong>
+          </div>
+          <div class="swatch swatch-alert">
+            <span>ALERT</span>
+            <strong>#efb452</strong>
+          </div>
+          <div class="swatch swatch-danger">
+            <span>ERROR</span>
+            <strong>#df716b</strong>
+          </div>
+        </div>
+        <div class="plane-demo">
+          <span>CANVAS</span>
+          <div>
+            SURFACE<div>FOREGROUND MATERIAL</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="system-grid system-section" id="system-02">
+      <aside class="system-side">
         <div class="section-label">
           <span class="index">02</span>
           <span class="eyebrow">Типографика</span>
         </div>
-        <div class="section-body">
-          <h2>Заголовок работы / Manrope</h2>
-          <p>
-            Основной текст / JetBrains Mono. Кириллица: Ёж, внимание, восприятие. Латиница: Human state as
-            artistic material.
-          </p>
-          <p class="eyebrow">МЕТАДАННЫЕ / 11 PX / LETTER-SPACING 0.08 EM</p>
+        <p>
+          JetBrains Mono — основной текст, подписи, документация. Manrope — заголовки и короткие
+          художественные высказывания.
+        </p>
+      </aside>
+      <div class="system-content">
+        <div class="type-row">
+          <span class="eyebrow">T1 / PAGE / MANROPE</span>
+          <p class="type-h1">Состояние человека как художественный материал.</p>
         </div>
-      </section>
-      <section class="section">
+        <div class="type-row">
+          <span class="eyebrow">T2 / SECTION / MANROPE</span>
+          <h2>Форма предшествует технологии.</h2>
+        </div>
+        <div class="type-row">
+          <span class="eyebrow">BODY / JETBRAINS MONO</span>
+          <p>
+            Биологическая обратная связь — художественный медиум. Человек видит ответ среды и выбирает, как
+            участвовать. Human state becomes material, not a diagnosis.
+          </p>
+        </div>
+        <div class="type-row">
+          <span class="eyebrow">CYRILLIC + LATIN PROOF</span>
+          <p class="font-proof">Ёж, Йога, Щука, ъ ь ы э ю я / ODA.dream · 2019–2026 · EEG → image</p>
+        </div>
+        <p class="small-note">
+          Кегли страницы: 32–48 px; секции: 26–42 px; основной текст: 15–16 px; метаданные: 11–12 px.
+          Межбуквенный интервал применяется к метаданным, не к абзацам.
+        </p>
+      </div>
+    </section>
+
+    <section class="system-grid system-section" id="system-03">
+      <aside class="system-side">
         <div class="section-label">
           <span class="index">03</span>
-          <span class="eyebrow">Ссылки и действия</span>
+          <span class="eyebrow">Ритм и сетка</span>
         </div>
-        <div class="section-body">
+        <p>
+          Единица — 4 px. Группировка создаётся интервалами и тональными поверхностями; не каждая секция
+          нуждается в линии.
+        </p>
+      </aside>
+      <div class="system-content">
+        <div class="scale-list">
+          <div>
+            <span>LABEL</span>
+            <strong>12 px</strong>
+          </div>
+          <div>
+            <span>COPY</span>
+            <strong>16 px</strong>
+          </div>
+          <div>
+            <span>GROUP</span>
+            <strong>32 px</strong>
+          </div>
+          <div>
+            <span>BLOCK</span>
+            <strong>48 px</strong>
+          </div>
+          <div>
+            <span>SECTION</span>
+            <strong>80 / 48 px</strong>
+          </div>
+          <div>
+            <span>GUTTER</span>
+            <strong>40 / 16 px</strong>
+          </div>
+        </div>
+        <div class="line-demo">
           <p>
-            <a class="quiet-link" href="#cards">
-              Текстовая ссылка ↗
-            </a>{' '}
-            <span class="small-note">
-              Подчёркивание близко к буквам, без нижней границы 44-px контейнера.
+            <span class="eyebrow">Без линии</span> Разделы отделяет пространство.
+          </p>
+          <p>
+            <span class="eyebrow">Тихая линия</span> Только ряды данных и внутренние таблицы.
+          </p>
+          <p>
+            <span class="eyebrow">Сильная линия</span> Рамка действия или ошибки, не орнамент.
+          </p>
+        </div>
+        <p class="small-note">
+          Контейнер — до 1360 px. На узких экранах один поток без горизонтального прокручивания.
+        </p>
+      </div>
+    </section>
+
+    <section class="system-grid system-section" id="system-04">
+      <aside class="system-side">
+        <div class="section-label">
+          <span class="index">04</span>
+          <span class="eyebrow">Навигация и действия</span>
+        </div>
+        <p>
+          Одна роль — один отклик. Ссылка видна в покое; кнопка обозначает действие; статус не выглядит
+          кликабельным.
+        </p>
+      </aside>
+      <div class="system-content">
+        <p class="component-title">Меню · neutral / active</p>
+        <nav class="menu-sample" aria-label="Пример меню">
+          <a href="/ru/">Главная</a>
+          <a href="/ru/works/" aria-current="page">
+            Работы
+          </a>
+          <a href="/ru/cases/">Кейсы</a>
+          <a href="/ru/contact/">Контакт</a>
+        </nav>
+        <div class="component-pair">
+          <div>
+            <p class="component-title">Редакционные ссылки</p>
+            <a class="quiet-link" href="/ru/works/interference-of-realities/">
+              Документация работы ↗
+            </a>
+            <br />
+            <a class="quiet-link" href="/ru/works/">
+              Вернуться к работам ↗
+            </a>
+          </div>
+          <div>
+            <p class="component-title">Кнопки и статус</p>
+            <button class="button primary" type="button" data-design-lightbox>
+              Открыть медиа
+            </button>{' '}
+            <button class="button secondary" type="button" disabled>
+              PDF не приложен
+            </button>{' '}
+            <button class="button" type="button" disabled>
+              Недоступно
+            </button>
+            <p class="status-row">
+              <span class="status" data-status="premiered">
+                Премьера
+              </span>
+              <span class="status" data-status="archive">
+                Архив
+              </span>
+              <span class="status" data-status="research">
+                R&amp;D
+              </span>
+            </p>
+          </div>
+        </div>
+        <p class="small-note">
+          Tap-target ≥ 44 × 44 px. Для клавиатуры есть видимый focus. Disabled — не ссылка. Навигация и
+          карточки не подчёркиваются.
+        </p>
+      </div>
+    </section>
+
+    <section class="system-grid system-section" id="system-05">
+      <aside class="system-side">
+        <div class="section-label">
+          <span class="index">05</span>
+          <span class="eyebrow">Материал и карточки</span>
+        </div>
+        <p>Карточка ведёт к работе. Медиа впереди; название, статус и описание образуют компактную группу.</p>
+      </aside>
+      <div class="system-content">
+        <div class="work-grid">
+          {works.slice(0, 2).map((item, i) => (
+            <WorkCard item={item} index={i} lang="ru" eager />
+          ))}
+        </div>
+        <p class="small-note">
+          Видео-превью загружается только при взаимодействии и при разрешённом движении. При отсутствии
+          документального видео сохраняется изображение; анимация изображения не выдаётся за запись работы.
+        </p>
+        <p class="component-title">Медиа + подпись + источник</p>
+        <MediaFigure id="interference-stage" lang="ru" priority />
+      </div>
+    </section>
+
+    <section class="system-grid system-section" id="system-06">
+      <aside class="system-side">
+        <div class="section-label">
+          <span class="index">06</span>
+          <span class="eyebrow">Речь, медиа и состояния</span>
+        </div>
+        <p>
+          Цитата — художественное высказывание, не отзыв. Ошибка объясняет состояние и путь восстановления.
+        </p>
+      </aside>
+      <div class="system-content">
+        <blockquote class="quote">
+          Данные здесь не объясняют человека — они становятся материалом для переживания и разговора.
+        </blockquote>
+        <p class="caption">ODA.dream · метод студии</p>
+        <div class="gallery-demo">
+          <MediaFigure id="interference-stage" lang="ru" priority />
+          <MediaFigure id="schrodinger" lang="ru" priority />
+        </div>
+        <div class="error-sample">
+          <div>
+            <strong>Материал временно недоступен</strong>
+            <p>Файл не найден в архиве. Описание работы и связанные документы остаются доступны.</p>
+          </div>
+          <a class="quiet-link" href="/ru/works/interference-of-realities/">
+            К документации ↗
+          </a>
+        </div>
+        <p class="small-note">
+          Lightbox: Escape, возврат фокуса, подпись и alt. Видео: poster, muted preview, без обязательного
+          autoplay и с reduced-motion.
+        </p>
+      </div>
+    </section>
+
+    <section class="system-grid system-section" id="system-07">
+      <aside class="system-side">
+        <div class="section-label">
+          <span class="index">07</span>
+          <span class="eyebrow">Документация</span>
+        </div>
+        <p>
+          Работа, событие, источник, роль организации и благодарность — разные записи. Не подтверждать факт
+          отсутствующим документом.
+        </p>
+      </aside>
+      <div class="system-content record-grid">
+        <article>
+          <span class="component-title">Событие / показ</span>
+          <h3>Интерференция реальностей</h3>
+          <dl>
+            <dt>Дата</dt>
+            <dd>16 мая 2026</dd>
+            <dt>Место</dt>
+            <dd>Инновационный культурный центр, Калуга</dd>
+            <dt>Контекст</dt>
+            <dd>«Циолковский фест»</dd>
+          </dl>
+          <a class="quiet-link" href="/ru/cases/tsiolkovsky-festival-2026/">
+            Кейс и источники ↗
+          </a>
+        </article>
+        <article>
+          <span class="component-title">Статус / доступность</span>
+          <h3>Разные утверждения</h3>
+          <p>
+            <span class="status" data-status="presented">
+              Показ состоялся
             </span>
           </p>
           <p>
-            <button class="button" type="button">
-              Кнопка действия
-            </button>{' '}
-            <span class="status">Статус, не кнопка</span>
+            <span class="status" data-status="archive">
+              Не в репертуаре
+            </span>
           </p>
           <p class="small-note">
-            Карточка-ссылка не подчёркивает каждую строку. Навигация обозначается цветом и фокусом. Tap-target
-            не меньше 44 px.
+            Реализация не означает доступность для заказа. Условия следующего показа указываются отдельно.
           </p>
-        </div>
-      </section>
-      <section class="section" id="cards">
-        <div class="section-label">
-          <span class="index">04</span>
-          <span class="eyebrow">Карточки и медиа</span>
-        </div>
-        <div class="section-body">
-          <div class="work-grid">
-            {works.slice(0, 2).map((item, i) => (
-              <WorkCard item={item} index={i} lang="ru" />
-            ))}
-          </div>
-          <p class="small-note">
-            Превью запускается только при hover/focus либо когда карточка активна на сенсорном экране;
-            учитываются reduced motion и экономия трафика. Видео — только с настоящим источником, иначе постер
-            с лёгким движением.
-          </p>
-        </div>
-      </section>
-      <section class="section">
-        <div class="section-label">
-          <span class="index">05</span>
-          <span class="eyebrow">Ритм и линии</span>
-        </div>
-        <div class="section-body">
+        </article>
+        <article>
+          <span class="component-title">Благодарность / образец</span>
+          <h3>Документ пока не приложен</h3>
           <p>
-            Отступы: 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96 px. Крупные секции различает пространство;
-            тонкие линии — только для рядов данных. Ссылка использует text-decoration, не border-bottom.
+            Для публикации письма нужны автор, дата, связанное событие, оригинал и разрешение. Этот образец не
+            является отзывом.
           </p>
-          <p class="small-note">
-            Источник: src/styles/tokens.css. Публичные страницы и эта спецификация импортируют его через
-            global.css.
+        </article>
+        <article>
+          <span class="component-title">Метод / ограничение</span>
+          <h3>Без ложного обещания</h3>
+          <p>
+            ЭЭГ и биологическая обратная связь входят в художественную партитуру. Визуализация не является
+            точным прочтением мыслей или чувств.
           </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="system-grid system-section" id="system-08">
+      <aside class="system-side">
+        <div class="section-label">
+          <span class="index">08</span>
+          <span class="eyebrow">Бренд</span>
         </div>
-      </section>
-    </main>
-    <style>
-      .design-spec {
-        padding-block: var(--s9);
-      }
-      .design-spec > h1 {
-        margin: var(--s5) 0;
-      }
-      .design-spec > .lead {
-        margin-bottom: var(--s9);
-      }
-      .design-spec .section {
-        display: grid;
-        grid-template-columns: minmax(180px, 24%) 1fr;
-        gap: var(--s7);
-      }
-      .design-spec .section > :nth-child(n + 3) {
-        grid-column: 2;
-      }
-      .token-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: var(--s2);
-        width: 100%;
-      }
-      .token-grid > div {
-        min-height: 130px;
-        padding: var(--s4);
-        border: 1px solid var(--soft-line);
-        display: flex;
-        align-items: end;
-        font-size: 12px;
-      }
-      .design-spec .section-body > * + * {
-        margin-top: var(--s5);
-      }
-      @media (max-width: 700px) {
-        .design-spec .section {
-          grid-template-columns: 1fr;
-          gap: var(--s5);
-        }
-        .design-spec .section > :nth-child(n + 3) {
-          grid-column: 1;
-        }
-        .token-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-    </style>
-  </body>
-</html>
+        <p>
+          Знак и контур мозга имеют собственное свободное поле. Они не заменяют авторство и источники
+          документации.
+        </p>
+      </aside>
+      <div class="system-content">
+        <div class="brand-demo">
+          <figure>
+            <img src="/brand/oda-logo.svg" alt="Логотип ODA.dream" />
+          </figure>
+          <figure>
+            <img src="/brand/oda-brain.svg" alt="Фирменный контур мозга" />
+          </figure>
+        </div>
+        <p class="small-note">
+          Логотип в header: около 94 × 46 px. Свободное поле: 24 px. Контур мозга — одиночный мотив у раздела
+          метода, а не повторяющийся фон.
+        </p>
+      </div>
+    </section>
+    <p class="eyebrow system-end">
+      Источник: утверждённая V5-спецификация · токены: src/styles/tokens.css · компоненты: рабочий сайт V2
+    </p>
+  </div>
+  <script>
+    document
+      .querySelector('[data-design-lightbox]')
+      ?.addEventListener('click', () =>
+        document.querySelector<HTMLButtonElement>('.gallery-demo [data-lightbox]')?.click(),
+      );
+  </script>
+</BaseLayout>

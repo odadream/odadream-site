@@ -110,7 +110,7 @@ const breadcrumbSchema =
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#161514" />
+    <meta name="theme-color" content="#111110" />
     <link rel="icon" href="/brand/oda-brain.svg" type="image/svg+xml" />
     <title>{page.title}</title>
     <meta name="description" content={page.description} />
@@ -170,14 +170,16 @@ const breadcrumbSchema =
             </a>
           ))}
         </nav>
-        <a
-          class="language-link"
-          href={pairedPath(page.path, page.lang === 'en' ? 'ru' : 'en')}
-          lang={page.lang === 'en' ? 'ru' : 'en'}
-          aria-label={page.lang === 'en' ? 'Русская версия' : 'English version'}
-        >
-          {page.lang === 'en' ? 'RU' : 'EN'}
-        </a>
+        {page.path !== '/ru/design-system/' && (
+          <a
+            class="language-link"
+            href={pairedPath(page.path, page.lang === 'en' ? 'ru' : 'en')}
+            lang={page.lang === 'en' ? 'ru' : 'en'}
+            aria-label={page.lang === 'en' ? 'Русская версия' : 'English version'}
+          >
+            {page.lang === 'en' ? 'RU' : 'EN'}
+          </a>
+        )}
       </div>
     </header>
     <main id="main">
