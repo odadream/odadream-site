@@ -1,0 +1,37 @@
+{
+  "name": "oda-dream-site-v2",
+  "private": true,
+  "version": "2.0.0-alpha.1",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "check": "astro check",
+    "build": "astro build && node scripts/verify-build.mjs",
+    "format": "prettier --write src scripts tests e2e astro.config.mjs playwright.config.ts",
+    "format:check": "prettier --check src scripts tests e2e astro.config.mjs playwright.config.ts",
+    "test": "node --test tests/*.test.mjs",
+    "content:check": "node scripts/verify-content.mjs",
+    "test:e2e": "playwright test",
+    "audit:media": "node scripts/audit-media.mjs",
+    "release:check": "node scripts/release-gate.mjs",
+    "legacy:generate": "node scripts/generate-legacy-map.mjs"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.6.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/manrope": "^5.3.0",
+    "astro": "^5.15.0",
+    "yaml": "^2.8.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.5",
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
+    "prettier": "^3.9.8",
+    "prettier-plugin-astro": "^1.0.1",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=22.19.0"
+  }
+}

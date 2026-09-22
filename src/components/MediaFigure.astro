@@ -1,0 +1,31 @@
+---
+import { mediaById, type Lang } from '../data/site';
+interface Props {
+  id: string;
+  lang: Lang;
+  priority?: boolean;
+}
+const { id, lang, priority = false } = Astro.props;
+const item = mediaById(id);
+---
+
+{item && (
+  <figure class="media-figure">
+    {item.kind === 'image' ? (
+      <button
+        type="button"
+        class="media-open"
+        data-lightbox
+        data-src={item.src}
+        data-alt={item.alt[lang]}
+        data-caption={item.caption[lang]}
+        aria-label={lang === 'en' ? `Enlarge: ${item.alt.en}` : `Увеличить: ${item.alt.ru}`}
+      >
+        <img src={item.src} alt={item.alt[lang]} loading={priority ? 'eager' : 'lazy'} decoding="async" />
+      </button>
+    ) : (
+      <video src={item.src} poster={item.poster} controls playsinline preload="none" />
+    )}
+    <figcaption>{item.caption[lang]}</figcaption>
+  </figure>
+)}

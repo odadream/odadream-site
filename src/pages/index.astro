@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageView from '../components/PageView.astro';
+import { pages } from '../lib/routes';
+import legacyMap from '../data/legacy-map.json';
+const page = pages.find((item) => item.path === '/en/')!;
+const redirects = Object.fromEntries(
+  legacyMap.map((item) => [item.id, { en: item.targetEn, ru: item.targetRu, disposition: item.disposition }]),
+);
+---
+
+<BaseLayout page={page} canonicalPath="/en/">
+  <script is:inline define:vars={{ redirects }}>
+    const params = new URLSearchParams(location.search);
+    if (params.has('id')) {
+      const id = params.get('id') || '';
+      const lang = params.get('lang') === 'ru' ? 'ru' : 'en';
+      const entry = redirects[id];
+      const target =
+        entry && entry.disposition !== 'not-transferred'
+          ? entry[lang]
+          : '/legacy/unavailable/?id=' + encodeURIComponent(id) + '&lang=' + lang;
+      location.replace(target);
+    }
+  </script>
+  <PageView page={page} />
+</BaseLayout>

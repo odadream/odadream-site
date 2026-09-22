@@ -1,0 +1,251 @@
+---
+import '../styles/global.css';
+import '@fontsource/jetbrains-mono/latin-400.css';
+import '@fontsource/jetbrains-mono/latin-500.css';
+import '@fontsource/jetbrains-mono/latin-600.css';
+import '@fontsource/jetbrains-mono/cyrillic-400.css';
+import '@fontsource/jetbrains-mono/cyrillic-500.css';
+import '@fontsource/jetbrains-mono/cyrillic-600.css';
+import '@fontsource/manrope/latin-500.css';
+import '@fontsource/manrope/cyrillic-500.css';
+import { cases, mediaById, works } from '../data/site';
+import { pairedPath, type Page } from '../lib/routes';
+interface Props {
+  page: Page;
+  canonicalPath?: string;
+  noindex?: boolean;
+}
+const { page, canonicalPath = page.path, noindex = false } = Astro.props;
+const site = 'https://odadream.art';
+const canonical = new URL(canonicalPath, site).href;
+const alternateEn = new URL(pairedPath(page.path, 'en'), site).href;
+const alternateRu = new URL(pairedPath(page.path, 'ru'), site).href;
+const nav =
+  page.lang === 'en'
+    ? [
+        ['Works', 'works'],
+        ['Formats', 'formats'],
+        ['Cooperation', 'cooperation'],
+        ['Studio', 'studio'],
+        ['Cases', 'cases'],
+        ['Contact', 'contact'],
+      ]
+    : [
+        ['Работы', 'works'],
+        ['Форматы', 'formats'],
+        ['Сотрудничество', 'cooperation'],
+        ['Студия', 'studio'],
+        ['Кейсы', 'cases'],
+        ['Контакт', 'contact'],
+      ];
+const navRoot = page.kind === 'work' ? 'works' : page.kind === 'case' ? 'cases' : page.kind;
+const record =
+  page.kind === 'work'
+    ? works.find((item) => item.slug === page.slug)
+    : page.kind === 'case'
+      ? cases.find((item) => item.slug === page.slug)
+      : undefined;
+const ogMedia = mediaById(record?.media[0] ?? 'interference-stage');
+const schema =
+  page.kind === 'home' || page.kind === 'studio'
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'ODA.dream',
+        url: site,
+        description: page.description,
+        founder: [
+          { '@type': 'Person', name: 'Olga Arabova' },
+          { '@type': 'Person', name: 'Daler Arabov' },
+        ],
+      }
+    : page.kind === 'work'
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'CreativeWork',
+          name: page.title.replace(' — ODA.dream', ''),
+          description: page.description,
+          url: canonical,
+          creator: { '@type': 'Organization', name: 'ODA.dream' },
+        }
+      : null;
+const crumbs = page.path.split('/').filter(Boolean);
+const crumbNames: Record<string, string> =
+  page.lang === 'en'
+    ? {
+        en: 'Home',
+        works: 'Works',
+        formats: 'Formats',
+        cooperation: 'Cooperation',
+        studio: 'Studio',
+        cases: 'Cases',
+        contact: 'Contact',
+      }
+    : {
+        ru: 'Главная',
+        works: 'Работы',
+        formats: 'Форматы',
+        cooperation: 'Сотрудничество',
+        studio: 'Студия',
+        cases: 'Кейсы',
+        contact: 'Контакт',
+      };
+const breadcrumbSchema =
+  crumbs.length > 1
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: crumbs.map((part, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: i === crumbs.length - 1 ? page.title.replace(' — ODA.dream', '') : (crumbNames[part] ?? part),
+          item: new URL(`/${crumbs.slice(0, i + 1).join('/')}/`, site).href,
+        })),
+      }
+    : null;
+---
+
+<!doctype html>
+<html lang={page.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#161514" />
+    <title>{page.title}</title>
+    <meta name="description" content={page.description} />
+    <link rel="canonical" href={canonical} />
+    {!noindex && (
+      <>
+        <link rel="alternate" hreflang="en" href={alternateEn} />
+        <link rel="alternate" hreflang="ru" href={alternateRu} />
+        <link rel="alternate" hreflang="x-default" href={alternateEn} />
+      </>
+    )}
+    {noindex && <meta name="robots" content="noindex,follow" />}
+    <meta property="og:type" content={page.kind === 'work' || page.kind === 'case' ? 'article' : 'website'} />
+    <meta property="og:site_name" content="ODA.dream" />
+    <meta property="og:locale" content={page.lang === 'en' ? 'en_US' : 'ru_RU'} />
+    <meta property="og:title" content={page.title} />
+    <meta property="og:description" content={page.description} />
+    <meta property="og:url" content={canonical} />
+    {ogMedia && (
+      <>
+        <meta property="og:image" content={new URL(ogMedia.src, site).href} />
+        <meta property="og:image:alt" content={ogMedia.alt[page.lang]} />
+      </>
+    )}
+    <meta name="twitter:card" content="summary_large_image" />
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>}
+    {breadcrumbSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
+    )}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">
+      {page.lang === 'en' ? 'Skip to content' : 'К содержимому'}
+    </a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href={`/${page.lang}/`} aria-label="ODA.dream — home">
+          <img src="/brand/oda-logo.svg" alt="ODA.dream" width="112" height="52" />
+        </a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label={page.lang === 'en' ? 'Open menu' : 'Открыть меню'}
+        >
+          ☰
+        </button>
+        <nav
+          id="site-nav"
+          class="site-nav"
+          aria-label={page.lang === 'en' ? 'Main navigation' : 'Основная навигация'}
+        >
+          {nav.map(([label, route]) => (
+            <a href={`/${page.lang}/${route}/`} aria-current={navRoot === route ? 'page' : undefined}>
+              {label}
+            </a>
+          ))}
+        </nav>
+        <a
+          class="language-link"
+          href={pairedPath(page.path, page.lang === 'en' ? 'ru' : 'en')}
+          lang={page.lang === 'en' ? 'ru' : 'en'}
+          aria-label={page.lang === 'en' ? 'Русская версия' : 'English version'}
+        >
+          {page.lang === 'en' ? 'RU' : 'EN'}
+        </a>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <div>
+          <span class="eyebrow">ODA.DREAM / 2026</span>
+          <p>
+            {page.lang === 'en'
+              ? 'Human state as artistic material.'
+              : 'Состояние человека как художественный материал.'}
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href={`/${page.lang}/contact/`}>{page.lang === 'en' ? 'Contact' : 'Контакт'}</a>
+          <a href={`/${page.lang}/studio/`}>{page.lang === 'en' ? 'Studio' : 'Студия'}</a>
+        </div>
+      </div>
+    </footer>
+    <dialog
+      id="lightbox"
+      class="lightbox"
+      aria-label={page.lang === 'en' ? 'Image viewer' : 'Просмотр изображения'}
+    >
+      <button
+        class="lightbox-close"
+        type="button"
+        aria-label={page.lang === 'en' ? 'Close image' : 'Закрыть изображение'}
+      >
+        ×
+      </button>
+      <img alt="" />
+      <p class="lightbox-caption"></p>
+    </dialog>
+    <script>
+      const menu = document.querySelector<HTMLButtonElement>('.menu-toggle');
+      const nav = document.querySelector<HTMLElement>('#site-nav');
+      menu?.addEventListener('click', () => {
+        const open = menu.getAttribute('aria-expanded') !== 'true';
+        menu.setAttribute('aria-expanded', String(open));
+        nav?.classList.toggle('open', open);
+      });
+      const dialog = document.querySelector<HTMLDialogElement>('#lightbox');
+      const image = dialog?.querySelector<HTMLImageElement>('img');
+      const caption = dialog?.querySelector<HTMLElement>('.lightbox-caption');
+      let trigger: HTMLElement | null = null;
+      document.querySelectorAll<HTMLButtonElement>('[data-lightbox]').forEach((button) =>
+        button.addEventListener('click', () => {
+          trigger = button;
+          if (image) {
+            image.src = button.dataset.src || '';
+            image.alt = button.dataset.alt || '';
+          }
+          if (caption) caption.textContent = button.dataset.caption || '';
+          dialog?.showModal();
+        }),
+      );
+      dialog
+        ?.querySelector<HTMLButtonElement>('.lightbox-close')
+        ?.addEventListener('click', () => dialog.close());
+      dialog?.addEventListener('click', (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+      dialog?.addEventListener('close', () => {
+        if (image) image.src = '';
+        trigger?.focus();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+---
+import '../../styles/global.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <title>Record not transferred — ODA.dream</title>
+    <meta
+      name="description"
+      content="This archived ODA.dream record has not been transferred to the new public site."
+    />
+    <link rel="canonical" href="https://odadream.art/legacy/unavailable/" />
+  </head>
+  <body>
+    <main class="shell page-intro">
+      <p class="eyebrow">ODA.DREAM / LEGACY RECORD</p>
+      <h1>Record not transferred</h1>
+      <p class="lead mt-5">
+        This archived record has not been selected for the new public site. It has not been silently replaced
+        with another project.
+      </p>
+      <p class="small-note mt-5">
+        Legacy ID: <code id="legacy-id">unknown</code>
+      </p>
+      <div class="link-row mt-6">
+        <a class="quiet-link" href="/en/works/">
+          Explore works ↗
+        </a>
+        <a class="quiet-link" href="/en/contact/">
+          Ask the studio ↗
+        </a>
+      </div>
+    </main>
+    <script>
+      const params = new URLSearchParams(location.search);
+      const id = params.get('id');
+      const output = document.querySelector('#legacy-id');
+      if (output) output.textContent = id || 'unknown';
+      if (params.get('lang') === 'ru') {
+        document.documentElement.lang = 'ru';
+        const heading = document.querySelector('h1');
+        const lead = document.querySelector('.lead');
+        if (heading) heading.textContent = 'Запись не перенесена';
+        if (lead)
+          lead.textContent =
+            'Эта архивная запись пока не выбрана для нового публичного сайта. Мы не заменили её молча другим проектом.';
+      }
+    </script>
+  </body>
+</html>
