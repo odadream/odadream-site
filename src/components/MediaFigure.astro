@@ -21,7 +21,18 @@ const item = mediaById(id);
         data-caption={item.caption[lang]}
         aria-label={lang === 'en' ? `Enlarge: ${item.alt.en}` : `Увеличить: ${item.alt.ru}`}
       >
-        <img src={item.src} alt={item.alt[lang]} loading={priority ? 'eager' : 'lazy'} decoding="async" />
+        <picture>
+          {item.mobileSrc && <source media="(max-width: 700px)" srcset={item.mobileSrc} />}
+          <img
+            src={item.src}
+            alt={item.alt[lang]}
+            width={item.width}
+            height={item.height}
+            loading={priority ? 'eager' : 'lazy'}
+            decoding={priority ? 'sync' : 'async'}
+            fetchpriority={priority ? 'high' : 'auto'}
+          />
+        </picture>
       </button>
     ) : (
       <video src={item.src} poster={item.poster} controls playsinline preload="none" />

@@ -71,6 +71,10 @@ for (const item of data.media) {
     await stat(resolve('public', item.src.slice(1))).catch(() =>
       errors.push(`media ${item.id}: local asset missing`),
     );
+  if (item.mobileSrc)
+    await stat(resolve('public', item.mobileSrc.slice(1))).catch(() =>
+      errors.push(`media ${item.id}: mobile asset missing`),
+    );
 }
 if (errors.length) {
   console.error(errors.join('\n'));

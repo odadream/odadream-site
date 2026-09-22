@@ -7,6 +7,9 @@ export interface Media {
   id: string;
   legacyId?: string;
   src: string;
+  mobileSrc?: string;
+  width?: number;
+  height?: number;
   poster?: string;
   alt: Localized;
   caption: Localized;
@@ -91,6 +94,9 @@ export const media: Media[] = [
   {
     id: 'interference-stage',
     src: '/images/content/events/interference-2026/interference-2026-01.webp',
+    mobileSrc: '/images/content/events/interference-2026/interference-2026-01-mobile.webp',
+    width: 1732,
+    height: 1155,
     alt: {
       en: 'Performers on stage during Interference of Realities',
       ru: 'Артисты на сцене «Интерференции реальностей»',
