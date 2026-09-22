@@ -64,7 +64,7 @@
         </div>
         <div class="font-proof">
           <div><h3>Manrope · кириллица проверена</h3><p>АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ<br>абвгдеёжзийклмнопрстуфхцчшщъыьэюя</p><p>Вес: 400 / 500 / 600 / 700. Выбран вместо Archivo: у Archivo в текущей поставке нет полной кириллицы.</p></div>
-          <div><h3>JetBrains Mono · кириллица проверена</h3><p style="font-family:var(--mono);font-size:16px">АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ<br>0123456789 · — → © №</p><p>Вес: 400 / 500 / 600. Лигатуры не используются: техническая строка должна быть буквально считываемой.</p></div>
+          <div><h3>JetBrains Mono · кириллица проверена</h3><p class="font-proof-mono">АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ<br>0123456789 · — → © №</p><p>Вес: 400 / 500 / 600. Лигатуры не используются: техническая строка должна быть буквально считываемой.</p></div>
         </div>
       </div>
     </section>
@@ -78,7 +78,7 @@
           </div></div>
           <div><p class="component-title">Контейнер</p><div class="layout-sample"><div class="layout-card">12 колонок · межколонник 16–32 px<br>широкий контейнер: 1360 px максимум<br>края: 16 px mobile / 40 px desktop</div><span class="layout-tag">GRID / VISUAL CHECK</span></div></div>
         </div>
-        <div class="line-samples" style="margin-top:32px"><div class="line-sample"><div class="line"></div><span>L-01 · 1px · Ink 17%<br>базовый разделитель</span></div><div class="line-sample"><div class="line strong"></div><span>L-02 · 1px · Ink 36%<br>граница интерактива</span></div><div class="line-sample"><div class="line accent"></div><span>L-03 · 2px signal<br>активный маршрут / фокус</span></div></div>
+        <div class="line-samples line-samples-spaced"><div class="line-sample"><div class="line"></div><span>L-01 · 1px · Ink 17%<br>базовый разделитель</span></div><div class="line-sample"><div class="line strong"></div><span>L-02 · 1px · Ink 36%<br>граница интерактива</span></div><div class="line-sample"><div class="line accent"></div><span>L-03 · 2px signal<br>активный маршрут / фокус</span></div></div>
       </div>
     </section>
 
@@ -87,7 +87,7 @@
       <div class="system-content component-grid">
         <div class="component-sample wide"><p class="component-title">Меню · active / neutral</p><nav class="menu-sample" aria-label="Пример меню"><a class="current" aria-current="page" href="works.html">Работы</a><a href="index.html#practice">Практика</a><a href="index.html#record">Хроника</a><a href="index.html#contact">Контакт</a></nav></div>
         <div class="component-sample"><p class="component-title">Ссылки</p><div class="action-row"><a class="link-sample" href="interference.html#documentation">Документация работы ↗</a><a class="link-sample" href="works.html">Вернуться к работам</a></div></div>
-        <div class="component-sample"><p class="component-title">Кнопки · только функциональные</p><div class="action-row"><button class="ui-button" type="button" data-open-gallery>Открыть медиа</button><button class="ui-button secondary" type="button" disabled>PDF не приложен</button><button class="ui-button" type="button" disabled>Недоступно</button></div></div>
+        <div class="component-sample"><p class="component-title">Кнопки · primary / secondary / unavailable</p><div class="action-row"><button class="ui-button ui-button-primary" type="button" data-open-gallery>Открыть медиа</button><button class="ui-button ui-button-secondary" type="button" disabled>PDF не приложен</button><button class="ui-button ui-button-unavailable" type="button" disabled>Недоступно</button></div></div>
       </div>
     </section>
 
@@ -116,7 +116,7 @@
         <article class="spec-record"><span class="component-title">Источник / роли</span><h3>Сайт проекта</h3><p>Описание спектакля и состав команды. Организатор, площадка, соавтор и партнёр обозначаются отдельными ролями.</p><a class="link-sample" href="https://interference.odadream.art/" target="_blank" rel="noopener noreferrer">Открыть источник ↗</a></article>
         <article class="spec-record"><span class="component-title">Авторство / credits</span><h3>ODA.dream × Инновационный театр балета</h3><p>Художественно-технологическое решение — Ольга и Далер Арабовы. Полный состав команды — на сайте проекта.</p></article>
         <article class="spec-record"><span class="component-title">Благодарность / образец без документа</span><h3>Документ пока не приложен</h3><p>Для публикации нужны автор или организация, дата, связанное событие, оригинал письма и разрешение. Этот образец показывает состав записи; он не является отзывом.</p></article>
-        <article class="spec-record"><span class="component-title">Статусы / отдельные понятия</span><div class="status-list"><span class="status-tag">Показ состоялся</span><span class="status-tag">Архив · не в репертуаре</span><span class="status-tag">R&amp;D · исследование</span></div><p class="spec-note">Статус реализации не означает доступность для заказа. Условия следующего показа указываются отдельной строкой.</p></article>
+        <article class="spec-record"><span class="component-title">Статусы / отдельные понятия</span><div class="status-list"><span class="status-tag" data-status="presented">Показ состоялся</span><span class="status-tag" data-status="archive">Архив · не в репертуаре</span><span class="status-tag" data-status="research">R&amp;D · исследование</span></div><p class="spec-note">Статус реализации не означает доступность для заказа. Условия следующего показа указываются отдельной строкой.</p></article>
         <article class="spec-record"><span class="component-title">Доступная версия</span><h3>Следующий показ</h3><p>Площадка, состав, длительность и технические условия согласуются с командой.</p><a class="link-sample" href="mailto:hi@odadream.art?subject=Interference">Написать о показе</a></article>
         <article class="spec-record"><span class="component-title">Метод / ограничение интерпретации</span><p>ЭЭГ и компьютерное зрение входят в художественную партитуру. Визуализация не является точным прочтением мыслей или чувств участника.</p></article>
       </div>

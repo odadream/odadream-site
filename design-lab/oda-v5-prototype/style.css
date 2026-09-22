@@ -2199,6 +2199,123 @@ body{
   padding-block:32px;
   color:var(--muted)
 }
+/* Interaction grammar — one role, one response. */
+.font-proof-mono{
+  font:500 18px/1.7 var(--mono)!important
+}
+.line-samples-spaced{
+  margin-top:var(--space-6)
+}
+/* Editorial routes remain visible at rest; the underline is close to the text. */
+.link-sample,.quiet-link,.inquiries a:not(.quiet-link){
+  color:var(--ink);
+  text-decoration-line:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:.16em;
+  text-decoration-color:var(--line-strong);
+  transition:color var(--ease),text-decoration-color var(--ease)
+}
+.link-sample:hover,.link-sample:focus-visible,.quiet-link:hover,.quiet-link:focus-visible,.inquiries a:not(.quiet-link):hover,.inquiries a:not(.quiet-link):focus-visible{
+  color:var(--accent);
+  text-decoration-color:currentColor
+}
+/* Utility links use the same language, at a deliberately quieter contrast. */
+.site-footer a,.crumb a{
+  color:inherit;
+  text-decoration-line:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:.16em;
+  text-decoration-color:transparent;
+  transition:color var(--ease),text-decoration-color var(--ease)
+}
+.site-footer a:hover,.site-footer a:focus-visible,.crumb a:hover,.crumb a:focus-visible{
+  color:var(--ink);
+  text-decoration-color:var(--line-strong)
+}
+/* A lone arrow is an icon control, not an editorial link. */
+.record-row>a,.document-row>a{
+  display:grid;
+  place-items:center;
+  width:44px;
+  height:44px;
+  margin:-10px -10px -10px 0;
+  color:var(--muted);
+  text-decoration:none;
+  transition:color var(--ease),background var(--ease)
+}
+.record-row>a:hover,.record-row>a:focus-visible,.document-row>a:hover,.document-row>a:focus-visible{
+  color:var(--accent);
+  background:var(--accent-soft)
+}
+/* Navigation and media/card routes communicate state through surface, never a stray underline. */
+.site-header nav a,.site-header nav a:hover,.site-header nav a.active,.menu-sample a,.menu-sample a:hover,.menu-sample a.current,.opening-figure,.selected-work,.archive-entry,.image-button,.system-image-button{
+  text-decoration:none
+}
+.ui-button{
+  border-color:var(--line-strong);
+  color:var(--ink);
+  background:transparent;
+  transition:background var(--ease),color var(--ease),border-color var(--ease),opacity var(--ease)
+}
+.ui-button-primary{
+  border-color:var(--ink);
+  background:var(--ink);
+  color:var(--bg)
+}
+.ui-button-primary:hover,.ui-button-primary:focus-visible{
+  border-color:var(--accent);
+  background:var(--accent);
+  color:var(--bg)
+}
+.ui-button-secondary{
+  border-style:dashed;
+  color:var(--muted)
+}
+.ui-button-secondary:hover,.ui-button-secondary:focus-visible{
+  border-color:var(--ink);
+  color:var(--ink);
+  background:transparent
+}
+.ui-button-unavailable,.ui-button[disabled]:not(.ui-button-secondary){
+  border-color:var(--line-soft);
+  border-style:solid;
+  background:transparent;
+  color:var(--dim);
+  opacity:.62;
+  cursor:not-allowed
+}
+.ui-button-unavailable:hover,.ui-button-unavailable:focus-visible,.ui-button[disabled]:not(.ui-button-secondary):hover,.ui-button[disabled]:not(.ui-button-secondary):focus-visible{
+  border-color:var(--line-soft);
+  background:transparent;
+  color:var(--dim)
+}
+/* Status is descriptive metadata, not a button: no framing or hover response. */
+.status-tag{
+  --status-color:var(--muted);
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:0;
+  border:0;
+  color:var(--status-color);
+  font:500 12px/1.6 var(--mono)
+}
+.status-tag::before{
+  content:'';
+  width:6px;
+  height:6px;
+  flex:0 0 6px;
+  background:var(--status-color)
+}
+.status-tag[data-status="premiered"]{--status-color:var(--accent)}
+.status-tag[data-status="presented"]{--status-color:var(--ink)}
+.status-tag[data-status="archive"]{--status-color:var(--dim)}
+.status-tag[data-status="research"]{--status-color:var(--alert)}
+.status-tag[data-status="object"]{--status-color:var(--muted)}
+.archive-meta .status-tag{
+  font-size:12px;
+  line-height:1.6
+}
 .system-footer-note{
   padding-block:32px;
   max-width:65ch
