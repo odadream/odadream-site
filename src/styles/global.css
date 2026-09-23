@@ -574,10 +574,12 @@ figcaption {
   position: relative;
   min-width: 0;
 }
-.feature-visual img {
+.feature-visual img,
+.feature-visual video {
   width: 100%;
   aspect-ratio: 4/3;
   object-fit: cover;
+  background: var(--surface);
 }
 .feature-kicker {
   display: flex;
@@ -655,6 +657,9 @@ figcaption {
 .feature-split .media-figure img {
   aspect-ratio: 4/3;
   object-fit: cover;
+}
+.feature-visual video {
+  display: block;
 }
 .feature-split p {
   margin-top: var(--s5);

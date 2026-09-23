@@ -1,7 +1,17 @@
 import { cases, formats, works, type Lang } from '../data/site';
 
 export type PageKind =
-  'home' | 'works' | 'work' | 'formats' | 'cooperation' | 'studio' | 'cases' | 'case' | 'contact';
+  | 'home'
+  | 'works'
+  | 'work'
+  | 'formats'
+  | 'cooperation'
+  | 'studio'
+  | 'cases'
+  | 'case'
+  | 'contact'
+  | 'technology'
+  | 'recognition';
 export interface Page {
   lang: Lang;
   kind: PageKind;
@@ -38,6 +48,26 @@ const copy = {
     en: ['Contact', 'Contact ODA.dream about presentations, commissions and development.'],
     ru: ['Контакт', 'Связаться с ODA.dream по вопросам показов, заказов и совместной разработки.'],
   },
+  technology: {
+    en: [
+      'Neuromandala',
+      'How ODA.dream turns biosignals into material for participatory art — and what those signals cannot tell us.',
+    ],
+    ru: [
+      'Нейромандала',
+      'Как ODA.dream превращает биосигналы в материал партисипаторного искусства — и чего эти сигналы не могут рассказать о человеке.',
+    ],
+  },
+  recognition: {
+    en: [
+      'Recognition',
+      'An archive of awards, certificates and letters of appreciation, published with source and permission context.',
+    ],
+    ru: [
+      'Признания',
+      'Архив наград, сертификатов и благодарственных писем с указанием источников и разрешений на публикацию.',
+    ],
+  },
 } as const;
 
 export const pages: Page[] = (['en', 'ru'] as Lang[]).flatMap((lang) => [
@@ -54,7 +84,9 @@ export const pages: Page[] = (['en', 'ru'] as Lang[]).flatMap((lang) => [
         ? 'ODA.dream creates participatory works at the intersection of art, perception and technology.'
         : 'ODA.dream создаёт партисипаторные работы на пересечении искусства, восприятия и технологий.',
   },
-  ...(['works', 'formats', 'cooperation', 'studio', 'cases', 'contact'] as const).map((kind) => ({
+  ...(
+    ['works', 'formats', 'cooperation', 'studio', 'cases', 'contact', 'technology', 'recognition'] as const
+  ).map((kind) => ({
     lang,
     kind,
     path: `/${lang}/${kind}/`,

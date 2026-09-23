@@ -1,7 +1,17 @@
 ---
 import MediaFigure from './MediaFigure.astro';
 import WorkCard from './WorkCard.astro';
-import { cases, evidence, formats, mediaById, organizations, people, works, workById } from '../data/site';
+import {
+  cases,
+  evidence,
+  formats,
+  heroVisuals,
+  mediaById,
+  organizations,
+  people,
+  works,
+  workById,
+} from '../data/site';
 import { caseUrl, formatUrl, workUrl, type Page } from '../lib/routes';
 interface Props {
   page: Page;
@@ -19,34 +29,18 @@ const sectionName = {
   studio: ru ? 'Студия' : 'Studio',
   cases: ru ? 'Кейсы' : 'Cases',
   contact: ru ? 'Контакт' : 'Contact',
+  technology: ru ? 'Нейромандала' : 'Neuromandala',
+  recognition: ru ? 'Признания' : 'Recognition',
 };
-const featured = works.slice(0, 3);
-const timeline = [
-  {
-    year: '2019',
-    en: 'MindShow appears publicly at BYOB as MindGrid.',
-    ru: 'Первый публичный показ MindShow на BYOB под названием MindGrid.',
-    url: workUrl(lang, 'mindshow'),
-  },
-  {
-    year: '2020',
-    en: 'Two alpha rhythms become the material of ODA.dream Rings.',
-    ru: 'Два альфа-ритма становятся материалом колец ODA.dream.',
-    url: workUrl(lang, 'rings'),
-  },
-  {
-    year: '2025',
-    en: 'Project Schrödinger and Neurobattle enter live public contexts.',
-    ru: '«Шрёдингер» и «Нейробитва» выходят в публичное пространство.',
-    url: `/${lang}/cases/`,
-  },
-  {
-    year: '2026',
-    en: 'Interference of Realities premieres in Kaluga.',
-    ru: 'Премьера «Интерференции реальностей» в Калуге.',
-    url: caseUrl(lang, 'tsiolkovsky-2026'),
-  },
-];
+const featured = heroVisuals;
+const timeline = [...cases]
+  .sort((a, b) => a.date.localeCompare(b.date))
+  .map((item) => ({
+    year: item.date.slice(0, 4),
+    en: `${item.title.en} · ${item.place.en}`,
+    ru: `${item.title.ru} · ${item.place.ru}`,
+    url: caseUrl(lang, item.id),
+  }));
 ---
 
 {page.kind === 'home' && (
@@ -61,53 +55,40 @@ const timeline = [
       </p>
     </section>
     <div class="shell">
-      <div class="feature-carousel" aria-label={ru ? 'Избранные работы' : 'Featured works'} data-carousel>
+      <div class="feature-carousel" aria-label={ru ? 'Нейромандала: избранные фрагменты' : 'Neuromandala: selected sequences'} data-carousel>
         {featured.map((item, i) => {
-          const image = mediaById(item.media[0]);
+          const image = mediaById(item.mediaId);
           return (
-            <div class="feature-split feature-slide" data-slide hidden={i !== 0}>
+            <div class="feature-split feature-slide" data-slide data-slide-id={item.id} hidden={i !== 0}>
               <figure class="feature-visual">
-                <button
-                  class="media-open"
-                  type="button"
-                  data-lightbox
-                  data-src={image?.src}
-                  data-alt={image?.alt[lang]}
-                  data-caption={image?.caption[lang]}
-                  aria-label={`${ru ? 'Увеличить' : 'Enlarge'}: ${image?.alt[lang]}`}
+                <video
+                  muted
+                  playsinline
+                  loop
+                  preload={i === 0 ? 'metadata' : 'none'}
+                  poster={image?.poster}
+                  aria-label={`${item.title[lang]} — ${item.medium[lang]}`}
+                  data-preview
                 >
-                  <img
-                    src={image?.src}
-                    alt={image?.alt[lang]}
-                    decoding="async"
-                    loading={i === 0 ? 'eager' : 'lazy'}
-                    fetchpriority={i === 0 ? 'high' : undefined}
-                  />
-                  {image?.previewSrc && (
-                    <video
-                      muted
-                      playsinline
-                      loop
-                      preload="none"
-                      poster={image.src}
-                      aria-hidden="true"
-                      data-preview
-                    >
-                      <source src={image.previewSrc} type="video/mp4" />
-                    </video>
-                  )}
-                </button>
-                <figcaption>{image?.caption[lang]}</figcaption>
+                  <source src={image?.previewSrc} type="video/mp4" />
+                </video>
+                <figcaption>
+                  {item.title[lang]} · {item.medium[lang]}
+                </figcaption>
               </figure>
               <div class="feature-copy">
                 <div class="feature-kicker">
-                  <span class="index">{String(i + 1).padStart(2, '0')}</span>
-                  <span class="eyebrow">/ {ru ? 'Избранная работа' : 'Selected work'}</span>
+                  <span class="index" data-slide-number>{String(i + 1).padStart(2, '0')}</span>
+                  <span class="eyebrow">/ {ru ? 'Формы Нейромандалы' : 'Neuromandala forms'}</span>
                 </div>
                 <h2 class="feature-title">{item.title[lang]}</h2>
-                <p>{item.summary[lang]}</p>
-                <a class="quiet-link" href={workUrl(lang, item.id)}>
-                  {ru ? 'Смотреть работу' : 'Explore the work'} ↗
+                <p>
+                  {ru
+                    ? 'Биосигнал становится частью визуальной композиции — не портретом человека, а материалом художественного процесса.'
+                    : 'A biosignal enters the visual composition—not as a portrait of a person, but as material in an artistic process.'}
+                </p>
+                <a class="quiet-link" href={`/${lang}/technology/`}>
+                  {ru ? 'О технологии и методе' : 'About the technology and method'} ↗
                 </a>
               </div>
             </div>
@@ -115,7 +96,7 @@ const timeline = [
         })}
         <div class="carousel-controls">
           <span class="eyebrow">
-            {ru ? 'Избранное' : 'Selected'} <span data-carousel-position>01 / 03</span>
+            {ru ? 'Фрагмент' : 'Sequence'} <span data-carousel-position>01 / 05</span>
           </span>
           <div>
             <button type="button" data-carousel-prev aria-label={ru ? 'Предыдущая работа' : 'Previous work'}>
@@ -124,6 +105,14 @@ const timeline = [
             <button type="button" data-carousel-next aria-label={ru ? 'Следующая работа' : 'Next work'}>
               →
             </button>
+            <button
+              type="button"
+              data-carousel-toggle
+              aria-pressed="false"
+              aria-label={ru ? 'Остановить движение' : 'Pause motion'}
+            >
+              Ⅱ
+            </button>
           </div>
         </div>
       </div>
@@ -131,6 +120,20 @@ const timeline = [
     <section class="section shell section-grid">
       <div class="section-label">
         <span class="index">02</span>
+        <span class="eyebrow">{ru ? 'Шесть работ' : 'Six works'}</span>
+      </div>
+      <div class="section-body">
+        <h2>{ru ? 'Избранное' : 'Selected works'}</h2>
+        <div class="work-grid">
+          {works.map((item, i) => (
+            <WorkCard item={item} index={i} lang={lang} />
+          ))}
+        </div>
+      </div>
+    </section>
+    <section class="section shell section-grid">
+      <div class="section-label">
+        <span class="index">03</span>
         <span class="eyebrow">{ru ? 'Метод / медиум' : 'Method / medium'}</span>
       </div>
       <div class="section-body">
@@ -169,8 +172,8 @@ const timeline = [
             : 'We do not diagnose people or claim that a signal proves an inner state.'}
         </p>
         <div class="link-row">
-          <a class="quiet-link" href={`/${lang}/studio/`}>
-            {ru ? 'О студии' : 'About the studio'} ↗
+          <a class="quiet-link" href={`/${lang}/technology/`}>
+            {ru ? 'Как устроена Нейромандала' : 'How Neuromandala works'} ↗
           </a>
           <a class="quiet-link" href={`/${lang}/formats/`}>
             {ru ? 'Форматы' : 'Formats'} ↗
@@ -180,29 +183,15 @@ const timeline = [
     </section>
     <section class="section shell section-grid">
       <div class="section-label">
-        <span class="index">03</span>
-        <span class="eyebrow">{ru ? 'Шесть работ' : 'Six works'}</span>
-      </div>
-      <div class="section-body">
-        <h2>{ru ? 'Избранное' : 'Selected works'}</h2>
-        <div class="work-grid">
-          {works.map((item, i) => (
-            <WorkCard item={item} index={i} lang={lang} />
-          ))}
-        </div>
-      </div>
-    </section>
-    <section class="section shell section-grid">
-      <div class="section-label">
         <span class="index">04</span>
         <span class="eyebrow">{ru ? 'Хронология' : 'Timeline'}</span>
       </div>
       <div class="section-body">
-        <h2>{ru ? 'От первого показа к новым формам' : 'From first presentation to new forms'}</h2>
+        <h2>{ru ? 'Избранные события и показы' : 'Selected events and presentations'}</h2>
         <p>
           {ru
-            ? 'Краткая история практики с 2019 года. Даты и роли конкретных показов собраны в кейсах.'
-            : 'A short history of the practice since 2019. Dates and roles of specific presentations are documented in cases.'}
+            ? 'Даты, места и роли взяты из карточек кейсов. Перенос полного реестра событий ещё продолжается.'
+            : 'Dates, places and roles come from the case records. Migration of the complete event register is still in progress.'}
         </p>
         <ol class="timeline">
           {timeline.map((item) => (
@@ -216,29 +205,24 @@ const timeline = [
           ))}
         </ol>
         <a class="quiet-link" href={`/${lang}/cases/`}>
-          {ru ? 'Все кейсы' : 'All cases'} ↗
+          {ru ? 'Опубликованные кейсы' : 'Published cases'} ↗
         </a>
       </div>
     </section>
     <section class="section shell section-grid">
       <div class="section-label">
         <span class="index">05</span>
-        <span class="eyebrow">{ru ? 'Благодарности' : 'Acknowledgements'}</span>
+        <span class="eyebrow">{ru ? 'Признания' : 'Recognition'}</span>
       </div>
       <div class="section-body">
-        <h2>{ru ? 'Работы создаются вместе.' : 'The work is made together.'}</h2>
-        <p>
-          {ru
-            ? 'Благодарим артистов, участников и команды площадок, вместе с которыми возникли эти работы. Роли организаций указаны рядом с конкретными событиями — это не список рекламных партнёров.'
-            : 'We thank performers, participants and venue teams who helped bring these works into being. Each organization’s role is documented with its event; this is not an endorsement list.'}
-        </p>
+        <h2>{ru ? 'Архив наград и благодарностей.' : 'Awards and acknowledgements archive.'}</h2>
         <p class="acknowledgements">
           {ru
-            ? 'Инновационный театр балета · Инновационный культурный центр · участники BYOB и DANO'
-            : 'Innovation Ballet Theatre · Innovation Cultural Center · BYOB and DANO participants'}
+            ? 'Здесь будут собраны награды, сертификаты и благодарственные письма — с событием, источником и разрешением на публикацию. Документы из прежнего архива сейчас проходят сверку.'
+            : 'Awards, certificates and letters of appreciation will be listed with their event, source and publication permission. Documents from the previous archive are being checked.'}
         </p>
-        <a class="quiet-link" href={`/${lang}/cases/`}>
-          {ru ? 'События и подтверждения' : 'Events and records'} ↗
+        <a class="quiet-link" href={`/${lang}/recognition/`}>
+          {ru ? 'Архив признаний' : 'Recognition archive'} ↗
         </a>
       </div>
     </section>
@@ -277,6 +261,98 @@ const timeline = [
         {works.map((item, i) => (
           <WorkCard item={item} index={i} lang={lang} />
         ))}
+      </div>
+    </section>
+  </>
+)}
+{page.kind === 'technology' && (
+  <>
+    <section class="page-intro shell">
+      <p class="eyebrow">01 / {sectionName.technology}</p>
+      <h1>
+        {ru
+          ? 'Нейромандала: сигнал становится художественным материалом'
+          : 'Neuromandala: a signal becomes artistic material'}
+      </h1>
+      <p class="lead">
+        {ru
+          ? 'Нейромандала — разработанная ODA.dream система для создания интерактивных аудиовизуальных форм из биосигналов. Это не способ читать мысли и не медицинский инструмент.'
+          : 'Neuromandala is an ODA.dream system for shaping interactive audiovisual forms from biosignals. It does not read thoughts and is not a medical instrument.'}
+      </p>
+    </section>
+    <section class="section shell section-grid">
+      <div class="section-label">
+        <span class="index">01</span>
+        <span class="eyebrow">{ru ? 'Процесс' : 'Process'}</span>
+      </div>
+      <div class="section-body">
+        <h2>{ru ? 'Измерение — не объяснение.' : 'Measurement is not explanation.'}</h2>
+        <div class="method-steps">
+          <p>
+            <span class="index">01</span>
+            <strong>{ru ? 'Сигнал' : 'Signal'}</strong>
+            {ru
+              ? 'Сенсор регистрирует ограниченные физиологические параметры, например электрическую активность мозга.'
+              : 'A sensor records limited physiological parameters, such as electrical brain activity.'}
+          </p>
+          <p>
+            <span class="index">02</span>
+            <strong>{ru ? 'Художественный перевод' : 'Artistic translation'}</strong>
+            {ru
+              ? 'Правила конкретной работы связывают изменения сигнала со звуком, изображением или движением.'
+              : 'Rules specific to each artwork map signal changes to sound, image or movement.'}
+          </p>
+          <p>
+            <span class="index">03</span>
+            <strong>{ru ? 'Обратная связь' : 'Feedback'}</strong>
+            {ru
+              ? 'Участник видит отклик среды и может исследовать его; это не объективная оценка эмоций или личности.'
+              : 'A participant sees the environment respond and can explore that response; it is not an objective reading of emotion or personality.'}
+          </p>
+        </div>
+        <p class="small-note">
+          {ru
+            ? 'Состав сенсоров, согласие, хранение исходных данных и возможность участия без сенсора определяются отдельно для каждого показа.'
+            : 'Sensors, consent, raw-data retention and sensor-free participation are specified for each presentation.'}
+        </p>
+        <div class="link-row">
+          {works
+            .filter((item) => ['mindshow', 'interference', 'neurobattle'].includes(item.id))
+            .map((item) => (
+              <a class="quiet-link" href={workUrl(lang, item.id)}>
+                {item.title[lang]} ↗
+              </a>
+            ))}
+        </div>
+      </div>
+    </section>
+  </>
+)}
+{page.kind === 'recognition' && (
+  <>
+    <section class="page-intro shell">
+      <p class="eyebrow">02 / {sectionName.recognition}</p>
+      <h1>{ru ? 'Документы признания' : 'Recognition archive'}</h1>
+      <p class="lead">
+        {ru
+          ? 'Архив отделяет награды, сертификаты и благодарственные письма от списка площадок и заказчиков. Публикуются только записи с проверенным содержанием; изображения документов — после проверки разрешений.'
+          : 'This archive distinguishes awards, certificates and letters of appreciation from a client or venue list. Records are published only after their contents are checked; document images require separate permission review.'}
+      </p>
+    </section>
+    <section class="section shell section-grid">
+      <div class="section-label">
+        <span class="index">01</span>
+        <span class="eyebrow">{ru ? 'Редакционный статус' : 'Editorial status'}</span>
+      </div>
+      <div class="section-body">
+        <p>
+          {ru
+            ? 'Исходный архив предыдущей версии содержит документы 2024–2026 годов. В текущей миграции их названия, даты и связи с событиями требуют сверки, а права на сканы — отдельного подтверждения. Поэтому документы пока не представлены как опубликованные награды.'
+            : 'The previous site’s archive contains documents from 2024–2026. Their titles, dates and event links are being checked during migration, and scan permissions require separate confirmation. They are therefore not yet presented here as published awards.'}
+        </p>
+        <a class="quiet-link" href={`/${lang}/cases/`}>
+          {ru ? 'Проверяемые события' : 'Documented events'} ↗
+        </a>
       </div>
     </section>
   </>

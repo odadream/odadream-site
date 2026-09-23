@@ -8,7 +8,7 @@ import '@fontsource/jetbrains-mono/cyrillic-500.css';
 import '@fontsource/jetbrains-mono/cyrillic-600.css';
 import '@fontsource/manrope/latin-500.css';
 import '@fontsource/manrope/cyrillic-500.css';
-import { cases, mediaById, works } from '../data/site';
+import { cases, mediaById, socialLinks, works } from '../data/site';
 import { pairedPath, type Page } from '../lib/routes';
 interface Props {
   page: Page;
@@ -80,6 +80,8 @@ const crumbNames: Record<string, string> =
         studio: 'Studio',
         cases: 'Cases',
         contact: 'Contact',
+        technology: 'Neuromandala',
+        recognition: 'Recognition',
       }
     : {
         ru: 'Главная',
@@ -89,6 +91,8 @@ const crumbNames: Record<string, string> =
         studio: 'Студия',
         cases: 'Кейсы',
         contact: 'Контакт',
+        technology: 'Нейромандала',
+        recognition: 'Признания',
       };
 const breadcrumbSchema =
   crumbs.length > 1
@@ -198,6 +202,20 @@ const breadcrumbSchema =
         <div class="footer-links">
           <a href={`/${page.lang}/contact/`}>{page.lang === 'en' ? 'Contact' : 'Контакт'}</a>
           <a href={`/${page.lang}/studio/`}>{page.lang === 'en' ? 'Studio' : 'Студия'}</a>
+          <a href={`/${page.lang}/technology/`}>{page.lang === 'en' ? 'Neuromandala' : 'Нейромандала'}</a>
+          <a href={`/${page.lang}/recognition/`}>{page.lang === 'en' ? 'Recognition' : 'Признания'}</a>
+          {socialLinks
+            .filter((item) => item.languages.includes(page.lang))
+            .map((item) => (
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${item.label} — ODA.dream`}
+              >
+                {item.label}
+              </a>
+            ))}
         </div>
       </div>
     </footer>
@@ -292,10 +310,36 @@ const breadcrumbSchema =
       });
       const carousel = document.querySelector<HTMLElement>('[data-carousel]');
       if (carousel) {
-        const slides = [...carousel.querySelectorAll<HTMLElement>('[data-slide]')];
+        let slides = [...carousel.querySelectorAll<HTMLElement>('[data-slide]')];
+        const controls = carousel.querySelector<HTMLElement>('.carousel-controls');
+        try {
+          const priorOrder = sessionStorage.getItem('oda-hero-order');
+          const ids = slides.map((slide) => slide.dataset.slideId || '');
+          const saved = priorOrder ? (JSON.parse(priorOrder) as string[]) : [];
+          const validSavedOrder = saved.length === ids.length && ids.every((id) => saved.includes(id));
+          const order = validSavedOrder ? saved : [...ids];
+          if (!validSavedOrder) {
+            for (let i = order.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [order[i], order[j]] = [order[j], order[i]];
+            }
+          }
+          slides = order.map((id) => slides.find((slide) => slide.dataset.slideId === id)!).filter(Boolean);
+          slides.forEach((slide) => carousel.insertBefore(slide, controls));
+          sessionStorage.setItem('oda-hero-order', JSON.stringify(order));
+        } catch {
+          // Storage may be unavailable; the server-rendered order remains usable.
+        }
         const position = carousel.querySelector<HTMLElement>('[data-carousel-position]');
+        const toggle = carousel.querySelector<HTMLButtonElement>('[data-carousel-toggle]');
         let current = 0;
         let timer: number | undefined;
+        let userPaused = false;
+        slides.forEach((slide, index) => {
+          slide.hidden = index !== 0;
+          const number = slide.querySelector<HTMLElement>('[data-slide-number]');
+          if (number) number.textContent = String(index + 1).padStart(2, '0');
+        });
         const show = (next: number) => {
           slides[current]?.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview);
           slides[current].hidden = true;
@@ -311,8 +355,31 @@ const breadcrumbSchema =
         };
         const resume = () => {
           pause();
-          if (canMove() && !document.hidden) timer = window.setInterval(() => show(current + 1), 8000);
+          if (canMove() && !document.hidden && !userPaused)
+            timer = window.setInterval(() => show(current + 1), 14000);
         };
+        toggle?.addEventListener('click', () => {
+          userPaused = !userPaused;
+          toggle.setAttribute('aria-pressed', String(userPaused));
+          toggle.textContent = userPaused ? '▶' : 'Ⅱ';
+          toggle.setAttribute(
+            'aria-label',
+            userPaused
+              ? document.documentElement.lang === 'ru'
+                ? 'Продолжить движение'
+                : 'Resume motion'
+              : document.documentElement.lang === 'ru'
+                ? 'Остановить движение'
+                : 'Pause motion',
+          );
+          if (userPaused) {
+            pause();
+            slides[current]?.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview);
+          } else {
+            playPreview(slides[current]?.querySelector('video') ?? null);
+            resume();
+          }
+        });
         carousel.querySelector('[data-carousel-prev]')?.addEventListener('click', () => {
           show(current - 1);
           resume();

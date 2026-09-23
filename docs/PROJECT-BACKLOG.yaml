@@ -8,7 +8,7 @@ items:
     title: Собрать главную как краткий обзор деятельности студии
     area: information_architecture
     priority: P0
-    status: planned
+    status: in_progress
     outcome: Каждый обзорный блок ведёт к полному разделу; главная не дублирует внутренние страницы.
     acceptance:
       - Hero ведёт к странице технологии и метода Нейромандалы.
@@ -22,7 +22,7 @@ items:
     title: Создать страницу базовой технологии Нейромандалы и hero-карусель
     area: media_and_content
     priority: P0
-    status: planned
+    status: in_progress
     outcome: Hero показывает несколько форм Нейромандалы и объясняет технологическое/художественное ядро.
     acceptance:
       - Шесть перечисленных владельцем исходников имеют проверенные подписи, даты, авторство и права.
@@ -60,7 +60,7 @@ items:
     title: Углубить страницу метода и биологической обратной связи
     area: content
     priority: P1
-    status: planned
+    status: in_progress
     outcome: Посетитель понимает сигнал, художественное преобразование, опыт участника и ограничения интерпретации.
     acceptance:
       - Отдельно объяснены сигнал, перевод в сценический/визуальный материал и опыт участника.
@@ -71,7 +71,7 @@ items:
     title: Создать модель хронологии и полный список событий
     area: content_model
     priority: P1
-    status: planned
+    status: in_progress
     outcome: Вехи главной и полный архив событий формируются из одних записей.
     acceptance:
       - Событие хранит дату, место, работу, роль ODA.dream, организации и источники.
@@ -83,7 +83,7 @@ items:
     title: Спроектировать модель и архив наград, сертификатов и благодарственных писем
     area: evidence
     priority: P1
-    status: planned
+    status: in_progress
     outcome: Подтверждённые признания представлены как архивные документы с provenance и правами.
     acceptance:
       - Различаются award, certificate, acknowledgement letter, press и event record.
@@ -95,7 +95,8 @@ items:
     title: Добавить локализованные социальные каналы в контентную модель и футер
     area: localization
     priority: P2
-    status: planned
+    status: in_progress
+    notes: Официальные URL Telegram, YouTube, Instagram и Дзен перенесены. Профиль VK не подтверждён; не подменять ссылкой на публикацию.
     acceptance:
       - EN: Telegram, YouTube, Instagram.
       - RU: Telegram, Дзен, VK, Instagram.

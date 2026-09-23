@@ -13,7 +13,7 @@ async function visit(directory, prefix) {
   }
 }
 for (const lang of ['en', 'ru']) await visit(resolve(root, lang), `/${lang}/`);
-if (pagePaths.length !== 34) fail(`Expected 34 localized pages, got ${pagePaths.length}`);
+if (pagePaths.length !== 38) fail(`Expected 38 localized pages, got ${pagePaths.length}`);
 for (const path of pagePaths) {
   const lang = path.startsWith('/ru/') ? 'ru' : 'en';
   const html = await readFile(resolve(root, path.slice(1), 'index.html'), 'utf8');

@@ -18,6 +18,12 @@ export interface Media {
   source: string;
   kind: 'image' | 'video';
 }
+export interface HeroVisual {
+  id: string;
+  title: Localized;
+  medium: Localized;
+  mediaId: string;
+}
 export interface Work {
   id: string;
   legacyId: string;
@@ -91,7 +97,116 @@ export interface Organization {
   source: string;
 }
 
+export interface SocialLink {
+  id: string;
+  label: string;
+  href: string;
+  languages: Lang[];
+  source: string;
+}
+
+// Profile URLs recovered from the previous public site. VK remains intentionally
+// omitted until an official profile URL is confirmed (a post URL is not a profile).
+export const socialLinks: SocialLink[] = [
+  {
+    id: 'telegram',
+    label: 'Telegram',
+    href: 'https://t.me/odadream_info',
+    languages: ['en', 'ru'],
+    source: 'previous src/data/contacts.ts',
+  },
+  {
+    id: 'youtube',
+    label: 'YouTube',
+    href: 'https://www.youtube.com/@odadreamart',
+    languages: ['en'],
+    source: 'previous src/data/contacts.ts',
+  },
+  {
+    id: 'instagram',
+    label: 'Instagram',
+    href: 'https://www.instagram.com/odadream/',
+    languages: ['en', 'ru'],
+    source: 'previous public JSON-LD',
+  },
+  {
+    id: 'dzen',
+    label: 'Дзен',
+    href: 'https://dzen.ru/odadream',
+    languages: ['ru'],
+    source: 'previous src/data/contacts.ts',
+  },
+];
+
 export const media: Media[] = [
+  {
+    id: 'neuromandala-terra',
+    src: '/video/hero/terra-preview.mp4',
+    poster: '/video/hero/terra-poster.webp',
+    previewSrc: '/video/hero/terra-preview.mp4',
+    width: 1280,
+    height: 720,
+    alt: {
+      en: 'Neuromandala visual field: Terraforming',
+      ru: 'Визуальное поле Нейромандалы: «Терраформинг»',
+    },
+    caption: { en: 'Terraforming · mandala display', ru: '«Терраформинг» · экран мандалы' },
+    rights: 'review',
+    source: 'D:/YandexDisk/_ODA2/Сайт/odadream-presentation/public/images/nodes/mandala_terra.mp4',
+    kind: 'video',
+  },
+  {
+    id: 'neuromandala-frequencies',
+    src: '/video/hero/frequencies-preview.mp4',
+    poster: '/video/hero/frequencies-poster.webp',
+    previewSrc: '/video/hero/frequencies-preview.mp4',
+    width: 1280,
+    height: 720,
+    alt: { en: 'MindGrid visual field: Frequencies', ru: 'Визуальное поле MindGrid: «Частоты»' },
+    caption: { en: 'Frequencies · MindGrid, first minute', ru: '«Частоты» · MindGrid, первая минута' },
+    rights: 'review',
+    source: 'D:/YandexDisk/_ODA2/Сайт/odadream-presentation/public/images/nodes/grid.mp4',
+    kind: 'video',
+  },
+  {
+    id: 'neuromandala-mindshow',
+    src: '/video/hero/mindshow-preview.mp4',
+    poster: '/video/hero/mindshow-poster.webp',
+    previewSrc: '/video/hero/mindshow-preview.mp4',
+    width: 1080,
+    height: 1080,
+    alt: { en: 'Neuromandala sequence from MindShow', ru: 'Последовательность Нейромандалы в MindShow' },
+    caption: { en: 'MindShow · audiovisual session', ru: 'MindShow · аудиовизуальная сессия' },
+    rights: 'review',
+    source: 'D:/YandexDisk/_ODA2/_Photos Various/Мандалы/Neuromandala Show.mp4',
+    kind: 'video',
+  },
+  {
+    id: 'neuromandala-cultural-code',
+    src: '/video/hero/cultural-code-preview.mp4',
+    poster: '/video/hero/cultural-code-poster.webp',
+    previewSrc: '/video/hero/cultural-code-preview.mp4',
+    width: 1280,
+    height: 720,
+    alt: { en: 'Neuromandala ornament visual', ru: 'Орнаментальная визуализация Нейромандалы' },
+    caption: { en: 'Cultural Code · Ossetia', ru: '«Культурный код» · Осетия' },
+    rights: 'review',
+    source: 'D:/YandexDisk/_ODA2/События/25-10-27 Осетия Плешка/Export/2_ornament_center_1080p.mp4',
+    kind: 'video',
+  },
+  {
+    id: 'neuromandala-kovylina',
+    src: '/video/hero/kovylina-preview.mp4',
+    poster: '/video/hero/kovylina-poster.webp',
+    previewSrc: '/video/hero/kovylina-preview.mp4',
+    width: 1280,
+    height: 720,
+    alt: { en: 'Neuromandala session with Elena Kovylina', ru: 'Сессия Нейромандалы с Еленой Ковылиной' },
+    caption: { en: 'Neuromandala · Elena Kovylina session', ru: 'Нейромандала · сессия Елены Ковылиной' },
+    rights: 'review',
+    source: 'D:/YandexDisk/_ODA2/События/26-06-08 Ковылина Тест/Exports/04_193527_Елена.mp4',
+    kind: 'video',
+  },
   {
     id: 'interference-stage',
     previewSrc: '/video/interference-dawn.mp4',
@@ -167,6 +282,39 @@ export const media: Media[] = [
     rights: 'review',
     source: 'src/content/event-dano-ekoniva-2025.md',
     kind: 'image',
+  },
+];
+
+export const heroVisuals: HeroVisual[] = [
+  {
+    id: 'terra',
+    title: { en: 'Terraforming', ru: 'Терраформинг' },
+    medium: { en: 'Mandala display', ru: 'Экран мандалы' },
+    mediaId: 'neuromandala-terra',
+  },
+  {
+    id: 'frequencies',
+    title: { en: 'Frequencies', ru: 'Частоты' },
+    medium: { en: 'MindGrid', ru: 'MindGrid' },
+    mediaId: 'neuromandala-frequencies',
+  },
+  {
+    id: 'mindshow',
+    title: { en: 'MindShow', ru: 'Майнд-шоу' },
+    medium: { en: 'Live audiovisual session', ru: 'Живая аудиовизуальная сессия' },
+    mediaId: 'neuromandala-mindshow',
+  },
+  {
+    id: 'cultural-code',
+    title: { en: 'Cultural Code', ru: 'Культурный код' },
+    medium: { en: 'Ossetia · 2025', ru: 'Осетия · 2025' },
+    mediaId: 'neuromandala-cultural-code',
+  },
+  {
+    id: 'kovylina',
+    title: { en: 'Neuromandala', ru: 'Нейромандала' },
+    medium: { en: 'Elena Kovylina session', ru: 'Сессия Елены Ковылиной' },
+    mediaId: 'neuromandala-kovylina',
   },
 ];
 
