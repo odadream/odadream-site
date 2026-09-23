@@ -127,31 +127,31 @@ const timeline = [...cases]
                       : mediaDetail}
                   </p>
                   {linkedCase && <p class="nm-caption">{mediaDetail}</p>}
-                </div>
-                <div class="nm-caption-link">
-                  {item.target.kind === 'work' ? (
-                    <a
-                      class="quiet-link"
-                      href={
-                        item.target.caseId
-                          ? caseUrl(lang, item.target.caseId)
-                          : workUrl(lang, item.target.workId)
-                      }
-                    >
-                      {item.target.caseId
-                        ? ru
-                          ? 'Работа в контексте показа'
-                          : 'Work in presentation context'
-                        : ru
-                          ? 'Страница работы'
-                          : 'Work documentation'}{' '}
-                      ↗
-                    </a>
-                  ) : (
-                    <span class="nm-pending-link" role="status">
-                      {ru ? 'Архивный фрагмент' : 'Archive excerpt'}
-                    </span>
-                  )}
+                  <div class="nm-caption-link">
+                    {item.target.kind === 'work' ? (
+                      <a
+                        class="quiet-link"
+                        href={
+                          item.target.caseId
+                            ? caseUrl(lang, item.target.caseId)
+                            : workUrl(lang, item.target.workId)
+                        }
+                      >
+                        {item.target.caseId
+                          ? ru
+                            ? 'Работа в контексте показа'
+                            : 'Work in presentation context'
+                          : ru
+                            ? 'Страница работы'
+                            : 'Work documentation'}{' '}
+                        ↗
+                      </a>
+                    ) : (
+                      <span class="nm-pending-link" role="status">
+                        {ru ? 'Архивный фрагмент' : 'Archive excerpt'}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
               <aside

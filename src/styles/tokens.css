@@ -64,6 +64,12 @@
   --danger: #df716b;
   --max: 1360px;
   --gutter: 40px;
+  /* Content axes remain identical inside full-bleed media and the page shell. */
+  --page-inset: max(var(--gutter), calc((100% - var(--max)) / 2));
+  --intro-space-start: var(--s8);
+  --intro-space-end: var(--s7);
+  --hero-edge-space: var(--s6);
+  --label-optical-offset: 6px;
   --s1: calc(var(--space-unit) * 1);
   --s2: calc(var(--space-unit) * 2);
   --s3: calc(var(--space-unit) * 3);
@@ -124,12 +130,11 @@
   --control-icon-size: 24px;
   --badge-inset: 1px 3px;
   --mark-legend-size: 24px;
-  --folio-size-narrow: 100px;
   --type-small: calc(13px * var(--type-scale));
   --type-note: calc(12px * var(--type-scale));
   --type-annotation: calc(11px * var(--type-scale));
-  --type-folio-compact: 128px;
   --type-folio: clamp(96px, 12vw, 176px);
+  --folio-field-height: calc(var(--type-folio) * 0.95);
   --folio-fill: color-mix(in srgb, var(--ink) 5%, transparent);
   --type-stat: calc(20px * var(--type-scale));
   --reference-surface: var(--bg);
@@ -251,6 +256,7 @@
     --gutter: 24px;
     --grid-rail: 160px;
     --grid-gap: var(--s6);
+    --type-folio: 100px;
   }
 }
 @media (max-width: 700px) {
@@ -267,5 +273,10 @@
     --s8: calc(var(--space-unit) * 14);
     --s9: calc(var(--space-unit) * 18);
     --type-body: calc(14px * var(--type-scale));
+    --panel-pad: var(--s4);
+    --section-space: var(--s7);
+    --intro-space-start: var(--s7);
+    --intro-space-end: var(--s5);
+    --hero-edge-space: var(--s5);
   }
 }

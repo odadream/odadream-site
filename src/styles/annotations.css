@@ -5,8 +5,7 @@
   grid-row: 1;
 }
 .section--atlas .section-body {
-  background: none;
-  padding-inline: 0;
+  --panel-surface: none;
 }
 .section-rail {
   grid-column: 1;
@@ -18,9 +17,9 @@
 }
 .section-rail__field {
   position: relative;
-  height: 160px;
+  height: var(--folio-field-height);
   flex: none;
-  margin-block: var(--s5);
+  margin-block: var(--panel-pad);
   overflow: hidden;
 }
 .section-rail__folio {
@@ -29,14 +28,9 @@
   color: var(--folio-fill);
   font: var(--weight-folio) var(--type-folio)/0.9 var(--sans);
   letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
   pointer-events: none;
   user-select: none;
-}
-.section-rail--empty .section-rail__field {
-  height: var(--s9);
-}
-.section-rail--empty .section-rail__folio {
-  font-size: var(--type-folio-compact);
 }
 .section-rail .section-rail__spine {
   position: absolute;
@@ -67,8 +61,7 @@
   color: var(--muted);
 }
 .section--method .section-body {
-  background: var(--surface);
-  padding: var(--panel-pad);
+  --panel-surface: var(--surface);
 }
 .method-steps.method-steps--linked > p {
   position: relative;
@@ -83,7 +76,7 @@
 .method-steps--linked > p:not(:last-child)::after {
   content: '→';
   position: absolute;
-  top: 0;
+  top: var(--s4);
   right: 0;
   color: var(--muted);
 }
@@ -270,9 +263,6 @@
   stroke-linejoin: miter;
 }
 @media (min-width: 701px) and (max-width: 1100px) {
-  .section-rail__folio {
-    font-size: var(--folio-size-narrow);
-  }
   .section-rail .record-stamp dl,
   .work-aside .record-stamp dl {
     grid-template-columns: minmax(0, 1fr);
@@ -297,12 +287,6 @@
   }
   .section-rail__data {
     margin: 0;
-  }
-  .section--atlas .section-body {
-    padding-block: 0;
-  }
-  .section--method .section-body {
-    padding: var(--s4);
   }
   .record-stamp--wide > dl {
     grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -1,5 +1,5 @@
 .system-page {
-  padding-bottom: var(--s8);
+  padding-bottom: 0;
 }
 .system-grid {
   display: grid;
@@ -7,7 +7,7 @@
   gap: var(--grid-gap);
 }
 .system-intro {
-  padding-block: var(--s8) var(--s7);
+  padding-block: var(--intro-space-start) var(--intro-space-end);
   align-items: start;
 }
 .system-intro h1 {
@@ -38,6 +38,12 @@
   color: var(--accent);
 }
 .system-side {
+  padding-top: 0;
+}
+.system-intro > .section-label {
+  padding-top: var(--label-optical-offset);
+}
+.system-side > .section-label {
   padding-top: var(--panel-pad);
 }
 .system-side p {
@@ -47,14 +53,23 @@
   line-height: 1.6;
 }
 .system-section {
-  padding-block: var(--s5);
+  padding-block: var(--section-space);
   align-items: start;
   scroll-margin-top: var(--anchor-offset);
 }
 .system-content {
   min-width: 0;
+  position: relative;
+  isolation: isolate;
+  padding: var(--panel-pad) 0;
+}
+.system-content::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0 calc(-1 * var(--panel-pad));
   background: var(--surface);
-  padding: var(--panel-pad);
+  pointer-events: none;
 }
 .system-content > * + * {
   margin-top: var(--gap-group);
@@ -420,20 +435,14 @@
 }
 @media (max-width: 700px) {
   .system-grid {
-    grid-template-columns: 1fr;
-    gap: var(--s4);
-  }
-  .system-intro {
-    padding-block: var(--s7) var(--s5);
-  }
-  .system-section {
-    padding-block: var(--s5);
+    grid-template-columns: var(--grid-columns);
+    gap: var(--grid-gap);
   }
   .system-side {
     padding-top: 0;
   }
-  .system-content {
-    padding: var(--s4);
+  .system-side > .section-label {
+    padding-top: 0;
   }
   .swatch-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
