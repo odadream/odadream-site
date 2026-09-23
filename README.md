@@ -15,6 +15,15 @@ Requires Node 22.19+ (CI uses Node 24). Run `npm ci`, then `npm run dev`. Previe
 - `src/styles/tokens.css` and `global.css`: V5 palette/typography/spacing direction, rebuilt as a smaller component system. Fonts are self-hosted with Latin and Cyrillic subsets.
 - `public/images/content/`: only seven curated local images, kept at their existing public URLs. All are marked `rights: review` pending approval. No restricted video was copied.
 
+## Product and content decisions
+
+- `docs/SITE-PRINCIPLES.md`: homepage as an editorial overview with drill-down paths, language-specific social links and content/visual rules.
+- `docs/PROJECT-BACKLOG.yaml`: machine-readable backlog with stable IDs, priority, status, dependencies and acceptance criteria. Update it with the principles document when scope or decisions change.
+- `docs/CONTENT-AND-CMS.md`: current static content model, what was inherited, CMS limitations, and the Golem/MindDB integration status.
+- `docs/DESIGN-SYSTEM-SOURCE.md`: V5 source and shared token/component contract.
+
+The current content layer is curated and hardcoded in TypeScript; it is not an admin CMS and has no database connection. The planned move to Astro Content Collections is tracked as `CMS-01`.
+
 The V1 sources, builds and V5 snapshot are separately archived in `../odadream-site-v1-backup-2026-09-22`. The exact observed remote `origin/main` is `642bbb2` (`archive/published-site-v1.2.2`); local `main` is 20 commits ahead at `d4cb306` (`archive/site-v1.2.2`). `design/v5-approved` retains the approved prototype. Existing untracked files from the original worktree were copied there and never removed from their source.
 
 ## Release gate
