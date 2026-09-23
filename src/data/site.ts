@@ -2,6 +2,7 @@ export type Lang = 'en' | 'ru';
 export type Localized = Record<Lang, string>;
 export type Publication = 'draft' | 'review' | 'published';
 export type Rights = 'cleared' | 'review' | 'restricted';
+export type WorkStatus = 'premiere' | 'evolving' | 'event-format' | 'archive' | 'one-off' | 'research';
 
 export interface Media {
   id: string;
@@ -18,12 +19,17 @@ export interface Media {
   source: string;
   kind: 'image' | 'video';
 }
-export interface HeroVisual {
-  id: string;
-  title: Localized;
-  medium: Localized;
-  mediaId: string;
-}
+export type HeroVisual =
+  | {
+      id: string;
+      mediaId: string;
+      target: { kind: 'work'; workId: string; caseId?: string };
+    }
+  | {
+      id: string;
+      mediaId: string;
+      target: { kind: 'unmapped' };
+    };
 
 // Redacted aggregate snapshot only. Never import the catalogue's per-take rows
 // or participant data into the public site.
@@ -51,7 +57,7 @@ export interface Work {
   summary: Localized;
   experience: Localized;
   question: Localized;
-  status: Localized;
+  status: WorkStatus;
   realized: boolean;
   inRepertoire: boolean;
   bookable: boolean;
@@ -107,6 +113,7 @@ export interface Recognition {
   title: Localized;
   issuer: Localized;
   year: number;
+  featuredOnHome?: boolean;
   event?: string;
   source: string;
   documentSource: string;
@@ -320,35 +327,39 @@ export const media: Media[] = [
 export const heroVisuals: HeroVisual[] = [
   {
     id: 'terra',
-    title: { en: 'Terraforming', ru: 'Терраформинг' },
-    medium: { en: 'Mandala display', ru: 'Экран мандалы' },
     mediaId: 'neuromandala-terra',
+    target: { kind: 'unmapped' },
   },
   {
     id: 'frequencies',
-    title: { en: 'Frequencies', ru: 'Частоты' },
-    medium: { en: 'MindGrid', ru: 'MindGrid' },
     mediaId: 'neuromandala-frequencies',
+    target: { kind: 'work', workId: 'mindshow' },
   },
   {
     id: 'mindshow',
-    title: { en: 'MindShow', ru: 'Майнд-шоу' },
-    medium: { en: 'Live audiovisual session', ru: 'Живая аудиовизуальная сессия' },
     mediaId: 'neuromandala-mindshow',
+    target: { kind: 'work', workId: 'mindshow', caseId: 'byob-2026' },
   },
   {
     id: 'cultural-code',
-    title: { en: 'Cultural Code', ru: 'Культурный код' },
-    medium: { en: 'Ossetia · 2025', ru: 'Осетия · 2025' },
     mediaId: 'neuromandala-cultural-code',
+    target: { kind: 'unmapped' },
   },
   {
     id: 'kovylina',
-    title: { en: 'Neuromandala', ru: 'Нейромандала' },
-    medium: { en: 'Elena Kovylina session', ru: 'Сессия Елены Ковылиной' },
     mediaId: 'neuromandala-kovylina',
+    target: { kind: 'unmapped' },
   },
 ];
+
+export const workStatusLabels: Record<WorkStatus, Localized> = {
+  premiere: { en: 'Premiered · 2026', ru: 'Премьера · 2026' },
+  evolving: { en: 'Evolving work', ru: 'Развивающаяся работа' },
+  'event-format': { en: 'Event format', ru: 'Событийный формат' },
+  archive: { en: 'Archive · not in repertoire', ru: 'Архив · не в репертуаре' },
+  'one-off': { en: 'One-off object', ru: 'Единичный объект' },
+  research: { en: 'R&D · concept', ru: 'R&D · концепция' },
+};
 
 export const works: Work[] = [
   {
@@ -369,7 +380,7 @@ export const works: Work[] = [
       en: 'When two realities seem to converge, is that connection measured, performed or imagined?',
       ru: 'Когда две реальности кажутся связанными, эта связь измерена, разыграна или воображена?',
     },
-    status: { en: 'Premiered · 2026', ru: 'Премьера · 2026' },
+    status: 'premiere',
     realized: true,
     inRepertoire: false,
     bookable: false,
@@ -414,7 +425,7 @@ export const works: Work[] = [
       en: 'What changes when a person is simultaneously material, co-author and observer?',
       ru: 'Что меняется, когда человек становится одновременно материалом, соавтором и наблюдателем?',
     },
-    status: { en: 'Realized · evolving versions', ru: 'Реализовано · развивающиеся версии' },
+    status: 'evolving',
     realized: true,
     inRepertoire: false,
     bookable: true,
@@ -451,7 +462,7 @@ export const works: Work[] = [
       en: 'Can a contest reward the capacity to regulate oneself rather than force?',
       ru: 'Может ли соревнование вознаграждать саморегуляцию, а не силу?',
     },
-    status: { en: 'Realized · event format', ru: 'Реализовано · событийный формат' },
+    status: 'event-format',
     realized: true,
     inRepertoire: false,
     bookable: true,
@@ -488,7 +499,7 @@ export const works: Work[] = [
       en: 'Can theatre act as a live biofeedback protocol rather than illustrate a fixed plot?',
       ru: 'Может ли театр быть живым протоколом обратной связи, а не иллюстрацией готового сюжета?',
     },
-    status: { en: 'Realized · 2025', ru: 'Реализовано · 2025' },
+    status: 'archive',
     realized: true,
     inRepertoire: false,
     bookable: false,
@@ -533,7 +544,7 @@ export const works: Work[] = [
       en: 'How can a measured moment become a shared material memory?',
       ru: 'Как измеренный момент может стать общей материальной памятью?',
     },
-    status: { en: 'Realized · one-off object', ru: 'Реализовано · единичный объект' },
+    status: 'one-off',
     realized: true,
     inRepertoire: false,
     bookable: false,
@@ -570,7 +581,7 @@ export const works: Work[] = [
       en: 'What forms might shared attention take without claiming to measure human connection itself?',
       ru: 'Какую форму может принять совместное внимание, не претендуя на измерение человеческой близости?',
     },
-    status: { en: 'R&D · concept', ru: 'R&D · концепция' },
+    status: 'research',
     realized: false,
     inRepertoire: false,
     bookable: false,
@@ -733,6 +744,7 @@ export const recognitions: Recognition[] = [
     legacyId: 'recognition-digital-art-ai-2026',
     kind: 'certificate',
     year: 2026,
+    featuredOnHome: true,
     title: { en: 'Diploma · Digital Art & AI panel', ru: 'Диплом · панель «Цифровое искусство и ИИ»' },
     issuer: { en: 'Unique Russia · Gostiny Dvor', ru: 'Уникальная Россия · Гостиный двор' },
     source: 'previous src/content/hub-letters.md',
@@ -745,6 +757,7 @@ export const recognitions: Recognition[] = [
     legacyId: 'proof-mipt-letter',
     kind: 'acknowledgement-letter',
     year: 2025,
+    featuredOnHome: true,
     title: { en: 'Letter of recognition', ru: 'Благодарственное письмо' },
     issuer: {
       en: 'Moscow Institute of Physics and Technology',
@@ -760,6 +773,7 @@ export const recognitions: Recognition[] = [
     legacyId: 'recognition-portal-2030-2025',
     kind: 'award',
     year: 2025,
+    featuredOnHome: false,
     title: { en: 'Diploma · Portal 2030–2050, “Visioning”', ru: 'Диплом · Портал 2030–2050, «Виджеинг»' },
     issuer: { en: 'Moscow 2030', ru: 'Москва 2030' },
     source: 'previous src/content/hub-letters.md; award wording requires source review',
@@ -772,6 +786,7 @@ export const recognitions: Recognition[] = [
     legacyId: 'recognition-tavrida-2025',
     kind: 'acknowledgement-letter',
     year: 2025,
+    featuredOnHome: true,
     title: {
       en: 'Letter of appreciation · Cultural Code of Russia',
       ru: 'Благодарность · «Культурный код России»',
@@ -787,6 +802,7 @@ export const recognitions: Recognition[] = [
     legacyId: 'proof-let-hse-beautiful-brain',
     kind: 'acknowledgement-letter',
     year: 2025,
+    featuredOnHome: true,
     title: {
       en: 'Letter of appreciation · Beautiful About the Brain',
       ru: 'Благодарность · «Красиво про мозг»',

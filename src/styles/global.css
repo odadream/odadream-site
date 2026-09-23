@@ -230,7 +230,10 @@ h3 {
   display: flex;
   gap: var(--s4);
   align-items: start;
-  padding-top: 5px;
+  padding-top: calc(var(--panel-pad) + 6px);
+}
+.section-label .index::before {
+  content: 'S·';
 }
 .section-label .eyebrow {
   max-width: 22ch;
@@ -429,6 +432,29 @@ figcaption {
   justify-content: space-between;
   gap: var(--s3);
   margin-top: var(--s3);
+}
+.work-card__category {
+  max-width: 26ch;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.5;
+}
+.work-card__status {
+  flex: 0 0 auto;
+  max-width: 48%;
+  padding: 3px 7px;
+  border: 1px solid var(--line-soft);
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.4;
+  text-align: right;
+}
+.work-card__status[data-work-status='research'] {
+  border-color: color-mix(in srgb, var(--alert) 42%, transparent);
+  color: var(--alert);
+}
+.work-card__status[data-work-status='archive'] {
+  color: var(--muted);
 }
 .work-card h3 {
   margin-top: var(--s3);
@@ -912,12 +938,25 @@ figcaption {
 }
 
 /* Homepage Neuromandala reel: the work is the image; labels and data stay secondary. */
-.home-intro {
-  padding-block: var(--s2);
-  margin-bottom: var(--s3);
+.recognition-list {
+  display: grid;
 }
-.home-intro .eyebrow {
-  margin: 0;
+.recognition-row {
+  display: grid;
+  grid-template-columns: minmax(116px, 0.32fr) 1fr;
+  gap: var(--s4);
+  align-items: baseline;
+  padding-block: var(--s3);
+  border-top: 1px solid var(--line-soft);
+}
+.recognition-row h3 {
+  font-size: 14px;
+  font-weight: 500;
+}
+.recognition-row p {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
 }
 .nm-hero {
   position: relative;
@@ -984,6 +1023,25 @@ figcaption {
   max-width: 42ch;
   text-shadow: 0 1px 18px rgb(0 0 0 / 42%);
 }
+.nm-carousel-controls {
+  position: relative !important;
+  inset: auto !important;
+  justify-content: flex-start;
+  gap: var(--s4);
+  margin: 0 0 var(--s3);
+}
+.nm-carousel-controls > span {
+  min-width: 88px;
+  color: var(--hero-ink-muted);
+  white-space: nowrap;
+}
+.nm-carousel-controls > div {
+  gap: var(--s2);
+}
+.nm-carousel-controls button {
+  width: 36px;
+  height: 36px;
+}
 .nm-work-caption,
 .nm-caption-link,
 .nm-data-panel {
@@ -1010,6 +1068,15 @@ figcaption {
 }
 .nm-caption-link .quiet-link {
   color: var(--hero-ink);
+}
+.nm-pending-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--hero-ink-muted);
+  font-size: 10px;
+  line-height: 1.4;
+  max-width: 34ch;
 }
 .nm-data-panel {
   position: absolute;
@@ -1104,10 +1171,7 @@ figcaption {
   margin-top: var(--s3);
 }
 .nm-hero .carousel-controls {
-  position: absolute;
   z-index: 3;
-  top: var(--s4);
-  right: var(--gutter);
   margin: 0;
   color: var(--hero-ink-soft);
 }
@@ -1121,30 +1185,8 @@ figcaption {
   border-color: var(--accent);
   color: var(--accent);
 }
-.nm-brand-intro {
-  position: absolute;
-  z-index: 5;
-  inset: 0;
-  display: grid;
-  place-content: center;
-  justify-items: center;
-  gap: var(--s3);
-  background: var(--hero-bg);
-  opacity: 1;
-  transition: var(--hero-intro-transition);
-  pointer-events: none;
-}
-.nm-brand-intro img {
-  width: clamp(116px, 14vw, 176px);
-  height: auto;
-}
-.nm-brand-intro span {
-  color: rgb(243 241 236 / 58%);
-  font-size: 9px;
-  letter-spacing: 0.14em;
-}
-.nm-brand-intro.is-out {
-  opacity: 0;
+.method-steps .index::before {
+  content: 'M·';
 }
 .hero-specimen {
   position: relative;
@@ -1208,18 +1250,7 @@ figcaption {
     max-width: 18ch;
     font-size: clamp(23px, 6vw, 32px);
   }
-  .nm-hero .carousel-controls {
-    top: 16px;
-    right: var(--gutter);
-    align-items: flex-start;
-  }
-  .nm-hero .carousel-controls > span {
-    display: none;
-  }
-  .nm-hero .carousel-controls > div {
-    gap: 4px;
-  }
-  .nm-hero .carousel-controls button {
+  .nm-carousel-controls button {
     width: 40px;
     height: 40px;
   }
@@ -1268,9 +1299,11 @@ figcaption {
     left: var(--s4);
     width: auto;
   }
-}
-@media (prefers-reduced-motion: reduce) {
-  .nm-brand-intro {
-    display: none;
+  .section-label {
+    padding-top: 0;
+  }
+  .recognition-row {
+    grid-template-columns: 1fr;
+    gap: var(--s2);
   }
 }

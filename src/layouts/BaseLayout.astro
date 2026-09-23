@@ -311,7 +311,7 @@ const breadcrumbSchema =
       const carousel = document.querySelector<HTMLElement>('[data-carousel]');
       if (carousel) {
         let slides = [...carousel.querySelectorAll<HTMLElement>('[data-slide]')];
-        const controls = carousel.querySelector<HTMLElement>('.carousel-controls');
+        const slideSlot = carousel.querySelector<HTMLElement>('.nm-heading');
         try {
           const priorOrder = sessionStorage.getItem('oda-hero-order');
           const ids = slides.map((slide) => slide.dataset.slideId || '');
@@ -325,29 +325,26 @@ const breadcrumbSchema =
             }
           }
           slides = order.map((id) => slides.find((slide) => slide.dataset.slideId === id)!).filter(Boolean);
-          slides.forEach((slide) => carousel.insertBefore(slide, controls));
+          slides.forEach((slide) => carousel.insertBefore(slide, slideSlot));
           sessionStorage.setItem('oda-hero-order', JSON.stringify(order));
         } catch {
           // Storage may be unavailable; the server-rendered order remains usable.
         }
-        const position = carousel.querySelector<HTMLElement>('[data-carousel-position]');
-        const toggle = carousel.querySelector<HTMLButtonElement>('[data-carousel-toggle]');
-        const brandIntro = carousel.querySelector<HTMLElement>('[data-brand-intro]');
+        const toggles = [...carousel.querySelectorAll<HTMLButtonElement>('[data-carousel-toggle]')];
         let current = 0;
         let timer: number | undefined;
         let userPaused = false;
         slides.forEach((slide, index) => {
           slide.hidden = index !== 0;
-          const number = slide.querySelector<HTMLElement>('[data-slide-number]');
-          if (number) number.textContent = String(index + 1).padStart(2, '0');
+          const counter = slide.querySelector<HTMLElement>('[data-carousel-position]');
+          if (counter)
+            counter.textContent = `${String(index + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
         });
         const show = (next: number) => {
           slides[current]?.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview);
           slides[current].hidden = true;
           current = (next + slides.length) % slides.length;
           slides[current].hidden = false;
-          if (position)
-            position.textContent = `${String(current + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
           playPreview(slides[current].querySelector('video'));
         };
         const pause = () => {
@@ -359,36 +356,44 @@ const breadcrumbSchema =
           if (canMove() && !document.hidden && !userPaused)
             timer = window.setInterval(() => show(current + 1), 14000);
         };
-        toggle?.addEventListener('click', () => {
-          userPaused = !userPaused;
-          toggle.setAttribute('aria-pressed', String(userPaused));
-          toggle.textContent = userPaused ? '▶' : 'Ⅱ';
-          toggle.setAttribute(
-            'aria-label',
-            userPaused
-              ? document.documentElement.lang === 'ru'
-                ? 'Продолжить движение'
-                : 'Resume motion'
-              : document.documentElement.lang === 'ru'
-                ? 'Остановить движение'
-                : 'Pause motion',
-          );
-          if (userPaused) {
-            pause();
-            slides[current]?.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview);
-          } else {
-            playPreview(slides[current]?.querySelector('video') ?? null);
+        toggles.forEach((toggle) =>
+          toggle.addEventListener('click', () => {
+            userPaused = !userPaused;
+            toggles.forEach((button) => {
+              button.setAttribute('aria-pressed', String(userPaused));
+              button.textContent = userPaused ? '▶' : 'Ⅱ';
+              button.setAttribute(
+                'aria-label',
+                userPaused
+                  ? document.documentElement.lang === 'ru'
+                    ? 'Продолжить движение'
+                    : 'Resume motion'
+                  : document.documentElement.lang === 'ru'
+                    ? 'Остановить движение'
+                    : 'Pause motion',
+              );
+            });
+            if (userPaused) {
+              pause();
+              slides[current]?.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview);
+            } else {
+              playPreview(slides[current]?.querySelector('video') ?? null);
+              resume();
+            }
+          }),
+        );
+        carousel.querySelectorAll('[data-carousel-prev]').forEach((button) =>
+          button.addEventListener('click', () => {
+            show(current - 1);
             resume();
-          }
-        });
-        carousel.querySelector('[data-carousel-prev]')?.addEventListener('click', () => {
-          show(current - 1);
-          resume();
-        });
-        carousel.querySelector('[data-carousel-next]')?.addEventListener('click', () => {
-          show(current + 1);
-          resume();
-        });
+          }),
+        );
+        carousel.querySelectorAll('[data-carousel-next]').forEach((button) =>
+          button.addEventListener('click', () => {
+            show(current + 1);
+            resume();
+          }),
+        );
         carousel.addEventListener('mouseenter', pause);
         carousel.addEventListener('mouseleave', resume);
         carousel.addEventListener('focusin', pause);
@@ -398,7 +403,6 @@ const breadcrumbSchema =
             pause();
             slides[current]?.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview);
           } else {
-            brandIntro?.classList.add('is-out');
             playPreview(slides[current].querySelector('video'));
             resume();
           }
@@ -407,18 +411,12 @@ const breadcrumbSchema =
           if (canMove()) resume();
           else {
             pause();
-            brandIntro?.classList.add('is-out');
             slides.forEach((slide) => slide.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview));
           }
         });
         if (canMove() && !document.hidden) {
-          window.setTimeout(() => {
-            brandIntro?.classList.add('is-out');
-            playPreview(slides[current]?.querySelector('video') ?? null);
-            resume();
-          }, 1500);
-        } else {
-          brandIntro?.classList.add('is-out');
+          playPreview(slides[current]?.querySelector('video') ?? null);
+          resume();
         }
       }
     </script>

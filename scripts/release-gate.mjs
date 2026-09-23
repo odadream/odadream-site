@@ -7,6 +7,21 @@ const js = ts.transpileModule(source, {
 }).outputText;
 const data = await import('data:text/javascript;base64,' + Buffer.from(js).toString('base64'));
 const failures = [];
+for (const item of data.heroVisuals ?? []) {
+  if (!data.media.some((media) => media.id === item.mediaId))
+    failures.push(`hero ${item.id}: media ${item.mediaId} is missing`);
+  if (item.target.kind === 'unmapped') failures.push(`hero ${item.id}: work/case link is not curated`);
+  if (item.target.kind === 'work') {
+    const work = data.works.find((row) => row.id === item.target.workId);
+    if (!work) failures.push(`hero ${item.id}: work ${item.target.workId} is missing`);
+    if (item.target.caseId) {
+      const linkedCase = data.cases.find((row) => row.id === item.target.caseId);
+      if (!linkedCase) failures.push(`hero ${item.id}: case ${item.target.caseId} is missing`);
+      else if (linkedCase.work !== item.target.workId)
+        failures.push(`hero ${item.id}: case ${item.target.caseId} describes a different work`);
+    }
+  }
+}
 for (const [name, records] of [
   ['work', data.works],
   ['format', data.formats],

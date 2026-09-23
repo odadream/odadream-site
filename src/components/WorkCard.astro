@@ -1,13 +1,12 @@
 ---
-import { mediaById, type Lang, type Work } from '../data/site';
+import { mediaById, workStatusLabels, type Lang, type Work } from '../data/site';
 import { workUrl } from '../lib/routes';
 interface Props {
   item: Work;
-  index: number;
   lang: Lang;
   eager?: boolean;
 }
-const { item, index, lang, eager = false } = Astro.props;
+const { item, lang, eager = false } = Astro.props;
 const media = mediaById(item.media[0]);
 ---
 
@@ -22,10 +21,10 @@ const media = mediaById(item.media[0]);
       )}
     </span>
     <span class="meta work-card__meta">
-      <span>
-        <span class="index">{String(index + 1).padStart(2, '0')}</span> / {item.category[lang]}
+      <span class="work-card__category">{item.category[lang]}</span>
+      <span class="work-card__status" data-work-status={item.status}>
+        {workStatusLabels[item.status][lang]}
       </span>
-      <span>{item.status[lang]}</span>
     </span>
     <h3>{item.title[lang]}</h3>
     <p>{item.summary[lang]}</p>

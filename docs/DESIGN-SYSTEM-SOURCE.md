@@ -4,7 +4,9 @@ Approved reference: `c82a7c7:design-lab/oda-v5-prototype/design-system.html` and
 
 The site and specimen both import `src/styles/global.css`, which imports the single semantic token source `src/styles/tokens.css`. The specimen adds `src/styles/design-system.css` only for its documentation layout. It uses the same `WorkCard`, `MediaFigure`, navigation shell, links, buttons and statuses as public pages; it does not define a competing palette.
 
-The `/design-system/` page also documents the full-bleed moving-image hero: ODA.dream intro, artwork-led frame, secondary work caption and restrained aggregate-data panel. Hero surfaces, scrim, heights and transition are semantic tokens. The displayed MindDB figure is a dated, review-gated snapshot; it must not be treated as approved public data, and rhythm bars remain absent until their methodology and publication are cleared.
+The `/design-system/` page also documents the full-bleed moving-image hero: the header carries the brand signature once, while the hero holds the independent epigraph, artwork-led frame, secondary work caption and restrained aggregate-data panel. Hero surfaces, scrim and heights are semantic tokens. The displayed MindDB figure is a dated, review-gated snapshot; it must not be treated as approved public data, and rhythm bars remain absent until their methodology and publication are cleared.
+
+Numbering is scoped rather than continuous: section markers render as `S·NN`, the hero carousel is explicitly labelled `КАДР / FRAME · NN / total`, and method stages render as `M·NN`. Work cards are intentionally unnumbered; category and a typed, localized status distinguish each card.
 
 ## Carried from V5
 

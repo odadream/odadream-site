@@ -49,7 +49,8 @@ test('mobile navigation, media, lightbox and contact work without horizontal ove
     await expect(page.getByRole('navigation', { name: 'Main navigation' })).toBeVisible();
     await page.getByRole('button', { name: 'Open menu' }).click();
   }
-  await expect(page.locator('.feature-slide:not([hidden]) img').first()).toBeVisible();
+  await expect(page.locator('.feature-slide:not([hidden]) video')).toBeVisible();
+  await page.goto('/en/works/interference-of-realities/');
   await page.getByRole('button', { name: /Enlarge: Performers/ }).click();
   await expect(page.locator('#lightbox')).toHaveAttribute('open', '');
   await page.keyboard.press('Escape');
@@ -72,11 +73,22 @@ test('featured carousel, editorial links and card media follow the design gramma
   isMobile,
 }) => {
   await page.goto('/ru/');
-  await expect(page.locator('.feature-slide:not([hidden]) h2')).toHaveText('Интерференция реальностей');
-  await expect(page.locator('.feature-slide:not([hidden]) .feature-kicker .index')).toHaveText('01');
-  await page.getByRole('button', { name: 'Следующая работа' }).click();
-  await expect(page.locator('.feature-slide:not([hidden]) h2')).toHaveText('Майнд-шоу');
-  await expect(page.locator('[data-carousel-position]')).toHaveText('02 / 03');
+  const activeSlide = page.locator('.feature-slide:not([hidden])');
+  const firstSlideId = await activeSlide.getAttribute('data-slide-id');
+  await expect(activeSlide.locator('[data-carousel-position]')).toHaveText('01 / 05');
+  await activeSlide.getByRole('button', { name: 'Следующая работа' }).click();
+  await expect(page.locator('.feature-slide:not([hidden])')).not.toHaveAttribute(
+    'data-slide-id',
+    firstSlideId || '',
+  );
+  await expect(page.locator('.feature-slide:not([hidden]) [data-carousel-position]')).toHaveText('02 / 05');
+  await expect(page.locator('header .brand img')).toHaveCount(1);
+  await expect(page.locator('.feature-slide:not([hidden]) .nm-carousel-controls .eyebrow')).toContainText('КАДР');
+  await expect(page.locator('.nm-brand-intro')).toHaveCount(0);
+  await expect(page.locator('.section-grid').nth(0).locator('.section-label .index')).toHaveText('02');
+  await expect(page.locator('.work-card__status[data-work-status="research"]')).toContainText('R&D');
+  await expect(page.locator('.recognition-row')).toHaveCount(4);
+  await expect(page.locator('.work-card__meta .index')).toHaveCount(0);
   await expect(page.locator('.work-card__link').first()).toHaveCSS('text-decoration-line', 'none');
   await expect(page.locator('.quiet-link').first()).toHaveCSS('text-decoration-line', 'underline');
   if (isMobile) {
@@ -91,7 +103,7 @@ test('featured carousel, editorial links and card media follow the design gramma
 test('V5 design stand shares tokens and live components with the site', async ({ page }) => {
   await page.goto('/design-system/');
   await expect(page.locator('meta[name=robots]')).toHaveAttribute('content', 'noindex,follow');
-  await expect(page.locator('.system-section')).toHaveCount(8);
+  await expect(page.locator('.system-section')).toHaveCount(9);
   await expect(page.locator('.work-card__link')).toHaveCount(2);
   await page.locator('#system-05').scrollIntoViewIfNeeded();
   await expect
