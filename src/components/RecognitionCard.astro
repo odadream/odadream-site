@@ -1,0 +1,42 @@
+---
+import type { Lang, Recognition, RecognitionKind } from '../data/site';
+interface Props {
+  item: Recognition;
+  lang: Lang;
+}
+const { item, lang } = Astro.props;
+const kindLabels: Record<RecognitionKind, Record<Lang, string>> = {
+  award: { en: 'Award', ru: 'Награда' },
+  certificate: { en: 'Certificate', ru: 'Диплом' },
+  'acknowledgement-letter': { en: 'Acknowledgement', ru: 'Благодарность' },
+};
+---
+<article class="recognition-card">
+  {item.previewSrc ? (
+    <button
+      class="recognition-card__image"
+      type="button"
+      data-lightbox
+      data-src={item.previewSrc}
+      data-alt={item.title[lang]}
+      data-caption={`${item.title[lang]} · ${item.issuer[lang]}, ${item.year}`}
+      aria-label={lang === 'ru' ? `Открыть документ: ${item.title.ru}` : `Open document: ${item.title.en}`}
+    >
+      <img src={item.previewSrc} alt="" loading="lazy" decoding="async" />
+    </button>
+  ) : (
+    <div
+      class="recognition-card__missing"
+      role="img"
+      aria-label={lang === 'ru' ? 'Скан не найден в прежнем архиве' : 'Scan missing from the previous archive'}
+    >
+      <span>ARCHIVE / ∅</span>
+      <small>{lang === 'ru' ? 'Скан недоступен' : 'Scan unavailable'}</small>
+    </div>
+  )}
+  <span class="meta">{item.year} · {kindLabels[item.kind][lang]}</span>
+  <div>
+    <h3>{item.title[lang]}</h3>
+    <p>{item.issuer[lang]}</p>
+  </div>
+</article>

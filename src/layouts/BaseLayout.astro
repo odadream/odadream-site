@@ -39,6 +39,15 @@ const nav =
         ['Контакт', 'contact'],
       ];
 const navRoot = page.kind === 'work' ? 'works' : page.kind === 'case' ? 'cases' : page.kind;
+const pageSection = page.path.includes('/design-system/') ? 'design' : navRoot;
+const navCodes: Record<string, string> = {
+  works: '01',
+  formats: '02',
+  cooperation: '03',
+  studio: '04',
+  cases: '05',
+  contact: '07',
+};
 const record =
   page.kind === 'work'
     ? works.find((item) => item.slug === page.slug)
@@ -110,11 +119,27 @@ const breadcrumbSchema =
 ---
 
 <!doctype html>
-<html lang={page.lang}>
+<html lang={page.lang} data-section={pageSection}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#111110" />
+    <script is:inline>
+      (() => {
+        try {
+          const saved = localStorage.getItem('oda-theme');
+          const mode = saved === 'light' || saved === 'dark' ? saved : 'auto';
+          const systemDark = matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.dataset.themeMode = mode;
+          document.documentElement.dataset.theme = mode === 'auto' ? (systemDark ? 'dark' : 'light') : mode;
+          document.querySelector('meta[name="theme-color"]')?.setAttribute('content', document.documentElement.dataset.theme === 'light' ? '#f3efe6' : '#111110');
+        } catch {
+          document.documentElement.dataset.themeMode = 'auto';
+          document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          document.querySelector('meta[name="theme-color"]')?.setAttribute('content', document.documentElement.dataset.theme === 'light' ? '#f3efe6' : '#111110');
+        }
+      })();
+    </script>
     <link rel="icon" href="/brand/oda-brain.svg" type="image/svg+xml" />
     <title>{page.title}</title>
     <meta name="description" content={page.description} />
@@ -169,11 +194,25 @@ const breadcrumbSchema =
           aria-label={page.lang === 'en' ? 'Main navigation' : 'Основная навигация'}
         >
           {nav.map(([label, route]) => (
-            <a href={`/${page.lang}/${route}/`} aria-current={navRoot === route ? 'page' : undefined}>
-              {label}
+            <a href={`/${page.lang}/${route}/`} data-route={route} aria-current={navRoot === route ? 'page' : undefined}>
+              <span class="nav-code" aria-hidden="true">{navCodes[route]}</span>{label}
             </a>
           ))}
+          {import.meta.env.DEV && (
+            <a href="/design-system/" data-route="design" aria-current={pageSection === 'design' ? 'page' : undefined}>
+              <span class="nav-code" aria-hidden="true">DS</span>{page.lang === 'ru' ? 'Система' : 'System'}
+            </a>
+          )}
         </nav>
+        <button
+          class="theme-toggle"
+          type="button"
+          data-theme-toggle
+          aria-label={page.lang === 'ru' ? 'Тема: автоматически' : 'Theme: automatic'}
+          title={page.lang === 'ru' ? 'Сменить тему' : 'Change theme'}
+        >
+          <span aria-hidden="true">◐</span><span data-theme-label>{page.lang === 'ru' ? 'Авто' : 'Auto'}</span>
+        </button>
         {page.path !== '/ru/design-system/' && (
           <a
             class="language-link"
@@ -237,6 +276,33 @@ const breadcrumbSchema =
     <script>
       const menu = document.querySelector<HTMLButtonElement>('.menu-toggle');
       const nav = document.querySelector<HTMLElement>('#site-nav');
+      const themeButton = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+      const themeLabel = themeButton?.querySelector<HTMLElement>('[data-theme-label]');
+      const themeNames = document.documentElement.lang === 'ru'
+        ? { auto: 'Авто', light: 'Свет', dark: 'Тьма' }
+        : { auto: 'Auto', light: 'Light', dark: 'Dark' };
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+      const updateThemeLabel = () => {
+        const mode = (document.documentElement.dataset.themeMode || 'auto') as keyof typeof themeNames;
+        if (themeLabel) themeLabel.textContent = themeNames[mode];
+        themeButton?.setAttribute('aria-label', `${document.documentElement.lang === 'ru' ? 'Тема' : 'Theme'}: ${themeNames[mode]}`);
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', document.documentElement.dataset.theme === 'light' ? '#f3efe6' : '#111110');
+      };
+      updateThemeLabel();
+      themeButton?.addEventListener('click', () => {
+        const current = document.documentElement.dataset.themeMode || 'auto';
+        const next = current === 'auto' ? 'light' : current === 'light' ? 'dark' : 'auto';
+        document.documentElement.dataset.themeMode = next;
+        document.documentElement.dataset.theme = next === 'auto' ? (systemTheme.matches ? 'dark' : 'light') : next;
+        try { localStorage.setItem('oda-theme', next); } catch { /* private storage */ }
+        updateThemeLabel();
+      });
+      systemTheme.addEventListener('change', () => {
+        if (document.documentElement.dataset.themeMode === 'auto') {
+          document.documentElement.dataset.theme = systemTheme.matches ? 'dark' : 'light';
+          updateThemeLabel();
+        }
+      });
       menu?.addEventListener('click', () => {
         const open = menu.getAttribute('aria-expanded') !== 'true';
         menu.setAttribute('aria-expanded', String(open));

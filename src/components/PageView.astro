@@ -1,6 +1,7 @@
 ---
 import MediaFigure from './MediaFigure.astro';
 import WorkCard from './WorkCard.astro';
+import RecognitionCard from './RecognitionCard.astro';
 import {
   cases,
   evidence,
@@ -14,9 +15,9 @@ import {
   workStatusLabels,
   works,
   workById,
-  type Lang,
 } from '../data/site';
 import { caseUrl, formatUrl, workUrl, type Page } from '../lib/routes';
+import { siteStats } from '../lib/site-stats';
 interface Props {
   page: Page;
 }
@@ -41,22 +42,11 @@ const sectionName = {
 };
 const featured = heroVisuals;
 const homepageRecognitions = recognitions.filter((item) => item.featuredOnHome);
-const recognitionKindLabel = (kind: string, language: Lang) =>
-  ({
-    award: language === 'ru' ? 'Награда' : 'Award',
-    certificate: language === 'ru' ? 'Диплом' : 'Certificate',
-    'acknowledgement-letter': language === 'ru' ? 'Благодарность' : 'Acknowledgement',
-  })[kind as 'award' | 'certificate' | 'acknowledgement-letter'];
-const rhythmBands = [
-  { id: 'theta', glyph: 'θ' },
-  { id: 'alpha', glyph: 'α' },
-  { id: 'beta', glyph: 'β' },
-  { id: 'gamma', glyph: 'γ' },
-].map((band) => ({
-  ...band,
-  count: minddbSnapshot.rhythmDistribution?.[band.id as 'theta' | 'alpha' | 'beta' | 'gamma'] ?? null,
-}));
-const maxRhythmCount = Math.max(1, ...rhythmBands.map((band) => band.count ?? 0));
+const caseTypeLabels = {
+  performance: { ru: 'Перформанс', en: 'Performance' },
+  presentation: { ru: 'Публичный показ', en: 'Public presentation' },
+  'participatory-format': { ru: 'Партисипаторный формат', en: 'Participatory format' },
+};
 const timeline = [...cases]
   .sort((a, b) => a.date.localeCompare(b.date))
   .map((item) => ({
@@ -156,9 +146,7 @@ const timeline = [...cases]
                   </a>
                 ) : (
                   <span class="nm-pending-link" role="status">
-                    {ru
-                      ? 'Связь работы и кейса требует сверки источника'
-                      : 'Work and case link pending source review'}
+                    {ru ? 'Архивный фрагмент' : 'Archive excerpt'}
                   </span>
                 )}
               </div>
@@ -166,54 +154,34 @@ const timeline = [...cases]
                 class="nm-data-panel"
                 aria-label={ru ? 'Сводные данные MindDB' : 'MindDB collection summary'}
               >
-                <span class="eyebrow">MINDDB / {ru ? 'КОЛЛЕКЦИЯ' : 'COLLECTION'}</span>
+                <span class="eyebrow">MINDDB · {ru ? 'СНИМОК' : 'SNAPSHOT'}</span>
                 <div class="nm-stat-grid">
                   <div>
                     <strong>{minddbSnapshot.takeCount.toLocaleString(ru ? 'ru-RU' : 'en-GB')}</strong>
                     <span>{ru ? 'тейков в каталоге' : 'catalogued takes'}</span>
                   </div>
                   <div>
-                    <strong>{minddbSnapshot.videoDurationHours} h</strong>
+                    <strong>{minddbSnapshot.videoDurationHours.toLocaleString(ru ? 'ru-RU' : 'en-GB')} {ru ? 'ч' : 'h'}</strong>
                     <span>{ru ? 'видео · подтверждённая длительность' : 'video · duration measured'}</span>
                   </div>
                 </div>
-                <div class="nm-rhythm-status">
-                  <span>{ru ? 'ДОМИНИРУЮЩИЕ РИТМЫ' : 'DOMINANT RHYTHMS'}</span>
-                  <div
-                    class="nm-rhythm-chart"
-                    aria-label={
-                      ru
-                        ? 'Столбцы появятся после проверки агрегации'
-                        : 'Bars will appear after the aggregate is verified'
-                    }
-                  >
-                    {rhythmBands.map((band) => (
-                      <div class="nm-rhythm-column">
-                        <div class:list={['nm-rhythm-track', { 'has-value': band.count !== null }]}>
-                          {band.count !== null && (
-                            <i style={`--bar-height:${(band.count / maxRhythmCount) * 100}%`}></i>
-                          )}
-                        </div>
-                        <span>{band.glyph}</span>
-                        <small>{band.count ?? '—'}</small>
-                      </div>
-                    ))}
-                  </div>
-                  <p>{minddbSnapshot.rhythmNote[lang]}</p>
-                </div>
                 <small>
-                  {ru ? 'Снимок' : 'Snapshot'} · {minddbSnapshot.asOf} ·{' '}
-                  {minddbSnapshot.videoDurationFileCount.toLocaleString(ru ? 'ru-RU' : 'en-GB')}{' '}
-                  {ru ? 'видео проверено' : 'videos probed'}
+                  {minddbSnapshot.asOf} · {ru ? 'агрегат на проверке' : 'aggregate under review'}
                 </small>
               </aside>
             </article>
           );
         })}
         <div class="nm-heading">
+          <span class="eyebrow"><span class="index">00.01</span> / {ru ? 'НЕЙРОМАНДАЛА' : 'NEUROMANDALA'}</span>
           <h1>
             {ru ? 'Состояние человека — художественный материал.' : 'Human state as artistic material.'}
           </h1>
+          <p>
+            {ru
+              ? 'Художественная студия создаёт партисипаторные спектакли, инсталляции и объекты, в которых человек влияет на произведение.'
+              : 'An art studio creating participatory performances, installations and objects shaped by the people who encounter them.'}
+          </p>
         </div>
       </div>
     </div>
@@ -224,9 +192,25 @@ const timeline = [...cases]
       </div>
       <div class="section-body">
         <h2>{ru ? 'Избранное' : 'Selected works'}</h2>
+        <div class="ledger" aria-label={ru ? 'Состав каталога работ' : 'Work catalogue summary'}>
+          <div class="ledger__lead"><strong>{siteStats.works.total}</strong><span>{ru ? 'работ в текущем каталоге' : 'works in the current catalogue'}</span></div>
+          <div class="ledger__details">
+            <span>{siteStats.works.realized} {ru ? 'реализовано' : 'realized'}</span>
+            <span>{siteStats.works.research} R&amp;D</span>
+            <span>{siteStats.works.bookable} {ru ? 'доступны к обсуждению заказа' : 'open to commission inquiries'}</span>
+          </div>
+          <details class="ledger__breakdown">
+            <summary>{ru ? 'Состав по статусам' : 'Status breakdown'}</summary>
+            <div>
+              {Object.entries(siteStats.works.byStatus).map(([status, count]) => (
+                <span>{workStatusLabels[status as keyof typeof workStatusLabels][lang]} · {count}</span>
+              ))}
+            </div>
+          </details>
+        </div>
         <div class="work-grid">
-          {works.map((item) => (
-            <WorkCard item={item} lang={lang} />
+          {works.map((item, index) => (
+            <WorkCard item={item} lang={lang} code={`00.02.${String(index + 1).padStart(2, '0')}`} />
           ))}
         </div>
       </div>
@@ -285,11 +269,18 @@ const timeline = [...cases]
       </div>
       <div class="section-body">
         <h2>{ru ? 'Избранные события и показы' : 'Selected events and presentations'}</h2>
-        <p>
-          {ru
-            ? 'Даты, места и роли взяты из карточек кейсов. Перенос полного реестра событий ещё продолжается.'
-            : 'Dates, places and roles come from the case records. Migration of the complete event register is still in progress.'}
-        </p>
+        <div class="ledger ledger--events">
+          <div class="ledger__lead"><strong>{siteStats.cases.total}</strong><span>{ru ? 'описанных кейса' : 'documented cases'}</span></div>
+          <div class="ledger__details">
+            <span>{siteStats.cases.byType.performance ?? 0} {ru ? 'перформанса' : 'performances'}</span>
+            <span>{siteStats.cases.byType.presentation ?? 0} {ru ? 'публичный показ' : 'public presentation'}</span>
+            <span>{siteStats.cases.byType['participatory-format'] ?? 0} {ru ? 'интерактивный формат' : 'participatory format'}</span>
+          </div>
+          <p class="ledger__source">
+            {siteStats.golemEvents.total} {ru ? 'папок событий в реестре Golem; их содержание ещё не прошло отбор для сайта.' : 'event folders in the Golem registry; their contents are not yet curated for this site.'}
+            {' '}<time datetime={siteStats.golemEvents.generatedAt}>{siteStats.golemEvents.generatedAt.slice(0, 10)}</time>
+          </p>
+        </div>
         <ol class="timeline">
           {timeline.map((item) => (
             <li>
@@ -313,24 +304,23 @@ const timeline = [...cases]
       </div>
       <div class="section-body">
         <h2>{ru ? 'Архив наград и благодарностей.' : 'Awards and acknowledgements archive.'}</h2>
-        <p class="acknowledgements">
-          {ru
-            ? 'Выборка из прежнего публичного архива. Названия и отправители уже представлены; сканы и связи с событиями проходят редакционную и правовую сверку.'
-            : 'A selection from the previous public archive. Titles and issuers are listed; scans and event links remain under editorial and rights review.'}
-        </p>
-        <div class="recognition-list">
+        <div class="ledger">
+          <div class="ledger__lead"><strong>{siteStats.legacyRecognition.total}</strong><span>{ru ? 'позиций в прежнем публичном перечне' : 'items listed in the former public archive'}</span></div>
+          <div class="ledger__details">
+            <span>{siteStats.legacyRecognition.byKind.diploma} {ru ? 'диплома' : 'diplomas'}</span>
+            <span>{siteStats.legacyRecognition.byKind.letter} {ru ? 'благодарственных писем' : 'letters of appreciation'}</span>
+            <span>{siteStats.legacyRecognition.byKind.participation} {ru ? 'подтверждение участия' : 'participation record'}</span>
+          </div>
+          <p class="ledger__source">{ru ? `${siteStats.recognitions.total} записей перенесены в новую модель; права и атрибуция проверяются.` : `${siteStats.recognitions.total} records are structured in the new model; rights and attribution are under review.`}</p>
+        </div>
+        <div class="recognition-grid">
           {homepageRecognitions.map((item) => (
-            <article class="recognition-row">
-              <span class="meta">
-                {item.year} · {recognitionKindLabel(item.kind, lang)}
-              </span>
-              <div>
-                <h3>{item.title[lang]}</h3>
-                <p>{item.issuer[lang]}</p>
-              </div>
-            </article>
+            <RecognitionCard item={item} lang={lang} />
           ))}
         </div>
+        <p class="small-note">
+          {ru ? 'Превью из прежнего публичного архива. Права на повторную публикацию документов ещё проверяются.' : 'Previews from the former public archive. Re-publication rights remain under review.'}
+        </p>
         <a class="quiet-link" href={`/${lang}/recognition/`}>
           {ru ? 'Архив признаний' : 'Recognition archive'} ↗
         </a>
@@ -368,8 +358,8 @@ const timeline = [...cases]
     </section>
     <section class="shell">
       <div class="work-grid">
-        {works.map((item) => (
-          <WorkCard item={item} lang={lang} />
+        {works.map((item, index) => (
+          <WorkCard item={item} lang={lang} code={`01.01.${String(index + 1).padStart(2, '0')}`} />
         ))}
       </div>
     </section>
@@ -378,7 +368,7 @@ const timeline = [...cases]
 {page.kind === 'technology' && (
   <>
     <section class="page-intro shell">
-      <p class="eyebrow">01 / {sectionName.technology}</p>
+      <p class="eyebrow">08 / {sectionName.technology}</p>
       <h1>
         {ru
           ? 'Нейромандала: сигнал становится художественным материалом'
@@ -441,12 +431,12 @@ const timeline = [...cases]
 {page.kind === 'recognition' && (
   <>
     <section class="page-intro shell">
-      <p class="eyebrow">02 / {sectionName.recognition}</p>
+      <p class="eyebrow">06 / {sectionName.recognition}</p>
       <h1>{ru ? 'Документы признания' : 'Recognition archive'}</h1>
       <p class="lead">
         {ru
-          ? 'Архив отделяет награды, сертификаты и благодарственные письма от списка площадок и заказчиков. Публикуются только записи с проверенным содержанием; изображения документов — после проверки разрешений.'
-          : 'This archive distinguishes awards, certificates and letters of appreciation from a client or venue list. Records are published only after their contents are checked; document images require separate permission review.'}
+          ? 'Архив отделяет награды, дипломы и благодарственные письма от списка площадок и заказчиков. Здесь показаны превью найденных документов; права на их повторную публикацию проверяются.'
+          : 'This archive distinguishes awards, diplomas and letters of appreciation from a venue or client list. Available documents have previews; re-publication rights are being reviewed.'}
       </p>
     </section>
     <section class="section shell section-grid">
@@ -457,22 +447,14 @@ const timeline = [...cases]
       <div class="section-body">
         <p>
           {ru
-            ? 'Ниже — избранные записи из прежнего публичного архива. Названия и отправители перенесены; изображения документов и связи с событиями проверяются отдельно.'
-            : 'Below is a selection from the previous public archive. Titles and issuers have been carried over; document images and event links remain under review.'}
+            ? 'Ниже — выборка из прежнего публичного архива. Откройте превью для чтения; отсутствующий скан МФТИ помечен отдельно.'
+            : 'A selection from the former public archive. Open a preview to read it; the missing MIPT scan is identified separately.'}
         </p>
-        {recognitions
-          .filter((item) => item.featuredOnHome || publishedRecognitions.includes(item))
-          .map((item) => (
-            <article class="list-row">
-              <span class="meta">
-                {item.year} · {recognitionKindLabel(item.kind, lang)}
-              </span>
-              <div>
-                <h2>{item.title[lang]}</h2>
-                <p>{item.issuer[lang]}</p>
-              </div>
-            </article>
-          ))}
+        <div class="recognition-grid">
+          {recognitions
+            .filter((item) => item.featuredOnHome || publishedRecognitions.includes(item))
+            .map((item) => <RecognitionCard item={item} lang={lang} />)}
+        </div>
         <a class="quiet-link" href={`/${lang}/cases/`}>
           {ru ? 'Проверяемые события' : 'Documented events'} ↗
         </a>
@@ -802,6 +784,7 @@ const timeline = [...cases]
     </nav>
     <div class="work-layout">
       <aside class="work-aside">
+        <span class="eyebrow">{caseTypeLabels[oneCase.type][lang]}</span>
         <span class="eyebrow">{oneCase.date}</span>
         <span class="meta">{oneCase.place[lang]}</span>
       </aside>
@@ -858,7 +841,7 @@ const timeline = [...cases]
 {page.kind === 'contact' && (
   <>
     <section class="page-intro shell">
-      <p class="eyebrow">06 / {sectionName.contact}</p>
+      <p class="eyebrow">07 / {sectionName.contact}</p>
       <h1>{ru ? 'Связаться со студией' : 'Contact the studio'}</h1>
       <p class="lead">
         {ru

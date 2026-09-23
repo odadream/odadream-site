@@ -35,7 +35,7 @@ function checkCollection(name, rows) {
       if (!files.has(match[1])) errors.push(`${name} ${row.id}: missing source ${match[1]}`);
   }
 }
-for (const name of ['works', 'formats', 'cases', 'evidence', 'people', 'organizations', 'media'])
+for (const name of ['works', 'formats', 'cases', 'evidence', 'recognitions', 'people', 'organizations', 'media'])
   checkCollection(name, data[name]);
 const ids = (rows) => new Set(rows.map((row) => row.id));
 const workIds = ids(data.works),
@@ -55,6 +55,8 @@ for (const format of data.formats)
   for (const id of format.works) if (!workIds.has(id)) errors.push(`format ${format.id}: missing work ${id}`);
 for (const item of data.cases) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(item.date)) errors.push(`case ${item.id}: invalid date`);
+  if (!['performance', 'presentation', 'participatory-format'].includes(item.type))
+    errors.push(`case ${item.id}: invalid event type`);
   if (!workIds.has(item.work)) errors.push(`case ${item.id}: missing work ${item.work}`);
   for (const id of item.organizations)
     if (!orgIds.has(id)) errors.push(`case ${item.id}: missing organization ${id}`);
@@ -62,6 +64,20 @@ for (const item of data.cases) {
     if (!evidenceIds.has(id)) errors.push(`case ${item.id}: missing evidence ${id}`);
   for (const id of item.media) if (!mediaIds.has(id)) errors.push(`case ${item.id}: missing media ${id}`);
 }
+for (const item of data.recognitions) {
+  if (item.previewSrc)
+    await stat(resolve('public', item.previewSrc.slice(1))).catch(() =>
+      errors.push(`recognition ${item.id}: preview asset missing`),
+    );
+}
+const golem = JSON.parse(await readFile('src/data/golem-event-summary.json', 'utf8'));
+if (golem.total !== Object.values(golem.connectionQuality).reduce((sum, n) => sum + n, 0))
+  errors.push('Golem event summary: categories do not sum to total');
+const recognitionSummary = JSON.parse(await readFile('src/data/legacy-recognition-summary.json', 'utf8'));
+if (recognitionSummary.total !== Object.values(recognitionSummary.byKind).reduce((sum, n) => sum + n, 0))
+  errors.push('Legacy recognition summary: categories do not sum to total');
+if (recognitionSummary.total < data.recognitions.length)
+  errors.push('Legacy recognition summary: fewer listed items than structured records');
 for (const item of data.media) {
   if (!['cleared', 'review', 'restricted'].includes(item.rights))
     errors.push(`media ${item.id}: invalid rights`);

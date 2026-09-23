@@ -87,7 +87,8 @@ test('featured carousel, editorial links and card media follow the design gramma
   await expect(page.locator('.nm-brand-intro')).toHaveCount(0);
   await expect(page.locator('.section-grid').nth(0).locator('.section-label .index')).toHaveText('02');
   await expect(page.locator('.work-card__status[data-work-status="research"]')).toContainText('R&D');
-  await expect(page.locator('.recognition-row')).toHaveCount(4);
+  await expect(page.locator('.recognition-card')).toHaveCount(4);
+  await expect(page.locator('.work-card__code').first()).toHaveText('00.02.01');
   await expect(page.locator('.work-card__meta .index')).toHaveCount(0);
   await expect(page.locator('.work-card__link').first()).toHaveCSS('text-decoration-line', 'none');
   await expect(page.locator('.quiet-link').first()).toHaveCSS('text-decoration-line', 'underline');
@@ -103,7 +104,7 @@ test('featured carousel, editorial links and card media follow the design gramma
 test('V5 design stand shares tokens and live components with the site', async ({ page }) => {
   await page.goto('/design-system/');
   await expect(page.locator('meta[name=robots]')).toHaveAttribute('content', 'noindex,follow');
-  await expect(page.locator('.system-section')).toHaveCount(9);
+  await expect(page.locator('.system-section')).toHaveCount(10);
   await expect(page.locator('.work-card__link')).toHaveCount(2);
   await page.locator('#system-05').scrollIntoViewIfNeeded();
   await expect
@@ -124,6 +125,42 @@ test('V5 design stand shares tokens and live components with the site', async ({
       getComputedStyle(document.documentElement).getPropertyValue('--plane-back').trim(),
     ),
   ).toBe(back);
+});
+
+test('header remains visible, theme follows the system and manual choice persists', async ({ page }) => {
+  await page.emulateMedia({ colorScheme: 'light' });
+  await page.goto('/ru/');
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+  await page.evaluate(() => scrollTo(0, 1200));
+  await expect.poll(() => page.locator('.site-header').evaluate((node) => Math.round(node.getBoundingClientRect().top))).toBe(0);
+  await page.getByRole('button', { name: /Тема:/ }).click();
+  await expect(page.locator('html')).toHaveAttribute('data-theme-mode', 'light');
+  await page.getByRole('button', { name: /Тема:/ }).click();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await page.reload();
+  await expect(page.locator('html')).toHaveAttribute('data-theme-mode', 'dark');
+  await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute('content', '#111110');
+});
+
+test('homepage distinguishes catalogue scope and document previews', async ({ page, isMobile }) => {
+  await page.goto('/ru/');
+  await expect(page.getByText('работ в текущем каталоге')).toBeVisible();
+  await expect(page.getByText('папок событий в реестре Golem', { exact: false })).toBeVisible();
+  await expect(page.getByText('позиций в прежнем публичном перечне')).toBeVisible();
+  await expect(page.locator('.recognition-card__image')).toHaveCount(3);
+  const trigger = page.locator('.recognition-card__image').first();
+  await trigger.click();
+  await expect(page.locator('#lightbox')).toHaveAttribute('open', '');
+  await page.keyboard.press('Escape');
+  await expect(trigger).toBeFocused();
+  if (isMobile) {
+    await page.locator('.nm-hero').scrollIntoViewIfNeeded();
+    expect(await page.locator('.feature-slide:not([hidden])').evaluate((slide) => {
+      const video = slide.querySelector('video')?.getBoundingClientRect();
+      const summary = slide.querySelector('.nm-data-panel')?.getBoundingClientRect();
+      return Boolean(video && summary && summary.top >= video.bottom - 2);
+    })).toBeTruthy();
+  }
 });
 
 test('key pages have no serious or critical accessibility violations', async ({ page }) => {

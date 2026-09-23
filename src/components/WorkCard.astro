@@ -5,8 +5,9 @@ interface Props {
   item: Work;
   lang: Lang;
   eager?: boolean;
+  code?: string;
 }
-const { item, lang, eager = false } = Astro.props;
+const { item, lang, eager = false, code } = Astro.props;
 const media = mediaById(item.media[0]);
 ---
 
@@ -21,7 +22,10 @@ const media = mediaById(item.media[0]);
       )}
     </span>
     <span class="meta work-card__meta">
-      <span class="work-card__category">{item.category[lang]}</span>
+      <span class="work-card__identity">
+        {code && <span class="work-card__code">{code}</span>}
+        <span class="work-card__category">{item.category[lang]}</span>
+      </span>
       <span class="work-card__status" data-work-status={item.status}>
         {workStatusLabels[item.status][lang]}
       </span>

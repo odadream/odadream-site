@@ -6,7 +6,7 @@ The site and specimen both import `src/styles/global.css`, which imports the sin
 
 The `/design-system/` page also documents the full-bleed moving-image hero: the header carries the brand signature once, while the hero holds the independent epigraph, artwork-led frame, secondary work caption and restrained aggregate-data panel. Hero surfaces, scrim and heights are semantic tokens. The displayed MindDB figure is a dated, review-gated snapshot; it must not be treated as approved public data, and rhythm bars remain absent until their methodology and publication are cleared.
 
-Numbering is scoped rather than continuous: section markers render as `S·NN`, the hero carousel is explicitly labelled `КАДР / FRAME · NN / total`, and method stages render as `M·NN`. Work cards are intentionally unnumbered; category and a typed, localized status distinguish each card.
+Numbering follows the site tree: a page has a two-character code, a block adds a second segment (`00.02`), and a card may add a third (`00.02.01`). The page prefix takes the section's accent color. The hero reel uses a separate `КАДР / FRAME · NN / total` counter; method stages use `M·NN`.
 
 ## Carried from V5
 
@@ -20,5 +20,7 @@ Numbering is scoped rather than continuous: section markers render as `S·NN`, t
 ## V2 additions
 
 The featured-work carousel, motion-preview state and three-step method explainer are new presentation patterns. They reuse V5 tokens and are demonstrated or described on the active specimen. Motion stops for reduced-motion, data saver and hidden tabs. A moving still is not labeled as footage; only verified source clips can be assigned as `previewSrc`.
+
+The current specimen is linked from the navigation during local development. Its theme control is the same as the site's: system preference by default, locally saved light/dark override. Dark uses a warm near-black canvas; light uses warm paper planes. The paper dot texture, measured grid, registration mark and muted per-section code colors draw from the owner-supplied studies in `odadream-site-2`; the approved ODA logo stays in place. Dashboard ledgers and document previews are shared public components. Swatch readouts resolve live CSS tokens after a theme change.
 
 When a visual rule changes, edit tokens or live component styles first, update `/design-system/` to demonstrate it, and check both RU/EN pages at desktop and mobile widths. The design-system route must remain out of sitemap and `noindex`.

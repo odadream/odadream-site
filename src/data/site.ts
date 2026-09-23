@@ -88,6 +88,7 @@ export interface CaseEvent {
   title: Localized;
   summary: Localized;
   date: string;
+  type: 'performance' | 'presentation' | 'participatory-format';
   place: Localized;
   role: Localized;
   work: string;
@@ -108,7 +109,7 @@ export interface Evidence {
 export type RecognitionKind = 'award' | 'certificate' | 'acknowledgement-letter';
 export interface Recognition {
   id: string;
-  legacyId: string;
+  legacyId?: string;
   kind: RecognitionKind;
   title: Localized;
   issuer: Localized;
@@ -117,6 +118,7 @@ export interface Recognition {
   event?: string;
   source: string;
   documentSource: string;
+  previewSrc?: string;
   publication: Publication;
   documentRights: Rights;
 }
@@ -338,7 +340,7 @@ export const heroVisuals: HeroVisual[] = [
   {
     id: 'mindshow',
     mediaId: 'neuromandala-mindshow',
-    target: { kind: 'work', workId: 'mindshow', caseId: 'byob-2026' },
+    target: { kind: 'work', workId: 'mindshow' },
   },
   {
     id: 'cultural-code',
@@ -741,7 +743,6 @@ export const evidence: Evidence[] = [
 export const recognitions: Recognition[] = [
   {
     id: 'digital-art-ai-2026',
-    legacyId: 'recognition-digital-art-ai-2026',
     kind: 'certificate',
     year: 2026,
     featuredOnHome: true,
@@ -749,6 +750,7 @@ export const recognitions: Recognition[] = [
     issuer: { en: 'Unique Russia · Gostiny Dvor', ru: 'Уникальная Россия · Гостиный двор' },
     source: 'previous src/content/hub-letters.md',
     documentSource: '/images/content/proofs/collab_2026_ODA_Gostinyy_dvor.webp',
+    previewSrc: '/images/recognition/digital-art-ai-2026.webp',
     publication: 'review',
     documentRights: 'review',
   },
@@ -770,20 +772,18 @@ export const recognitions: Recognition[] = [
   },
   {
     id: 'portal-2030-2025',
-    legacyId: 'recognition-portal-2030-2025',
-    kind: 'award',
+    kind: 'certificate',
     year: 2025,
     featuredOnHome: false,
     title: { en: 'Diploma · Portal 2030–2050, “Visioning”', ru: 'Диплом · Портал 2030–2050, «Виджеинг»' },
     issuer: { en: 'Moscow 2030', ru: 'Москва 2030' },
-    source: 'previous src/content/hub-letters.md; award wording requires source review',
+    source: 'previous src/content/hub-letters.md; outcome wording requires source review',
     documentSource: '/images/content/proofs/collab_2025_ODA_Portal.webp',
     publication: 'review',
     documentRights: 'review',
   },
   {
     id: 'tavrida-letter-2025',
-    legacyId: 'recognition-tavrida-2025',
     kind: 'acknowledgement-letter',
     year: 2025,
     featuredOnHome: true,
@@ -794,6 +794,7 @@ export const recognitions: Recognition[] = [
     issuer: { en: 'Tavrida.ART', ru: 'Таврида.АРТ' },
     source: 'previous src/content/hub-letters.md',
     documentSource: '/images/content/proofs/collab_2025_ODA_Tavrida_II.webp',
+    previewSrc: '/images/recognition/tavrida-2025.webp',
     publication: 'review',
     documentRights: 'review',
   },
@@ -810,6 +811,7 @@ export const recognitions: Recognition[] = [
     issuer: { en: 'HSE University', ru: 'НИУ ВШЭ' },
     source: 'previous src/content/hub-letters.md',
     documentSource: '/images/content/proofs/collab_2025_ODA_VShE_ch2.webp',
+    previewSrc: '/images/recognition/hse-2025.webp',
     publication: 'review',
     documentRights: 'review',
   },
@@ -826,6 +828,7 @@ export const cases: CaseEvent[] = [
       ru: 'Открывающий спектакль и премьера «Интерференции реальностей».',
     },
     date: '2026-05-16',
+    type: 'performance',
     place: { en: 'Kaluga · Innovation Cultural Center', ru: 'Калуга · Инновационный культурный центр' },
     role: {
       en: 'ODA.dream: art direction and technology; co-production with Innovation Ballet Theatre.',
@@ -848,6 +851,7 @@ export const cases: CaseEvent[] = [
       ru: 'Открытый лабораторный показ, не репертуарная премьера.',
     },
     date: '2025-05-22',
+    type: 'performance',
     place: { en: 'Kaluga · Innovation Cultural Center', ru: 'Калуга · Инновационный культурный центр' },
     role: {
       en: 'ODA.dream: art and technology in collaboration with Innovation Ballet Theatre.',
@@ -870,6 +874,7 @@ export const cases: CaseEvent[] = [
       ru: 'Событийная версия «Нейробитвы» на олимпиаде DANO.',
     },
     date: '2025-12-17',
+    type: 'participatory-format',
     place: { en: 'Moscow', ru: 'Москва' },
     role: {
       en: 'ODA.dream: interactive format for EkoNiva; HSE University and T-Bank listed as organizers in the source record.',
@@ -892,6 +897,7 @@ export const cases: CaseEvent[] = [
       ru: 'Публичный показ MindShow на обновлённой технологической основе.',
     },
     date: '2026-02-28',
+    type: 'presentation',
     place: { en: 'Moscow', ru: 'Москва' },
     role: {
       en: 'ODA.dream: invited presentation of MindShow.',

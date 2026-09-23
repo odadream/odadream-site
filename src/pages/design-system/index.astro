@@ -2,7 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import MediaFigure from '../../components/MediaFigure.astro';
 import WorkCard from '../../components/WorkCard.astro';
-import { minddbSnapshot, works } from '../../data/site';
+import RecognitionCard from '../../components/RecognitionCard.astro';
+import { minddbSnapshot, recognitions, works } from '../../data/site';
+import { siteStats } from '../../lib/site-stats';
 import '../../styles/design-system.css';
 const page = {
   lang: 'ru' as const,
@@ -21,6 +23,7 @@ const sections = [
   ['07', 'Документация'],
   ['08', 'Бренд'],
   ['09', 'Hero · движущееся медиа'],
+  ['10', 'Свет / тьма · данные и документы'],
 ];
 ---
 
@@ -28,7 +31,7 @@ const sections = [
   <div class="shell system-page">
     <section class="system-intro system-grid">
       <div class="section-label">
-        <span class="index">DS</span>
+        <span class="index">00</span>
         <span class="eyebrow">ODA.DREAM / V5 → V2</span>
       </div>
       <div>
@@ -62,35 +65,35 @@ const sections = [
         <div class="swatch-grid">
           <div class="swatch swatch-back">
             <span>PLANE / BACK</span>
-            <strong>#111110</strong>
+            <strong data-css-token="--plane-back"></strong>
           </div>
           <div class="swatch swatch-middle">
             <span>PLANE / MIDDLE</span>
-            <strong>#1b1a18</strong>
+            <strong data-css-token="--plane-middle"></strong>
           </div>
           <div class="swatch swatch-front">
             <span>PLANE / FRONT</span>
-            <strong>#23211e</strong>
+            <strong data-css-token="--plane-front"></strong>
           </div>
           <div class="swatch swatch-ink">
             <span>INK</span>
-            <strong>#f3f1ec</strong>
+            <strong data-css-token="--ink"></strong>
           </div>
           <div class="swatch swatch-muted">
             <span>MUTED</span>
-            <strong>#aaa79f</strong>
+            <strong data-css-token="--muted"></strong>
           </div>
           <div class="swatch swatch-accent">
             <span>SIGNAL</span>
-            <strong>#00d884</strong>
+            <strong data-css-token="--accent"></strong>
           </div>
           <div class="swatch swatch-alert">
             <span>ALERT</span>
-            <strong>#efb452</strong>
+            <strong data-css-token="--alert"></strong>
           </div>
           <div class="swatch swatch-danger">
             <span>ERROR</span>
-            <strong>#df716b</strong>
+            <strong data-css-token="--danger"></strong>
           </div>
         </div>
         <div class="plane-demo">
@@ -412,8 +415,8 @@ const sections = [
           <span class="eyebrow">Hero · движущееся медиа</span>
         </div>
         <p>
-          Видео — главный художественный материал, а не фон для рекламного заголовка. Короткое интро
-          обозначает студию; этикетка и агрегаты остаются вторичными.
+          Видео — главный художественный материал. Эпиграф и одно предложение о студии стоят над ним;
+          этикетка и агрегаты остаются вторичными.
         </p>
       </aside>
       <div class="system-content">
@@ -424,8 +427,8 @@ const sections = [
             aria-label="Нейромандала: кадр из локального постера"
           />
           <div class="hero-specimen__copy">
-            <span class="eyebrow">ODA.DREAM / NEUROMANDALA</span>
             <h2>Состояние человека — художественный материал.</h2>
+            <p>Художественная студия создаёт партисипаторные спектакли, инсталляции и объекты.</p>
           </div>
           <div class="hero-specimen__data">
             <span class="eyebrow">MINDDB / СНИМОК {minddbSnapshot.asOf}</span>
@@ -441,11 +444,48 @@ const sections = [
         </p>
       </div>
     </section>
+    <section class="system-grid system-section" id="system-10">
+      <aside class="system-side">
+        <div class="section-label">
+          <span class="index">10</span>
+          <span class="eyebrow">Свет / тьма · архив</span>
+        </div>
+        <p>Переключатель в шапке меняет общие токены страницы. Свет — тёплая архивная бумага; тьма — внутренняя среда и точечный сигнал.</p>
+      </aside>
+      <div class="system-content">
+        <div class="system-theme-demo">
+          <span class="eyebrow">CURRENT THEME / LAYER TEST</span>
+          <strong>Материал · знак · данные</strong>
+          <p>Тихая координатная сетка и единичная регистрационная метка отсылают к чертежу. Пиксель и полутон применяются локально; документ и произведение остаются читаемыми.</p>
+        </div>
+        <p class="small-note">Иерархия номера: страница <code>00</code> → блок <code>00.02</code> → карточка <code>00.02.01</code>. Цвет получает префикс страницы; позиция кадра подписана отдельно. Страница имеет собственный оттенок сигнала.</p>
+        <div class="ledger">
+          <div class="ledger__lead"><strong>{siteStats.works.total}</strong><span>работ в текущем каталоге</span></div>
+          <div class="ledger__details"><span>{siteStats.works.realized} реализовано</span><span>{siteStats.works.research} R&amp;D</span><span>{siteStats.works.bookable} открыты для обсуждения заказа</span></div>
+        </div>
+        <div class="recognition-grid">
+          <RecognitionCard item={recognitions[0]} lang="ru" />
+          <RecognitionCard item={recognitions[1]} lang="ru" />
+        </div>
+        <p class="small-note">Работы и кейсы подсчитаны из типизированных записей. В прежнем перечне признаний {siteStats.legacyRecognition.total} позиций, но лишь {siteStats.recognitions.total} перенесены в новую модель. Снимок Golem описывает архивные папки событий, а не опубликованные кейсы. Превью документов открываются тем же lightbox, что и другие изображения.</p>
+      </div>
+    </section>
     <p class="eyebrow system-end">
       Источник: утверждённая V5-спецификация · токены: src/styles/tokens.css · компоненты: рабочий сайт V2
     </p>
   </div>
   <script>
+    const updateTokenReadouts = () => {
+      const computed = getComputedStyle(document.documentElement);
+      document.querySelectorAll<HTMLElement>('[data-css-token]').forEach((node) => {
+        node.textContent = computed.getPropertyValue(node.dataset.cssToken || '').trim();
+      });
+    };
+    updateTokenReadouts();
+    new MutationObserver(updateTokenReadouts).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    });
     document
       .querySelector('[data-design-lightbox]')
       ?.addEventListener('click', () =>
