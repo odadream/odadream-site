@@ -1,4 +1,5 @@
 ---
+import TechnicalMark from './TechnicalMark.astro';
 export interface StampField {
   label: string;
   value: string | number;
@@ -9,13 +10,20 @@ interface Props {
   title: string;
   fields: StampField[];
   wide?: boolean;
+  tone?: 'document' | 'reference';
 }
-const { title, fields, wide = false } = Astro.props;
+const { title, fields, wide = false, tone = 'document' } = Astro.props;
 ---
 
-<section class:list={['record-stamp', { 'record-stamp--wide': wide }]} aria-label={title}>
+<section
+  class:list={[
+    'record-stamp',
+    { 'record-stamp--wide': wide, 'record-stamp--reference': tone === 'reference' },
+  ]}
+  aria-label={title}
+>
   <p class="record-stamp__title">
-    <span aria-hidden="true">⌑</span>
+    <TechnicalMark kind="record" />
     {title}
   </p>
   <dl>

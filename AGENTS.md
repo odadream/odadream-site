@@ -4,6 +4,8 @@ This branch is a clean Astro static site, not the Lotus CMS. Do not copy the old
 
 Keep the V5 visual grammar: warm near-black, restrained green signal, JetBrains Mono for reading, Manrope for headings, disciplined spacing and lines, material before interface. The canonical tokens are in `src/styles/tokens.css`; do not add ad-hoc inline styles.
 
+The profile contract is in `docs/DESIGN-TOKENS.md`: profile inputs → semantic roles → components. Use `--signal-*` for both navigation and page accents, `--grid-*` for page/specimen grids, and `TechnicalMark` for technical symbols. Statistics use `RecordStamp tone="reference"`, not a raised document panel. Filled Manrope 800 folios belong only to the background.
+
 Before adding or changing presentation patterns, read `docs/DESIGN-GUIDE.md`. It defines field semantics for every content type, the distinction between positional codes and stable IDs, and the functional use of marginal notes, vertical position codes, folios, media registers and record stamps. Use the shared `SectionRail`, `StatisticsStamp`, `RecordStamp` and `MediaFigure` components and keep their live examples in `/design-system/` synchronized. Never invent technical data to fill a decorative field.
 
 Content is bilingual in `src/data/site.ts`. Keep work, format, case/event, evidence, person, organization and media roles distinct. Every public assertion needs a source; `production` never means bookable. R&D and archival status must be explicit. Do not call outreach contacts partners. Media access is not a usage license; all copied images remain under rights review until approved.

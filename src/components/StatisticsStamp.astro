@@ -77,7 +77,7 @@ const fields =
         ];
 ---
 
-<RecordStamp title={titles[kind]} fields={fields}>
+<RecordStamp tone="reference" title={titles[kind]} fields={fields}>
   {kind === 'works' && (
     <details class="record-stamp__more">
       <summary>{ru ? 'Состав по статусам' : 'Status breakdown'}</summary>

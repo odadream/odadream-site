@@ -7,6 +7,7 @@ import StatisticsStamp from '../../components/StatisticsStamp.astro';
 import MindDBStamp from '../../components/MindDBStamp.astro';
 import SectionRail from '../../components/SectionRail.astro';
 import RecordStamp from '../../components/RecordStamp.astro';
+import TechnicalMark from '../../components/TechnicalMark.astro';
 import { recognitions, works } from '../../data/site';
 import { siteStats } from '../../lib/site-stats';
 import '../../styles/design-system.css';
@@ -29,6 +30,20 @@ const sections = [
   ['09', 'Hero · движущееся медиа'],
   ['10', 'Свет / тьма · данные и документы'],
   ['11', 'Поля · индексы · паспорта'],
+];
+const profileTokens = [
+  ['--space-unit', 'Единица пространственного ритма'],
+  ['--type-scale', 'Масштаб читаемой типографики'],
+  ['--grid-rail', 'Поле документа'],
+  ['--grid-gap', 'Расстояние между полем и материалом'],
+  ['--reference-surface', 'Фон справочной статистики'],
+  ['--reference-ink', 'Читаемые, но вторичные значения'],
+  ['--type-stat', 'Размер справочного числа'],
+  ['--weight-folio', 'Вес фоновой маркировки'],
+  ['--folio-fill', 'Заливка номера на заднем плане'],
+  ['--mark-size', 'Размер условного знака'],
+  ['--mark-stroke', 'Толщина векторного штриха'],
+  ['--tap-target', 'Минимальная цель нажатия'],
 ];
 ---
 
@@ -67,6 +82,24 @@ const sections = [
           Три плана задают глубину: фон страницы, поверхность чтения, поднятый материал. Изображение остаётся
           главным визуальным акцентом.
         </p>
+        <details class="token-profile">
+          <summary>Параметры стилистического профиля</summary>
+          <p class="small-note">
+            Профиль → семантическая роль → компонент. Полный реестр: docs/DESIGN-TOKENS.md. Справочные числа
+            принадлежат фону; их низкий приоритет задаётся тоном и масштабом, а не нечитаемостью.
+          </p>
+          <dl>
+            {profileTokens.map(([token, purpose]) => (
+              <div>
+                <dt>
+                  {purpose}
+                  <code>{token}</code>
+                </dt>
+                <dd data-css-token={token}></dd>
+              </div>
+            ))}
+          </dl>
+        </details>
         <div class="swatch-grid">
           <div class="swatch swatch-back">
             <span>PLANE / BACK</span>
@@ -261,7 +294,8 @@ const sections = [
         </div>
         <p class="small-note">
           Tap-target ≥ 44 × 44 px. Для клавиатуры есть видимый focus. Disabled — не ссылка. Навигация и
-          карточки не подчёркиваются.
+          карточки не подчёркиваются. Одна focus-обводка действует также для summary и полей ввода; якоря
+          учитывают высоту шапки. Вторичное действие имеет сплошную тихую рамку, не пунктир.
         </p>
       </div>
     </section>
@@ -280,6 +314,10 @@ const sections = [
             <WorkCard item={item} lang="ru" eager />
           ))}
         </div>
+        <p class="small-note">
+          В одном ряду карточки разделяют четыре строки: медиа, метаданные, название, описание. Длинная
+          категория расширяет строку у обеих карточек: текст не обрезается и не подгоняется вручную.
+        </p>
         <p class="small-note">
           Видео-превью загружается только при взаимодействии и при разрешённом движении. При отсутствии
           документального видео сохраняется изображение; анимация изображения не выдаётся за запись работы.
@@ -441,7 +479,9 @@ const sections = [
         </div>
         <p class="small-note">
           Паттерн использует hero-токены из <code>tokens.css</code>. Одно активное видео; poster — до запуска
-          и при reduced-motion / экономии трафика. Выпуск требует проверки прав и приватности.
+          и при reduced-motion / экономии трафика. На телефоне статистика идёт в естественном потоке после
+          видео, без фиксированной высоты. Ручная пауза сохраняется при смене кадра; вне экрана видео
+          останавливается. Выпуск требует проверки прав и приватности.
         </p>
       </div>
     </section>
@@ -503,25 +543,40 @@ const sections = [
         />
         <dl class="notation-key">
           <div>
-            <dt>↗</dt>
+            <dt>
+              <TechnicalMark kind="open" />
+              <span>Переход</span>
+            </dt>
             <dd>
               Переход к материалу. Показывается рядом с действующей ссылкой или открываемым изображением.
             </dd>
           </div>
           <div>
-            <dt>↳</dt>
+            <dt>
+              <TechnicalMark kind="note" />
+              <span>Заметка</span>
+            </dt>
             <dd>Заметка на поле: принцип отбора, контекст или ограничение интерпретации.</dd>
           </div>
           <div>
-            <dt>⌑</dt>
+            <dt>
+              <TechnicalMark kind="record" />
+              <span>Регистр</span>
+            </dt>
             <dd>Регистр записи: начало паспорта или подписи файла. Не действие и не знак сертификации.</dd>
           </div>
           <div>
-            <dt>∅</dt>
+            <dt>
+              <TechnicalMark kind="missing" />
+              <span>Нет файла</span>
+            </dt>
             <dd>Известное отсутствие файла. Всегда сопровождается понятным текстом.</dd>
           </div>
           <div>
-            <dt>→</dt>
+            <dt>
+              <TechnicalMark kind="flow" />
+              <span>Связь</span>
+            </dt>
             <dd>Последовательность или преобразование в схеме метода. Не шкала времени.</dd>
           </div>
         </dl>

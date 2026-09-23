@@ -1,4 +1,5 @@
 ---
+import TechnicalMark from './TechnicalMark.astro';
 import type { Lang, Recognition, RecognitionKind } from '../data/site';
 interface Props {
   item: Recognition;
@@ -11,6 +12,7 @@ const kindLabels: Record<RecognitionKind, Record<Lang, string>> = {
   'acknowledgement-letter': { en: 'Acknowledgement', ru: 'Благодарность' },
 };
 ---
+
 <article class="recognition-card">
   {item.previewSrc ? (
     <button
@@ -28,13 +30,17 @@ const kindLabels: Record<RecognitionKind, Record<Lang, string>> = {
     <div
       class="recognition-card__missing"
       role="img"
-      aria-label={lang === 'ru' ? 'Скан не найден в прежнем архиве' : 'Scan missing from the previous archive'}
+      aria-label={
+        lang === 'ru' ? 'Скан не найден в прежнем архиве' : 'Scan missing from the previous archive'
+      }
     >
-      <span>ARCHIVE / ∅</span>
+      <TechnicalMark kind="missing" />
       <small>{lang === 'ru' ? 'Скан недоступен' : 'Scan unavailable'}</small>
     </div>
   )}
-  <span class="meta">{item.year} · {kindLabels[item.kind][lang]}</span>
+  <span class="meta">
+    {item.year} · {kindLabels[item.kind][lang]}
+  </span>
   <div>
     <h3>{item.title[lang]}</h3>
     <p>{item.issuer[lang]}</p>

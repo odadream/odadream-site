@@ -1,4 +1,5 @@
 ---
+import TechnicalMark from './TechnicalMark.astro';
 interface Props {
   index: string;
   label: string;
@@ -23,7 +24,7 @@ const hasData = Astro.slots.has('default');
     </div>
   )}
   <p class="section-rail__note">
-    <span aria-hidden="true">↳</span>
+    <TechnicalMark kind="note" />
     {note}
   </p>
 </aside>

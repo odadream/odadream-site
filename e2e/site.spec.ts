@@ -11,6 +11,88 @@ const works = [
 ];
 const cases = ['tsiolkovsky-festival-2026', 'tsiolkovsky-laboratory-2025', 'dano-2025', 'byob-2026'];
 
+test('profile parameters drive typography, spacing, signals and background statistics', async ({ page }) => {
+  await page.goto('/ru/');
+  const stamp = page.locator('#selected-works .record-stamp');
+  await expect(stamp).toHaveClass(/record-stamp--reference/);
+  await expect(page.locator('.section-rail__folio').first()).toHaveCSS('font-weight', '800');
+  const before = await page
+    .locator('.work-card p')
+    .first()
+    .evaluate((node) => parseFloat(getComputedStyle(node).fontSize));
+  const gapBefore = await page
+    .locator('.work-grid')
+    .first()
+    .evaluate((node) => parseFloat(getComputedStyle(node).columnGap));
+  await page.evaluate(() => {
+    document.documentElement.style.setProperty('--type-scale', '1.1');
+    document.documentElement.style.setProperty('--space-unit', '5px');
+    document.documentElement.style.setProperty('--signal-works', 'rgb(120, 180, 160)');
+  });
+  expect(
+    await page
+      .locator('.work-card p')
+      .first()
+      .evaluate((node) => parseFloat(getComputedStyle(node).fontSize)),
+  ).toBeCloseTo(before * 1.1, 1);
+  expect(
+    await page
+      .locator('.work-grid')
+      .first()
+      .evaluate((node) => parseFloat(getComputedStyle(node).columnGap)),
+  ).toBeCloseTo(gapBefore * 1.25, 1);
+  await expect(page.locator('[data-route="works"] .nav-code')).toHaveCSS('color', 'rgb(120, 180, 160)');
+  await page.setViewportSize({ width: 797, height: 912 });
+  await page.goto('/en/');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
+});
+
+test('card tracks align and anchor targets clear the header', async ({ page, isMobile }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  for (const lang of ['ru', 'en']) {
+    await page.goto(`/${lang}/#selected-works`);
+    await page.evaluate(() => document.fonts.ready);
+    const header = await page.locator('.site-header').boundingBox();
+    const title = await page.locator('#selected-works h2').boundingBox();
+    expect(title!.y).toBeGreaterThanOrEqual(header!.height);
+    if (!isMobile) {
+      const rows = await page
+        .locator('.work-card h3')
+        .evaluateAll((nodes) => nodes.map((node) => node.getBoundingClientRect().top));
+      for (let i = 0; i < rows.length; i += 2) expect(Math.abs(rows[i] - rows[i + 1])).toBeLessThan(1);
+    } else {
+      await page.locator('.menu-toggle').click();
+      await page.keyboard.press('Escape');
+      await expect(page.locator('.menu-toggle')).toBeFocused();
+      await expect(page.locator('.menu-toggle')).toHaveAttribute('aria-expanded', 'false');
+      // Long stamp notes must expand the hero, never overlap the next section.
+      await page.locator('.nm-slide:not([hidden]) .record-stamp__note').evaluate((node) => {
+        node.textContent = 'Long annotation. '.repeat(35);
+      });
+      const stamp = await page.locator('.nm-slide:not([hidden]) .nm-data-panel').boundingBox();
+      const next = await page.locator('#selected-works').boundingBox();
+      expect(next!.y).toBeGreaterThanOrEqual(stamp!.y + stamp!.height - 1);
+    }
+  }
+});
+
+test('carousel pause survives changing slides and videos stop offscreen', async ({ page }) => {
+  await page.goto('/ru/');
+  const active = page.locator('.nm-slide:not([hidden])');
+  await active.locator('[data-carousel-toggle]').click();
+  await expect(active.locator('[data-carousel-toggle]')).toHaveAttribute('aria-pressed', 'true');
+  const before = await active.getAttribute('data-slide-id');
+  await active.locator('[data-carousel-next]').click();
+  expect(await active.getAttribute('data-slide-id')).not.toBe(before);
+  await expect(active.locator('[data-carousel-next]')).toBeFocused();
+  expect(await active.locator('video').evaluate((video: HTMLVideoElement) => video.paused)).toBeTruthy();
+  await active.locator('[data-carousel-toggle]').click();
+  await page.locator('#contact').scrollIntoViewIfNeeded();
+  await expect
+    .poll(() => active.locator('video').evaluate((video: HTMLVideoElement) => video.paused))
+    .toBeTruthy();
+});
+
 test('all curated works and cases are real HTML pages', async ({ page }) => {
   for (const path of [...works.map((x) => `/en/works/${x}/`), ...cases.map((x) => `/en/cases/${x}/`)]) {
     const response = await page.goto(path);

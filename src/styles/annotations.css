@@ -26,13 +26,17 @@
 .section-rail__folio {
   position: absolute;
   inset: 0 auto auto 0;
-  color: transparent;
-  -webkit-text-stroke: var(--annotation-rule) var(--folio-stroke);
-  font: 500 var(--type-folio)/1 var(--sans);
-  letter-spacing: -0.06em;
-  mask-image: linear-gradient(to bottom, #000 45%, transparent 96%);
+  color: var(--folio-fill);
+  font: var(--weight-folio) var(--type-folio)/0.9 var(--sans);
+  letter-spacing: -0.045em;
   pointer-events: none;
   user-select: none;
+}
+.section-rail--empty .section-rail__field {
+  height: var(--s9);
+}
+.section-rail--empty .section-rail__folio {
+  font-size: var(--type-folio-compact);
 }
 .section-rail .section-rail__spine {
   position: absolute;
@@ -54,13 +58,13 @@
   max-width: 29ch;
   margin-top: auto;
   padding-block: var(--s7) var(--s5);
-  font: 400 12px/1.7 var(--mono);
+  font: 400 var(--type-note)/1.7 var(--mono);
   color: var(--muted);
   text-wrap: pretty;
 }
-.section-rail__note > span {
+.section-rail__note > .technical-mark {
   flex: none;
-  color: var(--section-accent);
+  color: var(--muted);
 }
 .section--method .section-body {
   background: var(--surface);
@@ -103,9 +107,8 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
-.record-stamp__title > span {
-  color: var(--section-accent);
-  font-size: 18px;
+.record-stamp__title > .technical-mark {
+  color: var(--muted);
 }
 .record-stamp dl {
   display: grid;
@@ -129,7 +132,7 @@
 }
 .record-stamp dd {
   margin: var(--s2) 0 0;
-  font-size: 12px;
+  font-size: var(--type-note);
   line-height: 1.6;
   color: var(--ink);
   overflow-wrap: anywhere;
@@ -138,10 +141,29 @@
 .record-stamp dd.record-stamp__metric {
   font: 500 var(--type-metric)/1.2 var(--sans);
 }
+/* Reference data belongs to the background, not the artwork's display scale. */
+.record-stamp--reference {
+  --stamp-surface: var(--reference-surface);
+  --line: var(--reference-line);
+}
+.record-stamp--reference dd,
+.record-stamp--reference dt,
+.record-stamp--reference .record-stamp__title,
+.record-stamp--reference .record-stamp__note,
+.record-stamp--reference .record-stamp__title > .technical-mark,
+.record-stamp--reference .record-stamp__more {
+  color: var(--reference-ink);
+}
+.record-stamp--reference dd.record-stamp__metric {
+  font: 400 var(--type-stat)/1.35 var(--mono);
+}
+.record-stamp--reference .record-stamp__more > summary:hover {
+  color: var(--ink);
+}
 .record-stamp a {
   display: inline-flex;
   align-items: center;
-  min-height: 44px;
+  min-height: var(--tap-target);
   text-decoration: underline;
   text-underline-offset: var(--link-offset);
   text-decoration-color: var(--line-strong);
@@ -165,7 +187,7 @@
   border-top: var(--annotation-rule) solid var(--line);
 }
 .record-stamp__more > summary {
-  min-height: 44px;
+  min-height: var(--tap-target);
   padding: var(--s3);
   cursor: pointer;
   font-size: var(--type-annotation);
@@ -180,7 +202,7 @@
   padding-block: var(--s5);
 }
 .colophon-copy {
-  min-height: 44px;
+  min-height: var(--tap-target);
   padding: 0;
   border: 0;
   background: none;
@@ -196,7 +218,7 @@
 }
 .colophon-url {
   width: 100%;
-  min-height: 44px;
+  min-height: var(--tap-target);
   color: var(--ink);
   background: var(--bg);
   border: 1px solid var(--line);
@@ -214,16 +236,16 @@
   overflow-wrap: anywhere;
   font-variant-numeric: tabular-nums;
 }
-.media-register__id::before {
-  content: '⌑';
-  color: var(--section-accent);
-  margin-right: var(--s2);
+.media-register__id {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  min-width: 0;
 }
 .media-open {
   position: relative;
 }
-.media-open::after {
-  content: '↗';
+.media-open__mark {
   position: absolute;
   right: var(--s2);
   bottom: var(--s2);
@@ -236,9 +258,20 @@
   border: var(--annotation-rule) solid var(--hero-rule);
   pointer-events: none;
 }
+.technical-mark {
+  display: inline-block;
+  width: var(--mark-size);
+  height: var(--mark-size);
+  flex: none;
+  vertical-align: middle;
+  stroke: currentColor;
+  stroke-width: var(--mark-stroke);
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
 @media (min-width: 701px) and (max-width: 1100px) {
   .section-rail__folio {
-    font-size: 100px;
+    font-size: var(--folio-size-narrow);
   }
   .section-rail .record-stamp dl,
   .work-aside .record-stamp dl {

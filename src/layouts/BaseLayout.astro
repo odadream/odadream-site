@@ -7,6 +7,7 @@ import '@fontsource/jetbrains-mono/cyrillic-400.css';
 import '@fontsource/jetbrains-mono/cyrillic-500.css';
 import '@fontsource/jetbrains-mono/cyrillic-600.css';
 import '@fontsource/manrope/latin-500.css';
+import '@fontsource/manrope/latin-800.css';
 import '@fontsource/manrope/cyrillic-500.css';
 import { cases, mediaById, socialLinks, works } from '../data/site';
 import { pairedPath, type Page } from '../lib/routes';
@@ -451,6 +452,12 @@ const breadcrumbSchema =
         menu.setAttribute('aria-expanded', String(open));
         nav?.classList.toggle('open', open);
       });
+      document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape' || menu?.getAttribute('aria-expanded') !== 'true') return;
+        menu.setAttribute('aria-expanded', 'false');
+        nav?.classList.remove('open');
+        menu.focus();
+      });
       const dialog = document.querySelector<HTMLDialogElement>('#lightbox');
       const image = dialog?.querySelector<HTMLImageElement>('img');
       const caption = dialog?.querySelector<HTMLElement>('.lightbox-caption');
@@ -543,6 +550,10 @@ const breadcrumbSchema =
         let current = 0;
         let timer: number | undefined;
         let userPaused = false;
+        let inView = false;
+        let pointerInside = false;
+        let focusInside = false;
+        const mayPlay = () => canMove() && !document.hidden && !userPaused && inView;
         slides.forEach((slide, index) => {
           slide.hidden = index !== 0;
           const counter = slide.querySelector<HTMLElement>('[data-carousel-position]');
@@ -550,11 +561,17 @@ const breadcrumbSchema =
             counter.textContent = `${String(index + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
         });
         const show = (next: number) => {
+          const focused = document.activeElement;
+          const control = ['data-carousel-prev', 'data-carousel-next', 'data-carousel-toggle'].find((name) =>
+            focused?.hasAttribute(name),
+          );
           slides[current]?.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview);
           slides[current].hidden = true;
           current = (next + slides.length) % slides.length;
           slides[current].hidden = false;
-          playPreview(slides[current].querySelector('video'));
+          if (mayPlay()) playPreview(slides[current].querySelector('video'));
+          if (control)
+            slides[current].querySelector<HTMLButtonElement>(`[${control}]`)?.focus({ preventScroll: true });
         };
         const pause = () => {
           window.clearInterval(timer);
@@ -562,8 +579,12 @@ const breadcrumbSchema =
         };
         const resume = () => {
           pause();
-          if (canMove() && !document.hidden && !userPaused)
-            timer = window.setInterval(() => show(current + 1), 14000);
+          if (mayPlay()) {
+            playPreview(slides[current].querySelector('video'));
+            if (!pointerInside && !focusInside) timer = window.setInterval(() => show(current + 1), 14000);
+          } else {
+            slides[current].querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview);
+          }
         };
         toggles.forEach((toggle) =>
           toggle.addEventListener('click', () => {
@@ -586,7 +607,6 @@ const breadcrumbSchema =
               pause();
               slides[current]?.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview);
             } else {
-              playPreview(slides[current]?.querySelector('video') ?? null);
               resume();
             }
           }),
@@ -603,16 +623,28 @@ const breadcrumbSchema =
             resume();
           }),
         );
-        carousel.addEventListener('mouseenter', pause);
-        carousel.addEventListener('mouseleave', resume);
-        carousel.addEventListener('focusin', pause);
-        carousel.addEventListener('focusout', resume);
+        carousel.addEventListener('mouseenter', () => {
+          pointerInside = true;
+          pause();
+        });
+        carousel.addEventListener('mouseleave', () => {
+          pointerInside = false;
+          resume();
+        });
+        carousel.addEventListener('focusin', () => {
+          focusInside = true;
+          pause();
+        });
+        carousel.addEventListener('focusout', (event) => {
+          if (event.relatedTarget instanceof Node && carousel.contains(event.relatedTarget)) return;
+          focusInside = false;
+          resume();
+        });
         document.addEventListener('visibilitychange', () => {
           if (document.hidden) {
             pause();
             slides[current]?.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview);
           } else {
-            playPreview(slides[current].querySelector('video'));
             resume();
           }
         });
@@ -623,10 +655,14 @@ const breadcrumbSchema =
             slides.forEach((slide) => slide.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview));
           }
         });
-        if (canMove() && !document.hidden) {
-          playPreview(slides[current]?.querySelector('video') ?? null);
-          resume();
-        }
+        const visibility = new IntersectionObserver(
+          ([entry]) => {
+            inView = entry.isIntersecting;
+            resume();
+          },
+          { threshold: 0 },
+        );
+        visibility.observe(carousel);
       }
     </script>
   </body>

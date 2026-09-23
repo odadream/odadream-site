@@ -1,4 +1,18 @@
 :root {
+  /* Profile inputs. Components consume semantic roles below. */
+  --space-unit: 4px;
+  --type-scale: 1;
+  --weight-heading: 500;
+  --weight-folio: 800;
+  --signal-works: #36c9a0;
+  --signal-formats: #65bdbf;
+  --signal-cooperation: #d3a868;
+  --signal-studio: #b9a5d2;
+  --signal-cases: #cdaa70;
+  --signal-recognition: #d1aa72;
+  --signal-contact: #cda194;
+  --signal-technology: #72bec8;
+  --signal-design: #b6aaeb;
   color-scheme: dark;
   --plane-back: #111110;
   --plane-middle: #1b1a18;
@@ -18,6 +32,14 @@
   --nav-current: rgb(243 241 236 / 0.045);
   --nav-hover: rgb(243 241 236 / 0.065);
   --header-bg: var(--plane-back);
+  --header-height: 88px;
+  --anchor-offset: calc(var(--header-height) + var(--s5));
+  --tap-target: 44px;
+  --focus-width: 2px;
+  --focus-offset: 3px;
+  --card-ratio: 1.56;
+  --card-gap: var(--s3);
+  --card-row-gap: var(--s7);
   --header-shadow: 0 8px 24px rgb(0 0 0 / 0.12);
   --menu-shadow: 0 20px 30px rgb(0 0 0 / 0.32);
   --media-black: #080808;
@@ -42,22 +64,22 @@
   --danger: #df716b;
   --max: 1360px;
   --gutter: 40px;
-  --s1: 4px;
-  --s2: 8px;
-  --s3: 12px;
-  --s4: 16px;
-  --s5: 24px;
-  --s6: 32px;
-  --s7: 48px;
-  --s8: 64px;
-  --s9: 96px;
-  --s10: 128px;
-  --gap-label: 12px;
-  --gap-copy: 16px;
-  --gap-group: 32px;
-  --gap-block: 48px;
-  --section-space: 80px;
-  --panel-pad: 24px;
+  --s1: calc(var(--space-unit) * 1);
+  --s2: calc(var(--space-unit) * 2);
+  --s3: calc(var(--space-unit) * 3);
+  --s4: calc(var(--space-unit) * 4);
+  --s5: calc(var(--space-unit) * 6);
+  --s6: calc(var(--space-unit) * 8);
+  --s7: calc(var(--space-unit) * 12);
+  --s8: calc(var(--space-unit) * 16);
+  --s9: calc(var(--space-unit) * 24);
+  --s10: calc(var(--space-unit) * 32);
+  --gap-label: var(--s3);
+  --gap-copy: var(--s4);
+  --gap-group: var(--s6);
+  --gap-block: var(--s7);
+  --section-space: calc(var(--space-unit) * 20);
+  --panel-pad: var(--s5);
   --shadow-material: 0 12px 28px rgb(0 0 0 / 0.18);
   --radius-media: 1px;
   --mono: 'JetBrains Mono', monospace;
@@ -65,56 +87,113 @@
   --link-offset: 0.16em;
   --motion-fast: 180ms ease;
   --motion-media: 700ms ease;
-  --section-accent: #00d884;
+  --section-accent: var(--accent);
   --page-number: '00';
   --texture-dot: rgb(243 241 236 / 0.035);
-  --type-annotation: 11px;
+  /* Reading roles: primary text, explanation, metadata, orientation. */
+  --type-h1: clamp(
+    calc(32px * var(--type-scale)),
+    calc(3.4vw * var(--type-scale)),
+    calc(48px * var(--type-scale))
+  );
+  --type-h2: clamp(
+    calc(26px * var(--type-scale)),
+    calc(3vw * var(--type-scale)),
+    calc(42px * var(--type-scale))
+  );
+  --type-h3: clamp(
+    calc(18px * var(--type-scale)),
+    calc(1.8vw * var(--type-scale)),
+    calc(24px * var(--type-scale))
+  );
+  --type-lead: clamp(
+    calc(16px * var(--type-scale)),
+    calc(1.4vw * var(--type-scale)),
+    calc(19px * var(--type-scale))
+  );
+  --type-body: calc(16px * var(--type-scale));
+  --type-title-small: calc(14px * var(--type-scale));
+  --type-list-title: calc(20px * var(--type-scale));
+  --type-statement: clamp(
+    calc(22px * var(--type-scale)),
+    calc(2.7vw * var(--type-scale)),
+    calc(34px * var(--type-scale))
+  );
+  --type-hero-intro: var(--type-h2);
+  --type-hero-caption: var(--type-h3);
+  --control-icon-size: 24px;
+  --badge-inset: 1px 3px;
+  --mark-legend-size: 24px;
+  --folio-size-narrow: 100px;
+  --type-small: calc(13px * var(--type-scale));
+  --type-note: calc(12px * var(--type-scale));
+  --type-annotation: calc(11px * var(--type-scale));
+  --type-folio-compact: 128px;
   --type-folio: clamp(96px, 12vw, 176px);
-  --folio-stroke: rgb(243 241 236 / 0.09);
-  --type-metric: 24px;
+  --folio-fill: color-mix(in srgb, var(--ink) 5%, transparent);
+  --type-stat: calc(20px * var(--type-scale));
+  --reference-surface: var(--bg);
+  --reference-line: var(--line-soft);
+  --reference-ink: var(--muted);
+  --mark-size: 20px;
+  --mark-stroke: 1.5;
+  --grid-rail: minmax(180px, 24%);
+  --grid-gap: clamp(28px, 5vw, 88px);
+  --grid-columns: var(--grid-rail) minmax(0, 1fr);
+  --hero-caption-shadow: 0 1px 18px rgb(0 0 0 / 0.42);
+  --type-metric: calc(24px * var(--type-scale));
   --annotation-rule: 1px;
   --stamp-surface: var(--surface);
 }
 
 :root[data-section='works'] {
-  --section-accent: #36c9a0;
+  --section-accent: var(--signal-works);
   --page-number: '01';
 }
 :root[data-section='formats'] {
-  --section-accent: #65bdbf;
+  --section-accent: var(--signal-formats);
   --page-number: '02';
 }
 :root[data-section='cooperation'] {
-  --section-accent: #d3a868;
+  --section-accent: var(--signal-cooperation);
   --page-number: '03';
 }
 :root[data-section='studio'] {
-  --section-accent: #b9a5d2;
+  --section-accent: var(--signal-studio);
   --page-number: '04';
 }
 :root[data-section='cases'] {
-  --section-accent: #cdaa70;
+  --section-accent: var(--signal-cases);
   --page-number: '05';
 }
 :root[data-section='recognition'] {
-  --section-accent: #d1aa72;
+  --section-accent: var(--signal-recognition);
   --page-number: '06';
 }
 :root[data-section='contact'] {
-  --section-accent: #cda194;
+  --section-accent: var(--signal-contact);
   --page-number: '07';
 }
 :root[data-section='technology'] {
-  --section-accent: #72bec8;
+  --section-accent: var(--signal-technology);
   --page-number: '08';
 }
 :root[data-section='design'] {
-  --section-accent: #b6aaeb;
+  --section-accent: var(--signal-design);
   --page-number: 'DS';
 }
 
 :root[data-theme='light'] {
   color-scheme: light;
+  --signal-works: #126844;
+  --signal-formats: #286c71;
+  --signal-cooperation: #80571c;
+  --signal-studio: #66518b;
+  --signal-cases: #765218;
+  --signal-recognition: #765218;
+  --signal-contact: #854c41;
+  --signal-technology: #286c71;
+  --signal-design: #66518b;
   --plane-back: #e8e4db;
   --plane-middle: #f3efe6;
   --plane-front: #faf7f0;
@@ -135,33 +214,58 @@
   --danger: #a83e39;
   --shadow-material: 0 12px 28px rgb(61 53 40 / 0.14);
   --texture-dot: rgb(42 38 29 / 0.065);
-  --section-accent: #126844;
-  --folio-stroke: rgb(36 35 31 / 0.1);
+  --section-accent: var(--accent);
+  --folio-fill: color-mix(in srgb, var(--ink) 5%, transparent);
 }
 :root[data-theme='light'][data-section='works'] {
-  --section-accent: #126844;
+  --section-accent: var(--signal-works);
 }
 :root[data-theme='light'][data-section='formats'] {
-  --section-accent: #286c71;
+  --section-accent: var(--signal-formats);
 }
 :root[data-theme='light'][data-section='cooperation'] {
-  --section-accent: #80571c;
+  --section-accent: var(--signal-cooperation);
 }
 :root[data-theme='light'][data-section='studio'] {
-  --section-accent: #66518b;
+  --section-accent: var(--signal-studio);
 }
 :root[data-theme='light'][data-section='cases'] {
-  --section-accent: #765218;
+  --section-accent: var(--signal-cases);
 }
 :root[data-theme='light'][data-section='recognition'] {
-  --section-accent: #765218;
+  --section-accent: var(--signal-recognition);
 }
 :root[data-theme='light'][data-section='contact'] {
-  --section-accent: #854c41;
+  --section-accent: var(--signal-contact);
 }
 :root[data-theme='light'][data-section='technology'] {
-  --section-accent: #286c71;
+  --section-accent: var(--signal-technology);
 }
 :root[data-theme='light'][data-section='design'] {
-  --section-accent: #66518b;
+  --section-accent: var(--signal-design);
+}
+
+/* One responsive grid profile for pages, work records and the specimen. */
+@media (max-width: 900px) {
+  :root {
+    --gutter: 24px;
+    --grid-rail: 160px;
+    --grid-gap: var(--s6);
+  }
+}
+@media (max-width: 700px) {
+  :root {
+    --header-height: 72px;
+    --type-hero-intro: clamp(
+      calc(24px * var(--type-scale)),
+      calc(6vw * var(--type-scale)),
+      calc(32px * var(--type-scale))
+    );
+    --gutter: 16px;
+    --grid-columns: minmax(0, 1fr);
+    --grid-gap: var(--s5);
+    --s8: calc(var(--space-unit) * 14);
+    --s9: calc(var(--space-unit) * 18);
+    --type-body: calc(14px * var(--type-scale));
+  }
 }

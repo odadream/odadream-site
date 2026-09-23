@@ -1,4 +1,5 @@
 ---
+import TechnicalMark from './TechnicalMark.astro';
 import { mediaById, type Lang } from '../data/site';
 interface Props {
   id: string;
@@ -13,6 +14,7 @@ const item = mediaById(id);
   <figure class="media-figure">
     <div class="media-register">
       <span class="media-register__id">
+        <TechnicalMark kind="record" />
         {item.kind === 'image' ? 'IMG' : 'VID'} / {item.id}
       </span>
       {item.width && item.height && (
@@ -43,6 +45,9 @@ const item = mediaById(id);
             fetchpriority={priority ? 'high' : 'auto'}
           />
         </picture>
+        <span class="media-open__mark">
+          <TechnicalMark kind="open" />
+        </span>
       </button>
     ) : (
       <video src={item.src} poster={item.poster} controls playsinline preload="none" />
