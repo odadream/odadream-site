@@ -3,7 +3,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import MediaFigure from '../../components/MediaFigure.astro';
 import WorkCard from '../../components/WorkCard.astro';
 import RecognitionCard from '../../components/RecognitionCard.astro';
-import { minddbSnapshot, recognitions, works } from '../../data/site';
+import StatisticsStamp from '../../components/StatisticsStamp.astro';
+import MindDBStamp from '../../components/MindDBStamp.astro';
+import SectionRail from '../../components/SectionRail.astro';
+import RecordStamp from '../../components/RecordStamp.astro';
+import { recognitions, works } from '../../data/site';
 import { siteStats } from '../../lib/site-stats';
 import '../../styles/design-system.css';
 const page = {
@@ -24,6 +28,7 @@ const sections = [
   ['08', 'Бренд'],
   ['09', 'Hero · движущееся медиа'],
   ['10', 'Свет / тьма · данные и документы'],
+  ['11', 'Поля · индексы · паспорта'],
 ];
 ---
 
@@ -415,8 +420,8 @@ const sections = [
           <span class="eyebrow">Hero · движущееся медиа</span>
         </div>
         <p>
-          Видео — главный художественный материал. Эпиграф и одно предложение о студии стоят над ним;
-          этикетка и агрегаты остаются вторичными.
+          Видео — главный художественный материал. Эпиграф и одно предложение о студии стоят над ним; этикетка
+          и агрегаты остаются вторичными.
         </p>
       </aside>
       <div class="system-content">
@@ -431,11 +436,7 @@ const sections = [
             <p>Художественная студия создаёт партисипаторные спектакли, инсталляции и объекты.</p>
           </div>
           <div class="hero-specimen__data">
-            <span class="eyebrow">MINDDB / СНИМОК {minddbSnapshot.asOf}</span>
-            <strong>{minddbSnapshot.takeCount.toLocaleString('ru-RU')} тейков</strong>
-            <span>
-              {minddbSnapshot.videoDurationHours} ч измеренной длительности · агрегат пока не опубликован
-            </span>
+            <MindDBStamp lang="ru" />
           </div>
         </div>
         <p class="small-note">
@@ -450,25 +451,133 @@ const sections = [
           <span class="index">10</span>
           <span class="eyebrow">Свет / тьма · архив</span>
         </div>
-        <p>Переключатель в шапке меняет общие токены страницы. Свет — тёплая архивная бумага; тьма — внутренняя среда и точечный сигнал.</p>
+        <p>
+          Переключатель в шапке меняет общие токены страницы. Свет — тёплая архивная бумага; тьма — внутренняя
+          среда и точечный сигнал.
+        </p>
       </aside>
       <div class="system-content">
         <div class="system-theme-demo">
           <span class="eyebrow">CURRENT THEME / LAYER TEST</span>
           <strong>Материал · знак · данные</strong>
-          <p>Тихая координатная сетка и единичная регистрационная метка отсылают к чертежу. Пиксель и полутон применяются локально; документ и произведение остаются читаемыми.</p>
+          <p>
+            Задний план — тёплая среда и едва видимые индексы. Средний — поля, паспорта и схема. Передний —
+            произведение, документ и читаемый текст. Планы различаются тоном и масштабом, а не количеством
+            рамок.
+          </p>
         </div>
-        <p class="small-note">Иерархия номера: страница <code>00</code> → блок <code>00.02</code> → карточка <code>00.02.01</code>. Цвет получает префикс страницы; позиция кадра подписана отдельно. Страница имеет собственный оттенок сигнала.</p>
-        <div class="ledger">
-          <div class="ledger__lead"><strong>{siteStats.works.total}</strong><span>работ в текущем каталоге</span></div>
-          <div class="ledger__details"><span>{siteStats.works.realized} реализовано</span><span>{siteStats.works.research} R&amp;D</span><span>{siteStats.works.bookable} открыты для обсуждения заказа</span></div>
-        </div>
+        <p class="small-note">
+          Иерархия номера: страница <code>00</code> → блок <code>00.02</code> → карточка <code>00.02.01</code>
+          . Цвет получает префикс страницы; позиция кадра подписана отдельно. Страница имеет собственный
+          оттенок сигнала.
+        </p>
+        <StatisticsStamp kind="works" lang="ru" />
         <div class="recognition-grid">
           <RecognitionCard item={recognitions[0]} lang="ru" />
           <RecognitionCard item={recognitions[1]} lang="ru" />
         </div>
-        <p class="small-note">Работы и кейсы подсчитаны из типизированных записей. В прежнем перечне признаний {siteStats.legacyRecognition.total} позиций, но лишь {siteStats.recognitions.total} перенесены в новую модель. Снимок Golem описывает архивные папки событий, а не опубликованные кейсы. Превью документов открываются тем же lightbox, что и другие изображения.</p>
+        <p class="small-note">
+          Работы и кейсы подсчитаны из типизированных записей. В прежнем перечне признаний{' '}
+          {siteStats.legacyRecognition.total} позиций, но лишь {siteStats.recognitions.total} перенесены в
+          новую модель. Снимок Golem описывает архивные папки событий, а не опубликованные кейсы. Превью
+          документов открываются тем же lightbox, что и другие изображения.
+        </p>
       </div>
+    </section>
+    <section class="system-grid system-section system-grid--rail" id="system-11">
+      <div class="system-content">
+        <h2>Графика, у которой есть работа.</h2>
+        <p>
+          У произведения — пространство. На полях — адрес блока, статистика и короткая заметка у нижнего края.
+          В паспорте — точные сведения из той же записи, которую показывает страница.
+        </p>
+        <RecordStamp
+          title="Паспорт работы / живой компонент"
+          wide
+          fields={[
+            { label: 'ID записи', value: works[0].legacyId },
+            { label: 'Работа', value: works[0].title.ru, href: `/ru/works/${works[0].slug}/` },
+            { label: 'Форма', value: works[0].category.ru },
+            { label: 'Кейсы в каталоге', value: works[0].cases.length },
+          ]}
+        />
+        <dl class="notation-key">
+          <div>
+            <dt>↗</dt>
+            <dd>
+              Переход к материалу. Показывается рядом с действующей ссылкой или открываемым изображением.
+            </dd>
+          </div>
+          <div>
+            <dt>↳</dt>
+            <dd>Заметка на поле: принцип отбора, контекст или ограничение интерпретации.</dd>
+          </div>
+          <div>
+            <dt>⌑</dt>
+            <dd>Регистр записи: начало паспорта или подписи файла. Не действие и не знак сертификации.</dd>
+          </div>
+          <div>
+            <dt>∅</dt>
+            <dd>Известное отсутствие файла. Всегда сопровождается понятным текстом.</dd>
+          </div>
+          <div>
+            <dt>→</dt>
+            <dd>Последовательность или преобразование в схеме метода. Не шкала времени.</dd>
+          </div>
+        </dl>
+        <div class="notation-rules">
+          <p>
+            <strong>Навигация</strong> 00.02.01 — позиция внутри страницы. Она может измениться при
+            перестановке карточки.
+          </p>
+          <p>
+            <strong>Идентификация</strong> ID работы или медиа остаётся постоянным. Его нельзя заменять
+            порядковым номером.
+          </p>
+          <p>
+            <strong>Масштаб</strong> px — только размеры известного файла. Физический масштаб, координаты и
+            частоты появляются лишь при наличии данных.
+          </p>
+          <p>
+            <strong>Иерархия</strong> Крупная цифра обрезается только как повтор. Название, ID, дата, статус и
+            подпись всегда читаются полностью.
+          </p>
+        </div>
+        <p class="small-note">
+          На телефоне нет полей: код, фоновая цифра и заметка скрыты. Статистика и паспорт следуют после
+          материала. Название раздела не повторяется на поле. Ячейки образуют замкнутую сетку с общими
+          рёбрами.
+        </p>
+        <p class="small-note">
+          Руководство для агентов: <code>docs/DESIGN-GUIDE.md</code>. Опорные примеры:{' '}
+          <a
+            class="editorial-link"
+            href="https://www.usgs.gov/media/images/example-information-bottom-topographic-map-collar"
+          >
+            поля карт USGS
+          </a>
+          ,{' '}
+          <a
+            class="editorial-link"
+            href="https://www.nasa.gov/wp-content/uploads/static/history/alsj/a11/plans11.html"
+          >
+            Apollo Flight Plan
+          </a>
+          ,{' '}
+          <a
+            class="editorial-link"
+            href="https://www.magnumphotos.com/theory-and-practice/contact-sheet-mother-child-elliott-erwitt-portrait/"
+          >
+            контактные листы Magnum
+          </a>
+          .
+        </p>
+      </div>
+      <SectionRail
+        index="11"
+        label="Адрес блока дизайн-системы"
+        note="Заметка привязана к нижнему краю материала. Она уточняет контекст, а не повторяет заголовок."
+      />
     </section>
     <p class="eyebrow system-end">
       Источник: утверждённая V5-спецификация · токены: src/styles/tokens.css · компоненты: рабочий сайт V2

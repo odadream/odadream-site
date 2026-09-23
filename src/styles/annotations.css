@@ -1,0 +1,286 @@
+/* Material precedes reference data in reading order. */
+.section--atlas > .section-body,
+.system-grid--rail > .system-content {
+  grid-column: 2;
+  grid-row: 1;
+}
+.section--atlas .section-body {
+  background: none;
+  padding-inline: 0;
+}
+.section-rail {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+.section-rail__field {
+  position: relative;
+  height: 160px;
+  flex: none;
+  margin-block: var(--s5);
+  overflow: hidden;
+}
+.section-rail__folio {
+  position: absolute;
+  inset: 0 auto auto 0;
+  color: transparent;
+  -webkit-text-stroke: var(--annotation-rule) var(--folio-stroke);
+  font: 500 var(--type-folio)/1 var(--sans);
+  letter-spacing: -0.06em;
+  mask-image: linear-gradient(to bottom, #000 45%, transparent 96%);
+  pointer-events: none;
+  user-select: none;
+}
+.section-rail .section-rail__spine {
+  position: absolute;
+  top: 0;
+  right: 0;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  padding: 0;
+  margin: 0;
+  font-size: var(--type-annotation);
+  letter-spacing: 0.04em;
+}
+.section-rail__data {
+  margin-block: var(--s4);
+}
+.section-rail__note {
+  display: flex;
+  gap: var(--s3);
+  max-width: 29ch;
+  margin-top: auto;
+  padding-block: var(--s7) var(--s5);
+  font: 400 12px/1.7 var(--mono);
+  color: var(--muted);
+  text-wrap: pretty;
+}
+.section-rail__note > span {
+  flex: none;
+  color: var(--section-accent);
+}
+.section--method .section-body {
+  background: var(--surface);
+  padding: var(--panel-pad);
+}
+.method-steps.method-steps--linked > p {
+  position: relative;
+  border-top: 0;
+}
+.method-code {
+  display: block;
+  margin-bottom: var(--s3);
+  color: var(--section-accent);
+  font-size: var(--type-annotation);
+}
+.method-steps--linked > p:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--muted);
+}
+/* Shared edges form a closed cell grid, never detached rules. */
+.record-stamp {
+  min-width: 0;
+  background: var(--stamp-surface);
+  border: var(--annotation-rule) solid var(--line);
+}
+.record-stamp__title {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: var(--s3);
+  border-bottom: var(--annotation-rule) solid var(--line);
+  font-size: var(--type-annotation);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.record-stamp__title > span {
+  color: var(--section-accent);
+  font-size: 18px;
+}
+.record-stamp dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--annotation-rule);
+  margin: 0;
+  background: var(--line);
+}
+.record-stamp dl > div {
+  min-width: 0;
+  padding: var(--s3);
+  background: var(--stamp-surface);
+}
+.record-stamp:not(.record-stamp--wide) > dl > div:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+.record-stamp dt {
+  font-size: var(--type-annotation);
+  color: var(--muted);
+  line-height: 1.5;
+}
+.record-stamp dd {
+  margin: var(--s2) 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+.record-stamp dd.record-stamp__metric {
+  font: 500 var(--type-metric)/1.2 var(--sans);
+}
+.record-stamp a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: underline;
+  text-underline-offset: var(--link-offset);
+  text-decoration-color: var(--line-strong);
+}
+.record-stamp a:hover {
+  color: var(--accent);
+}
+.record-stamp--wide > dl {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.record-stamp__note {
+  max-width: none;
+  margin: 0;
+  padding: var(--s3);
+  border-top: var(--annotation-rule) solid var(--line);
+  font-size: var(--type-annotation);
+  line-height: 1.7;
+  color: var(--muted);
+}
+.record-stamp__more {
+  border-top: var(--annotation-rule) solid var(--line);
+}
+.record-stamp__more > summary {
+  min-height: 44px;
+  padding: var(--s3);
+  cursor: pointer;
+  font-size: var(--type-annotation);
+}
+.record-stamp__more[open] > summary {
+  border-bottom: var(--annotation-rule) solid var(--line);
+}
+.record-stamp__more > summary:hover {
+  color: var(--accent);
+}
+.site-colophon {
+  padding-block: var(--s5);
+}
+.colophon-copy {
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+  text-align: start;
+}
+.colophon-copy:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: var(--link-offset);
+}
+.colophon-url {
+  width: 100%;
+  min-height: 44px;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  font: inherit;
+}
+.media-register {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--s1) var(--s4);
+  padding-block: var(--s2);
+  color: var(--muted);
+  font-size: var(--type-annotation);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+.media-register__id::before {
+  content: '⌑';
+  color: var(--section-accent);
+  margin-right: var(--s2);
+}
+.media-open {
+  position: relative;
+}
+.media-open::after {
+  content: '↗';
+  position: absolute;
+  right: var(--s2);
+  bottom: var(--s2);
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  color: var(--hero-ink);
+  background: var(--hero-control-surface);
+  border: var(--annotation-rule) solid var(--hero-rule);
+  pointer-events: none;
+}
+@media (min-width: 701px) and (max-width: 1100px) {
+  .section-rail__folio {
+    font-size: 100px;
+  }
+  .section-rail .record-stamp dl,
+  .work-aside .record-stamp dl {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .method-steps--linked > p:not(:last-child)::after {
+    content: '↓';
+  }
+}
+@media (max-width: 700px) {
+  .section--atlas > .section-body,
+  .system-grid--rail > .system-content,
+  .section-rail {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .section-rail__field,
+  .section-rail__note,
+  .section-rail--empty {
+    display: none;
+  }
+  .section-rail__data {
+    margin: 0;
+  }
+  .section--atlas .section-body {
+    padding-block: 0;
+  }
+  .section--method .section-body {
+    padding: var(--s4);
+  }
+  .record-stamp--wide > dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media print {
+  .section-rail__field,
+  .colophon-copy {
+    display: none;
+  }
+  .record-stamp {
+    break-inside: avoid;
+  }
+}

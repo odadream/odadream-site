@@ -1,0 +1,30 @@
+---
+import RecordStamp from './RecordStamp.astro';
+import { minddbSnapshot, type Lang } from '../data/site';
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const ru = lang === 'ru';
+const locale = ru ? 'ru-RU' : 'en-GB';
+---
+
+<RecordStamp
+  title={`MindDB · ${minddbSnapshot.asOf}`}
+  fields={[
+    {
+      label: ru ? 'Тейки в каталоге' : 'Catalogued takes',
+      value: minddbSnapshot.takeCount.toLocaleString(locale),
+      metric: true,
+    },
+    {
+      label: ru ? 'Видео · часы' : 'Video · hours',
+      value: minddbSnapshot.videoDurationHours.toLocaleString(locale),
+      metric: true,
+    },
+  ]}
+>
+  <p class="record-stamp__note">
+    {ru ? 'Измеренная длительность · агрегат на проверке' : 'Measured duration · aggregate under review'}
+  </p>
+</RecordStamp>

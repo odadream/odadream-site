@@ -17,7 +17,7 @@
   --accent-soft: rgba(0, 216, 132, 0.13);
   --nav-current: rgb(243 241 236 / 0.045);
   --nav-hover: rgb(243 241 236 / 0.065);
-  --header-bg: rgb(17 17 16 / 0.97);
+  --header-bg: var(--plane-back);
   --header-shadow: 0 8px 24px rgb(0 0 0 / 0.12);
   --menu-shadow: 0 20px 30px rgb(0 0 0 / 0.32);
   --media-black: #080808;
@@ -68,17 +68,50 @@
   --section-accent: #00d884;
   --page-number: '00';
   --texture-dot: rgb(243 241 236 / 0.035);
+  --type-annotation: 11px;
+  --type-folio: clamp(96px, 12vw, 176px);
+  --folio-stroke: rgb(243 241 236 / 0.09);
+  --type-metric: 24px;
+  --annotation-rule: 1px;
+  --stamp-surface: var(--surface);
 }
 
-:root[data-section='works'] { --section-accent: #36c9a0; --page-number: '01'; }
-:root[data-section='formats'] { --section-accent: #65bdbf; --page-number: '02'; }
-:root[data-section='cooperation'] { --section-accent: #d3a868; --page-number: '03'; }
-:root[data-section='studio'] { --section-accent: #b9a5d2; --page-number: '04'; }
-:root[data-section='cases'] { --section-accent: #cdaa70; --page-number: '05'; }
-:root[data-section='recognition'] { --section-accent: #d1aa72; --page-number: '06'; }
-:root[data-section='contact'] { --section-accent: #cda194; --page-number: '07'; }
-:root[data-section='technology'] { --section-accent: #72bec8; --page-number: '08'; }
-:root[data-section='design'] { --section-accent: #b6aaeb; --page-number: 'DS'; }
+:root[data-section='works'] {
+  --section-accent: #36c9a0;
+  --page-number: '01';
+}
+:root[data-section='formats'] {
+  --section-accent: #65bdbf;
+  --page-number: '02';
+}
+:root[data-section='cooperation'] {
+  --section-accent: #d3a868;
+  --page-number: '03';
+}
+:root[data-section='studio'] {
+  --section-accent: #b9a5d2;
+  --page-number: '04';
+}
+:root[data-section='cases'] {
+  --section-accent: #cdaa70;
+  --page-number: '05';
+}
+:root[data-section='recognition'] {
+  --section-accent: #d1aa72;
+  --page-number: '06';
+}
+:root[data-section='contact'] {
+  --section-accent: #cda194;
+  --page-number: '07';
+}
+:root[data-section='technology'] {
+  --section-accent: #72bec8;
+  --page-number: '08';
+}
+:root[data-section='design'] {
+  --section-accent: #b6aaeb;
+  --page-number: 'DS';
+}
 
 :root[data-theme='light'] {
   color-scheme: light;
@@ -95,7 +128,7 @@
   --accent-soft: rgb(18 104 68 / 0.11);
   --nav-current: rgb(36 35 31 / 0.06);
   --nav-hover: rgb(36 35 31 / 0.08);
-  --header-bg: rgb(243 239 230 / 0.96);
+  --header-bg: var(--plane-middle);
   --header-shadow: 0 8px 24px rgb(61 53 40 / 0.08);
   --menu-shadow: 0 20px 30px rgb(61 53 40 / 0.16);
   --alert: #815308;
@@ -103,13 +136,32 @@
   --shadow-material: 0 12px 28px rgb(61 53 40 / 0.14);
   --texture-dot: rgb(42 38 29 / 0.065);
   --section-accent: #126844;
+  --folio-stroke: rgb(36 35 31 / 0.1);
 }
-:root[data-theme='light'][data-section='works'] { --section-accent: #126844; }
-:root[data-theme='light'][data-section='formats'] { --section-accent: #286c71; }
-:root[data-theme='light'][data-section='cooperation'] { --section-accent: #80571c; }
-:root[data-theme='light'][data-section='studio'] { --section-accent: #66518b; }
-:root[data-theme='light'][data-section='cases'] { --section-accent: #765218; }
-:root[data-theme='light'][data-section='recognition'] { --section-accent: #765218; }
-:root[data-theme='light'][data-section='contact'] { --section-accent: #854c41; }
-:root[data-theme='light'][data-section='technology'] { --section-accent: #286c71; }
-:root[data-theme='light'][data-section='design'] { --section-accent: #66518b; }
+:root[data-theme='light'][data-section='works'] {
+  --section-accent: #126844;
+}
+:root[data-theme='light'][data-section='formats'] {
+  --section-accent: #286c71;
+}
+:root[data-theme='light'][data-section='cooperation'] {
+  --section-accent: #80571c;
+}
+:root[data-theme='light'][data-section='studio'] {
+  --section-accent: #66518b;
+}
+:root[data-theme='light'][data-section='cases'] {
+  --section-accent: #765218;
+}
+:root[data-theme='light'][data-section='recognition'] {
+  --section-accent: #765218;
+}
+:root[data-theme='light'][data-section='contact'] {
+  --section-accent: #854c41;
+}
+:root[data-theme='light'][data-section='technology'] {
+  --section-accent: #286c71;
+}
+:root[data-theme='light'][data-section='design'] {
+  --section-accent: #66518b;
+}

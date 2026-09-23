@@ -1,0 +1,29 @@
+---
+interface Props {
+  index: string;
+  label: string;
+  note: string;
+}
+const { index, label, note } = Astro.props;
+const hasData = Astro.slots.has('default');
+---
+
+<aside class:list={['section-rail', { 'section-rail--empty': !hasData }]} aria-label={label}>
+  <div class="section-rail__field">
+    <span class="section-rail__folio" aria-hidden="true">
+      {index}
+    </span>
+    <div class="section-label section-rail__spine">
+      <span class="index">{index}</span>
+    </div>
+  </div>
+  {hasData && (
+    <div class="section-rail__data">
+      <slot />
+    </div>
+  )}
+  <p class="section-rail__note">
+    <span aria-hidden="true">↳</span>
+    {note}
+  </p>
+</aside>

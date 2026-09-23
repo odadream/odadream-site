@@ -1,13 +1,16 @@
 ---
+import MindDBStamp from './MindDBStamp.astro';
 import MediaFigure from './MediaFigure.astro';
 import WorkCard from './WorkCard.astro';
 import RecognitionCard from './RecognitionCard.astro';
+import SectionRail from './SectionRail.astro';
+import RecordStamp from './RecordStamp.astro';
+import StatisticsStamp from './StatisticsStamp.astro';
 import {
   cases,
   evidence,
   formats,
   heroVisuals,
-  minddbSnapshot,
   mediaById,
   organizations,
   people,
@@ -17,7 +20,6 @@ import {
   workById,
 } from '../data/site';
 import { caseUrl, formatUrl, workUrl, type Page } from '../lib/routes';
-import { siteStats } from '../lib/site-stats';
 interface Props {
   page: Page;
 }
@@ -154,26 +156,15 @@ const timeline = [...cases]
                 class="nm-data-panel"
                 aria-label={ru ? 'Сводные данные MindDB' : 'MindDB collection summary'}
               >
-                <span class="eyebrow">MINDDB · {ru ? 'СНИМОК' : 'SNAPSHOT'}</span>
-                <div class="nm-stat-grid">
-                  <div>
-                    <strong>{minddbSnapshot.takeCount.toLocaleString(ru ? 'ru-RU' : 'en-GB')}</strong>
-                    <span>{ru ? 'тейков в каталоге' : 'catalogued takes'}</span>
-                  </div>
-                  <div>
-                    <strong>{minddbSnapshot.videoDurationHours.toLocaleString(ru ? 'ru-RU' : 'en-GB')} {ru ? 'ч' : 'h'}</strong>
-                    <span>{ru ? 'видео · подтверждённая длительность' : 'video · duration measured'}</span>
-                  </div>
-                </div>
-                <small>
-                  {minddbSnapshot.asOf} · {ru ? 'агрегат на проверке' : 'aggregate under review'}
-                </small>
+                <MindDBStamp lang={lang} />
               </aside>
             </article>
           );
         })}
         <div class="nm-heading">
-          <span class="eyebrow"><span class="index">00.01</span> / {ru ? 'НЕЙРОМАНДАЛА' : 'NEUROMANDALA'}</span>
+          <span class="eyebrow">
+            <span class="index">00.01</span> / {ru ? 'НЕЙРОМАНДАЛА' : 'NEUROMANDALA'}
+          </span>
           <h1>
             {ru ? 'Состояние человека — художественный материал.' : 'Human state as artistic material.'}
           </h1>
@@ -185,41 +176,31 @@ const timeline = [...cases]
         </div>
       </div>
     </div>
-    <section class="section shell section-grid">
-      <div class="section-label">
-        <span class="index">02</span>
-        <span class="eyebrow">{ru ? 'Шесть работ' : 'Six works'}</span>
-      </div>
+    <section class="section shell section-grid section--atlas" id="selected-works">
       <div class="section-body">
         <h2>{ru ? 'Избранное' : 'Selected works'}</h2>
-        <div class="ledger" aria-label={ru ? 'Состав каталога работ' : 'Work catalogue summary'}>
-          <div class="ledger__lead"><strong>{siteStats.works.total}</strong><span>{ru ? 'работ в текущем каталоге' : 'works in the current catalogue'}</span></div>
-          <div class="ledger__details">
-            <span>{siteStats.works.realized} {ru ? 'реализовано' : 'realized'}</span>
-            <span>{siteStats.works.research} R&amp;D</span>
-            <span>{siteStats.works.bookable} {ru ? 'доступны к обсуждению заказа' : 'open to commission inquiries'}</span>
-          </div>
-          <details class="ledger__breakdown">
-            <summary>{ru ? 'Состав по статусам' : 'Status breakdown'}</summary>
-            <div>
-              {Object.entries(siteStats.works.byStatus).map(([status, count]) => (
-                <span>{workStatusLabels[status as keyof typeof workStatusLabels][lang]} · {count}</span>
-              ))}
-            </div>
-          </details>
-        </div>
         <div class="work-grid">
           {works.map((item, index) => (
             <WorkCard item={item} lang={lang} code={`00.02.${String(index + 1).padStart(2, '0')}`} />
           ))}
         </div>
+        <a class="quiet-link" href={`/${lang}/works/`}>
+          {ru ? 'Все работы' : 'All works'} ↗
+        </a>
       </div>
+      <SectionRail
+        index="02"
+        label={ru ? 'Работы' : 'Works'}
+        note={
+          ru
+            ? 'Живое действие, совместный опыт, материальный след. У каждой работы — своя история.'
+            : 'Live action, shared experience, a material trace. Each work has its own history.'
+        }
+      >
+        <StatisticsStamp kind="works" lang={lang} />
+      </SectionRail>
     </section>
-    <section class="section shell section-grid">
-      <div class="section-label">
-        <span class="index">03</span>
-        <span class="eyebrow">{ru ? 'Метод / медиум' : 'Method / medium'}</span>
-      </div>
+    <section class="section shell section-grid section--atlas section--method" id="medium">
       <div class="section-body">
         <h2>{ru ? 'Обратная связь как художественный медиум.' : 'Biofeedback as an artistic medium.'}</h2>
         <p>
@@ -227,20 +208,23 @@ const timeline = [...cases]
             ? 'Биологическая обратная связь превращает измеряемые сигналы тела в звук, изображение или движение. Участник видит, как его состояние влияет на произведение, и может исследовать эту связь вместе с другими.'
             : 'Biofeedback translates measured bodily signals into sound, image or movement. A participant can see how their state affects the work and explore that relationship with others.'}
         </p>
-        <div class="method-steps">
+        <div class="method-steps method-steps--linked">
           <p>
+            <span class="method-code">M·01</span>
             <strong>{ru ? 'Сигнал' : 'Signal'}</strong>
             {ru
               ? 'Сенсор считывает ограниченный физиологический параметр, а не мысли или чувства.'
               : 'A sensor reads a limited physiological signal, not thoughts or feelings.'}
           </p>
           <p>
+            <span class="method-code">M·02</span>
             <strong>{ru ? 'Перевод' : 'Translation'}</strong>
             {ru
               ? 'Художественные правила преобразуют его в материал сцены.'
               : 'Artistic rules translate it into stage material.'}
           </p>
           <p>
+            <span class="method-code">M·03</span>
             <strong>{ru ? 'Опыт' : 'Experience'}</strong>
             {ru
               ? 'Человек наблюдает ответ среды и сам выбирает, как участвовать.'
@@ -261,26 +245,19 @@ const timeline = [...cases]
           </a>
         </div>
       </div>
+      <SectionRail
+        index="03"
+        label={ru ? 'Метод / медиум' : 'Method / medium'}
+        note={
+          ru
+            ? 'Измерение становится формой. Значение возникает в опыте участника.'
+            : 'Measurement takes form. Meaning emerges in the participant’s experience.'
+        }
+      />
     </section>
-    <section class="section shell section-grid">
-      <div class="section-label">
-        <span class="index">04</span>
-        <span class="eyebrow">{ru ? 'Хронология' : 'Timeline'}</span>
-      </div>
+    <section class="section shell section-grid section--atlas" id="timeline">
       <div class="section-body">
         <h2>{ru ? 'Избранные события и показы' : 'Selected events and presentations'}</h2>
-        <div class="ledger ledger--events">
-          <div class="ledger__lead"><strong>{siteStats.cases.total}</strong><span>{ru ? 'описанных кейса' : 'documented cases'}</span></div>
-          <div class="ledger__details">
-            <span>{siteStats.cases.byType.performance ?? 0} {ru ? 'перформанса' : 'performances'}</span>
-            <span>{siteStats.cases.byType.presentation ?? 0} {ru ? 'публичный показ' : 'public presentation'}</span>
-            <span>{siteStats.cases.byType['participatory-format'] ?? 0} {ru ? 'интерактивный формат' : 'participatory format'}</span>
-          </div>
-          <p class="ledger__source">
-            {siteStats.golemEvents.total} {ru ? 'папок событий в реестре Golem; их содержание ещё не прошло отбор для сайта.' : 'event folders in the Golem registry; their contents are not yet curated for this site.'}
-            {' '}<time datetime={siteStats.golemEvents.generatedAt}>{siteStats.golemEvents.generatedAt.slice(0, 10)}</time>
-          </p>
-        </div>
         <ol class="timeline">
           {timeline.map((item) => (
             <li>
@@ -296,41 +273,48 @@ const timeline = [...cases]
           {ru ? 'Опубликованные кейсы' : 'Published cases'} ↗
         </a>
       </div>
+      <SectionRail
+        index="04"
+        label={ru ? 'Хронология' : 'Timeline'}
+        note={
+          ru
+            ? 'Произведение меняется от встречи к встрече. Здесь — дата, место и роль студии.'
+            : 'A work changes with each encounter. Here: date, place and the studio’s role.'
+        }
+      >
+        <StatisticsStamp kind="events" lang={lang} />
+      </SectionRail>
     </section>
-    <section class="section shell section-grid">
-      <div class="section-label">
-        <span class="index">05</span>
-        <span class="eyebrow">{ru ? 'Признания' : 'Recognition'}</span>
-      </div>
+    <section class="section shell section-grid section--atlas" id="recognition">
       <div class="section-body">
         <h2>{ru ? 'Архив наград и благодарностей.' : 'Awards and acknowledgements archive.'}</h2>
-        <div class="ledger">
-          <div class="ledger__lead"><strong>{siteStats.legacyRecognition.total}</strong><span>{ru ? 'позиций в прежнем публичном перечне' : 'items listed in the former public archive'}</span></div>
-          <div class="ledger__details">
-            <span>{siteStats.legacyRecognition.byKind.diploma} {ru ? 'диплома' : 'diplomas'}</span>
-            <span>{siteStats.legacyRecognition.byKind.letter} {ru ? 'благодарственных писем' : 'letters of appreciation'}</span>
-            <span>{siteStats.legacyRecognition.byKind.participation} {ru ? 'подтверждение участия' : 'participation record'}</span>
-          </div>
-          <p class="ledger__source">{ru ? `${siteStats.recognitions.total} записей перенесены в новую модель; права и атрибуция проверяются.` : `${siteStats.recognitions.total} records are structured in the new model; rights and attribution are under review.`}</p>
-        </div>
         <div class="recognition-grid">
           {homepageRecognitions.map((item) => (
             <RecognitionCard item={item} lang={lang} />
           ))}
         </div>
         <p class="small-note">
-          {ru ? 'Превью из прежнего публичного архива. Права на повторную публикацию документов ещё проверяются.' : 'Previews from the former public archive. Re-publication rights remain under review.'}
+          {ru
+            ? 'Превью из прежнего публичного архива. Права на повторную публикацию документов ещё проверяются.'
+            : 'Previews from the former public archive. Re-publication rights remain under review.'}
         </p>
         <a class="quiet-link" href={`/${lang}/recognition/`}>
           {ru ? 'Архив признаний' : 'Recognition archive'} ↗
         </a>
       </div>
+      <SectionRail
+        index="05"
+        label={ru ? 'Признания' : 'Recognition'}
+        note={
+          ru
+            ? 'След встречи — документ. Автор, институция и повод сохраняются рядом с изображением.'
+            : 'An encounter leaves a document. Author, institution and occasion stay with the image.'
+        }
+      >
+        <StatisticsStamp kind="recognition" lang={lang} />
+      </SectionRail>
     </section>
-    <section class="section shell section-grid">
-      <div class="section-label">
-        <span class="index">06</span>
-        <span class="eyebrow">{ru ? 'Связь' : 'Contact'}</span>
-      </div>
+    <section class="section shell section-grid section--atlas" id="contact">
       <div class="section-body">
         <h2>{ru ? 'Есть проект или вопрос?' : 'Have a project or a question?'}</h2>
         <p>
@@ -342,6 +326,15 @@ const timeline = [...cases]
           {ru ? 'Связаться со студией' : 'Contact the studio'} ↗
         </a>
       </div>
+      <SectionRail
+        index="06"
+        label={ru ? 'Связь' : 'Contact'}
+        note={
+          ru
+            ? 'От первого вопроса — к совместной форме. Показ, заказ или исследование.'
+            : 'A first question can become a shared form. Presentation, commission or research.'
+        }
+      />
     </section>
   </>
 )}
@@ -453,7 +446,9 @@ const timeline = [...cases]
         <div class="recognition-grid">
           {recognitions
             .filter((item) => item.featuredOnHome || publishedRecognitions.includes(item))
-            .map((item) => <RecognitionCard item={item} lang={lang} />)}
+            .map((item) => (
+              <RecognitionCard item={item} lang={lang} />
+            ))}
         </div>
         <a class="quiet-link" href={`/${lang}/cases/`}>
           {ru ? 'Проверяемые события' : 'Documented events'} ↗
@@ -472,13 +467,6 @@ const timeline = [...cases]
       <span>{work.title[lang]}</span>
     </nav>
     <div class="work-layout">
-      <aside class="work-aside">
-        <span class="eyebrow">{work.category[lang]}</span>
-        <span class="status" data-status={work.status}>
-          {workStatusLabels[work.status][lang]}
-        </span>
-        <span class="meta">{work.source}</span>
-      </aside>
       <div class="work-main">
         <h1>{work.title[lang]}</h1>
         <p class="lead">{work.experience[lang]}</p>
@@ -488,7 +476,7 @@ const timeline = [...cases]
           <h2>{work.question[lang]}</h2>
           <p>{work.summary[lang]}</p>
         </section>
-        <section class="work-section">
+        <section class="work-section" id="work-context">
           <span class="eyebrow">02 / {ru ? 'Контекст' : 'Context'}</span>
           <h2>{ru ? 'Подтверждённые факты' : 'Documented facts'}</h2>
           <ul class="facts">
@@ -526,7 +514,7 @@ const timeline = [...cases]
             </p>
           </section>
         )}
-        <section class="work-section">
+        <section class="work-section" id="work-availability">
           <span class="eyebrow">04 / {ru ? 'Доступность' : 'Availability'}</span>
           <h2>{ru ? 'Как работать с проектом' : 'Working with the project'}</h2>
           <p>{work.availability[lang]}</p>
@@ -555,6 +543,26 @@ const timeline = [...cases]
           <p>{work.source}</p>
         </div>
       </div>
+      <aside class="work-aside">
+        <RecordStamp
+          title={ru ? 'Паспорт работы' : 'Work record'}
+          fields={[
+            { label: 'ID', value: work.legacyId },
+            { label: ru ? 'Форма' : 'Form', value: work.category[lang] },
+            { label: ru ? 'Статус' : 'Status', value: workStatusLabels[work.status][lang] },
+            {
+              label: ru ? 'Кейсы в каталоге' : 'Catalogued cases',
+              value: work.cases.length,
+              href: '#work-context',
+            },
+            {
+              label: ru ? 'Версии и заказ' : 'Versions & inquiries',
+              value: ru ? 'Условия' : 'Availability',
+              href: '#work-availability',
+            },
+          ]}
+        />
+      </aside>
     </div>
   </article>
 )}
@@ -783,11 +791,6 @@ const timeline = [...cases]
       <span>{oneCase.title[lang]}</span>
     </nav>
     <div class="work-layout">
-      <aside class="work-aside">
-        <span class="eyebrow">{caseTypeLabels[oneCase.type][lang]}</span>
-        <span class="eyebrow">{oneCase.date}</span>
-        <span class="meta">{oneCase.place[lang]}</span>
-      </aside>
       <div class="work-main">
         <h1>{oneCase.title[lang]}</h1>
         <p class="lead">{oneCase.summary[lang]}</p>
@@ -835,6 +838,22 @@ const timeline = [...cases]
           </div>
         </section>
       </div>
+      <aside class="work-aside">
+        <RecordStamp
+          title={ru ? 'Паспорт события' : 'Event record'}
+          fields={[
+            { label: 'ID', value: oneCase.legacyId },
+            { label: ru ? 'Тип' : 'Type', value: caseTypeLabels[oneCase.type][lang] },
+            { label: ru ? 'Дата' : 'Date', value: oneCase.date },
+            { label: ru ? 'Место' : 'Place', value: oneCase.place[lang] },
+            {
+              label: ru ? 'Работа' : 'Work',
+              value: workById(oneCase.work)!.title[lang],
+              href: workUrl(lang, oneCase.work),
+            },
+          ]}
+        />
+      </aside>
     </div>
   </article>
 )}

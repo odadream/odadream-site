@@ -11,6 +11,16 @@ const item = mediaById(id);
 
 {item && (
   <figure class="media-figure">
+    <div class="media-register">
+      <span class="media-register__id">
+        {item.kind === 'image' ? 'IMG' : 'VID'} / {item.id}
+      </span>
+      {item.width && item.height && (
+        <span>
+          {item.width} × {item.height} px
+        </span>
+      )}
+    </div>
     {item.kind === 'image' ? (
       <button
         type="button"

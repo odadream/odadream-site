@@ -9,6 +9,7 @@ interface Props {
 }
 const { item, lang, eager = false, code } = Astro.props;
 const media = mediaById(item.media[0]);
+const [codePrefix, ...codeSegments] = (code || '').split('.');
 ---
 
 <article class="work-card" data-motion-card>
@@ -23,7 +24,12 @@ const media = mediaById(item.media[0]);
     </span>
     <span class="meta work-card__meta">
       <span class="work-card__identity">
-        {code && <span class="work-card__code">{code}</span>}
+        {code && (
+          <span class="work-card__code" aria-label={code}>
+            <span class="code-prefix">{codePrefix}</span>
+            <span>{codeSegments.length ? `.${codeSegments.join('.')}` : ''}</span>
+          </span>
+        )}
         <span class="work-card__category">{item.category[lang]}</span>
       </span>
       <span class="work-card__status" data-work-status={item.status}>

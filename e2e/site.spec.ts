@@ -83,12 +83,14 @@ test('featured carousel, editorial links and card media follow the design gramma
   );
   await expect(page.locator('.feature-slide:not([hidden]) [data-carousel-position]')).toHaveText('02 / 05');
   await expect(page.locator('header .brand img')).toHaveCount(1);
-  await expect(page.locator('.feature-slide:not([hidden]) .nm-carousel-controls .eyebrow')).toContainText('КАДР');
+  await expect(page.locator('.feature-slide:not([hidden]) .nm-carousel-controls .eyebrow')).toContainText(
+    'КАДР',
+  );
   await expect(page.locator('.nm-brand-intro')).toHaveCount(0);
   await expect(page.locator('.section-grid').nth(0).locator('.section-label .index')).toHaveText('02');
   await expect(page.locator('.work-card__status[data-work-status="research"]')).toContainText('R&D');
   await expect(page.locator('.recognition-card')).toHaveCount(4);
-  await expect(page.locator('.work-card__code').first()).toHaveText('00.02.01');
+  await expect(page.locator('.work-card__code').first()).toHaveAttribute('aria-label', '00.02.01');
   await expect(page.locator('.work-card__meta .index')).toHaveCount(0);
   await expect(page.locator('.work-card__link').first()).toHaveCSS('text-decoration-line', 'none');
   await expect(page.locator('.quiet-link').first()).toHaveCSS('text-decoration-line', 'underline');
@@ -104,7 +106,7 @@ test('featured carousel, editorial links and card media follow the design gramma
 test('V5 design stand shares tokens and live components with the site', async ({ page }) => {
   await page.goto('/design-system/');
   await expect(page.locator('meta[name=robots]')).toHaveAttribute('content', 'noindex,follow');
-  await expect(page.locator('.system-section')).toHaveCount(10);
+  await expect(page.locator('.system-section')).toHaveCount(11);
   await expect(page.locator('.work-card__link')).toHaveCount(2);
   await page.locator('#system-05').scrollIntoViewIfNeeded();
   await expect
@@ -132,7 +134,9 @@ test('header remains visible, theme follows the system and manual choice persist
   await page.goto('/ru/');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
   await page.evaluate(() => scrollTo(0, 1200));
-  await expect.poll(() => page.locator('.site-header').evaluate((node) => Math.round(node.getBoundingClientRect().top))).toBe(0);
+  await expect
+    .poll(() => page.locator('.site-header').evaluate((node) => Math.round(node.getBoundingClientRect().top)))
+    .toBe(0);
   await page.getByRole('button', { name: /Тема:/ }).click();
   await expect(page.locator('html')).toHaveAttribute('data-theme-mode', 'light');
   await page.getByRole('button', { name: /Тема:/ }).click();
@@ -144,10 +148,11 @@ test('header remains visible, theme follows the system and manual choice persist
 
 test('homepage distinguishes catalogue scope and document previews', async ({ page, isMobile }) => {
   await page.goto('/ru/');
-  await expect(page.getByText('работ в текущем каталоге')).toBeVisible();
-  await expect(page.getByText('папок событий в реестре Golem', { exact: false })).toBeVisible();
-  await expect(page.getByText('позиций в прежнем публичном перечне')).toBeVisible();
+  await expect(page.getByText('Работы в каталоге', { exact: true })).toBeVisible();
+  await expect(page.getByText('Папки событий · Golem', { exact: true })).toBeVisible();
+  await expect(page.getByText('Прежний перечень', { exact: true })).toBeVisible();
   await expect(page.locator('.recognition-card__image')).toHaveCount(3);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
   const trigger = page.locator('.recognition-card__image').first();
   await trigger.click();
   await expect(page.locator('#lightbox')).toHaveAttribute('open', '');
@@ -155,11 +160,13 @@ test('homepage distinguishes catalogue scope and document previews', async ({ pa
   await expect(trigger).toBeFocused();
   if (isMobile) {
     await page.locator('.nm-hero').scrollIntoViewIfNeeded();
-    expect(await page.locator('.feature-slide:not([hidden])').evaluate((slide) => {
-      const video = slide.querySelector('video')?.getBoundingClientRect();
-      const summary = slide.querySelector('.nm-data-panel')?.getBoundingClientRect();
-      return Boolean(video && summary && summary.top >= video.bottom - 2);
-    })).toBeTruthy();
+    expect(
+      await page.locator('.feature-slide:not([hidden])').evaluate((slide) => {
+        const video = slide.querySelector('video')?.getBoundingClientRect();
+        const summary = slide.querySelector('.nm-data-panel')?.getBoundingClientRect();
+        return Boolean(video && summary && summary.top >= video.bottom - 2);
+      }),
+    ).toBeTruthy();
   }
 });
 
@@ -179,5 +186,65 @@ test('key pages have no serious or critical accessibility violations', async ({ 
       high.map((item) => `${item.id}: ${item.nodes.length} nodes`),
       path,
     ).toEqual([]);
+  }
+});
+test('reference fields follow material on mobile; colophon retains a previous visit', async ({
+  page,
+  isMobile,
+}) => {
+  await page.goto('/ru/');
+  await page.evaluate(() => {
+    localStorage.setItem('oda-last-visit', '2026-08-20T10:00:00Z');
+    sessionStorage.removeItem('oda-previous-visit');
+  });
+  await page.reload();
+  await expect(page.locator('[data-previous-visit]')).toContainText('2026');
+  const previous = await page.locator('[data-previous-visit]').textContent();
+  await page.goto('/ru/works/');
+  await expect(page.locator('[data-previous-visit]')).toHaveText(previous!);
+  await expect(page.locator('.site-colophon > .record-stamp > dl > div')).toHaveCount(4);
+  await expect(page.locator('.site-colophon')).toContainText('Astro');
+  await page.evaluate(() =>
+    Object.defineProperty(navigator, 'clipboard', {
+      value: {
+        writeText: async () => {
+          throw new Error('denied');
+        },
+      },
+      configurable: true,
+    }),
+  );
+  await page.locator('[data-copy-page-link]').click();
+  await expect(page.locator('[data-copy-fallback]')).toBeVisible();
+  await expect(page.locator('[data-copy-fallback]')).toHaveValue(page.url());
+  await page.evaluate(() =>
+    Object.defineProperty(navigator, 'clipboard', {
+      value: {
+        writeText: async (url: string) => {
+          (window as Window & { copiedURL?: string }).copiedURL = url;
+        },
+      },
+      configurable: true,
+    }),
+  );
+  await page.locator('[data-copy-page-link]').click();
+  await expect(page.locator('[data-copy-status]')).toHaveText('Ссылка скопирована');
+  await expect(page.locator('[data-copy-fallback]')).toBeHidden();
+  expect(await page.evaluate(() => (window as Window & { copiedURL?: string }).copiedURL)).toBe(page.url());
+  await page.goto('/ru/');
+  const section = page.locator('#selected-works');
+  expect(
+    await section.evaluate(
+      (node) =>
+        node.querySelector('.section-body')!.compareDocumentPosition(node.querySelector('.section-rail')!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ),
+  ).toBeTruthy();
+  if (isMobile) {
+    await expect(section.locator('.section-rail__note')).toBeHidden();
+    await expect(section.locator('.section-rail__field')).toBeHidden();
+    const main = await section.locator('.section-body').boundingBox();
+    const data = await section.locator('.section-rail__data').boundingBox();
+    expect(data!.y).toBeGreaterThanOrEqual(main!.y + main!.height);
   }
 });
