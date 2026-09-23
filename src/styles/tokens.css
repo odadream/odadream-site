@@ -21,6 +21,22 @@
   --header-shadow: 0 8px 24px rgb(0 0 0 / 0.12);
   --menu-shadow: 0 20px 30px rgb(0 0 0 / 0.32);
   --media-black: #080808;
+  --hero-bg: #090a0c;
+  --hero-ink: #f3f1ec;
+  --hero-ink-soft: rgb(243 241 236 / 0.76);
+  --hero-ink-muted: rgb(243 241 236 / 0.62);
+  --hero-ink-subtle: rgb(243 241 236 / 0.54);
+  --hero-rule: rgb(243 241 236 / 0.24);
+  --hero-panel: rgb(11 13 16 / 0.62);
+  --hero-control-surface: rgb(9 10 12 / 0.38);
+  --hero-blur: 14px;
+  --hero-height: 84svh;
+  --hero-height-max: 980px;
+  --hero-height-min: 660px;
+  --hero-scrim:
+    linear-gradient(90deg, rgb(5 7 10 / 0.66) 0%, rgb(5 7 10 / 0.28) 45%, rgb(5 7 10 / 0.09) 100%),
+    linear-gradient(0deg, rgb(5 7 10 / 0.84) 0%, transparent 58%, rgb(5 7 10 / 0.18) 100%);
+  --hero-intro-transition: opacity 700ms ease;
   --lightbox-bg: rgb(9 9 8 / 0.96);
   --lightbox-backdrop: rgb(0 0 0 / 0.9);
   --alert: #efb452;

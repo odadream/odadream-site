@@ -332,6 +332,7 @@ const breadcrumbSchema =
         }
         const position = carousel.querySelector<HTMLElement>('[data-carousel-position]');
         const toggle = carousel.querySelector<HTMLButtonElement>('[data-carousel-toggle]');
+        const brandIntro = carousel.querySelector<HTMLElement>('[data-brand-intro]');
         let current = 0;
         let timer: number | undefined;
         let userPaused = false;
@@ -397,6 +398,7 @@ const breadcrumbSchema =
             pause();
             slides[current]?.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview);
           } else {
+            brandIntro?.classList.add('is-out');
             playPreview(slides[current].querySelector('video'));
             resume();
           }
@@ -405,11 +407,19 @@ const breadcrumbSchema =
           if (canMove()) resume();
           else {
             pause();
+            brandIntro?.classList.add('is-out');
             slides.forEach((slide) => slide.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview));
           }
         });
-        playPreview(slides[0].querySelector('video'));
-        resume();
+        if (canMove() && !document.hidden) {
+          window.setTimeout(() => {
+            brandIntro?.classList.add('is-out');
+            playPreview(slides[current]?.querySelector('video') ?? null);
+            resume();
+          }, 1500);
+        } else {
+          brandIntro?.classList.add('is-out');
+        }
       }
     </script>
   </body>

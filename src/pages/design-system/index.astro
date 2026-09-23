@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import MediaFigure from '../../components/MediaFigure.astro';
 import WorkCard from '../../components/WorkCard.astro';
-import { works } from '../../data/site';
+import { minddbSnapshot, works } from '../../data/site';
 import '../../styles/design-system.css';
 const page = {
   lang: 'ru' as const,
@@ -20,6 +20,7 @@ const sections = [
   ['06', 'Речь, медиа и состояния'],
   ['07', 'Документация'],
   ['08', 'Бренд'],
+  ['09', 'Hero · движущееся медиа'],
 ];
 ---
 
@@ -401,6 +402,42 @@ const sections = [
         <p class="small-note">
           Логотип в header: около 94 × 46 px. Свободное поле: 24 px. Контур мозга — одиночный мотив у раздела
           метода, а не повторяющийся фон.
+        </p>
+      </div>
+    </section>
+    <section class="system-grid system-section" id="system-09">
+      <aside class="system-side">
+        <div class="section-label">
+          <span class="index">09</span>
+          <span class="eyebrow">Hero · движущееся медиа</span>
+        </div>
+        <p>
+          Видео — главный художественный материал, а не фон для рекламного заголовка. Короткое интро
+          обозначает студию; этикетка и агрегаты остаются вторичными.
+        </p>
+      </aside>
+      <div class="system-content">
+        <div class="hero-specimen">
+          <div
+            class="hero-specimen__image"
+            role="img"
+            aria-label="Нейромандала: кадр из локального постера"
+          />
+          <div class="hero-specimen__copy">
+            <span class="eyebrow">ODA.DREAM / NEUROMANDALA</span>
+            <h2>Состояние человека — художественный материал.</h2>
+          </div>
+          <div class="hero-specimen__data">
+            <span class="eyebrow">MINDDB / СНИМОК {minddbSnapshot.asOf}</span>
+            <strong>{minddbSnapshot.takeCount.toLocaleString('ru-RU')} тейков</strong>
+            <span>
+              {minddbSnapshot.videoDurationHours} ч измеренной длительности · агрегат пока не опубликован
+            </span>
+          </div>
+        </div>
+        <p class="small-note">
+          Паттерн использует hero-токены из <code>tokens.css</code>. Одно активное видео; poster — до запуска
+          и при reduced-motion / экономии трафика. Выпуск требует проверки прав и приватности.
         </p>
       </div>
     </section>

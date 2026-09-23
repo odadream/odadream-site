@@ -24,6 +24,24 @@ export interface HeroVisual {
   medium: Localized;
   mediaId: string;
 }
+
+// Redacted aggregate snapshot only. Never import the catalogue's per-take rows
+// or participant data into the public site.
+export const minddbSnapshot = {
+  asOf: '2026-08-30',
+  sessionCount: 150,
+  takeCount: 1751,
+  videoDurationFileCount: 1348,
+  videoDurationHours: 69.8,
+  rhythmDistribution: null as null | Record<'theta' | 'alpha' | 'beta' | 'gamma', number>,
+  publication: 'review' as Publication,
+  privacyReview: 'review' as Publication,
+  rhythmNote: {
+    en: 'Rhythm distribution is not shown: a verified, consent-cleared aggregate is not available yet.',
+    ru: 'Распределение по ритмам пока не показано: проверенная агрегированная статистика с подтверждённым разрешением не подготовлена.',
+  } as Localized,
+  source: 'MindDB sessions/catalog.json + qc_media_probe_20260830.json; aggregate-only calculation',
+};
 export interface Work {
   id: string;
   legacyId: string;

@@ -21,6 +21,14 @@ for (const row of data.media)
   if (row.kind === 'video' && !row.poster) failures.push(`media ${row.id}: video poster missing`);
 for (const row of data.evidence)
   if (row.permission !== 'cleared') failures.push(`evidence ${row.id}: permission ${row.permission}`);
+for (const row of data.recognitions ?? [])
+  if (row.publication !== 'published' || row.documentRights !== 'cleared')
+    failures.push(`recognition ${row.id}: publication or document rights not cleared`);
+if (
+  data.minddbSnapshot &&
+  (data.minddbSnapshot.publication !== 'published' || data.minddbSnapshot.privacyReview !== 'published')
+)
+  failures.push('MindDB aggregate: publication and privacy reviews not cleared');
 const audit = JSON.parse(await readFile('docs/media-audit.json', 'utf8'));
 const decisions = JSON.parse(await readFile('docs/media-decisions.json', 'utf8'));
 const unresolved = audit.filter((row) => {

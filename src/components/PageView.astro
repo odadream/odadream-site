@@ -6,6 +6,7 @@ import {
   evidence,
   formats,
   heroVisuals,
+  minddbSnapshot,
   mediaById,
   organizations,
   people,
@@ -37,6 +38,16 @@ const sectionName = {
   recognition: ru ? 'Признания' : 'Recognition',
 };
 const featured = heroVisuals;
+const rhythmBands = [
+  { id: 'theta', glyph: 'θ' },
+  { id: 'alpha', glyph: 'α' },
+  { id: 'beta', glyph: 'β' },
+  { id: 'gamma', glyph: 'γ' },
+].map((band) => ({
+  ...band,
+  count: minddbSnapshot.rhythmDistribution?.[band.id as 'theta' | 'alpha' | 'beta' | 'gamma'] ?? null,
+}));
+const maxRhythmCount = Math.max(1, ...rhythmBands.map((band) => band.count ?? 0));
 const timeline = [...cases]
   .sort((a, b) => a.date.localeCompare(b.date))
   .map((item) => ({
@@ -49,64 +60,109 @@ const timeline = [...cases]
 
 {page.kind === 'home' && (
   <>
-    <section class="page-intro shell">
+    <section class="page-intro home-intro shell">
       <p class="eyebrow">ODA.DREAM / ART · PERCEPTION · TECHNOLOGY</p>
-      <h1>{ru ? 'Состояние человека как художественный материал.' : 'Human state as artistic material.'}</h1>
-      <p class="lead">
-        {ru
-          ? 'ODA.dream создаёт партисипаторные спектакли, инсталляции и объекты, в которых человек не зритель технологии, а участник художественного события.'
-          : 'ODA.dream creates participatory performances, installations and objects in which a person is not a spectator of technology, but part of the artwork.'}
-      </p>
     </section>
     <div class="shell">
       <div
-        class="feature-carousel"
-        aria-label={ru ? 'Нейромандала: избранные фрагменты' : 'Neuromandala: selected sequences'}
+        class="feature-carousel nm-hero"
+        aria-label={ru ? 'Нейромандала: видео и данные коллекции' : 'Neuromandala: video and collection data'}
         data-carousel
       >
         {featured.map((item, i) => {
           const image = mediaById(item.mediaId);
           return (
-            <div class="feature-split feature-slide" data-slide data-slide-id={item.id} hidden={i !== 0}>
-              <figure class="feature-visual">
-                <video
-                  muted
-                  playsinline
-                  loop
-                  preload={i === 0 ? 'metadata' : 'none'}
-                  poster={image?.poster}
-                  aria-label={`${item.title[lang]} — ${item.medium[lang]}`}
-                  data-preview
-                >
-                  <source src={image?.previewSrc} type="video/mp4" />
-                </video>
-                <figcaption>
-                  {item.title[lang]} · {item.medium[lang]}
-                </figcaption>
-              </figure>
-              <div class="feature-copy">
+            <article class="nm-slide feature-slide" data-slide data-slide-id={item.id} hidden={i !== 0}>
+              <video
+                class="nm-background-video"
+                muted
+                playsinline
+                loop
+                preload={i === 0 ? 'metadata' : 'none'}
+                poster={image?.poster}
+                aria-hidden="true"
+                data-preview
+              >
+                <source src={image?.previewSrc} type="video/mp4" />
+              </video>
+              <div class="nm-scrim" aria-hidden="true"></div>
+              <div class="nm-work-caption">
                 <div class="feature-kicker">
                   <span class="index" data-slide-number>
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <span class="eyebrow">/ {ru ? 'Формы Нейромандалы' : 'Neuromandala forms'}</span>
+                  <span class="eyebrow">{ru ? 'Форма Нейромандалы' : 'Neuromandala form'}</span>
                 </div>
-                <h2 class="feature-title">{item.title[lang]}</h2>
-                <p>
-                  {ru
-                    ? 'Биосигнал становится частью визуальной композиции — не портретом человека, а материалом художественного процесса.'
-                    : 'A biosignal enters the visual composition—not as a portrait of a person, but as material in an artistic process.'}
-                </p>
+                <h2>{item.title[lang]}</h2>
+                <p>{item.medium[lang]}</p>
+                <p class="nm-caption">{image?.caption[lang]}</p>
+              </div>
+              <div class="nm-caption-link">
                 <a class="quiet-link" href={`/${lang}/technology/`}>
-                  {ru ? 'О технологии и методе' : 'About the technology and method'} ↗
+                  {ru ? 'Технология и метод' : 'Technology and method'} ↗
                 </a>
               </div>
-            </div>
+              <aside
+                class="nm-data-panel"
+                aria-label={ru ? 'Сводные данные MindDB' : 'MindDB collection summary'}
+              >
+                <span class="eyebrow">MINDDB / {ru ? 'КОЛЛЕКЦИЯ' : 'COLLECTION'}</span>
+                <div class="nm-stat-grid">
+                  <div>
+                    <strong>{minddbSnapshot.takeCount.toLocaleString(ru ? 'ru-RU' : 'en-GB')}</strong>
+                    <span>{ru ? 'тейков в каталоге' : 'catalogued takes'}</span>
+                  </div>
+                  <div>
+                    <strong>{minddbSnapshot.videoDurationHours} h</strong>
+                    <span>{ru ? 'видео · подтверждённая длительность' : 'video · duration measured'}</span>
+                  </div>
+                </div>
+                <div class="nm-rhythm-status">
+                  <span>{ru ? 'ДОМИНИРУЮЩИЕ РИТМЫ' : 'DOMINANT RHYTHMS'}</span>
+                  <div
+                    class="nm-rhythm-chart"
+                    aria-label={
+                      ru
+                        ? 'Столбцы появятся после проверки агрегации'
+                        : 'Bars will appear after the aggregate is verified'
+                    }
+                  >
+                    {rhythmBands.map((band) => (
+                      <div class="nm-rhythm-column">
+                        <div class:list={['nm-rhythm-track', { 'has-value': band.count !== null }]}>
+                          {band.count !== null && (
+                            <i style={`--bar-height:${(band.count / maxRhythmCount) * 100}%`}></i>
+                          )}
+                        </div>
+                        <span>{band.glyph}</span>
+                        <small>{band.count ?? '—'}</small>
+                      </div>
+                    ))}
+                  </div>
+                  <p>{minddbSnapshot.rhythmNote[lang]}</p>
+                </div>
+                <small>
+                  {ru ? 'Снимок' : 'Snapshot'} · {minddbSnapshot.asOf} ·{' '}
+                  {minddbSnapshot.videoDurationFileCount.toLocaleString(ru ? 'ru-RU' : 'en-GB')}{' '}
+                  {ru ? 'видео проверено' : 'videos probed'}
+                </small>
+              </aside>
+            </article>
           );
         })}
+        <div class="nm-heading">
+          <p class="eyebrow">ODA.DREAM / NEUROMANDALA</p>
+          <h1>
+            {ru ? 'Состояние человека — художественный материал.' : 'Human state as artistic material.'}
+          </h1>
+        </div>
+        <div class="nm-brand-intro" data-brand-intro aria-hidden="true">
+          <img src="/brand/oda-logo.svg" alt="" width="148" height="70" />
+          <span>ART · PERCEPTION · TECHNOLOGY</span>
+        </div>
         <div class="carousel-controls">
           <span class="eyebrow">
-            {ru ? 'Фрагмент' : 'Sequence'} <span data-carousel-position>01 / 05</span>
+            {ru ? 'ВИДЕО' : 'VIDEO'} <span data-carousel-position>01 / 05</span>
           </span>
           <div>
             <button type="button" data-carousel-prev aria-label={ru ? 'Предыдущая работа' : 'Previous work'}>
