@@ -9,6 +9,7 @@ import {
   mediaById,
   organizations,
   people,
+  recognitions,
   works,
   workById,
 } from '../data/site';
@@ -21,6 +22,9 @@ const lang = page.lang;
 const ru = lang === 'ru';
 const work = page.kind === 'work' ? works.find((x) => x.slug === page.slug) : undefined;
 const oneCase = page.kind === 'case' ? cases.find((x) => x.slug === page.slug) : undefined;
+const publishedRecognitions = recognitions.filter(
+  (item) => item.publication === 'published' && item.documentRights === 'cleared',
+);
 const sectionName = {
   home: ru ? 'Главная' : 'Home',
   works: ru ? 'Работы' : 'Works',
@@ -55,7 +59,11 @@ const timeline = [...cases]
       </p>
     </section>
     <div class="shell">
-      <div class="feature-carousel" aria-label={ru ? 'Нейромандала: избранные фрагменты' : 'Neuromandala: selected sequences'} data-carousel>
+      <div
+        class="feature-carousel"
+        aria-label={ru ? 'Нейромандала: избранные фрагменты' : 'Neuromandala: selected sequences'}
+        data-carousel
+      >
         {featured.map((item, i) => {
           const image = mediaById(item.mediaId);
           return (
@@ -78,7 +86,9 @@ const timeline = [...cases]
               </figure>
               <div class="feature-copy">
                 <div class="feature-kicker">
-                  <span class="index" data-slide-number>{String(i + 1).padStart(2, '0')}</span>
+                  <span class="index" data-slide-number>
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
                   <span class="eyebrow">/ {ru ? 'Формы Нейромандалы' : 'Neuromandala forms'}</span>
                 </div>
                 <h2 class="feature-title">{item.title[lang]}</h2>
@@ -350,6 +360,17 @@ const timeline = [...cases]
             ? 'Исходный архив предыдущей версии содержит документы 2024–2026 годов. В текущей миграции их названия, даты и связи с событиями требуют сверки, а права на сканы — отдельного подтверждения. Поэтому документы пока не представлены как опубликованные награды.'
             : 'The previous site’s archive contains documents from 2024–2026. Their titles, dates and event links are being checked during migration, and scan permissions require separate confirmation. They are therefore not yet presented here as published awards.'}
         </p>
+        {publishedRecognitions.map((item) => (
+          <article class="list-row">
+            <span class="meta">
+              {item.year} · {item.kind}
+            </span>
+            <div>
+              <h2>{item.title[lang]}</h2>
+              <p>{item.issuer[lang]}</p>
+            </div>
+          </article>
+        ))}
         <a class="quiet-link" href={`/${lang}/cases/`}>
           {ru ? 'Проверяемые события' : 'Documented events'} ↗
         </a>

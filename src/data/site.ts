@@ -81,6 +81,20 @@ export interface Evidence {
   source: string;
   permission: Rights;
 }
+export type RecognitionKind = 'award' | 'certificate' | 'acknowledgement-letter';
+export interface Recognition {
+  id: string;
+  legacyId: string;
+  kind: RecognitionKind;
+  title: Localized;
+  issuer: Localized;
+  year: number;
+  event?: string;
+  source: string;
+  documentSource: string;
+  publication: Publication;
+  documentRights: Rights;
+}
 export interface Person {
   id: string;
   legacyId?: string;
@@ -690,6 +704,80 @@ export const evidence: Evidence[] = [
     title: { en: 'BYOB event record, 2026', ru: 'Запись о событии BYOB, 2026' },
     source: 'src/content/event-byob-2026.md',
     permission: 'cleared',
+  },
+];
+
+// Transcribed from the previous site's public archive. Kept out of public
+// rendering until issuer/date/event details and scan permissions are reviewed.
+export const recognitions: Recognition[] = [
+  {
+    id: 'digital-art-ai-2026',
+    legacyId: 'recognition-digital-art-ai-2026',
+    kind: 'certificate',
+    year: 2026,
+    title: { en: 'Diploma · Digital Art & AI panel', ru: 'Диплом · панель «Цифровое искусство и ИИ»' },
+    issuer: { en: 'Unique Russia · Gostiny Dvor', ru: 'Уникальная Россия · Гостиный двор' },
+    source: 'previous src/content/hub-letters.md',
+    documentSource: '/images/content/proofs/collab_2026_ODA_Gostinyy_dvor.webp',
+    publication: 'review',
+    documentRights: 'review',
+  },
+  {
+    id: 'mipt-letter-2025',
+    legacyId: 'proof-mipt-letter',
+    kind: 'acknowledgement-letter',
+    year: 2025,
+    title: { en: 'Letter of recognition', ru: 'Благодарственное письмо' },
+    issuer: {
+      en: 'Moscow Institute of Physics and Technology',
+      ru: 'Московский физико-технический институт',
+    },
+    source: 'previous src/content/hub-letters.md',
+    documentSource: '/images/proofs/proof-mipt-letter.webp',
+    publication: 'review',
+    documentRights: 'review',
+  },
+  {
+    id: 'portal-2030-2025',
+    legacyId: 'recognition-portal-2030-2025',
+    kind: 'award',
+    year: 2025,
+    title: { en: 'Diploma · Portal 2030–2050, “Visioning”', ru: 'Диплом · Портал 2030–2050, «Виджеинг»' },
+    issuer: { en: 'Moscow 2030', ru: 'Москва 2030' },
+    source: 'previous src/content/hub-letters.md; award wording requires source review',
+    documentSource: '/images/content/proofs/collab_2025_ODA_Portal.webp',
+    publication: 'review',
+    documentRights: 'review',
+  },
+  {
+    id: 'tavrida-letter-2025',
+    legacyId: 'recognition-tavrida-2025',
+    kind: 'acknowledgement-letter',
+    year: 2025,
+    title: {
+      en: 'Letter of appreciation · Cultural Code of Russia',
+      ru: 'Благодарность · «Культурный код России»',
+    },
+    issuer: { en: 'Tavrida.ART', ru: 'Таврида.АРТ' },
+    source: 'previous src/content/hub-letters.md',
+    documentSource: '/images/content/proofs/collab_2025_ODA_Tavrida_II.webp',
+    publication: 'review',
+    documentRights: 'review',
+  },
+  {
+    id: 'hse-letter-2025',
+    legacyId: 'proof-let-hse-beautiful-brain',
+    kind: 'acknowledgement-letter',
+    year: 2025,
+    title: {
+      en: 'Letter of appreciation · Beautiful About the Brain',
+      ru: 'Благодарность · «Красиво про мозг»',
+    },
+    issuer: { en: 'HSE University', ru: 'НИУ ВШЭ' },
+    source: 'previous src/content/hub-letters.md',
+    documentSource: '/images/content/proofs/collab_2025_ODA_VShE_ch2.webp',
+    publication: 'review',
+    documentRights: 'review',
   },
 ];
 
