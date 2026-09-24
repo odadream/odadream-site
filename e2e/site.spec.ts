@@ -265,6 +265,18 @@ test('homepage distinguishes catalogue scope and document previews', async ({ pa
   await expect(page.locator('.nm-data-panel .record-stamp__title')).toContainText('Статистика записей');
   await expect(page.locator('.nm-data-panel dd.record-stamp__metric')).toHaveText(['1 751', '70 ч.']);
   await expect(page.locator('.nm-data-panel dl > div:last-child')).toContainText('30.08.2026');
+  if (!isMobile) {
+    await page.setViewportSize({ width: 850, height: 912 });
+    const cells = page.locator('.nm-data-panel dl > div');
+    const labels = await cells
+      .locator('dt')
+      .evaluateAll((nodes) => nodes.slice(0, 2).map((node) => node.getBoundingClientRect().height));
+    const metrics = await cells
+      .locator('dd.record-stamp__metric')
+      .evaluateAll((nodes) => nodes.map((node) => node.getBoundingClientRect().top));
+    expect(Math.max(...labels)).toBeLessThan(20);
+    expect(Math.abs(metrics[0] - metrics[1])).toBeLessThan(1);
+  }
   await expect(page.getByText('Работы в каталоге', { exact: true })).toBeVisible();
   await expect(page.getByText('Папки событий · Golem', { exact: true })).toBeVisible();
   await expect(page.getByText('Прежний перечень', { exact: true })).toBeVisible();

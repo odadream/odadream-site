@@ -1254,18 +1254,9 @@ figcaption {
 .nm-heading {
   position: absolute;
   z-index: 2;
-  isolation: isolate;
   top: var(--intro-space-start);
   left: var(--page-inset);
   max-width: min(52vw, 660px);
-}
-.nm-heading::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  inset: calc(-1 * var(--s6)) calc(-1 * var(--s8));
-  background: var(--hero-heading-veil);
-  pointer-events: none;
 }
 .nm-heading .eyebrow,
 .nm-work-caption .eyebrow,
@@ -1355,7 +1346,10 @@ figcaption {
   z-index: 2;
   right: var(--page-inset);
   bottom: var(--hero-edge-space);
-  width: min(280px, 25vw);
+  width: clamp(260px, 25vw, 280px);
+}
+.nm-data-panel .record-stamp dt {
+  white-space: nowrap;
 }
 .nm-data-panel,
 .hero-specimen__data {

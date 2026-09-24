@@ -42,7 +42,7 @@
   --card-gap: var(--s3);
   --card-row-gap: var(--s7);
   --header-fade-depth: 28px;
-  --header-fade: linear-gradient(to bottom, rgb(0 0 0 / 0.3), transparent);
+  --header-fade: linear-gradient(to bottom, rgb(17 17 16 / 1), rgb(17 17 16 / 0));
   --menu-shadow: 0 20px 30px rgb(0 0 0 / 0.32);
   --media-black: #080808;
   --hero-bg: #090a0c;
@@ -57,15 +57,16 @@
   --hero-height: 84svh;
   --hero-height-max: 980px;
   --hero-height-min: 660px;
+  --hero-text-shade: radial-gradient(
+    ellipse 55% 45% at 12% 31%,
+    rgb(5 7 10 / 0.58),
+    rgb(5 7 10 / 0.23) 60%,
+    transparent 100%
+  );
   --hero-scrim:
+    var(--hero-text-shade),
     linear-gradient(90deg, rgb(5 7 10 / 0.66) 0%, rgb(5 7 10 / 0.28) 45%, rgb(5 7 10 / 0.09) 100%),
     linear-gradient(0deg, rgb(5 7 10 / 0.84) 0%, transparent 58%, rgb(5 7 10 / 0.18) 100%);
-  --hero-heading-veil: radial-gradient(
-    ellipse at 35% 45%,
-    rgb(5 7 10 / 0.7),
-    rgb(5 7 10 / 0.35) 55%,
-    transparent 82%
-  );
   --lightbox-bg: rgb(9 9 8 / 0.96);
   --lightbox-backdrop: rgb(0 0 0 / 0.9);
   --alert: #efb452;
@@ -100,7 +101,7 @@
   --sans: 'Manrope', Arial, sans-serif;
   --link-offset: 0.16em;
   --link-mark-size: 1em;
-  --link-mark-gap: 0.04em;
+  --link-mark-gap: 0.25em;
   --motion-fast: 180ms ease;
   --motion-media: 700ms ease;
   --section-accent: var(--accent);
@@ -217,7 +218,7 @@
   --nav-current: rgb(36 35 31 / 0.06);
   --nav-hover: rgb(36 35 31 / 0.08);
   --header-bg: var(--plane-middle);
-  --header-fade: linear-gradient(to bottom, rgb(61 53 40 / 0.14), transparent);
+  --header-fade: linear-gradient(to bottom, rgb(243 239 230 / 1), rgb(243 239 230 / 0));
   --menu-shadow: 0 20px 30px rgb(61 53 40 / 0.16);
   --alert: #815308;
   --danger: #a83e39;
