@@ -34,7 +34,7 @@ const { title, fields, wide = false, tone = 'document' } = Astro.props;
           {field.href ? (
             <a href={field.href}>
               {field.value}
-              <span aria-hidden="true"> ↗</span>
+              <TechnicalMark kind="open" />
             </a>
           ) : (
             field.value

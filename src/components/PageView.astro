@@ -6,6 +6,7 @@ import RecognitionCard from './RecognitionCard.astro';
 import SectionRail from './SectionRail.astro';
 import RecordStamp from './RecordStamp.astro';
 import PageCode from './PageCode.astro';
+import TechnicalMark from './TechnicalMark.astro';
 import StatisticsStamp from './StatisticsStamp.astro';
 import {
   cases,
@@ -104,22 +105,14 @@ const timeline = [...cases]
                         data-carousel-prev
                         aria-label={ru ? 'Предыдущая работа' : 'Previous work'}
                       >
-                        ←
+                        <TechnicalMark kind="previous" />
                       </button>
                       <button
                         type="button"
                         data-carousel-next
                         aria-label={ru ? 'Следующая работа' : 'Next work'}
                       >
-                        →
-                      </button>
-                      <button
-                        type="button"
-                        data-carousel-toggle
-                        aria-pressed="false"
-                        aria-label={ru ? 'Остановить движение' : 'Pause motion'}
-                      >
-                        Ⅱ
+                        <TechnicalMark kind="next" />
                       </button>
                     </div>
                   </div>
@@ -147,7 +140,7 @@ const timeline = [...cases]
                           : ru
                             ? 'Страница работы'
                             : 'Work documentation'}{' '}
-                        ↗
+                        <TechnicalMark kind="open" />
                       </a>
                     ) : (
                       <span class="nm-pending-link" role="status">
@@ -185,12 +178,12 @@ const timeline = [...cases]
       <div class="section-body">
         <h2>{ru ? 'Избранное' : 'Selected works'}</h2>
         <div class="work-grid">
-          {works.map((item, index) => (
-            <WorkCard item={item} lang={lang} family="H" section={1} position={index + 1} />
+          {works.map((item) => (
+            <WorkCard item={item} lang={lang} />
           ))}
         </div>
         <a class="quiet-link" href={`/${lang}/works/`}>
-          {ru ? 'Все работы' : 'All works'} ↗
+          {ru ? 'Все работы' : 'All works'} <TechnicalMark kind="open" />
         </a>
       </div>
       <SectionRail
@@ -217,21 +210,18 @@ const timeline = [...cases]
         </p>
         <div class="method-steps method-steps--linked">
           <p>
-            <PageCode family="H" section={2} item={1} lang={lang} />
             <strong>{ru ? 'Сигнал' : 'Signal'}</strong>
             {ru
               ? 'Сенсор считывает ограниченный физиологический параметр, а не мысли или чувства.'
               : 'A sensor reads a limited physiological signal, not thoughts or feelings.'}
           </p>
           <p>
-            <PageCode family="H" section={2} item={2} lang={lang} />
             <strong>{ru ? 'Перевод' : 'Translation'}</strong>
             {ru
               ? 'Художественные правила преобразуют его в материал сцены.'
               : 'Artistic rules translate it into stage material.'}
           </p>
           <p>
-            <PageCode family="H" section={2} item={3} lang={lang} />
             <strong>{ru ? 'Опыт' : 'Experience'}</strong>
             {ru
               ? 'Человек наблюдает ответ среды и сам выбирает, как участвовать.'
@@ -245,10 +235,10 @@ const timeline = [...cases]
         </p>
         <div class="link-row">
           <a class="quiet-link" href={`/${lang}/technology/`}>
-            {ru ? 'Как устроена Нейромандала' : 'How Neuromandala works'} ↗
+            {ru ? 'Как устроена Нейромандала' : 'How Neuromandala works'} <TechnicalMark kind="open" />
           </a>
           <a class="quiet-link" href={`/${lang}/formats/`}>
-            {ru ? 'Форматы' : 'Formats'} ↗
+            {ru ? 'Форматы' : 'Formats'} <TechnicalMark kind="open" />
           </a>
         </div>
       </div>
@@ -271,18 +261,17 @@ const timeline = [...cases]
           {timeline.map((item) => (
             <li>
               <div class="timeline__date">
-                <PageCode family="H" section={3} item={timeline.indexOf(item) + 1} lang={lang} />
                 <span class="index">{item.year}</span>
               </div>
               <p>{item[lang]}</p>
               <a class="quiet-link" href={item.url}>
-                {ru ? 'Подробнее' : 'Explore'} ↗
+                {ru ? 'Подробнее' : 'Explore'} <TechnicalMark kind="open" />
               </a>
             </li>
           ))}
         </ol>
         <a class="quiet-link" href={`/${lang}/cases/`}>
-          {ru ? 'Опубликованные кейсы' : 'Published cases'} ↗
+          {ru ? 'Опубликованные кейсы' : 'Published cases'} <TechnicalMark kind="open" />
         </a>
       </div>
       <SectionRail
@@ -304,13 +293,7 @@ const timeline = [...cases]
         <h2>{ru ? 'Архив наград и благодарностей.' : 'Awards and acknowledgements archive.'}</h2>
         <div class="recognition-grid">
           {homepageRecognitions.map((item) => (
-            <RecognitionCard
-              item={item}
-              lang={lang}
-              family="H"
-              section={4}
-              position={homepageRecognitions.indexOf(item) + 1}
-            />
+            <RecognitionCard item={item} lang={lang} />
           ))}
         </div>
         <p class="small-note">
@@ -319,7 +302,7 @@ const timeline = [...cases]
             : 'Previews from the former public archive. Re-publication rights remain under review.'}
         </p>
         <a class="quiet-link" href={`/${lang}/recognition/`}>
-          {ru ? 'Архив признаний' : 'Recognition archive'} ↗
+          {ru ? 'Архив признаний' : 'Recognition archive'} <TechnicalMark kind="open" />
         </a>
       </div>
       <SectionRail
@@ -345,7 +328,7 @@ const timeline = [...cases]
             : 'Let’s discuss a presentation, an adapted format or a shared investigation.'}
         </p>
         <a class="quiet-link" href={`/${lang}/contact/`}>
-          {ru ? 'Связаться со студией' : 'Contact the studio'} ↗
+          {ru ? 'Связаться со студией' : 'Contact the studio'} <TechnicalMark kind="open" />
         </a>
       </div>
       <SectionRail
@@ -380,8 +363,8 @@ const timeline = [...cases]
         <PageCode family={family} section={1} lang={lang} /> / {ru ? 'КАТАЛОГ' : 'CATALOGUE'}
       </p>
       <div class="work-grid">
-        {works.map((item, index) => (
-          <WorkCard item={item} lang={lang} family={family} section={1} position={index + 1} />
+        {works.map((item) => (
+          <WorkCard item={item} lang={lang} />
         ))}
       </div>
     </section>
@@ -413,21 +396,18 @@ const timeline = [...cases]
         <h2>{ru ? 'Измерение — не объяснение.' : 'Measurement is not explanation.'}</h2>
         <div class="method-steps">
           <p>
-            <PageCode family={family} section={1} item={1} lang={lang} />
             <strong>{ru ? 'Сигнал' : 'Signal'}</strong>
             {ru
               ? 'Сенсор регистрирует ограниченные физиологические параметры, например электрическую активность мозга.'
               : 'A sensor records limited physiological parameters, such as electrical brain activity.'}
           </p>
           <p>
-            <PageCode family={family} section={1} item={2} lang={lang} />
             <strong>{ru ? 'Художественный перевод' : 'Artistic translation'}</strong>
             {ru
               ? 'Правила конкретной работы связывают изменения сигнала со звуком, изображением или движением.'
               : 'Rules specific to each artwork map signal changes to sound, image or movement.'}
           </p>
           <p>
-            <PageCode family={family} section={1} item={3} lang={lang} />
             <strong>{ru ? 'Обратная связь' : 'Feedback'}</strong>
             {ru
               ? 'Участник видит отклик среды и может исследовать его; это не объективная оценка эмоций или личности.'
@@ -444,7 +424,7 @@ const timeline = [...cases]
             .filter((item) => ['mindshow', 'interference', 'neurobattle'].includes(item.id))
             .map((item) => (
               <a class="quiet-link" href={workUrl(lang, item.id)}>
-                {item.title[lang]} ↗
+                {item.title[lang]} <TechnicalMark kind="open" />
               </a>
             ))}
         </div>
@@ -480,21 +460,11 @@ const timeline = [...cases]
           {recognitions
             .filter((item) => item.featuredOnHome || publishedRecognitions.includes(item))
             .map((item) => (
-              <RecognitionCard
-                item={item}
-                lang={lang}
-                family={family}
-                section={1}
-                position={
-                  recognitions
-                    .filter((entry) => entry.featuredOnHome || publishedRecognitions.includes(entry))
-                    .indexOf(item) + 1
-                }
-              />
+              <RecognitionCard item={item} lang={lang} />
             ))}
         </div>
         <a class="quiet-link" href={`/${lang}/cases/`}>
-          {ru ? 'Проверяемые события' : 'Documented events'} ↗
+          {ru ? 'Проверяемые события' : 'Documented events'} <TechnicalMark kind="open" />
         </a>
       </div>
     </section>
@@ -539,7 +509,7 @@ const timeline = [...cases]
             <div class="link-row spaced-actions">
               {work.cases.map((id) => (
                 <a class="quiet-link" href={caseUrl(lang, id)}>
-                  {cases.find((x) => x.id === id)?.title[lang]} ↗
+                  {cases.find((x) => x.id === id)?.title[lang]} <TechnicalMark kind="open" />
                 </a>
               ))}
             </div>
@@ -579,7 +549,7 @@ const timeline = [...cases]
             <div class="link-row spaced-actions">
               {work.formats.map((id) => (
                 <a class="quiet-link" href={formatUrl(lang, id)}>
-                  {formats.find((x) => x.id === id)?.title[lang]} ↗
+                  {formats.find((x) => x.id === id)?.title[lang]} <TechnicalMark kind="open" />
                 </a>
               ))}
             </div>
@@ -650,11 +620,11 @@ const timeline = [...cases]
             <div class="link-row">
               {item.works.map((id) => (
                 <a class="quiet-link" href={workUrl(lang, id)}>
-                  {workById(id)?.title[lang]} ↗
+                  {workById(id)?.title[lang]} <TechnicalMark kind="open" />
                 </a>
               ))}
               <a class="quiet-link" href={`/${lang}/cooperation/`}>
-                {ru ? 'Условия сотрудничества' : 'Cooperation details'} ↗
+                {ru ? 'Условия сотрудничества' : 'Cooperation details'} <TechnicalMark kind="open" />
               </a>
             </div>
           </div>
@@ -701,9 +671,8 @@ const timeline = [...cases]
               ? 'Для нового произведения формулируем художественный вопрос, исследовательский метод, этапы и ответственность сторон.'
               : 'For a new work we define the artistic question, method, phases and responsibilities.',
           ],
-        ].map(([title, body], i) => (
+        ].map(([title, body]) => (
           <div class="list-row">
-            <PageCode family={family} section={1} item={i + 1} lang={lang} />
             <div>
               <h3>{title}</h3>
               <p>{body}</p>
@@ -767,16 +736,13 @@ const timeline = [...cases]
       <div class="section-body">
         {cases.map((item) => (
           <div class="list-row">
-            <span class="meta">
-              <PageCode family={family} section={2} item={cases.indexOf(item) + 1} lang={lang} /> ·{' '}
-              {item.date}
-            </span>
+            <span class="meta">{item.date}</span>
             <div>
               <h3>{item.title[lang]}</h3>
               <p>{item.place[lang]}</p>
             </div>
             <a class="quiet-link" href={caseUrl(lang, item.id)}>
-              {ru ? 'Детали' : 'Details'} ↗
+              {ru ? 'Детали' : 'Details'} <TechnicalMark kind="open" />
             </a>
           </div>
         ))}
@@ -809,7 +775,7 @@ const timeline = [...cases]
             : 'Cases name events, dates, places and organizational roles. Letters and quotations are not published without separate permission.'}
         </p>
         <a class="quiet-link" href={`/${lang}/cases/`}>
-          {ru ? 'Смотреть кейсы' : 'See cases'} ↗
+          {ru ? 'Смотреть кейсы' : 'See cases'} <TechnicalMark kind="open" />
         </a>
       </div>
     </section>
@@ -829,10 +795,9 @@ const timeline = [...cases]
       </p>
     </section>
     <section class="shell">
-      {cases.map((item, index) => (
+      {cases.map((item) => (
         <article class="list-row">
           <span class="meta">
-            <PageCode family={family} section={1} item={index + 1} lang={lang} />
             <br />
             {item.date}
             <br />
@@ -844,7 +809,7 @@ const timeline = [...cases]
             <p>{item.role[lang]}</p>
           </div>
           <a class="quiet-link" href={caseUrl(lang, item.id)}>
-            {ru ? 'Открыть' : 'Open'} ↗
+            {ru ? 'Открыть' : 'Open'} <TechnicalMark kind="open" />
           </a>
         </article>
       ))}
@@ -875,7 +840,8 @@ const timeline = [...cases]
           <h2>{ru ? 'Роль ODA.dream' : 'ODA.dream’s role'}</h2>
           <p>{oneCase.role[lang]}</p>
           <a class="quiet-link" href={workUrl(lang, oneCase.work)}>
-            {ru ? 'Связанная работа' : 'Related work'}: {workById(oneCase.work)?.title[lang]} ↗
+            {ru ? 'Связанная работа' : 'Related work'}: {workById(oneCase.work)?.title[lang]}{' '}
+            <TechnicalMark kind="open" />
           </a>
         </section>
         <section class="work-section">
@@ -962,7 +928,7 @@ const timeline = [...cases]
             : 'For a quick reply, use Telegram. These addresses match the previous site’s contact registry.'}
         </p>
         <a class="quiet-link" href="https://t.me/odadream_info" rel="noopener noreferrer">
-          t.me/odadream_info ↗
+          t.me/odadream_info <TechnicalMark kind="open" />
         </a>
       </div>
     </section>

@@ -4,29 +4,26 @@ import { makePageCode, type PageFamily } from '../lib/page-codes';
 interface Props {
   family: PageFamily;
   section?: number;
-  item?: number;
   lang?: 'en' | 'ru';
   register?: boolean;
 }
 
-const { family, section = 0, item, lang = 'en', register = true } = Astro.props;
-const code = makePageCode(family, section, item);
+const { family, section = 0, lang = 'en', register = true } = Astro.props;
+const code = makePageCode(family, section);
 const description =
   section === 0
     ? lang === 'ru'
       ? `Страница ${family}`
       : `Page ${family}`
     : lang === 'ru'
-      ? `Страница ${family}, раздел ${String(section).padStart(2, '0')}${item === undefined ? '' : `, элемент ${String(item).padStart(2, '0')}`}`
-      : `Page ${family}, section ${String(section).padStart(2, '0')}${item === undefined ? '' : `, item ${String(item).padStart(2, '0')}`}`;
+      ? `Страница ${family}, раздел ${String(section).padStart(2, '0')}`
+      : `Page ${family}, section ${String(section).padStart(2, '0')}`;
 const suffix = code.slice(2);
 const sectionCode = suffix.slice(0, 2);
-const itemCode = suffix.slice(2);
 const codeMarkup = [
   `<span class="page-code__family">${family}</span>`,
   sectionCode ? '<span class="page-code__separator">.</span>' : '',
   sectionCode ? `<span class="page-code__section">${sectionCode}</span>` : '',
-  itemCode ? `<span class="page-code__item"><span class="page-code__ordinal">${itemCode}</span></span>` : '',
 ].join('');
 ---
 

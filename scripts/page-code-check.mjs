@@ -9,19 +9,13 @@ export function validatePageCodes(html, path = '') {
   if (!rawCodes.length) fail('no machine-readable page codes', path);
 
   const sections = new Set();
-  const items = new Map();
   for (const code of rawCodes) {
-    const match = code.match(/^([A-Z])(?:\.(\d{2})(\d{2})?)?$/);
-    if (!match) fail(`malformed code ${code}; expected F, F.00 or F.0000`, path);
-    const [, codeFamily, sectionText, itemText] = match;
+    const match = code.match(/^([A-Z])(?:\.(\d{2}))?$/);
+    if (!match) fail(`malformed code ${code}; expected F or F.00`, path);
+    const [, codeFamily, sectionText] = match;
     if (codeFamily !== family) fail(`${code} belongs to ${codeFamily}, page belongs to ${family}`, path);
     const section = sectionText === undefined ? 0 : Number(sectionText);
     sections.add(section);
-    if (itemText) {
-      const values = items.get(section) ?? new Set();
-      values.add(Number(itemText));
-      items.set(section, values);
-    }
   }
 
   if (!sections.has(0)) fail(`missing page identity ${family}`, path);
@@ -29,15 +23,5 @@ export function validatePageCodes(html, path = '') {
   orderedSections.forEach((value, index) => {
     if (value !== index) fail(`section sequence skips ${String(index).padStart(2, '0')}`, path);
   });
-  for (const [section, values] of items) {
-    const orderedItems = [...values].sort((a, b) => a - b);
-    orderedItems.forEach((value, index) => {
-      if (value !== index + 1)
-        fail(
-          `item sequence in ${family} / ${String(section).padStart(2, '0')} skips ${String(index + 1).padStart(2, '0')}`,
-          path,
-        );
-    });
-  }
   return { family, sections: orderedSections.length, codes: rawCodes.length };
 }

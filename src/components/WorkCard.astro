@@ -1,17 +1,12 @@
 ---
 import { mediaById, workStatusLabels, type Lang, type Work } from '../data/site';
 import { workUrl } from '../lib/routes';
-import PageCode from './PageCode.astro';
-import type { PageFamily } from '../lib/page-codes';
 interface Props {
   item: Work;
   lang: Lang;
   eager?: boolean;
-  family: PageFamily;
-  section: number;
-  position: number;
 }
-const { item, lang, eager = false, family, section, position } = Astro.props;
+const { item, lang, eager = false } = Astro.props;
 const media = mediaById(item.media[0]);
 ---
 
@@ -27,7 +22,6 @@ const media = mediaById(item.media[0]);
     </span>
     <span class="meta work-card__meta">
       <span class="work-card__identity">
-        <PageCode family={family} section={section} item={position} lang={lang} />
         <span class="work-card__category">{item.category[lang]}</span>
       </span>
       <span class="work-card__status" data-work-status={item.status}>

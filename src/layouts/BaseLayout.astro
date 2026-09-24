@@ -556,14 +556,12 @@ const breadcrumbSchema =
         } catch {
           // Storage may be unavailable; the server-rendered order remains usable.
         }
-        const toggles = [...carousel.querySelectorAll<HTMLButtonElement>('[data-carousel-toggle]')];
         let current = 0;
         let timer: number | undefined;
-        let userPaused = false;
         let inView = false;
         let pointerInside = false;
         let focusInside = false;
-        const mayPlay = () => canMove() && !document.hidden && !userPaused && inView;
+        const mayPlay = () => canMove() && !document.hidden && inView;
         slides.forEach((slide, index) => {
           slide.hidden = index !== 0;
           const counter = slide.querySelector<HTMLElement>('[data-carousel-position]');
@@ -572,7 +570,7 @@ const breadcrumbSchema =
         });
         const show = (next: number) => {
           const focused = document.activeElement;
-          const control = ['data-carousel-prev', 'data-carousel-next', 'data-carousel-toggle'].find((name) =>
+          const control = ['data-carousel-prev', 'data-carousel-next'].find((name) =>
             focused?.hasAttribute(name),
           );
           slides[current]?.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview);
@@ -596,31 +594,6 @@ const breadcrumbSchema =
             slides[current].querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview);
           }
         };
-        toggles.forEach((toggle) =>
-          toggle.addEventListener('click', () => {
-            userPaused = !userPaused;
-            toggles.forEach((button) => {
-              button.setAttribute('aria-pressed', String(userPaused));
-              button.textContent = userPaused ? '▶' : 'Ⅱ';
-              button.setAttribute(
-                'aria-label',
-                userPaused
-                  ? document.documentElement.lang === 'ru'
-                    ? 'Продолжить движение'
-                    : 'Resume motion'
-                  : document.documentElement.lang === 'ru'
-                    ? 'Остановить движение'
-                    : 'Pause motion',
-              );
-            });
-            if (userPaused) {
-              pause();
-              slides[current]?.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview);
-            } else {
-              resume();
-            }
-          }),
-        );
         carousel.querySelectorAll('[data-carousel-prev]').forEach((button) =>
           button.addEventListener('click', () => {
             show(current - 1);

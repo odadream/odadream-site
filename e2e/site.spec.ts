@@ -76,17 +76,21 @@ test('card tracks align and anchor targets clear the header', async ({ page, isM
   }
 });
 
-test('carousel pause survives changing slides and videos stop offscreen', async ({ page }) => {
+test('carousel uses unframed direction marks and stops video offscreen', async ({ page }) => {
   await page.goto('/ru/');
   const active = page.locator('.nm-slide:not([hidden])');
-  await active.locator('[data-carousel-toggle]').click();
-  await expect(active.locator('[data-carousel-toggle]')).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('[data-carousel-toggle]')).toHaveCount(0);
+  await expect(active.locator('[data-carousel-prev] .technical-mark')).toHaveAttribute(
+    'data-mark',
+    'previous',
+  );
+  await expect(active.locator('[data-carousel-next] .technical-mark')).toHaveAttribute('data-mark', 'next');
+  await expect(active.locator('[data-carousel-next]')).toHaveCSS('border-width', '0px');
   const before = await active.getAttribute('data-slide-id');
   await active.locator('[data-carousel-next]').click();
   expect(await active.getAttribute('data-slide-id')).not.toBe(before);
   await expect(active.locator('[data-carousel-next]')).toBeFocused();
   expect(await active.locator('video').evaluate((video: HTMLVideoElement) => video.paused)).toBeTruthy();
-  await active.locator('[data-carousel-toggle]').click();
   await page.locator('#contact').scrollIntoViewIfNeeded();
   await expect
     .poll(() => active.locator('video').evaluate((video: HTMLVideoElement) => video.paused))
@@ -175,26 +179,20 @@ test('featured carousel, editorial links and card media follow the design gramma
   await expect(page.locator('.site-nav .page-code').first()).toHaveCSS('padding', '0px');
   await expect(page.locator('.work-card__status[data-work-status="research"]')).toContainText('R&D');
   await expect(page.locator('.recognition-card')).toHaveCount(4);
-  await expect(page.locator('.work-card__identity .page-code').first()).toHaveAttribute(
-    'data-page-code',
-    'H.0101',
-  );
-  await expect(page.locator('.work-card__identity .page-code').first()).toHaveText('H.0101');
-  await expect(page.locator('.work-card__identity .page-code .page-code__ordinal').first()).toHaveText('01');
-  await expect(page.locator('.work-card__identity .page-code').first()).toHaveClass(/page-code--chip/);
-  expect(
-    await page
-      .locator('.method-steps .page-code')
-      .first()
-      .evaluate((chip) => {
-        const parent = chip.parentElement!.getBoundingClientRect();
-        return chip.getBoundingClientRect().width < parent.width / 2;
-      }),
-  ).toBeTruthy();
+  await expect(page.locator('.work-card__identity .page-code')).toHaveCount(0);
+  await expect(page.locator('.method-steps .page-code')).toHaveCount(0);
+  await expect(page.locator('.work-card__category').first()).not.toBeEmpty();
   await expect(page.locator('.recognition-card__image').first()).toHaveCSS('overflow', 'hidden');
   await expect(page.locator('.site-footer .social-icon').first()).toBeVisible();
   await expect(page.locator('.work-card__link').first()).toHaveCSS('text-decoration-line', 'none');
   await expect(page.locator('.quiet-link').first()).toHaveCSS('text-decoration-line', 'underline');
+  const linkArrow = page.locator('.quiet-link .technical-mark').first();
+  const arrowSize = Number.parseFloat(await linkArrow.evaluate((icon) => getComputedStyle(icon).width));
+  const linkFontSize = Number.parseFloat(
+    await linkArrow.evaluate((icon) => getComputedStyle(icon.parentElement!).fontSize),
+  );
+  expect(arrowSize).toBeGreaterThanOrEqual(linkFontSize);
+  await expect(linkArrow).toHaveAttribute('data-mark', 'open');
   if (isMobile) {
     await page.locator('.work-card').first().scrollIntoViewIfNeeded();
     await expect(page.locator('.work-card').first()).toHaveClass(/is-active/);

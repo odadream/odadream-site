@@ -304,11 +304,11 @@ const profileTokens = [
           <div>
             <p class="component-title">Редакционные ссылки</p>
             <a class="quiet-link" href="/ru/works/interference-of-realities/">
-              Документация работы ↗
+              Документация работы <TechnicalMark kind="open" />
             </a>
             <br />
             <a class="quiet-link" href="/ru/works/">
-              Вернуться к работам ↗
+              Вернуться к работам <TechnicalMark kind="open" />
             </a>
           </div>
           <div>
@@ -354,7 +354,7 @@ const profileTokens = [
       <div class="system-content">
         <div class="work-grid">
           {works.slice(0, 2).map((item) => (
-            <WorkCard item={item} lang="ru" eager family="D" section={5} position={works.indexOf(item) + 1} />
+            <WorkCard item={item} lang="ru" eager />
           ))}
         </div>
         <p class="small-note">
@@ -366,9 +366,8 @@ const profileTokens = [
           документального видео сохраняется изображение; анимация изображения не выдаётся за запись работы.
         </p>
         <p class="small-note">
-          Адрес везде выглядит одинаково: <code>W</code> — страница, <code>W.01</code> — раздел,
-          <code>W.0102</code> — элемент. Рамка плотно охватывает код; цветная буква обозначает семейство,
-          последние две цифры выделены как порядковый номер элемента.
+          Адрес ограничен двумя уровнями: <code>W</code> — страница, <code>W.01</code> — раздел. Карточки не
+          получают порядковых кодов: их отличают название, категория, дата и статус.
         </p>
         <p class="component-title">Медиа + подпись + источник</p>
         <MediaFigure id="interference-stage" lang="ru" priority />
@@ -400,7 +399,7 @@ const profileTokens = [
             <p>Файл не найден в архиве. Описание работы и связанные документы остаются доступны.</p>
           </div>
           <a class="quiet-link" href="/ru/works/interference-of-realities/">
-            К документации ↗
+            К документации <TechnicalMark kind="open" />
           </a>
         </div>
         <p class="small-note">
@@ -434,7 +433,7 @@ const profileTokens = [
             <dd>«Циолковский фест»</dd>
           </dl>
           <a class="quiet-link" href="/ru/cases/tsiolkovsky-festival-2026/">
-            Кейс и источники ↗
+            Кейс и источники <TechnicalMark kind="open" />
           </a>
         </article>
         <article>
@@ -555,15 +554,13 @@ const profileTokens = [
           </p>
         </div>
         <p class="small-note">
-          Иерархический адрес везде один: буква семейства → номер раздела → порядковый номер элемента (
-          <code>W</code>, <code>W.01</code>, <code>W.0102</code>). Чип отделяет адрес от даты; номер элемента
-          — позиция в текущем представлении, не постоянный ID записи; пара цифр элемента подсвечивается
-          целиком.
+          Иерархический адрес: буква семейства → номер раздела (<code>W</code>, <code>W.01</code>). Он
+          показывает положение блока, но не нумерует отдельные карточки и не заменяет ID записи.
         </p>
         <StatisticsStamp kind="works" lang="ru" />
         <div class="recognition-grid">
-          <RecognitionCard item={recognitions[0]} lang="ru" family="D" section={10} position={1} />
-          <RecognitionCard item={recognitions[1]} lang="ru" family="D" section={10} position={2} />
+          <RecognitionCard item={recognitions[0]} lang="ru" />
+          <RecognitionCard item={recognitions[1]} lang="ru" />
         </div>
         <p class="small-note">
           Работы и кейсы подсчитаны из типизированных записей. В прежнем перечне признаний{' '}
@@ -631,8 +628,8 @@ const profileTokens = [
         </dl>
         <div class="notation-rules">
           <p>
-            <strong>Навигация</strong> W.0102 — позиция внутри страницы. Она может измениться при перестановке
-            карточки.
+            <strong>Навигация</strong> W.01 — позиция раздела внутри страницы. Коды не присваиваются отдельным
+            карточкам.
           </p>
           <p>
             <strong>Идентификация</strong> ID работы или медиа остаётся постоянным. Его нельзя заменять
