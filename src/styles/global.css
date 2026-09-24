@@ -100,7 +100,14 @@ p {
   top: 0;
   z-index: 50;
   background: var(--header-bg);
-  box-shadow: var(--header-shadow);
+}
+.site-header::after {
+  content: '';
+  position: absolute;
+  inset: 100% 0 auto;
+  height: var(--header-fade-depth);
+  background: var(--header-fade);
+  pointer-events: none;
 }
 .header-inner {
   min-height: var(--header-height);
@@ -1247,9 +1254,18 @@ figcaption {
 .nm-heading {
   position: absolute;
   z-index: 2;
+  isolation: isolate;
   top: var(--intro-space-start);
   left: var(--page-inset);
   max-width: min(52vw, 660px);
+}
+.nm-heading::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: calc(-1 * var(--s6)) calc(-1 * var(--s8));
+  background: var(--hero-heading-veil);
+  pointer-events: none;
 }
 .nm-heading .eyebrow,
 .nm-work-caption .eyebrow,

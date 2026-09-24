@@ -68,8 +68,8 @@ test('card tracks align and anchor targets clear the header', async ({ page, isM
       await page.keyboard.press('Escape');
       await expect(page.locator('.menu-toggle')).toBeFocused();
       await expect(page.locator('.menu-toggle')).toHaveAttribute('aria-expanded', 'false');
-      // Long stamp notes must expand the hero, never overlap the next section.
-      await page.locator('.nm-data-panel .record-stamp__note').evaluate((node) => {
+      // Long stamp fields must expand the hero, never overlap the next section.
+      await page.locator('.nm-data-panel .record-stamp dl > div:last-child dd').evaluate((node) => {
         node.textContent = 'Long annotation. '.repeat(35);
       });
       const stamp = await page.locator('.nm-data-panel').boundingBox();
@@ -261,6 +261,10 @@ test('header remains visible, theme follows the system and manual choice persist
 
 test('homepage distinguishes catalogue scope and document previews', async ({ page, isMobile }) => {
   await page.goto('/ru/');
+  await expect(page.locator('#selected-works h2')).toHaveText('Избранные работы');
+  await expect(page.locator('.nm-data-panel .record-stamp__title')).toContainText('Статистика записей');
+  await expect(page.locator('.nm-data-panel dd.record-stamp__metric')).toHaveText(['1 751', '70 ч.']);
+  await expect(page.locator('.nm-data-panel dl > div:last-child')).toContainText('30.08.2026');
   await expect(page.getByText('Работы в каталоге', { exact: true })).toBeVisible();
   await expect(page.getByText('Папки событий · Golem', { exact: true })).toBeVisible();
   await expect(page.getByText('Прежний перечень', { exact: true })).toBeVisible();

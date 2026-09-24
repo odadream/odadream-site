@@ -41,7 +41,8 @@
   --card-ratio: 1.56;
   --card-gap: var(--s3);
   --card-row-gap: var(--s7);
-  --header-shadow: 0 8px 24px rgb(0 0 0 / 0.12);
+  --header-fade-depth: 28px;
+  --header-fade: linear-gradient(to bottom, rgb(0 0 0 / 0.3), transparent);
   --menu-shadow: 0 20px 30px rgb(0 0 0 / 0.32);
   --media-black: #080808;
   --hero-bg: #090a0c;
@@ -59,6 +60,12 @@
   --hero-scrim:
     linear-gradient(90deg, rgb(5 7 10 / 0.66) 0%, rgb(5 7 10 / 0.28) 45%, rgb(5 7 10 / 0.09) 100%),
     linear-gradient(0deg, rgb(5 7 10 / 0.84) 0%, transparent 58%, rgb(5 7 10 / 0.18) 100%);
+  --hero-heading-veil: radial-gradient(
+    ellipse at 35% 45%,
+    rgb(5 7 10 / 0.7),
+    rgb(5 7 10 / 0.35) 55%,
+    transparent 82%
+  );
   --lightbox-bg: rgb(9 9 8 / 0.96);
   --lightbox-backdrop: rgb(0 0 0 / 0.9);
   --alert: #efb452;
@@ -210,7 +217,7 @@
   --nav-current: rgb(36 35 31 / 0.06);
   --nav-hover: rgb(36 35 31 / 0.08);
   --header-bg: var(--plane-middle);
-  --header-shadow: 0 8px 24px rgb(61 53 40 / 0.08);
+  --header-fade: linear-gradient(to bottom, rgb(61 53 40 / 0.14), transparent);
   --menu-shadow: 0 20px 30px rgb(61 53 40 / 0.16);
   --alert: #815308;
   --danger: #a83e39;

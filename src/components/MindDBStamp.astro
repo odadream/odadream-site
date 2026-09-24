@@ -7,25 +7,26 @@ interface Props {
 const { lang } = Astro.props;
 const ru = lang === 'ru';
 const locale = ru ? 'ru-RU' : 'en-GB';
+const exportDate = ru ? minddbSnapshot.asOf.split('-').reverse().join('.') : minddbSnapshot.asOf;
 ---
 
 <RecordStamp
   tone="reference"
-  title={`MindDB · ${minddbSnapshot.asOf}`}
+  title={ru ? 'Статистика записей' : 'Recording statistics'}
   fields={[
     {
-      label: ru ? 'Тейки в каталоге' : 'Catalogued takes',
+      label: ru ? 'Кол-во в базе' : 'In database',
       value: minddbSnapshot.takeCount.toLocaleString(locale),
       metric: true,
     },
     {
-      label: ru ? 'Видео · часы' : 'Video · hours',
-      value: minddbSnapshot.videoDurationHours.toLocaleString(locale),
+      label: ru ? 'Сум. время' : 'Total duration',
+      value: `${Math.round(minddbSnapshot.videoDurationHours).toLocaleString(locale)} ${ru ? 'ч.' : 'h'}`,
       metric: true,
     },
+    {
+      label: ru ? 'Примечание · дата выгрузки' : 'Note · export date',
+      value: exportDate,
+    },
   ]}
->
-  <p class="record-stamp__note">
-    {ru ? 'Измеренная длительность · агрегат на проверке' : 'Measured duration · aggregate under review'}
-  </p>
-</RecordStamp>
+/>
