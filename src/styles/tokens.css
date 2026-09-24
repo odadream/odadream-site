@@ -5,6 +5,7 @@
   --weight-heading: 500;
   --weight-folio: 800;
   --signal-works: #36c9a0;
+  --signal-home: #9dbca8;
   --signal-formats: #65bdbf;
   --signal-cooperation: #d3a868;
   --signal-studio: #b9a5d2;
@@ -94,7 +95,6 @@
   --motion-fast: 180ms ease;
   --motion-media: 700ms ease;
   --section-accent: var(--accent);
-  --page-number: '00';
   --texture-dot: rgb(243 241 236 / 0.035);
   /* Reading roles: primary text, explanation, metadata, orientation. */
   --type-h1: clamp(
@@ -153,44 +153,39 @@
 
 :root[data-section='works'] {
   --section-accent: var(--signal-works);
-  --page-number: '01';
+}
+:root[data-section='home'] {
+  --section-accent: var(--signal-home);
 }
 :root[data-section='formats'] {
   --section-accent: var(--signal-formats);
-  --page-number: '02';
 }
 :root[data-section='cooperation'] {
   --section-accent: var(--signal-cooperation);
-  --page-number: '03';
 }
 :root[data-section='studio'] {
   --section-accent: var(--signal-studio);
-  --page-number: '04';
 }
 :root[data-section='cases'] {
   --section-accent: var(--signal-cases);
-  --page-number: '05';
 }
 :root[data-section='recognition'] {
   --section-accent: var(--signal-recognition);
-  --page-number: '06';
 }
 :root[data-section='contact'] {
   --section-accent: var(--signal-contact);
-  --page-number: '07';
 }
 :root[data-section='technology'] {
   --section-accent: var(--signal-technology);
-  --page-number: '08';
 }
 :root[data-section='design'] {
   --section-accent: var(--signal-design);
-  --page-number: 'DS';
 }
 
 :root[data-theme='light'] {
   color-scheme: light;
   --signal-works: #126844;
+  --signal-home: #4f6b53;
   --signal-formats: #286c71;
   --signal-cooperation: #80571c;
   --signal-studio: #66518b;

@@ -12,6 +12,7 @@ import '@fontsource/manrope/cyrillic-500.css';
 import { cases, mediaById, socialLinks, works } from '../data/site';
 import { pairedPath, type Page } from '../lib/routes';
 import RecordStamp from '../components/RecordStamp.astro';
+import { familyByKind } from '../lib/page-codes';
 import lastmod from '../data/lastmod.json';
 import astroPackage from 'astro/package.json';
 interface Props {
@@ -43,19 +44,7 @@ const nav =
         ['Контакт', 'contact'],
       ];
 const navRoot = page.kind === 'work' ? 'works' : page.kind === 'case' ? 'cases' : page.kind;
-const pageSection = page.path.includes('/design-system/') ? 'design' : navRoot;
-const navCodes: Record<string, string> = {
-  home: '00',
-  works: '01',
-  formats: '02',
-  cooperation: '03',
-  studio: '04',
-  cases: '05',
-  recognition: '06',
-  contact: '07',
-  technology: '08',
-  design: 'DS',
-};
+const pageSection = page.family === 'D' ? 'design' : navRoot;
 const contentDate = lastmod[page.path as keyof typeof lastmod];
 const record =
   page.kind === 'work'
@@ -128,7 +117,7 @@ const breadcrumbSchema =
 ---
 
 <!doctype html>
-<html lang={page.lang} data-section={pageSection}>
+<html lang={page.lang} data-section={pageSection} data-page-family={page.family}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -221,7 +210,7 @@ const breadcrumbSchema =
               aria-current={navRoot === route ? 'page' : undefined}
             >
               <span class="nav-code" aria-hidden="true">
-                {navCodes[route]}
+                {familyByKind[route as keyof typeof familyByKind]}
               </span>
               {label}
             </a>
@@ -233,7 +222,7 @@ const breadcrumbSchema =
               aria-current={pageSection === 'design' ? 'page' : undefined}
             >
               <span class="nav-code" aria-hidden="true">
-                DS
+                D
               </span>
               {page.lang === 'ru' ? 'Система' : 'System'}
             </a>
@@ -332,7 +321,27 @@ const breadcrumbSchema =
                 rel="noopener noreferrer"
                 aria-label={`${item.label} — ODA.dream`}
               >
-                {item.label}
+                <span class="social-icon" data-social-icon={item.id} aria-hidden="true">
+                  {item.id === 'telegram' ? (
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="m21 4-3.2 16-6-5.1-3.1 3 .6-5.6L19 6.1l-11 4.8-4.2-1.5L21 4Z" />
+                    </svg>
+                  ) : item.id === 'youtube' ? (
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="M21 8.1a2.7 2.7 0 0 0-1.9-1.9C17.4 5.8 12 5.8 12 5.8s-5.4 0-7.1.4A2.7 2.7 0 0 0 3 8.1a28 28 0 0 0-.4 3.9A28 28 0 0 0 3 16a2.7 2.7 0 0 0 1.9 1.9c1.7.4 7.1.4 7.1.4s5.4 0 7.1-.4A2.7 2.7 0 0 0 21 16a28 28 0 0 0 .4-4 28 28 0 0 0-.4-3.9Z" />
+                      <path d="m10 15 5-3-5-3v6Z" />
+                    </svg>
+                  ) : item.id === 'instagram' ? (
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+                      <circle cx="12" cy="12" r="4" />
+                      <circle class="social-icon__dot" cx="17.7" cy="6.7" r=".8" />
+                    </svg>
+                  ) : (
+                    <span>Д</span>
+                  )}
+                </span>
+                <span>{item.label}</span>
               </a>
             ))}
         </div>

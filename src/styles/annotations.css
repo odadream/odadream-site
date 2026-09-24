@@ -280,10 +280,22 @@
     grid-column: 1;
     grid-row: auto;
   }
-  .section-rail__field,
-  .section-rail__note,
-  .section-rail--empty {
+  .section-rail__note {
     display: none;
+  }
+  .section-rail__field {
+    height: auto;
+    margin: 0 0 var(--s3);
+    overflow: visible;
+  }
+  .section-rail__folio {
+    display: none;
+  }
+  .section-rail .section-rail__spine {
+    position: static;
+    writing-mode: horizontal-tb;
+    transform: none;
+    width: fit-content;
   }
   .section-rail__data {
     margin: 0;

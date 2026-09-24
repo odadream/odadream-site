@@ -169,11 +169,15 @@ test('featured carousel, editorial links and card media follow the design gramma
     'КАДР',
   );
   await expect(page.locator('.nm-brand-intro')).toHaveCount(0);
-  await expect(page.locator('.section-grid').nth(0).locator('.section-label .index')).toHaveText('02');
+  await expect(page.locator('.section-rail .page-code').first()).toHaveAttribute('data-page-code', 'H.01');
   await expect(page.locator('.work-card__status[data-work-status="research"]')).toContainText('R&D');
   await expect(page.locator('.recognition-card')).toHaveCount(4);
-  await expect(page.locator('.work-card__code').first()).toHaveAttribute('aria-label', '00.02.01');
-  await expect(page.locator('.work-card__meta .index')).toHaveCount(0);
+  await expect(page.locator('.work-card__identity .page-code').first()).toHaveAttribute(
+    'data-page-code',
+    'H.01.01',
+  );
+  await expect(page.locator('.work-card__identity .page-code').first()).toHaveClass(/page-code--chip/);
+  await expect(page.locator('.site-footer .social-icon').first()).toBeVisible();
   await expect(page.locator('.work-card__link').first()).toHaveCSS('text-decoration-line', 'none');
   await expect(page.locator('.quiet-link').first()).toHaveCSS('text-decoration-line', 'underline');
   if (isMobile) {
@@ -324,7 +328,11 @@ test('reference fields follow material on mobile; colophon retains a previous vi
   ).toBeTruthy();
   if (isMobile) {
     await expect(section.locator('.section-rail__note')).toBeHidden();
-    await expect(section.locator('.section-rail__field')).toBeHidden();
+    await expect(section.locator('.section-rail__folio')).toBeHidden();
+    await expect(section.locator('.section-rail__spine .page-code')).toHaveAttribute(
+      'data-page-code',
+      'H.01',
+    );
     const main = await section.locator('.section-body').boundingBox();
     const data = await section.locator('.section-rail__data').boundingBox();
     expect(data!.y).toBeGreaterThanOrEqual(main!.y + main!.height);

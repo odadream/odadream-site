@@ -145,6 +145,66 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--s2);
 }
+.signal-key {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: var(--s5);
+  border-top: 1px solid var(--line);
+}
+.signal-key__entry {
+  min-height: var(--tap-target);
+  display: grid;
+  grid-template-columns: 2.5ch minmax(9ch, auto) 1fr auto;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s2) var(--s3);
+  border-bottom: 1px solid var(--line-soft);
+  font-size: var(--type-note);
+}
+.signal-key__entry > code:first-child {
+  color: var(--section-accent);
+  font-weight: 600;
+}
+.signal-key__entry > i {
+  width: 100%;
+  height: 2px;
+  background: var(--section-accent);
+  opacity: 0.7;
+}
+.signal-key__entry > code:last-child {
+  color: var(--muted);
+  font-size: var(--type-annotation);
+}
+.signal-key__entry[data-signal='H'] {
+  --section-accent: var(--signal-home);
+}
+.signal-key__entry[data-signal='W'] {
+  --section-accent: var(--signal-works);
+}
+.signal-key__entry[data-signal='F'] {
+  --section-accent: var(--signal-formats);
+}
+.signal-key__entry[data-signal='C'] {
+  --section-accent: var(--signal-cooperation);
+}
+.signal-key__entry[data-signal='S'] {
+  --section-accent: var(--signal-studio);
+}
+.signal-key__entry[data-signal='K'] {
+  --section-accent: var(--signal-cases);
+}
+.signal-key__entry[data-signal='N'] {
+  --section-accent: var(--signal-contact);
+}
+.signal-key__entry[data-signal='M'] {
+  --section-accent: var(--signal-technology);
+}
+.signal-key__entry[data-signal='R'] {
+  --section-accent: var(--signal-recognition);
+}
+.signal-key__entry[data-signal='D'] {
+  --section-accent: var(--signal-design);
+}
 .swatch {
   min-height: 138px;
   padding: var(--s4);
@@ -431,6 +491,9 @@
   }
   .swatch-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .signal-key {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 @media (max-width: 700px) {

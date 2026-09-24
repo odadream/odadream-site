@@ -1,11 +1,16 @@
 ---
 import TechnicalMark from './TechnicalMark.astro';
 import type { Lang, Recognition, RecognitionKind } from '../data/site';
+import PageCode from './PageCode.astro';
+import type { PageFamily } from '../lib/page-codes';
 interface Props {
   item: Recognition;
   lang: Lang;
+  family?: PageFamily;
+  section?: number;
+  position?: number;
 }
-const { item, lang } = Astro.props;
+const { item, lang, family, section = 0, position } = Astro.props;
 const kindLabels: Record<RecognitionKind, Record<Lang, string>> = {
   award: { en: 'Award', ru: 'Награда' },
   certificate: { en: 'Certificate', ru: 'Диплом' },
@@ -39,6 +44,9 @@ const kindLabels: Record<RecognitionKind, Record<Lang, string>> = {
     </div>
   )}
   <span class="meta">
+    {family && position !== undefined && (
+      <PageCode family={family} section={section} item={position} lang={lang} chip />
+    )}
     {item.year} · {kindLabels[item.kind][lang]}
   </span>
   <div>

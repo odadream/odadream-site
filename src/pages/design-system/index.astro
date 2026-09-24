@@ -8,28 +8,42 @@ import MindDBStamp from '../../components/MindDBStamp.astro';
 import SectionRail from '../../components/SectionRail.astro';
 import RecordStamp from '../../components/RecordStamp.astro';
 import TechnicalMark from '../../components/TechnicalMark.astro';
+import PageCode from '../../components/PageCode.astro';
 import { recognitions, works } from '../../data/site';
 import { siteStats } from '../../lib/site-stats';
 import '../../styles/design-system.css';
 const page = {
   lang: 'ru' as const,
   kind: 'home' as const,
+  family: 'D' as const,
   path: '/ru/design-system/',
   title: 'Дизайн-система V5 → V2 — ODA.dream',
   description: 'Рабочая спецификация визуального языка ODA.dream.',
 };
 const sections = [
-  ['01', 'Основание'],
-  ['02', 'Типографика'],
-  ['03', 'Ритм и сетка'],
-  ['04', 'Навигация и действия'],
-  ['05', 'Материал и карточки'],
-  ['06', 'Речь, медиа и состояния'],
-  ['07', 'Документация'],
-  ['08', 'Бренд'],
-  ['09', 'Hero · движущееся медиа'],
-  ['10', 'Свет / тьма · данные и документы'],
-  ['11', 'Поля · индексы · паспорта'],
+  ['Основание'],
+  ['Типографика'],
+  ['Ритм и сетка'],
+  ['Навигация и действия'],
+  ['Материал и карточки'],
+  ['Речь, медиа и состояния'],
+  ['Документация'],
+  ['Бренд'],
+  ['Hero · движущееся медиа'],
+  ['Свет / тьма · данные и документы'],
+  ['Поля · индексы · паспорта'],
+];
+const signalFamilies = [
+  ['H', 'Главная', '--signal-home'],
+  ['W', 'Работы', '--signal-works'],
+  ['F', 'Форматы', '--signal-formats'],
+  ['C', 'Сотрудничество', '--signal-cooperation'],
+  ['S', 'Студия', '--signal-studio'],
+  ['K', 'Кейсы', '--signal-cases'],
+  ['N', 'Контакт', '--signal-contact'],
+  ['M', 'Метод', '--signal-technology'],
+  ['R', 'Признания', '--signal-recognition'],
+  ['D', 'Дизайн-система', '--signal-design'],
 ];
 const profileTokens = [
   ['--space-unit', 'Единица пространственного ритма'],
@@ -48,6 +62,16 @@ const profileTokens = [
   ['--mark-size', 'Размер условного знака'],
   ['--mark-stroke', 'Толщина векторного штриха'],
   ['--tap-target', 'Минимальная цель нажатия'],
+  ['--signal-home', 'Цвет кода главной страницы'],
+  ['--signal-works', 'Цвет кода страницы работ'],
+  ['--signal-formats', 'Цвет кода страницы форматов'],
+  ['--signal-cooperation', 'Цвет кода страницы сотрудничества'],
+  ['--signal-studio', 'Цвет кода страницы студии'],
+  ['--signal-cases', 'Цвет кода страницы кейсов'],
+  ['--signal-contact', 'Цвет кода страницы контактов'],
+  ['--signal-technology', 'Цвет кода страницы метода'],
+  ['--signal-recognition', 'Цвет кода страницы признаний'],
+  ['--signal-design', 'Цвет кода дизайн-системы'],
 ];
 ---
 
@@ -55,7 +79,7 @@ const profileTokens = [
   <div class="shell system-page">
     <section class="system-intro system-grid">
       <div class="section-label">
-        <span class="index">00</span>
+        <PageCode family="D" section={0} lang="ru" />
         <span class="eyebrow">ODA.DREAM / V5 → V2</span>
       </div>
       <div>
@@ -65,8 +89,8 @@ const profileTokens = [
           что и публичные страницы. Новые паттерны главной дополняют систему, не заменяя её.
         </p>
         <nav class="system-index" aria-label="Разделы дизайн-системы">
-          {sections.map(([n, label]) => (
-            <a href={`#system-${n}`}>{label}</a>
+          {sections.map(([label], i) => (
+            <a href={`#system-${String(i + 1).padStart(2, '0')}`}>{label}</a>
           ))}
         </nav>
         <p class="eyebrow system-stamp">ARTISTIC MATERIAL FIRST · UI AS DOCUMENTATION · 2026</p>
@@ -76,7 +100,7 @@ const profileTokens = [
     <section class="system-grid system-section" id="system-01">
       <aside class="system-side">
         <div class="section-label">
-          <span class="index">01</span>
+          <PageCode family="D" section={1} lang="ru" />
           <span class="eyebrow">Основание</span>
         </div>
         <p>Палитра разделяет материал, интерфейс и статус. Зелёный — точный сигнал, не декоративный цвет.</p>
@@ -138,6 +162,16 @@ const profileTokens = [
             <strong data-css-token="--danger"></strong>
           </div>
         </div>
+        <div class="signal-key" aria-label="Цветовая кодировка страниц">
+          {signalFamilies.map(([code, label, token]) => (
+            <div class="signal-key__entry" data-signal={code}>
+              <code>{code}</code>
+              <span>{label}</span>
+              <i aria-hidden="true"></i>
+              <code data-css-token={token}></code>
+            </div>
+          ))}
+        </div>
         <div class="plane-demo">
           <span>CANVAS</span>
           <div>
@@ -150,7 +184,7 @@ const profileTokens = [
     <section class="system-grid system-section" id="system-02">
       <aside class="system-side">
         <div class="section-label">
-          <span class="index">02</span>
+          <PageCode family="D" section={2} lang="ru" />
           <span class="eyebrow">Типографика</span>
         </div>
         <p>
@@ -188,7 +222,7 @@ const profileTokens = [
     <section class="system-grid system-section" id="system-03">
       <aside class="system-side">
         <div class="section-label">
-          <span class="index">03</span>
+          <PageCode family="D" section={3} lang="ru" />
           <span class="eyebrow">Ритм и сетка</span>
         </div>
         <p>
@@ -248,7 +282,7 @@ const profileTokens = [
     <section class="system-grid system-section" id="system-04">
       <aside class="system-side">
         <div class="section-label">
-          <span class="index">04</span>
+          <PageCode family="D" section={4} lang="ru" />
           <span class="eyebrow">Навигация и действия</span>
         </div>
         <p>
@@ -312,7 +346,7 @@ const profileTokens = [
     <section class="system-grid system-section" id="system-05">
       <aside class="system-side">
         <div class="section-label">
-          <span class="index">05</span>
+          <PageCode family="D" section={5} lang="ru" />
           <span class="eyebrow">Материал и карточки</span>
         </div>
         <p>Карточка ведёт к работе. Медиа впереди; название, статус и описание образуют компактную группу.</p>
@@ -320,7 +354,7 @@ const profileTokens = [
       <div class="system-content">
         <div class="work-grid">
           {works.slice(0, 2).map((item) => (
-            <WorkCard item={item} lang="ru" eager />
+            <WorkCard item={item} lang="ru" eager family="D" section={5} position={works.indexOf(item) + 1} />
           ))}
         </div>
         <p class="small-note">
@@ -331,6 +365,10 @@ const profileTokens = [
           Видео-превью загружается только при взаимодействии и при разрешённом движении. При отсутствии
           документального видео сохраняется изображение; анимация изображения не выдаётся за запись работы.
         </p>
+        <p class="small-note">
+          Адрес работы в метаданных карточки — микрочип <code>W.0103</code>: две пары фиксированной ширины,
+          цветная только буква семейства. Вне карточки используется разрежённая запись с косыми чертами.
+        </p>
         <p class="component-title">Медиа + подпись + источник</p>
         <MediaFigure id="interference-stage" lang="ru" priority />
       </div>
@@ -339,7 +377,7 @@ const profileTokens = [
     <section class="system-grid system-section" id="system-06">
       <aside class="system-side">
         <div class="section-label">
-          <span class="index">06</span>
+          <PageCode family="D" section={6} lang="ru" />
           <span class="eyebrow">Речь, медиа и состояния</span>
         </div>
         <p>
@@ -374,7 +412,7 @@ const profileTokens = [
     <section class="system-grid system-section" id="system-07">
       <aside class="system-side">
         <div class="section-label">
-          <span class="index">07</span>
+          <PageCode family="D" section={7} lang="ru" />
           <span class="eyebrow">Документация</span>
         </div>
         <p>
@@ -437,7 +475,7 @@ const profileTokens = [
     <section class="system-grid system-section" id="system-08">
       <aside class="system-side">
         <div class="section-label">
-          <span class="index">08</span>
+          <PageCode family="D" section={8} lang="ru" />
           <span class="eyebrow">Бренд</span>
         </div>
         <p>
@@ -463,7 +501,7 @@ const profileTokens = [
     <section class="system-grid system-section" id="system-09">
       <aside class="system-side">
         <div class="section-label">
-          <span class="index">09</span>
+          <PageCode family="D" section={9} lang="ru" />
           <span class="eyebrow">Hero · движущееся медиа</span>
         </div>
         <p>
@@ -497,7 +535,7 @@ const profileTokens = [
     <section class="system-grid system-section" id="system-10">
       <aside class="system-side">
         <div class="section-label">
-          <span class="index">10</span>
+          <PageCode family="D" section={10} lang="ru" />
           <span class="eyebrow">Свет / тьма · архив</span>
         </div>
         <p>
@@ -516,14 +554,14 @@ const profileTokens = [
           </p>
         </div>
         <p class="small-note">
-          Иерархия номера: страница <code>00</code> → блок <code>00.02</code> → карточка <code>00.02.01</code>
-          . Цвет получает префикс страницы; позиция кадра подписана отдельно. Страница имеет собственный
-          оттенок сигнала.
+          Иерархический адрес: буква семейства страницы → номер раздела → порядковый номер элемента, например
+          <code>W / 01 / 03</code>. Цвет кодирует семейство, косая черта и пробелы отделяют адрес от даты.
+          Номер элемента — позиция в текущем представлении, не постоянный ID записи.
         </p>
         <StatisticsStamp kind="works" lang="ru" />
         <div class="recognition-grid">
-          <RecognitionCard item={recognitions[0]} lang="ru" />
-          <RecognitionCard item={recognitions[1]} lang="ru" />
+          <RecognitionCard item={recognitions[0]} lang="ru" family="D" section={10} position={1} />
+          <RecognitionCard item={recognitions[1]} lang="ru" family="D" section={10} position={2} />
         </div>
         <p class="small-note">
           Работы и кейсы подсчитаны из типизированных записей. В прежнем перечне признаний{' '}
@@ -591,7 +629,7 @@ const profileTokens = [
         </dl>
         <div class="notation-rules">
           <p>
-            <strong>Навигация</strong> 00.02.01 — позиция внутри страницы. Она может измениться при
+            <strong>Навигация</strong> W / 01 / 03 — позиция внутри страницы. Она может измениться при
             перестановке карточки.
           </p>
           <p>
@@ -638,9 +676,11 @@ const profileTokens = [
         </p>
       </div>
       <SectionRail
-        index="11"
+        family="D"
+        section={11}
         label="Адрес блока дизайн-системы"
         note="Заметка привязана к нижнему краю материала. Она уточняет контекст, а не повторяет заголовок."
+        lang="ru"
       />
     </section>
     <p class="eyebrow system-end">

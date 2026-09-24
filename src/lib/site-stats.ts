@@ -1,6 +1,13 @@
 import eventSummary from '../data/golem-event-summary.json';
 import legacyRecognitionSummary from '../data/legacy-recognition-summary.json';
-import { cases, recognitions, works, type CaseEvent, type RecognitionKind, type WorkStatus } from '../data/site';
+import {
+  cases,
+  recognitions,
+  works,
+  type CaseEvent,
+  type RecognitionKind,
+  type WorkStatus,
+} from '../data/site';
 
 const countBy = <T extends string>(items: T[]) =>
   items.reduce<Partial<Record<T, number>>>((counts, item) => {

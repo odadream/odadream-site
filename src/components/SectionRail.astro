@@ -1,11 +1,16 @@
 ---
 import TechnicalMark from './TechnicalMark.astro';
+import PageCode from './PageCode.astro';
+import { makePageCode, type PageFamily } from '../lib/page-codes';
 interface Props {
-  index: string;
+  family: PageFamily;
+  section: number;
   label: string;
   note: string;
+  lang?: 'en' | 'ru';
 }
-const { index, label, note } = Astro.props;
+const { family, section, label, note, lang = 'en' } = Astro.props;
+const index = makePageCode(family, section).split('.')[1];
 const hasData = Astro.slots.has('default');
 ---
 
@@ -15,7 +20,7 @@ const hasData = Astro.slots.has('default');
       {index}
     </span>
     <div class="section-label section-rail__spine">
-      <span class="index">{index}</span>
+      <PageCode family={family} section={section} lang={lang} />
     </div>
   </div>
   {hasData && (

@@ -35,7 +35,16 @@ function checkCollection(name, rows) {
       if (!files.has(match[1])) errors.push(`${name} ${row.id}: missing source ${match[1]}`);
   }
 }
-for (const name of ['works', 'formats', 'cases', 'evidence', 'recognitions', 'people', 'organizations', 'media'])
+for (const name of [
+  'works',
+  'formats',
+  'cases',
+  'evidence',
+  'recognitions',
+  'people',
+  'organizations',
+  'media',
+])
   checkCollection(name, data[name]);
 const ids = (rows) => new Set(rows.map((row) => row.id));
 const workIds = ids(data.works),

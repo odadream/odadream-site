@@ -1,5 +1,6 @@
 import { readFile, stat, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import { validatePageCodes } from './page-code-check.mjs';
 
 const root = resolve('dist');
 const fail = (message) => {
@@ -17,6 +18,7 @@ if (pagePaths.length !== 38) fail(`Expected 38 localized pages, got ${pagePaths.
 for (const path of pagePaths) {
   const lang = path.startsWith('/ru/') ? 'ru' : 'en';
   const html = await readFile(resolve(root, path.slice(1), 'index.html'), 'utf8');
+  validatePageCodes(html, path);
   for (const token of [
     `<html lang="${lang}"`,
     '<title>',
@@ -34,6 +36,8 @@ for (const path of pagePaths) {
     );
   }
 }
+const designSystem = await readFile(resolve(root, 'design-system/index.html'), 'utf8');
+validatePageCodes(designSystem, '/design-system/');
 for (const file of [
   'index.html',
   '404.html',

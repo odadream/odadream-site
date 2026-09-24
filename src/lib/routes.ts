@@ -1,4 +1,5 @@
 import { cases, formats, works, type Lang } from '../data/site';
+import { familyByKind, type PageFamily } from './page-codes';
 
 export type PageKind =
   | 'home'
@@ -19,6 +20,7 @@ export interface Page {
   slug?: string;
   title: string;
   description: string;
+  family: PageFamily;
 }
 const copy = {
   works: {
@@ -74,6 +76,7 @@ export const pages: Page[] = (['en', 'ru'] as Lang[]).flatMap((lang) => [
   {
     lang,
     kind: 'home',
+    family: familyByKind.home,
     path: `/${lang}/`,
     title:
       lang === 'en'
@@ -89,6 +92,7 @@ export const pages: Page[] = (['en', 'ru'] as Lang[]).flatMap((lang) => [
   ).map((kind) => ({
     lang,
     kind,
+    family: familyByKind[kind],
     path: `/${lang}/${kind}/`,
     title: `${copy[kind][lang][0]} — ODA.dream`,
     description: copy[kind][lang][1],
@@ -96,6 +100,7 @@ export const pages: Page[] = (['en', 'ru'] as Lang[]).flatMap((lang) => [
   ...works.map((work) => ({
     lang,
     kind: 'work' as const,
+    family: familyByKind.work,
     slug: work.slug,
     path: `/${lang}/works/${work.slug}/`,
     title: `${work.title[lang]} — ODA.dream`,
@@ -104,6 +109,7 @@ export const pages: Page[] = (['en', 'ru'] as Lang[]).flatMap((lang) => [
   ...cases.map((item) => ({
     lang,
     kind: 'case' as const,
+    family: familyByKind.case,
     slug: item.slug,
     path: `/${lang}/cases/${item.slug}/`,
     title: `${item.title[lang]} — ODA.dream`,

@@ -138,8 +138,10 @@ export interface Organization {
   source: string;
 }
 
+export type SocialPlatform = 'telegram' | 'youtube' | 'instagram' | 'dzen';
+
 export interface SocialLink {
-  id: string;
+  id: SocialPlatform;
   label: string;
   href: string;
   languages: Lang[];

@@ -1,15 +1,18 @@
 ---
 import { mediaById, workStatusLabels, type Lang, type Work } from '../data/site';
 import { workUrl } from '../lib/routes';
+import PageCode from './PageCode.astro';
+import type { PageFamily } from '../lib/page-codes';
 interface Props {
   item: Work;
   lang: Lang;
   eager?: boolean;
-  code?: string;
+  family: PageFamily;
+  section: number;
+  position: number;
 }
-const { item, lang, eager = false, code } = Astro.props;
+const { item, lang, eager = false, family, section, position } = Astro.props;
 const media = mediaById(item.media[0]);
-const [codePrefix, ...codeSegments] = (code || '').split('.');
 ---
 
 <article class="work-card" data-motion-card>
@@ -24,12 +27,7 @@ const [codePrefix, ...codeSegments] = (code || '').split('.');
     </span>
     <span class="meta work-card__meta">
       <span class="work-card__identity">
-        {code && (
-          <span class="work-card__code" aria-label={code}>
-            <span class="code-prefix">{codePrefix}</span>
-            <span>{codeSegments.length ? `.${codeSegments.join('.')}` : ''}</span>
-          </span>
-        )}
+        <PageCode family={family} section={section} item={position} lang={lang} chip />
         <span class="work-card__category">{item.category[lang]}</span>
       </span>
       <span class="work-card__status" data-work-status={item.status}>
