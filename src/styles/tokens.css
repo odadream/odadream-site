@@ -32,7 +32,7 @@
   --accent-soft: rgba(0, 216, 132, 0.13);
   --nav-current: rgb(243 241 236 / 0.045);
   --nav-hover: rgb(243 241 236 / 0.065);
-  --header-bg: var(--plane-back);
+  --header-bg: var(--plane-front);
   --header-height: 88px;
   --anchor-offset: calc(var(--header-height) + var(--s5));
   --tap-target: 44px;
@@ -41,9 +41,6 @@
   --card-ratio: 1.56;
   --card-gap: var(--s3);
   --card-row-gap: var(--s7);
-  --header-fade-depth: 28px;
-  --header-fade: linear-gradient(to bottom, rgb(17 17 16 / 1), rgb(17 17 16 / 0));
-  --menu-shadow: 0 20px 30px rgb(0 0 0 / 0.32);
   --media-black: #080808;
   --hero-bg: #090a0c;
   --hero-ink: #f3f1ec;
@@ -217,9 +214,7 @@
   --accent-soft: rgb(18 104 68 / 0.11);
   --nav-current: rgb(36 35 31 / 0.06);
   --nav-hover: rgb(36 35 31 / 0.08);
-  --header-bg: var(--plane-middle);
-  --header-fade: linear-gradient(to bottom, rgb(243 239 230 / 1), rgb(243 239 230 / 0));
-  --menu-shadow: 0 20px 30px rgb(61 53 40 / 0.16);
+  --header-bg: var(--plane-front);
   --alert: #815308;
   --danger: #a83e39;
   --shadow-material: 0 12px 28px rgb(61 53 40 / 0.14);

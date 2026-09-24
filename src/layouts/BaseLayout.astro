@@ -122,7 +122,7 @@ const breadcrumbSchema =
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#111110" />
+    <meta name="theme-color" content="#23211e" />
     <script is:inline>
       (() => {
         try {
@@ -135,7 +135,7 @@ const breadcrumbSchema =
             .querySelector('meta[name="theme-color"]')
             ?.setAttribute(
               'content',
-              document.documentElement.dataset.theme === 'light' ? '#f3efe6' : '#111110',
+              document.documentElement.dataset.theme === 'light' ? '#faf7f0' : '#23211e',
             );
         } catch {
           document.documentElement.dataset.themeMode = 'auto';
@@ -146,7 +146,7 @@ const breadcrumbSchema =
             .querySelector('meta[name="theme-color"]')
             ?.setAttribute(
               'content',
-              document.documentElement.dataset.theme === 'light' ? '#f3efe6' : '#111110',
+              document.documentElement.dataset.theme === 'light' ? '#faf7f0' : '#23211e',
             );
         }
       })();
@@ -434,7 +434,7 @@ const breadcrumbSchema =
           .querySelector('meta[name="theme-color"]')
           ?.setAttribute(
             'content',
-            document.documentElement.dataset.theme === 'light' ? '#f3efe6' : '#111110',
+            document.documentElement.dataset.theme === 'light' ? '#faf7f0' : '#23211e',
           );
       };
       updateThemeLabel();

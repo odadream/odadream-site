@@ -256,7 +256,30 @@ test('header remains visible, theme follows the system and manual choice persist
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
   await page.reload();
   await expect(page.locator('html')).toHaveAttribute('data-theme-mode', 'dark');
-  await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute('content', '#111110');
+  await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute('content', '#23211e');
+});
+
+test('header and open menu use the design-system foreground material', async ({ page }) => {
+  for (const scheme of ['dark', 'light'] as const) {
+    await page.emulateMedia({ colorScheme: scheme });
+    await page.goto('/design-system/');
+    const specimen = await page.locator('.plane-demo > div > div').evaluate((node) => {
+      const style = getComputedStyle(node);
+      return { background: style.backgroundColor, shadow: style.boxShadow };
+    });
+    const header = await page.locator('.site-header').evaluate((node) => {
+      const style = getComputedStyle(node);
+      return { background: style.backgroundColor, shadow: style.boxShadow };
+    });
+    expect(header).toEqual(specimen);
+    await page.setViewportSize({ width: 797, height: 912 });
+    await page.locator('.menu-toggle').click();
+    const menu = await page.locator('.site-nav.open').evaluate((node) => {
+      const style = getComputedStyle(node);
+      return { background: style.backgroundColor, shadow: style.boxShadow };
+    });
+    expect(menu).toEqual(specimen);
+  }
 });
 
 test('homepage distinguishes catalogue scope and document previews', async ({ page, isMobile }) => {
