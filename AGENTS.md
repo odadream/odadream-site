@@ -16,4 +16,4 @@ Before changing URLs, edit `scripts/generate-legacy-map.mjs` overrides and regen
 
 Update the specific localized entry in `src/data/lastmod.json` when page content materially changes; do not replace it with a build timestamp.
 
-Before a review commit: `npm test`, `npm run content:check`, `npm run check`, `npm run build`, `npm run test:e2e`. The release gate `npm run release:check` is expected to fail until editorial approval and media URL decisions are recorded. The V2 workflow verifies and uploads an artifact only; it must not deploy to GitHub Pages. Do not push, create a PR, switch the domain or alter `main` without explicit owner approval.
+Before a review commit: `npm run format:check`, `npm test`, `npm run content:check`, `npm run check`, `npm run build`, `npm run test:e2e`. The release gate `npm run release:check` is expected to fail until editorial approval and media URL decisions are recorded. The V2 workflow verifies and uploads an artifact only; it must not deploy to GitHub Pages. Do not push, create a PR, switch the domain or alter `main` without explicit owner approval.

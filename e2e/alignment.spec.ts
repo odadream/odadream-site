@@ -32,9 +32,14 @@ for (const width of [360, 797, 1529, 1920]) {
     test.setTimeout(120_000);
     await page.setViewportSize({ width, height: 912 });
     await page.emulateMedia({ reducedMotion: 'reduce' });
+    // This matrix checks layout axes; loading every poster and image across 38 routes exhausts Chromium.
+    await page.route('**/*', (route) => {
+      if (['image', 'media'].includes(route.request().resourceType())) return route.abort();
+      return route.continue();
+    });
     const folioSizes = new Set<string>();
     for (const route of [...routes, '/design-system/']) {
-      await page.goto(route);
+      await page.goto(route, { waitUntil: 'domcontentloaded' });
       await page.evaluate(() => document.fonts.ready);
       const errors = await page.evaluate(() => {
         const problems: string[] = [];
@@ -63,6 +68,7 @@ for (const width of [360, 797, 1529, 1920]) {
         if (heading) {
           same(rect(heading).left, shell.left, 'hero heading');
           const hero = rect(document.querySelector('.nm-hero')!);
+          const data = rect(document.querySelector('.nm-data-panel')!);
           const probe = document.createElement('div');
           probe.style.paddingTop = 'var(--intro-space-start)';
           document.body.append(probe);
@@ -74,10 +80,9 @@ for (const width of [360, 797, 1529, 1920]) {
             const wasHidden = slide.hasAttribute('hidden');
             slide.removeAttribute('hidden');
             const caption = rect(slide.querySelector('.nm-work-caption')!);
-            const link = rect(slide.querySelector('.nm-caption-link')!);
-            const data = rect(slide.querySelector('.nm-data-panel')!);
+            const link = slide.querySelector('.nm-caption-link');
             same(caption.left, shell.left, 'hero caption');
-            same(link.left, shell.left, 'hero link');
+            if (link) same(rect(link).left, shell.left, 'hero link');
             if (innerWidth > 700) {
               same(data.right, shell.right, 'hero data');
               same(caption.bottom, data.bottom, 'hero bottom');

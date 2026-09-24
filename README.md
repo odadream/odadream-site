@@ -4,16 +4,16 @@ Astro/TypeScript static multipage site for GitHub Pages. This is a **development
 
 ## Local use
 
-Requires Node 22.19+ (CI uses Node 24). Run `npm ci`, then `npm run dev`. Preview the English home at `/en/`, Russian home at `/ru/`, or the root legacy bridge at `/`. Run `npm test`, `npm run content:check`, `npm run check`, `npm run build`, `npm run test:e2e` before review.
+Requires Node 22.19+ (CI uses Node 24). Run `npm ci`, then `npm run dev`. Preview the English home at `/en/`, Russian home at `/ru/`, or the root legacy bridge at `/`. Run `npm run format:check`, `npm test`, `npm run content:check`, `npm run check`, `npm run build`, `npm run test:e2e` before review.
 
 ## Structure
 
 - `src/data/site.ts`: typed curated works, formats, cases, evidence, people, organizations, media, localized fields, source/rights/publication metadata.
 - `src/data/legacy-map.json`: 238 explicit old-ID dispositions. Generated once from the read-only old corpus using `npm run legacy:generate -- <path-to-old-src/content>`; the build does not need the old tree.
-- `src/pages/`: generated language pages, custom 404 and noindex unresolved-ID page.
+- `src/pages/`: generated language pages, custom 404 and noindex unresolved-ID page. The root fetches the static `/legacy-map.json` only for an `?id=` request.
 - `src/data/lastmod.json`: page-specific editorial modification dates used by sitemap; update only when the corresponding language page materially changes.
 - `src/styles/tokens.css` and `global.css`: V5 palette/typography/spacing direction, rebuilt as a smaller component system. Fonts are self-hosted with Latin and Cyrillic subsets.
-- `public/images/content/`: only seven curated local images, kept at their existing public URLs. All are marked `rights: review` pending approval. No restricted video was copied.
+- `public/images/content/`, `public/images/recognition/`, and `public/video/`: curated work images, document previews, five short hero MP4 previews with posters, and a work preview. Their publication and media rights remain under review; the release gate blocks deployment.
 
 ## Product and content decisions
 
@@ -21,6 +21,7 @@ Requires Node 22.19+ (CI uses Node 24). Run `npm ci`, then `npm run dev`. Previe
 - `docs/PROJECT-BACKLOG.yaml`: machine-readable backlog with stable IDs, priority, status, dependencies and acceptance criteria. Update it with the principles document when scope or decisions change.
 - `docs/CONTENT-AND-CMS.md`: current static content model, what was inherited, CMS limitations, and the Golem/MindDB integration status.
 - `docs/DESIGN-SYSTEM-SOURCE.md`: V5 source and shared token/component contract.
+- `docs/DESIGN-GUIDE.md` and `docs/DESIGN-TOKENS.md`: content field semantics and parameterized visual roles; keep the live `/design-system/` examples aligned with shared components.
 
 The current content layer is curated and hardcoded in TypeScript; it is not an admin CMS and has no database connection. The planned move to Astro Content Collections is tracked as `CMS-01`.
 
