@@ -29,6 +29,7 @@ const alternateRu = new URL(pairedPath(page.path, 'ru'), site).href;
 const nav =
   page.lang === 'en'
     ? [
+        ['Home', 'home'],
         ['Works', 'works'],
         ['Formats', 'formats'],
         ['Cooperation', 'cooperation'],
@@ -37,6 +38,7 @@ const nav =
         ['Contact', 'contact'],
       ]
     : [
+        ['Главная', 'home'],
         ['Работы', 'works'],
         ['Форматы', 'formats'],
         ['Сотрудничество', 'cooperation'],
@@ -206,7 +208,7 @@ const breadcrumbSchema =
         >
           {nav.map(([label, route]) => (
             <a
-              href={`/${page.lang}/${route}/`}
+              href={route === 'home' ? `/${page.lang}/` : `/${page.lang}/${route}/`}
               data-route={route}
               aria-current={navRoot === route ? 'page' : undefined}
             >

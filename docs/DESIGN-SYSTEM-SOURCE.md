@@ -6,6 +6,8 @@ The site and specimen both import `src/styles/global.css`, which imports the sin
 
 The shared header and expanded mobile navigation use the specimen's foreground-material plane and `--shadow-material`. Their surfaces end at a crisp edge; the subtle separation below is a blurred shadow, never an opaque or translucent gradient strip. The browser theme color matches that foreground plane in both themes.
 
+The primary navigation starts with an explicit `H Главная` / `H Home` entry linking to the language root. The brand mark remains a visual home link, but it is not the only route back to the base page.
+
 The `/design-system/` page also documents the full-bleed moving-image hero: the header carries the brand signature once, while the hero holds the independent epigraph, artwork-led frame, secondary work caption and restrained aggregate-data panel. Hero surfaces, scrim and heights are semantic tokens. The displayed MindDB figure is a dated, review-gated snapshot; it must not be treated as approved public data, and rhythm bars remain absent until their methodology and publication are cleared.
 
 Numbering follows one visible grammar with two levels: `W` is a page family and `W.01` a section. The tight-framed microchip appears in navigation, headings, and rails, not on individual content cards. Its border hugs the glyphs with no padding; the family letter takes its semantic `--signal-*` color and section digits are subdued. Machine-readable `data-page-code` uses the same form. The build validates family, shape, and continuous section numbering on every localized page and the specimen. The hero reel uses a separate `КАДР / FRAME · NN / total` counter.
