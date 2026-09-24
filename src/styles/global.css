@@ -137,68 +137,86 @@ p {
   align-items: center;
   transition: color 0.18s;
 }
-.nav-code {
-  color: currentColor;
-  font: 500 var(--type-annotation)/1 var(--mono);
-  margin-right: 5px;
+.site-nav a {
+  column-gap: var(--s1);
 }
 .page-code {
   display: inline-flex;
   align-items: baseline;
+  justify-self: start;
+  width: max-content;
   flex: none;
   white-space: nowrap;
-  font: 500 var(--type-annotation)/1.45 var(--mono);
+  font: 500 var(--type-annotation)/1 var(--mono);
+  font-size: 0;
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.035em;
+  letter-spacing: 0;
+  border: 1px solid var(--line-soft);
+  background: var(--surface);
+}
+.page-code > span {
+  font-size: var(--type-annotation);
+  line-height: 1;
 }
 .page-code__family {
   color: var(--section-accent);
   font-weight: 600;
+  display: inline-block;
 }
-.page-code__segment {
+.page-code__section,
+.page-code__item {
   color: var(--muted);
 }
-.page-code__segment::before {
-  content: ' / ';
-  padding-inline: 0.22em;
-  color: var(--dim);
+.page-code__item {
+  display: inline-flex;
+  align-items: baseline;
 }
-.page-code--chip {
-  align-items: center;
-  padding: 1px 4px;
-  border: 1px solid var(--line-soft);
-  background: var(--surface);
-  line-height: 1.2;
-  letter-spacing: 0.02em;
+.page-code > .page-code__item {
+  font-size: 0;
 }
-.page-code--chip .page-code__family::after {
-  content: '.';
-  color: var(--dim);
-  padding-inline: 0.05em;
+.page-code__item > span {
+  font-size: var(--type-annotation);
 }
-.page-code__compact {
+.page-code__item-prefix {
   color: var(--muted);
-  font-variant-numeric: tabular-nums;
 }
-.site-nav a[data-route='works'] .nav-code {
+.page-code__separator {
+  color: var(--dim);
+}
+.page-code__ordinal {
+  color: var(--ink);
+}
+.site-nav .page-code {
+  font-size: 0.78em;
+}
+.page-code[data-family='H'] .page-code__family {
+  color: var(--signal-home);
+}
+.page-code[data-family='W'] .page-code__family {
   color: var(--signal-works);
 }
-.site-nav a[data-route='formats'] .nav-code {
+.page-code[data-family='F'] .page-code__family {
   color: var(--signal-formats);
 }
-.site-nav a[data-route='cooperation'] .nav-code {
+.page-code[data-family='C'] .page-code__family {
   color: var(--signal-cooperation);
 }
-.site-nav a[data-route='studio'] .nav-code {
+.page-code[data-family='S'] .page-code__family {
   color: var(--signal-studio);
 }
-.site-nav a[data-route='cases'] .nav-code {
+.page-code[data-family='K'] .page-code__family {
   color: var(--signal-cases);
 }
-.site-nav a[data-route='contact'] .nav-code {
+.page-code[data-family='N'] .page-code__family {
   color: var(--signal-contact);
 }
-.site-nav a[data-route='design'] .nav-code {
+.page-code[data-family='M'] .page-code__family {
+  color: var(--signal-technology);
+}
+.page-code[data-family='R'] .page-code__family {
+  color: var(--signal-recognition);
+}
+.page-code[data-family='D'] .page-code__family {
   color: var(--signal-design);
 }
 
@@ -860,16 +878,23 @@ figcaption {
 }
 .timeline li {
   display: grid;
-  grid-template-columns: 70px minmax(0, 1fr) auto;
+  grid-template-columns: max-content minmax(0, 1fr) auto;
   align-items: baseline;
   gap: var(--s5);
   padding-block: var(--s4);
   border-top: 1px solid var(--soft-line);
 }
+.timeline__date {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s2);
+  white-space: nowrap;
+}
 .timeline li:last-child {
   border-bottom: 1px solid var(--soft-line);
 }
 .timeline p {
+  min-width: 0;
   font-size: var(--type-small);
 }
 .acknowledgements {
@@ -988,7 +1013,7 @@ figcaption {
     gap: var(--s4);
   }
   .timeline li {
-    grid-template-columns: 60px minmax(0, 1fr);
+    grid-template-columns: max-content minmax(0, 1fr);
     gap: var(--s3);
   }
   .timeline .quiet-link {
@@ -1138,10 +1163,15 @@ figcaption {
 }
 .recognition-card__image {
   cursor: zoom-in;
+  overflow: hidden;
 }
 .recognition-card__image img {
   width: 100%;
   height: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
 }
 .recognition-card__image:hover,

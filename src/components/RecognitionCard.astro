@@ -45,7 +45,7 @@ const kindLabels: Record<RecognitionKind, Record<Lang, string>> = {
   )}
   <span class="meta">
     {family && position !== undefined && (
-      <PageCode family={family} section={section} item={position} lang={lang} chip />
+      <PageCode family={family} section={section} item={position} lang={lang} />
     )}
     {item.year} · {kindLabels[item.kind][lang]}
   </span>

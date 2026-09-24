@@ -11,11 +11,11 @@ export function validatePageCodes(html, path = '') {
   const sections = new Set();
   const items = new Map();
   for (const code of rawCodes) {
-    const match = code.match(/^([A-Z])\.(\d{2})(?:\.(\d{2}))?$/);
-    if (!match) fail(`malformed code ${code}; expected F / 00 / 00`, path);
+    const match = code.match(/^([A-Z])(?:\.(\d{2})(\d{2})?)?$/);
+    if (!match) fail(`malformed code ${code}; expected F, F.00 or F.0000`, path);
     const [, codeFamily, sectionText, itemText] = match;
     if (codeFamily !== family) fail(`${code} belongs to ${codeFamily}, page belongs to ${family}`, path);
-    const section = Number(sectionText);
+    const section = sectionText === undefined ? 0 : Number(sectionText);
     sections.add(section);
     if (itemText) {
       const values = items.get(section) ?? new Set();
@@ -24,7 +24,7 @@ export function validatePageCodes(html, path = '') {
     }
   }
 
-  if (!sections.has(0)) fail(`missing page identity ${family} / 00`, path);
+  if (!sections.has(0)) fail(`missing page identity ${family}`, path);
   const orderedSections = [...sections].sort((a, b) => a - b);
   orderedSections.forEach((value, index) => {
     if (value !== index) fail(`section sequence skips ${String(index).padStart(2, '0')}`, path);

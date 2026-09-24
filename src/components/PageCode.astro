@@ -6,23 +6,34 @@ interface Props {
   section?: number;
   item?: number;
   lang?: 'en' | 'ru';
-  chip?: boolean;
+  register?: boolean;
 }
 
-const { family, section = 0, item, lang = 'en', chip = false } = Astro.props;
+const { family, section = 0, item, lang = 'en', register = true } = Astro.props;
 const code = makePageCode(family, section, item);
 const description =
-  lang === 'ru'
-    ? `Страница ${family}, раздел ${String(section).padStart(2, '0')}${item === undefined ? '' : `, элемент ${String(item).padStart(2, '0')}`}`
-    : `Page ${family}, section ${String(section).padStart(2, '0')}${item === undefined ? '' : `, item ${String(item).padStart(2, '0')}`}`;
-const segments = code.split('.');
+  section === 0
+    ? lang === 'ru'
+      ? `Страница ${family}`
+      : `Page ${family}`
+    : lang === 'ru'
+      ? `Страница ${family}, раздел ${String(section).padStart(2, '0')}${item === undefined ? '' : `, элемент ${String(item).padStart(2, '0')}`}`
+      : `Page ${family}, section ${String(section).padStart(2, '0')}${item === undefined ? '' : `, item ${String(item).padStart(2, '0')}`}`;
+const suffix = code.slice(2);
+const sectionCode = suffix.slice(0, 2);
+const itemCode = suffix.slice(2);
+const codeMarkup = [
+  `<span class="page-code__family">${family}</span>`,
+  sectionCode ? '<span class="page-code__separator">.</span>' : '',
+  sectionCode ? `<span class="page-code__section">${sectionCode}</span>` : '',
+  itemCode ? `<span class="page-code__item"><span class="page-code__ordinal">${itemCode}</span></span>` : '',
+].join('');
 ---
 
-<span class:list={['page-code', { 'page-code--chip': chip }]} data-page-code={code} aria-label={description}>
-  <span class="page-code__family">{segments[0]}</span>
-  {chip ? (
-    <span class="page-code__compact">{segments.slice(1).join('')}</span>
-  ) : (
-    segments.slice(1).map((segment) => <span class="page-code__segment">{segment}</span>)
-  )}
-</span>
+<span
+  class="page-code page-code--chip"
+  data-family={family}
+  data-page-code={register ? code : undefined}
+  aria-label={description}
+  set:html={codeMarkup}
+/>

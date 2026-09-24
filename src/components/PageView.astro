@@ -270,8 +270,10 @@ const timeline = [...cases]
         <ol class="timeline">
           {timeline.map((item) => (
             <li>
-              <PageCode family="H" section={3} item={timeline.indexOf(item) + 1} lang={lang} />
-              <span class="index">{item.year}</span>
+              <div class="timeline__date">
+                <PageCode family="H" section={3} item={timeline.indexOf(item) + 1} lang={lang} />
+                <span class="index">{item.year}</span>
+              </div>
               <p>{item[lang]}</p>
               <a class="quiet-link" href={item.url}>
                 {ru ? 'Подробнее' : 'Explore'} ↗

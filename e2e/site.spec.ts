@@ -170,13 +170,28 @@ test('featured carousel, editorial links and card media follow the design gramma
   );
   await expect(page.locator('.nm-brand-intro')).toHaveCount(0);
   await expect(page.locator('.section-rail .page-code').first()).toHaveAttribute('data-page-code', 'H.01');
+  await expect(page.locator('.nm-heading .page-code').first()).toHaveAttribute('data-page-code', 'H');
+  await expect(page.locator('.site-nav .page-code')).toHaveCount(7);
+  await expect(page.locator('.site-nav .page-code').first()).toHaveCSS('padding', '0px');
   await expect(page.locator('.work-card__status[data-work-status="research"]')).toContainText('R&D');
   await expect(page.locator('.recognition-card')).toHaveCount(4);
   await expect(page.locator('.work-card__identity .page-code').first()).toHaveAttribute(
     'data-page-code',
-    'H.01.01',
+    'H.0101',
   );
+  await expect(page.locator('.work-card__identity .page-code').first()).toHaveText('H.0101');
+  await expect(page.locator('.work-card__identity .page-code .page-code__ordinal').first()).toHaveText('01');
   await expect(page.locator('.work-card__identity .page-code').first()).toHaveClass(/page-code--chip/);
+  expect(
+    await page
+      .locator('.method-steps .page-code')
+      .first()
+      .evaluate((chip) => {
+        const parent = chip.parentElement!.getBoundingClientRect();
+        return chip.getBoundingClientRect().width < parent.width / 2;
+      }),
+  ).toBeTruthy();
+  await expect(page.locator('.recognition-card__image').first()).toHaveCSS('overflow', 'hidden');
   await expect(page.locator('.site-footer .social-icon').first()).toBeVisible();
   await expect(page.locator('.work-card__link').first()).toHaveCSS('text-decoration-line', 'none');
   await expect(page.locator('.quiet-link').first()).toHaveCSS('text-decoration-line', 'underline');
@@ -253,6 +268,36 @@ test('homepage distinguishes catalogue scope and document previews', async ({ pa
         return Boolean(video && summary && summary.top >= video.bottom - 2);
       }),
     ).toBeTruthy();
+  }
+});
+
+test('timeline provenance code, date, event and link stay in separate grid cells at tablet width', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 850, height: 912 });
+  await page.goto('/ru/');
+  const rows = await page.locator('#timeline .timeline li').evaluateAll((items) =>
+    items.map((item) => {
+      const date = item.querySelector('.timeline__date')!.getBoundingClientRect();
+      const description = item.querySelector('p')!.getBoundingClientRect();
+      const link = item.querySelector('.quiet-link')!.getBoundingClientRect();
+      const row = item.getBoundingClientRect();
+      return {
+        cells: item.children.length,
+        dateAndDescriptionDoNotOverlap: date.right <= description.left,
+        linkFollowsDescription: link.top >= description.bottom - 1,
+        descriptionFitsRow: description.right <= row.right + 1,
+        linkFitsRow: link.right <= row.right + 1,
+      };
+    }),
+  );
+  expect(rows.length).toBeGreaterThan(0);
+  for (const row of rows) {
+    expect(row.cells).toBe(3);
+    expect(row.dateAndDescriptionDoNotOverlap).toBeTruthy();
+    expect(row.linkFollowsDescription).toBeTruthy();
+    expect(row.descriptionFitsRow).toBeTruthy();
+    expect(row.linkFitsRow).toBeTruthy();
   }
 });
 

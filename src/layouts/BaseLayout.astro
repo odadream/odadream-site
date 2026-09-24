@@ -13,6 +13,7 @@ import { cases, mediaById, socialLinks, works } from '../data/site';
 import { pairedPath, type Page } from '../lib/routes';
 import RecordStamp from '../components/RecordStamp.astro';
 import { familyByKind } from '../lib/page-codes';
+import PageCode from '../components/PageCode.astro';
 import lastmod from '../data/lastmod.json';
 import astroPackage from 'astro/package.json';
 interface Props {
@@ -209,9 +210,11 @@ const breadcrumbSchema =
               data-route={route}
               aria-current={navRoot === route ? 'page' : undefined}
             >
-              <span class="nav-code" aria-hidden="true">
-                {familyByKind[route as keyof typeof familyByKind]}
-              </span>
+              <PageCode
+                family={familyByKind[route as keyof typeof familyByKind]}
+                lang={page.lang}
+                register={false}
+              />
               {label}
             </a>
           ))}
@@ -221,9 +224,7 @@ const breadcrumbSchema =
               data-route="design"
               aria-current={pageSection === 'design' ? 'page' : undefined}
             >
-              <span class="nav-code" aria-hidden="true">
-                D
-              </span>
+              <PageCode family="D" lang={page.lang} register={false} />
               {page.lang === 'ru' ? 'Система' : 'System'}
             </a>
           )}
