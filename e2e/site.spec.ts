@@ -209,6 +209,8 @@ test('featured carousel, editorial links and card media follow the design gramma
   );
   expect(arrowSize).toBeGreaterThanOrEqual(linkFontSize);
   await expect(linkArrow).toHaveAttribute('data-mark', 'open');
+  await expect(page.locator('.quiet-link').first()).toHaveCSS('text-decoration-thickness', '1px');
+  await expect(linkArrow.locator('.technical-mark__link-tail')).toHaveCount(1);
   if (isMobile) {
     await page.locator('.work-card').first().scrollIntoViewIfNeeded();
     await expect(page.locator('.work-card').first()).toHaveClass(/is-active/);

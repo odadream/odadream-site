@@ -23,4 +23,5 @@ const paths = {
   focusable="false"
 >
   <path d={paths[kind]} />
+  {kind === 'open' && <path class="technical-mark__link-tail" d="M-6 21H3" />}
 </svg>

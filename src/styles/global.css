@@ -319,7 +319,7 @@ main:has(> .section:last-child, > .system-page) + .site-footer {
 .footer-links a,
 .breadcrumbs a {
   text-decoration: underline;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: var(--link-rule-width);
   text-underline-offset: var(--link-offset);
   text-decoration-color: transparent;
 }
@@ -427,10 +427,16 @@ h3 {
 .quiet-link > .technical-mark {
   width: var(--link-mark-size);
   height: var(--link-mark-size);
+  overflow: visible;
+}
+.quiet-link > .technical-mark .technical-mark__link-tail,
+.record-stamp a > .technical-mark .technical-mark__link-tail {
+  stroke-width: var(--link-rule-width);
 }
 .record-stamp a > .technical-mark {
   width: var(--link-mark-size);
   height: var(--link-mark-size);
+  overflow: visible;
 }
 .button {
   display: inline-flex;
