@@ -138,7 +138,7 @@ p {
   transition: color 0.18s;
 }
 .site-nav a {
-  column-gap: var(--s1);
+  column-gap: var(--s2);
 }
 .page-code {
   display: inline-flex;
@@ -407,7 +407,7 @@ h3 {
 .quiet-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.15em;
+  gap: var(--link-mark-gap);
   min-height: var(--tap-target);
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -425,8 +425,12 @@ h3 {
   text-decoration-color: currentColor;
 }
 .quiet-link > .technical-mark {
-  width: 1.1em;
-  height: 1.1em;
+  width: var(--link-mark-size);
+  height: var(--link-mark-size);
+}
+.record-stamp a > .technical-mark {
+  width: var(--link-mark-size);
+  height: var(--link-mark-size);
 }
 .button {
   display: inline-flex;

@@ -48,10 +48,15 @@ for (const file of [
 ])
   await stat(resolve(root, file)).catch(() => fail(`Missing ${file}`));
 const rootHtml = await readFile(resolve(root, 'index.html'), 'utf8');
-if (!rootHtml.includes('redirects') || !rootHtml.includes('https://odadream.art/en/'))
+if (!rootHtml.includes('/legacy-map.json') || !rootHtml.includes('https://odadream.art/en/'))
   fail('Root legacy bridge or canonical absent');
 const legacy = JSON.parse(await readFile('src/data/legacy-map.json', 'utf8'));
+if (rootHtml.includes('"ancestors"')) fail('Root bridge must not inline the legacy ID catalogue');
+const legacyRoutes = JSON.parse(await readFile(resolve(root, 'legacy-map.json'), 'utf8'));
+if (Object.keys(legacyRoutes).length !== legacy.length) fail('Legacy redirect index is incomplete');
 for (const row of legacy) {
+  if (JSON.stringify(legacyRoutes[row.id]) !== JSON.stringify([row.targetEn, row.targetRu]))
+    fail(`Incorrect legacy redirect index entry: ${row.id}`);
   if (row.disposition === 'not-transferred') continue;
   for (const target of [row.targetEn, row.targetRu]) {
     const url = new URL(target, 'https://odadream.art');

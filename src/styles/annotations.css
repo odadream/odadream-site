@@ -262,10 +262,6 @@
   stroke-linecap: square;
   stroke-linejoin: miter;
 }
-.quiet-link > .technical-mark,
-.record-stamp a > .technical-mark {
-  --mark-size: 0.82em;
-}
 @media (min-width: 701px) and (max-width: 1100px) {
   .section-rail .record-stamp dl,
   .work-aside .record-stamp dl {

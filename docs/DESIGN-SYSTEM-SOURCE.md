@@ -8,7 +8,7 @@ The `/design-system/` page also documents the full-bleed moving-image hero: the 
 
 Numbering follows one visible grammar with two levels: `W` is a page family and `W.01` a section. The tight-framed microchip appears in navigation, headings, and rails, not on individual content cards. Its border hugs the glyphs with no padding; the family letter takes its semantic `--signal-*` color and section digits are subdued. Machine-readable `data-page-code` uses the same form. The build validates family, shape, and continuous section numbering on every localized page and the specimen. The hero reel uses a separate `КАДР / FRAME · NN / total` counter.
 
-Text links and media-opening affordances use the shared vector `TechnicalMark kind="open"`, aligned optically with the link text and kept close to its label. The hero carousel uses the same mark family in `previous`/`next` directions: 44px hit areas, no permanent square borders, no visible pause button. Motion pauses on hover, keyboard focus, hidden tabs, offscreen state and reduced-motion preference.
+Text links and media-opening affordances use the shared vector `TechnicalMark kind="open"`, aligned optically with the link text and kept close to its label by `--link-mark-size` and `--link-mark-gap`. The hero carousel uses the same mark family in `previous`/`next` directions: 44px hit areas, no permanent square borders, no visible pause button. Automatic frame changes pause on hover and keyboard focus. Video stops when the page is hidden or the hero is offscreen; reduced-motion and Save-Data keep the poster instead of starting video.
 
 ## Carried from V5
 

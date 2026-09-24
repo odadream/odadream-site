@@ -499,6 +499,12 @@ const breadcrumbSchema =
       const canMove = () => !reduceMotion.matches && !saveData;
       const playPreview = (video: HTMLVideoElement | null) => {
         if (!video || !canMove()) return;
+        const source = video.querySelector<HTMLSourceElement>('source[data-src]');
+        if (source && !source.src && source.dataset.src) {
+          source.src = source.dataset.src;
+          video.load();
+        }
+        if (!video.poster && video.dataset.poster) video.poster = video.dataset.poster;
         video.preload = 'metadata';
         video
           .play()
@@ -509,6 +515,16 @@ const breadcrumbSchema =
         if (!video) return;
         video.pause();
         video.classList.remove('is-playing');
+      };
+      const releasePreview = (video: HTMLVideoElement) => {
+        stopPreview(video);
+        video.removeAttribute('poster');
+        video.preload = 'none';
+        const source = video.querySelector<HTMLSourceElement>('source[data-src]');
+        if (source?.hasAttribute('src')) {
+          source.removeAttribute('src');
+          video.load();
+        }
       };
       document.querySelectorAll<HTMLElement>('[data-motion-card]').forEach((card) => {
         const video = card.querySelector<HTMLVideoElement>('video[data-preview]');
@@ -564,6 +580,11 @@ const breadcrumbSchema =
         const mayPlay = () => canMove() && !document.hidden && inView;
         slides.forEach((slide, index) => {
           slide.hidden = index !== 0;
+          const video = slide.querySelector<HTMLVideoElement>('video[data-preview]');
+          if (video) {
+            if (index === 0 && video.dataset.poster) video.poster = video.dataset.poster;
+            else video.removeAttribute('poster');
+          }
           const counter = slide.querySelector<HTMLElement>('[data-carousel-position]');
           if (counter)
             counter.textContent = `${String(index + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
@@ -573,10 +594,12 @@ const breadcrumbSchema =
           const control = ['data-carousel-prev', 'data-carousel-next'].find((name) =>
             focused?.hasAttribute(name),
           );
-          slides[current]?.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview);
+          slides[current]?.querySelectorAll<HTMLVideoElement>('video').forEach(releasePreview);
           slides[current].hidden = true;
           current = (next + slides.length) % slides.length;
           slides[current].hidden = false;
+          const activeVideo = slides[current].querySelector<HTMLVideoElement>('video[data-preview]');
+          if (activeVideo?.dataset.poster) activeVideo.poster = activeVideo.dataset.poster;
           if (mayPlay()) playPreview(slides[current].querySelector('video'));
           if (control)
             slides[current].querySelector<HTMLButtonElement>(`[${control}]`)?.focus({ preventScroll: true });

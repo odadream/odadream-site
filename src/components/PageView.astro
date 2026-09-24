@@ -86,12 +86,13 @@ const timeline = [...cases]
                   muted
                   playsinline
                   loop
-                  preload={i === 0 ? 'metadata' : 'none'}
-                  poster={image?.poster}
+                  preload="none"
+                  poster={i === 0 ? image?.poster : undefined}
+                  data-poster={image?.poster}
                   aria-hidden="true"
                   data-preview
                 >
-                  <source src={image?.previewSrc} type="video/mp4" />
+                  <source data-src={image?.previewSrc} type="video/mp4" />
                 </video>
                 <div class="nm-scrim" aria-hidden="true"></div>
                 <div class="nm-work-caption">
@@ -150,12 +151,6 @@ const timeline = [...cases]
                   </div>
                 </div>
               </div>
-              <aside
-                class="nm-data-panel"
-                aria-label={ru ? 'Сводные данные MindDB' : 'MindDB collection summary'}
-              >
-                <MindDBStamp lang={lang} />
-              </aside>
             </article>
           );
         })}
@@ -172,6 +167,9 @@ const timeline = [...cases]
               : 'An art studio creating participatory performances, installations and objects shaped by the people who encounter them.'}
           </p>
         </div>
+        <aside class="nm-data-panel" aria-label={ru ? 'Сводные данные MindDB' : 'MindDB collection summary'}>
+          <MindDBStamp lang={lang} />
+        </aside>
       </div>
     </div>
     <section class="section shell section-grid section--atlas" id="selected-works">

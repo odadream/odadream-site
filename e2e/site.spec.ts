@@ -41,7 +41,10 @@ test('profile parameters drive typography, spacing, signals and background stati
       .first()
       .evaluate((node) => parseFloat(getComputedStyle(node).columnGap)),
   ).toBeCloseTo(gapBefore * 1.25, 1);
-  await expect(page.locator('[data-route="works"] .nav-code')).toHaveCSS('color', 'rgb(120, 180, 160)');
+  await expect(page.locator('[data-route="works"] .page-code__family')).toHaveCSS(
+    'color',
+    'rgb(120, 180, 160)',
+  );
   await page.setViewportSize({ width: 797, height: 912 });
   await page.goto('/en/');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
@@ -66,10 +69,10 @@ test('card tracks align and anchor targets clear the header', async ({ page, isM
       await expect(page.locator('.menu-toggle')).toBeFocused();
       await expect(page.locator('.menu-toggle')).toHaveAttribute('aria-expanded', 'false');
       // Long stamp notes must expand the hero, never overlap the next section.
-      await page.locator('.nm-slide:not([hidden]) .record-stamp__note').evaluate((node) => {
+      await page.locator('.nm-data-panel .record-stamp__note').evaluate((node) => {
         node.textContent = 'Long annotation. '.repeat(35);
       });
-      const stamp = await page.locator('.nm-slide:not([hidden]) .nm-data-panel').boundingBox();
+      const stamp = await page.locator('.nm-data-panel').boundingBox();
       const next = await page.locator('#selected-works').boundingBox();
       expect(next!.y).toBeGreaterThanOrEqual(stamp!.y + stamp!.height - 1);
     }
@@ -79,6 +82,9 @@ test('card tracks align and anchor targets clear the header', async ({ page, isM
 test('carousel uses unframed direction marks and stops video offscreen', async ({ page }) => {
   await page.goto('/ru/');
   const active = page.locator('.nm-slide:not([hidden])');
+  expect(await page.locator('.nm-slide source[src]').count()).toBeLessThanOrEqual(1);
+  await expect(page.locator('.nm-slide[hidden] source[src]')).toHaveCount(0);
+  await expect(page.locator('.nm-data-panel')).toHaveCount(1);
   await expect(page.locator('[data-carousel-toggle]')).toHaveCount(0);
   await expect(active.locator('[data-carousel-prev] .technical-mark')).toHaveAttribute(
     'data-mark',
@@ -89,8 +95,15 @@ test('carousel uses unframed direction marks and stops video offscreen', async (
   const before = await active.getAttribute('data-slide-id');
   await active.locator('[data-carousel-next]').click();
   expect(await active.getAttribute('data-slide-id')).not.toBe(before);
+  await expect(page.locator('.nm-slide[hidden] source[src]')).toHaveCount(0);
   await expect(active.locator('[data-carousel-next]')).toBeFocused();
-  expect(await active.locator('video').evaluate((video: HTMLVideoElement) => video.paused)).toBeTruthy();
+  await expect
+    .poll(() =>
+      page
+        .locator('.nm-slide[hidden] video')
+        .evaluateAll((videos: HTMLVideoElement[]) => videos.every((video) => video.paused)),
+    )
+    .toBeTruthy();
   await page.locator('#contact').scrollIntoViewIfNeeded();
   await expect
     .poll(() => active.locator('video').evaluate((video: HTMLVideoElement) => video.paused))
@@ -177,6 +190,7 @@ test('featured carousel, editorial links and card media follow the design gramma
   await expect(page.locator('.nm-heading .page-code').first()).toHaveAttribute('data-page-code', 'H');
   await expect(page.locator('.site-nav .page-code')).toHaveCount(7);
   await expect(page.locator('.site-nav .page-code').first()).toHaveCSS('padding', '0px');
+  await expect(page.locator('.site-nav a').first()).toHaveCSS('column-gap', '8px');
   await expect(page.locator('.work-card__status[data-work-status="research"]')).toContainText('R&D');
   await expect(page.locator('.recognition-card')).toHaveCount(4);
   await expect(page.locator('.work-card__identity .page-code')).toHaveCount(0);
@@ -260,9 +274,9 @@ test('homepage distinguishes catalogue scope and document previews', async ({ pa
   if (isMobile) {
     await page.locator('.nm-hero').scrollIntoViewIfNeeded();
     expect(
-      await page.locator('.feature-slide:not([hidden])').evaluate((slide) => {
+      await page.locator('.nm-slide:not([hidden])').evaluate((slide) => {
         const video = slide.querySelector('video')?.getBoundingClientRect();
-        const summary = slide.querySelector('.nm-data-panel')?.getBoundingClientRect();
+        const summary = document.querySelector('.nm-data-panel')?.getBoundingClientRect();
         return Boolean(video && summary && summary.top >= video.bottom - 2);
       }),
     ).toBeTruthy();
