@@ -7,3 +7,6 @@ This is a deliberate pre-release hold, not a claim that the 172 URLs have no aud
 Approved exceptions belong in `media-decisions.json`, keyed by the exact old path and containing `action` (`retire` or `redirect`), `approvedBy`, `approvedOn` and `reason`. A `redirect` decision additionally needs `target` and `httpLayerVerified: true` after an external HTTP redirect is actually tested; GitHub Pages alone is insufficient. An empty decision file is intentional during review.
 
 `npm run audit:media` regenerates the inventory from the V1 archive worktree. `npm run release:check` fails while any right, editorial record or historical media URL remains undecided. The development artifact and local preview remain available, but the public deployment workflow must not be switched until this gate and visual acceptance pass.
+
+
+Display permission, 2026-10-05: the owner authorized display of works and private commissions by default, subject to later withdrawals. Selected local Media records are cleared on this basis (CONTENT-AND-CMS.md). Historical URL retirement/redirect decisions remain separate.

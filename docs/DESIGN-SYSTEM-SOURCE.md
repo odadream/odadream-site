@@ -12,7 +12,7 @@ The `/design-system/` page also documents the full-bleed moving-image hero: the 
 
 Numbering follows one visible grammar with two levels: `W` is a page family and `W.01` a section. The tight-framed microchip appears in navigation, headings, and rails, not on individual content cards. Its border hugs the glyphs with no padding; the family letter takes its semantic `--signal-*` color and section digits are subdued. Machine-readable `data-page-code` uses the same form. The build validates family, shape, and continuous section numbering on every localized page and the specimen. The hero reel uses a separate `КАДР / FRAME · NN / total` counter.
 
-Text links and media-opening affordances use the shared vector `TechnicalMark kind="open"`, aligned optically with the link text. The markup leaves one ordinary trailing space after the label, so the link underline reaches the arrow start; the arrow itself is only a diagonal stroke, with no horizontal shelf that could create a visible seam. The hero carousel uses the same mark family in `previous`/`next` directions: 44px hit areas, no permanent square borders, no visible pause button. Automatic frame changes pause on hover and keyboard focus. Video stops when the page is hidden or the hero is offscreen; reduced-motion and Save-Data keep the poster instead of starting video.
+Text links and media-opening affordances use the shared vector `TechnicalMark kind="open"`, aligned optically with the link text. The component inserts an explicit underlined spacer after the label, so the text underline reaches the arrow start consistently; the arrow has a diagonal shaft and a short head, with no lower horizontal shelf that could create a visible seam. The hero carousel uses the same mark family in `previous`/`next` directions: 44px hit areas, no permanent square borders, no visible pause button. Automatic frame changes pause on hover and keyboard focus. Video stops when the page is hidden or the hero is offscreen; reduced-motion and Save-Data keep the poster instead of starting video.
 
 ## Carried from V5
 
@@ -40,3 +40,19 @@ Read [DESIGN-GUIDE.md](DESIGN-GUIDE.md) for the semantic contract and reference 
 Контракт общих осей описан в DESIGN-GUIDE.md. Hero использует вычисляемый `--page-inset` вместо фиксированного поля окна; поверхность панели выступает за ось, не сдвигая текст. Сайт и стенд используют общие интервалы вступлений и секций. Все фоновые номера одного размера на данном viewport. `e2e/alignment.spec.ts` проверяет геометрию 38 локализованных страниц и стенда на четырёх ширинах.
 
 Заголовок один, в основном полотне. SectionRail содержит код, тихий фоновый номер Manrope и заметку у нижнего края. StatisticsStamp на desktop находится в поле, на mobile следует после материала; заметка и фоновые знаки скрываются. RecordStamp использует непрерывную замкнутую сетку ячеек (подпись / значение), включая выходные данные. Три плана определены в DESIGN-GUIDE.md: среда и справочные данные → паспорт/схема → материал. Стенд использует эти же компоненты, без собственной копии стилей.
+
+
+### Текстовые ссылки — единая CAD-выноска
+
+`CalloutLink.astro` рисует полки строк и финальную диагональ одним SVG-контуром; текст остаётся обычным доступным HTML. Последнее слово, один неразрывный пробел обычной ширины и место стрелки переносятся вместе. Длины берутся из браузерной раскладки и пересчитываются после загрузки шрифта, изменения ширины и темы. Общие параметры в `tokens.css`: `--link-rule-width`, `--link-offset`, `--link-mark-size`, `--link-head-size`. Цвет наследуется от контекста, hover/focus использует signal. Без JavaScript сохраняется обычное подчёркивание. Компонент без href декорирует название внутри ссылки-карточки, не создавая вложенный anchor. Отдельные технические иконки остаются `TechnicalMark`; текстовые ссылки не соединяют две независимые линии. Живые короткие и многострочные RU/EN-примеры — `/design-system/`.
+
+
+Футер — служебная навигация без стрелок и подчёркиваний: только «Контакты», «Студия» и социальные ссылки текущего языка. CAD-выноски остаются в содержании страниц. Подпись: © 2018–текущий год ODA.dream®; знак регистрации надстрочный, регистр бренда сохраняется.
+
+Знак Дзена: официальный SVG https://dzen.ru/about/images/download/dzen-dark/dark-stella.svg из https://dzen.ru/about/download, получен 2026-09-25; геометрия сохранена, цвет наследует тему. Основание для ®: архивная запись `odadream-site/src/content/proof-ip-trademark.md` (Роспатент); номер свидетельства в записи отсутствует. Начало копирайта 2018 — существующая подпись проекта в AGENTS.md архива.
+
+
+Принято 2026-10-05: WorkStage обозначает стадию реализации; тип, исторические алиасы, доступность, тираж и состав — отдельные поля. «Парадокс Успеха» — каноническое имя игры; «Эмомандала» — составная интерактивная работа. «Круг синхронизации» — концепт на основе «Нейросинхронизации», «Предки в шуме» — прототип внутренней лаборатории. R&D показывается отдельной подборкой на странице «Работы» и не входит в главную. Владелец разрешил показ работ и частных заказов по умолчанию. Основания и границы: CONTENT-AND-CMS.md.
+
+
+Контракт краткой карточки работы и заполненность всех девяти записей: [DESIGN-GUIDE.md](DESIGN-GUIDE.md). Превью вместе с подписью составляет один ряд; затем метаданные, название и описание. Неизвестный год явно null.

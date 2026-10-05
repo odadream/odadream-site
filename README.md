@@ -13,7 +13,7 @@ Requires Node 22.19+ (CI uses Node 24). Run `npm ci`, then `npm run dev`. Previe
 - `src/pages/`: generated language pages, custom 404 and noindex unresolved-ID page. The root fetches the static `/legacy-map.json` only for an `?id=` request.
 - `src/data/lastmod.json`: page-specific editorial modification dates used by sitemap; update only when the corresponding language page materially changes.
 - `src/styles/tokens.css` and `global.css`: V5 palette/typography/spacing direction, rebuilt as a smaller component system. Fonts are self-hosted with Latin and Cyrillic subsets.
-- `public/images/content/`, `public/images/recognition/`, and `public/video/`: curated work images, document previews, five short hero MP4 previews with posters, and a work preview. Their publication and media rights remain under review; the release gate blocks deployment.
+- `public/images/content/`, `public/images/works/`, `public/images/recognition/`, and `public/video/`: curated work images, document previews and video previews. The owner authorized selected work media display on 2026-10-05. Document permissions and editorial publication remain separate; the release gate still blocks deployment.
 
 ## Product and content decisions
 
@@ -30,10 +30,13 @@ The V1 sources, builds and V5 snapshot are separately archived in `../odadream-s
 ## Release gate
 
 1. Editorial approval of both language versions, the four case records, organization roles, and availability claims.
-2. Written rights/consent review for each image. Replace or remove any image not cleared. Do not treat `access: public` in the old CMS as a license.
+2. Apply the existing owner display permission for work media and respect later withdrawals. Resolve additional document and private-source permissions separately; access: public alone is not the approval record.
 3. Desktop/mobile visual review and keyboard/lightbox audit; then review the branch build artifact.
 4. Resolve the remaining 172 old media URLs using `docs/media-decisions.json`. `npm run release:check` must pass before cutover.
 5. Only after approval: open a PR to `main`. The branch contains a deployment workflow that activates only on `main`, and itself runs the release gate before deploying. Keep the previous tag/build available for rollback.
 6. After deployment: inspect HTTP HTML and old `?id` links, submit `sitemap-index.xml`, monitor Search Console and analytics. GitHub Pages cannot send per-query 301 redirects; add an external HTTP redirect layer only if traffic data justifies it.
 
 `/materials/` is deliberately absent. Old records not selected for V2 resolve to `/legacy/unavailable/` with `noindex`, never silently to the home page. The root renders English HTML and has canonical `/en/`; its small script handles old query links, including `internal=true` variants.
+
+
+Migration review uses two files: [MIGRATION-PLAN.md](docs/MIGRATION-PLAN.md) for scope, content selection, phases and cutover; [INVENTORY-2026-10-05.json](docs/migration/INVENTORY-2026-10-05.json) for 238 source IDs, editorial assessments, hashes and 550 archived resources. The plan is awaiting agreement; 238 sources do not imply 238 new pages. Current V2 contains 9 works and 44 localized pages. Build validation derives the expected routes from the route registry. Accepted owner decisions are recorded in [CONTENT-AND-CMS.md](docs/CONTENT-AND-CMS.md); the shared card contract is in [DESIGN-GUIDE.md](docs/DESIGN-GUIDE.md).
