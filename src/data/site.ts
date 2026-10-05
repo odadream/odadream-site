@@ -2,7 +2,9 @@ export type Lang = 'en' | 'ru';
 export type Localized = Record<Lang, string>;
 export type Publication = 'draft' | 'review' | 'published';
 export type Rights = 'cleared' | 'review' | 'restricted';
-export type WorkStatus = 'premiere' | 'evolving' | 'event-format' | 'archive' | 'one-off' | 'research';
+export type WorkStage = 'concept' | 'prototype' | 'in-production' | 'realized';
+export type WorkType =
+  'performance' | 'installation' | 'game' | 'object' | 'participatory-practice' | 'interactive-work';
 
 export interface Media {
   id: string;
@@ -18,6 +20,7 @@ export interface Media {
   rights: Rights;
   source: string;
   kind: 'image' | 'video';
+  representation?: 'illustration';
 }
 export type HeroVisual =
   | {
@@ -57,8 +60,14 @@ export interface Work {
   summary: Localized;
   experience: Localized;
   question: Localized;
-  status: WorkStatus;
-  realized: boolean;
+  stage: WorkStage;
+  workType: WorkType;
+  aliases: string[];
+  basedOn: string[];
+  components?: Record<Lang, string[]>;
+  year: number | null;
+  edition?: Localized;
+  featuredOnHome: boolean;
   inRepertoire: boolean;
   bookable: boolean;
   rnd: boolean;
@@ -193,8 +202,11 @@ export const media: Media[] = [
       en: 'Neuromandala visual field: Terraforming',
       ru: 'Визуальное поле Нейромандалы: «Терраформинг»',
     },
-    caption: { en: 'Terraforming · mandala display', ru: '«Терраформинг» · экран мандалы' },
-    rights: 'review',
+    caption: {
+      en: 'Terraforming · mandala display',
+      ru: '«Терраформинг» · экран мандалы',
+    },
+    rights: 'cleared',
     source: 'D:/YandexDisk/_ODA2/Сайт/odadream-presentation/public/images/nodes/mandala_terra.mp4',
     kind: 'video',
   },
@@ -205,9 +217,15 @@ export const media: Media[] = [
     previewSrc: '/video/hero/frequencies-preview.mp4',
     width: 1280,
     height: 720,
-    alt: { en: 'MindGrid visual field: Frequencies', ru: 'Визуальное поле MindGrid: «Частоты»' },
-    caption: { en: 'Frequencies · MindGrid, first minute', ru: '«Частоты» · MindGrid, первая минута' },
-    rights: 'review',
+    alt: {
+      en: 'MindGrid visual field: Frequencies',
+      ru: 'Визуальное поле MindGrid: «Частоты»',
+    },
+    caption: {
+      en: 'Frequencies · MindGrid, first minute',
+      ru: '«Частоты» · MindGrid, первая минута',
+    },
+    rights: 'cleared',
     source: 'D:/YandexDisk/_ODA2/Сайт/odadream-presentation/public/images/nodes/grid.mp4',
     kind: 'video',
   },
@@ -218,9 +236,15 @@ export const media: Media[] = [
     previewSrc: '/video/hero/mindshow-preview.mp4',
     width: 1080,
     height: 1080,
-    alt: { en: 'Neuromandala sequence from MindShow', ru: 'Последовательность Нейромандалы в MindShow' },
-    caption: { en: 'MindShow · audiovisual session', ru: 'MindShow · аудиовизуальная сессия' },
-    rights: 'review',
+    alt: {
+      en: 'Neuromandala sequence from MindShow',
+      ru: 'Последовательность Нейромандалы в MindShow',
+    },
+    caption: {
+      en: 'MindShow · audiovisual session',
+      ru: 'MindShow · аудиовизуальная сессия',
+    },
+    rights: 'cleared',
     source: 'D:/YandexDisk/_ODA2/_Photos Various/Мандалы/Neuromandala Show.mp4',
     kind: 'video',
   },
@@ -231,9 +255,15 @@ export const media: Media[] = [
     previewSrc: '/video/hero/cultural-code-preview.mp4',
     width: 1280,
     height: 720,
-    alt: { en: 'Neuromandala ornament visual', ru: 'Орнаментальная визуализация Нейромандалы' },
-    caption: { en: 'Cultural Code · Ossetia', ru: '«Культурный код» · Осетия' },
-    rights: 'review',
+    alt: {
+      en: 'Neuromandala ornament visual',
+      ru: 'Орнаментальная визуализация Нейромандалы',
+    },
+    caption: {
+      en: 'Cultural Code · Ossetia',
+      ru: '«Культурный код» · Осетия',
+    },
+    rights: 'cleared',
     source: 'D:/YandexDisk/_ODA2/События/25-10-27 Осетия Плешка/Export/2_ornament_center_1080p.mp4',
     kind: 'video',
   },
@@ -244,9 +274,15 @@ export const media: Media[] = [
     previewSrc: '/video/hero/kovylina-preview.mp4',
     width: 1280,
     height: 720,
-    alt: { en: 'Neuromandala session with Elena Kovylina', ru: 'Сессия Нейромандалы с Еленой Ковылиной' },
-    caption: { en: 'Neuromandala · Elena Kovylina session', ru: 'Нейромандала · сессия Елены Ковылиной' },
-    rights: 'review',
+    alt: {
+      en: 'Neuromandala session with Elena Kovylina',
+      ru: 'Сессия Нейромандалы с Еленой Ковылиной',
+    },
+    caption: {
+      en: 'Neuromandala · Elena Kovylina session',
+      ru: 'Нейромандала · сессия Елены Ковылиной',
+    },
+    rights: 'cleared',
     source: 'D:/YandexDisk/_ODA2/События/26-06-08 Ковылина Тест/Exports/04_193527_Елена.mp4',
     kind: 'video',
   },
@@ -265,66 +301,145 @@ export const media: Media[] = [
       en: 'Interference of Realities · Kaluga, 2026',
       ru: '«Интерференция реальностей» · Калуга, 2026',
     },
-    rights: 'review',
+    rights: 'cleared',
     source: 'src/content/interference.md; event-tsiolkovsky-2026',
     kind: 'image',
   },
   {
     id: 'mindshow',
     src: '/images/content/mindshow_mdsh_v5.webp',
-    alt: { en: 'Generative visuals from MindShow', ru: 'Генеративная графика MindShow' },
-    caption: { en: 'MindShow · audiovisual study', ru: 'MindShow · аудиовизуальный этюд' },
-    rights: 'review',
+    alt: {
+      en: 'Generative visuals from MindShow',
+      ru: 'Генеративная графика MindShow',
+    },
+    caption: {
+      en: 'MindShow · audiovisual study',
+      ru: 'MindShow · аудиовизуальный этюд',
+    },
+    rights: 'cleared',
     source: 'src/content/mindshow.md',
     kind: 'image',
   },
   {
     id: 'neurobattle',
     src: '/images/content/neurobattle_gameplay.webp',
-    alt: { en: 'Neurobattle game screen', ru: 'Экран игры «Нейробитва»' },
-    caption: { en: 'Neurobattle · game interface', ru: '«Нейробитва» · игровой интерфейс' },
-    rights: 'review',
+    alt: {
+      en: 'Paradox of Success game screen',
+      ru: 'Экран игры «Парадокс Успеха»',
+    },
+    caption: {
+      en: 'Paradox of Success · game interface',
+      ru: '«Парадокс Успеха» · игровой интерфейс',
+    },
+    rights: 'cleared',
     source: 'src/content/neurobattle.md',
     kind: 'image',
   },
   {
     id: 'schrodinger',
     src: '/images/content/events/schrodinger-2025/schrodinger-2025-01.webp',
-    alt: { en: 'Project Schrödinger laboratory performance', ru: 'Лабораторный показ «Проекта Шрёдингер»' },
-    caption: { en: 'Project Schrödinger · Kaluga, 2025', ru: '«Проект Шрёдингер» · Калуга, 2025' },
-    rights: 'review',
+    alt: {
+      en: 'Project Schrödinger laboratory performance',
+      ru: 'Лабораторный показ «Проекта Шрёдингер»',
+    },
+    caption: {
+      en: 'Project Schrödinger · Kaluga, 2025',
+      ru: '«Проект Шрёдингер» · Калуга, 2025',
+    },
+    rights: 'cleared',
     source: 'src/content/schrodinger.md',
     kind: 'image',
   },
   {
     id: 'rings',
     src: '/images/content/materia/oda-rings/oda-rings-cover.webp',
-    alt: { en: 'ODA.dream rings', ru: 'Кольца ODA.dream' },
-    caption: { en: 'ODA.dream Rings · object', ru: 'Кольца ODA.dream · объект' },
-    rights: 'review',
+    alt: {
+      en: 'ODA.dream rings',
+      ru: 'Кольца ODA.dream',
+    },
+    caption: {
+      en: 'ODA.dream Rings · object',
+      ru: 'Кольца ODA.dream · объект',
+    },
+    rights: 'cleared',
     source: 'src/content/oda-rings.md',
     kind: 'image',
   },
   {
     id: 'sync',
     src: '/images/content/works/sync-circle/sync-circle-hero.webp',
-    alt: { en: 'Sync Circle concept rendering', ru: 'Концептуальная визуализация «Круга синхронизации»' },
+    alt: {
+      en: 'Sync Circle concept rendering',
+      ru: 'Концептуальная визуализация «Круга синхронизации»',
+    },
     caption: {
       en: 'Sync Circle · concept rendering, not installation documentation',
       ru: '«Круг синхронизации» · концептуальная визуализация, не документация инсталляции',
     },
-    rights: 'review',
+    rights: 'cleared',
     source: 'src/content/sync-circle.md',
     kind: 'image',
   },
   {
     id: 'neurobattle-dano',
     src: '/images/content/neurobattle_dano.webp',
-    alt: { en: 'Neurobattle at DANO', ru: '«Нейробитва» на DANO' },
-    caption: { en: 'DANO · Moscow, 2025', ru: 'DANO · Москва, 2025' },
-    rights: 'review',
+    alt: {
+      en: 'Paradox of Success at DANO',
+      ru: '«Парадокс Успеха» на DANO',
+    },
+    caption: {
+      en: 'DANO · Moscow, 2025',
+      ru: 'DANO · Москва, 2025',
+    },
+    rights: 'cleared',
     source: 'src/content/event-dano-ekoniva-2025.md',
     kind: 'image',
+  },
+  {
+    id: 'emomandala-object',
+    src: '/images/works/emomandala.webp',
+    kind: 'image',
+    rights: 'cleared',
+    alt: {
+      en: 'Emomandala physical artefact',
+      ru: 'Физический артефакт «Эмомандалы»',
+    },
+    caption: {
+      en: 'Emomandala · physical component of the work',
+      ru: '«Эмомандала» · физическая часть работы',
+    },
+    source: 'src/content/emomandala.md; owner display permission 2026-10-05',
+  },
+  {
+    id: 'ancestors-prototype',
+    src: '/images/works/ancestors.webp',
+    kind: 'image',
+    rights: 'cleared',
+    alt: {
+      en: 'Ancestors in the Noise · prototype study',
+      ru: '«Предки в шуме» · исследование прототипа',
+    },
+    caption: {
+      en: 'Ancestors in the Noise · prototype, internal laboratory with Elena Kovylina',
+      ru: '«Предки в шуме» · прототип, внутренняя лаборатория с Еленой Ковылиной',
+    },
+    source: 'src/content/ancestors.md; owner display permission 2026-10-05',
+  },
+  {
+    id: 'neurosync-session',
+    representation: 'illustration',
+    src: '/video/hero/frequencies-poster.webp',
+    kind: 'image',
+    rights: 'cleared',
+    alt: {
+      en: 'Neuromandala visualization used as a method illustration',
+      ru: 'Визуализация Нейромандалы как иллюстрация метода',
+    },
+    caption: {
+      en: 'Method illustration; not a documentary image of a Neurosynchronization session',
+      ru: 'Иллюстрация метода, не документальный кадр сессии «Нейросинхронизации»',
+    },
+    source: 'src/content/neuromandala.md; owner display permission 2026-10-05',
   },
 ];
 
@@ -352,17 +467,15 @@ export const heroVisuals: HeroVisual[] = [
   {
     id: 'kovylina',
     mediaId: 'neuromandala-kovylina',
-    target: { kind: 'unmapped' },
+    target: { kind: 'work', workId: 'ancestors' },
   },
 ];
 
-export const workStatusLabels: Record<WorkStatus, Localized> = {
-  premiere: { en: 'Premiered · 2026', ru: 'Премьера · 2026' },
-  evolving: { en: 'Evolving work', ru: 'Развивающаяся работа' },
-  'event-format': { en: 'Event format', ru: 'Событийный формат' },
-  archive: { en: 'Archive · not in repertoire', ru: 'Архив · не в репертуаре' },
-  'one-off': { en: 'One-off object', ru: 'Единичный объект' },
-  research: { en: 'R&D · concept', ru: 'R&D · концепция' },
+export const workStageLabels: Record<WorkStage, Localized> = {
+  concept: { en: 'Concept', ru: 'Концепция' },
+  prototype: { en: 'Prototype', ru: 'Прототип' },
+  'in-production': { en: 'In production', ru: 'В производстве' },
+  realized: { en: 'Realized', ru: 'Реализовано' },
 };
 
 export const works: Work[] = [
@@ -370,8 +483,14 @@ export const works: Work[] = [
     id: 'interference',
     legacyId: 'interference',
     slug: 'interference-of-realities',
-    title: { en: 'Interference of Realities', ru: 'Интерференция реальностей' },
-    category: { en: 'Participatory performance', ru: 'Партисипаторный спектакль' },
+    title: {
+      en: 'Interference of Realities',
+      ru: 'Интерференция реальностей',
+    },
+    category: {
+      en: 'Performance',
+      ru: 'Спектакль',
+    },
     summary: {
       en: 'A live performance-lecture assembled with its audience beside a parallel virtual stage.',
       ru: 'Живой спектакль-лекция, который собирается вместе со зрителями рядом с параллельной виртуальной сценой.',
@@ -384,8 +503,6 @@ export const works: Work[] = [
       en: 'When two realities seem to converge, is that connection measured, performed or imagined?',
       ru: 'Когда две реальности кажутся связанными, эта связь измерена, разыграна или воображена?',
     },
-    status: 'premiere',
-    realized: true,
     inRepertoire: false,
     bookable: false,
     rnd: false,
@@ -410,13 +527,25 @@ export const works: Work[] = [
     formats: [],
     source: 'src/content/interference.md',
     publication: 'review',
+    stage: 'realized',
+    year: null,
+    workType: 'performance',
+    aliases: [],
+    basedOn: [],
+    featuredOnHome: true,
   },
   {
     id: 'mindshow',
     legacyId: 'mindshow',
     slug: 'mindshow',
-    title: { en: 'MindShow', ru: 'Майнд-шоу' },
-    category: { en: 'Interactive installation-performance', ru: 'Интерактивная инсталляция-перформанс' },
+    title: {
+      en: 'MindShow',
+      ru: 'Майнд-шоу',
+    },
+    category: {
+      en: 'Installation-performance',
+      ru: 'Инсталляция-перформанс',
+    },
     summary: {
       en: 'A participant’s state and narrative become a personal audiovisual composition.',
       ru: 'Состояние и рассказ участника становятся личной аудиовизуальной композицией.',
@@ -429,8 +558,6 @@ export const works: Work[] = [
       en: 'What changes when a person is simultaneously material, co-author and observer?',
       ru: 'Что меняется, когда человек становится одновременно материалом, соавтором и наблюдателем?',
     },
-    status: 'evolving',
-    realized: true,
     inRepertoire: false,
     bookable: true,
     rnd: false,
@@ -447,13 +574,25 @@ export const works: Work[] = [
     formats: ['mindshow-installation'],
     source: 'src/content/mindshow.md',
     publication: 'review',
+    stage: 'realized',
+    year: null,
+    workType: 'installation',
+    aliases: [],
+    basedOn: [],
+    featuredOnHome: true,
   },
   {
     id: 'neurobattle',
     legacyId: 'neurobattle',
     slug: 'neurobattle',
-    title: { en: 'Neurobattle', ru: 'Нейробитва' },
-    category: { en: 'Participatory game', ru: 'Партисипаторная игра' },
+    title: {
+      en: 'Paradox of Success',
+      ru: 'Парадокс Успеха',
+    },
+    category: {
+      en: 'Interactive game',
+      ru: 'Интерактивная игра',
+    },
     summary: {
       en: 'A two-person contest where attention and calm move a shared virtual object.',
       ru: 'Поединок двух участников, в котором внимание и спокойствие движут общим виртуальным объектом.',
@@ -466,8 +605,6 @@ export const works: Work[] = [
       en: 'Can a contest reward the capacity to regulate oneself rather than force?',
       ru: 'Может ли соревнование вознаграждать саморегуляцию, а не силу?',
     },
-    status: 'event-format',
-    realized: true,
     inRepertoire: false,
     bookable: true,
     rnd: false,
@@ -484,13 +621,25 @@ export const works: Work[] = [
     formats: ['neurobattle-game'],
     source: 'src/content/neurobattle.md',
     publication: 'review',
+    stage: 'realized',
+    year: null,
+    workType: 'game',
+    aliases: ['Нейробитва', 'Neurobattle', 'Нейробаттл'],
+    basedOn: [],
+    featuredOnHome: true,
   },
   {
     id: 'schrodinger',
     legacyId: 'schrodinger',
     slug: 'project-schrodinger',
-    title: { en: 'Project Schrödinger', ru: 'Проект Шрёдингер' },
-    category: { en: 'Laboratory performance', ru: 'Лабораторный перформанс' },
+    title: {
+      en: 'Project Schrödinger',
+      ru: 'Проект Шрёдингер',
+    },
+    category: {
+      en: 'Performance',
+      ru: 'Спектакль',
+    },
     summary: {
       en: 'A theatre laboratory where collective biometric signals enter the visual field.',
       ru: 'Театральная лаборатория, в которой коллективные биометрические сигналы входят в визуальное поле.',
@@ -503,8 +652,6 @@ export const works: Work[] = [
       en: 'Can theatre act as a live biofeedback protocol rather than illustrate a fixed plot?',
       ru: 'Может ли театр быть живым протоколом обратной связи, а не иллюстрацией готового сюжета?',
     },
-    status: 'archive',
-    realized: true,
     inRepertoire: false,
     bookable: false,
     rnd: false,
@@ -529,13 +676,25 @@ export const works: Work[] = [
     formats: [],
     source: 'src/content/schrodinger.md',
     publication: 'review',
+    stage: 'realized',
+    year: null,
+    workType: 'performance',
+    aliases: [],
+    basedOn: [],
+    featuredOnHome: true,
   },
   {
     id: 'rings',
     legacyId: 'oda-rings',
     slug: 'oda-rings',
-    title: { en: 'ODA.dream Rings', ru: 'Кольца ODA.dream' },
-    category: { en: 'Material object', ru: 'Материальный объект' },
+    title: {
+      en: 'ODA.dream Rings',
+      ru: 'Кольца ODA.dream',
+    },
+    category: {
+      en: 'Jewellery object',
+      ru: 'Ювелирный объект',
+    },
     summary: {
       en: 'A founding pair of rings engraved with traces of two alpha rhythms.',
       ru: 'Пара колец, с которой началась история студии: в металле запечатлены следы двух альфа-ритмов.',
@@ -548,8 +707,6 @@ export const works: Work[] = [
       en: 'How can a measured moment become a shared material memory?',
       ru: 'Как измеренный момент может стать общей материальной памятью?',
     },
-    status: 'one-off',
-    realized: true,
     inRepertoire: false,
     bookable: false,
     rnd: false,
@@ -566,13 +723,29 @@ export const works: Work[] = [
     formats: [],
     source: 'src/content/oda-rings.md',
     publication: 'review',
+    stage: 'realized',
+    year: 2020,
+    workType: 'object',
+    aliases: [],
+    basedOn: [],
+    featuredOnHome: true,
+    edition: {
+      en: 'One original pair · two wedding bands',
+      ru: 'Одна авторская пара · два обручальных кольца',
+    },
   },
   {
     id: 'sync',
     legacyId: 'sync-circle',
     slug: 'sync-circle',
-    title: { en: 'Sync Circle', ru: 'Круг синхронизации' },
-    category: { en: 'Art-research concept', ru: 'Художественно-исследовательская концепция' },
+    title: {
+      en: 'Sync Circle',
+      ru: 'Круг синхронизации',
+    },
+    category: {
+      en: 'Group installation',
+      ru: 'Групповая инсталляция',
+    },
     summary: {
       en: 'A proposed group installation that makes patterns of collective attention visible.',
       ru: 'Проект групповой инсталляции, визуализирующей рисунок коллективного внимания.',
@@ -585,8 +758,6 @@ export const works: Work[] = [
       en: 'What forms might shared attention take without claiming to measure human connection itself?',
       ru: 'Какую форму может принять совместное внимание, не претендуя на измерение человеческой близости?',
     },
-    status: 'research',
-    realized: false,
     inRepertoire: false,
     bookable: false,
     rnd: true,
@@ -595,14 +766,199 @@ export const works: Work[] = [
       ru: 'Не реализованная инсталляция и не готовый формат заказа; возможно обсуждение разработки.',
     },
     facts: {
-      en: ['Concept and technical study', 'Visual shown is a rendering'],
-      ru: ['Концепция и техническое исследование', 'Изображение — концептуальная визуализация'],
+      en: ['Concept based on the work Neurosynchronization', 'Visual shown is a conceptual rendering'],
+      ru: ['Концепт на основе работы «Нейросинхронизация»', 'Изображение — концептуальная визуализация'],
     },
     media: ['sync'],
     cases: [],
     formats: [],
     source: 'src/content/sync-circle.md',
     publication: 'review',
+    stage: 'concept',
+    year: null,
+    workType: 'installation',
+    aliases: [],
+    basedOn: ['neurosync'],
+    featuredOnHome: false,
+  },
+  {
+    legacyId: 'emomandala',
+    slug: 'emomandala',
+    aliases: [],
+    basedOn: [],
+    inRepertoire: false,
+    bookable: false,
+    rnd: false,
+    featuredOnHome: true,
+    cases: [],
+    formats: [],
+    publication: 'review',
+    id: 'emomandala',
+    title: {
+      en: 'Emomandala',
+      ru: 'Эмомандала',
+    },
+    category: {
+      en: 'Interactive work',
+      ru: 'Интерактивная работа',
+    },
+    workType: 'interactive-work',
+    stage: 'realized',
+    year: null,
+    summary: {
+      en: 'A personal story takes shape through an application, a physical artefact and an on-chain record of its creation.',
+      ru: 'Личная история обретает форму через приложение, физический артефакт и ончейн-паспорт его создания.',
+    },
+    experience: {
+      en: 'The participant searches for inner resonance, builds a narrative and embodies it in an artefact whose creation history is kept on an on-chain site.',
+      ru: 'Участник ищет внутренний отклик, формирует личную историю и воплощает её в артефакте, история создания которого хранится на ончейн-сайте.',
+    },
+    question: {
+      en: 'How can an inner response become a personal story and a tangible object?',
+      ru: 'Как внутренний отклик становится личной историей и осязаемым объектом?',
+    },
+    components: {
+      en: [
+        'Emotional-intelligence concept',
+        'Application for exploring inner resonance',
+        'Participant narrative',
+        'Physical artefact',
+        'On-chain site and creation record',
+      ],
+      ru: [
+        'Концепт об эмоциональном интеллекте',
+        'Приложение для поиска внутреннего отклика',
+        'Нарратив пользователя',
+        'Физический артефакт',
+        'Ончейн-сайт и история создания',
+      ],
+    },
+    availability: {
+      en: 'Presentation and new versions are discussed with the studio; an artefact is linked to its participant’s story.',
+      ru: 'Показ и новые версии обсуждаются со студией; артефакт связан с историей конкретного участника.',
+    },
+    facts: {
+      en: [
+        'A composite work spanning digital and physical forms',
+        'Emomandala OS is a related method, not an alias of the work',
+        'Composition confirmed by the studio on 5 October 2026',
+      ],
+      ru: [
+        'Составная работа в цифровой и физической форме',
+        'Эмомандала OS — связанный метод, не алиас работы',
+        'Состав работы подтверждён студией 5 октября 2026',
+      ],
+    },
+    media: ['emomandala-object'],
+    source: 'src/content/emomandala.md; studio confirmation 2026-10-05',
+  },
+  {
+    legacyId: 'neurosync',
+    slug: 'neurosynchronization',
+    aliases: ['Нейросинк', 'Neurosync'],
+    basedOn: [],
+    inRepertoire: false,
+    bookable: false,
+    rnd: false,
+    featuredOnHome: false,
+    cases: [],
+    formats: [],
+    publication: 'review',
+    id: 'neurosync',
+    title: {
+      en: 'Neurosynchronization',
+      ru: 'Нейросинхронизация',
+    },
+    category: {
+      en: 'Participatory practice',
+      ru: 'Партисипаторная практика',
+    },
+    workType: 'participatory-practice',
+    stage: 'realized',
+    year: null,
+    summary: {
+      en: 'Participants explore shared attention through guided synchronization and biofeedback.',
+      ru: 'Участники исследуют совместное внимание через фасилитируемую синхронизацию и биологическую обратную связь.',
+    },
+    experience: {
+      en: 'A group moves through attention, breathing, listening and reflection, observing how individual experiences meet.',
+      ru: 'Группа проходит через внимание, дыхание, слушание и рефлексию, наблюдая, как встречаются индивидуальные переживания.',
+    },
+    question: {
+      en: 'How does shared attention emerge within a group?',
+      ru: 'Как внутри группы возникает совместное внимание?',
+    },
+    availability: {
+      en: 'The current conditions for presentation are discussed with the studio.',
+      ru: 'Актуальные условия проведения обсуждаются со студией.',
+    },
+    facts: {
+      en: [
+        'Guided group practice with biofeedback',
+        'Sync Circle is a separate installation concept based on this work',
+      ],
+      ru: [
+        'Фасилитируемая групповая практика с биологической обратной связью',
+        '«Круг синхронизации» — отдельный инсталляционный концепт на основе этой работы',
+      ],
+    },
+    media: ['neurosync-session'],
+    source: 'src/content/neurosync.md; studio confirmation 2026-10-05',
+  },
+  {
+    legacyId: 'ancestors',
+    slug: 'ancestors-in-the-noise',
+    aliases: [],
+    basedOn: [],
+    inRepertoire: false,
+    bookable: false,
+    rnd: true,
+    featuredOnHome: false,
+    cases: [],
+    formats: [],
+    publication: 'review',
+    id: 'ancestors',
+    title: {
+      en: 'Ancestors in the Noise',
+      ru: 'Предки в шуме',
+    },
+    category: {
+      en: 'Performance',
+      ru: 'Перформанс',
+    },
+    workType: 'performance',
+    stage: 'prototype',
+    year: null,
+    summary: {
+      en: 'A prototype exploring memory and identity, developed in an internal laboratory with Elena Kovylina.',
+      ru: 'Прототип о памяти и идентичности, созданный во внутренней лаборатории с Еленой Ковылиной.',
+    },
+    experience: {
+      en: 'Archival material and biosignals meet within a generative environment in a laboratory exploration of personal memory.',
+      ru: 'Архивные материалы и биосигналы встречаются в генеративной среде лабораторного исследования личной памяти.',
+    },
+    question: {
+      en: 'How can personal memory take shape in a performative environment?',
+      ru: 'Как личная память обретает форму в перформативной среде?',
+    },
+    availability: {
+      en: 'Internal laboratory prototype; development inquiries only.',
+      ru: 'Прототип внутренней лаборатории; возможно обсуждение дальнейшей разработки.',
+    },
+    facts: {
+      en: [
+        'Internal laboratory with Elena Kovylina',
+        'The work remained at the prototype stage',
+        'Stage confirmed by the studio on 5 October 2026',
+      ],
+      ru: [
+        'Внутренняя лаборатория с Еленой Ковылиной',
+        'Работа осталась на этапе прототипа',
+        'Стадия подтверждена студией 5 октября 2026',
+      ],
+    },
+    media: ['ancestors-prototype'],
+    source: 'src/content/ancestors.md; studio confirmation 2026-10-05',
   },
 ];
 
@@ -628,7 +984,7 @@ export const formats: Format[] = [
     id: 'neurobattle-game',
     legacyId: 'neurobattle',
     slug: 'neurobattle-game',
-    title: { en: 'Neurobattle game', ru: 'Игра «Нейробитва»' },
+    title: { en: 'Paradox of Success game', ru: 'Игра «Парадокс Успеха»' },
     summary: {
       en: 'Short, legible two-person rounds for a live audience.',
       ru: 'Короткие понятные поединки двух участников перед зрителями.',
@@ -870,9 +1226,9 @@ export const cases: CaseEvent[] = [
     id: 'dano-2025',
     legacyId: 'event-dano-ekoniva-2025',
     slug: 'dano-2025',
-    title: { en: 'Neurobattle at DANO', ru: '«Нейробитва» на DANO' },
+    title: { en: 'Paradox of Success at DANO', ru: '«Парадокс Успеха» на DANO' },
     summary: {
-      en: 'An event adaptation of Neurobattle at the DANO Olympiad.',
+      en: 'An event adaptation of Paradox of Success at the DANO Olympiad.',
       ru: 'Событийная версия «Нейробитвы» на олимпиаде DANO.',
     },
     date: '2025-12-17',
@@ -926,3 +1282,14 @@ export const people: Person[] = [
 
 export const mediaById = (id: string) => media.find((item) => item.id === id);
 export const workById = (id: string) => works.find((item) => item.id === id);
+
+/** Shared catalogue selection; availability and repertoire remain independent fields. */
+export const isRealizedWork = (work: Work) => work.stage === 'realized';
+export const realizedWorks = works.filter(isRealizedWork);
+export const researchWorks = works.filter((work) => !isRealizedWork(work));
+export const selectedWorks = realizedWorks.filter((work) => work.featuredOnHome);
+export const publicHeroVisuals = heroVisuals.filter((item) => {
+  if (item.target.kind !== 'work') return true;
+  const work = workById(item.target.workId);
+  return work !== undefined && isRealizedWork(work);
+});

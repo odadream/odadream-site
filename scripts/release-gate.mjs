@@ -1,11 +1,7 @@
 import { readFile } from 'node:fs/promises';
-import ts from 'typescript';
+import { loadSiteModule } from './site-data.mjs';
 
-const source = await readFile('src/data/site.ts', 'utf8');
-const js = ts.transpileModule(source, {
-  compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 },
-}).outputText;
-const data = await import('data:text/javascript;base64,' + Buffer.from(js).toString('base64'));
+const data = await loadSiteModule();
 const failures = [];
 for (const item of data.heroVisuals ?? []) {
   if (!data.media.some((media) => media.id === item.mediaId))

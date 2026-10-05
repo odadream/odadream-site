@@ -174,13 +174,13 @@ test('featured carousel, editorial links and card media follow the design gramma
   await page.goto('/ru/');
   const activeSlide = page.locator('.feature-slide:not([hidden])');
   const firstSlideId = await activeSlide.getAttribute('data-slide-id');
-  await expect(activeSlide.locator('[data-carousel-position]')).toHaveText('01 / 05');
+  await expect(activeSlide.locator('[data-carousel-position]')).toHaveText('01 / 04');
   await activeSlide.getByRole('button', { name: 'Следующая работа' }).click();
   await expect(page.locator('.feature-slide:not([hidden])')).not.toHaveAttribute(
     'data-slide-id',
     firstSlideId || '',
   );
-  await expect(page.locator('.feature-slide:not([hidden]) [data-carousel-position]')).toHaveText('02 / 05');
+  await expect(page.locator('.feature-slide:not([hidden]) [data-carousel-position]')).toHaveText('02 / 04');
   await expect(page.locator('header .brand img')).toHaveCount(1);
   await expect(page.locator('.feature-slide:not([hidden]) .nm-carousel-controls .eyebrow')).toContainText(
     'КАДР',
@@ -193,7 +193,8 @@ test('featured carousel, editorial links and card media follow the design gramma
   await expect(page.locator('.site-nav a[data-route="home"]')).toContainText('Главная');
   await expect(page.locator('.site-nav .page-code').first()).toHaveCSS('padding', '0px');
   await expect(page.locator('.site-nav a').first()).toHaveCSS('column-gap', '8px');
-  await expect(page.locator('.work-card__status[data-work-status="research"]')).toContainText('R&D');
+  await expect(page.locator('#selected-works .work-card')).toHaveCount(6);
+  await expect(page.locator('#selected-works .work-card:not([data-work-stage="realized"])')).toHaveCount(0);
   await expect(page.locator('.recognition-card')).toHaveCount(4);
   await expect(page.locator('.work-card__identity .page-code')).toHaveCount(0);
   await expect(page.locator('.method-steps .page-code')).toHaveCount(0);
@@ -201,17 +202,11 @@ test('featured carousel, editorial links and card media follow the design gramma
   await expect(page.locator('.recognition-card__image').first()).toHaveCSS('overflow', 'hidden');
   await expect(page.locator('.site-footer .social-icon').first()).toBeVisible();
   await expect(page.locator('.work-card__link').first()).toHaveCSS('text-decoration-line', 'none');
-  await expect(page.locator('.quiet-link').first()).toHaveCSS('text-decoration-line', 'underline');
-  const linkArrow = page.locator('.quiet-link .technical-mark').first();
-  const arrowSize = Number.parseFloat(await linkArrow.evaluate((icon) => getComputedStyle(icon).width));
-  const linkFontSize = Number.parseFloat(
-    await linkArrow.evaluate((icon) => getComputedStyle(icon.parentElement!).fontSize),
-  );
-  expect(arrowSize).toBeGreaterThanOrEqual(linkFontSize);
-  await expect(linkArrow).toHaveAttribute('data-mark', 'open');
-  await expect(page.locator('.quiet-link').first()).toHaveCSS('text-decoration-thickness', '1px');
-  await expect(linkArrow.locator('.technical-mark__link-tail')).toHaveCount(0);
-  await expect(linkArrow.locator('path').first()).toHaveAttribute('d', 'M0 21 18 3');
+  const visibleLink = page.locator('a.callout-link:visible').first();
+  await expect(visibleLink).toHaveClass(/is-drawn/);
+  await expect(visibleLink).toHaveCSS('text-decoration-line', 'none');
+  await expect(visibleLink.locator('.callout-link-drawing path')).toHaveAttribute('d', /H[\d. -]+ L/);
+  await expect(visibleLink).toContainText('\u00a0');
   if (isMobile) {
     await page.locator('.work-card').first().scrollIntoViewIfNeeded();
     await expect(page.locator('.work-card').first()).toHaveClass(/is-active/);
@@ -225,7 +220,7 @@ test('V5 design stand shares tokens and live components with the site', async ({
   await page.goto('/design-system/');
   await expect(page.locator('meta[name=robots]')).toHaveAttribute('content', 'noindex,follow');
   await expect(page.locator('.system-section')).toHaveCount(11);
-  await expect(page.locator('.work-card__link')).toHaveCount(2);
+  await expect(page.locator('.work-card__link')).toHaveCount(4);
   await page.locator('#system-05').scrollIntoViewIfNeeded();
   await expect
     .poll(() =>

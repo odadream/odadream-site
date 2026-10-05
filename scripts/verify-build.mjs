@@ -1,5 +1,6 @@
 import { readFile, stat, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import { loadSiteModule } from './site-data.mjs';
 import { validatePageCodes } from './page-code-check.mjs';
 
 const root = resolve('dist');
@@ -14,7 +15,10 @@ async function visit(directory, prefix) {
   }
 }
 for (const lang of ['en', 'ru']) await visit(resolve(root, lang), `/${lang}/`);
-if (pagePaths.length !== 38) fail(`Expected 38 localized pages, got ${pagePaths.length}`);
+const { pages } = await loadSiteModule('src/lib/routes.ts');
+const expectedPaths = new Set(pages.map((page) => page.path));
+for (const path of expectedPaths) if (!pagePaths.includes(path)) fail(`Missing localized page ${path}`);
+for (const path of pagePaths) if (!expectedPaths.has(path)) fail(`Unexpected localized page ${path}`);
 for (const path of pagePaths) {
   const lang = path.startsWith('/ru/') ? 'ru' : 'en';
   const html = await readFile(resolve(root, path.slice(1), 'index.html'), 'utf8');

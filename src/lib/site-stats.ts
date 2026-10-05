@@ -4,9 +4,11 @@ import {
   cases,
   recognitions,
   works,
+  realizedWorks,
+  researchWorks,
   type CaseEvent,
   type RecognitionKind,
-  type WorkStatus,
+  type WorkStage,
 } from '../data/site';
 
 const countBy = <T extends string>(items: T[]) =>
@@ -18,10 +20,10 @@ const countBy = <T extends string>(items: T[]) =>
 export const siteStats = {
   works: {
     total: works.length,
-    realized: works.filter((work) => work.realized).length,
-    research: works.filter((work) => work.rnd).length,
+    realized: realizedWorks.length,
+    research: researchWorks.length,
     bookable: works.filter((work) => work.bookable).length,
-    byStatus: countBy<WorkStatus>(works.map((work) => work.status)),
+    byStage: countBy<WorkStage>(works.map((work) => work.stage)),
     scope: 'curated-site-records',
   },
   cases: {

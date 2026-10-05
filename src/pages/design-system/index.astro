@@ -8,6 +8,7 @@ import MindDBStamp from '../../components/MindDBStamp.astro';
 import SectionRail from '../../components/SectionRail.astro';
 import RecordStamp from '../../components/RecordStamp.astro';
 import TechnicalMark from '../../components/TechnicalMark.astro';
+import CalloutLink from '../../components/CalloutLink.astro';
 import PageCode from '../../components/PageCode.astro';
 import { recognitions, works } from '../../data/site';
 import { siteStats } from '../../lib/site-stats';
@@ -307,13 +308,19 @@ const profileTokens = [
         <div class="component-pair">
           <div>
             <p class="component-title">Редакционные ссылки</p>
-            <a class="quiet-link" href="/ru/works/interference-of-realities/">
-              Документация работы <TechnicalMark kind="open" />
-            </a>
+            <CalloutLink href="/ru/works/">Работы</CalloutLink>
             <br />
-            <a class="quiet-link" href="/ru/works/">
-              Вернуться к работам <TechnicalMark kind="open" />
-            </a>
+            <CalloutLink href="/ru/works/">
+              Документация премьерного показа и исследования восприятия зрителей
+            </CalloutLink>
+            <br />
+            <CalloutLink href="/en/works/">
+              Typography, imagery and underlying project documentation
+            </CalloutLink>
+            <br />
+            <CalloutLink href="/ru/works/interference-of-realities/">Документация работы</CalloutLink>
+            <br />
+            <CalloutLink href="/ru/works/">Вернуться к работам</CalloutLink>
           </div>
           <div>
             <p class="component-title">Кнопки и статус</p>
@@ -327,14 +334,14 @@ const profileTokens = [
               Недоступно
             </button>
             <p class="status-row">
-              <span class="status" data-status="premiered">
-                Премьера
+              <span class="status" data-status="realized">
+                Реализовано
               </span>
-              <span class="status" data-status="archive">
-                Архив
+              <span class="status" data-status="prototype">
+                Прототип
               </span>
-              <span class="status" data-status="research">
-                R&amp;D
+              <span class="status" data-status="concept">
+                Концепция
               </span>
             </p>
           </div>
@@ -357,9 +364,11 @@ const profileTokens = [
       </aside>
       <div class="system-content">
         <div class="work-grid">
-          {works.slice(0, 2).map((item) => (
-            <WorkCard item={item} lang="ru" eager />
-          ))}
+          {works
+            .filter((item) => ['rings', 'emomandala', 'sync', 'ancestors'].includes(item.id))
+            .map((item) => (
+              <WorkCard item={item} lang="ru" eager />
+            ))}
         </div>
         <p class="small-note">
           В одном ряду карточки разделяют четыре строки: медиа, метаданные, название, описание. Длинная
@@ -402,9 +411,7 @@ const profileTokens = [
             <strong>Материал временно недоступен</strong>
             <p>Файл не найден в архиве. Описание работы и связанные документы остаются доступны.</p>
           </div>
-          <a class="quiet-link" href="/ru/works/interference-of-realities/">
-            К документации <TechnicalMark kind="open" />
-          </a>
+          <CalloutLink href="/ru/works/interference-of-realities/">К документации</CalloutLink>
         </div>
         <p class="small-note">
           Lightbox: Escape, возврат фокуса, подпись и alt. Видео: poster, muted preview, без обязательного
@@ -436,9 +443,7 @@ const profileTokens = [
             <dt>Контекст</dt>
             <dd>«Циолковский фест»</dd>
           </dl>
-          <a class="quiet-link" href="/ru/cases/tsiolkovsky-festival-2026/">
-            Кейс и источники <TechnicalMark kind="open" />
-          </a>
+          <CalloutLink href="/ru/cases/tsiolkovsky-festival-2026/">Кейс и источники</CalloutLink>
         </article>
         <article>
           <span class="component-title">Статус / доступность</span>
@@ -655,26 +660,17 @@ const profileTokens = [
         </p>
         <p class="small-note">
           Руководство для агентов: <code>docs/DESIGN-GUIDE.md</code>. Опорные примеры:{' '}
-          <a
-            class="editorial-link"
-            href="https://www.usgs.gov/media/images/example-information-bottom-topographic-map-collar"
-          >
+          <CalloutLink href="https://www.usgs.gov/media/images/example-information-bottom-topographic-map-collar">
             поля карт USGS
-          </a>
+          </CalloutLink>
           ,{' '}
-          <a
-            class="editorial-link"
-            href="https://www.nasa.gov/wp-content/uploads/static/history/alsj/a11/plans11.html"
-          >
+          <CalloutLink href="https://www.nasa.gov/wp-content/uploads/static/history/alsj/a11/plans11.html">
             Apollo Flight Plan
-          </a>
+          </CalloutLink>
           ,{' '}
-          <a
-            class="editorial-link"
-            href="https://www.magnumphotos.com/theory-and-practice/contact-sheet-mother-child-elliott-erwitt-portrait/"
-          >
+          <CalloutLink href="https://www.magnumphotos.com/theory-and-practice/contact-sheet-mother-child-elliott-erwitt-portrait/">
             контактные листы Magnum
-          </a>
+          </CalloutLink>
           .
         </p>
       </div>

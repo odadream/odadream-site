@@ -7,17 +7,21 @@ import SectionRail from './SectionRail.astro';
 import RecordStamp from './RecordStamp.astro';
 import PageCode from './PageCode.astro';
 import TechnicalMark from './TechnicalMark.astro';
+import CalloutLink from './CalloutLink.astro';
 import StatisticsStamp from './StatisticsStamp.astro';
 import {
   cases,
   evidence,
   formats,
-  heroVisuals,
+  publicHeroVisuals,
+  selectedWorks,
+  realizedWorks,
+  researchWorks,
   mediaById,
   organizations,
   people,
   recognitions,
-  workStatusLabels,
+  workStageLabels,
   works,
   workById,
 } from '../data/site';
@@ -46,7 +50,7 @@ const sectionName = {
   technology: ru ? 'Нейромандала' : 'Neuromandala',
   recognition: ru ? 'Признания' : 'Recognition',
 };
-const featured = heroVisuals;
+const featured = publicHeroVisuals;
 const homepageRecognitions = recognitions.filter((item) => item.featuredOnHome);
 const caseTypeLabels = {
   performance: { ru: 'Перформанс', en: 'Performance' },
@@ -126,8 +130,7 @@ const timeline = [...cases]
                   {linkedCase && <p class="nm-caption">{mediaDetail}</p>}
                   <div class="nm-caption-link">
                     {item.target.kind === 'work' ? (
-                      <a
-                        class="quiet-link"
+                      <CalloutLink
                         href={
                           item.target.caseId
                             ? caseUrl(lang, item.target.caseId)
@@ -140,9 +143,8 @@ const timeline = [...cases]
                             : 'Work in presentation context'
                           : ru
                             ? 'Страница работы'
-                            : 'Work documentation'}{' '}
-                        <TechnicalMark kind="open" />
-                      </a>
+                            : 'Work documentation'}
+                      </CalloutLink>
                     ) : (
                       <span class="nm-pending-link" role="status">
                         {ru ? 'Архивный фрагмент' : 'Archive excerpt'}
@@ -176,13 +178,11 @@ const timeline = [...cases]
       <div class="section-body">
         <h2>{ru ? 'Избранные работы' : 'Selected works'}</h2>
         <div class="work-grid">
-          {works.map((item) => (
+          {selectedWorks.map((item) => (
             <WorkCard item={item} lang={lang} />
           ))}
         </div>
-        <a class="quiet-link" href={`/${lang}/works/`}>
-          {ru ? 'Все работы' : 'All works'} <TechnicalMark kind="open" />
-        </a>
+        <CalloutLink href={`/${lang}/works/`}>{ru ? 'Все работы' : 'All works'}</CalloutLink>
       </div>
       <SectionRail
         family="H"
@@ -232,12 +232,10 @@ const timeline = [...cases]
             : 'We do not diagnose people or claim that a signal proves an inner state.'}
         </p>
         <div class="link-row">
-          <a class="quiet-link" href={`/${lang}/technology/`}>
-            {ru ? 'Как устроена Нейромандала' : 'How Neuromandala works'} <TechnicalMark kind="open" />
-          </a>
-          <a class="quiet-link" href={`/${lang}/formats/`}>
-            {ru ? 'Форматы' : 'Formats'} <TechnicalMark kind="open" />
-          </a>
+          <CalloutLink href={`/${lang}/technology/`}>
+            {ru ? 'Как устроена Нейромандала' : 'How Neuromandala works'}
+          </CalloutLink>
+          <CalloutLink href={`/${lang}/formats/`}>{ru ? 'Форматы' : 'Formats'}</CalloutLink>
         </div>
       </div>
       <SectionRail
@@ -262,15 +260,11 @@ const timeline = [...cases]
                 <span class="index">{item.year}</span>
               </div>
               <p>{item[lang]}</p>
-              <a class="quiet-link" href={item.url}>
-                {ru ? 'Подробнее' : 'Explore'} <TechnicalMark kind="open" />
-              </a>
+              <CalloutLink href={item.url}>{ru ? 'Подробнее' : 'Explore'}</CalloutLink>
             </li>
           ))}
         </ol>
-        <a class="quiet-link" href={`/${lang}/cases/`}>
-          {ru ? 'Опубликованные кейсы' : 'Published cases'} <TechnicalMark kind="open" />
-        </a>
+        <CalloutLink href={`/${lang}/cases/`}>{ru ? 'Опубликованные кейсы' : 'Published cases'}</CalloutLink>
       </div>
       <SectionRail
         family="H"
@@ -299,9 +293,9 @@ const timeline = [...cases]
             ? 'Превью из прежнего публичного архива. Права на повторную публикацию документов ещё проверяются.'
             : 'Previews from the former public archive. Re-publication rights remain under review.'}
         </p>
-        <a class="quiet-link" href={`/${lang}/recognition/`}>
-          {ru ? 'Архив признаний' : 'Recognition archive'} <TechnicalMark kind="open" />
-        </a>
+        <CalloutLink href={`/${lang}/recognition/`}>
+          {ru ? 'Архив признаний' : 'Recognition archive'}
+        </CalloutLink>
       </div>
       <SectionRail
         family="H"
@@ -325,9 +319,9 @@ const timeline = [...cases]
             ? 'Обсудим показ, адаптацию готового формата или совместное исследование.'
             : 'Let’s discuss a presentation, an adapted format or a shared investigation.'}
         </p>
-        <a class="quiet-link" href={`/${lang}/contact/`}>
-          {ru ? 'Связаться со студией' : 'Contact the studio'} <TechnicalMark kind="open" />
-        </a>
+        <CalloutLink href={`/${lang}/contact/`}>
+          {ru ? 'Связаться со студией' : 'Contact the studio'}
+        </CalloutLink>
       </div>
       <SectionRail
         family="H"
@@ -361,7 +355,23 @@ const timeline = [...cases]
         <PageCode family={family} section={1} lang={lang} /> / {ru ? 'КАТАЛОГ' : 'CATALOGUE'}
       </p>
       <div class="work-grid">
-        {works.map((item) => (
+        {realizedWorks.map((item) => (
+          <WorkCard item={item} lang={lang} />
+        ))}
+      </div>
+    </section>
+    <section class="shell works-catalogue" id="research-works">
+      <p class="eyebrow catalogue-label">
+        <PageCode family={family} section={2} lang={lang} /> / R&amp;D
+      </p>
+      <h2>{ru ? 'Концепции и прототипы' : 'Concepts and prototypes'}</h2>
+      <p class="catalogue-note">
+        {ru
+          ? 'Работы в разработке: концепции, прототипы и внутренние лаборатории.'
+          : 'Works in development: concepts, prototypes and internal laboratories.'}
+      </p>
+      <div class="work-grid">
+        {researchWorks.map((item) => (
           <WorkCard item={item} lang={lang} />
         ))}
       </div>
@@ -421,9 +431,7 @@ const timeline = [...cases]
           {works
             .filter((item) => ['mindshow', 'interference', 'neurobattle'].includes(item.id))
             .map((item) => (
-              <a class="quiet-link" href={workUrl(lang, item.id)}>
-                {item.title[lang]} <TechnicalMark kind="open" />
-              </a>
+              <CalloutLink href={workUrl(lang, item.id)}>{item.title[lang]}</CalloutLink>
             ))}
         </div>
       </div>
@@ -461,9 +469,7 @@ const timeline = [...cases]
               <RecognitionCard item={item} lang={lang} />
             ))}
         </div>
-        <a class="quiet-link" href={`/${lang}/cases/`}>
-          {ru ? 'Проверяемые события' : 'Documented events'} <TechnicalMark kind="open" />
-        </a>
+        <CalloutLink href={`/${lang}/cases/`}>{ru ? 'Проверяемые события' : 'Documented events'}</CalloutLink>
       </div>
     </section>
   </>
@@ -471,9 +477,9 @@ const timeline = [...cases]
 {work && (
   <article class="shell page-intro">
     <nav class="breadcrumbs" aria-label={ru ? 'Навигационная цепочка' : 'Breadcrumbs'}>
-      <a href={`/${lang}/`}>{ru ? 'Главная' : 'Home'}</a>
+      <CalloutLink href={`/${lang}/`}>{ru ? 'Главная' : 'Home'}</CalloutLink>
       <span>/</span>
-      <a href={`/${lang}/works/`}>{ru ? 'Работы' : 'Works'}</a>
+      <CalloutLink href={`/${lang}/works/`}>{ru ? 'Работы' : 'Works'}</CalloutLink>
       <span>/</span>
       <span>{work.title[lang]}</span>
     </nav>
@@ -498,6 +504,35 @@ const timeline = [...cases]
             <PageCode family={family} section={2} lang={lang} /> / {ru ? 'Контекст' : 'Context'}
           </span>
           <h2>{ru ? 'Подтверждённые факты' : 'Documented facts'}</h2>
+          {work.components && (
+            <>
+              <h3>{ru ? 'Состав работы' : 'Components of the work'}</h3>
+              <ul class="facts">
+                {work.components[lang].map((part) => (
+                  <li>{part}</li>
+                ))}
+              </ul>
+            </>
+          )}
+          {work.basedOn.length > 0 && (
+            <p>
+              {ru ? 'На основе работы: ' : 'Based on: '}
+              {work.basedOn.map((id) => (
+                <CalloutLink href={workUrl(lang, id)}>{workById(id)?.title[lang]}</CalloutLink>
+              ))}
+            </p>
+          )}
+          {works.some((item) => item.basedOn.includes(work.id)) && (
+            <p>
+              {ru ? 'Связанные концепты: ' : 'Related concepts: '}
+              {works
+                .filter((item) => item.basedOn.includes(work.id))
+                .map((item) => (
+                  <CalloutLink href={workUrl(lang, item.id)}>{item.title[lang]}</CalloutLink>
+                ))}
+            </p>
+          )}
+
           <ul class="facts">
             {work.facts[lang].map((fact) => (
               <li>{fact}</li>
@@ -506,9 +541,9 @@ const timeline = [...cases]
           {work.cases.length > 0 && (
             <div class="link-row spaced-actions">
               {work.cases.map((id) => (
-                <a class="quiet-link" href={caseUrl(lang, id)}>
-                  {cases.find((x) => x.id === id)?.title[lang]} <TechnicalMark kind="open" />
-                </a>
+                <CalloutLink href={caseUrl(lang, id)}>
+                  {cases.find((x) => x.id === id)?.title[lang]}
+                </CalloutLink>
               ))}
             </div>
           )}
@@ -546,9 +581,9 @@ const timeline = [...cases]
           {work.formats.length > 0 && (
             <div class="link-row spaced-actions">
               {work.formats.map((id) => (
-                <a class="quiet-link" href={formatUrl(lang, id)}>
-                  {formats.find((x) => x.id === id)?.title[lang]} <TechnicalMark kind="open" />
-                </a>
+                <CalloutLink href={formatUrl(lang, id)}>
+                  {formats.find((x) => x.id === id)?.title[lang]}
+                </CalloutLink>
               ))}
             </div>
           )}
@@ -562,10 +597,9 @@ const timeline = [...cases]
           <strong>{ru ? 'Источник и права' : 'Source and rights'}</strong>
           <p>
             {ru
-              ? 'Описание сверено с архивной карточкой ODA.dream. Права на представленное изображение требуют редакционного подтверждения до публикации.'
-              : 'Description checked against the ODA.dream archive record. Image rights require editorial confirmation before publication.'}
+              ? 'Описание основано на материалах студии. Показ материалов, включая частные заказы, разрешён владельцем.'
+              : 'Description based on studio records. Display of the materials, including private commissions, is authorized by the owner.'}
           </p>
-          <p>{work.source}</p>
         </div>
       </div>
       <aside class="work-aside">
@@ -574,7 +608,19 @@ const timeline = [...cases]
           fields={[
             { label: 'ID', value: work.legacyId },
             { label: ru ? 'Форма' : 'Form', value: work.category[lang] },
-            { label: ru ? 'Статус' : 'Status', value: workStatusLabels[work.status][lang] },
+            { label: ru ? 'Стадия' : 'Stage', value: workStageLabels[work.stage][lang] },
+            ...(work.year ? [{ label: ru ? 'Создание' : 'Created', value: work.year }] : []),
+            ...(work.edition
+              ? [{ label: ru ? 'Состав / тираж' : 'Composition / edition', value: work.edition[lang] }]
+              : []),
+            ...(work.aliases.length
+              ? [
+                  {
+                    label: ru ? 'Исторические названия' : 'Historical names',
+                    value: work.aliases.join(' · '),
+                  },
+                ]
+              : []),
             {
               label: ru ? 'Кейсы в каталоге' : 'Catalogued cases',
               value: work.cases.length,
@@ -617,13 +663,11 @@ const timeline = [...cases]
             <p>{item.scope[lang]}</p>
             <div class="link-row">
               {item.works.map((id) => (
-                <a class="quiet-link" href={workUrl(lang, id)}>
-                  {workById(id)?.title[lang]} <TechnicalMark kind="open" />
-                </a>
+                <CalloutLink href={workUrl(lang, id)}>{workById(id)?.title[lang]}</CalloutLink>
               ))}
-              <a class="quiet-link" href={`/${lang}/cooperation/`}>
-                {ru ? 'Условия сотрудничества' : 'Cooperation details'} <TechnicalMark kind="open" />
-              </a>
+              <CalloutLink href={`/${lang}/cooperation/`}>
+                {ru ? 'Условия сотрудничества' : 'Cooperation details'}
+              </CalloutLink>
             </div>
           </div>
         </article>
@@ -739,9 +783,7 @@ const timeline = [...cases]
               <h3>{item.title[lang]}</h3>
               <p>{item.place[lang]}</p>
             </div>
-            <a class="quiet-link" href={caseUrl(lang, item.id)}>
-              {ru ? 'Детали' : 'Details'} <TechnicalMark kind="open" />
-            </a>
+            <CalloutLink href={caseUrl(lang, item.id)}>{ru ? 'Детали' : 'Details'}</CalloutLink>
           </div>
         ))}
       </div>
@@ -772,9 +814,7 @@ const timeline = [...cases]
             ? 'В кейсах указаны события, даты, места и роли организаций. Благодарности и цитаты не публикуются без отдельного разрешения.'
             : 'Cases name events, dates, places and organizational roles. Letters and quotations are not published without separate permission.'}
         </p>
-        <a class="quiet-link" href={`/${lang}/cases/`}>
-          {ru ? 'Смотреть кейсы' : 'See cases'} <TechnicalMark kind="open" />
-        </a>
+        <CalloutLink href={`/${lang}/cases/`}>{ru ? 'Смотреть кейсы' : 'See cases'}</CalloutLink>
       </div>
     </section>
   </>
@@ -806,9 +846,7 @@ const timeline = [...cases]
             <p>{item.summary[lang]}</p>
             <p>{item.role[lang]}</p>
           </div>
-          <a class="quiet-link" href={caseUrl(lang, item.id)}>
-            {ru ? 'Открыть' : 'Open'} <TechnicalMark kind="open" />
-          </a>
+          <CalloutLink href={caseUrl(lang, item.id)}>{ru ? 'Открыть' : 'Open'}</CalloutLink>
         </article>
       ))}
     </section>
@@ -817,9 +855,9 @@ const timeline = [...cases]
 {oneCase && (
   <article class="shell page-intro">
     <nav class="breadcrumbs" aria-label={ru ? 'Навигационная цепочка' : 'Breadcrumbs'}>
-      <a href={`/${lang}/`}>{ru ? 'Главная' : 'Home'}</a>
+      <CalloutLink href={`/${lang}/`}>{ru ? 'Главная' : 'Home'}</CalloutLink>
       <span>/</span>
-      <a href={`/${lang}/cases/`}>{ru ? 'Кейсы' : 'Cases'}</a>
+      <CalloutLink href={`/${lang}/cases/`}>{ru ? 'Кейсы' : 'Cases'}</CalloutLink>
       <span>/</span>
       <span>{oneCase.title[lang]}</span>
     </nav>
@@ -837,10 +875,9 @@ const timeline = [...cases]
           </span>
           <h2>{ru ? 'Роль ODA.dream' : 'ODA.dream’s role'}</h2>
           <p>{oneCase.role[lang]}</p>
-          <a class="quiet-link" href={workUrl(lang, oneCase.work)}>
-            {ru ? 'Связанная работа' : 'Related work'}: {workById(oneCase.work)?.title[lang]}{' '}
-            <TechnicalMark kind="open" />
-          </a>
+          <CalloutLink href={workUrl(lang, oneCase.work)}>
+            {ru ? 'Связанная работа' : 'Related work'}: {workById(oneCase.work)?.title[lang]}
+          </CalloutLink>
         </section>
         <section class="work-section">
           <span class="eyebrow">
@@ -918,16 +955,16 @@ const timeline = [...cases]
       </div>
       <div class="section-body">
         <p class="contact-address">
-          <a href="mailto:hi@odadream.art">hi@odadream.art</a>
+          <CalloutLink href="mailto:hi@odadream.art">hi@odadream.art</CalloutLink>
         </p>
         <p class="small-note">
           {ru
             ? 'Быстрый ответ — в Telegram. Адреса сверены с контактными данными старого сайта.'
             : 'For a quick reply, use Telegram. These addresses match the previous site’s contact registry.'}
         </p>
-        <a class="quiet-link" href="https://t.me/odadream_info" rel="noopener noreferrer">
-          t.me/odadream_info <TechnicalMark kind="open" />
-        </a>
+        <CalloutLink href="https://t.me/odadream_info" rel="noopener noreferrer">
+          t.me/odadream_info
+        </CalloutLink>
       </div>
     </section>
   </>

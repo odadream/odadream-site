@@ -593,6 +593,10 @@ figcaption {
   overflow: hidden;
   background: var(--surface);
 }
+.work-card__media {
+  display: block;
+  min-width: 0;
+}
 .work-card__visual video,
 .feature-visual video {
   position: absolute;
@@ -639,16 +643,28 @@ figcaption {
 }
 .work-card .meta {
   display: flex;
+  flex-wrap: wrap;
   align-items: start;
   justify-content: space-between;
   gap: var(--s3);
   margin-top: var(--s3);
 }
 .work-card__category {
-  max-width: 26ch;
   color: var(--muted);
   font-size: var(--type-annotation);
   line-height: 1.5;
+}
+.work-card__year {
+  white-space: nowrap;
+  color: var(--muted);
+  font-size: var(--type-annotation);
+  line-height: 1.5;
+}
+.work-card__media-note {
+  display: block;
+  margin-top: var(--s2);
+  color: var(--muted);
+  font: 400 var(--type-annotation)/1.5 var(--mono);
 }
 .work-card__status {
   flex: 0 1 auto;
@@ -663,20 +679,20 @@ figcaption {
   text-align: left;
 }
 .work-card__identity {
-  display: grid;
-  align-content: start;
-  gap: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: var(--s2);
+  flex: 1 1 auto;
   min-width: 0;
 }
 .catalogue-label {
   margin-block: var(--s5);
 }
-.work-card__status[data-work-status='research'] {
+.work-card__status[data-work-stage='concept'],
+.work-card__status[data-work-stage='prototype'] {
   border-color: color-mix(in srgb, var(--alert) 42%, transparent);
   color: var(--alert);
-}
-.work-card__status[data-work-status='archive'] {
-  color: var(--muted);
 }
 .work-card h3 {
   overflow-wrap: anywhere;
@@ -705,6 +721,18 @@ figcaption {
   }
   .work-grid > .work-card {
     padding-bottom: calc(var(--card-row-gap) - var(--card-gap));
+  }
+  .work-grid > .work-card > .work-card__link > .work-card__media {
+    grid-row: 1;
+  }
+  .work-grid > .work-card > .work-card__link > .work-card__meta {
+    grid-row: 2;
+  }
+  .work-grid > .work-card > .work-card__link > h3 {
+    grid-row: 3;
+  }
+  .work-grid > .work-card > .work-card__link > p {
+    grid-row: 4;
   }
   .work-grid > .work-card .meta,
   .work-grid > .work-card h3,
@@ -827,7 +855,7 @@ figcaption {
   height: 6px;
   background: currentColor;
 }
-.status[data-status='premiered'] {
+.status[data-status='realized'] {
   --status-color: var(--accent);
 }
 .status[data-status='presented'] {
@@ -836,7 +864,8 @@ figcaption {
 .status[data-status='archive'] {
   --status-color: var(--dim);
 }
-.status[data-status='research'] {
+.status[data-status='concept'],
+.status[data-status='prototype'] {
   --status-color: var(--alert);
 }
 .feature-split {
@@ -1519,4 +1548,12 @@ figcaption {
   .recognition-card__missing {
     height: 220px;
   }
+}
+
+.works-catalogue + .works-catalogue {
+  margin-top: var(--s8);
+}
+.catalogue-note {
+  margin-block: var(--s4) var(--s6);
+  color: var(--muted);
 }

@@ -1,12 +1,8 @@
 import { readFile, stat } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import ts from 'typescript';
+import { loadSiteModule } from './site-data.mjs';
 
-const source = await readFile('src/data/site.ts', 'utf8');
-const js = ts.transpileModule(source, {
-  compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 },
-}).outputText;
-const data = await import('data:text/javascript;base64,' + Buffer.from(js).toString('base64'));
+const data = await loadSiteModule();
 const legacy = JSON.parse(await readFile('src/data/legacy-map.json', 'utf8'));
 const legacyIds = new Set(legacy.map((row) => row.id));
 const files = new Set(legacy.map((row) => row.source));
@@ -54,8 +50,30 @@ const workIds = ids(data.works),
   orgIds = ids(data.organizations),
   evidenceIds = ids(data.evidence);
 for (const work of data.works) {
-  if (work.rnd && work.bookable) errors.push(`work ${work.id}: R&D marked bookable`);
-  if (work.inRepertoire && !work.realized) errors.push(`work ${work.id}: repertoire without realization`);
+  for (const field of ['title', 'category', 'summary', 'experience', 'question', 'availability']) {
+    for (const lang of ['en', 'ru']) {
+      if (typeof work[field]?.[lang] !== 'string' || !work[field][lang].trim())
+        errors.push(`work ${work.id}: missing ${field}.${lang}`);
+    }
+  }
+  if (!work.media.length) errors.push(`work ${work.id}: card preview missing`);
+  if (work.year !== null && (!Number.isInteger(work.year) || work.year < 1000 || work.year > 2100))
+    errors.push(`work ${work.id}: year must be a documented integer or explicit null`);
+  if (
+    !['performance', 'installation', 'game', 'object', 'participatory-practice', 'interactive-work'].includes(
+      work.workType,
+    )
+  )
+    errors.push(`work ${work.id}: invalid work type`);
+  if (!['concept', 'prototype', 'in-production', 'realized'].includes(work.stage))
+    errors.push(`work ${work.id}: invalid stage`);
+  if (work.featuredOnHome && work.stage !== 'realized')
+    errors.push(`work ${work.id}: development work featured on home`);
+  for (const id of work.basedOn)
+    if (!workIds.has(id) || id === work.id) errors.push(`work ${work.id}: invalid basedOn ${id}`);
+  if (work.stage !== 'realized' && work.bookable) errors.push(`work ${work.id}: R&D marked bookable`);
+  if (work.inRepertoire && work.stage !== 'realized')
+    errors.push(`work ${work.id}: repertoire without realization`);
   for (const id of work.media) if (!mediaIds.has(id)) errors.push(`work ${work.id}: missing media ${id}`);
   for (const id of work.cases) if (!caseIds.has(id)) errors.push(`work ${work.id}: missing case ${id}`);
   for (const id of work.formats) if (!formatIds.has(id)) errors.push(`work ${work.id}: missing format ${id}`);
