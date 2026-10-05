@@ -10,3 +10,6 @@ Approved exceptions belong in `media-decisions.json`, keyed by the exact old pat
 
 
 Display permission, 2026-10-05: the owner authorized display of works and private commissions by default, subject to later withdrawals. Selected local Media records are cleared on this basis (CONTENT-AND-CMS.md). Historical URL retirement/redirect decisions remain separate.
+
+
+Publication scope, 2026-10-06: a legacy file is preserved only when its path is in the built public packet. The historical audit's retained flag records presence in the editorial source tree and cannot bypass this check. With all works still under review, 7 copied old paths are temporarily excluded alongside 172 previously missing paths: release currently requires 179 dispositions. Publishing an approved work can restore its permitted assets to the allowlist; deferring it never authorizes URL retirement automatically.
