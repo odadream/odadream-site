@@ -1,7 +1,7 @@
 ---
 import RecordStamp from './RecordStamp.astro';
 import { siteStats } from '../lib/site-stats';
-import { workStatusLabels, type Lang } from '../data/site';
+import { workStageLabels, type Lang } from '../data/site';
 interface Props {
   kind: 'works' | 'events' | 'recognition';
   lang: Lang;
@@ -80,11 +80,11 @@ const fields =
 <RecordStamp tone="reference" title={titles[kind]} fields={fields}>
   {kind === 'works' && (
     <details class="record-stamp__more">
-      <summary>{ru ? 'Состав по статусам' : 'Status breakdown'}</summary>
+      <summary>{ru ? 'Состав по стадиям' : 'Stage breakdown'}</summary>
       <dl>
-        {Object.entries(siteStats.works.byStatus).map(([status, count]) => (
+        {Object.entries(siteStats.works.byStage).map(([status, count]) => (
           <div>
-            <dt>{workStatusLabels[status as keyof typeof workStatusLabels][lang]}</dt>
+            <dt>{workStageLabels[status as keyof typeof workStageLabels][lang]}</dt>
             <dd>{count}</dd>
           </div>
         ))}

@@ -1,4 +1,5 @@
 ---
+import CalloutLink from './CalloutLink.astro';
 import TechnicalMark from './TechnicalMark.astro';
 export interface StampField {
   label: string;
@@ -31,14 +32,7 @@ const { title, fields, wide = false, tone = 'document' } = Astro.props;
       <div>
         <dt>{field.label}</dt>
         <dd class:list={{ 'record-stamp__metric': field.metric }}>
-          {field.href ? (
-            <a href={field.href}>
-              {field.value}
-              <TechnicalMark kind="open" />
-            </a>
-          ) : (
-            field.value
-          )}
+          {field.href ? <CalloutLink href={field.href}>{field.value}</CalloutLink> : field.value}
         </dd>
       </div>
     ))}

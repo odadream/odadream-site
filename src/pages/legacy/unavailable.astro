@@ -1,6 +1,6 @@
 ---
 import '../../styles/global.css';
-import TechnicalMark from '../../components/TechnicalMark.astro';
+import CalloutLink from '../../components/CalloutLink.astro';
 ---
 
 <!doctype html>
@@ -28,12 +28,8 @@ import TechnicalMark from '../../components/TechnicalMark.astro';
         Legacy ID: <code id="legacy-id">unknown</code>
       </p>
       <div class="link-row mt-6">
-        <a class="quiet-link" href="/en/works/">
-          Explore works <TechnicalMark kind="open" />
-        </a>
-        <a class="quiet-link" href="/en/contact/">
-          Ask the studio <TechnicalMark kind="open" />
-        </a>
+        <CalloutLink href="/en/works/">Explore works</CalloutLink>
+        <CalloutLink href="/en/contact/">Ask the studio</CalloutLink>
       </div>
     </main>
     <script>

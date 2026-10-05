@@ -96,9 +96,10 @@
   --radius-media: 1px;
   --mono: 'JetBrains Mono', monospace;
   --sans: 'Manrope', Arial, sans-serif;
-  --link-offset: 0.16em;
+  --link-offset: 0.3em;
   --link-rule-width: 1px;
-  --link-mark-size: 1em;
+  --link-mark-size: 0.8em;
+  --link-head-size: 0.32em;
   --motion-fast: 180ms ease;
   --motion-media: 700ms ease;
   --section-accent: var(--accent);

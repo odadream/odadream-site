@@ -281,6 +281,26 @@ main:has(> .section:last-child, > .system-page) + .site-footer {
 .footer-links {
   align-items: center;
 }
+.footer-copyright {
+  display: block;
+  color: var(--muted);
+  font: 400 var(--type-note)/1.6 var(--mono);
+}
+.footer-brand {
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+  color: var(--ink);
+}
+.footer-brand sup {
+  font-size: 0.65em;
+  line-height: 0;
+  transform: translateY(-0.6em);
+}
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: var(--accent);
+}
 .social-icon {
   display: inline-grid;
   width: var(--control-icon-size);
@@ -313,17 +333,16 @@ main:has(> .section:last-child, > .system-page) + .site-footer {
   fill: currentColor;
   stroke: none;
 }
-.social-icon[data-social-icon='dzen'] {
-  font: 600 var(--type-note)/1 var(--sans);
+.social-icon[data-social-icon='dzen'] svg path {
+  fill: currentColor;
+  stroke: none;
 }
-.footer-links a,
-.breadcrumbs a {
+.breadcrumbs a:not(.callout-link) {
   text-decoration: underline;
   text-decoration-thickness: var(--link-rule-width);
   text-underline-offset: var(--link-offset);
   text-decoration-color: transparent;
 }
-.footer-links a:hover,
 .breadcrumbs a:hover {
   color: var(--ink);
   text-decoration-color: var(--line-strong);
@@ -405,34 +424,60 @@ h3 {
   border-top: 0;
 }
 .quiet-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0;
-  min-height: var(--tap-target);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: var(--link-offset);
-  text-decoration-color: var(--line-strong);
   font-size: var(--type-small);
   font-weight: var(--weight-heading);
-  transition:
-    color 0.18s,
-    text-decoration-color 0.18s;
+  min-height: var(--tap-target);
 }
-.quiet-link:hover,
-.quiet-link:focus-visible {
+.callout-link {
+  display: inline-block;
+  max-width: 100%;
+  min-width: 0;
+  padding-right: 0;
+  color: inherit;
+  transition: color var(--motion-fast);
+  text-decoration: underline;
+  text-underline-offset: var(--link-offset);
+}
+.callout-link.is-drawn {
+  text-decoration: none;
+}
+a.callout-link:hover,
+a.callout-link:focus-visible,
+a:hover .callout-link,
+a:focus-visible .callout-link {
   color: var(--accent);
-  text-decoration-color: currentColor;
 }
-.quiet-link > .technical-mark {
-  width: var(--link-mark-size);
-  height: var(--link-mark-size);
-  overflow: visible;
+.callout-link-content {
+  display: inline-block;
+  position: relative;
+  max-width: 100%;
+  vertical-align: baseline;
 }
-.record-stamp a > .technical-mark {
+.callout-link-tail {
+  white-space: nowrap;
+}
+.callout-link-marker {
+  display: inline-block;
   width: var(--link-mark-size);
-  height: var(--link-mark-size);
+  height: var(--link-offset);
+  padding-left: var(--link-head-size);
+  vertical-align: baseline;
+}
+.callout-link-drawing {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
   overflow: visible;
+  pointer-events: none;
+}
+.callout-link-drawing path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: var(--link-rule-width);
+  stroke-linecap: butt;
+  stroke-linejoin: miter;
 }
 .button {
   display: inline-flex;

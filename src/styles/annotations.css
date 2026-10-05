@@ -153,7 +153,7 @@
 .record-stamp--reference .record-stamp__more > summary:hover {
   color: var(--ink);
 }
-.record-stamp a {
+.record-stamp a:not(.callout-link) {
   display: inline-flex;
   align-items: center;
   min-height: var(--tap-target);

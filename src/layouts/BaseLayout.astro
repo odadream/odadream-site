@@ -11,6 +11,7 @@ import '@fontsource/manrope/latin-800.css';
 import '@fontsource/manrope/cyrillic-500.css';
 import { cases, mediaById, socialLinks, works } from '../data/site';
 import { pairedPath, type Page } from '../lib/routes';
+import DzenIcon from '../assets/social/dzen.svg';
 import RecordStamp from '../components/RecordStamp.astro';
 import { familyByKind } from '../lib/page-codes';
 import PageCode from '../components/PageCode.astro';
@@ -303,18 +304,27 @@ const breadcrumbSchema =
       )}
       <div class="shell footer-inner">
         <div>
-          <span class="eyebrow">ODA.DREAM / 2026</span>
+          <small class="footer-copyright">
+            © 2018–{new Date().getFullYear()}{' '}
+            <span class="footer-brand">
+              ODA.dream
+              <sup title={page.lang === 'ru' ? 'Зарегистрированный товарный знак' : 'Registered trademark'}>
+                ®
+              </sup>
+            </span>
+          </small>
           <p>
             {page.lang === 'en'
               ? 'Human state as artistic material.'
               : 'Состояние человека как художественный материал.'}
           </p>
         </div>
-        <div class="footer-links">
-          <a href={`/${page.lang}/contact/`}>{page.lang === 'en' ? 'Contact' : 'Контакт'}</a>
+        <nav
+          class="footer-links"
+          aria-label={page.lang === 'ru' ? 'Контакты и социальные сети' : 'Contact and social links'}
+        >
+          <a href={`/${page.lang}/contact/`}>{page.lang === 'en' ? 'Contact' : 'Контакты'}</a>
           <a href={`/${page.lang}/studio/`}>{page.lang === 'en' ? 'Studio' : 'Студия'}</a>
-          <a href={`/${page.lang}/technology/`}>{page.lang === 'en' ? 'Neuromandala' : 'Нейромандала'}</a>
-          <a href={`/${page.lang}/recognition/`}>{page.lang === 'en' ? 'Recognition' : 'Признания'}</a>
           {socialLinks
             .filter((item) => item.languages.includes(page.lang))
             .map((item) => (
@@ -341,13 +351,13 @@ const breadcrumbSchema =
                       <circle class="social-icon__dot" cx="17.7" cy="6.7" r=".8" />
                     </svg>
                   ) : (
-                    <span>Д</span>
+                    <DzenIcon />
                   )}
                 </span>
                 <span>{item.label}</span>
               </a>
             ))}
-        </div>
+        </nav>
       </div>
     </footer>
     <dialog

@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import TechnicalMark from '../components/TechnicalMark.astro';
+import CalloutLink from '../components/CalloutLink.astro';
 ---
 
 <!doctype html>
@@ -17,9 +17,9 @@ import TechnicalMark from '../components/TechnicalMark.astro';
       <p class="eyebrow">ODA.DREAM / 404</p>
       <h1>Page not found</h1>
       <p class="lead mt-5">The requested address does not match a published page.</p>
-      <a class="quiet-link mt-6" href="/en/">
-        Return to ODA.dream <TechnicalMark kind="open" />
-      </a>
+      <CalloutLink class="mt-6" href="/en/">
+        Return to ODA.dream
+      </CalloutLink>
     </main>
   </body>
 </html>
