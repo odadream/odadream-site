@@ -21,10 +21,11 @@ import {
   organizations,
   people,
   recognitions,
-  workStageLabels,
   works,
   workById,
-} from '../data/site';
+} from '../data/catalogue';
+import { workStageLabels } from '../data/site';
+import { minddbSnapshot, preview } from '../data/catalogue';
 import { caseUrl, formatUrl, workUrl, type Page } from '../lib/routes';
 interface Props {
   page: Page;
@@ -169,9 +170,14 @@ const timeline = [...cases]
               : 'An art studio creating participatory performances, installations and objects shaped by the people who encounter them.'}
           </p>
         </div>
-        <aside class="nm-data-panel" aria-label={ru ? 'Сводные данные MindDB' : 'MindDB collection summary'}>
-          <MindDBStamp lang={lang} />
-        </aside>
+        {minddbSnapshot && (
+          <aside
+            class="nm-data-panel"
+            aria-label={ru ? 'Сводные данные MindDB' : 'MindDB collection summary'}
+          >
+            <MindDBStamp lang={lang} />
+          </aside>
+        )}
       </div>
     </div>
     <section class="section shell section-grid section--atlas" id="selected-works">
@@ -280,37 +286,43 @@ const timeline = [...cases]
         <StatisticsStamp kind="events" lang={lang} />
       </SectionRail>
     </section>
-    <section class="section shell section-grid section--atlas" id="recognition">
-      <div class="section-body">
-        <h2>{ru ? 'Архив наград и благодарностей.' : 'Awards and acknowledgements archive.'}</h2>
-        <div class="recognition-grid">
-          {homepageRecognitions.map((item) => (
-            <RecognitionCard item={item} lang={lang} />
-          ))}
+    {homepageRecognitions.length > 0 && (
+      <section class="section shell section-grid section--atlas" id="recognition">
+        <div class="section-body">
+          <h2>{ru ? 'Архив наград и благодарностей.' : 'Awards and acknowledgements archive.'}</h2>
+          <div class="recognition-grid">
+            {homepageRecognitions.map((item) => (
+              <RecognitionCard item={item} lang={lang} />
+            ))}
+          </div>
+          <p class="small-note">
+            {ru
+              ? preview
+                ? 'Превью из прежнего публичного архива. Права на повторную публикацию документов ещё проверяются.'
+                : 'Выбранные документы с подтверждённым разрешением на публикацию.'
+              : preview
+                ? 'Previews from the former public archive. Re-publication rights remain under review.'
+                : 'Selected documents cleared for publication.'}
+          </p>
+          <CalloutLink href={`/${lang}/recognition/`}>
+            {ru ? 'Архив признаний' : 'Recognition archive'}
+          </CalloutLink>
         </div>
-        <p class="small-note">
-          {ru
-            ? 'Превью из прежнего публичного архива. Права на повторную публикацию документов ещё проверяются.'
-            : 'Previews from the former public archive. Re-publication rights remain under review.'}
-        </p>
-        <CalloutLink href={`/${lang}/recognition/`}>
-          {ru ? 'Архив признаний' : 'Recognition archive'}
-        </CalloutLink>
-      </div>
-      <SectionRail
-        family="H"
-        section={4}
-        label={ru ? 'Признания' : 'Recognition'}
-        note={
-          ru
-            ? 'След встречи — документ. Автор, институция и повод сохраняются рядом с изображением.'
-            : 'An encounter leaves a document. Author, institution and occasion stay with the image.'
-        }
-        lang={lang}
-      >
-        <StatisticsStamp kind="recognition" lang={lang} />
-      </SectionRail>
-    </section>
+        <SectionRail
+          family="H"
+          section={4}
+          label={ru ? 'Признания' : 'Recognition'}
+          note={
+            ru
+              ? 'След встречи — документ. Автор, институция и повод сохраняются рядом с изображением.'
+              : 'An encounter leaves a document. Author, institution and occasion stay with the image.'
+          }
+          lang={lang}
+        >
+          <StatisticsStamp kind="recognition" lang={lang} />
+        </SectionRail>
+      </section>
+    )}
     <section class="section shell section-grid section--atlas" id="contact">
       <div class="section-body">
         <h2>{ru ? 'Есть проект или вопрос?' : 'Have a project or a question?'}</h2>
@@ -325,7 +337,7 @@ const timeline = [...cases]
       </div>
       <SectionRail
         family="H"
-        section={5}
+        section={homepageRecognitions.length > 0 ? 5 : 4}
         label={ru ? 'Связь' : 'Contact'}
         note={
           ru
@@ -761,9 +773,9 @@ const timeline = [...cases]
         <span class="eyebrow">{ru ? 'Люди' : 'People'}</span>
       </div>
       <div class="section-body">
-        <h2>{people[0].name[lang]}</h2>
+        <h2>{people[0]?.name[lang] ?? (ru ? 'Команда' : 'Team')}</h2>
         <p>
-          {people[0].role[lang]}.{' '}
+          {people[0]?.role[lang] ?? ''}.{' '}
           {ru
             ? 'Для каждого проекта команда расширяется за счёт художников, исполнителей и технических специалистов. Роли соавторов отмечаются на страницах конкретных работ.'
             : 'Each project brings in artists, performers and technical specialists. Co-authorship is credited in the context of each work.'}

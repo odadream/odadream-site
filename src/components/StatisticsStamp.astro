@@ -1,5 +1,6 @@
 ---
 import RecordStamp from './RecordStamp.astro';
+import { preview } from '../data/catalogue';
 import { siteStats } from '../lib/site-stats';
 import { workStageLabels, type Lang } from '../data/site';
 interface Props {
@@ -43,38 +44,50 @@ const fields =
             value: siteStats.cases.byType['participatory-format'] ?? 0,
             metric: true,
           },
-          {
-            label: ru ? 'Папки событий · Golem' : 'Event folders · Golem',
-            value: siteStats.golemEvents.total,
-            metric: true,
-          },
-          {
-            label: ru ? 'Снимок реестра' : 'Registry snapshot',
-            value: siteStats.golemEvents.generatedAt.slice(0, 10),
-          },
+          ...(preview
+            ? [
+                {
+                  label: ru ? 'Папки событий · Golem' : 'Event folders · Golem',
+                  value: siteStats.golemEvents.total,
+                  metric: true,
+                },
+                {
+                  label: ru ? 'Снимок реестра' : 'Registry snapshot',
+                  value: siteStats.golemEvents.generatedAt.slice(0, 10),
+                },
+              ]
+            : []),
         ]
-      : [
-          {
-            label: ru ? 'Прежний перечень' : 'Former archive list',
-            value: siteStats.legacyRecognition.total,
-            metric: true,
-          },
-          {
-            label: ru ? 'Дипломы' : 'Diplomas',
-            value: siteStats.legacyRecognition.byKind.diploma,
-            metric: true,
-          },
-          {
-            label: ru ? 'Благодарственные письма' : 'Letters of appreciation',
-            value: siteStats.legacyRecognition.byKind.letter,
-            metric: true,
-          },
-          {
-            label: ru ? 'Подтверждения участия' : 'Participation records',
-            value: siteStats.legacyRecognition.byKind.participation,
-            metric: true,
-          },
-        ];
+      : preview
+        ? [
+            {
+              label: ru ? 'Прежний перечень' : 'Former archive list',
+              value: siteStats.legacyRecognition.total,
+              metric: true,
+            },
+            {
+              label: ru ? 'Дипломы' : 'Diplomas',
+              value: siteStats.legacyRecognition.byKind.diploma,
+              metric: true,
+            },
+            {
+              label: ru ? 'Благодарственные письма' : 'Letters of appreciation',
+              value: siteStats.legacyRecognition.byKind.letter,
+              metric: true,
+            },
+            {
+              label: ru ? 'Подтверждения участия' : 'Participation records',
+              value: siteStats.legacyRecognition.byKind.participation,
+              metric: true,
+            },
+          ]
+        : [
+            {
+              label: ru ? 'Документы на сайте' : 'Documents on this site',
+              value: siteStats.recognitions.total,
+              metric: true,
+            },
+          ];
 ---
 
 <RecordStamp tone="reference" title={titles[kind]} fields={fields}>
@@ -91,14 +104,14 @@ const fields =
       </dl>
     </details>
   )}
-  {kind === 'events' && (
+  {kind === 'events' && preview && (
     <p class="record-stamp__note">
       {ru
         ? 'Golem учитывает архивные папки. Это отдельная выборка, ещё не проверенные публичные кейсы.'
         : 'Golem counts archival folders: a separate inventory, not yet reviewed public cases.'}
     </p>
   )}
-  {kind === 'recognition' && (
+  {kind === 'recognition' && preview && (
     <p class="record-stamp__note">
       {ru
         ? `${siteStats.recognitions.total} записей перенесены в новую модель. Права и атрибуция проверяются.`

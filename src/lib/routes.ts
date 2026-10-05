@@ -1,4 +1,5 @@
-import { cases, formats, works, type Lang } from '../data/site';
+import { cases, formats, works, catalogue } from '../data/catalogue';
+import type { Lang } from '../data/site';
 import { familyByKind, type PageFamily } from './page-codes';
 
 export type PageKind =
@@ -72,50 +73,53 @@ const copy = {
   },
 } as const;
 
-export const pages: Page[] = (['en', 'ru'] as Lang[]).flatMap((lang) => [
-  {
-    lang,
-    kind: 'home',
-    family: familyByKind.home,
-    path: `/${lang}/`,
-    title:
-      lang === 'en'
-        ? 'ODA.dream — Human state as artistic material'
-        : 'ODA.dream — Состояние человека как художественный материал',
-    description:
-      lang === 'en'
-        ? 'ODA.dream creates participatory works at the intersection of art, perception and technology.'
-        : 'ODA.dream создаёт партисипаторные работы на пересечении искусства, восприятия и технологий.',
-  },
-  ...(
-    ['works', 'formats', 'cooperation', 'studio', 'cases', 'contact', 'technology', 'recognition'] as const
-  ).map((kind) => ({
-    lang,
-    kind,
-    family: familyByKind[kind],
-    path: `/${lang}/${kind}/`,
-    title: `${copy[kind][lang][0]} — ODA.dream`,
-    description: copy[kind][lang][1],
-  })),
-  ...works.map((work) => ({
-    lang,
-    kind: 'work' as const,
-    family: familyByKind.work,
-    slug: work.slug,
-    path: `/${lang}/works/${work.slug}/`,
-    title: `${work.title[lang]} — ODA.dream`,
-    description: work.summary[lang],
-  })),
-  ...cases.map((item) => ({
-    lang,
-    kind: 'case' as const,
-    family: familyByKind.case,
-    slug: item.slug,
-    path: `/${lang}/cases/${item.slug}/`,
-    title: `${item.title[lang]} — ODA.dream`,
-    description: item.summary[lang],
-  })),
-]);
+export const createPages = (records: Pick<typeof catalogue, 'works' | 'cases'>): Page[] =>
+  (['en', 'ru'] as Lang[]).flatMap((lang) => [
+    {
+      lang,
+      kind: 'home',
+      family: familyByKind.home,
+      path: `/${lang}/`,
+      title:
+        lang === 'en'
+          ? 'ODA.dream — Human state as artistic material'
+          : 'ODA.dream — Состояние человека как художественный материал',
+      description:
+        lang === 'en'
+          ? 'ODA.dream creates participatory works at the intersection of art, perception and technology.'
+          : 'ODA.dream создаёт партисипаторные работы на пересечении искусства, восприятия и технологий.',
+    },
+    ...(
+      ['works', 'formats', 'cooperation', 'studio', 'cases', 'contact', 'technology', 'recognition'] as const
+    ).map((kind) => ({
+      lang,
+      kind,
+      family: familyByKind[kind],
+      path: `/${lang}/${kind}/`,
+      title: `${copy[kind][lang][0]} — ODA.dream`,
+      description: copy[kind][lang][1],
+    })),
+    ...records.works.map((work) => ({
+      lang,
+      kind: 'work' as const,
+      family: familyByKind.work,
+      slug: work.slug,
+      path: `/${lang}/works/${work.slug}/`,
+      title: `${work.title[lang]} — ODA.dream`,
+      description: work.summary[lang],
+    })),
+    ...records.cases.map((item) => ({
+      lang,
+      kind: 'case' as const,
+      family: familyByKind.case,
+      slug: item.slug,
+      path: `/${lang}/cases/${item.slug}/`,
+      title: `${item.title[lang]} — ODA.dream`,
+      description: item.summary[lang],
+    })),
+  ]);
+
+export const pages = createPages(catalogue);
 
 export const pairedPath = (path: string, lang: Lang) => path.replace(/^\/(en|ru)\//, `/${lang}/`);
 export const pageForPath = (path: string) => pages.find((page) => page.path === path);

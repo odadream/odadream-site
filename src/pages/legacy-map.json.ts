@@ -1,8 +1,11 @@
 import legacyMap from '../data/legacy-map.json';
 
+import { resolveLegacyRoutes } from '../lib/legacy-routes';
+import { pages } from '../lib/routes';
+
 export const prerender = true;
 
-const routes = Object.fromEntries(legacyMap.map(({ id, targetEn, targetRu }) => [id, [targetEn, targetRu]]));
+const routes = resolveLegacyRoutes(legacyMap, pages);
 
 export function GET() {
   return new Response(JSON.stringify(routes), {

@@ -9,7 +9,8 @@ import '@fontsource/jetbrains-mono/cyrillic-600.css';
 import '@fontsource/manrope/latin-500.css';
 import '@fontsource/manrope/latin-800.css';
 import '@fontsource/manrope/cyrillic-500.css';
-import { cases, mediaById, socialLinks, works } from '../data/site';
+import { socialLinks } from '../data/site';
+import { cases, mediaById, works, preview, people } from '../data/catalogue';
 import { pairedPath, type Page } from '../lib/routes';
 import DzenIcon from '../assets/social/dzen.svg';
 import RecordStamp from '../components/RecordStamp.astro';
@@ -65,10 +66,13 @@ const schema =
         name: 'ODA.dream',
         url: site,
         description: page.description,
-        founder: [
-          { '@type': 'Person', name: 'Olga Arabova' },
-          { '@type': 'Person', name: 'Daler Arabov' },
-        ],
+        founder:
+          people.length > 0
+            ? [
+                { '@type': 'Person', name: 'Olga Arabova' },
+                { '@type': 'Person', name: 'Daler Arabov' },
+              ]
+            : undefined,
       }
     : page.kind === 'work'
       ? {
@@ -165,7 +169,7 @@ const breadcrumbSchema =
         <link rel="alternate" hreflang="x-default" href={alternateEn} />
       </>
     )}
-    {noindex && <meta name="robots" content="noindex,follow" />}
+    {(noindex || preview) && <meta name="robots" content="noindex,follow" />}
     <meta property="og:type" content={page.kind === 'work' || page.kind === 'case' ? 'article' : 'website'} />
     <meta property="og:site_name" content="ODA.dream" />
     <meta property="og:locale" content={page.lang === 'en' ? 'en_US' : 'ru_RU'} />
@@ -255,6 +259,13 @@ const breadcrumbSchema =
       </div>
     </header>
     <main id="main">
+      {preview && (
+        <div class="shell small-note" role="note" data-editorial-preview>
+          {page.lang === 'ru'
+            ? 'Редакционный предпросмотр · включает материалы на проверке. Публичный состав проверяется отдельно.'
+            : 'Editorial preview · includes material under review. The public packet is checked separately.'}
+        </div>
+      )}
       <slot />
     </main>
     <footer class="site-footer">
@@ -563,7 +574,7 @@ const breadcrumbSchema =
         observer.observe(card);
       });
       const carousel = document.querySelector<HTMLElement>('[data-carousel]');
-      if (carousel) {
+      if (carousel && carousel.querySelector('[data-slide]')) {
         let slides = [...carousel.querySelectorAll<HTMLElement>('[data-slide]')];
         const slideSlot = carousel.querySelector<HTMLElement>('.nm-heading');
         try {

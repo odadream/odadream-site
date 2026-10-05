@@ -1,32 +1,39 @@
 ---
 import RecordStamp from './RecordStamp.astro';
-import { minddbSnapshot, type Lang } from '../data/site';
+import { minddbSnapshot } from '../data/catalogue';
+import type { Lang } from '../data/site';
 interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
 const ru = lang === 'ru';
 const locale = ru ? 'ru-RU' : 'en-GB';
-const exportDate = ru ? minddbSnapshot.asOf.split('-').reverse().join('.') : minddbSnapshot.asOf;
+const exportDate = minddbSnapshot
+  ? ru
+    ? minddbSnapshot.asOf.split('-').reverse().join('.')
+    : minddbSnapshot.asOf
+  : '';
 ---
 
-<RecordStamp
-  tone="reference"
-  title={ru ? 'Статистика записей' : 'Recording statistics'}
-  fields={[
-    {
-      label: ru ? 'Кол-во в базе' : 'In database',
-      value: minddbSnapshot.takeCount.toLocaleString(locale),
-      metric: true,
-    },
-    {
-      label: ru ? 'Сум. время' : 'Total duration',
-      value: `${Math.round(minddbSnapshot.videoDurationHours).toLocaleString(locale)} ${ru ? 'ч.' : 'h'}`,
-      metric: true,
-    },
-    {
-      label: ru ? 'Дата выгрузки' : 'Export date',
-      value: exportDate,
-    },
-  ]}
-/>
+{minddbSnapshot && (
+  <RecordStamp
+    tone="reference"
+    title={ru ? 'Статистика записей' : 'Recording statistics'}
+    fields={[
+      {
+        label: ru ? 'Кол-во в базе' : 'In database',
+        value: minddbSnapshot.takeCount.toLocaleString(locale),
+        metric: true,
+      },
+      {
+        label: ru ? 'Сум. время' : 'Total duration',
+        value: `${Math.round(minddbSnapshot.videoDurationHours).toLocaleString(locale)} ${ru ? 'ч.' : 'h'}`,
+        metric: true,
+      },
+      {
+        label: ru ? 'Дата выгрузки' : 'Export date',
+        value: exportDate,
+      },
+    ]}
+  />
+)}

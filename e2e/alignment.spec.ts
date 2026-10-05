@@ -1,38 +1,34 @@
 import { expect, test } from '@playwright/test';
 
-const sections = [
-  'works',
-  'formats',
-  'cooperation',
-  'studio',
-  'cases',
-  'contact',
-  'technology',
-  'recognition',
-];
-const works = [
-  'interference-of-realities',
-  'mindshow',
-  'neurobattle',
-  'project-schrodinger',
-  'oda-rings',
-  'sync-circle',
-];
-const cases = ['tsiolkovsky-festival-2026', 'tsiolkovsky-laboratory-2025', 'dano-2025', 'byob-2026'];
-const routes = ['en', 'ru'].flatMap((lang) => [
-  `/${lang}/`,
-  ...sections.map((s) => `/${lang}/${s}/`),
-  ...works.map((s) => `/${lang}/works/${s}/`),
-  ...cases.map((s) => `/${lang}/cases/${s}/`),
-]);
+import { execFileSync } from 'node:child_process';
+
+const routes: string[] = JSON.parse(
+  execFileSync(
+    process.execPath,
+    [
+      '--input-type=module',
+      '-e',
+      `
+  import { loadSiteModule } from './scripts/site-data.mjs';
+  const data = await loadSiteModule();
+  const { createPages } = await loadSiteModule('src/lib/routes.ts');
+  console.log(JSON.stringify(createPages(data).map((page) => page.path)));
+`,
+    ],
+    { windowsHide: true, encoding: 'utf8' },
+  ),
+);
 
 for (const width of [360, 797, 1529, 1920]) {
-  test(`shared axes and folio scale at ${width}px across every public page`, async ({ page, isMobile }) => {
+  test(`shared axes and folio scale at ${width}px across every editorial page`, async ({
+    page,
+    isMobile,
+  }) => {
     test.skip(isMobile, 'Explicit viewport matrix runs once on desktop Chromium.');
     test.setTimeout(120_000);
     await page.setViewportSize({ width, height: 912 });
     await page.emulateMedia({ reducedMotion: 'reduce' });
-    // This matrix checks layout axes; loading every poster and image across 38 routes exhausts Chromium.
+    // This matrix checks layout axes; loading every poster and image across the editorial routes exhausts Chromium.
     await page.route('**/*', (route) => {
       if (['image', 'media'].includes(route.request().resourceType())) return route.abort();
       return route.continue();

@@ -40,8 +40,14 @@ for (const path of pagePaths) {
     );
   }
 }
-const designSystem = await readFile(resolve(root, 'design-system/index.html'), 'utf8');
-validatePageCodes(designSystem, '/design-system/');
+const { catalogue } = await loadSiteModule('src/data/catalogue.ts');
+if (
+  await stat(resolve(root, 'design-system/index.html')).then(
+    () => true,
+    () => false,
+  )
+)
+  fail('Editorial design system must not be included in a public build');
 for (const file of [
   'index.html',
   '404.html',
@@ -56,13 +62,15 @@ if (!rootHtml.includes('/legacy-map.json') || !rootHtml.includes('https://odadre
   fail('Root legacy bridge or canonical absent');
 const legacy = JSON.parse(await readFile('src/data/legacy-map.json', 'utf8'));
 if (rootHtml.includes('"ancestors"')) fail('Root bridge must not inline the legacy ID catalogue');
+const { resolveLegacyRoutes } = await loadSiteModule('src/lib/legacy-routes.ts');
+const expectedLegacy = resolveLegacyRoutes(legacy, pages);
 const legacyRoutes = JSON.parse(await readFile(resolve(root, 'legacy-map.json'), 'utf8'));
 if (Object.keys(legacyRoutes).length !== legacy.length) fail('Legacy redirect index is incomplete');
 for (const row of legacy) {
-  if (JSON.stringify(legacyRoutes[row.id]) !== JSON.stringify([row.targetEn, row.targetRu]))
+  if (JSON.stringify(legacyRoutes[row.id]) !== JSON.stringify(expectedLegacy[row.id]))
     fail(`Incorrect legacy redirect index entry: ${row.id}`);
   if (row.disposition === 'not-transferred') continue;
-  for (const target of [row.targetEn, row.targetRu]) {
+  for (const target of expectedLegacy[row.id]) {
     const url = new URL(target, 'https://odadream.art');
     const html = await readFile(resolve(root, url.pathname.slice(1), 'index.html'), 'utf8').catch(() =>
       fail(`Legacy target missing: ${row.id} → ${target}`),
@@ -88,3 +96,21 @@ for (const path of pagePaths) {
     fail(`Incorrect sitemap lastmod: ${path}`);
 }
 console.log(`Verified ${pagePaths.length} static localized pages, root bridge, 404 and sitemap.`);
+
+// Verify the physical output, including copied files unreferenced by HTML.
+const { publicFiles } = await import('./publication-integration.mjs');
+for (const path of await publicFiles(resolve('public'))) {
+  const exists = await stat(resolve(root, path.slice(1))).then(
+    () => true,
+    () => false,
+  );
+  if (exists !== catalogue.assetPaths.has(path)) fail(`Public asset scope mismatch: ${path}`);
+}
+for (const path of await publicFiles(root)) {
+  if (!path.endsWith('.html') && !path.endsWith('.json') && !path.endsWith('.js')) continue;
+  const output = await readFile(resolve(root, path.slice(1)), 'utf8');
+  for (const marker of ['D:/YandexDisk/', 'D:\\YandexDisk', 'C:/Users/', 'trusted_internal'])
+    if (output.includes(marker)) fail(`Internal locator in public output ${path}`);
+  if (output.includes('data-editorial-preview')) fail(`Editorial preview included in public output ${path}`);
+}
+console.log(`Verified public asset allowlist and absence of internal locators.`);

@@ -28,11 +28,15 @@ import CalloutLink from '../../components/CalloutLink.astro';
         Legacy ID: <code id="legacy-id">unknown</code>
       </p>
       <div class="link-row mt-6">
-        <CalloutLink href="/en/works/">Explore works</CalloutLink>
-        <CalloutLink href="/en/contact/">Ask the studio</CalloutLink>
+        <CalloutLink class="legacy-works-link" href="/en/works/">
+          Explore works
+        </CalloutLink>
+        <CalloutLink class="legacy-contact-link" href="/en/contact/">
+          Ask the studio
+        </CalloutLink>
       </div>
     </main>
-    <script>
+    <script is:inline>
       const params = new URLSearchParams(location.search);
       const id = params.get('id');
       const output = document.querySelector('#legacy-id');
@@ -41,6 +45,17 @@ import CalloutLink from '../../components/CalloutLink.astro';
         document.documentElement.lang = 'ru';
         const heading = document.querySelector('h1');
         const lead = document.querySelector('.lead');
+        document.title = 'Запись не перенесена — ODA.dream';
+        const works = document.querySelector('.legacy-works-link');
+        const contact = document.querySelector('.legacy-contact-link');
+        if (works) {
+          works.href = '/ru/works/';
+          works.textContent = 'Посмотреть работы';
+        }
+        if (contact) {
+          contact.href = '/ru/contact/';
+          contact.textContent = 'Связаться со студией';
+        }
         if (heading) heading.textContent = 'Запись не перенесена';
         if (lead)
           lead.textContent =
@@ -49,4 +64,3 @@ import CalloutLink from '../../components/CalloutLink.astro';
     </script>
   </body>
 </html>
-import TechnicalMark from '../../components/TechnicalMark.astro';

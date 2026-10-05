@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import { loadSiteModule } from '../scripts/site-data.mjs';
 
 const data = await loadSiteModule();
-const { pages } = await loadSiteModule('src/lib/routes.ts');
+const { createPages } = await loadSiteModule('src/lib/routes.ts');
+const pages = createPages(data);
 
 test('stage determines realization independently of booking and repertoire', () => {
   const work = data.works[0];
