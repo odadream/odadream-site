@@ -1592,6 +1592,49 @@ figcaption {
 .works-catalogue + .works-catalogue {
   margin-top: var(--s8);
 }
+
+.analytics-consent {
+  position: fixed;
+  z-index: 70;
+  bottom: var(--s4);
+  inset-inline: var(--gutter);
+  width: auto;
+  max-width: 66ch;
+  margin-inline: auto;
+  padding: var(--panel-pad);
+  background: var(--plane-front);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-material);
+  max-height: calc(100dvh - var(--s6));
+  overflow-y: auto;
+}
+.analytics-consent > * + * {
+  margin-top: var(--gap-copy);
+}
+.analytics-consent h2 {
+  font-size: var(--type-title-small);
+}
+.analytics-consent p {
+  font-size: var(--type-small);
+}
+.analytics-consent--specimen {
+  position: static;
+  max-width: none;
+  margin-inline: 0;
+}
+.analytics-settings-toggle {
+  color: var(--muted);
+  background: none;
+  border: 0;
+  font: inherit;
+  font-size: var(--type-note);
+  min-height: var(--tap-target);
+  padding: 0;
+}
+.analytics-settings-toggle:hover {
+  color: var(--accent);
+}
 .catalogue-note {
   margin-block: var(--s4) var(--s6);
   color: var(--muted);

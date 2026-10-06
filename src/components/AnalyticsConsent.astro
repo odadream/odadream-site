@@ -1,0 +1,31 @@
+---
+import type { Lang } from '../data/site';
+interface Props {
+  lang: Lang;
+  specimen?: boolean;
+}
+const { lang, specimen = false } = Astro.props;
+const ru = lang === 'ru';
+---
+
+<aside
+  class:list={['analytics-consent', { 'analytics-consent--specimen': specimen }]}
+  hidden={!specimen}
+  data-analytics-consent={!specimen || undefined}
+  aria-label={ru ? 'Настройки аналитики' : 'Analytics settings'}
+>
+  <h2>{ru ? 'Аналитика посещений' : 'Visitor analytics'}</h2>
+  <p>
+    {ru
+      ? 'Разрешить подсчёт посещений, переходов к контактам и открытий материалов? Вебвизор, запись форм и рекламные функции отключены. Выбор можно изменить внизу страницы.'
+      : 'Allow counts of visits, contact actions and material openings? Session replay, form recording and advertising features are disabled. You can change your choice at the bottom of the page.'}
+  </p>
+  <div class="link-row">
+    <button type="button" class="button primary" data-consent-choice={!specimen ? 'granted' : undefined}>
+      {ru ? 'Разрешить' : 'Allow'}
+    </button>
+    <button type="button" class="button" data-consent-choice={!specimen ? 'denied' : undefined}>
+      {ru ? 'Отклонить' : 'Decline'}
+    </button>
+  </div>
+</aside>

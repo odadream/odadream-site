@@ -12,7 +12,7 @@ const item = mediaById(id);
 ---
 
 {item && (
-  <figure class="media-figure">
+  <figure class="media-figure" data-media-id={item.id}>
     <div class="media-register">
       <span class="media-register__id">
         <TechnicalMark kind="record" />
@@ -51,7 +51,14 @@ const item = mediaById(id);
         </span>
       </button>
     ) : (
-      <video src={item.src} poster={item.poster} controls playsinline preload="none" />
+      <video
+        src={item.src}
+        poster={item.poster}
+        controls
+        playsinline
+        preload="none"
+        data-media-id={item.id}
+      />
     )}
     <figcaption>{item.caption[lang]}</figcaption>
   </figure>

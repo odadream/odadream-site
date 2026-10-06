@@ -2,9 +2,16 @@ import { readFile } from 'node:fs/promises';
 import { unresolvedLegacyMedia, preservedLegacyPaths } from './legacy-media-check.mjs';
 import { loadSiteModule } from './site-data.mjs';
 import { resolve } from 'node:path';
+import { loadEnv } from 'vite';
 
 const { catalogue } = await loadSiteModule('src/data/catalogue.ts');
 const failures = [...catalogue.errors];
+const { analyticsConfigFrom, analyticsConfigIssues } = await loadSiteModule('src/lib/analytics-contract.ts');
+failures.push(
+  ...analyticsConfigIssues(
+    analyticsConfigFrom({ ...loadEnv('production', process.cwd(), 'PUBLIC_'), ...process.env }),
+  ),
+);
 if (!catalogue.works.length)
   failures.push('Public packet has no approved works; editorial selection is not ready');
 const audit = JSON.parse(await readFile('docs/media-audit.json', 'utf8'));

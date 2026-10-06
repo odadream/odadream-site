@@ -95,7 +95,13 @@ const timeline = [...cases]
           const mediaTitle = image?.caption[lang].split(' · ')[0];
           const mediaDetail = image?.caption[lang].split(' · ').slice(1).join(' · ');
           return (
-            <article class="nm-slide feature-slide" data-slide data-slide-id={item.id} hidden={i !== 0}>
+            <article
+              class="nm-slide feature-slide"
+              data-slide
+              data-slide-id={item.id}
+              data-media-id={item.mediaId}
+              hidden={i !== 0}
+            >
               <div class="nm-visual">
                 <video
                   class="nm-background-video"
@@ -742,7 +748,7 @@ const timeline = [...cases]
     </section>
     <section class="shell">
       {formats.map((item, i) => (
-        <article class="section section-grid" id={item.slug}>
+        <article class="section section-grid" id={item.slug} data-format-id={item.id}>
           <div class="section-label">
             <PageCode family={family} section={i + 1} lang={lang} />
             <span class="eyebrow">{ru ? 'Конфигурация' : 'Configuration'}</span>

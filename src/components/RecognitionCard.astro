@@ -29,6 +29,7 @@ const kindLabels: Record<RecognitionKind, Record<Lang, string>> = {
 <article class="recognition-card" id={`recognition-${item.id}`}>
   {item.previewSrc ? (
     <button
+      data-material-id={item.id}
       class="recognition-card__image"
       type="button"
       data-lightbox

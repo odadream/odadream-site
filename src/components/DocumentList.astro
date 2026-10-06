@@ -28,7 +28,7 @@ const metadata = (document: Props['documents'][number]) =>
     <h3>{ru ? 'Архивные документы' : 'Archive documents'}</h3>
     <div>
       {documents.map((document) => (
-        <article class="list-row" id={`document-${document.id}`}>
+        <article class="list-row" id={`document-${document.id}`} data-material-id={document.id}>
           <span class="meta">{metadata(document)}</span>
           <div>
             <strong>{document.title[lang]}</strong>

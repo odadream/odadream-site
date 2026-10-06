@@ -14,6 +14,7 @@ import { cases, mediaById, works, preview, people } from '../data/catalogue';
 import { pairedPath, navigationFor, type Page } from '../lib/routes';
 import DzenIcon from '../assets/social/dzen.svg';
 import RecordStamp from '../components/RecordStamp.astro';
+import AnalyticsConsent from '../components/AnalyticsConsent.astro';
 import PageCode from '../components/PageCode.astro';
 import lastmod from '../data/lastmod.json';
 import astroPackage from 'astro/package.json';
@@ -105,7 +106,21 @@ const breadcrumbSchema =
 ---
 
 <!doctype html>
-<html lang={page.lang} data-section={pageSection} data-page-family={page.family}>
+<html
+  lang={page.lang}
+  data-section={pageSection}
+  data-page-family={page.family}
+  data-analytics-page={canonicalPath}
+  data-analytics-preview={String(preview)}
+  data-work-id={
+    page.kind === 'work'
+      ? record?.id
+      : page.kind === 'case'
+        ? cases.find((row) => row.slug === page.slug)?.work
+        : undefined
+  }
+  data-case-id={page.kind === 'case' ? record?.id : undefined}
+>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -313,6 +328,7 @@ const breadcrumbSchema =
             .map((item) => (
               <a
                 href={item.href}
+                data-contact-channel={item.id}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${item.label} — ODA.dream`}
@@ -341,8 +357,18 @@ const breadcrumbSchema =
               </a>
             ))}
         </nav>
+        <button
+          type="button"
+          class="analytics-settings-toggle"
+          data-analytics-settings
+          hidden
+          aria-expanded="false"
+        >
+          {page.lang === 'ru' ? 'Настройки аналитики' : 'Analytics settings'}
+        </button>
       </div>
     </footer>
+    <AnalyticsConsent lang={page.lang} />
     <dialog
       id="lightbox"
       class="lightbox"
@@ -359,6 +385,16 @@ const breadcrumbSchema =
       <p class="lightbox-caption"></p>
     </dialog>
     <script>
+      import { createAnalytics } from '../scripts/analytics';
+      import { analyticsConfig } from '../data/analytics-config';
+      const root = document.documentElement;
+      createAnalytics(analyticsConfig, {
+        pagePath: root.dataset.analyticsPage ?? location.pathname,
+        language: root.lang === 'ru' ? 'ru' : 'en',
+        workId: root.dataset.workId,
+        caseId: root.dataset.caseId,
+        preview: root.dataset.analyticsPreview === 'true',
+      });
       const ru = document.documentElement.lang === 'ru';
       const visit = document.querySelector<HTMLElement>('[data-previous-visit]');
       if (visit) {
