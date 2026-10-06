@@ -278,11 +278,31 @@ for (const item of data.media) {
 for (const [path, decision] of Object.entries(mediaDecisions))
   if (
     decision.action === 'preserve' &&
-    !data.media.some((item) => item.id === decision.mediaId && item.legacyPaths?.includes(path)) &&
+    !data.media.some(
+      (item) =>
+        item.id === decision.mediaId &&
+        [item.src, item.mobileSrc, item.poster, item.previewSrc, ...(item.legacyPaths ?? [])].includes(path),
+    ) &&
     !data.workDocuments.some((item) => item.id === decision.workDocumentId && item.href === path) &&
     !data.legacyWorkResources.some((item) => item.id === decision.legacyWorkResourceId && item.path === path)
   )
     errors.push(`Orphaned preservation record ${path}`);
+for (const [path, decision] of Object.entries(mediaDecisions)) {
+  if (decision.action !== 'preserve') continue;
+  if (!isLocalAssetPath(path)) {
+    errors.push(`Invalid preservation path ${path}`);
+    continue;
+  }
+  const original = mediaAudit.find((row) => row.path === path);
+  const bytes = await readFile(resolve('public', path.slice(1))).catch(() => undefined);
+  if (
+    !original ||
+    decision.sha256 !== original.sha256 ||
+    !bytes ||
+    createHash('sha256').update(bytes).digest('hex') !== original.sha256
+  )
+    errors.push(`Preservation fingerprint mismatch ${path}`);
+}
 const archivalPaths = new Set();
 for (const item of data.legacyWorkResources) {
   if (archivalPaths.has(item.path)) errors.push(`legacy work resource ${item.id}: duplicate path`);

@@ -14843,7 +14843,11 @@
       "not-transferred": 191,
       "anchor": 25
     },
-    "note": "Original audit summaries remain dated baselines; current merged-source routes resolve only when their public anchors exist."
+    "note": "Original audit summaries remain dated baselines; current merged-source routes resolve only when their public anchors exist.",
+    "externalAliases": {
+      "for-events": "hub-event-agencies"
+    },
+    "runtimeEntrances": 239
   },
   "currentResourceAudit": {
     "asOf": "2026-10-06",
@@ -16072,14 +16076,16 @@
     ],
     "selectedDisposition": "Keep the two selected originals unchanged with published rings and cleared document rights. Two decoded QR targets are historical personal Telegram/WhatsApp contacts, not old site routes or current studio CTA.",
     "otherDocuments": "Nine known PDFs belong to deferred works/applications; retain the read-only archive and decide their resource URLs in M4. Do not replace the current studio dossier with them.",
-    "outreachSource": "Dated outreach input reports Divent/N:OW received materials. A read-only GDB-source lookup found four actual portfolio PDF candidates, but no exact association with those sends; see currentGdbSourceSearch.",
+    "outreachSource": "Primary sent-mail evidence identifies Divent shared folders (2026-09-03), N:OW original attachment (2026-08-31) and shared-folder follow-up (2026-09-01). See currentSentMaterialEvidence and currentOutreachMaterialAudit.",
     "unresolved": [
-      "Exact externally sent PDF/dossier versions",
-      "Printed links or QR not detected by the automated scan",
-      "Current ownership/delivery of external accounts and links"
+      "Automated QR/raster-link non-detection is not proof of absence",
+      "Shared-folder contents can change after a send",
+      "Historical private QR account ownership/delivery is not verified; these are not current studio CTA"
     ],
-    "note": "Known-file inspection only; does not close the complete outreach/QR task or authorize retirement. No personal QR payload copied into public data.",
-    "gdbSourceSearch": "currentGdbSourceSearch"
+    "note": "The known selected source and sent-material audit is complete within its recorded scope. Source folders and original send versions are distinguished. Resource retirement/publication remain separate decisions.",
+    "gdbSourceSearch": "currentGdbSourceSearch",
+    "sentMaterialEvidence": "currentSentMaterialEvidence",
+    "additionalSourceAudit": "currentOutreachMaterialAudit"
   },
   "currentResourceDispositionReview": {
     "asOf": "2026-10-06",
@@ -16734,6 +16740,3435 @@
       "No Divent/N:OW attachment/version association was found within these bounded local sources. This does not establish absence elsewhere or in mail.",
       "Automated QR non-detection does not establish absence; external account ownership and link delivery not verified."
     ],
-    "restriction": "Candidate PDFs are not copied to public assets. Personal contact payloads are omitted. No sender/recipient association, publication rights or retirement approval inferred."
+    "restriction": "Candidate PDFs are not copied to public assets. Personal contact payloads are omitted. No sender/recipient association, publication rights or retirement approval inferred.",
+    "supersededSendAssociationBy": "currentSentMaterialEvidence (primary mail evidence; bounded local search remains a historical result)"
+  },
+  "currentOutreachMaterialAudit": {
+    "asOf": "2026-10-06",
+    "mode": "read-only",
+    "roots": {
+      "agency-kit": "D:\\YandexDisk\\Public\\odadream_media_kit",
+      "economics-export": "D:\\YandexDisk\\_ODA2\\Экономика\\_export",
+      "submissions": "D:\\YandexDisk\\_ODA2\\Премии\\submissions"
+    },
+    "files": [
+      {
+        "group": "agency-kit",
+        "path": "lectures/01_Одностраничник_Лекции.pdf",
+        "sha256": "d31a6a1b252394e24df4fc4e6163b34a2b3685b990c969554c67588fe67d530e",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "agency-kit",
+        "path": "lectures/02_Рейт-карта_Лекции.pdf",
+        "sha256": "d0816428c53a20525853ce3657b8b81d728b7197f148df6c32208efd8f25e258",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "agency-kit",
+        "path": "mindshow/01_Одностраничник_MindShow.pdf",
+        "sha256": "bf248508cde6894ce7bab46910c7a07837ced30d18b76acac0d2160666234ed7",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "agency-kit",
+        "path": "mindshow/02_Рейт-карта_MindShow.pdf",
+        "sha256": "668f5681e9d6556512f4423d25afeb6bc3a432d5f7a2a3e55990d85f17c20f06",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "agency-kit",
+        "path": "neurobattle/01_Одностраничник_Парадокс_Победы.pdf",
+        "sha256": "1d6bef0e2c053fbd5fa57703a07bad0729237a4a3e8bc4a9c238e6a498797fc3",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "agency-kit",
+        "path": "neurobattle/02_Рейт-карта_Парадокс_Победы.pdf",
+        "sha256": "22250660ca19ed306d5da8b7e6211bbb02680e2448987c514fa4c2171c0d736c",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "economics-export",
+        "path": "lectures-oda-dream-en-v1.pdf",
+        "sha256": "95f1325b8ecc8fd9d4c3e73bb461bd656fcac39430ed1b18ccf79e650c2d27f5",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "economics-export",
+        "path": "lectures-oda-dream-ru-v3.pdf",
+        "sha256": "1bb586dc1f6b7c024794be3480aadd6f50cb4b835b0db3c784e273835dc5653f",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "economics-export",
+        "path": "lectures-rate-card-2026-v1.pdf",
+        "sha256": "911e31d5de79ea78446ca8ed793d3ee2ebf6ab64ff9c90564b9d872f9accd33d",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "economics-export",
+        "path": "mindshow-oda-dream-en-v1.pdf",
+        "sha256": "f198294082ed7ba8cbe9d33dd7782f321daf5f97664e98230505919653e3d3e2",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "economics-export",
+        "path": "mindshow-oda-dream-ru-v3.pdf",
+        "sha256": "f4465f4584e0492e812ed7c84afdc83ff4054bfd74f5bf9ce17cf904d3222338",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "economics-export",
+        "path": "mindshow-rate-card-2026-v1.pdf",
+        "sha256": "d06f469a8709fbaed67cedf1a31cab5ce98b3ac4f63ede73014cc22319909745",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "economics-export",
+        "path": "neurobattle-oda-dream-en-v1.pdf",
+        "sha256": "b9893d926c9296d5ce9066a96d52c15e19d48816f91205ce5f442047edf28866",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "economics-export",
+        "path": "neurobattle-oda-dream-ru-v3.pdf",
+        "sha256": "609a39efb5fa5bb03e9311d18191cd1b79018dfb0a0b3e76fac53667a4ff8d70",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "economics-export",
+        "path": "neurobattle-rate-card-2026-v5.pdf",
+        "sha256": "ae63f44c13561d59f1da077b8fd0af5de9e501ed2b28dc94ff0af9b8af02e017",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "economics-export",
+        "path": "neuromandala-license-oda-dream-en-v2.pdf",
+        "sha256": "f006d0db684dd07aa5db61584e428160064e1cdeffff68cb9353a925d8a76ca8",
+        "pages": 4,
+        "annotationLinks": [
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "economics-export",
+        "path": "neuromandala-license-oda-dream-ru-v3.pdf",
+        "sha256": "1d3acb3aa9c36b3303411bb649b8db063ce7cc5c39dfee18be22fe169935b17b",
+        "pages": 4,
+        "annotationLinks": [
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "economics-export",
+        "path": "oda-dream-atomic-recharge-proposal-2026.pdf",
+        "sha256": "a64faf461d8647341b457a65b35e90012c48514f440085562b20fb11a78d85bf",
+        "pages": 4,
+        "annotationLinks": [
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/video/watch/690237e019d76106dea972ca?share_to=link"
+          },
+          {
+            "page": 3,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/video/watch/6942f449b9070f6f6045b30e?share_to=link"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "strana-rosatom.ru",
+            "kind": "other",
+            "url": "https://strana-rosatom.ru/2026/09/14/tokamak-dlya-prishelca-i-muzyka-solne/?ysclid=mu77rqdk24102926155"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [
+          {
+            "page": 4,
+            "medium": "printed-text",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art"
+          }
+        ],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "economics-export",
+        "path": "reuters-next-gulf-neurosynchronization-oda-dream-v1.pdf",
+        "sha256": "082296b2b66e0dc61957a77154573a913de2f4821cc7a7dd27ff1e525b36caaf",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "economics-export",
+        "path": "reuters-next-gulf-neurosynchronization-oda-dream-v2.pdf",
+        "sha256": "4b64923f83daadb9458d6ca6988b9b9dc8f5bbb0f1392717f7bd309f6ccc4ab8",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "economics-export",
+        "path": "reuters-next-gulf-neurosynchronization-oda-dream-v3.pdf",
+        "sha256": "ebe95a29815450c165cb8fb491b9d1dab507218cab190888dacbc95e71e21bbd",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "youtu.be",
+            "kind": "other",
+            "url": "https://youtu.be/FisxaQxfe8c"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "youtu.be",
+            "kind": "other",
+            "url": "https://youtu.be/wRyzTwNqdqQ"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-03_CYENS_WIP_Festival/cv/Daler_Arabov_CV.pdf",
+        "sha256": "626d9d39e4a269bb0f36413717b90abd49a3a90d6b175f8d9244c1945eca568e",
+        "pages": 2,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "www.behance.net",
+            "kind": "other",
+            "url": "https://www.behance.net/chudodey"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/odadream"
+          }
+        ],
+        "printedMainSiteLinks": [
+          {
+            "page": 1,
+            "medium": "printed-text",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art"
+          }
+        ],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-03_CYENS_WIP_Festival/cv/Olga_Arabova_CV.pdf",
+        "sha256": "fc43c7313c6caa71dc335151c99bc6c760d3bde4c9333b142764c26de1bb1315",
+        "pages": 2,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/odadream"
+          }
+        ],
+        "printedMainSiteLinks": [
+          {
+            "page": 1,
+            "medium": "printed-text",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art"
+          }
+        ],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-03_CYENS_WIP_Festival/output/page0.pdf",
+        "sha256": "ebd27edc46d6bd844ea5054dd4e5185e6dd59f48666a9c92eeda39fef4453b09",
+        "pages": 1,
+        "annotationLinks": [],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-03_CYENS_WIP_Festival/portfolio/output/portfolio.pdf",
+        "sha256": "2228301ddbc85bfe8ba0dd4f2fe67d6144a8441232743c5f97da3200bc88b4bc",
+        "pages": 3,
+        "annotationLinks": [],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-03_CYENS_WIP_Festival/portfolio/output/Project_0_SABMISSION_MindShow.pdf",
+        "sha256": "4cc897452f3bf2eeb1d648dd6408cc38f5cf1ac0a0035ec9f89b24387bfa203b",
+        "pages": 2,
+        "annotationLinks": [],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-03_NTMoFA_Taiwan_Residency/cv/ODA_dream_Duo_CV_NTMoFA.pdf",
+        "sha256": "68aa2d99d0ec4be7d8f7979c55efd66278d4a5c52314d3e1945a4333d38b18bd",
+        "pages": 3,
+        "annotationLinks": [],
+        "printedMainSiteLinks": [
+          {
+            "page": 1,
+            "medium": "printed-text",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art"
+          }
+        ],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-03_NTMoFA_Taiwan_Residency/portfolio/output/odadream_portfolio_en.pdf",
+        "sha256": "e3c7f6d92220f859141c03c33a136856d6888f6251841de7f6675c720e39dc68",
+        "pages": 6,
+        "annotationLinks": [
+          {
+            "page": 6,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 6,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 6,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 6,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 6,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/odadream"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-08_Anatomia_Otkrytiy/doc-pipeline/_export/00-headings-specimen.pdf",
+        "sha256": "c62295d1d986b96d634aabc456603ab5ff66688f693f272c37c3c89ed8737645",
+        "pages": 5,
+        "annotationLinks": [
+          {
+            "page": 5,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 5,
+            "medium": "annotation",
+            "scheme": "tel",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 5,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 5,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/?utm_source=anatomia&utm_medium=submission_pdf&utm_campaign=anatomia-otkrytiy-2026"
+          },
+          {
+            "page": 5,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/odadream"
+          },
+          {
+            "page": 5,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "vk.com",
+            "kind": "other",
+            "url": "https://vk.com/odadream"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-08_Anatomia_Otkrytiy/pdf/01-concept.new.pdf",
+        "sha256": "857328e8daa6002356e4afe9136201cefe11fafe0435e9da209f9019a97a281a",
+        "pages": 2,
+        "annotationLinks": [
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "doi.org",
+            "kind": "other",
+            "url": "https://doi.org/10.1093/cercor/bhad360"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "doi.org",
+            "kind": "other",
+            "url": "https://doi.org/10.1093/cercor/bhad360"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "doi.org",
+            "kind": "other",
+            "url": "https://doi.org/10.1088/1741-2552/ad7f88"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "doi.org",
+            "kind": "other",
+            "url": "https://doi.org/10.1088/1741-2552/ad7f88"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "doi.org",
+            "kind": "other",
+            "url": "https://doi.org/10.3390/bs14111107"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "doi.org",
+            "kind": "other",
+            "url": "https://doi.org/10.3390/bs14111107"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "doi.org",
+            "kind": "other",
+            "url": "https://doi.org/10.1016/j.isci.2025.112922"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "doi.org",
+            "kind": "other",
+            "url": "https://doi.org/10.3389/fnrgo.2021.687108"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "consc.net",
+            "kind": "other",
+            "url": "https://consc.net/papers/facing.pdf"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "tel",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/?utm_source=anatomia&utm_medium=submission_pdf&utm_campaign=anatomia-otkrytiy-2026"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/odadream"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "vk.com",
+            "kind": "other",
+            "url": "https://vk.com/odadream"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-08_Anatomia_Otkrytiy/pdf/01-concept.pdf",
+        "sha256": "21a59587f75b17419b352a82f544441f199d82db6d65828e2847188b17973988",
+        "pages": 2,
+        "annotationLinks": [
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "doi.org",
+            "kind": "other",
+            "url": "https://doi.org/10.1093/cercor/bhad360"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "doi.org",
+            "kind": "other",
+            "url": "https://doi.org/10.1093/cercor/bhad360"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "doi.org",
+            "kind": "other",
+            "url": "https://doi.org/10.1088/1741-2552/ad7f88"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "doi.org",
+            "kind": "other",
+            "url": "https://doi.org/10.1088/1741-2552/ad7f88"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "doi.org",
+            "kind": "other",
+            "url": "https://doi.org/10.3390/bs14111107"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "doi.org",
+            "kind": "other",
+            "url": "https://doi.org/10.3390/bs14111107"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "doi.org",
+            "kind": "other",
+            "url": "https://doi.org/10.1016/j.isci.2025.112922"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "doi.org",
+            "kind": "other",
+            "url": "https://doi.org/10.3389/fnrgo.2021.687108"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "consc.net",
+            "kind": "other",
+            "url": "https://consc.net/papers/facing.pdf"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "tel",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/?utm_source=anatomia&utm_medium=submission_pdf&utm_campaign=anatomia-otkrytiy-2026"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/odadream"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "vk.com",
+            "kind": "other",
+            "url": "https://vk.com/odadream"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-08_Anatomia_Otkrytiy/pdf/02-motivation.pdf",
+        "sha256": "3a0ac2d959a594083a752d7f53c00ccd586ba50b0bae8d0c2244ca11aca2bfe9",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "tel",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/?utm_source=anatomia&utm_medium=submission_pdf&utm_campaign=anatomia-otkrytiy-2026"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/odadream"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "vk.com",
+            "kind": "other",
+            "url": "https://vk.com/odadream"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-08_Anatomia_Otkrytiy/pdf/03-cv.pdf",
+        "sha256": "d92b9db22547eb8aa7afff36f7b9e93f6685f3b25251cbceadff10e3d1df8007",
+        "pages": 2,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/shorts/670e2b225dc4d803ee9eff4d"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/video/watch/6845a4440a4ab554ebf00fb0"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "interference.odadream.art",
+            "kind": "other",
+            "url": "https://interference.odadream.art/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "http",
+            "host": "ballettheatre.tilda.ws",
+            "kind": "other",
+            "url": "http://ballettheatre.tilda.ws/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "www.icc40.ru",
+            "kind": "other",
+            "url": "https://www.icc40.ru/"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/video/watch/6845a4440a4ab554ebf00fb0"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "interference.odadream.art",
+            "kind": "other",
+            "url": "https://interference.odadream.art/"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "tel",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/?utm_source=anatomia&utm_medium=submission_pdf&utm_campaign=anatomia-otkrytiy-2026"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/odadream"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "vk.com",
+            "kind": "other",
+            "url": "https://vk.com/odadream"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-08_Anatomia_Otkrytiy/pdf/04-portfolio.pdf",
+        "sha256": "a9629fec8115bb95db1f53c5106ed1ff5b245b536eae9c481fcf64e66a1d6a4b",
+        "pages": 4,
+        "annotationLinks": [
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "interference.odadream.art",
+            "kind": "other",
+            "url": "https://interference.odadream.art/"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/video/watch/6845a4440a4ab554ebf00fb0"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/shorts/670e2b225dc4d803ee9eff4d"
+          },
+          {
+            "page": 3,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/video/watch/6845a4440a4ab554ebf00fb0"
+          },
+          {
+            "page": 3,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "interference.odadream.art",
+            "kind": "other",
+            "url": "https://interference.odadream.art/"
+          },
+          {
+            "page": 3,
+            "medium": "annotation",
+            "scheme": "http",
+            "host": "ballettheatre.tilda.ws",
+            "kind": "other",
+            "url": "http://ballettheatre.tilda.ws/"
+          },
+          {
+            "page": 3,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "www.icc40.ru",
+            "kind": "other",
+            "url": "https://www.icc40.ru/"
+          },
+          {
+            "page": 3,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "tel",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/?utm_source=anatomia&utm_medium=submission_pdf&utm_campaign=anatomia-otkrytiy-2026"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/odadream"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "vk.com",
+            "kind": "other",
+            "url": "https://vk.com/odadream"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-08_Anatomia_Otkrytiy/pdf/05-budget.new.pdf",
+        "sha256": "b47475035274d291fe769c2fb30512349828e23a5830de267af88b474002fbcb",
+        "pages": 2,
+        "annotationLinks": [
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-08_Anatomia_Otkrytiy/pdf/05-budget.pdf",
+        "sha256": "7026dfef789938bcc36ca92b1a5aea2e4d8715248cc5e4d6d7d7476681d159f5",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "tel",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/?utm_source=anatomia&utm_medium=submission_pdf&utm_campaign=anatomia-otkrytiy-2026"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/odadream"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "vk.com",
+            "kind": "other",
+            "url": "https://vk.com/odadream"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-08_Anatomia_Otkrytiy/pdf/_v11/01-concept.pdf",
+        "sha256": "21ba7d6e7e16ebc7fb1bb7d7fc9816785d8b279f8e705e56c606958a53010bd3",
+        "pages": 2,
+        "annotationLinks": [
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/?utm_source=digitalrain&utm_medium=submission_pdf&utm_campaign=awards-outreach-2026&utm_content=digital-rain"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-08_Anatomia_Otkrytiy/pdf/_v11/02-motivation.pdf",
+        "sha256": "c3f7bec8b26993edee25ace68ed715a1e27e944384234024b99196a7a007dc96",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/?utm_source=digitalrain&utm_medium=submission_pdf&utm_campaign=awards-outreach-2026&utm_content=digital-rain"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-08_Anatomia_Otkrytiy/pdf/_v11/03-cv.pdf",
+        "sha256": "02e1f092e24d6cc6d9318b040ac980f04a6461541b141187bff0287bf6ea0eb4",
+        "pages": 2,
+        "annotationLinks": [
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/?utm_source=digitalrain&utm_medium=submission_pdf&utm_campaign=awards-outreach-2026&utm_content=digital-rain"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-08_Anatomia_Otkrytiy/Polozhenie_o_konkurse.pdf",
+        "sha256": "d516b73bdc4bb4e6e19886870997847a803d25d5e9f38e3f48678ba4cd362fdb",
+        "pages": 12,
+        "annotationLinks": [
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "anatomia.rsmu.ru",
+            "kind": "other",
+            "url": "https://anatomia.rsmu.ru/"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "rsmu.ru",
+            "kind": "other",
+            "url": "https://rsmu.ru/"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "anatomia.rsmu.ru",
+            "kind": "other",
+            "url": "https://anatomia.rsmu.ru/"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-09_BDT_MFTI_Teatr_Nauka/pdf/01-motivation.pdf",
+        "sha256": "da88a71b63a4fba3fdde8c971f3745d3c3887978ed3228d968894372670379a0",
+        "pages": 1,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "tel",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/?utm_source=anatomia&utm_medium=submission_pdf&utm_campaign=anatomia-otkrytiy-2026"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/odadream"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "vk.com",
+            "kind": "other",
+            "url": "https://vk.com/odadream"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-09_BDT_MFTI_Teatr_Nauka/pdf/02-portfolio.pdf",
+        "sha256": "711c5d91e9dd9d844c061f7c4585d0c6c5f8153a96931fa7b86bd60315d5ef02",
+        "pages": 4,
+        "annotationLinks": [
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "interference.odadream.art",
+            "kind": "other",
+            "url": "https://interference.odadream.art/"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/video/watch/6845a4440a4ab554ebf00fb0"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/shorts/670e2b225dc4d803ee9eff4d"
+          },
+          {
+            "page": 3,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/video/watch/6845a4440a4ab554ebf00fb0"
+          },
+          {
+            "page": 3,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "interference.odadream.art",
+            "kind": "other",
+            "url": "https://interference.odadream.art/"
+          },
+          {
+            "page": 3,
+            "medium": "annotation",
+            "scheme": "http",
+            "host": "ballettheatre.tilda.ws",
+            "kind": "other",
+            "url": "http://ballettheatre.tilda.ws/"
+          },
+          {
+            "page": 3,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "www.icc40.ru",
+            "kind": "other",
+            "url": "https://www.icc40.ru/"
+          },
+          {
+            "page": 3,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "tel",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/?utm_source=anatomia&utm_medium=submission_pdf&utm_campaign=anatomia-otkrytiy-2026"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/odadream"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "vk.com",
+            "kind": "other",
+            "url": "https://vk.com/odadream"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-09_Garage_Digital/pdf/01-project.pdf",
+        "sha256": "632fc533f1392b1ac23602df9917dc61d302645526c640b0b33e79432b661b32",
+        "pages": 2,
+        "annotationLinks": [
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "interference.odadream.art",
+            "kind": "other",
+            "url": "https://interference.odadream.art/?utm_source=garage-digital&utm_medium=submission_form&utm_campaign=awards-outreach-2026&utm_content=garage-digital"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "tel",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/?utm_source=garage-digital&utm_medium=submission_form&utm_campaign=awards-outreach-2026&utm_content=garage-digital"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/odadream"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "vk.com",
+            "kind": "other",
+            "url": "https://vk.com/odadream"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-09_Garage_Digital/pdf/02-cv.pdf",
+        "sha256": "94253b288861753c5290edc70c14bf1384f3bdb75779093ecb8eda8d616c4921",
+        "pages": 2,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "youtu.be",
+            "kind": "other",
+            "url": "https://youtu.be/42hS8Zpkd4A"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "vkvideo.ru",
+            "kind": "other",
+            "url": "https://vkvideo.ru/video-216369995_456239017"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "disk.yandex.ru",
+            "kind": "other",
+            "url": "https://disk.yandex.ru/i/BPodDCV8qKwWKw"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/?utm_source=garage-digital&utm_medium=submission_form&utm_campaign=awards-outreach-2026&utm_content=garage-digital"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "interference.odadream.art",
+            "kind": "other",
+            "url": "https://interference.odadream.art/?utm_source=garage-digital&utm_medium=submission_form&utm_campaign=awards-outreach-2026&utm_content=garage-digital"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "tel",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/?utm_source=garage-digital&utm_medium=submission_form&utm_campaign=awards-outreach-2026&utm_content=garage-digital"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/odadream"
+          },
+          {
+            "page": 2,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "vk.com",
+            "kind": "other",
+            "url": "https://vk.com/odadream"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2026-09_Garage_Digital/pdf/03-cv-portfolio-selected.pdf",
+        "sha256": "b3c9221b8b6b52bd9511b6247f6a98e8910863ed0f7fd8a2afad839199231441",
+        "pages": 9,
+        "annotationLinks": [
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/?utm_source=garage-digital&utm_medium=submission_form&utm_campaign=awards-outreach-2026&utm_content=garage-digital"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 1,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 3,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/shorts/670e2b225dc4d803ee9eff4d"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "vzmoscow.ru",
+            "kind": "other",
+            "url": "https://vzmoscow.ru/tpost/2hi0jg6tl1-iskusstvo-v-metro"
+          },
+          {
+            "page": 4,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "digitalpleinair.ru",
+            "kind": "other",
+            "url": "https://digitalpleinair.ru/test2"
+          },
+          {
+            "page": 5,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "psch.vzmoscow.ru",
+            "kind": "other",
+            "url": "https://psch.vzmoscow.ru/chastoty6_0"
+          },
+          {
+            "page": 5,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "xn--80agentheoacq2a.xn--p1ai",
+            "kind": "other",
+            "url": "https://xn--80agentheoacq2a.xn--p1ai/neyromandala"
+          },
+          {
+            "page": 5,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "xn--80agentheoacq2a.xn--p1ai",
+            "kind": "other",
+            "url": "https://xn--80agentheoacq2a.xn--p1ai/"
+          },
+          {
+            "page": 5,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "festtech.ru",
+            "kind": "other",
+            "url": "https://festtech.ru/"
+          },
+          {
+            "page": 5,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "www.youtube.com",
+            "kind": "other",
+            "url": "https://www.youtube.com/watch?v=xUlotjPuXPA"
+          },
+          {
+            "page": 6,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "garagemca.org",
+            "kind": "other",
+            "url": "https://garagemca.org/exhibition/i-spirit-labor-duration-difficulty-and-affect-i/tour/elena-kovylina"
+          },
+          {
+            "page": 6,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "culttech.at",
+            "kind": "other",
+            "url": "https://culttech.at/lab/open-calls"
+          },
+          {
+            "page": 7,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "buddha.forum",
+            "kind": "other",
+            "url": "https://buddha.forum/home"
+          },
+          {
+            "page": 7,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "pranaspring.ae",
+            "kind": "other",
+            "url": "https://pranaspring.ae/pages/about-us"
+          },
+          {
+            "page": 7,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "masaru-emoto.net",
+            "kind": "other",
+            "url": "https://masaru-emoto.net/en/mfw/"
+          },
+          {
+            "page": 7,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/shorts/68e7e10c46364e71175fc735"
+          },
+          {
+            "page": 7,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/shorts/68e7e10c46364e71175fc735"
+          },
+          {
+            "page": 8,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "www.rea.ru",
+            "kind": "other",
+            "url": "https://www.rea.ru/news/60135-esg-instrumentyi-dlya-uspeshnogo-buduschego-mirovoy-ekonomiki-v-plehanovskom-universitete-sostoyalsya-mejdunarodnyiy-forum-stran-briks"
+          },
+          {
+            "page": 8,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "mediaassociation.pro",
+            "kind": "other",
+            "url": "https://mediaassociation.pro/"
+          },
+          {
+            "page": 9,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "interference.odadream.art",
+            "kind": "other",
+            "url": "https://interference.odadream.art/?utm_source=garage-digital&utm_medium=submission_form&utm_campaign=awards-outreach-2026&utm_content=garage-digital"
+          },
+          {
+            "page": 9,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/video/watch/6845a4440a4ab554ebf00fb0"
+          },
+          {
+            "page": 9,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "youtu.be",
+            "kind": "other",
+            "url": "https://youtu.be/42hS8Zpkd4A"
+          },
+          {
+            "page": 9,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "disk.yandex.ru",
+            "kind": "other",
+            "url": "https://disk.yandex.ru/i/BPodDCV8qKwWKw"
+          },
+          {
+            "page": 9,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "disk.yandex.ru",
+            "kind": "other",
+            "url": "https://disk.yandex.ru/i/BPodDCV8qKwWKw"
+          },
+          {
+            "page": 9,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t-fest.online",
+            "kind": "other",
+            "url": "https://t-fest.online/"
+          },
+          {
+            "page": 9,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 9,
+            "medium": "annotation",
+            "scheme": "tel",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 9,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 9,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/?utm_source=garage-digital&utm_medium=submission_form&utm_campaign=awards-outreach-2026&utm_content=garage-digital"
+          },
+          {
+            "page": 9,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "dzen.ru",
+            "kind": "other",
+            "url": "https://dzen.ru/odadream"
+          },
+          {
+            "page": 9,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "vk.com",
+            "kind": "other",
+            "url": "https://vk.com/odadream"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2027-06_SAM_Residencies/cv/ODA_dream_CV_EN.pdf",
+        "sha256": "0d4bfbb0fdf477966d717856df7d5432c5581022f1610c55048a85b9c51adb31",
+        "pages": 2,
+        "annotationLinks": [],
+        "printedMainSiteLinks": [
+          {
+            "page": 1,
+            "medium": "printed-text",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art"
+          }
+        ],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2027-06_SAM_Residencies/portfolio/output/portfolio_en.pdf",
+        "sha256": "6629884079304526281a1af75020022f35f7d685ed5343a32881b1b38c00085a",
+        "pages": 7,
+        "annotationLinks": [
+          {
+            "page": 7,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 7,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 7,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "www.behance.net",
+            "kind": "other",
+            "url": "https://www.behance.net/chudodey"
+          },
+          {
+            "page": 7,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "youtu.be",
+            "kind": "other",
+            "url": "https://youtu.be/42hS8Zpkd4A"
+          },
+          {
+            "page": 7,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2027-06_SAM_Residencies/uploads/ODA_dream_CV_EN.pdf",
+        "sha256": "0d4bfbb0fdf477966d717856df7d5432c5581022f1610c55048a85b9c51adb31",
+        "pages": 2,
+        "annotationLinks": [],
+        "printedMainSiteLinks": [
+          {
+            "page": 1,
+            "medium": "printed-text",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art"
+          }
+        ],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2027-06_SAM_Residencies/uploads/ODA_dream_Portfolio_EN.pdf",
+        "sha256": "6629884079304526281a1af75020022f35f7d685ed5343a32881b1b38c00085a",
+        "pages": 7,
+        "annotationLinks": [
+          {
+            "page": 7,
+            "medium": "annotation",
+            "scheme": "mailto",
+            "host": null,
+            "kind": "contact-or-channel"
+          },
+          {
+            "page": 7,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 7,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "www.behance.net",
+            "kind": "other",
+            "url": "https://www.behance.net/chudodey"
+          },
+          {
+            "page": 7,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "youtu.be",
+            "kind": "other",
+            "url": "https://youtu.be/42hS8Zpkd4A"
+          },
+          {
+            "page": 7,
+            "medium": "annotation",
+            "scheme": "https",
+            "host": "t.me",
+            "kind": "contact-or-channel"
+          }
+        ],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2027-06_SAM_Residencies/uploads/ODA_dream_Statement_of_Interest.pdf",
+        "sha256": "56100775973ede1fce4933b18e6fbb7c7ae67b97e3a9b28886b3092c096924dd",
+        "pages": 2,
+        "annotationLinks": [],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2027-10_Tokyo_Biennale_Social_Dive/cv/ODA_dream_CV_en.pdf",
+        "sha256": "0d4bfbb0fdf477966d717856df7d5432c5581022f1610c55048a85b9c51adb31",
+        "pages": 2,
+        "annotationLinks": [],
+        "printedMainSiteLinks": [
+          {
+            "page": 1,
+            "medium": "printed-text",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art"
+          }
+        ],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "submissions",
+        "path": "2027-10_Tokyo_Biennale_Social_Dive/media/04_cv_odadream.pdf",
+        "sha256": "0d4bfbb0fdf477966d717856df7d5432c5581022f1610c55048a85b9c51adb31",
+        "pages": 2,
+        "annotationLinks": [],
+        "printedMainSiteLinks": [
+          {
+            "page": 1,
+            "medium": "printed-text",
+            "scheme": "https",
+            "host": "odadream.art",
+            "kind": "main-site",
+            "url": "https://odadream.art"
+          }
+        ],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      },
+      {
+        "group": "sent-now",
+        "path": "neurobattle-oda-dream-ru-v3.pdf",
+        "sha256": "a11aad3a19eee9cee76717522e794fd69805d93bbec5c5c74dea4bebd0b1ba42",
+        "pages": 1,
+        "annotationLinks": [],
+        "printedMainSiteLinks": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "publicCopy": false
+      }
+    ],
+    "summary": {
+      "pdfs": 53,
+      "pages": 128,
+      "annotationLinks": 251,
+      "qrDetected": 0,
+      "qrDecoded": 0
+    },
+    "limitation": "Exact sent attachment is independently identified; current folder content is not proof of content at send time. Automatic non-detection does not prove absence of QR/raster URLs. PDF bodies, prices, personal contact payloads and proposal files are not published. External availability is a separate check."
+  },
+  "currentAnalyticsPreflight": {
+    "asOf": "2026-10-06",
+    "mode": "read-only",
+    "source": "D:\\YandexDisk\\_ODA2\\Software_Neo\\Projects\\oda-analytics-hub",
+    "dateRange": {
+      "start": "2026-07-08",
+      "end": "2026-10-05"
+    },
+    "providers": {
+      "google": {
+        "status": "read-verified",
+        "property": "properties/545873737",
+        "stream": "properties/545873737/dataStreams/15266803644",
+        "measurementId": "G-4N77DLLWRP",
+        "enhancedMeasurementSettings": {
+          "streamEnabled": true,
+          "scrollsEnabled": true,
+          "outboundClicksEnabled": true,
+          "siteSearchEnabled": true,
+          "videoEngagementEnabled": true,
+          "fileDownloadsEnabled": true,
+          "formInteractionsEnabled": true
+        },
+        "traffic": {
+          "status": "read-verified",
+          "rowCount": 82,
+          "complete": true,
+          "entries": [
+            {
+              "kind": "overview",
+              "identity": "/",
+              "pageViews": 115
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-works",
+              "pageViews": 63
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-contacts",
+              "pageViews": 35
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-events",
+              "pageViews": 21
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "schrodinger",
+              "pageViews": 15
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-installations",
+              "pageViews": 12
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-performances",
+              "pageViews": 12
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-collab",
+              "pageViews": 12
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-festivals",
+              "pageViews": 10
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-education",
+              "pageViews": 10
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-big-forms",
+              "pageViews": 8
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-lectures",
+              "pageViews": 7
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "neuromandala",
+              "pageViews": 7
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-portal",
+              "pageViews": 6
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "mindshow",
+              "pageViews": 6
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-business",
+              "pageViews": 6
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-world",
+              "pageViews": 5
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "another-people",
+              "pageViews": 4
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-tsiolkovsky-2026",
+              "pageViews": 4
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-exhibitions",
+              "pageViews": 4
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-tech",
+              "pageViews": 4
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "multisync",
+              "pageViews": 4
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "honors",
+              "pageViews": 4
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "theatre-my-name",
+              "pageViews": 4
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-tsiolkovsky",
+              "pageViews": 3
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-tsiolkovsky-2025",
+              "pageViews": 3
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-materia",
+              "pageViews": 3
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "interference",
+              "pageViews": 3
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-institutions",
+              "pageViews": 3
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-gong-fest",
+              "pageViews": 2
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-portal-2024",
+              "pageViews": 2
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-portal-2025",
+              "pageViews": 2
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-galleries",
+              "pageViews": 2
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-registry",
+              "pageViews": 2
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "media-byob-2020-photos",
+              "pageViews": 2
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "media-schrodinger-poster",
+              "pageViews": 2
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "collab-itb",
+              "pageViews": 2
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "neurobattle",
+              "pageViews": 2
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "ancestors",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "beautiful-brain",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "brain-hack",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "cultural-neuro-code",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-dano-ekoniva-2025",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-gong-fest-2025",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-myata-2025",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-pleinair-bashkiria-2025",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-chastoti",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-edu-corporate",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-event-agencies",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-private-shows",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-terraforming",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "journey",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "media-another-people-docs",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "media-byob-2019-mindgrid",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "media-interference-plakats",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "media-schrodinger-photos",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "media-schrodinger-teaser",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "media-theatre-my-name-archive",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "media-theatre-my-name-photos",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "meditation-brain",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "neuroaesthetics-lec",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "proof-award-skolkovo-arttech",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "sync-circle",
+              "pageViews": 1
+            }
+          ],
+          "metadata": {
+            "dataLossFromOtherRow": null,
+            "subjectToThresholding": null,
+            "samplingMetadatas": null
+          }
+        },
+        "contractEvents": {
+          "page_view": 436,
+          "click_external": 5
+        },
+        "oauthPermissions": {
+          "status": "read-verified",
+          "analyticsReadOnly": true,
+          "analyticsEdit": false,
+          "analyticsFull": false
+        }
+      },
+      "metrica": {
+        "status": "read-verified",
+        "counterId": "110783617",
+        "automaticGoalsEnabled": false,
+        "codeOptions": {
+          "visor": 0,
+          "clickmap": 1,
+          "ecommerce": 1,
+          "ytm": true
+        },
+        "goalCount": 9,
+        "contractGoals": [],
+        "traffic": {
+          "status": "read-verified",
+          "rowCount": 83,
+          "complete": true,
+          "sampled": false,
+          "sampleShare": 1,
+          "entries": [
+            {
+              "kind": "overview",
+              "identity": "/",
+              "pageViews": 122
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-works",
+              "pageViews": 65
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-contacts",
+              "pageViews": 35
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-events",
+              "pageViews": 21
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "schrodinger",
+              "pageViews": 16
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-collab",
+              "pageViews": 14
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-performances",
+              "pageViews": 12
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-installations",
+              "pageViews": 11
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-festivals",
+              "pageViews": 10
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-big-forms",
+              "pageViews": 10
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-education",
+              "pageViews": 10
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-lectures",
+              "pageViews": 8
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "neuromandala",
+              "pageViews": 7
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-portal",
+              "pageViews": 6
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "mindshow",
+              "pageViews": 6
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-business",
+              "pageViews": 6
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-world",
+              "pageViews": 5
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "another-people",
+              "pageViews": 4
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-tsiolkovsky-2026",
+              "pageViews": 4
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-exhibitions",
+              "pageViews": 4
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-tech",
+              "pageViews": 4
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "multisync",
+              "pageViews": 4
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "honors",
+              "pageViews": 4
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "theatre-my-name",
+              "pageViews": 4
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-tsiolkovsky",
+              "pageViews": 3
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-tsiolkovsky-2025",
+              "pageViews": 3
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-materia",
+              "pageViews": 3
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "interference",
+              "pageViews": 3
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-institutions",
+              "pageViews": 3
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-gong-fest",
+              "pageViews": 2
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-portal-2024",
+              "pageViews": 2
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-portal-2025",
+              "pageViews": 2
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-galleries",
+              "pageViews": 2
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-registry",
+              "pageViews": 2
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "journey",
+              "pageViews": 2
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "media-byob-2020-photos",
+              "pageViews": 2
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "media-schrodinger-poster",
+              "pageViews": 2
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "collab-itb",
+              "pageViews": 2
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "neurobattle",
+              "pageViews": 2
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "ancestors",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "beautiful-brain",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "brain-hack",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "cultural-neuro-code",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-dano-ekoniva-2025",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-gong-fest-2025",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-myata-2025",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "event-pleinair-bashkiria-2025",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-chastoti",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-edu-corporate",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-event-agencies",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-private-shows",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "hub-terraforming",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "media-another-people-docs",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "media-byob-2019-mindgrid",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "media-interference-plakats",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "media-schrodinger-photos",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "media-schrodinger-teaser",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "media-theatre-my-name-archive",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "media-theatre-my-name-photos",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "meditation-brain",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "neuroaesthetics-lec",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "proof-award-skolkovo-arttech",
+              "pageViews": 1
+            },
+            {
+              "kind": "legacy-id",
+              "identity": "sync-circle",
+              "pageViews": 1
+            }
+          ]
+        }
+      }
+    },
+    "limitation": "Provider settings and historical aggregate traffic are not a live V2 delivery test. No observed traffic does not establish no external entrances; dates, consent, provider capture and truncation limit coverage. Unknown URLs and all query/contact payloads are redacted. No provider/hub state changed."
+  },
+  "currentSentMaterialEvidence": {
+    "asOf": "2026-10-06",
+    "mode": "read-only Gmail source and owner-selected local roots",
+    "sends": [
+      {
+        "recipientOrganization": "Divent",
+        "date": "2026-09-03",
+        "messageId": "1a0661c65e5284b3",
+        "materialMode": "shared-folders",
+        "publicFolderUrls": [
+          "https://disk.yandex.ru/d/G6QxuwHyGsS7zQ",
+          "https://disk.yandex.ru/d/6dDFNvdiGyEYmA",
+          "https://disk.yandex.ru/d/dB_q5hshlYwo3Q"
+        ]
+      },
+      {
+        "recipientOrganization": "N:OW",
+        "date": "2026-08-31",
+        "messageId": "1a057e3ba822f1ee",
+        "materialMode": "attachment",
+        "filename": "neurobattle-oda-dream-ru-v3.pdf",
+        "bytes": 106063,
+        "sha256": "a11aad3a19eee9cee76717522e794fd69805d93bbec5c5c74dea4bebd0b1ba42",
+        "pages": 1,
+        "printedMainSiteEntrance": "https://odadream.art",
+        "annotations": 0,
+        "qrDetected": 0,
+        "visualInspection": "Original raster page inspected; historical title is Paradox of Victory. Canonical current Work remains Paradox of Success. Historical contact footer is not a new CTA."
+      },
+      {
+        "recipientOrganization": "N:OW",
+        "date": "2026-09-01",
+        "messageId": "1a05d045a00b2bb9",
+        "materialMode": "shared-folder",
+        "publicFolderUrls": [
+          "https://disk.yandex.ru/d/dB_q5hshlYwo3Q"
+        ]
+      }
+    ],
+    "folderAvailability": {
+      "checkedOn": "2026-10-06",
+      "method": "live in-app browser file lists",
+      "generalKit": true,
+      "mindShow": true,
+      "game": true,
+      "limitation": "Current shared-folder availability does not establish immutable contents at the original send date."
+    },
+    "localSidecar": {
+      "root": "D:/YandexDisk/Public/odadream_media_kit",
+      "file": "_LINK_TO_ODADREAM_SITE.url",
+      "url": "https://odadream.art/?id=for-events",
+      "disposition": "Explicit alias of hub-event-agencies to paired cooperation#for-events routes; deferred target preserves original alias and language."
+    },
+    "versionFinding": "The current economics export with the same PDF filename has a different SHA-256; it is not the sent attachment.",
+    "restriction": "No attachment, private rate card, correspondence body, signed download URL, credentials or personal contact payload is copied into public. Folder rights allow agency internal presentations; public reuse is not inferred."
+  },
+  "currentOutreachEntranceVerification": {
+    "asOf": "2026-10-06",
+    "fixture": true,
+    "localizedPages": 44,
+    "alias": "for-events",
+    "languages": [
+      "ru",
+      "en"
+    ],
+    "target": "cooperation/#for-events",
+    "historicalOriginalsHttp200AndSha256": 28,
+    "proposedExclusionsHttp404": 170,
+    "limitation": "Isolated synthetic publication fixture, not production routing or retirement approval. HTTP checks do not authorize cutover."
+  },
+  "currentMigrationVerification": {
+    "asOf": "2026-10-06",
+    "format": "passed",
+    "unitTests": {
+      "passed": 45,
+      "failed": 0
+    },
+    "content": "passed",
+    "astro": {
+      "files": 83,
+      "errors": 0,
+      "warnings": 0
+    },
+    "publicBuild": {
+      "htmlPages": 21,
+      "passed": true
+    },
+    "browserTests": {
+      "passed": 82,
+      "skipped": 12,
+      "failed": 0
+    },
+    "isolatedCandidate": {
+      "localizedPages": 44,
+      "historicalOriginalsHttp200AndSha256": 28,
+      "proposedExclusionsHttp404": 170,
+      "pairedExternalAlias": "for-events"
+    },
+    "releaseGate": "expected-blocked: editorial publication review and unapproved resource dispositions",
+    "progressPercent": 95,
+    "publicationChanged": false,
+    "providerSettingsChanged": false
   }
 }
