@@ -23,7 +23,7 @@ test('stage determines realization independently of booking and repertoire', () 
   );
 });
 
-test('route registry gives each curated work and case exactly one page per language', () => {
+test('route registry gives detail records paired pages and short events catalogue anchors', () => {
   assert.equal(new Set(pages.map((page) => page.path)).size, pages.length);
   for (const lang of ['en', 'ru'])
     for (const [kind, collection] of [
@@ -33,6 +33,9 @@ test('route registry gives each curated work and case exactly one page per langu
       for (const item of collection)
         assert.equal(
           pages.filter((page) => page.lang === lang && page.kind === kind && page.slug === item.slug).length,
-          1,
+          kind === 'case' && !item.detailPage ? 0 : 1,
         );
+  for (const item of data.cases.filter((row) => !row.detailPage))
+    for (const lang of ['en', 'ru'])
+      assert.ok(pages.find((page) => page.path === `/${lang}/cases/`).anchors.includes(`case-${item.slug}`));
 });

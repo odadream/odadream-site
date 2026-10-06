@@ -8,10 +8,11 @@ import MindDBStamp from '../components/MindDBStamp.astro';
 import SectionRail from '../components/SectionRail.astro';
 import RecordStamp from '../components/RecordStamp.astro';
 import EditorialSections from '../components/EditorialSections.astro';
+import EvidenceNote from '../components/EvidenceNote.astro';
 import TechnicalMark from '../components/TechnicalMark.astro';
 import CalloutLink from '../components/CalloutLink.astro';
 import PageCode from '../components/PageCode.astro';
-import { recognitions, works } from '../data/site';
+import { recognitions, works, evidence } from '../data/site';
 import { siteStats } from '../lib/site-stats';
 import '../styles/design-system.css';
 const page = {
@@ -630,6 +631,7 @@ const profileTokens = [
           ]}
         />
         <EditorialSections sections={works[0].story.slice(0, 1)} lang="ru" anchorPrefix="system-story" />
+        <EvidenceNote item={evidence[0]} lang="ru" />
         <RecordStamp
           title="Два поля / вся доступная ширина"
           wide

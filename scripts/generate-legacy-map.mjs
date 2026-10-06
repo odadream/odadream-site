@@ -7,6 +7,31 @@ const sourceDir = resolve(process.argv[2] || '../odadream-site-archive-2026-09-2
 const target = resolve('src/data/legacy-map.json');
 const overrides = {
   neuromandala: ['/technology/#method-overview', 'Method overview / Обзор метода'],
+  'event-portal-2025': ['/cases/#case-portal-2025', 'Selected historical context / Исторический контекст'],
+  'event-myata-2025': [
+    '/cases/#case-wildmint-2025',
+    'Lecture and performance context / Контекст лекции и перформанса',
+  ],
+  'event-cipr-mindshow-2026': [
+    '/cases/#case-cipr-2026',
+    'Invited presentation context / Контекст приглашённого участия',
+  ],
+  'proof-award-portal-visioning': [
+    '/recognition/#recognition-portal-2030-2025',
+    'Bounded award record / Наградная запись',
+  ],
+  'proof-mipt-letter': [
+    '/recognition/#recognition-mipt-letter-2025',
+    'Letter record with missing scan / Запись письма без скана',
+  ],
+  'proof-let-hse-beautiful-brain': [
+    '/recognition/#recognition-hse-letter-2025',
+    'Letter for a specific lecture / Письмо о лекции',
+  ],
+  'proof-let-tavrida': [
+    '/recognition/#recognition-tavrida-letter-2025',
+    'Participation letter / Письмо об участии',
+  ],
   'emomandala-os': [
     '/works/emomandala/#work-story-selection',
     'Method element within Emomandala / Метод внутри Эмомандалы',

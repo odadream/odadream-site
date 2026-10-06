@@ -28,7 +28,11 @@ const fields =
       ]
     : kind === 'events'
       ? [
-          { label: ru ? 'Кейсы на сайте' : 'Cases on this site', value: siteStats.cases.total, metric: true },
+          {
+            label: ru ? 'События в каталоге' : 'Catalogued events',
+            value: siteStats.cases.total,
+            metric: true,
+          },
           {
             label: ru ? 'Перформансы' : 'Performances',
             value: siteStats.cases.byType.performance ?? 0,

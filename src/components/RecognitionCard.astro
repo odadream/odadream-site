@@ -1,8 +1,21 @@
 ---
 import TechnicalMark from './TechnicalMark.astro';
+import CalloutLink from './CalloutLink.astro';
 import type { Lang, Recognition, RecognitionKind } from '../data/site';
 interface Props {
-  item: Recognition;
+  item: Pick<
+    Recognition,
+    | 'id'
+    | 'kind'
+    | 'title'
+    | 'issuer'
+    | 'year'
+    | 'previewSrc'
+    | 'claim'
+    | 'recipient'
+    | 'limitations'
+    | 'contextPath'
+  >;
   lang: Lang;
 }
 const { item, lang } = Astro.props;
@@ -13,7 +26,7 @@ const kindLabels: Record<RecognitionKind, Record<Lang, string>> = {
 };
 ---
 
-<article class="recognition-card">
+<article class="recognition-card" id={`recognition-${item.id}`}>
   {item.previewSrc ? (
     <button
       class="recognition-card__image"
@@ -44,5 +57,15 @@ const kindLabels: Record<RecognitionKind, Record<Lang, string>> = {
   <div>
     <h3>{item.title[lang]}</h3>
     <p>{item.issuer[lang]}</p>
+    <p>{item.claim[lang]}</p>
+    <p class="small-note">
+      {lang === 'ru' ? 'Адресат' : 'Recipient'}: {item.recipient[lang]}
+    </p>
+    <p class="small-note">{item.limitations[lang]}</p>
+    {item.contextPath && (
+      <CalloutLink href={`/${lang}/${item.contextPath}`}>
+        {lang === 'ru' ? 'Контекст участия' : 'Contribution context'}
+      </CalloutLink>
+    )}
   </div>
 </article>

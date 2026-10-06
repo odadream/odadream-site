@@ -1,0 +1,18 @@
+---
+import type { Evidence, Lang } from '../data/site';
+import CalloutLink from './CalloutLink.astro';
+interface Props {
+  item: Pick<Evidence, 'title' | 'claim' | 'sourceLabel' | 'source'>;
+  lang: Lang;
+}
+const { item, lang } = Astro.props;
+---
+
+<aside class="provenance">
+  <strong>{item.title[lang]}</strong>
+  <p>{item.claim[lang]}</p>
+  <p class="small-note">{item.sourceLabel[lang]}</p>
+  {/^https?:\/\//.test(item.source) && (
+    <CalloutLink href={item.source}>{lang === 'ru' ? 'Первоисточник' : 'Source'}</CalloutLink>
+  )}
+</aside>

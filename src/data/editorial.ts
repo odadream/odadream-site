@@ -189,6 +189,86 @@ export const sourceSnapshots: Record<string, SourceReference> = {
     sha256: '7e457443d870a3c473b79a399d583f6cd313be34317eb067f4f357116fdf8324',
     snapshot: '2026-10-06',
   },
+  'event-tsiolkovsky-2026.md': {
+    file: 'event-tsiolkovsky-2026.md',
+    sha256: '51ed45eb5ba2516b29efb59c50f5fc564b63c0e88e253ebe9816d886b4935e31',
+    snapshot: '2026-10-06',
+  },
+  'event-tsiolkovsky-2025.md': {
+    file: 'event-tsiolkovsky-2025.md',
+    sha256: '93ff388a0afa6fd40f1e50eef3549a7bb4764bef26db28ad1a9731936656a6ae',
+    snapshot: '2026-10-06',
+  },
+  'event-dano-ekoniva-2025.md': {
+    file: 'event-dano-ekoniva-2025.md',
+    sha256: '10c72da82b3b50203219ab086cd8bce286ba578e6d1eb8301b53b8574294f4a5',
+    snapshot: '2026-10-06',
+  },
+  'event-byob-2026.md': {
+    file: 'event-byob-2026.md',
+    sha256: '1bca3361594638165e795284518c4bf6fe33262f94f23c4e04f75050bc2009fb',
+    snapshot: '2026-10-06',
+  },
+  'event-portal-2025.md': {
+    file: 'event-portal-2025.md',
+    sha256: '838dcff35d2615a0817bfbee1d99baeb3ff0777792b68d548072b18b1cc8f302',
+    snapshot: '2026-10-06',
+  },
+  'proof-award-portal-visioning.md': {
+    file: 'proof-award-portal-visioning.md',
+    sha256: '3e58790c95fd528240e7073e88c604af2cab639a8e4d12fe5e7d868e6b813602',
+    snapshot: '2026-10-06',
+  },
+  'event-myata-2025.md': {
+    file: 'event-myata-2025.md',
+    sha256: 'f2a2a01c03293a1ddc95d2ab8f8014c125fc48e022c5f7b0345247ab8ae01d9d',
+    snapshot: '2026-10-06',
+  },
+  'proof-let-wildmint.md': {
+    file: 'proof-let-wildmint.md',
+    sha256: '0c31e831894a652618ba381ffb75c48d81c5777639ebf179f816d0e0113f00bc',
+    snapshot: '2026-10-06',
+  },
+  'event-cipr-mindshow-2026.md': {
+    file: 'event-cipr-mindshow-2026.md',
+    sha256: '587eebd47098e6f9b2f86da80b0d34942394f441187b75dffd95be38e1f788cc',
+    snapshot: '2026-10-06',
+  },
+  'proof-tst-cipr-techfriendly.md': {
+    file: 'proof-tst-cipr-techfriendly.md',
+    sha256: '2e3d1f89c5d3e55c47992d6890fef5c0b30f56d0047e6a5f7f585264872babdd',
+    snapshot: '2026-10-06',
+  },
+  'hub-letters.md': {
+    file: 'hub-letters.md',
+    sha256: 'f1b6541f16a38346a46bb3b33f92415edce96b850c1cdd0399c0640e95bb4705',
+    snapshot: '2026-10-06',
+  },
+  'proof-mipt-letter.md': {
+    file: 'proof-mipt-letter.md',
+    sha256: '6e0713a7014d65b8e374471c248349f46f288fd329fab9dbdbab2a88ab83d14a',
+    snapshot: '2026-10-06',
+  },
+  'proof-let-tavrida.md': {
+    file: 'proof-let-tavrida.md',
+    sha256: '1be420106451eca6a000e985259684cdb0c35b221e510a5bdbbe1ecc1bf386bc',
+    snapshot: '2026-10-06',
+  },
+  'proof-let-hse-beautiful-brain.md': {
+    file: 'proof-let-hse-beautiful-brain.md',
+    sha256: 'af359fd754fac9ccfbb13837f339a2df0db22db29fb6ff299b510485d59acfdb',
+    snapshot: '2026-10-06',
+  },
+  'org-kalashnikova.md': {
+    file: 'org-kalashnikova.md',
+    sha256: 'b4ac17971ff4a83b0b06ec318d4f90619efbcc3bd873701a8acfcea197e6579b',
+    snapshot: '2026-10-06',
+  },
+  'org-ashram.md': {
+    file: 'org-ashram.md',
+    sha256: '6e2f945c50b65ccac27eb6ef859934ddb66d149db28d3ff6014027d3f2e88951',
+    snapshot: '2026-10-06',
+  },
 };
 const refs = (...files: string[]) => files.map((file) => sourceSnapshots[file]);
 const l = (ru: string, en: string): Localized => ({ ru, en });

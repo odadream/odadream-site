@@ -61,16 +61,19 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
     ...row,
     works: row.works.filter((id) => workIds.has(id)),
   }));
-  const cases = select('cases', source.cases).filter((row) => {
-    if (workIds.has(row.work)) return true;
-    errors.push(`case ${row.id}: work ${row.work} is outside the published packet`);
-    return false;
-  });
   const methods = select('methods', source.methods ?? []).map((row) => ({
     ...row,
     works: row.works.filter((id) => workIds.has(id)),
   }));
   const methodIds = ids(methods);
+  const cases = select('cases', source.cases).filter((row) => {
+    if (row.work && workIds.has(row.work)) return true;
+    if (row.method && methodIds.has(row.method)) return true;
+    errors.push(
+      `case ${row.id}: ${row.method ? 'method ' + row.method : 'work ' + row.work} is outside the published packet`,
+    );
+    return false;
+  });
   const cooperationPages = select('cooperationPages', source.cooperationPages ?? []).map((row) => ({
     ...row,
     scenarios: row.scenarios.map((scenario) => ({
@@ -85,11 +88,23 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
     errors.push(`studio ${row.id}: people ${missing.join(', ')} are outside the published packet`);
     return false;
   });
-  const recognitions = select('recognitions', source.recognitions).filter((row) => {
-    if (preview || row.documentRights === 'cleared') return true;
-    errors.push(`recognition ${row.id}: document rights ${row.documentRights}`);
-    return false;
-  });
+  const recognitions = select('recognitions', source.recognitions)
+    .filter((row) => {
+      if (preview || row.documentRights === 'cleared') return true;
+      errors.push(`recognition ${row.id}: document rights ${row.documentRights}`);
+      return false;
+    })
+    .map((row) => ({
+      ...row,
+      relatedWorks: row.relatedWorks.filter((id) => workIds.has(id)),
+      contextPath:
+        preview ||
+        (row.contextPath?.startsWith('studio/')
+          ? studioPages.length > 0
+          : cases.some((item) => row.contextPath === `cases/#case-${item.slug}`))
+          ? row.contextPath
+          : undefined,
+    }));
   const caseIds = ids(cases);
   const heroVisuals = select('heroVisuals', source.heroVisuals).filter((row) => {
     if (row.target.kind === 'unmapped') {
@@ -300,10 +315,18 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'title',
             'summary',
             'date',
+            'datePrecision',
+            'detailPage',
+            'featuredOnHome',
             'type',
             'place',
             'role',
             'work',
+            'method',
+            'story',
+            'organizationRoles',
+            'participants',
+            'limitations',
             'organizations',
             'evidence',
             'media',
@@ -325,8 +348,19 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'previewSrc',
             'publication',
             'documentRights',
+            'claim',
+            'recipient',
+            'limitations',
+            'documentState',
+            'relatedWorks',
+            'contextPath',
           ]),
-          documentSource: publicSource(row.documentSource),
+          documentSource:
+            /^(?:\/images\/|\/documents\/)/.test(row.documentSource) &&
+            !row.documentSource.includes('..') &&
+            !row.documentSource.includes('\\')
+              ? row.documentSource
+              : publicSource(row.documentSource),
         })),
         media: media.map((row) =>
           project(row, [
@@ -345,7 +379,9 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'representation',
           ]),
         ),
-        evidence: evidence.map((row) => project(row, ['id', 'legacyId', 'kind', 'title', 'permission'])),
+        evidence: evidence.map((row) =>
+          project(row, ['id', 'legacyId', 'kind', 'title', 'permission', 'claim', 'sourceLabel']),
+        ),
         organizations: organizations.map((row) => project(row, ['id', 'legacyId', 'name', 'role'])),
         minddbSnapshot: minddbSnapshot
           ? project(minddbSnapshot, [
@@ -366,7 +402,8 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
     for (const path of [row.src, row.mobileSrc, row.poster, row.previewSrc])
       if (path?.startsWith('/')) assetPaths.add(path);
   for (const row of projected.recognitions)
-    if (row.previewSrc?.startsWith('/')) assetPaths.add(row.previewSrc);
+    for (const path of [row.previewSrc, row.documentState === 'available' ? row.documentSource : undefined])
+      if (path?.startsWith('/')) assetPaths.add(path);
   return {
     ...projected,
     preview,

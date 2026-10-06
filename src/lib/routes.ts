@@ -76,7 +76,9 @@ const copy = {
 
 export const createPages = (
   records: Pick<typeof catalogue, 'works' | 'cases'> &
-    Partial<Pick<typeof catalogue, 'formats' | 'methods' | 'cooperationPages' | 'studioPages'>>,
+    Partial<
+      Pick<typeof catalogue, 'formats' | 'methods' | 'cooperationPages' | 'studioPages' | 'recognitions'>
+    >,
 ): Page[] =>
   (['en', 'ru'] as Lang[]).flatMap((lang) => [
     {
@@ -140,7 +142,11 @@ export const createPages = (
                         ]
                       : []),
                   ]
-                : [],
+                : kind === 'cases'
+                  ? records.cases.map((row) => `case-${row.slug}`)
+                  : kind === 'recognition'
+                    ? (records.recognitions ?? []).map((row) => `recognition-${row.id}`)
+                    : [],
       title: `${copy[kind][lang][0]} — ODA.dream`,
       description: copy[kind][lang][1],
     })),
@@ -160,15 +166,18 @@ export const createPages = (
         ...work.story.map((row) => `work-story-${row.id}`),
       ],
     })),
-    ...records.cases.map((item) => ({
-      lang,
-      kind: 'case' as const,
-      family: familyByKind.case,
-      slug: item.slug,
-      path: `/${lang}/cases/${item.slug}/`,
-      title: `${item.title[lang]} — ODA.dream`,
-      description: item.summary[lang],
-    })),
+    ...records.cases
+      .filter((item) => item.detailPage)
+      .map((item) => ({
+        lang,
+        kind: 'case' as const,
+        family: familyByKind.case,
+        slug: item.slug,
+        path: `/${lang}/cases/${item.slug}/`,
+        title: `${item.title[lang]} — ODA.dream`,
+        description: item.summary[lang],
+        anchors: ['case-contribution', 'case-story', 'case-context', 'case-evidence'],
+      })),
   ]);
 
 export const pages = createPages(catalogue);
@@ -179,6 +188,10 @@ export const url = (lang: Lang, path = '') => `/${lang}/${path}`;
 export const workUrl = (lang: Lang, id: string) =>
   `/${lang}/works/${works.find((x) => x.id === id)?.slug ?? ''}/`;
 export const caseUrl = (lang: Lang, id: string) =>
-  `/${lang}/cases/${cases.find((x) => x.id === id)?.slug ?? ''}/`;
+  cases.find((row) => row.id === id)?.detailPage
+    ? `/${lang}/cases/${cases.find((row) => row.id === id)!.slug}/`
+    : `/${lang}/cases/#case-${cases.find((row) => row.id === id)?.slug ?? ''}`;
+export const caseTargetUrl = (lang: Lang, item: { work?: string; method?: string }) =>
+  item.work ? workUrl(lang, item.work) : `/${lang}/technology/`;
 export const formatUrl = (lang: Lang, id: string) =>
   `/${lang}/formats/#${formats.find((x) => x.id === id)?.slug ?? ''}`;

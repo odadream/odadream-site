@@ -4,6 +4,10 @@ import type { SourceReference } from './editorial';
 import { studioPeople } from './studio';
 import { workDetails } from './work-details';
 import type { WorkDetail } from './work-details';
+import { caseDetails, historicalEvents } from './case-details';
+import type { CaseDetail } from './case-details';
+import { evidenceDetails, recognitionDetails } from './evidence-details';
+import type { EvidenceDetail, RecognitionDetail } from './evidence-details';
 export { methods, cooperationPages, sourceSnapshots } from './editorial';
 export { studioPages } from './studio';
 
@@ -104,24 +108,28 @@ export interface Format extends FormatDetail {
   source: string;
   publication: Publication;
 }
-export interface CaseEvent {
+export interface CaseEvent extends CaseDetail {
   id: string;
   legacyId: string;
   slug: string;
   title: Localized;
   summary: Localized;
   date: string;
+  datePrecision: 'day' | 'month' | 'year';
+  detailPage: boolean;
+  featuredOnHome: boolean;
   type: 'performance' | 'presentation' | 'participatory-format';
   place: Localized;
   role: Localized;
-  work: string;
+  work?: string;
+  method?: string;
   organizations: string[];
   evidence: string[];
   media: string[];
   source: string;
   publication: Publication;
 }
-export interface Evidence {
+export interface Evidence extends EvidenceDetail {
   id: string;
   legacyId: string;
   kind: 'event-record' | 'document' | 'press';
@@ -130,7 +138,7 @@ export interface Evidence {
   permission: Rights;
 }
 export type RecognitionKind = 'award' | 'certificate' | 'acknowledgement-letter';
-export interface Recognition {
+export interface Recognition extends RecognitionDetail {
   id: string;
   legacyId?: string;
   kind: RecognitionKind;
@@ -155,11 +163,12 @@ export interface Person {
   source: string;
   publication: Publication;
 }
+export type OrganizationRole = 'venue' | 'organizer' | 'client' | 'co-producer' | 'technology';
 export interface Organization {
   id: string;
   legacyId: string;
   name: Localized;
-  role: 'venue' | 'organizer' | 'client' | 'co-producer' | 'technology';
+  role: OrganizationRole;
   source: string;
 }
 
@@ -586,7 +595,7 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
       ru: ['Публичные показы с 2019 года', 'BYOB 2026 · Москва', 'Индивидуальный ввод ЭЭГ и рассказа'],
     },
     media: ['mindshow'],
-    cases: ['byob-2026'],
+    cases: ['byob-2026', 'portal-2025', 'cipr-2026'],
     formats: ['mindshow-installation'],
     source: 'src/content/mindshow.md',
     publication: 'review',
@@ -1039,6 +1048,34 @@ export const formats: Format[] = [
 
 export const organizations: Organization[] = [
   {
+    id: 'moscow2030',
+    legacyId: 'org-moscow2030',
+    name: { en: 'Moscow 2030', ru: 'Москва 2030' },
+    role: 'organizer',
+    source: 'src/content/event-portal-2025.md',
+  },
+  {
+    id: 'wildmint',
+    legacyId: 'org-wildmint',
+    name: { en: 'Wild Mint', ru: 'Дикая Мята' },
+    role: 'organizer',
+    source: 'src/content/proof-let-wildmint.md',
+  },
+  {
+    id: 'cipr',
+    legacyId: 'org-cipr',
+    name: { en: 'CIPR', ru: 'ЦИПР' },
+    role: 'venue',
+    source: 'src/content/event-cipr-mindshow-2026.md',
+  },
+  {
+    id: 'ashram',
+    legacyId: 'org-ashram',
+    name: { en: 'Ashram Studio', ru: 'Студия Ashram' },
+    role: 'client',
+    source: 'src/content/event-cipr-mindshow-2026.md',
+  },
+  {
     id: 'ikc',
     legacyId: 'org-ikc',
     name: { en: 'Innovation Cultural Center', ru: 'Инновационный культурный центр' },
@@ -1082,7 +1119,7 @@ export const organizations: Organization[] = [
   },
 ];
 
-export const evidence: Evidence[] = [
+const evidenceRecords: Omit<Evidence, keyof EvidenceDetail>[] = [
   {
     id: 'tsiolkovsky-2026-record',
     legacyId: 'event-tsiolkovsky-2026',
@@ -1119,7 +1156,9 @@ export const evidence: Evidence[] = [
 
 // Transcribed from the previous site's public archive. Kept out of public
 // rendering until issuer/date/event details and scan permissions are reviewed.
-export const recognitions: Recognition[] = [
+export const evidence: Evidence[] = evidenceRecords.map((row) => ({ ...row, ...evidenceDetails[row.id] }));
+
+const recognitionRecords: Omit<Recognition, keyof RecognitionDetail>[] = [
   {
     id: 'digital-art-ai-2026',
     kind: 'certificate',
@@ -1151,18 +1190,24 @@ export const recognitions: Recognition[] = [
   },
   {
     id: 'portal-2030-2025',
-    kind: 'certificate',
+    legacyId: 'proof-award-portal-visioning',
+    kind: 'award',
     year: 2025,
     featuredOnHome: false,
-    title: { en: 'Diploma · Portal 2030–2050, “Visioning”', ru: 'Диплом · Портал 2030–2050, «Виджеинг»' },
+    title: {
+      en: 'First prize · Portal 2030–2050, VJ contest',
+      ru: 'Первое место · Портал 2030–2050, «Виджеинг»',
+    },
     issuer: { en: 'Moscow 2030', ru: 'Москва 2030' },
     source: 'previous src/content/hub-letters.md; outcome wording requires source review',
     documentSource: '/images/content/proofs/collab_2025_ODA_Portal.webp',
+    previewSrc: '/images/recognition/portal-2025.webp',
     publication: 'review',
     documentRights: 'review',
   },
   {
     id: 'tavrida-letter-2025',
+    legacyId: 'proof-let-tavrida',
     kind: 'acknowledgement-letter',
     year: 2025,
     featuredOnHome: true,
@@ -1196,7 +1241,12 @@ export const recognitions: Recognition[] = [
   },
 ];
 
-export const cases: CaseEvent[] = [
+export const recognitions: Recognition[] = recognitionRecords.map((row) => ({
+  ...row,
+  ...recognitionDetails[row.id],
+}));
+
+const caseRecords: Omit<CaseEvent, keyof CaseDetail | 'datePrecision' | 'detailPage' | 'featuredOnHome'>[] = [
   {
     id: 'tsiolkovsky-2026',
     legacyId: 'event-tsiolkovsky-2026',
@@ -1210,8 +1260,8 @@ export const cases: CaseEvent[] = [
     type: 'performance',
     place: { en: 'Kaluga · Innovation Cultural Center', ru: 'Калуга · Инновационный культурный центр' },
     role: {
-      en: 'ODA.dream: art direction and technology; co-production with Innovation Ballet Theatre.',
-      ru: 'ODA.dream: художественное руководство и технологии; совместная постановка с Инновационным театром балета.',
+      en: 'ODA.dream: artistic and technological design; co-production with Innovation Ballet Theatre.',
+      ru: 'ODA.dream: художественно-технологическое решение; совместная постановка с Инновационным театром балета.',
     },
     work: 'interference',
     organizations: ['ikc', 'itb', 'neiry'],
@@ -1250,7 +1300,7 @@ export const cases: CaseEvent[] = [
     title: { en: 'Paradox of Success at DANO', ru: '«Парадокс Успеха» на DANO' },
     summary: {
       en: 'An event adaptation of Paradox of Success at the DANO Olympiad.',
-      ru: 'Событийная версия «Нейробитвы» на олимпиаде DANO.',
+      ru: 'Событийная версия «Парадокса Успеха» на олимпиаде DANO.',
     },
     date: '2025-12-17',
     type: 'participatory-format',
@@ -1289,6 +1339,17 @@ export const cases: CaseEvent[] = [
     source: 'src/content/event-byob-2026.md',
     publication: 'review',
   },
+];
+
+export const cases: CaseEvent[] = [
+  ...caseRecords.map((row) => ({
+    ...row,
+    datePrecision: 'day' as const,
+    detailPage: true,
+    featuredOnHome: true,
+    ...caseDetails[row.id],
+  })),
+  ...historicalEvents,
 ];
 
 export const people: Person[] = [
