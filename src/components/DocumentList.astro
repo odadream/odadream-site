@@ -1,31 +1,35 @@
 ---
 import type { Lang } from '../data/site';
-import type { WorkDocument } from '../data/work-details';
+import type { DocumentMetadata } from '../data/reference-documents';
 import CalloutLink from './CalloutLink.astro';
 interface Props {
-  documents: Pick<
-    WorkDocument,
-    'id' | 'title' | 'description' | 'href' | 'year' | 'language' | 'pages' | 'bytes'
-  >[];
+  documents: DocumentMetadata[];
   lang: Lang;
+  title?: string;
 }
-const { documents, lang } = Astro.props;
+const { documents, lang, title } = Astro.props;
 const ru = lang === 'ru';
-const size = (bytes: number) =>
-  new Intl.NumberFormat(lang, { maximumFractionDigits: 1 }).format(bytes / 1_000_000);
+const heading = title ?? (ru ? 'Архивные документы' : 'Archive documents');
+const size = (bytes: number) => {
+  const small = bytes < 1_000_000;
+  const value = new Intl.NumberFormat(lang, { maximumFractionDigits: 1 }).format(
+    bytes / (small ? 1_000 : 1_000_000),
+  );
+  return `${value} ${small ? (ru ? 'КБ' : 'kB') : ru ? 'МБ' : 'MB'}`;
+};
 const metadata = (document: Props['documents'][number]) =>
   [
     document.year,
     'PDF',
     document.language.toUpperCase(),
     `${document.pages} ${ru ? 'стр.' : 'pp.'}`,
-    `${size(document.bytes)} ${ru ? 'МБ' : 'MB'}`,
+    size(document.bytes),
   ].join(' · ');
 ---
 
 {documents.length > 0 && (
-  <section class="section-body spaced-actions" aria-label={ru ? 'Архивные документы' : 'Archive documents'}>
-    <h3>{ru ? 'Архивные документы' : 'Archive documents'}</h3>
+  <section class="section-body spaced-actions" aria-label={heading}>
+    <h3>{heading}</h3>
     <div>
       {documents.map((document) => (
         <article class="list-row" id={`document-${document.id}`} data-material-id={document.id}>

@@ -14,7 +14,7 @@ import EvidenceNote from '../components/EvidenceNote.astro';
 import TechnicalMark from '../components/TechnicalMark.astro';
 import CalloutLink from '../components/CalloutLink.astro';
 import PageCode from '../components/PageCode.astro';
-import { recognitions, works, evidence, workDocuments } from '../data/site';
+import { recognitions, works, evidence, workDocuments, referenceDocuments } from '../data/site';
 import { siteStats } from '../lib/site-stats';
 import { navigationFor } from '../lib/routes';
 import '../styles/design-system.css';
@@ -424,6 +424,11 @@ const profileTokens = [
           получают порядковых кодов: их отличают название, категория, дата и статус.
         </p>
         <DocumentList documents={workDocuments} lang="ru" />
+        <DocumentList
+          documents={referenceDocuments.filter((row) => row.language === 'ru')}
+          lang="ru"
+          title="Технический обзор · 6 октября 2026"
+        />
         <p class="component-title">Медиа + подпись + источник</p>
         <MediaFigure id="interference-stage" lang="ru" priority />
       </div>

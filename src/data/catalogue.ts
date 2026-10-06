@@ -10,6 +10,7 @@ export const {
   studioPages,
   works,
   workDocuments,
+  referenceDocuments,
   cases,
   formats,
   people,

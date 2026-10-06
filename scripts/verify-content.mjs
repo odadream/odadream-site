@@ -2,6 +2,7 @@ import { readFile, stat } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 import { loadSiteModule } from './site-data.mjs';
+import { technicalOverviewInput } from './document-input.mjs';
 
 const data = await loadSiteModule();
 const { isLocalAssetPath } = await loadSiteModule('src/lib/publication-scope.ts');
@@ -48,6 +49,7 @@ for (const name of [
   'organizations',
   'media',
   'workDocuments',
+  'referenceDocuments',
   'legacyWorkResources',
 ])
   checkCollection(name, data[name]);
@@ -88,6 +90,7 @@ for (const row of [
   ...data.recognitions,
   ...data.people.filter((row) => row.sourceRefs),
   ...data.workDocuments,
+  ...data.referenceDocuments,
 ]) {
   checkLocales(row, row.id);
   if (
@@ -331,6 +334,40 @@ for (const item of data.legacyWorkResources) {
   const bytes = await readFile(resolve('public', item.path.slice(1))).catch(() => undefined);
   if (!bytes || createHash('sha256').update(bytes).digest('hex') !== item.sha256)
     errors.push(`legacy work resource ${item.id}: original image missing or changed`);
+}
+for (const item of data.referenceDocuments) {
+  const owners = item.owner.kind === 'cooperation' ? data.cooperationPages : data.studioPages;
+  if (
+    !['cooperation', 'studio'].includes(item.owner.kind) ||
+    !owners.some((row) => row.id === item.owner.id) ||
+    !['cleared', 'review', 'restricted'].includes(item.rights) ||
+    item.requiredFormats.some((id) => !data.formats.some((row) => row.id === id)) ||
+    item.requiredPeople.some((id) => !data.people.some((row) => row.id === id))
+  )
+    errors.push(`reference document ${item.id}: invalid owner/dependencies/rights`);
+  if (!isLocalAssetPath(item.href) || !item.href.startsWith('/documents/') || !item.href.endsWith('.pdf')) {
+    errors.push(`reference document ${item.id}: invalid path`);
+    continue;
+  }
+  if (
+    item.kind !== 'technical-overview' ||
+    item.pages !== 2 ||
+    !['en', 'ru'].includes(item.language) ||
+    !/^\d{4}-\d{2}-\d{2}$/.test(item.asOf) ||
+    item.year !== Number(item.asOf.slice(0, 4))
+  )
+    errors.push(`reference document ${item.id}: invalid metadata`);
+  const input = technicalOverviewInput(data, item.asOf);
+  if (createHash('sha256').update(JSON.stringify(input)).digest('hex') !== item.contentFingerprint)
+    errors.push(`reference document ${item.id}: PDF is stale against current HTML facts`);
+  const bytes = await readFile(resolve('public', item.href.slice(1))).catch(() => undefined);
+  if (
+    !bytes ||
+    bytes.length !== item.bytes ||
+    bytes.subarray(0, 5).toString() !== '%PDF-' ||
+    createHash('sha256').update(bytes).digest('hex') !== item.sha256
+  )
+    errors.push(`reference document ${item.id}: prepared PDF missing or changed`);
 }
 for (const item of data.workDocuments) {
   if (!workIds.has(item.workId) || !['cleared', 'review', 'restricted'].includes(item.rights))

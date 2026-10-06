@@ -16,7 +16,12 @@ export type CatalogueSource = Pick<
   Partial<
     Pick<
       typeof import('../data/site'),
-      'methods' | 'cooperationPages' | 'studioPages' | 'workDocuments' | 'legacyWorkResources'
+      | 'methods'
+      | 'cooperationPages'
+      | 'studioPages'
+      | 'workDocuments'
+      | 'legacyWorkResources'
+      | 'referenceDocuments'
     >
   >;
 export interface PublicationPlan {
@@ -111,6 +116,28 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
     if (!missing.length) return true;
     errors.push(`studio ${row.id}: people ${missing.join(', ')} are outside the published packet`);
     return false;
+  });
+  const referenceDocuments = (source.referenceDocuments ?? []).filter((row) => {
+    if (!['cooperation', 'studio'].includes(row.owner.kind)) {
+      errors.push(`reference document ${row.id}: invalid owner kind`);
+      return false;
+    }
+    const owners = row.owner.kind === 'cooperation' ? cooperationPages : studioPages;
+    if (!owners.some((owner) => owner.id === row.owner.id)) return false;
+    if (!isLocalAssetPath(row.href) || !row.href.startsWith('/documents/') || !row.href.endsWith('.pdf')) {
+      errors.push(`reference document ${row.id}: invalid PDF path`);
+      return false;
+    }
+    if (!preview && row.rights !== 'cleared') {
+      errors.push(`reference document ${row.id}: rights ${row.rights}`);
+      return false;
+    }
+    if (
+      row.requiredFormats.some((id) => !formats.some((format) => format.id === id)) ||
+      row.requiredPeople.some((id) => !people.some((person) => person.id === id))
+    )
+      return false;
+    return true;
   });
   const recognitions = select('recognitions', source.recognitions)
     .filter((row) => {
@@ -227,6 +254,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
         studioPages,
         works,
         workDocuments,
+        referenceDocuments,
         formats,
         cases: safeCases,
         people,
@@ -237,6 +265,21 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
         minddbSnapshot,
       }
     : {
+        referenceDocuments: referenceDocuments.map((row) => ({
+          ...project(row, [
+            'id',
+            'kind',
+            'title',
+            'description',
+            'href',
+            'year',
+            'language',
+            'pages',
+            'bytes',
+            'asOf',
+          ]),
+          owner: { kind: row.owner.kind, id: row.owner.id },
+        })),
         workDocuments: workDocuments.map((row) =>
           project(row, [
             'id',
@@ -438,6 +481,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
       };
   const assetPaths = new Set(['/CNAME', '/robots.txt', '/brand/oda-logo.svg', '/brand/oda-brain.svg']);
   for (const row of projected.workDocuments) assetPaths.add(row.href);
+  for (const row of projected.referenceDocuments) assetPaths.add(row.href);
   for (const row of projected.media)
     for (const path of [row.src, row.mobileSrc, row.poster, row.previewSrc])
       if (path?.startsWith('/')) assetPaths.add(path);

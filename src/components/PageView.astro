@@ -16,6 +16,7 @@ import {
   cooperationPages,
   studioPages,
   workDocuments,
+  referenceDocuments,
   cases,
   evidence,
   formats,
@@ -894,6 +895,16 @@ const timeline = [...cases]
             <CalloutLink href={`/${lang}/formats/`}>
               {ru ? 'Параметры трёх форматов' : 'Parameters of the three formats'}
             </CalloutLink>
+            <DocumentList
+              documents={referenceDocuments.filter(
+                (row) =>
+                  row.owner.kind === 'cooperation' &&
+                  row.owner.id === cooperation.id &&
+                  row.language === lang,
+              )}
+              lang={lang}
+              title={ru ? 'Технический обзор · 6 октября 2026' : 'Technical overview · 6 October 2026'}
+            />
           </div>
         </section>
         <section class="section shell section-grid" id="cooperation-process">

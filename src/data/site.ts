@@ -11,6 +11,7 @@ import { evidenceDetails, recognitionDetails } from './evidence-details';
 import type { EvidenceDetail, RecognitionDetail } from './evidence-details';
 export { methods, cooperationPages, sourceSnapshots } from './editorial';
 export { studioPages } from './studio';
+export { referenceDocuments } from './reference-documents';
 
 export type Lang = 'en' | 'ru';
 export type Localized = Record<Lang, string>;

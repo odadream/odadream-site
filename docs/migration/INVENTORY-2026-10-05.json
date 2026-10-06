@@ -20142,12 +20142,12 @@
     "asOf": "2026-10-06",
     "format": "passed",
     "unitTests": {
-      "passed": 45,
+      "passed": 48,
       "failed": 0
     },
     "content": "passed",
     "astro": {
-      "files": 83,
+      "files": 87,
       "errors": 0,
       "warnings": 0
     },
@@ -20156,7 +20156,7 @@
       "passed": true
     },
     "browserTests": {
-      "passed": 82,
+      "passed": 84,
       "skipped": 12,
       "failed": 0
     },
@@ -20169,6 +20169,166 @@
     "releaseGate": "expected-blocked: editorial publication review and unapproved resource dispositions",
     "progressPercent": 95,
     "publicationChanged": false,
-    "providerSettingsChanged": false
+    "providerSettingsChanged": false,
+    "technicalOverview": {
+      "pdfs": 2,
+      "pagesPerPdf": 2,
+      "candidateGeometryChecks": 20,
+      "sourceFreshness": "passed",
+      "hashAndHttp": "passed",
+      "publicReviewFilesExcluded": true
+    }
+  },
+  "currentTechnicalOverviewVerification": {
+    "asOf": "2026-10-06",
+    "fixture": true,
+    "localizedPages": 44,
+    "pdfs": [
+      {
+        "path": "/documents/oda-dream-technical-overview-ru.pdf",
+        "language": "ru",
+        "pages": 2,
+        "bytes": 28464,
+        "sha256": "93be5b48e1fc658fd60c8d4503772a12f63db9fed0ab15e29517dd70361bae76"
+      },
+      {
+        "path": "/documents/oda-dream-technical-overview-en.pdf",
+        "language": "en",
+        "pages": 2,
+        "bytes": 23109,
+        "sha256": "f51b66a6d2584fa2e5629a1a31b144b66e0c222a8cff58a2c1391b07b0b2f7fd"
+      }
+    ],
+    "httpAndHashes": "passed",
+    "pdfLinkTargets": "paired formats/cooperation routes HTTP 200",
+    "geometry": {
+      "widths": [
+        390,
+        601,
+        797,
+        1440,
+        1920
+      ],
+      "themes": [
+        "dark",
+        "light"
+      ],
+      "languages": [
+        "ru",
+        "en"
+      ],
+      "checks": 20
+    },
+    "visualReview": "All four rendered PDF pages and mobile/desktop website specimens inspected.",
+    "limitation": "Synthetic publication fixture only; real statuses remain review, no deploy or outreach send."
+  },
+  "currentOutreachReadiness": {
+    "asOf": "2026-10-06",
+    "scope": "Named artifacts and recipient scenarios in migration plan section 0; no editorial approval, send or partner status inferred.",
+    "cvSources": [
+      {
+        "sourceRoot": "D:\\YandexDisk\\_ODA2\\Премии\\submissions",
+        "path": "2026-03_CYENS_WIP_Festival/cv/Daler_Arabov_CV.pdf",
+        "sha256": "626d9d39e4a269bb0f36413717b90abd49a3a90d6b175f8d9244c1945eca568e",
+        "pages": 2,
+        "language": "en",
+        "publicCopy": false,
+        "state": "archival application source; contains personal contacts; current public version not selected",
+        "inspection": {
+          "allPagesTextRead": true,
+          "containsPersonalEmailAndPhone": true,
+          "containsProfileAndAwardsSections": true,
+          "contactValuesExported": false
+        }
+      },
+      {
+        "sourceRoot": "D:\\YandexDisk\\_ODA2\\Премии\\submissions",
+        "path": "2026-03_CYENS_WIP_Festival/cv/Olga_Arabova_CV.pdf",
+        "sha256": "fc43c7313c6caa71dc335151c99bc6c760d3bde4c9333b142764c26de1bb1315",
+        "pages": 2,
+        "language": "en",
+        "publicCopy": false,
+        "state": "archival application source; contains personal contacts; current public version not selected",
+        "inspection": {
+          "allPagesTextRead": true,
+          "containsPersonalEmailAndPhone": true,
+          "containsProfileAndAwardsSections": true,
+          "contactValuesExported": false
+        }
+      }
+    ],
+    "scenarios": [
+      {
+        "recipient": "Nuwa",
+        "html": [
+          "/en/cooperation/#production-overview",
+          "/en/formats/"
+        ],
+        "file": "/documents/oda-dream-technical-overview-en.pdf",
+        "state": "prepared and checked",
+        "unknowns": [
+          "Exact staffing and long-running operation scoped per brief",
+          "Historical timings/throughput labelled; source conflicts retained"
+        ]
+      },
+      {
+        "recipient": "FusionACT",
+        "html": [
+          "/en/studio/#people",
+          "/en/studio/#teaching",
+          "/en/works/"
+        ],
+        "state": "HTML biographies and dated teaching contexts prepared; original separate CV files located; current reusable CV exports still to prepare",
+        "unknowns": [
+          "Current base is not verified by a March application source",
+          "Invitation not asserted as a completed course",
+          "Missing exact lecture days remain year-level dates"
+        ]
+      },
+      {
+        "recipient": "VAVE",
+        "html": [
+          "/en/works/",
+          "/en/cases/",
+          "/en/cooperation/#for-production"
+        ],
+        "state": "Selected realised portfolio and attributed contexts prepared",
+        "outsideSiteMigration": "New EXPO concept and individual proposal"
+      },
+      {
+        "recipient": "Целинный",
+        "html": [
+          "/ru/formats/#talk-workshop",
+          "/ru/cooperation/#for-education"
+        ],
+        "state": "Baseline topics, outcomes, roles and conditions prepared",
+        "outsideSiteMigration": "Requested 12-session adaptation and actual programme approval"
+      },
+      {
+        "recipient": "YBAF",
+        "html": [
+          "/en/works/",
+          "/en/cooperation/#production-overview"
+        ],
+        "file": "/documents/oda-dream-technical-overview-en.pdf",
+        "state": "Selected online dossier and preliminary production overview prepared",
+        "outsideSiteMigration": "Local budget and detailed production plan once a brief exists"
+      },
+      {
+        "recipient": "Event agencies",
+        "html": [
+          "/ru/formats/",
+          "/ru/cooperation/#for-events"
+        ],
+        "source": "currentSentMaterialEvidence and currentOutreachMaterialAudit",
+        "state": "Actual existing agency folders and archived sent materials identified; private price tables remain outside public"
+      }
+    ],
+    "remaining": [
+      "Approve proposed legacy resource dispositions",
+      "Owner-approved analytics test setup and Google write permission or manual setup",
+      "Prepare current reusable CV versions from existing sources without automatically copying personal contacts/unsupported claims",
+      "Final packet acceptance report after remaining requirements are verified"
+    ]
   }
 }

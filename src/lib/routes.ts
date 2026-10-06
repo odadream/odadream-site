@@ -90,7 +90,13 @@ export const createPages = (
     Partial<
       Pick<
         typeof catalogue,
-        'formats' | 'methods' | 'cooperationPages' | 'studioPages' | 'recognitions' | 'workDocuments'
+        | 'formats'
+        | 'methods'
+        | 'cooperationPages'
+        | 'studioPages'
+        | 'recognitions'
+        | 'workDocuments'
+        | 'referenceDocuments'
       >
     >,
 ): Page[] =>
@@ -136,6 +142,14 @@ export const createPages = (
                         'production-overview',
                         'cooperation-process',
                         ...records.cooperationPages[0].scenarios.map((row) => `for-${row.id}`),
+                        ...(records.referenceDocuments ?? [])
+                          .filter(
+                            (row) =>
+                              row.owner.kind === 'cooperation' &&
+                              row.owner.id === records.cooperationPages![0].id &&
+                              row.language === lang,
+                          )
+                          .map((row) => `document-${row.id}`),
                       ]
                     : []),
                 ]
