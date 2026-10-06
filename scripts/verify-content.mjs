@@ -32,6 +32,8 @@ function checkCollection(name, rows) {
   }
 }
 for (const name of [
+  'methods',
+  'cooperationPages',
   'works',
   'formats',
   'cases',
@@ -42,6 +44,50 @@ for (const name of [
   'media',
 ])
   checkCollection(name, data[name]);
+function checkLocales(value, label) {
+  if (!value || typeof value !== 'object') return;
+  if ('en' in value || 'ru' in value) {
+    for (const lang of ['en', 'ru']) {
+      const text = value[lang];
+      if (
+        typeof text === 'string'
+          ? !text.trim()
+          : !Array.isArray(text) || !text.length || text.some((row) => typeof row !== 'string' || !row.trim())
+      )
+        errors.push(`${label}: missing locale ${lang}`);
+    }
+  } else for (const [key, child] of Object.entries(value)) checkLocales(child, `${label}.${key}`);
+}
+const snapshots =
+  JSON.parse(await readFile('docs/migration/INVENTORY-2026-10-05.json', 'utf8')).v2SourceSnapshots ?? {};
+for (const [file, ref] of Object.entries(data.sourceSnapshots)) {
+  if (
+    !files.has(file) ||
+    ref.file !== file ||
+    !/^[a-f0-9]{64}$/.test(ref.sha256) ||
+    !/^\d{4}-\d{2}-\d{2}$/.test(ref.snapshot)
+  )
+    errors.push(`source snapshot ${file}: invalid provenance`);
+  if (snapshots[file]?.sha256 !== ref.sha256) errors.push(`source snapshot ${file}: inventory drift`);
+}
+for (const row of [...data.methods, ...data.cooperationPages, ...data.formats]) {
+  checkLocales(row, row.id);
+  if (
+    !row.sourceRefs.length ||
+    row.sourceRefs.some((ref) => data.sourceSnapshots[ref.file]?.sha256 !== ref.sha256)
+  )
+    errors.push(`${row.id}: missing or inconsistent source references`);
+}
+for (const format of data.formats) {
+  if (!format.conditions.length || !format.story || !format.participation || !format.outcome)
+    errors.push(`format ${format.id}: incomplete migrated detail`);
+  const conditions = new Set();
+  for (const condition of format.conditions) {
+    if (conditions.has(condition.id) || !['historical', 'per-brief', 'conflict'].includes(condition.state))
+      errors.push(`format ${format.id}: invalid or duplicate condition ${condition.id}`);
+    conditions.add(condition.id);
+  }
+}
 const ids = (rows) => new Set(rows.map((row) => row.id));
 const workIds = ids(data.works),
   formatIds = ids(data.formats),
@@ -49,6 +95,22 @@ const workIds = ids(data.works),
   mediaIds = ids(data.media),
   orgIds = ids(data.organizations),
   evidenceIds = ids(data.evidence);
+for (const method of data.methods) {
+  for (const id of method.works) if (!workIds.has(id)) errors.push(`method ${method.id}: missing work ${id}`);
+  for (const id of method.media)
+    if (!mediaIds.has(id)) errors.push(`method ${method.id}: missing media ${id}`);
+}
+for (const page of data.cooperationPages)
+  for (const scenario of page.scenarios)
+    for (const id of scenario.formatIds)
+      if (!formatIds.has(id)) errors.push(`cooperation ${scenario.id}: missing format ${id}`);
+for (const hero of data.heroVisuals) {
+  if (!mediaIds.has(hero.mediaId)) errors.push(`hero ${hero.id}: missing media`);
+  if (hero.target.kind === 'method' && !data.methods.some((row) => row.id === hero.target.methodId))
+    errors.push(`hero ${hero.id}: missing method`);
+  if (hero.target.kind === 'work' && !workIds.has(hero.target.workId))
+    errors.push(`hero ${hero.id}: missing work`);
+}
 for (const work of data.works) {
   for (const field of ['title', 'category', 'summary', 'experience', 'question', 'availability']) {
     for (const lang of ['en', 'ru']) {

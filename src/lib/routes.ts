@@ -22,6 +22,7 @@ export interface Page {
   title: string;
   description: string;
   family: PageFamily;
+  anchors?: string[];
 }
 const copy = {
   works: {
@@ -73,7 +74,10 @@ const copy = {
   },
 } as const;
 
-export const createPages = (records: Pick<typeof catalogue, 'works' | 'cases'>): Page[] =>
+export const createPages = (
+  records: Pick<typeof catalogue, 'works' | 'cases'> &
+    Partial<Pick<typeof catalogue, 'formats' | 'methods' | 'cooperationPages'>>,
+): Page[] =>
   (['en', 'ru'] as Lang[]).flatMap((lang) => [
     {
       lang,
@@ -96,6 +100,34 @@ export const createPages = (records: Pick<typeof catalogue, 'works' | 'cases'>):
       kind,
       family: familyByKind[kind],
       path: `/${lang}/${kind}/`,
+      anchors:
+        kind === 'formats'
+          ? (records.formats ?? []).map((row) => row.slug)
+          : kind === 'technology'
+            ? records.methods?.length
+              ? [
+                  ...records.methods[0].sections.map((row) => row.id),
+                  'signal-process',
+                  'participation',
+                  'method-boundaries',
+                ]
+              : []
+            : kind === 'cooperation'
+              ? [
+                  'project-brief',
+                  ...(records.cooperationPages?.length
+                    ? [
+                        'cooperation-scenarios',
+                        'cooperation-modes',
+                        'production-overview',
+                        'cooperation-process',
+                        ...records.cooperationPages[0].scenarios.map((row) => `for-${row.id}`),
+                      ]
+                    : []),
+                ]
+              : kind === 'studio'
+                ? ['people', 'milestones', 'evidence']
+                : [],
       title: `${copy[kind][lang][0]} — ODA.dream`,
       description: copy[kind][lang][1],
     })),

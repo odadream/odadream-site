@@ -12,10 +12,13 @@ export type CatalogueSource = Pick<
   | 'recognitions'
   | 'heroVisuals'
   | 'minddbSnapshot'
->;
+> &
+  Partial<Pick<typeof import('../data/site'), 'methods' | 'cooperationPages'>>;
 export interface PublicationPlan {
   version: string;
   asOf: string;
+  methods?: string[];
+  cooperationPages?: string[];
   works: string[];
   formats: string[];
   cases: string[];
@@ -42,7 +45,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
     rows: T[],
   ) => {
     if (preview) return rows;
-    const selected = (plan[name] as string[]).map((id) => {
+    const selected = ((plan[name] as string[] | undefined) ?? []).map((id) => {
       const row = rows.find((item) => item.id === id);
       if (!row) errors.push(`${name} ${id}: missing packet record`);
       else if (row.publication && row.publication !== 'published')
@@ -62,6 +65,18 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
     errors.push(`case ${row.id}: work ${row.work} is outside the published packet`);
     return false;
   });
+  const methods = select('methods', source.methods ?? []).map((row) => ({
+    ...row,
+    works: row.works.filter((id) => workIds.has(id)),
+  }));
+  const methodIds = ids(methods);
+  const cooperationPages = select('cooperationPages', source.cooperationPages ?? []).map((row) => ({
+    ...row,
+    scenarios: row.scenarios.map((scenario) => ({
+      ...scenario,
+      formatIds: scenario.formatIds.filter((id) => formats.some((format) => format.id === id)),
+    })),
+  }));
   const people = select('people', source.people);
   const recognitions = select('recognitions', source.recognitions).filter((row) => {
     if (preview || row.documentRights === 'cleared') return true;
@@ -74,15 +89,21 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
       if (!preview) errors.push(`hero ${row.id}: target is unmapped`);
       return preview;
     }
+    if (row.target.kind === 'method') {
+      if (methodIds.has(row.target.methodId)) return true;
+      if (!preview) errors.push(`hero ${row.id}: method is outside the public packet`);
+      return false;
+    }
     const target = row.target;
     const work = works.find((item) => item.id === target.workId);
-    if (!work || work.stage !== 'realized' || (row.target.caseId && !caseIds.has(row.target.caseId))) {
+    if (!work || work.stage !== 'realized' || (target.caseId && !caseIds.has(target.caseId))) {
       if (!preview) errors.push(`hero ${row.id}: target is outside the realized public packet`);
       return false;
     }
     return true;
   });
   const mediaIds = new Set([
+    ...methods.flatMap((row) => row.media),
     ...works.flatMap((row) => row.media),
     ...cases.flatMap((row) => row.media),
     ...heroVisuals.map((row) => row.mediaId),
@@ -154,6 +175,8 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
   }
   const projected = preview
     ? {
+        methods,
+        cooperationPages,
         works,
         formats,
         cases: safeCases,
@@ -165,6 +188,36 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
         minddbSnapshot,
       }
     : {
+        methods: methods.map((row) =>
+          project(row, [
+            'id',
+            'legacyId',
+            'title',
+            'summary',
+            'sections',
+            'steps',
+            'participation',
+            'limitations',
+            'works',
+            'media',
+            'publication',
+          ]),
+        ),
+        cooperationPages: cooperationPages.map((row) =>
+          project(row, [
+            'id',
+            'legacyId',
+            'title',
+            'summary',
+            'scenarios',
+            'modes',
+            'process',
+            'studioProvides',
+            'venueProvides',
+            'briefFields',
+            'publication',
+          ]),
+        ),
         works: works.map((row) =>
           project(row, [
             'id',
@@ -195,7 +248,24 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
           ]),
         ),
         formats: formats.map((row) =>
-          project(row, ['id', 'legacyId', 'slug', 'title', 'summary', 'scope', 'works', 'publication']),
+          project(row, [
+            'id',
+            'legacyId',
+            'slug',
+            'title',
+            'summary',
+            'scope',
+            'works',
+            'publication',
+            'story',
+            'participation',
+            'outcome',
+            'conditions',
+            'studioProvides',
+            'venueProvides',
+            'topics',
+            'reviewNotes',
+          ]),
         ),
         cases: safeCases.map((row) =>
           project(row, [

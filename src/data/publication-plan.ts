@@ -2,8 +2,10 @@ import type { PublicationPlan } from '../lib/publication-scope';
 
 // Candidate packet, not editorial approval. Each selected record must also be published.
 export const publicationPlan: PublicationPlan = {
-  version: 'v2-packet-2026-10-06.1',
+  version: 'v2-packet-2026-10-06.2',
   asOf: '2026-10-06',
+  methods: ['neuromandala'],
+  cooperationPages: ['cooperation'],
   works: [
     'interference',
     'mindshow',
@@ -19,6 +21,6 @@ export const publicationPlan: PublicationPlan = {
   cases: ['tsiolkovsky-2026', 'tsiolkovsky-2025', 'dano-2025', 'byob-2026'],
   people: ['founders'],
   recognitions: [],
-  heroVisuals: ['frequencies', 'mindshow'],
+  heroVisuals: ['terra', 'frequencies', 'mindshow', 'cultural-code'],
   minddb: false,
 };

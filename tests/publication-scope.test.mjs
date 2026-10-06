@@ -114,7 +114,12 @@ test('public projection strips internal locators and future fields without mutat
 test('unmapped hero is deferred independently and preview retains the editorial catalogue', () => {
   const { source, plan } = fixture();
   assert.deepEqual(createPublicationScope(source, plan).errors, []);
-  plan.heroVisuals = ['terra'];
+  source.heroVisuals.push({
+    id: 'unmapped-fixture',
+    mediaId: source.media[0].id,
+    target: { kind: 'unmapped' },
+  });
+  plan.heroVisuals = ['unmapped-fixture'];
   assert.ok(createPublicationScope(source, plan).errors.some((error) => error.includes('unmapped')));
   const preview = createPublicationScope(source, plan, true);
   assert.equal(preview.works.length, original.works.length);

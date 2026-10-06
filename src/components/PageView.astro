@@ -10,6 +10,8 @@ import TechnicalMark from './TechnicalMark.astro';
 import CalloutLink from './CalloutLink.astro';
 import StatisticsStamp from './StatisticsStamp.astro';
 import {
+  methods,
+  cooperationPages,
   cases,
   evidence,
   formats,
@@ -51,6 +53,8 @@ const sectionName = {
   technology: ru ? 'Нейромандала' : 'Neuromandala',
   recognition: ru ? 'Признания' : 'Recognition',
 };
+const method = methods.find((item) => item.id === 'neuromandala');
+const cooperation = cooperationPages.find((item) => item.id === 'cooperation');
 const featured = publicHeroVisuals;
 const homepageRecognitions = recognitions.filter((item) => item.featuredOnHome);
 const caseTypeLabels = {
@@ -103,7 +107,10 @@ const timeline = [...cases]
                 <div class="nm-work-caption">
                   <div class="carousel-controls nm-carousel-controls">
                     <span class="eyebrow">
-                      {ru ? 'КАДР' : 'FRAME'} · <span data-carousel-position>01 / 05</span>
+                      {ru ? 'КАДР' : 'FRAME'} ·{' '}
+                      <span data-carousel-position>
+                        {String(i + 1).padStart(2, '0')} / {String(featured.length).padStart(2, '0')}
+                      </span>
                     </span>
                     <div>
                       <button
@@ -145,6 +152,10 @@ const timeline = [...cases]
                           : ru
                             ? 'Страница работы'
                             : 'Work documentation'}
+                      </CalloutLink>
+                    ) : item.target.kind === 'method' ? (
+                      <CalloutLink href={`/${lang}/technology/`}>
+                        {ru ? 'Метод Нейромандалы' : 'Neuromandala method'}
                       </CalloutLink>
                     ) : (
                       <span class="nm-pending-link" role="status">
@@ -402,52 +413,91 @@ const timeline = [...cases]
           : 'Neuromandala: a signal becomes artistic material'}
       </h1>
       <p class="lead">
-        {ru
-          ? 'Нейромандала — разработанная ODA.dream система для создания интерактивных аудиовизуальных форм из биосигналов. Это не способ читать мысли и не медицинский инструмент.'
-          : 'Neuromandala is an ODA.dream system for shaping interactive audiovisual forms from biosignals. It does not read thoughts and is not a medical instrument.'}
+        {method?.summary[lang] ??
+          (ru
+            ? 'Авторская система ODA.dream для создания художественной среды из биосигналов.'
+            : 'ODA.dream’s system for creating an artistic environment from biosignals.')}
       </p>
     </section>
-    <section class="section shell section-grid">
-      <div class="section-label">
-        <PageCode family={family} section={1} lang={lang} />
-        <span class="eyebrow">{ru ? 'Процесс' : 'Process'}</span>
-      </div>
-      <div class="section-body">
-        <h2>{ru ? 'Измерение — не объяснение.' : 'Measurement is not explanation.'}</h2>
-        <div class="method-steps">
-          <p>
-            <strong>{ru ? 'Сигнал' : 'Signal'}</strong>
-            {ru
-              ? 'Сенсор регистрирует ограниченные физиологические параметры, например электрическую активность мозга.'
-              : 'A sensor records limited physiological parameters, such as electrical brain activity.'}
-          </p>
-          <p>
-            <strong>{ru ? 'Художественный перевод' : 'Artistic translation'}</strong>
-            {ru
-              ? 'Правила конкретной работы связывают изменения сигнала со звуком, изображением или движением.'
-              : 'Rules specific to each artwork map signal changes to sound, image or movement.'}
-          </p>
-          <p>
-            <strong>{ru ? 'Обратная связь' : 'Feedback'}</strong>
-            {ru
-              ? 'Участник видит отклик среды и может исследовать его; это не объективная оценка эмоций или личности.'
-              : 'A participant sees the environment respond and can explore that response; it is not an objective reading of emotion or personality.'}
-          </p>
-        </div>
-        <p class="small-note">
-          {ru
-            ? 'Состав сенсоров, согласие, хранение исходных данных и возможность участия без сенсора определяются отдельно для каждого показа.'
-            : 'Sensors, consent, raw-data retention and sensor-free participation are specified for each presentation.'}
-        </p>
-        <div class="link-row">
-          {works
-            .filter((item) => ['mindshow', 'interference', 'neurobattle'].includes(item.id))
-            .map((item) => (
-              <CalloutLink href={workUrl(lang, item.id)}>{item.title[lang]}</CalloutLink>
+    {method && (
+      <>
+        {method.sections.map((section, i) => (
+          <section class="section shell section-grid" id={section.id}>
+            <div class="section-label">
+              <PageCode family={family} section={i + 1} lang={lang} />
+              <span class="eyebrow">{ru ? 'Метод' : 'Method'}</span>
+            </div>
+            <div class="section-body">
+              <h2>{section.title[lang]}</h2>
+              <p class="lead">{section.body[lang]}</p>
+              {section.id === 'visual-language' &&
+                method.media.map((id) => <MediaFigure id={id} lang={lang} />)}
+            </div>
+          </section>
+        ))}
+        <section class="section shell section-grid" id="signal-process">
+          <div class="section-label">
+            <PageCode family={family} section={4} lang={lang} />
+            <span class="eyebrow">{ru ? 'Процесс' : 'Process'}</span>
+          </div>
+          <div class="section-body">
+            <h2>{ru ? 'От измерения к отклику' : 'From measurement to response'}</h2>
+            <div class="method-steps">
+              {method.steps.map((step) => (
+                <p>
+                  <strong>{step.title[lang]}</strong>
+                  {step.body[lang]}
+                </p>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section class="section shell section-grid" id="participation">
+          <div class="section-label">
+            <PageCode family={family} section={5} lang={lang} />
+            <span class="eyebrow">{ru ? 'Участие' : 'Participation'}</span>
+          </div>
+          <div class="section-body">
+            <h2>{ru ? 'Человек, группа, зритель' : 'Person, group, audience'}</h2>
+            {method.participation.map((item) => (
+              <div class="list-row">
+                <div>
+                  <h3>{item.title[lang]}</h3>
+                  <p>{item.body[lang]}</p>
+                </div>
+              </div>
             ))}
-        </div>
-      </div>
-    </section>
+          </div>
+        </section>
+        <section class="section shell section-grid" id="method-boundaries">
+          <div class="section-label">
+            <PageCode family={family} section={6} lang={lang} />
+            <span class="eyebrow">{ru ? 'Границы' : 'Boundaries'}</span>
+          </div>
+          <div class="section-body">
+            <h2>{ru ? 'Измерение — не объяснение' : 'Measurement is not explanation'}</h2>
+            <ul class="facts">
+              {method.limitations[lang].map((text) => (
+                <li>{text}</li>
+              ))}
+            </ul>
+            <div class="link-row">
+              {method.works.map((id) => (
+                <CalloutLink href={workUrl(lang, id)}>{workById(id)?.title[lang]}</CalloutLink>
+              ))}
+            </div>
+            <div class="link-row spaced-actions">
+              <CalloutLink href={`/${lang}/formats/`}>
+                {ru ? 'Форматы участия' : 'Participation formats'}
+              </CalloutLink>
+              <CalloutLink href={`/${lang}/cooperation/`}>
+                {ru ? 'Обсудить показ или разработку' : 'Discuss presentation or development'}
+              </CalloutLink>
+            </div>
+          </div>
+        </section>
+      </>
+    )}
   </>
 )}
 {page.kind === 'recognition' && (
@@ -672,6 +722,45 @@ const timeline = [...cases]
           <div class="section-body">
             <h2>{item.title[lang]}</h2>
             <p class="lead">{item.summary[lang]}</p>
+            <p>{item.story[lang]}</p>
+            <h3>{ru ? 'Участие и результат' : 'Participation and outcome'}</h3>
+            <p>{item.participation[lang]}</p>
+            <p>{item.outcome[lang]}</p>
+            {item.topics.length > 0 && (
+              <ul class="facts">
+                {item.topics.map((topic) => (
+                  <li>{topic[lang]}</li>
+                ))}
+              </ul>
+            )}
+            <RecordStamp
+              title={ru ? 'Конфигурация и параметры' : 'Configuration and parameters'}
+              wide
+              fields={item.conditions.map((condition) => ({
+                label: condition.label[lang],
+                value: condition.value[lang],
+              }))}
+            />
+            <p class="small-note">
+              {ru
+                ? 'Числа относятся к архивным конфигурациям. Параметры конкретного приглашения фиксируются в предложении; это не готовый актуальный райдер.'
+                : 'Numbers describe archival configurations. Parameters for a specific invitation are fixed in the proposal; this is not a current ready-to-use rider.'}
+            </p>
+            <h3>{ru ? 'Рамка производства' : 'Production responsibilities'}</h3>
+            <RecordStamp
+              title={ru ? 'Студия и площадка' : 'Studio and venue'}
+              wide
+              fields={[
+                { label: 'ODA.dream', value: item.studioProvides[lang].join(' · ') },
+                {
+                  label: ru ? 'Площадка / организатор' : 'Venue / organiser',
+                  value: item.venueProvides[lang].join(' · '),
+                },
+              ]}
+            />
+            {item.reviewNotes.map((note) => (
+              <p class="small-note">{note[lang]}</p>
+            ))}
             <p>{item.scope[lang]}</p>
             <div class="link-row">
               {item.works.map((id) => (
@@ -695,57 +784,121 @@ const timeline = [...cases]
       </p>
       <h1>{ru ? 'Сотрудничество' : 'Cooperation'}</h1>
       <p class="lead">
-        {ru
-          ? 'Можно пригласить существующую работу, адаптировать формат или разработать новый художественный проект совместно.'
-          : 'Present an existing work, adapt a format or develop a new artistic project together.'}
+        {cooperation?.summary[lang] ??
+          (ru
+            ? 'Обсудим показ, адаптацию формата или совместную разработку.'
+            : 'Discuss a presentation, format adaptation or co-development.')}
       </p>
     </section>
-    <section class="section shell section-grid">
-      <div class="section-label">
-        <PageCode family={family} section={1} lang={lang} />
-        <span class="eyebrow">{ru ? 'Три маршрута' : 'Three paths'}</span>
-      </div>
-      <div class="section-body">
-        {[
-          [
-            ru ? 'Показ работы' : 'Present a work',
-            ru
-              ? 'Обсуждаем площадку, команду, технические условия и права на документацию.'
-              : 'We discuss venue, team, technical conditions and documentation rights.',
-          ],
-          [
-            ru ? 'Адаптация формата' : 'Adapt a format',
-            ru
-              ? 'MindShow и «Нейробитва» имеют существующие конфигурации, но состав каждого заказа фиксируется отдельно.'
-              : 'MindShow and Neurobattle have existing configurations, but each commission is scoped separately.',
-          ],
-          [
-            ru ? 'Совместная разработка' : 'Co-develop',
-            ru
-              ? 'Для нового произведения формулируем художественный вопрос, исследовательский метод, этапы и ответственность сторон.'
-              : 'For a new work we define the artistic question, method, phases and responsibilities.',
-          ],
-        ].map(([title, body]) => (
-          <div class="list-row">
-            <div>
-              <h3>{title}</h3>
-              <p>{body}</p>
+    {cooperation && (
+      <>
+        <section class="section shell section-grid" id="cooperation-scenarios">
+          <div class="section-label">
+            <PageCode family={family} section={1} lang={lang} />
+            <span class="eyebrow">{ru ? 'Контекст' : 'Context'}</span>
+          </div>
+          <div class="section-body">
+            <h2>{ru ? 'Какую задачу вы решаете?' : 'What are you working towards?'}</h2>
+            {cooperation.scenarios.map((item) => (
+              <article class="list-row" id={`for-${item.id}`}>
+                <div>
+                  <h3>{item.title[lang]}</h3>
+                  <p>{item.body[lang]}</p>
+                  <p class="small-note">{item.request[lang]}</p>
+                  <div class="link-row">
+                    {item.formatIds.map((id) => (
+                      <CalloutLink href={formatUrl(lang, id)}>
+                        {formats.find((format) => format.id === id)?.title[lang]}
+                      </CalloutLink>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+        <section class="section shell section-grid" id="cooperation-modes">
+          <div class="section-label">
+            <PageCode family={family} section={2} lang={lang} />
+            <span class="eyebrow">{ru ? 'Три маршрута' : 'Three paths'}</span>
+          </div>
+          <div class="section-body">
+            <h2>{ru ? 'Показ, адаптация, разработка' : 'Presentation, adaptation, development'}</h2>
+            {cooperation.modes.map((item) => (
+              <div class="list-row">
+                <div>
+                  <h3>{item.title[lang]}</h3>
+                  <p>{item.body[lang]}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+        <section class="section shell section-grid" id="production-overview">
+          <div class="section-label">
+            <PageCode family={family} section={3} lang={lang} />
+            <span class="eyebrow">{ru ? 'Производство' : 'Production'}</span>
+          </div>
+          <div class="section-body">
+            <h2>{ru ? 'Студия и local production' : 'Studio and local production'}</h2>
+            <p>
+              {ru
+                ? 'Собственный художественный и технический контур студии отделён от инфраструктуры события или пространства. Производство площадки не включено по умолчанию.'
+                : 'The studio’s artistic and technical system is distinct from event or space infrastructure. Venue production is not included by default.'}
+            </p>
+            <RecordStamp
+              title={ru ? 'Распределение ответственности' : 'Responsibilities'}
+              wide
+              fields={[
+                { label: 'ODA.dream', value: cooperation.studioProvides[lang].join(' · ') },
+                {
+                  label: ru ? 'Площадка / организатор' : 'Venue / organiser',
+                  value: cooperation.venueProvides[lang].join(' · '),
+                },
+              ]}
+            />
+            <CalloutLink href={`/${lang}/formats/`}>
+              {ru ? 'Параметры трёх форматов' : 'Parameters of the three formats'}
+            </CalloutLink>
+          </div>
+        </section>
+        <section class="section shell section-grid" id="cooperation-process">
+          <div class="section-label">
+            <PageCode family={family} section={4} lang={lang} />
+            <span class="eyebrow">{ru ? 'Этапы' : 'Steps'}</span>
+          </div>
+          <div class="section-body">
+            <h2>{ru ? 'От контекста к показу' : 'From context to presentation'}</h2>
+            <div class="method-steps">
+              {cooperation.process.map((item) => (
+                <p>
+                  <strong>{item.title[lang]}</strong>
+                  {item.body[lang]}
+                </p>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
-    </section>
-    <section class="section shell section-grid">
+        </section>
+      </>
+    )}
+    <section class="section shell section-grid" id="project-brief">
       <div class="section-label">
-        <PageCode family={family} section={2} lang={lang} />
+        <PageCode family={family} section={cooperation ? 5 : 1} lang={lang} />
         <span class="eyebrow">{ru ? 'Что сообщить' : 'What to send'}</span>
       </div>
       <div class="section-body">
         <h2>{ru ? 'Начните с контекста' : 'Start with the context'}</h2>
-        <p>
+        {cooperation && (
+          <ul class="facts">
+            {cooperation.briefFields.map((field) => (
+              <li>{field[lang]}</li>
+            ))}
+          </ul>
+        )}
+        <p class="small-note">
           {ru
-            ? 'Полезны дата, город, площадка, предполагаемая аудитория, желаемая форма участия и бюджетный диапазон. Если задача ещё не оформлена — опишите её как есть.'
-            : 'A date, city, venue, intended audience, desired form of participation and budget range help us respond. If the brief is still open, describe what you know.'}
+            ? 'Если часть условий неизвестна, обозначьте это в первом сообщении. Индивидуальные КП, бюджеты и переписка остаются в рабочем архиве.'
+            : 'If some conditions are unknown, say so in the first message. Individual proposals, budgets and correspondence remain in the working archive.'}
         </p>
         <a class="button primary" href={`/${lang}/contact/`}>
           {ru ? 'Написать нам' : 'Write to us'}

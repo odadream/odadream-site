@@ -1,3 +1,7 @@
+import { formatDetails } from './editorial';
+import type { FormatDetail } from './editorial';
+export { methods, cooperationPages, sourceSnapshots } from './editorial';
+
 export type Lang = 'en' | 'ru';
 export type Localized = Record<Lang, string>;
 export type Publication = 'draft' | 'review' | 'published';
@@ -27,6 +31,11 @@ export type HeroVisual =
       id: string;
       mediaId: string;
       target: { kind: 'work'; workId: string; caseId?: string };
+    }
+  | {
+      id: string;
+      mediaId: string;
+      target: { kind: 'method'; methodId: string };
     }
   | {
       id: string;
@@ -79,7 +88,7 @@ export interface Work {
   source: string;
   publication: Publication;
 }
-export interface Format {
+export interface Format extends FormatDetail {
   id: string;
   legacyId: string;
   slug: string;
@@ -447,7 +456,7 @@ export const heroVisuals: HeroVisual[] = [
   {
     id: 'terra',
     mediaId: 'neuromandala-terra',
-    target: { kind: 'unmapped' },
+    target: { kind: 'method', methodId: 'neuromandala' },
   },
   {
     id: 'frequencies',
@@ -462,7 +471,7 @@ export const heroVisuals: HeroVisual[] = [
   {
     id: 'cultural-code',
     mediaId: 'neuromandala-cultural-code',
-    target: { kind: 'unmapped' },
+    target: { kind: 'method', methodId: 'neuromandala' },
   },
   {
     id: 'kovylina',
@@ -964,6 +973,7 @@ export const works: Work[] = [
 
 export const formats: Format[] = [
   {
+    ...formatDetails['mindshow-installation'],
     id: 'mindshow-installation',
     legacyId: 'mindshow',
     slug: 'mindshow-installation',
@@ -981,6 +991,7 @@ export const formats: Format[] = [
     publication: 'review',
   },
   {
+    ...formatDetails['neurobattle-game'],
     id: 'neurobattle-game',
     legacyId: 'neurobattle',
     slug: 'neurobattle-game',
@@ -998,6 +1009,7 @@ export const formats: Format[] = [
     publication: 'review',
   },
   {
+    ...formatDetails['talk-workshop'],
     id: 'talk-workshop',
     legacyId: 'hub-lectures',
     slug: 'talk-workshop',

@@ -6,6 +6,18 @@ import YAML from 'yaml';
 const sourceDir = resolve(process.argv[2] || '../odadream-site-archive-2026-09-21/src/content');
 const target = resolve('src/data/legacy-map.json');
 const overrides = {
+  neuromandala: ['/technology/#method-overview', 'Method overview / Обзор метода'],
+  'hub-host-events': ['/formats/', 'Merged format overview / Обзор форматов'],
+  'hub-lectures': ['/formats/#talk-workshop', 'Educational format / Образовательный формат'],
+  'hub-institutions': [
+    '/cooperation/#for-institutions',
+    'Institutional scenario / Институциональный сценарий',
+  ],
+  'hub-galleries': ['/cooperation/#for-institutions', 'Curatorial scenario / Кураторский сценарий'],
+  'hub-event-agencies': ['/cooperation/#for-events', 'Agency scenario / Сценарий для агентств'],
+  'hub-business': ['/cooperation/#for-events', 'Event scenario / Сценарий событий'],
+  'hub-education': ['/cooperation/#for-education', 'Educational scenario / Образовательный сценарий'],
+  'hub-creators': ['/cooperation/#for-production', 'Co-production scenario / Сценарий ко-продукции'],
   'hub-home': ['/', 'Home / Главная'],
   'hub-works': ['/works/', 'Works / Работы'],
   'hub-collab': ['/cooperation/', 'Cooperation / Сотрудничество'],
