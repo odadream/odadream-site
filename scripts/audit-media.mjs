@@ -103,6 +103,7 @@ if (resolve(process.argv[1] ?? '') === fileURLToPath(import.meta.url)) {
     [
       ...site.media.flatMap((row) => [row.src, ...(row.legacyPaths ?? [])]),
       ...site.workDocuments.map((row) => row.href),
+      ...(site.legacyWorkResources ?? []).map((row) => row.path),
       ...site.recognitions.flatMap((row) => [
         row.previewSrc,
         row.documentState === 'available' ? row.documentSource : undefined,
@@ -130,6 +131,74 @@ if (resolve(process.argv[1] ?? '') === fileURLToPath(import.meta.url)) {
     ),
     detail: 'docs/media-audit.json',
     note: 'Full coverage with exact direct Markdown associations. Prepared selection, further candidates, other archive references and absent direct references differ. Absence of a reference does not prove absence of inbound traffic or authorize retirement. Rights and public preservation remain separate.',
+  };
+  const clearedPaths = new Set(
+    [
+      ...site.media
+        .filter((row) => row.rights === 'cleared')
+        .flatMap((row) => [row.src, row.mobileSrc, row.poster, row.previewSrc, ...(row.legacyPaths ?? [])]),
+      ...site.workDocuments.filter((row) => row.rights === 'cleared').map((row) => row.href),
+      ...(site.legacyWorkResources ?? []).filter((row) => row.rights === 'cleared').map((row) => row.path),
+    ].filter(Boolean),
+  );
+  const groups = [
+    {
+      id: 'prepared-cleared-content',
+      proposal:
+        'Preserve exact originals with the corresponding published dependency; permission does not approve editorial publication.',
+      paths: [],
+    },
+    {
+      id: 'prepared-rights-review',
+      proposal:
+        'Keep staged original under rights review; resolve document permission before allowing its public URL.',
+      paths: [],
+    },
+    {
+      id: 'selected-rights-review',
+      proposal:
+        'Selected sources include third-party letters or event photography; inspect attribution and permission separately, without automatic publication.',
+      paths: [],
+    },
+    {
+      id: 'source-placeholder',
+      proposal:
+        'Exclude the ASSET placeholder from method content. Retain source archive; the old URL still needs an explicit release disposition.',
+      paths: [],
+    },
+    {
+      id: 'deferred-archive',
+      proposal:
+        'Retain read-only sources outside the selected packet. Preserve, redirect or retire each old URL only after its inbound need and permission are resolved.',
+      paths: [],
+    },
+    {
+      id: 'unreferenced-review',
+      proposal:
+        'No direct Markdown reference found. Check PDF/dossier/external uses before choosing a resource disposition; this is not permission to retire.',
+      paths: [],
+    },
+  ];
+  for (const row of rows.filter((row) => row.requiresCompatibilityDecision)) {
+    const group =
+      row.compatibilityGroup === 'prepared-selected-resource'
+        ? clearedPaths.has(row.path)
+          ? 0
+          : 1
+        : row.compatibilityGroup === 'selected-source-candidate'
+          ? row.path === '/images/content/neuromandala-cover.webp'
+            ? 3
+            : 2
+          : row.compatibilityGroup === 'other-archive-source'
+            ? 4
+            : 5;
+    groups[group].paths.push(row.path);
+  }
+  inventory.currentResourceDispositionReview = {
+    asOf: '2026-10-06',
+    status: 'proposals-only',
+    groups,
+    note: 'Review queue for every content URL; not retirement/redirect approval. The actual public packet and verified files determine preservation. Source placeholder was visually inspected on 2026-10-06.',
   };
   await writeFile(inventoryPath, JSON.stringify(inventory, null, 2) + '\n');
   console.log(

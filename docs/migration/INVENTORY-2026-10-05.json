@@ -14857,15 +14857,15 @@
       "lotus-generated-ui": 349,
       "video": 2
     },
-    "editorialSamePath": 16,
+    "editorialSamePath": 31,
     "publicSamePath": 2,
     "requiresCompatibilityDecision": 198,
     "byCompatibilityGroup": {
       "separate-ui-or-service": 352,
       "other-archive-source": 120,
       "no-direct-markdown-reference": 35,
-      "prepared-selected-resource": 14,
-      "selected-source-candidate": 29
+      "prepared-selected-resource": 29,
+      "selected-source-candidate": 14
     },
     "detail": "docs/media-audit.json",
     "note": "Full coverage with exact direct Markdown associations. Prepared selection, further candidates, other archive references and absent direct references differ. Absence of a reference does not prove absence of inbound traffic or authorize retirement. Rights and public preservation remain separate."
@@ -14923,7 +14923,14 @@
             "kind": "external",
             "url": "https://disk.yandex.ru/d/8YO_TiVm4r3fcQ"
           }
-        ]
+        ],
+        "qrScan": {
+          "dpi": 144,
+          "detected": 0,
+          "decoded": 0,
+          "targets": [],
+          "limitation": "Automated scan; no detection does not prove absence. Personal contact paths and payloads omitted; delivery/account ownership not verified."
+        }
       },
       {
         "path": "/documents/dashran-tech-spec-nur.pdf",
@@ -14943,7 +14950,14 @@
             "kind": "external",
             "url": "https://t.me/odadream_info"
           }
-        ]
+        ],
+        "qrScan": {
+          "dpi": 144,
+          "detected": 0,
+          "decoded": 0,
+          "targets": [],
+          "limitation": "Automated scan; no detection does not prove absence. Personal contact paths and payloads omitted; delivery/account ownership not verified."
+        }
       },
       {
         "path": "/documents/fourth-dimension-tz-v2.pdf",
@@ -14955,7 +14969,14 @@
           "media-fourth-dimension-tz"
         ],
         "selectedSourceFiles": [],
-        "annotationLinks": []
+        "annotationLinks": [],
+        "qrScan": {
+          "dpi": 144,
+          "detected": 0,
+          "decoded": 0,
+          "targets": [],
+          "limitation": "Automated scan; no detection does not prove absence. Personal contact paths and payloads omitted; delivery/account ownership not verified."
+        }
       },
       {
         "path": "/documents/honors-skolkovo-presentation.pdf",
@@ -14967,7 +14988,14 @@
           "media-honors-presentation"
         ],
         "selectedSourceFiles": [],
-        "annotationLinks": []
+        "annotationLinks": [],
+        "qrScan": {
+          "dpi": 144,
+          "detected": 0,
+          "decoded": 0,
+          "targets": [],
+          "limitation": "Automated scan; no detection does not prove absence. Personal contact paths and payloads omitted; delivery/account ownership not verified."
+        }
       },
       {
         "path": "/documents/mom-baby-brochure-v2.pdf",
@@ -14979,7 +15007,14 @@
           "media-mom-baby-brochure"
         ],
         "selectedSourceFiles": [],
-        "annotationLinks": []
+        "annotationLinks": [],
+        "qrScan": {
+          "dpi": 144,
+          "detected": 0,
+          "decoded": 0,
+          "targets": [],
+          "limitation": "Automated scan; no detection does not prove absence. Personal contact paths and payloads omitted; delivery/account ownership not verified."
+        }
       },
       {
         "path": "/documents/mom-baby-drawings-v220920.pdf",
@@ -14991,7 +15026,14 @@
           "media-mom-baby-drawings"
         ],
         "selectedSourceFiles": [],
-        "annotationLinks": []
+        "annotationLinks": [],
+        "qrScan": {
+          "dpi": 144,
+          "detected": 0,
+          "decoded": 0,
+          "targets": [],
+          "limitation": "Automated scan; no detection does not prove absence. Personal contact paths and payloads omitted; delivery/account ownership not verified."
+        }
       },
       {
         "path": "/documents/oda-rings-drawings-v220927.pdf",
@@ -15005,7 +15047,14 @@
         "selectedSourceFiles": [
           "media-oda-rings-drawings.md"
         ],
-        "annotationLinks": []
+        "annotationLinks": [],
+        "qrScan": {
+          "dpi": 144,
+          "detected": 0,
+          "decoded": 0,
+          "targets": [],
+          "limitation": "Automated scan; no detection does not prove absence. Personal contact paths and payloads omitted; delivery/account ownership not verified."
+        }
       },
       {
         "path": "/documents/oda-rings-synergy-banner-2022.pdf",
@@ -15019,7 +15068,27 @@
         "selectedSourceFiles": [
           "media-oda-rings-banner.md"
         ],
-        "annotationLinks": []
+        "annotationLinks": [],
+        "qrScan": {
+          "dpi": 144,
+          "detected": 2,
+          "decoded": 2,
+          "targets": [
+            {
+              "page": 1,
+              "kind": "historical-contact",
+              "scheme": "https",
+              "host": "t.me"
+            },
+            {
+              "page": 1,
+              "kind": "historical-contact",
+              "scheme": "https",
+              "host": "wa.me"
+            }
+          ],
+          "limitation": "Automated scan; no detection does not prove absence. Personal contact paths and payloads omitted; delivery/account ownership not verified."
+        }
       },
       {
         "path": "/documents/other-people-art-science-society.pdf",
@@ -15035,7 +15104,14 @@
             "kind": "external",
             "url": "https://disk.yandex.ru/d/FXfomFYT5yRgSA"
           }
-        ]
+        ],
+        "qrScan": {
+          "dpi": 144,
+          "detected": 0,
+          "decoded": 0,
+          "targets": [],
+          "limitation": "Automated scan; no detection does not prove absence. Personal contact paths and payloads omitted; delivery/account ownership not verified."
+        }
       },
       {
         "path": "/documents/other-people-deck-ru.pdf",
@@ -15053,7 +15129,14 @@
             "kind": "external",
             "url": "https://disk.yandex.ru/d/FXfomFYT5yRgSA"
           }
-        ]
+        ],
+        "qrScan": {
+          "dpi": 144,
+          "detected": 0,
+          "decoded": 0,
+          "targets": [],
+          "limitation": "Automated scan; no detection does not prove absence. Personal contact paths and payloads omitted; delivery/account ownership not verified."
+        }
       },
       {
         "path": "/documents/potustoronniy-deck.pdf",
@@ -15065,10 +15148,17 @@
           "media-potustoronniy-deck"
         ],
         "selectedSourceFiles": [],
-        "annotationLinks": []
+        "annotationLinks": [],
+        "qrScan": {
+          "dpi": 144,
+          "detected": 0,
+          "decoded": 0,
+          "targets": [],
+          "limitation": "Automated scan; no detection does not prove absence. Personal contact paths and payloads omitted; delivery/account ownership not verified."
+        }
       }
     ],
-    "note": "All 11 archived PDFs parsed. Annotation links inspected, not fetched. Contacts counted without address disclosure. Printed QR destinations and links hidden in raster artwork are not established by this audit. No publication or retirement approvals inferred."
+    "note": "All 11 archived PDFs parsed. Annotation links inspected, not fetched. Contacts counted without address disclosure. All 55 pages scanned for QR at 144 dpi; two historical personal contact codes in the selected rings banner decoded. No absence, delivery or current contact ownership inferred. No publication or retirement approvals inferred."
   },
   "currentCandidateVerification": {
     "asOf": "2026-10-06",
@@ -15968,5 +16058,682 @@
       }
     ],
     "limitation": "Lighthouse laboratory measurements of this candidate fixture, not field INP, editorial approval, real analytics delivery or permission to deploy."
+  },
+  "currentOutboundAudit": {
+    "asOf": "2026-10-06",
+    "knownPdfFiles": 11,
+    "pagesScanned": 55,
+    "annotationLinks": 12,
+    "qrDetected": 2,
+    "qrDecoded": 2,
+    "selectedDocuments": [
+      "/documents/oda-rings-drawings-v220927.pdf",
+      "/documents/oda-rings-synergy-banner-2022.pdf"
+    ],
+    "selectedDisposition": "Keep the two selected originals unchanged with published rings and cleared document rights. Two decoded QR targets are historical personal Telegram/WhatsApp contacts, not old site routes or current studio CTA.",
+    "otherDocuments": "Nine known PDFs belong to deferred works/applications; retain the read-only archive and decide their resource URLs in M4. Do not replace the current studio dossier with them.",
+    "outreachSource": "Dated outreach input reports Divent/N:OW received materials. A read-only GDB-source lookup found four actual portfolio PDF candidates, but no exact association with those sends; see currentGdbSourceSearch.",
+    "unresolved": [
+      "Exact externally sent PDF/dossier versions",
+      "Printed links or QR not detected by the automated scan",
+      "Current ownership/delivery of external accounts and links"
+    ],
+    "note": "Known-file inspection only; does not close the complete outreach/QR task or authorize retirement. No personal QR payload copied into public data.",
+    "gdbSourceSearch": "currentGdbSourceSearch"
+  },
+  "currentResourceDispositionReview": {
+    "asOf": "2026-10-06",
+    "status": "proposals-only",
+    "groups": [
+      {
+        "id": "prepared-cleared-content",
+        "proposal": "Preserve exact originals with the corresponding published dependency; permission does not approve editorial publication.",
+        "paths": [
+          "/documents/oda-rings-drawings-v220927.pdf",
+          "/documents/oda-rings-synergy-banner-2022.pdf",
+          "/images/content/events/interference-2026/interference-2026-01.webp",
+          "/images/content/events/schrodinger-2025/schrodinger-2025-01.webp",
+          "/images/content/materia/emomandala/emomandala-cover-thumb.webp",
+          "/images/content/materia/emomandala/emomandala-cover.webp",
+          "/images/content/materia/emomandala/photo-pendant-front.webp",
+          "/images/content/materia/oda-rings/ig-01-hero.webp",
+          "/images/content/materia/oda-rings/ig-02-wedding.webp",
+          "/images/content/materia/oda-rings/ig-03-sketch.webp",
+          "/images/content/materia/oda-rings/ig-04-workshop.webp",
+          "/images/content/materia/oda-rings/ig-05-model-eeg.webp",
+          "/images/content/materia/oda-rings/ig-06-hands.webp",
+          "/images/content/materia/oda-rings/ig-07-flight.webp",
+          "/images/content/materia/oda-rings/ig-08-dream-photo.webp",
+          "/images/content/materia/oda-rings/ig-09-lempuyang.webp",
+          "/images/content/materia/oda-rings/oda-rings-cover-thumb.webp",
+          "/images/content/materia/oda-rings/oda-rings-cover.webp",
+          "/images/content/materia/oda-rings/synergy-banner-preview-thumb.webp",
+          "/images/content/materia/oda-rings/synergy-banner-preview.webp",
+          "/images/content/mindshow_mdsh_v5.webp",
+          "/images/content/neurobattle_dano.webp",
+          "/images/content/neurobattle_gameplay.webp",
+          "/images/content/works/ancestors-hero.webp",
+          "/images/content/works/interference-2026-poster-thumb.webp",
+          "/images/content/works/schrodinger-2025-poster-thumb.webp",
+          "/images/content/works/sync-circle/sync-circle-hero-thumb.webp",
+          "/images/content/works/sync-circle/sync-circle-hero.webp"
+        ]
+      },
+      {
+        "id": "prepared-rights-review",
+        "proposal": "Keep staged original under rights review; resolve document permission before allowing its public URL.",
+        "paths": [
+          "/images/content/proofs/collab_2025_ODA_Portal.webp"
+        ]
+      },
+      {
+        "id": "selected-rights-review",
+        "proposal": "Selected sources include third-party letters or event photography; inspect attribution and permission separately, without automatic publication.",
+        "paths": [
+          "/images/content/lectures-sber.webp",
+          "/images/content/proofs/collab_2024_ODA_Bitva_za_milliard.webp",
+          "/images/content/proofs/collab_2024_ODA_Kod_provintsii_Daler.webp",
+          "/images/content/proofs/collab_2024_ODA_TechWeek_Olya.webp",
+          "/images/content/proofs/collab_2025_ODA_Dikaya_myata.webp",
+          "/images/content/proofs/collab_2025_ODA_Khaskel.webp",
+          "/images/content/proofs/collab_2025_ODA_Moskva_2030_Olga.webp",
+          "/images/content/proofs/collab_2025_ODA_Severnaya_Osetiya_Media_Eksperty.webp",
+          "/images/content/proofs/collab_2025_ODA_Shulgan_Tash.webp",
+          "/images/content/proofs/collab_2025_ODA_Tavrida_II.webp",
+          "/images/content/proofs/collab_2025_ODA_TPP.webp",
+          "/images/content/proofs/collab_2025_ODA_VShE_ch2.webp",
+          "/images/content/proofs/collab_2026_ODA_Gostinyy_dvor.webp"
+        ]
+      },
+      {
+        "id": "source-placeholder",
+        "proposal": "Exclude the ASSET placeholder from method content. Retain source archive; the old URL still needs an explicit release disposition.",
+        "paths": [
+          "/images/content/neuromandala-cover.webp"
+        ]
+      },
+      {
+        "id": "deferred-archive",
+        "proposal": "Retain read-only sources outside the selected packet. Preserve, redirect or retire each old URL only after its inbound need and permission are resolved.",
+        "paths": [
+          "/documents/dashran-tech-description.pdf",
+          "/documents/fourth-dimension-tz-v2.pdf",
+          "/documents/honors-skolkovo-presentation.pdf",
+          "/documents/mom-baby-brochure-v2.pdf",
+          "/documents/mom-baby-drawings-v220920.pdf",
+          "/documents/other-people-deck-ru.pdf",
+          "/documents/potustoronniy-deck.pdf",
+          "/images/content/events/byob-2020/projection-pentagon.webp",
+          "/images/content/events/byob-2026/neuromandala-installation.webp",
+          "/images/content/events/interference-2026/interference-2026-02.webp",
+          "/images/content/events/interference-2026/interference-2026-03.webp",
+          "/images/content/events/interference-2026/interference-2026-04.webp",
+          "/images/content/events/interference-2026/interference-2026-05.webp",
+          "/images/content/events/interference-2026/interference-2026-06.webp",
+          "/images/content/events/interference-2026/interference-2026-07.webp",
+          "/images/content/events/interference-2026/interference-2026-08.webp",
+          "/images/content/events/interference-2026/interference-2026-09.webp",
+          "/images/content/events/schrodinger-2025/schrodinger-2025-02.webp",
+          "/images/content/events/schrodinger-2025/schrodinger-2025-03.webp",
+          "/images/content/events/schrodinger-2025/schrodinger-2025-04.webp",
+          "/images/content/events/schrodinger-2025/schrodinger-2025-05.webp",
+          "/images/content/events/schrodinger-2025/schrodinger-2025-06.webp",
+          "/images/content/events/schrodinger-2025/schrodinger-2025-07.webp",
+          "/images/content/events/schrodinger-2025/schrodinger-2025-08.webp",
+          "/images/content/lectures-gonchar.webp",
+          "/images/content/lectures-moscow2030.webp",
+          "/images/content/materia/emomandala/abundance-color-palette.webp",
+          "/images/content/materia/emomandala/laser-material-variations.webp",
+          "/images/content/materia/emomandala/mandala-ring-sizes.webp",
+          "/images/content/materia/emomandala/photo-charm.webp",
+          "/images/content/materia/emomandala/photo-pendant-back.webp",
+          "/images/content/materia/emomandala/render-charm.webp",
+          "/images/content/materia/fourth-dimension/fourth-dimension-cover-thumb.webp",
+          "/images/content/materia/fourth-dimension/neuromandala-source.webp",
+          "/images/content/materia/fourth-dimension/photo-product.webp",
+          "/images/content/materia/fourth-dimension/render-back.webp",
+          "/images/content/materia/fourth-dimension/render-front.webp",
+          "/images/content/materia/happiness/happiness-cover-thumb.webp",
+          "/images/content/materia/happiness/photo-back.webp",
+          "/images/content/materia/happiness/photo-front.webp",
+          "/images/content/materia/happiness/photo-gift-box.webp",
+          "/images/content/materia/happiness/source-emoto-outline.webp",
+          "/images/content/materia/mom-baby/mom-baby-cover-thumb.webp",
+          "/images/content/materia/mom-baby/photo-baby-leg.webp",
+          "/images/content/materia/mom-baby/photo-borzikh-main.webp",
+          "/images/content/materia/mom-baby/photo-gift-set.webp",
+          "/images/content/materia/mom-baby/photo-iowa-gift.webp",
+          "/images/content/materia/mom-baby/photo-on-leaves.webp",
+          "/images/content/materia/mom-baby/photo-parts-two-pendants.webp",
+          "/images/content/materia/mom-baby/photo-with-statuette.webp",
+          "/images/content/materia/mom-baby/rhino-drawing.webp",
+          "/images/content/materia/voronka/neuromandala-source.webp",
+          "/images/content/materia/voronka/photo-detail.webp",
+          "/images/content/materia/voronka/photo-set.webp",
+          "/images/content/materia/voronka/render-exploded.webp",
+          "/images/content/materia/voronka/render-hero.webp",
+          "/images/content/materia/voronka/render-section.webp",
+          "/images/content/materia/voronka/voronka-cover-thumb.webp",
+          "/images/content/mindshow_ashram.webp",
+          "/images/content/mindshow_tpp.webp",
+          "/images/content/works/another-people/other-people-character-card.webp",
+          "/images/content/works/another-people/other-people-eeg-session.webp",
+          "/images/content/works/another-people/other-people-gallery-thumb.webp",
+          "/images/content/works/another-people/other-people-gallery.webp",
+          "/images/content/works/another-people/other-people-neuromandala.webp",
+          "/images/content/works/another-people/other-people-portrait.webp",
+          "/images/content/works/another-people/other-people-workshop.webp",
+          "/images/content/works/byob-2019-mindgrid.webp",
+          "/images/content/works/dashran/dashran-playda-01.webp",
+          "/images/content/works/dashran/dashran-system-flow.webp",
+          "/images/content/works/dashran/dashran-tech-plan.webp",
+          "/images/content/works/dashran/dashran-tech-render-b-thumb.webp",
+          "/images/content/works/dashran/dashran-tech-render-b.webp",
+          "/images/content/works/dashran/dashran-tech-space.webp",
+          "/images/content/works/dashran/dashran-wiring.webp",
+          "/images/content/works/honors-skolkovo/honors-skolkovo-cover-thumb.webp",
+          "/images/content/works/honors-skolkovo/honors-skolkovo-cover.webp",
+          "/images/content/works/honors-skolkovo/honors-skolkovo-dome.webp",
+          "/images/content/works/honors-skolkovo/honors-skolkovo-interior.webp",
+          "/images/content/works/honors-skolkovo/honors-skolkovo-mandala.webp",
+          "/images/content/works/honors-skolkovo/honors-skolkovo-plan-detail.webp",
+          "/images/content/works/honors-skolkovo/honors-skolkovo-plan.webp",
+          "/images/content/works/honors-skolkovo/honors-skolkovo-scheme.webp",
+          "/images/content/works/honors-skolkovo/honors-skolkovo-viz.webp",
+          "/images/content/works/interference-2026-poster.webp",
+          "/images/content/works/interference-plakats/interference-plakat-01-light.webp",
+          "/images/content/works/interference-plakats/interference-plakat-02-sound.webp",
+          "/images/content/works/interference-plakats/interference-plakat-03-dance.webp",
+          "/images/content/works/interference-plakats/interference-plakat-04-brain.webp",
+          "/images/content/works/interference-plakats/interference-plakat-05-technology.webp",
+          "/images/content/works/interference-plakats/interference-plakat-06-waves.webp",
+          "/images/content/works/interference-plakats/interference-plakat-07-reality.webp",
+          "/images/content/works/interference-plakats/interference-plakat-08-dramaturgy.webp",
+          "/images/content/works/lighthouse/blend-multi-1.webp",
+          "/images/content/works/lighthouse/blend-multi-2.webp",
+          "/images/content/works/lighthouse/lighthouse-cover-thumb.webp",
+          "/images/content/works/lighthouse/sections-shaped.webp",
+          "/images/content/works/lighthouse/state-alpha.webp",
+          "/images/content/works/lighthouse/state-theta.webp",
+          "/images/content/works/potustoronniy/potustoronniy-concept.webp",
+          "/images/content/works/potustoronniy/potustoronniy-cover-thumb.webp",
+          "/images/content/works/potustoronniy/potustoronniy-cover.webp",
+          "/images/content/works/potustoronniy/potustoronniy-drum.webp",
+          "/images/content/works/potustoronniy/potustoronniy-storyboard.webp",
+          "/images/content/works/potustoronniy/potustoronniy-tech.webp",
+          "/images/content/works/schrodinger-2025-poster.webp",
+          "/images/content/works/sync-circle/sync-circle-chairs-1.webp",
+          "/images/content/works/sync-circle/sync-circle-chairs-2.webp",
+          "/images/content/works/sync-circle/sync-circle-chairs-3.webp",
+          "/images/content/works/sync-circle/sync-circle-dimensions.webp",
+          "/images/content/works/sync-circle/sync-circle-mandala.webp",
+          "/images/content/works/sync-circle/sync-circle-mvc.webp",
+          "/images/content/works/sync-circle/sync-circle-states.webp",
+          "/images/content/works/theatre-my-name/tim-ashram-2024-06.webp",
+          "/images/content/works/theatre-my-name/tim-ashram-2024-07.webp",
+          "/images/content/works/theatre-my-name/tim-ashram-2025-07.webp",
+          "/images/content/works/theatre-my-name/tim-kod-provincii-02.webp",
+          "/images/content/works/theatre-my-name/tim-kod-provincii-hero-thumb.webp",
+          "/images/content/works/theatre-my-name/tim-kod-provincii-hero.webp",
+          "/images/content/works/theatre-my-name/tim-korablik-2020-archive.webp"
+        ]
+      },
+      {
+        "id": "unreferenced-review",
+        "proposal": "No direct Markdown reference found. Check PDF/dossier/external uses before choosing a resource disposition; this is not permission to retire.",
+        "paths": [
+          "/documents/dashran-tech-spec-nur.pdf",
+          "/documents/other-people-art-science-society.pdf",
+          "/images/assets/oda_favicon.svg",
+          "/images/assets/oda_preview.png",
+          "/images/content/art-brain.svg",
+          "/images/content/art-brain.webp",
+          "/images/content/jewellery.svg",
+          "/images/content/jewellery.webp",
+          "/images/content/lectures-ashram.webp",
+          "/images/content/lectures-ikc.webp",
+          "/images/content/lectures-tavrida.webp",
+          "/images/content/lectures-tshr.webp",
+          "/images/content/materia/fourth-dimension/fourth-dimension-cover.webp",
+          "/images/content/materia/happiness/happiness-cover.webp",
+          "/images/content/materia/mom-baby/mom-baby-cover.webp",
+          "/images/content/materia/voronka/voronka-cover.webp",
+          "/images/content/mindshow_metro_2.webp",
+          "/images/content/mindshow_myata.webp",
+          "/images/content/mindshow_portal.webp",
+          "/images/content/mindshow_ufa.webp",
+          "/images/content/mindshow_urban_forum.webp",
+          "/images/content/neurobattle_tnt.webp",
+          "/images/content/neurobattle_veter.webp",
+          "/images/content/neuromandala-cover.svg",
+          "/images/content/works/ancestors-hero-thumb.webp",
+          "/images/content/works/ancestors-sketch-thumb.webp",
+          "/images/content/works/ancestors-sketch.webp",
+          "/images/content/works/dashran/dashran-playda-01-thumb.webp",
+          "/images/content/works/lighthouse/lighthouse-cover.webp",
+          "/images/nodes/neurobattle.webp",
+          "/images/proofs/proof-mipt-letter.svg",
+          "/media/hub-debug/audio-placeholder.svg",
+          "/media/hub-debug/video-placeholder.svg",
+          "/media/works/lighthouse/blended-spin.m4v",
+          "/media/works/lighthouse/spin-twist.m4v"
+        ]
+      }
+    ],
+    "note": "Review queue for every content URL; not retirement/redirect approval. The actual public packet and verified files determine preservation. Source placeholder was visually inspected on 2026-10-06."
+  },
+  "currentCandidateResourceVerification": {
+    "asOf": "2026-10-06",
+    "fixture": true,
+    "scope": "Selected packet with synthetic publication statuses; actual resource rights enforced. Not release approval.",
+    "localizedPages": 44,
+    "allowedResourcePaths": 44,
+    "historicalOriginalsHttp200AndSha256": 28,
+    "newWorkOriginals": 15,
+    "note": "All historical content files in this isolated candidate were fetched over loopback HTTP and matched original archive SHA-256. Third-party review letters and the ASSET placeholder are excluded. The ordinary public packet is still editorially unapproved; full URL compatibility remains unresolved."
+  },
+  "currentGdbSourceSearch": {
+    "asOf": "2026-10-06",
+    "mode": "read-only",
+    "sourceKb": "Golem Data Base",
+    "registrySnapshot": "2026-09-30T08:28:41Z",
+    "scope": "Source registry and portfolio packet, portfolio-pilot output, configured source roots and ecosystem portfolio registry; targeted recipient-name search in the related sources. No core write, source rewrite or whole-archive crawl.",
+    "sourceLocators": [
+      "knowledge-base/reports/source-registry.json",
+      "knowledge-base/reports/agent-packet/oda-dream-portfolio.json",
+      "knowledge-base/reports/agent-packet/focus-teaching-residency-participatory-performance-facilitation-computer-vision-biosignals",
+      "knowledge-base/etl/provenance_scan_allowlist.json",
+      "D:/YandexDisk/_ODA2/Портфолио/REGISTRY.md"
+    ],
+    "pdfCandidates": [
+      {
+        "key": "gdb-portfolio-pilot",
+        "sourcePath": "D:/YandexDisk/_ODA2/Software_Neo/Projects/Golem Data Base/knowledge-base/reports/portfolio-pilot/output/pdf/04-portfolio.pdf",
+        "sha256": "2ab5e2d873f311ba7a8f747e527720dcf8dd5b93bb68131f929fcd71bd410c82",
+        "pages": 3,
+        "links": [
+          {
+            "page": 2,
+            "kind": "annotation",
+            "host": "interference.odadream.art",
+            "scheme": "https",
+            "url": "https://interference.odadream.art/"
+          },
+          {
+            "page": 3,
+            "kind": "historical-contact",
+            "host": null,
+            "scheme": "mailto"
+          },
+          {
+            "page": 3,
+            "kind": "historical-contact",
+            "host": null,
+            "scheme": "tel"
+          },
+          {
+            "page": 3,
+            "kind": "historical-contact",
+            "host": "t.me",
+            "scheme": "https"
+          },
+          {
+            "page": 3,
+            "kind": "annotation",
+            "host": "odadream.art",
+            "scheme": "https",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 3,
+            "kind": "annotation",
+            "host": "dzen.ru",
+            "scheme": "https",
+            "url": "https://dzen.ru/odadream"
+          },
+          {
+            "page": 3,
+            "kind": "annotation",
+            "host": "vk.com",
+            "scheme": "https",
+            "url": "https://vk.com/odadream"
+          }
+        ],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "sentToDiventOrNOW": "not-established"
+      },
+      {
+        "key": "cyens-portfolio",
+        "sourcePath": "D:/YandexDisk/_ODA2/Премии/submissions/2026-03_CYENS_WIP_Festival/portfolio/output/portfolio.pdf",
+        "sha256": "2228301ddbc85bfe8ba0dd4f2fe67d6144a8441232743c5f97da3200bc88b4bc",
+        "pages": 3,
+        "links": [],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "sentToDiventOrNOW": "not-established"
+      },
+      {
+        "key": "ntmofa-portfolio",
+        "sourcePath": "D:/YandexDisk/_ODA2/Премии/submissions/2026-03_NTMoFA_Taiwan_Residency/portfolio/output/odadream_portfolio_en.pdf",
+        "sha256": "e3c7f6d92220f859141c03c33a136856d6888f6251841de7f6675c720e39dc68",
+        "pages": 6,
+        "links": [
+          {
+            "page": 6,
+            "kind": "historical-contact",
+            "host": null,
+            "scheme": "mailto"
+          },
+          {
+            "page": 6,
+            "kind": "annotation",
+            "host": "odadream.art",
+            "scheme": "https",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 6,
+            "kind": "historical-contact",
+            "host": "t.me",
+            "scheme": "https"
+          },
+          {
+            "page": 6,
+            "kind": "historical-contact",
+            "host": "t.me",
+            "scheme": "https"
+          },
+          {
+            "page": 6,
+            "kind": "annotation",
+            "host": "dzen.ru",
+            "scheme": "https",
+            "url": "https://dzen.ru/odadream"
+          }
+        ],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "sentToDiventOrNOW": "not-established"
+      },
+      {
+        "key": "oda-itb-shesternin",
+        "sourcePath": "D:/YandexDisk/_ODA2/События/26-05-16 Интерференция Реальностей/export/portfolio-oda-itb-shesternin-2026-07-23/ODA_ITB_Shesternin_Portfolio_2026.pdf",
+        "sha256": "3e41b92450d05a90fdf42a377ef461b8d18ba57d152b0554b20f59661c33cb61",
+        "pages": 17,
+        "links": [
+          {
+            "page": 4,
+            "kind": "annotation",
+            "host": "www.icc40.ru",
+            "scheme": "https",
+            "url": "https://www.icc40.ru/collectives/innovatsionnyy-teatr-baleta"
+          },
+          {
+            "page": 5,
+            "kind": "annotation",
+            "host": "studio-shum.ru",
+            "scheme": "https",
+            "url": "https://studio-shum.ru/about"
+          },
+          {
+            "page": 7,
+            "kind": "annotation",
+            "host": "youtu.be",
+            "scheme": "https",
+            "url": "https://youtu.be/42hS8Zpkd4A"
+          },
+          {
+            "page": 7,
+            "kind": "annotation",
+            "host": "interference.odadream.art",
+            "scheme": "https",
+            "url": "https://interference.odadream.art/"
+          },
+          {
+            "page": 8,
+            "kind": "annotation",
+            "host": "dzen.ru",
+            "scheme": "https",
+            "url": "https://dzen.ru/video/watch/6845a4440a4ab554ebf00fb0"
+          },
+          {
+            "page": 9,
+            "kind": "annotation",
+            "host": "odadream.art",
+            "scheme": "https",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 9,
+            "kind": "annotation",
+            "host": "www.youtube.com",
+            "scheme": "https",
+            "url": "https://www.youtube.com/watch?v=1g9FDBRSa5w"
+          },
+          {
+            "page": 11,
+            "kind": "annotation",
+            "host": "quicktickets.ru",
+            "scheme": "https",
+            "url": "https://quicktickets.ru/kaluga-ikc/e309"
+          },
+          {
+            "page": 11,
+            "kind": "annotation",
+            "host": "culture40.ru",
+            "scheme": "https",
+            "url": "https://culture40.ru/afisha/e/kod-semia-evoliuciia-rodovogo-dreva"
+          },
+          {
+            "page": 12,
+            "kind": "annotation",
+            "host": "ndpc.timepad.ru",
+            "scheme": "https",
+            "url": "https://ndpc.timepad.ru/event/2863869/"
+          },
+          {
+            "page": 12,
+            "kind": "annotation",
+            "host": "catalogfair.ru",
+            "scheme": "https",
+            "url": "https://catalogfair.ru/program/"
+          },
+          {
+            "page": 12,
+            "kind": "annotation",
+            "host": "ktyz.ru",
+            "scheme": "https",
+            "url": "https://ktyz.ru/news/finalisty-art-marketa-2024-kompozitory.htm"
+          },
+          {
+            "page": 12,
+            "kind": "annotation",
+            "host": "open.spotify.com",
+            "scheme": "https",
+            "url": "https://open.spotify.com/track/09RFAJ25X5KBecRC8kNmm7"
+          },
+          {
+            "page": 13,
+            "kind": "annotation",
+            "host": "interference.odadream.art",
+            "scheme": "https",
+            "url": "https://interference.odadream.art/"
+          },
+          {
+            "page": 15,
+            "kind": "annotation",
+            "host": "youtu.be",
+            "scheme": "https",
+            "url": "https://youtu.be/42hS8Zpkd4A"
+          },
+          {
+            "page": 15,
+            "kind": "annotation",
+            "host": "dzen.ru",
+            "scheme": "https",
+            "url": "https://dzen.ru/video/watch/6845a4440a4ab554ebf00fb0"
+          },
+          {
+            "page": 15,
+            "kind": "annotation",
+            "host": "www.youtube.com",
+            "scheme": "https",
+            "url": "https://www.youtube.com/watch?v=1g9FDBRSa5w"
+          },
+          {
+            "page": 15,
+            "kind": "annotation",
+            "host": "www.youtube.com",
+            "scheme": "https",
+            "url": "https://www.youtube.com/watch?v=xUlotjPuXPA"
+          },
+          {
+            "page": 15,
+            "kind": "annotation",
+            "host": "www.youtube.com",
+            "scheme": "https",
+            "url": "https://www.youtube.com/channel/UCPJa0yHkxyElDIti9O25Vdg"
+          },
+          {
+            "page": 15,
+            "kind": "annotation",
+            "host": "open.spotify.com",
+            "scheme": "https",
+            "url": "https://open.spotify.com/track/09RFAJ25X5KBecRC8kNmm7"
+          },
+          {
+            "page": 16,
+            "kind": "annotation",
+            "host": "odadream.art",
+            "scheme": "https",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 16,
+            "kind": "annotation",
+            "host": "www.icc40.ru",
+            "scheme": "https",
+            "url": "https://www.icc40.ru/collectives/innovatsionnyy-teatr-baleta"
+          },
+          {
+            "page": 17,
+            "kind": "annotation",
+            "host": "odadream.art",
+            "scheme": "https",
+            "url": "https://odadream.art/"
+          },
+          {
+            "page": 17,
+            "kind": "annotation",
+            "host": "interference.odadream.art",
+            "scheme": "https",
+            "url": "https://interference.odadream.art/"
+          },
+          {
+            "page": 17,
+            "kind": "annotation",
+            "host": "www.icc40.ru",
+            "scheme": "https",
+            "url": "https://www.icc40.ru/collectives/innovatsionnyy-teatr-baleta"
+          },
+          {
+            "page": 17,
+            "kind": "annotation",
+            "host": "www.icc40.ru",
+            "scheme": "https",
+            "url": "https://www.icc40.ru/calendar/events/neyrospektakl-improvizatsiya"
+          },
+          {
+            "page": 17,
+            "kind": "annotation",
+            "host": "studio-shum.ru",
+            "scheme": "https",
+            "url": "https://studio-shum.ru/about"
+          },
+          {
+            "page": 17,
+            "kind": "annotation",
+            "host": "quicktickets.ru",
+            "scheme": "https",
+            "url": "https://quicktickets.ru/kaluga-ikc/e309"
+          },
+          {
+            "page": 17,
+            "kind": "annotation",
+            "host": "culture40.ru",
+            "scheme": "https",
+            "url": "https://culture40.ru/afisha/e/kod-semia-evoliuciia-rodovogo-dreva"
+          },
+          {
+            "page": 17,
+            "kind": "annotation",
+            "host": "gatchinanights.ru",
+            "scheme": "https",
+            "url": "https://gatchinanights.ru/program2025/o11-microrave"
+          },
+          {
+            "page": 17,
+            "kind": "annotation",
+            "host": "ndpc.timepad.ru",
+            "scheme": "https",
+            "url": "https://ndpc.timepad.ru/event/2863869/"
+          },
+          {
+            "page": 17,
+            "kind": "annotation",
+            "host": "catalogfair.ru",
+            "scheme": "https",
+            "url": "https://catalogfair.ru/program/"
+          },
+          {
+            "page": 17,
+            "kind": "annotation",
+            "host": "ktyz.ru",
+            "scheme": "https",
+            "url": "https://ktyz.ru/news/finalisty-art-marketa-2024-kompozitory.htm"
+          },
+          {
+            "page": 17,
+            "kind": "annotation",
+            "host": "youtu.be",
+            "scheme": "https",
+            "url": "https://youtu.be/42hS8Zpkd4A"
+          },
+          {
+            "page": 17,
+            "kind": "annotation",
+            "host": "dzen.ru",
+            "scheme": "https",
+            "url": "https://dzen.ru/video/watch/6845a4440a4ab554ebf00fb0"
+          },
+          {
+            "page": 17,
+            "kind": "annotation",
+            "host": "www.youtube.com",
+            "scheme": "https",
+            "url": "https://www.youtube.com/channel/UCPJa0yHkxyElDIti9O25Vdg"
+          }
+        ],
+        "qrDetected": 0,
+        "qrTargets": [],
+        "sentToDiventOrNOW": "not-established"
+      }
+    ],
+    "summary": {
+      "files": 4,
+      "pages": 29,
+      "annotationLinks": 48,
+      "qrDetected": 0,
+      "recipientAssociation": "not-established"
+    },
+    "conclusions": [
+      "Main-site links in inspected candidates address https://odadream.art/; no section/query-based old-site URL found among annotations. Existing root/language behavior is retained.",
+      "interference.odadream.art is a separate site; this migration does not move that subdomain.",
+      "Generated GDB pilot is a derived portfolio candidate, not evidence of sending or an automatically approved site dossier.",
+      "No Divent/N:OW attachment/version association was found within these bounded local sources. This does not establish absence elsewhere or in mail.",
+      "Automated QR non-detection does not establish absence; external account ownership and link delivery not verified."
+    ],
+    "restriction": "Candidate PDFs are not copied to public assets. Personal contact payloads are omitted. No sender/recipient association, publication rights or retirement approval inferred."
   }
 }

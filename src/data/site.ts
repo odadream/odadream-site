@@ -3,7 +3,7 @@ import type { FormatDetail } from './editorial';
 import type { SourceReference } from './editorial';
 import { studioPeople } from './studio';
 import { workDetails } from './work-details';
-export { workDocuments } from './work-details';
+export { workDocuments, legacyWorkResources } from './work-details';
 import type { WorkDetail } from './work-details';
 import { caseDetails, historicalEvents } from './case-details';
 import type { CaseDetail } from './case-details';

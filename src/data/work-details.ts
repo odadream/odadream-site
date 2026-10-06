@@ -477,3 +477,166 @@ export const workDetails: Record<string, WorkDetail> = {
     sourceRefs: refs('ancestors.md'),
   },
 };
+
+/** Archival originals for URL compatibility; not new gallery entries or cover aliases. */
+export interface LegacyWorkResource {
+  id: string;
+  workId: string;
+  path: string;
+  rights: Rights;
+  sha256: string;
+  permissionBasis: string;
+  source: string;
+}
+export const legacyWorkResources: LegacyWorkResource[] = [
+  {
+    id: 'legacy-emomandala-cover-thumb',
+    workId: 'emomandala',
+    path: '/images/content/materia/emomandala/emomandala-cover-thumb.webp',
+    rights: 'cleared',
+    sha256: '97feab4667c3c36d54e22f79c4b1bba5d6851b68c7ee10855926f8e30e8a16e4',
+    permissionBasis:
+      'Owner permission to display works and private commissions, 2026-10-05. Does not approve editorial publication or retirement of other URLs.',
+    source: 'emomandala.md',
+  },
+  {
+    id: 'legacy-ig-02-wedding',
+    workId: 'rings',
+    path: '/images/content/materia/oda-rings/ig-02-wedding.webp',
+    rights: 'cleared',
+    sha256: '9835fe48bccd2d84c53f10426f9e5f4214e09b4636799ba147a7f5145c60d479',
+    permissionBasis:
+      'Owner permission to display works and private commissions, 2026-10-05. Does not approve editorial publication or retirement of other URLs.',
+    source: 'media-oda-rings-story.md',
+  },
+  {
+    id: 'legacy-ig-03-sketch',
+    workId: 'rings',
+    path: '/images/content/materia/oda-rings/ig-03-sketch.webp',
+    rights: 'cleared',
+    sha256: '76326ce2cf00553baaeac1b52142586fb0ae63b2cce013888e007b14d077adf9',
+    permissionBasis:
+      'Owner permission to display works and private commissions, 2026-10-05. Does not approve editorial publication or retirement of other URLs.',
+    source: 'media-oda-rings-story.md',
+  },
+  {
+    id: 'legacy-ig-04-workshop',
+    workId: 'rings',
+    path: '/images/content/materia/oda-rings/ig-04-workshop.webp',
+    rights: 'cleared',
+    sha256: 'ccf3572170aab3f523f5e3b37375395931af58ed56f6747a84b7a16a7130be1b',
+    permissionBasis:
+      'Owner permission to display works and private commissions, 2026-10-05. Does not approve editorial publication or retirement of other URLs.',
+    source: 'media-oda-rings-story.md',
+  },
+  {
+    id: 'legacy-ig-05-model-eeg',
+    workId: 'rings',
+    path: '/images/content/materia/oda-rings/ig-05-model-eeg.webp',
+    rights: 'cleared',
+    sha256: 'b702ea261ccf0f926a972328b0ee5b01b9d661c444501f548420fbfdd3f077d3',
+    permissionBasis:
+      'Owner permission to display works and private commissions, 2026-10-05. Does not approve editorial publication or retirement of other URLs.',
+    source: 'media-oda-rings-story.md',
+  },
+  {
+    id: 'legacy-ig-06-hands',
+    workId: 'rings',
+    path: '/images/content/materia/oda-rings/ig-06-hands.webp',
+    rights: 'cleared',
+    sha256: '33bf52defe211924260d67c9d0b072bcb7f7d46aed75ff9d9905c02bc302766f',
+    permissionBasis:
+      'Owner permission to display works and private commissions, 2026-10-05. Does not approve editorial publication or retirement of other URLs.',
+    source: 'media-oda-rings-story.md',
+  },
+  {
+    id: 'legacy-ig-07-flight',
+    workId: 'rings',
+    path: '/images/content/materia/oda-rings/ig-07-flight.webp',
+    rights: 'cleared',
+    sha256: '3d55ac2e94a3cfa1e3db3749f513d0ed8d8183a7fc23451a5f349b01af513c17',
+    permissionBasis:
+      'Owner permission to display works and private commissions, 2026-10-05. Does not approve editorial publication or retirement of other URLs.',
+    source: 'media-oda-rings-story.md',
+  },
+  {
+    id: 'legacy-ig-08-dream-photo',
+    workId: 'rings',
+    path: '/images/content/materia/oda-rings/ig-08-dream-photo.webp',
+    rights: 'cleared',
+    sha256: 'cff4361c2e315b3686f71e81742d1c90a6dd1158055db823854581516fd52810',
+    permissionBasis:
+      'Owner permission to display works and private commissions, 2026-10-05. Does not approve editorial publication or retirement of other URLs.',
+    source: 'media-oda-rings-story.md',
+  },
+  {
+    id: 'legacy-ig-09-lempuyang',
+    workId: 'rings',
+    path: '/images/content/materia/oda-rings/ig-09-lempuyang.webp',
+    rights: 'cleared',
+    sha256: '5a4a8f6d6a7bf3b207cad58dc8b59e3335d1204c8e2047135532156a6aaaf63d',
+    permissionBasis:
+      'Owner permission to display works and private commissions, 2026-10-05. Does not approve editorial publication or retirement of other URLs.',
+    source: 'media-oda-rings-story.md',
+  },
+  {
+    id: 'legacy-oda-rings-cover-thumb',
+    workId: 'rings',
+    path: '/images/content/materia/oda-rings/oda-rings-cover-thumb.webp',
+    rights: 'cleared',
+    sha256: '1c7f4b92f53829044ce51bf7b10ebdeba465bfff2c7aa8aca944d4d82255e0aa',
+    permissionBasis:
+      'Owner permission to display works and private commissions, 2026-10-05. Does not approve editorial publication or retirement of other URLs.',
+    source: 'media-oda-rings-drawings.md + media-oda-rings-story.md + oda-rings.md',
+  },
+  {
+    id: 'legacy-synergy-banner-preview-thumb',
+    workId: 'rings',
+    path: '/images/content/materia/oda-rings/synergy-banner-preview-thumb.webp',
+    rights: 'cleared',
+    sha256: '3f57c854028600516eef8ef60e44bde75190c93642ff3e6ccb8516928b13d713',
+    permissionBasis:
+      'Owner permission to display works and private commissions, 2026-10-05. Does not approve editorial publication or retirement of other URLs.',
+    source: 'media-oda-rings-banner.md',
+  },
+  {
+    id: 'legacy-synergy-banner-preview',
+    workId: 'rings',
+    path: '/images/content/materia/oda-rings/synergy-banner-preview.webp',
+    rights: 'cleared',
+    sha256: '6c10e4386ed01ffdba6f295b0d904562e455626d0a49f0b70e85c603a42eb790',
+    permissionBasis:
+      'Owner permission to display works and private commissions, 2026-10-05. Does not approve editorial publication or retirement of other URLs.',
+    source: 'media-oda-rings-banner.md',
+  },
+  {
+    id: 'legacy-interference-2026-poster-thumb',
+    workId: 'interference',
+    path: '/images/content/works/interference-2026-poster-thumb.webp',
+    rights: 'cleared',
+    sha256: 'ba75bb7479ce6a0383f41845b729673232e0d68fcaaa62b9b871678b9906ffa4',
+    permissionBasis:
+      'Owner permission to display works and private commissions, 2026-10-05. Does not approve editorial publication or retirement of other URLs.',
+    source: 'interference.md',
+  },
+  {
+    id: 'legacy-schrodinger-2025-poster-thumb',
+    workId: 'schrodinger',
+    path: '/images/content/works/schrodinger-2025-poster-thumb.webp',
+    rights: 'cleared',
+    sha256: 'f79c90dd680375aa387acbfdabff303fbe97e6c659eab10a77d2d9669fdff1a3',
+    permissionBasis:
+      'Owner permission to display works and private commissions, 2026-10-05. Does not approve editorial publication or retirement of other URLs.',
+    source: 'schrodinger.md',
+  },
+  {
+    id: 'legacy-sync-circle-hero-thumb',
+    workId: 'sync',
+    path: '/images/content/works/sync-circle/sync-circle-hero-thumb.webp',
+    rights: 'cleared',
+    sha256: 'f5e551a47eba54b0a25ad572329eca9db62a29f0b1ba3b246a0424e44a6241fe',
+    permissionBasis:
+      'Owner permission to display works and private commissions, 2026-10-05. Does not approve editorial publication or retirement of other URLs.',
+    source: 'sync-circle.md',
+  },
+];

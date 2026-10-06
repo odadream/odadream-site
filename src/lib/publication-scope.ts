@@ -14,7 +14,10 @@ export type CatalogueSource = Pick<
   | 'minddbSnapshot'
 > &
   Partial<
-    Pick<typeof import('../data/site'), 'methods' | 'cooperationPages' | 'studioPages' | 'workDocuments'>
+    Pick<
+      typeof import('../data/site'),
+      'methods' | 'cooperationPages' | 'studioPages' | 'workDocuments' | 'legacyWorkResources'
+    >
   >;
 export interface PublicationPlan {
   version: string;
@@ -447,6 +450,19 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
       if (isLocalAssetPath(path)) assetPaths.add(path);
       else errors.push(`media ${row.id}: invalid legacy asset path ${path}`);
     }
+  // Different archival frames are resources of their Work, not aliases of its cover image.
+  for (const row of source.legacyWorkResources ?? []) {
+    if (!workIds.has(row.workId)) continue;
+    if (!isLocalAssetPath(row.path) || !row.path.startsWith('/images/') || !row.path.endsWith('.webp')) {
+      errors.push(`legacy work resource ${row.id}: invalid image path`);
+      continue;
+    }
+    if (!preview && row.rights !== 'cleared') {
+      errors.push(`legacy work resource ${row.id}: rights ${row.rights}`);
+      continue;
+    }
+    assetPaths.add(row.path);
+  }
   return {
     ...projected,
     preview,

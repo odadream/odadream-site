@@ -84,6 +84,33 @@ test('selected pending record blocks release and has no public page', () => {
   assert.ok(!createPages(scope).some((page) => page.kind === 'work'));
 });
 
+test('archival frames require their own Work and rights; source hashes never enter public data', () => {
+  const { source, plan } = fixture();
+  source.legacyWorkResources = structuredClone(original.legacyWorkResources);
+  const work = source.works.find((row) => row.id === 'rings');
+  work.publication = 'published';
+  plan.works = [work.id];
+  const resource = source.legacyWorkResources.find((row) => row.workId === work.id);
+  let scope = createPublicationScope(source, plan);
+  assert.ok(scope.assetPaths.has(resource.path));
+  assert.ok(!JSON.stringify(scope).includes(resource.sha256));
+  assert.ok(
+    !scope.assetPaths.has(source.legacyWorkResources.find((row) => row.workId === 'schrodinger').path),
+  );
+  resource.rights = 'restricted';
+  scope = createPublicationScope(source, plan);
+  assert.ok(!scope.assetPaths.has(resource.path));
+  assert.ok(scope.errors.some((error) => error.includes(resource.id)));
+  resource.rights = 'cleared';
+  work.publication = 'review';
+  assert.ok(!createPublicationScope(source, plan).assetPaths.has(resource.path));
+  work.publication = 'published';
+  resource.path = '/images/%2e%2e/private.webp';
+  scope = createPublicationScope(source, plan);
+  assert.ok(!scope.assetPaths.has(resource.path));
+  assert.ok(scope.errors.some((error) => error.includes('invalid image path')));
+});
+
 test('selected MindDB with unresolved privacy blocks release and stays out of output', () => {
   const { source, plan } = fixture();
   source.minddbSnapshot.publication = 'published';

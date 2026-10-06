@@ -48,6 +48,7 @@ for (const name of [
   'organizations',
   'media',
   'workDocuments',
+  'legacyWorkResources',
 ])
   checkCollection(name, data[name]);
 function checkLocales(value, label) {
@@ -278,9 +279,39 @@ for (const [path, decision] of Object.entries(mediaDecisions))
   if (
     decision.action === 'preserve' &&
     !data.media.some((item) => item.id === decision.mediaId && item.legacyPaths?.includes(path)) &&
-    !data.workDocuments.some((item) => item.id === decision.workDocumentId && item.href === path)
+    !data.workDocuments.some((item) => item.id === decision.workDocumentId && item.href === path) &&
+    !data.legacyWorkResources.some((item) => item.id === decision.legacyWorkResourceId && item.path === path)
   )
     errors.push(`Orphaned preservation record ${path}`);
+const archivalPaths = new Set();
+for (const item of data.legacyWorkResources) {
+  if (archivalPaths.has(item.path)) errors.push(`legacy work resource ${item.id}: duplicate path`);
+  archivalPaths.add(item.path);
+  if (
+    !workIds.has(item.workId) ||
+    !['cleared', 'review', 'restricted'].includes(item.rights) ||
+    !item.permissionBasis
+  )
+    errors.push(`legacy work resource ${item.id}: invalid owner or permission record`);
+  if (!isLocalAssetPath(item.path) || !item.path.startsWith('/images/') || !item.path.endsWith('.webp')) {
+    errors.push(`legacy work resource ${item.id}: invalid image path`);
+    continue;
+  }
+  const original = mediaAudit.find((row) => row.path === item.path);
+  const decision = mediaDecisions[item.path];
+  if (
+    !original ||
+    original.sha256 !== item.sha256 ||
+    decision?.action !== 'preserve' ||
+    decision.legacyWorkResourceId !== item.id ||
+    decision.workId !== item.workId ||
+    decision.sha256 !== item.sha256
+  )
+    errors.push(`legacy work resource ${item.id}: preservation record drift`);
+  const bytes = await readFile(resolve('public', item.path.slice(1))).catch(() => undefined);
+  if (!bytes || createHash('sha256').update(bytes).digest('hex') !== item.sha256)
+    errors.push(`legacy work resource ${item.id}: original image missing or changed`);
+}
 for (const item of data.workDocuments) {
   if (!workIds.has(item.workId) || !['cleared', 'review', 'restricted'].includes(item.rights))
     errors.push(`work document ${item.id}: invalid work or rights`);
