@@ -4,6 +4,8 @@ Astro/TypeScript static multipage site for GitHub Pages. This is a **development
 
 ## Local use
 
+On Windows, double-click `start-local-v2.cmd` in the project root to start or restart the editorial server at `http://127.0.0.1:5177/ru/`. It waits for the server to respond, opens the site, and runs Astro in the background. Logs are stored in the ignored `.local-server/` directory. An unrelated process on port 5177 is reported and left running. Node.js and installed dependencies (`npm ci`) are required.
+
 Requires Node 22.19+ (CI uses Node 24). Run `npm ci`, then `npm run dev`. The dev server is an editorial preview with a notice and noindex; it retains review material. The production build contains only the explicit publication packet and its allowed files. Preview the English home at `/en/`, Russian home at `/ru/`, or the root legacy bridge at `/`. Run `npm run format:check`, `npm test`, `npm run content:check`, `npm run check`, `npm run build`, `npm run test:e2e` before review.
 
 ## Structure
