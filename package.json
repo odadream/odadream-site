@@ -15,7 +15,8 @@
     "audit:media": "node scripts/audit-media.mjs",
     "release:check": "node scripts/release-gate.mjs",
     "legacy:generate": "node scripts/generate-legacy-map.mjs",
-    "stats:golem": "node scripts/sync-golem-stats.mjs"
+    "stats:golem": "node scripts/sync-golem-stats.mjs",
+    "migration:status": "node scripts/migration-status.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",

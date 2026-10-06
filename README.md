@@ -11,6 +11,7 @@ Requires Node 22.19+ (CI uses Node 24). Run `npm ci`, then `npm run dev`. The de
 ## Structure
 
 - `src/data/publication-plan.ts`, `src/lib/publication-scope.ts`, `src/data/catalogue.ts`: versioned candidate IDs, shared publication checks, public projection and dev review mode.
+- `src/data/editorial.ts`: sourced bilingual method, format conditions and cooperation scenarios; source SHA-256 snapshots remain internal.
 - `src/data/site.ts`: typed curated works, formats, cases, evidence, people, organizations, media, localized fields, source/rights/publication metadata.
 - `src/data/legacy-map.json`: 238 explicit old-ID dispositions. Generated once from the read-only old corpus using `npm run legacy:generate -- <path-to-old-src/content>`; the build does not need the old tree.
 - `src/pages/`: generated language pages, custom 404 and noindex unresolved-ID page. The design stand lives in src/views/DesignSystem.astro and is injected only in dev. The root fetches the static `/legacy-map.json` only for an `?id=` request.
@@ -43,3 +44,5 @@ The V1 sources, builds and V5 snapshot are separately archived in `../odadream-s
 
 
 Migration review uses two files: [MIGRATION-PLAN.md](docs/MIGRATION-PLAN.md) for scope, content selection, phases and cutover; [INVENTORY-2026-10-05.json](docs/migration/INVENTORY-2026-10-05.json) for 238 source IDs, editorial assessments, hashes and 550 archived resources. The plan is awaiting agreement; 238 sources do not imply 238 new pages. Editorial preview contains 9 works and 44 localized pages. While all works remain review, the public build has 18 localized overview pages and no work/case pages; release remains blocked. Build validation derives the expected routes from the route registry. Accepted owner decisions are recorded in [CONTENT-AND-CMS.md](docs/CONTENT-AND-CMS.md); the shared card contract is in [DESIGN-GUIDE.md](docs/DESIGN-GUIDE.md).
+
+Migration progress is computed with `npm run migration:status` from weighted completion checkpoints in the existing backlog. It does not measure publication approval, final design or editorial polish. Per-stage change reports stay in `docs/MIGRATION-PLAN.md`.
