@@ -1,5 +1,7 @@
 export function unresolvedLegacyMedia(audit, decisions, publicPaths) {
   return audit.filter((row) => {
+    // Generated Lotus UI and service metadata have separate routing/build treatment.
+    if (row.requiresCompatibilityDecision === false) return false;
     // A file present in editorial public/ is not preserved if excluded from the public packet.
     if (publicPaths.has(row.path)) return false;
     const decision = decisions[row.path];
