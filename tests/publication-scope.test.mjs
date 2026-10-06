@@ -51,6 +51,30 @@ test('deferred review records and MindDB do not block an approved packet or leak
   assert.ok(!pages.some((page) => page.path === '/ru/works/ancestors-in-the-noise/'));
 });
 
+test('historical media aliases follow selection and rights without exposing internal metadata', () => {
+  const { source, plan } = fixture();
+  const work = source.works.find((row) => row.id === 'emomandala');
+  work.publication = 'published';
+  plan.works = [work.id];
+  const media = source.media.find((row) => row.id === work.media[0]);
+  assert.equal(media.legacyPaths.length, 2);
+  let scope = createPublicationScope(source, plan);
+  for (const path of media.legacyPaths) assert.ok(scope.assetPaths.has(path));
+  assert.ok(!JSON.stringify(scope.media).includes('legacyPaths'));
+  media.rights = 'restricted';
+  scope = createPublicationScope(source, plan);
+  for (const path of media.legacyPaths) assert.ok(!scope.assetPaths.has(path));
+  media.rights = 'cleared';
+  plan.works = [];
+  scope = createPublicationScope(source, plan);
+  for (const path of media.legacyPaths) assert.ok(!scope.assetPaths.has(path));
+  plan.works = [work.id];
+  media.legacyPaths = ['/images/../../secret', '/images/%2e%2e/file', '/images/a?secret', '/images//a'];
+  scope = createPublicationScope(source, plan);
+  assert.equal(scope.errors.filter((error) => error.includes('invalid legacy asset path')).length, 4);
+  for (const path of media.legacyPaths) assert.ok(!scope.assetPaths.has(path));
+});
+
 test('selected pending record blocks release and has no public page', () => {
   const { source, plan } = fixture();
   source.works[0].publication = 'review';

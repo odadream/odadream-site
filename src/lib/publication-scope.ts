@@ -33,6 +33,13 @@ const ids = (rows: { id: string }[]) => new Set(rows.map((row) => row.id));
 const pick = <T, K extends keyof T>(row: T, keys: readonly K[]): Pick<T, K> =>
   Object.fromEntries(keys.map((key) => [key, row[key]])) as Pick<T, K>;
 const publicSource = (source: string) => (/^https?:\/\//i.test(source) ? source : '');
+export const isLocalAssetPath = (path: string) =>
+  /^\/(images|video|documents)\//.test(path) &&
+  !/[\\%?#]/.test(path) &&
+  path
+    .slice(1)
+    .split('/')
+    .every((part) => part && part !== '.' && part !== '..');
 const project = <T extends { source: string }, K extends keyof T>(row: T, keys: readonly K[]) => ({
   ...pick(row, keys),
   source: publicSource(row.source),
@@ -404,6 +411,12 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
   for (const row of projected.recognitions)
     for (const path of [row.previewSrc, row.documentState === 'available' ? row.documentSource : undefined])
       if (path?.startsWith('/')) assetPaths.add(path);
+  // Use the already permission-checked dependency set; aliases never publish a deferred work.
+  for (const row of media)
+    for (const path of row.legacyPaths ?? []) {
+      if (isLocalAssetPath(path)) assetPaths.add(path);
+      else errors.push(`media ${row.id}: invalid legacy asset path ${path}`);
+    }
   return {
     ...projected,
     preview,

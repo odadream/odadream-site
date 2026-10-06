@@ -22,6 +22,8 @@ export type WorkType =
 export interface Media {
   id: string;
   legacyId?: string;
+  /** Byte-identical historical resources, subject to this media's publication scope and rights. */
+  legacyPaths?: string[];
   src: string;
   mobileSrc?: string;
   width?: number;
@@ -377,6 +379,7 @@ export const media: Media[] = [
   },
   {
     id: 'rings',
+    legacyPaths: ['/images/content/materia/oda-rings/ig-01-hero.webp'],
     src: '/images/content/materia/oda-rings/oda-rings-cover.webp',
     alt: {
       en: 'ODA.dream rings',
@@ -422,6 +425,10 @@ export const media: Media[] = [
   },
   {
     id: 'emomandala-object',
+    legacyPaths: [
+      '/images/content/materia/emomandala/emomandala-cover.webp',
+      '/images/content/materia/emomandala/photo-pendant-front.webp',
+    ],
     src: '/images/works/emomandala.webp',
     kind: 'image',
     rights: 'cleared',
@@ -437,6 +444,7 @@ export const media: Media[] = [
   },
   {
     id: 'ancestors-prototype',
+    legacyPaths: ['/images/content/works/ancestors-hero.webp'],
     src: '/images/works/ancestors.webp',
     kind: 'image',
     rights: 'cleared',

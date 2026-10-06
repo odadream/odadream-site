@@ -4,15 +4,16 @@ export function resolveLegacyRoutes(
   rows: { id: string; targetEn: string; targetRu: string }[],
   pages: Pick<Page, 'path' | 'anchors'>[],
 ) {
-  const paths = new Set(pages.map((page) => page.path));
+  const availablePages = new Map(pages.map((page) => [page.path, page]));
   const target = (id: string, lang: string, path: string) => {
     const [base, fragment] = path.split('#');
-    const page = pages.find((row) => row.path === base);
-    if (
-      (paths.has(base) && (!fragment || page?.anchors?.includes(decodeURIComponent(fragment)))) ||
-      path.startsWith('/legacy/unavailable/')
-    )
-      return path;
+    const page = availablePages.get(base);
+    try {
+      if (page && (!fragment || page.anchors?.includes(decodeURIComponent(fragment)))) return path;
+    } catch {
+      // A malformed fragment must not break the compatibility index for every other ID.
+    }
+    // Includes explicit not-transferred records: retain their identity and language too.
     return `/legacy/unavailable/?id=${encodeURIComponent(id)}&lang=${lang}`;
   };
   return Object.fromEntries(

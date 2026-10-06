@@ -15,3 +15,23 @@ export function unresolvedLegacyMedia(audit, decisions, publicPaths) {
     );
   });
 }
+import { readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { resolve, sep } from 'node:path';
+
+/** An allowlist and a file's existence alone do not prove preservation of the original resource. */
+export async function preservedLegacyPaths(audit, publicRoot, allowedPaths) {
+  const root = resolve(publicRoot);
+  const preserved = new Set();
+  for (const row of audit) {
+    if (!allowedPaths.has(row.path)) continue;
+    const path = resolve(root, row.path.slice(1));
+    if (!path.startsWith(root + sep)) throw new Error(`Legacy resource outside public root: ${row.path}`);
+    const bytes = await readFile(path).catch((error) => {
+      if (error.code === 'ENOENT') return undefined;
+      throw error;
+    });
+    if (bytes && createHash('sha256').update(bytes).digest('hex') === row.sha256) preserved.add(row.path);
+  }
+  return preserved;
+}

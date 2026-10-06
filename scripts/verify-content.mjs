@@ -4,6 +4,9 @@ import { createHash } from 'node:crypto';
 import { loadSiteModule } from './site-data.mjs';
 
 const data = await loadSiteModule();
+const { isLocalAssetPath } = await loadSiteModule('src/lib/publication-scope.ts');
+const mediaAudit = JSON.parse(await readFile('docs/media-audit.json', 'utf8'));
+const mediaDecisions = JSON.parse(await readFile('docs/media-decisions.json', 'utf8'));
 const legacy = JSON.parse(await readFile('src/data/legacy-map.json', 'utf8'));
 const legacyIds = new Set(legacy.map((row) => row.id));
 const files = new Set(legacy.map((row) => row.source));
@@ -248,7 +251,33 @@ for (const item of data.media) {
     await stat(resolve('public', item.mobileSrc.slice(1))).catch(() =>
       errors.push(`media ${item.id}: mobile asset missing`),
     );
+  for (const path of item.legacyPaths ?? []) {
+    if (!isLocalAssetPath(path)) {
+      errors.push(`media ${item.id}: invalid legacy path ${path}`);
+      continue;
+    }
+    const original = mediaAudit.find((row) => row.path === path);
+    const decision = mediaDecisions[path];
+    if (
+      !original ||
+      decision?.action !== 'preserve' ||
+      decision.mediaId !== item.id ||
+      decision.sha256 !== original.sha256
+    )
+      errors.push(`media ${item.id}: missing preservation record ${path}`);
+    for (const file of [path, item.src]) {
+      const bytes = await readFile(resolve('public', file.slice(1))).catch(() => undefined);
+      if (!bytes || createHash('sha256').update(bytes).digest('hex') !== original?.sha256)
+        errors.push(`media ${item.id}: historical resource fingerprint mismatch ${file}`);
+    }
+  }
 }
+for (const [path, decision] of Object.entries(mediaDecisions))
+  if (
+    decision.action === 'preserve' &&
+    !data.media.some((item) => item.id === decision.mediaId && item.legacyPaths?.includes(path))
+  )
+    errors.push(`Orphaned preservation record ${path}`);
 if (errors.length) {
   console.error(errors.join('\n'));
   process.exitCode = 1;
