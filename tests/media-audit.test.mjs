@@ -3,8 +3,40 @@ import assert from 'node:assert/strict';
 import { mkdtemp, mkdir, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { resolve, join, dirname, basename } from 'node:path';
-import { collectLegacyResources, resourceRole } from '../scripts/audit-media.mjs';
+import { collectLegacyResources, resourceRole, annotateResourceReferences } from '../scripts/audit-media.mjs';
 import { unresolvedLegacyMedia, preservedLegacyPaths } from '../scripts/legacy-media-check.mjs';
+
+test('resource associations distinguish selected candidates without mistaking prefixes or query strings for another resource', () => {
+  const rows = [
+    '/images/art.webp',
+    '/images/art.webp-thumb.webp',
+    '/documents/old.pdf',
+    '/video/unreferenced.m4v',
+  ].map((path) => ({
+    path,
+    requiresCompatibilityDecision: true,
+    identicalAtSamePath: path === '/documents/old.pdf',
+  }));
+  const source = [
+    {
+      id: 'work',
+      file: 'work.md',
+      access: 'public',
+      raw: 'image: /images/art.webp-thumb.webp\n[PDF](https://odadream.art/documents/old.pdf?download=1)',
+    },
+  ];
+  const annotated = annotateResourceReferences(
+    rows,
+    source,
+    new Set(['work.md']),
+    new Set(['/documents/old.pdf']),
+  );
+  assert.equal(annotated[0].sourceReferences.length, 0);
+  assert.equal(annotated[1].compatibilityGroup, 'selected-source-candidate');
+  assert.equal(annotated[2].compatibilityGroup, 'prepared-selected-resource');
+  assert.equal(annotated[3].compatibilityGroup, 'no-direct-markdown-reference');
+  assert.equal(unresolvedLegacyMedia(annotated, {}, new Set()).length, 4);
+});
 
 test('audit covers PDF and M4V; staging never substitutes for public preservation', async () => {
   const root = await mkdtemp(join(tmpdir(), 'oda-media-audit-'));

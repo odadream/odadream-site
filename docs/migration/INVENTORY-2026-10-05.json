@@ -14860,8 +14860,15 @@
     "editorialSamePath": 16,
     "publicSamePath": 2,
     "requiresCompatibilityDecision": 198,
+    "byCompatibilityGroup": {
+      "separate-ui-or-service": 352,
+      "other-archive-source": 120,
+      "no-direct-markdown-reference": 35,
+      "prepared-selected-resource": 14,
+      "selected-source-candidate": 29
+    },
     "detail": "docs/media-audit.json",
-    "note": "Full resource coverage. Baseline assets and the initial 179-URL audit are not publication decisions. Generated UI and service metadata remain separately accounted for."
+    "note": "Full coverage with exact direct Markdown associations. Prepared selection, further candidates, other archive references and absent direct references differ. Absence of a reference does not prove absence of inbound traffic or authorize retirement. Rights and public preservation remain separate."
   },
   "currentDocumentAudit": {
     "asOf": "2026-10-06",

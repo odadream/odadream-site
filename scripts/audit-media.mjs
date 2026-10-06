@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { readdir, readFile, writeFile } from 'node:fs/promises';
-import { resolve, relative, extname, sep } from 'node:path';
+import { resolve, relative, extname, sep, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadSiteModule } from './site-data.mjs';
 
@@ -57,13 +57,65 @@ export async function collectLegacyResources(oldRoot, newRoot, publicPaths = new
   return records.sort((a, b) => a.path.localeCompare(b.path, 'en'));
 }
 
+/** Associations are evidence for selection, never permission or an inbound-traffic estimate. */
+export function annotateResourceReferences(rows, sources, selectedFiles, plannedPaths) {
+  return rows.map((row) => {
+    const paths = [...new Set([row.path, encodeURI(row.path)])];
+    const patterns = paths.map(
+      (path) => new RegExp(path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?=[\\s"\'<>|)\\]?#]|$)'),
+    );
+    const references = sources
+      .filter((source) => patterns.some((pattern) => pattern.test(source.raw)))
+      .map(({ id, file, access }) => ({ id, file, access, selectedSource: selectedFiles.has(file) }));
+    return {
+      ...row,
+      sourceReferences: references,
+      compatibilityGroup: !row.requiresCompatibilityDecision
+        ? 'separate-ui-or-service'
+        : plannedPaths.has(row.path) && row.identicalAtSamePath
+          ? 'prepared-selected-resource'
+          : references.some((ref) => ref.selectedSource)
+            ? 'selected-source-candidate'
+            : references.length
+              ? 'other-archive-source'
+              : 'no-direct-markdown-reference',
+    };
+  });
+}
+
 if (resolve(process.argv[1] ?? '') === fileURLToPath(import.meta.url)) {
   const oldRoot = resolve(process.argv[2] || '../odadream-site-archive-2026-09-21/public');
   const { catalogue } = await loadSiteModule('src/data/catalogue.ts');
-  const rows = await collectLegacyResources(oldRoot, resolve('public'), catalogue.assetPaths);
-  await writeFile('docs/media-audit.json', JSON.stringify(rows, null, 2) + '\n');
   const inventoryPath = 'docs/migration/INVENTORY-2026-10-05.json';
   const inventory = JSON.parse(await readFile(inventoryPath, 'utf8'));
+  const legacy = JSON.parse(await readFile('src/data/legacy-map.json', 'utf8'));
+  const sourceRoot = resolve(dirname(oldRoot), 'src/content');
+  const sources = await Promise.all(
+    legacy.map(async (row) => ({
+      id: row.id,
+      file: row.source,
+      access: row.access,
+      raw: await readFile(resolve(sourceRoot, row.source), 'utf8'),
+    })),
+  );
+  const site = await loadSiteModule();
+  const prepared = new Set(
+    [
+      ...site.media.flatMap((row) => [row.src, ...(row.legacyPaths ?? [])]),
+      ...site.workDocuments.map((row) => row.href),
+      ...site.recognitions.flatMap((row) => [
+        row.previewSrc,
+        row.documentState === 'available' ? row.documentSource : undefined,
+      ]),
+    ].filter(Boolean),
+  );
+  const rows = annotateResourceReferences(
+    await collectLegacyResources(oldRoot, resolve('public'), catalogue.assetPaths),
+    sources,
+    new Set(Object.keys(inventory.v2SourceSnapshots)),
+    prepared,
+  );
+  await writeFile('docs/media-audit.json', JSON.stringify(rows, null, 2) + '\n');
   inventory.currentResourceAudit = {
     asOf: '2026-10-06',
     source: relative(process.cwd(), oldRoot).split(sep).join('/'),
@@ -72,8 +124,12 @@ if (resolve(process.argv[1] ?? '') === fileURLToPath(import.meta.url)) {
     editorialSamePath: rows.filter((row) => row.retained).length,
     publicSamePath: rows.filter((row) => row.publicPathPresent).length,
     requiresCompatibilityDecision: rows.filter((row) => row.requiresCompatibilityDecision).length,
+    byCompatibilityGroup: rows.reduce(
+      (counts, row) => ({ ...counts, [row.compatibilityGroup]: (counts[row.compatibilityGroup] ?? 0) + 1 }),
+      {},
+    ),
     detail: 'docs/media-audit.json',
-    note: 'Full resource coverage. Baseline assets and the initial 179-URL audit are not publication decisions. Generated UI and service metadata remain separately accounted for.',
+    note: 'Full coverage with exact direct Markdown associations. Prepared selection, further candidates, other archive references and absent direct references differ. Absence of a reference does not prove absence of inbound traffic or authorize retirement. Rights and public preservation remain separate.',
   };
   await writeFile(inventoryPath, JSON.stringify(inventory, null, 2) + '\n');
   console.log(
