@@ -4,6 +4,53 @@ maintainer: ODA.dream site team
 status_values: [planned, in_progress, blocked, done]
 priority_values: [P0, P1, P2]
 items:
+  - id: MIGRATION-QA-01
+    title: Проверить весь выбранный пакет в изолированной публичной проекции
+    area: migration
+    priority: P0
+    status: done
+    outcome: Тестовая копия собирает 44 страницы RU/EN с 9 Work, 7 событиями и 2 PDF; проверены 846 ссылок и 60 сценариев геометрии.
+    acceptance:
+      - Статусы publication симулируются только в игнорируемой тестовой копии; права и рабочие данные не изменяются.
+      - Используются настоящие публичные маршруты, зависимости и verify-build; внутренние локаторы и стенд не экспортируются.
+      - Ссылки и якоря разрешаются внутри пакета; файлы существуют, мобильная и настольная геометрия проверена в обеих темах.
+      - Результат обозначен как fixture и не является артефактом для публикации; обычная сборка проверяется отдельно.
+    notes: npm run migration:qa воспроизводит проверку и обновляет текущий результат в существующем inventory. Подробная редактура и разрешения не симулируются в рабочих данных.
+
+  - id: MIGRATION-PERFORMANCE-01
+    title: Измерить производительность выбранного содержательного пакета
+    area: migration
+    priority: P0
+    status: done
+    outcome: Сохранены три лабораторных Lighthouse-замера содержательного пакета, а не пустой review-сборки.
+    acceptance:
+      - Проверены мобильная и настольная главная и мобильная страница работы с PDF; отчёты воспроизводимы через migration:qa.
+      - FCP, LCP, CLS, TBT и нерешённые аудиты сохранены в inventory; оценка не подменяет полевой INP.
+      - Недостатки первого изображения и условия тестового HTTP-сервера отделены от доставки реальных счётчиков и разрешения выпуска.
+    notes: Главная mobile 84/100, desktop 99/100, кольца mobile 98/100. Accessibility, best practices и SEO по 100 в этих трёх замерах. Медианы трёх запусков каждого сценария. Это baseline; оптимизация вынесена в ENGINE-PERFORMANCE-01.
+
+  - id: ENGINE-PERFORMANCE-01
+    title: Ускорить первое изображение главной и адаптивную доставку медиа
+    area: engine
+    priority: P1
+    status: planned
+    outcome: После миграции сравнить повторные замеры с baseline и сократить мобильный LCP без потери материала.
+    acceptance:
+      - Проверены приоритет загрузки первого материала, размеры и варианты изображений; до и после измерен тот же пакет.
+      - Кеш и сжатие проверены на целевом хостинге, а не выводятся из простого локального HTTP-сервера.
+    notes: Lighthouse baseline mobile home LCP 4374 ms, desktop 842 ms, mobile rings 2333 ms; CLS ниже 0.001, TBT 0. Не включено в процент переноса, относится к отдельному проходу движка.
+
+  - id: LEGACY-OUTBOUND-01
+    title: Проверить внешние и QR-входы архивного пакета
+    area: migration
+    priority: P0
+    status: in_progress
+    outcome: Значимые пути из PDF, досье и отправленных материалов имеют установленное назначение и границу достоверности.
+    acceptance:
+      - Ссылки-аннотации отличены от QR и напечатанных адресов; контакты не дублируются в публичных новых CTA без основания.
+      - Недоступные материалы и неизвестные отправленные версии учтены явно, запрос внешнего адреса не выдаётся за подтверждение его содержания.
+    notes: Аннотации 11 PDF разобраны; QR и входы из отправленных досье ещё не завершены. Входит в M4 без удаления исходников.
+
   - id: ANALYTICS-CORE-01
     title: Подготовить события и согласие для статического V2
     area: analytics
@@ -575,7 +622,9 @@ items:
 
 migration_progress:
   scope_version: v2-core-2026-10-06.1
-  method: completed-weighted-checkpoints-only
+  method: completed-weighted-deliverables-v2
+  measurement_revision: 2026-10-06.2
+  measurement_note: Веса этапов и объём сохранены. M4/M5 разбиты на завершённые проверяемые результаты; 85% закрытых этапов дают 92% с ранее готовыми частями, новые QA и baseline добавляют ещё 2%. Подрезультат получает весь свой вес только при done у всех его задач.
   scope: Девять выбранных Work, три Format, четыре подробных Case и выбранные краткие исторические контексты, самостоятельный метод, Cooperation и Studio, выбранные доказательства, совместимость и техническое завершение.
   excludes: Финальный редизайн, общая и постраничная редактура, отдельная перестройка движка, живой GDB API, расширение каталога и переключение домена.
   checkpoints:
@@ -623,9 +672,47 @@ migration_progress:
       title: Решения по старым входам и ресурсам
       weight: 10
       status: in_progress
-      tasks: [URL-MIGRATION-01]
+      tasks: [MEDIA-AUDIT-FULL-01, RESOURCE-REFERENCES-01, LEGACY-COMPATIBILITY-CORE-01, LEGACY-DOCUMENTS-CORE-01, URL-MIGRATION-01, LEGACY-OUTBOUND-01]
+      parts:
+        - id: audit
+          title: Полный аудит ресурсов и связи с источниками
+          weight: 1
+          tasks: [MEDIA-AUDIT-FULL-01, RESOURCE-REFERENCES-01]
+        - id: compatibility
+          title: Языки, старые ID и точные адреса выбранных превью
+          weight: 2
+          tasks: [LEGACY-COMPATIBILITY-CORE-01]
+        - id: documents
+          title: Архивные PDF и документы выбранной работы
+          weight: 2
+          tasks: [LEGACY-DOCUMENTS-CORE-01]
+        - id: dispositions
+          title: Проверяемые решения по оставшимся входам и ресурсам
+          weight: 4
+          tasks: [URL-MIGRATION-01]
+        - id: outbound
+          title: Внешние и QR-входы архивного пакета
+          weight: 1
+          tasks: [LEGACY-OUTBOUND-01]
     - id: M5-FINAL
       title: Проверка всего перенесённого пакета и необходимых измерений
       weight: 5
       status: in_progress
-      tasks: [MIGRATION-COMPLETE-01, ANALYTICS-MIGRATION-01]
+      tasks: [ANALYTICS-CORE-01, MIGRATION-QA-01, MIGRATION-PERFORMANCE-01, MIGRATION-COMPLETE-01, ANALYTICS-MIGRATION-01]
+      parts:
+        - id: analytics
+          title: Общий контракт событий, согласие и адаптеры
+          weight: 2
+          tasks: [ANALYTICS-CORE-01]
+        - id: candidate-qa
+          title: Проверка выбранного содержательного пакета
+          weight: 1
+          tasks: [MIGRATION-QA-01]
+        - id: baseline
+          title: Лабораторные замеры производительности
+          weight: 1
+          tasks: [MIGRATION-PERFORMANCE-01]
+        - id: readiness
+          title: Реальная доставка событий и итоговые решения
+          weight: 1
+          tasks: [MIGRATION-COMPLETE-01, ANALYTICS-MIGRATION-01]
