@@ -47,6 +47,7 @@ for (const name of [
   'people',
   'organizations',
   'media',
+  'workDocuments',
 ])
   checkCollection(name, data[name]);
 function checkLocales(value, label) {
@@ -85,6 +86,7 @@ for (const row of [
   ...data.evidence,
   ...data.recognitions,
   ...data.people.filter((row) => row.sourceRefs),
+  ...data.workDocuments,
 ]) {
   checkLocales(row, row.id);
   if (
@@ -275,9 +277,42 @@ for (const item of data.media) {
 for (const [path, decision] of Object.entries(mediaDecisions))
   if (
     decision.action === 'preserve' &&
-    !data.media.some((item) => item.id === decision.mediaId && item.legacyPaths?.includes(path))
+    !data.media.some((item) => item.id === decision.mediaId && item.legacyPaths?.includes(path)) &&
+    !data.workDocuments.some((item) => item.id === decision.workDocumentId && item.href === path)
   )
     errors.push(`Orphaned preservation record ${path}`);
+for (const item of data.workDocuments) {
+  if (!workIds.has(item.workId) || !['cleared', 'review', 'restricted'].includes(item.rights))
+    errors.push(`work document ${item.id}: invalid work or rights`);
+  if (!isLocalAssetPath(item.href) || !item.href.endsWith('.pdf')) {
+    errors.push(`work document ${item.id}: invalid path`);
+    continue;
+  }
+  if (
+    !Number.isInteger(item.pages) ||
+    item.pages < 1 ||
+    !Number.isInteger(item.year) ||
+    !['en', 'ru'].includes(item.language)
+  )
+    errors.push(`work document ${item.id}: invalid metadata`);
+  const original = mediaAudit.find((row) => row.path === item.href);
+  const decision = mediaDecisions[item.href];
+  if (
+    original?.sha256 !== item.sha256 ||
+    decision?.action !== 'preserve' ||
+    decision.workDocumentId !== item.id ||
+    decision.sha256 !== item.sha256
+  )
+    errors.push(`work document ${item.id}: preservation record drift`);
+  const bytes = await readFile(resolve('public', item.href.slice(1))).catch(() => undefined);
+  if (
+    !bytes ||
+    bytes.length !== item.bytes ||
+    bytes.subarray(0, 5).toString() !== '%PDF-' ||
+    createHash('sha256').update(bytes).digest('hex') !== item.sha256
+  )
+    errors.push(`work document ${item.id}: original PDF missing or changed`);
+}
 if (errors.length) {
   console.error(errors.join('\n'));
   process.exitCode = 1;

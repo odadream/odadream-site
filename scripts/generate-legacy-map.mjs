@@ -37,6 +37,14 @@ const overrides = {
     'Method element within Emomandala / Метод внутри Эмомандалы',
   ],
   'media-oda-rings-story': ['/works/oda-rings/#work-story-history', 'Edited rings chronicle / История колец'],
+  'media-oda-rings-drawings': [
+    '/works/oda-rings/#document-oda-rings-drawings',
+    'Historical manufacturing PDF / Архивный чертёж',
+  ],
+  'media-oda-rings-banner': [
+    '/works/oda-rings/#document-oda-rings-banner',
+    'Historical exhibition PDF / Архивный баннер',
+  ],
   'hub-host-events': ['/formats/', 'Merged format overview / Обзор форматов'],
   'hub-lectures': ['/formats/#talk-workshop', 'Educational format / Образовательный формат'],
   'hub-institutions': [

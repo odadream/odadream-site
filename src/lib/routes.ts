@@ -74,10 +74,24 @@ const copy = {
   },
 } as const;
 
+const overviewKinds = [
+  'works',
+  'formats',
+  'cooperation',
+  'studio',
+  'cases',
+  'technology',
+  'recognition',
+  'contact',
+] as const;
+
 export const createPages = (
   records: Pick<typeof catalogue, 'works' | 'cases'> &
     Partial<
-      Pick<typeof catalogue, 'formats' | 'methods' | 'cooperationPages' | 'studioPages' | 'recognitions'>
+      Pick<
+        typeof catalogue,
+        'formats' | 'methods' | 'cooperationPages' | 'studioPages' | 'recognitions' | 'workDocuments'
+      >
     >,
 ): Page[] =>
   (['en', 'ru'] as Lang[]).flatMap((lang) => [
@@ -95,9 +109,7 @@ export const createPages = (
           ? 'ODA.dream creates participatory works at the intersection of art, perception and technology.'
           : 'ODA.dream создаёт партисипаторные работы на пересечении искусства, восприятия и технологий.',
     },
-    ...(
-      ['works', 'formats', 'cooperation', 'studio', 'cases', 'contact', 'technology', 'recognition'] as const
-    ).map((kind) => ({
+    ...overviewKinds.map((kind) => ({
       lang,
       kind,
       family: familyByKind[kind],
@@ -164,6 +176,9 @@ export const createPages = (
         'work-credits',
         'work-availability',
         ...work.story.map((row) => `work-story-${row.id}`),
+        ...(records.workDocuments ?? [])
+          .filter((row) => row.workId === work.id)
+          .map((row) => `document-${row.id}`),
       ],
     })),
     ...records.cases
@@ -181,6 +196,18 @@ export const createPages = (
   ]);
 
 export const pages = createPages(catalogue);
+
+/** The menu follows the same overview registry as static routes; detail pages stay within their section. */
+export const navigationFor = (lang: Lang) =>
+  pages
+    .filter((page) => page.lang === lang && page.kind !== 'work' && page.kind !== 'case')
+    .map((page) => ({
+      route: page.kind,
+      href: page.path,
+      family: page.family,
+      label:
+        page.kind === 'home' ? (lang === 'ru' ? 'Главная' : 'Home') : page.title.replace(/ — ODA.dream$/, ''),
+    }));
 
 export const pairedPath = (path: string, lang: Lang) => path.replace(/^\/(en|ru)\//, `/${lang}/`);
 export const pageForPath = (path: string) => pages.find((page) => page.path === path);

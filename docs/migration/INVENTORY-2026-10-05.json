@@ -5891,6 +5891,15 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-06",
+        "targets": [
+          "WorkDocument:oda-rings-banner"
+        ],
+        "sourceSha256": "1f33aaff1eb64014e3aedc59ca79d55032909a06f75b9309c97380c9243b7f15",
+        "state": "selected-historical-document-migrated; editorial-review-pending",
+        "scope": "Exact historical PDF, visually inspected and attached to rings. Not a current commissioning document."
       }
     },
     {
@@ -5935,6 +5944,15 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-06",
+        "targets": [
+          "WorkDocument:oda-rings-drawings"
+        ],
+        "sourceSha256": "5dcee125dab875ae7a1a41c96c79986f51158bc9af94ae2df23267530bf71940",
+        "state": "selected-historical-document-migrated; editorial-review-pending",
+        "scope": "Exact historical PDF, visually inspected and attached to rings. Not a current commissioning document."
       }
     },
     {
@@ -14806,14 +14824,24 @@
       "file": "org-ashram.md",
       "sha256": "6e2f945c50b65ccac27eb6ef859934ddb66d149db28d3ff6014027d3f2e88951",
       "snapshot": "2026-10-06"
+    },
+    "media-oda-rings-drawings.md": {
+      "file": "media-oda-rings-drawings.md",
+      "sha256": "5dcee125dab875ae7a1a41c96c79986f51158bc9af94ae2df23267530bf71940",
+      "snapshot": "2026-10-06"
+    },
+    "media-oda-rings-banner.md": {
+      "file": "media-oda-rings-banner.md",
+      "sha256": "1f33aaff1eb64014e3aedc59ca79d55032909a06f75b9309c97380c9243b7f15",
+      "snapshot": "2026-10-06"
     }
   },
   "currentRouting": {
     "asOf": "2026-10-06",
     "counts": {
       "page": 22,
-      "not-transferred": 193,
-      "anchor": 23
+      "not-transferred": 191,
+      "anchor": 25
     },
     "note": "Original audit summaries remain dated baselines; current merged-source routes resolve only when their public anchors exist."
   },
@@ -14829,10 +14857,210 @@
       "lotus-generated-ui": 349,
       "video": 2
     },
-    "editorialSamePath": 14,
+    "editorialSamePath": 16,
     "publicSamePath": 2,
     "requiresCompatibilityDecision": 198,
     "detail": "docs/media-audit.json",
     "note": "Full resource coverage. Baseline assets and the initial 179-URL audit are not publication decisions. Generated UI and service metadata remain separately accounted for."
+  },
+  "currentDocumentAudit": {
+    "asOf": "2026-10-06",
+    "documents": [
+      {
+        "path": "/documents/dashran-tech-description.pdf",
+        "pages": 6,
+        "sha256": "6dec4d7293a7d567cb684c1481324f216e19c5b5e87d1596f752645ac204a0e5",
+        "textExtractable": true,
+        "embeddedFiles": [],
+        "directSourceIds": [
+          "media-dashran-docs"
+        ],
+        "selectedSourceFiles": [],
+        "annotationLinks": [
+          {
+            "page": 1,
+            "kind": "contact"
+          },
+          {
+            "page": 1,
+            "kind": "external",
+            "url": "https://t.me/odadream_info"
+          },
+          {
+            "page": 1,
+            "kind": "external",
+            "url": "https://disk.yandex.ru/d/33TBIsHVGvqgWg"
+          },
+          {
+            "page": 1,
+            "kind": "external",
+            "url": "https://ashram.pro/"
+          },
+          {
+            "page": 1,
+            "kind": "external",
+            "url": "https://disk.yandex.ru/i/hCyAWsE-Xc8G3A"
+          },
+          {
+            "page": 4,
+            "kind": "external",
+            "url": "https://disk.yandex.ru/i/hCyAWsE-Xc8G3A"
+          },
+          {
+            "page": 5,
+            "kind": "external",
+            "url": "https://disk.yandex.ru/d/sHFXcwCrihlTVw"
+          },
+          {
+            "page": 5,
+            "kind": "external",
+            "url": "https://disk.yandex.ru/d/8YO_TiVm4r3fcQ"
+          }
+        ]
+      },
+      {
+        "path": "/documents/dashran-tech-spec-nur.pdf",
+        "pages": 9,
+        "sha256": "c523a25ef15a2fd5fa63034640711960477cd548502e758a9dca39e85da4d672",
+        "textExtractable": true,
+        "embeddedFiles": [],
+        "directSourceIds": [],
+        "selectedSourceFiles": [],
+        "annotationLinks": [
+          {
+            "page": 1,
+            "kind": "contact"
+          },
+          {
+            "page": 1,
+            "kind": "external",
+            "url": "https://t.me/odadream_info"
+          }
+        ]
+      },
+      {
+        "path": "/documents/fourth-dimension-tz-v2.pdf",
+        "pages": 2,
+        "sha256": "129cc8870b63c157e9ad7de1bdf836d0ea70c71312a1fdabbeeb8d79e413f445",
+        "textExtractable": true,
+        "embeddedFiles": [],
+        "directSourceIds": [
+          "media-fourth-dimension-tz"
+        ],
+        "selectedSourceFiles": [],
+        "annotationLinks": []
+      },
+      {
+        "path": "/documents/honors-skolkovo-presentation.pdf",
+        "pages": 19,
+        "sha256": "9673ea5c7ef2049306da56613dca34a4135db6d11eb24f68ff1f39d0aa8fcc44",
+        "textExtractable": false,
+        "embeddedFiles": [],
+        "directSourceIds": [
+          "media-honors-presentation"
+        ],
+        "selectedSourceFiles": [],
+        "annotationLinks": []
+      },
+      {
+        "path": "/documents/mom-baby-brochure-v2.pdf",
+        "pages": 1,
+        "sha256": "9959bfab16163c3a811016645649633b8ff16979b8e561dead8efa9d7c345b18",
+        "textExtractable": true,
+        "embeddedFiles": [],
+        "directSourceIds": [
+          "media-mom-baby-brochure"
+        ],
+        "selectedSourceFiles": [],
+        "annotationLinks": []
+      },
+      {
+        "path": "/documents/mom-baby-drawings-v220920.pdf",
+        "pages": 1,
+        "sha256": "dd3f3738eb7660dad7cbb4f5f71f4bd4ffb9a71f8a2ae5d7a02baaf55c7bd7d9",
+        "textExtractable": true,
+        "embeddedFiles": [],
+        "directSourceIds": [
+          "media-mom-baby-drawings"
+        ],
+        "selectedSourceFiles": [],
+        "annotationLinks": []
+      },
+      {
+        "path": "/documents/oda-rings-drawings-v220927.pdf",
+        "pages": 1,
+        "sha256": "db6d16e59bdb669e81049f48a3752c07c8e71e180aea33d6bbd62176e88e3593",
+        "textExtractable": true,
+        "embeddedFiles": [],
+        "directSourceIds": [
+          "media-oda-rings-drawings"
+        ],
+        "selectedSourceFiles": [
+          "media-oda-rings-drawings.md"
+        ],
+        "annotationLinks": []
+      },
+      {
+        "path": "/documents/oda-rings-synergy-banner-2022.pdf",
+        "pages": 1,
+        "sha256": "bb32ed031005fdbe96b8f31c82f76a0c1fa95f7e582f52a5f589b4eea73b069f",
+        "textExtractable": true,
+        "embeddedFiles": [],
+        "directSourceIds": [
+          "media-oda-rings-banner"
+        ],
+        "selectedSourceFiles": [
+          "media-oda-rings-banner.md"
+        ],
+        "annotationLinks": []
+      },
+      {
+        "path": "/documents/other-people-art-science-society.pdf",
+        "pages": 5,
+        "sha256": "adf38adfb86ac3877bc08c082f2398b44e0e49a214e2d81d9a7a24bd393124f9",
+        "textExtractable": true,
+        "embeddedFiles": [],
+        "directSourceIds": [],
+        "selectedSourceFiles": [],
+        "annotationLinks": [
+          {
+            "page": 3,
+            "kind": "external",
+            "url": "https://disk.yandex.ru/d/FXfomFYT5yRgSA"
+          }
+        ]
+      },
+      {
+        "path": "/documents/other-people-deck-ru.pdf",
+        "pages": 5,
+        "sha256": "14051590d0a8a8988c0315cc97dce7e8a36fc4dfa4885edc5c293f421905db27",
+        "textExtractable": true,
+        "embeddedFiles": [],
+        "directSourceIds": [
+          "media-another-people-docs"
+        ],
+        "selectedSourceFiles": [],
+        "annotationLinks": [
+          {
+            "page": 4,
+            "kind": "external",
+            "url": "https://disk.yandex.ru/d/FXfomFYT5yRgSA"
+          }
+        ]
+      },
+      {
+        "path": "/documents/potustoronniy-deck.pdf",
+        "pages": 5,
+        "sha256": "4d59d6f9f90064fbce43725760ce6739ed4fdaaf9dfa803e639a9ccc222d05b9",
+        "textExtractable": true,
+        "embeddedFiles": [],
+        "directSourceIds": [
+          "media-potustoronniy-deck"
+        ],
+        "selectedSourceFiles": [],
+        "annotationLinks": []
+      }
+    ],
+    "note": "All 11 archived PDFs parsed. Annotation links inspected, not fetched. Contacts counted without address disclosure. Printed QR destinations and links hidden in raster artwork are not established by this audit. No publication or retirement approvals inferred."
   }
 }

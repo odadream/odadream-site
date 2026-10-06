@@ -11,10 +11,9 @@ import '@fontsource/manrope/latin-800.css';
 import '@fontsource/manrope/cyrillic-500.css';
 import { socialLinks } from '../data/site';
 import { cases, mediaById, works, preview, people } from '../data/catalogue';
-import { pairedPath, type Page } from '../lib/routes';
+import { pairedPath, navigationFor, type Page } from '../lib/routes';
 import DzenIcon from '../assets/social/dzen.svg';
 import RecordStamp from '../components/RecordStamp.astro';
-import { familyByKind } from '../lib/page-codes';
 import PageCode from '../components/PageCode.astro';
 import lastmod from '../data/lastmod.json';
 import astroPackage from 'astro/package.json';
@@ -28,26 +27,7 @@ const site = 'https://odadream.art';
 const canonical = new URL(canonicalPath, site).href;
 const alternateEn = new URL(pairedPath(page.path, 'en'), site).href;
 const alternateRu = new URL(pairedPath(page.path, 'ru'), site).href;
-const nav =
-  page.lang === 'en'
-    ? [
-        ['Home', 'home'],
-        ['Works', 'works'],
-        ['Formats', 'formats'],
-        ['Cooperation', 'cooperation'],
-        ['Studio', 'studio'],
-        ['Cases', 'cases'],
-        ['Contact', 'contact'],
-      ]
-    : [
-        ['Главная', 'home'],
-        ['Работы', 'works'],
-        ['Форматы', 'formats'],
-        ['Сотрудничество', 'cooperation'],
-        ['Студия', 'studio'],
-        ['Кейсы', 'cases'],
-        ['Контакт', 'contact'],
-      ];
+const nav = navigationFor(page.lang);
 const navRoot = page.kind === 'work' ? 'works' : page.kind === 'case' ? 'cases' : page.kind;
 const pageSection = page.family === 'D' ? 'design' : navRoot;
 const contentDate = lastmod[page.path as keyof typeof lastmod];
@@ -211,17 +191,9 @@ const breadcrumbSchema =
           class="site-nav"
           aria-label={page.lang === 'en' ? 'Main navigation' : 'Основная навигация'}
         >
-          {nav.map(([label, route]) => (
-            <a
-              href={route === 'home' ? `/${page.lang}/` : `/${page.lang}/${route}/`}
-              data-route={route}
-              aria-current={navRoot === route ? 'page' : undefined}
-            >
-              <PageCode
-                family={familyByKind[route as keyof typeof familyByKind]}
-                lang={page.lang}
-                register={false}
-              />
+          {nav.map(({ label, route, href, family }) => (
+            <a href={href} data-route={route} aria-current={pageSection === route ? 'page' : undefined}>
+              <PageCode family={family} lang={page.lang} register={false} />
               {label}
             </a>
           ))}

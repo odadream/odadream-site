@@ -269,6 +269,16 @@ export const sourceSnapshots: Record<string, SourceReference> = {
     sha256: '6e2f945c50b65ccac27eb6ef859934ddb66d149db28d3ff6014027d3f2e88951',
     snapshot: '2026-10-06',
   },
+  'media-oda-rings-drawings.md': {
+    file: 'media-oda-rings-drawings.md',
+    sha256: '5dcee125dab875ae7a1a41c96c79986f51158bc9af94ae2df23267530bf71940',
+    snapshot: '2026-10-06',
+  },
+  'media-oda-rings-banner.md': {
+    file: 'media-oda-rings-banner.md',
+    sha256: '1f33aaff1eb64014e3aedc59ca79d55032909a06f75b9309c97380c9243b7f15',
+    snapshot: '2026-10-06',
+  },
 };
 const refs = (...files: string[]) => files.map((file) => sourceSnapshots[file]);
 const l = (ru: string, en: string): Localized => ({ ru, en });

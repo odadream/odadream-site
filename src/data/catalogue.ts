@@ -9,6 +9,7 @@ export const {
   cooperationPages,
   studioPages,
   works,
+  workDocuments,
   cases,
   formats,
   people,

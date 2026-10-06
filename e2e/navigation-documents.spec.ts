@@ -1,0 +1,81 @@
+import { createHash } from 'node:crypto';
+import { readFileSync } from 'node:fs';
+import { expect, test } from '@playwright/test';
+const decisions = JSON.parse(readFileSync('docs/media-decisions.json', 'utf8'));
+
+test('all overview sections are reachable and current in both languages, including a scrollable short-screen menu', async ({
+  page,
+}) => {
+  for (const width of [390, 601, 797, 1440, 1600, 1601, 1920]) {
+    await page.setViewportSize({ width, height: width === 601 ? 320 : 932 });
+    for (const lang of ['ru', 'en']) {
+      for (const section of ['recognition', 'technology']) {
+        await page.goto(`/${lang}/${section}/`);
+        const button = page.locator('.menu-toggle');
+        if (await button.isVisible()) await button.click();
+        await expect(page.locator('#site-nav a:not([data-route="design"])')).toHaveCount(9);
+        await expect(page.locator('#site-nav [aria-current="page"]')).toHaveCount(1);
+        const link = page.locator(`#site-nav [data-route="${section}"]`);
+        await expect(link).toHaveAttribute('aria-current', 'page');
+        await link.scrollIntoViewIfNeeded();
+        await expect(link).toBeVisible();
+        await expect(link).toContainText(section === 'recognition' ? 'R' : 'M');
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
+        expect(
+          await page.evaluate(() => {
+            const container = document.querySelector('.header-inner')!.getBoundingClientRect();
+            return [...document.querySelectorAll('.header-inner > *')].every((node) => {
+              if (
+                getComputedStyle(node).display === 'none' ||
+                (node.classList.contains('site-nav') && getComputedStyle(node).position === 'absolute')
+              )
+                return true;
+              const rect = node.getBoundingClientRect();
+              return rect.left >= container.left - 1 && rect.right <= container.right + 1;
+            });
+          }),
+        ).toBeTruthy();
+        if (await button.isVisible()) {
+          await page.keyboard.press('Escape');
+          await expect(button).toBeFocused();
+          await expect(button).toHaveAttribute('aria-expanded', 'false');
+        }
+      }
+    }
+  }
+  await page.goto('/design-system/');
+  await expect(page.locator('#site-nav [aria-current="page"]')).toHaveCount(1);
+  await expect(page.locator('#site-nav [data-route="design"]')).toHaveAttribute('aria-current', 'page');
+});
+
+test('rings archive documents use original PDFs, precise anchors and explicit historical labels without preload', async ({
+  page,
+  request,
+}) => {
+  for (const lang of ['ru', 'en']) {
+    await page.goto(`/${lang}/works/oda-rings/`);
+    await expect(page.locator('article[id^="document-"]')).toHaveCount(2);
+    await expect(page.locator('#document-oda-rings-banner')).toContainText(
+      lang === 'ru' ? '40,4 МБ' : '40.4 MB',
+    );
+    await expect(page.locator('link[rel="preload"][href$=".pdf"]')).toHaveCount(0);
+    await page.goto(`/?id=media-oda-rings-drawings&lang=${lang}`);
+    await expect(page).toHaveURL(
+      (url) => url.pathname + url.hash === `/${lang}/works/oda-rings/#document-oda-rings-drawings`,
+    );
+  }
+  for (const [path, decision] of Object.entries(decisions) as [
+    string,
+    { workDocumentId?: string; sha256: string },
+  ][]) {
+    if (!decision.workDocumentId) continue;
+    const response = await request.get(path);
+    expect(response.status()).toBe(200);
+    expect(response.headers()['content-type']).toContain('application/pdf');
+    expect(
+      createHash('sha256')
+        .update(await response.body())
+        .digest('hex'),
+    ).toBe(decision.sha256);
+  }
+});

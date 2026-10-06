@@ -7,9 +7,9 @@ const decisions = JSON.parse(readFileSync('docs/media-decisions.json', 'utf8'));
 test('historical images keep their original URLs and bytes in editorial preview', async ({ request }) => {
   for (const [path, decision] of Object.entries(decisions) as [
     string,
-    { action: string; sha256: string },
+    { action: string; sha256: string; mediaId?: string },
   ][]) {
-    if (decision.action !== 'preserve') continue;
+    if (decision.action !== 'preserve' || !decision.mediaId) continue;
     const response = await request.get(path);
     expect(response.status()).toBe(200);
     expect(response.headers()['content-type']).toContain('image/webp');

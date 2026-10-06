@@ -13,7 +13,9 @@ export type CatalogueSource = Pick<
   | 'heroVisuals'
   | 'minddbSnapshot'
 > &
-  Partial<Pick<typeof import('../data/site'), 'methods' | 'cooperationPages' | 'studioPages'>>;
+  Partial<
+    Pick<typeof import('../data/site'), 'methods' | 'cooperationPages' | 'studioPages' | 'workDocuments'>
+  >;
 export interface PublicationPlan {
   version: string;
   asOf: string;
@@ -64,6 +66,18 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
   };
   let works = select('works', source.works);
   const workIds = ids(works);
+  const workDocuments = (source.workDocuments ?? []).filter((row) => {
+    if (!workIds.has(row.workId)) return false;
+    if (!isLocalAssetPath(row.href) || !row.href.endsWith('.pdf')) {
+      errors.push(`work document ${row.id}: invalid local PDF path`);
+      return false;
+    }
+    if (!preview && row.rights !== 'cleared') {
+      errors.push(`work document ${row.id}: rights ${row.rights}`);
+      return false;
+    }
+    return true;
+  });
   const formats = select('formats', source.formats).map((row) => ({
     ...row,
     works: row.works.filter((id) => workIds.has(id)),
@@ -209,6 +223,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
         cooperationPages,
         studioPages,
         works,
+        workDocuments,
         formats,
         cases: safeCases,
         people,
@@ -219,6 +234,20 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
         minddbSnapshot,
       }
     : {
+        workDocuments: workDocuments.map((row) =>
+          project(row, [
+            'id',
+            'legacyId',
+            'workId',
+            'title',
+            'description',
+            'href',
+            'year',
+            'language',
+            'pages',
+            'bytes',
+          ]),
+        ),
         studioPages: studioPages.map((row) =>
           project(row, [
             'id',
@@ -405,6 +434,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
           : undefined,
       };
   const assetPaths = new Set(['/CNAME', '/robots.txt', '/brand/oda-logo.svg', '/brand/oda-brain.svg']);
+  for (const row of projected.workDocuments) assetPaths.add(row.href);
   for (const row of projected.media)
     for (const path of [row.src, row.mobileSrc, row.poster, row.previewSrc])
       if (path?.startsWith('/')) assetPaths.add(path);

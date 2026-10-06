@@ -1,6 +1,7 @@
 ---
 import MindDBStamp from './MindDBStamp.astro';
 import EditorialSections from './EditorialSections.astro';
+import DocumentList from './DocumentList.astro';
 import MediaFigure from './MediaFigure.astro';
 import WorkCard from './WorkCard.astro';
 import RecognitionCard from './RecognitionCard.astro';
@@ -14,6 +15,7 @@ import {
   methods,
   cooperationPages,
   studioPages,
+  workDocuments,
   cases,
   evidence,
   formats,
@@ -631,6 +633,7 @@ const timeline = [...cases]
           </span>
           <h2>{ru ? 'Внутри работы' : 'Inside the work'}</h2>
           <EditorialSections sections={work.story} lang={lang} anchorPrefix="work-story" />
+          <DocumentList documents={workDocuments.filter((row) => row.workId === work.id)} lang={lang} />
           <div class="provenance">
             {work.reviewNotes.map((note) => (
               <p>{note[lang]}</p>

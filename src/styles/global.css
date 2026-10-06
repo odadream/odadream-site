@@ -125,7 +125,7 @@ p {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: clamp(12px, 2vw, 28px);
+  gap: var(--s3);
   margin-left: auto;
 }
 .site-nav a,
@@ -139,6 +139,7 @@ p {
 }
 .site-nav a {
   column-gap: var(--s2);
+  white-space: nowrap;
 }
 .page-code {
   display: inline-flex;
@@ -1213,8 +1214,8 @@ figcaption {
 .brand {
   text-decoration: none;
 }
-/* Full RU navigation and utility controls need more room than the content grid. */
-@media (max-width: 1200px) {
+/* Nine overview sections and utilities need more room than the content grid. */
+@media (max-width: 1600px) {
   .menu-toggle {
     display: block;
     margin-left: auto;
@@ -1231,6 +1232,8 @@ figcaption {
     align-items: stretch;
     gap: 0;
     box-shadow: var(--shadow-material);
+    max-height: calc(100dvh - var(--header-height));
+    overflow-y: auto;
   }
   .site-nav.open {
     display: flex;

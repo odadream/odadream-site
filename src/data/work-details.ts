@@ -1,4 +1,4 @@
-import type { Localized } from './site';
+import type { Localized, Rights } from './site';
 import type { EditorialSection, SourceReference } from './editorial';
 import { sourceSnapshots } from './editorial';
 
@@ -27,6 +27,66 @@ const credit = (nameRu: string, nameEn: string, roleRu: string, roleEn: string) 
 });
 const studio = (ru: string, en: string) => credit('ODA.dream', 'ODA.dream', ru, en);
 const refs = (...files: string[]) => files.map((file) => sourceSnapshots[file]);
+
+export interface WorkDocument {
+  id: string;
+  legacyId: string;
+  workId: string;
+  title: Localized;
+  description: Localized;
+  href: string;
+  year: number;
+  language: 'en' | 'ru';
+  pages: number;
+  bytes: number;
+  rights: Rights;
+  sha256: string;
+  source: string;
+  sourceRefs: SourceReference[];
+}
+
+export const workDocuments: WorkDocument[] = [
+  {
+    id: 'oda-rings-drawings',
+    legacyId: 'media-oda-rings-drawings',
+    workId: 'rings',
+    title: text('Чертёж изготовления колец', 'Ring manufacturing drawing'),
+    description: text(
+      'Архивная версия v220927: профили колец, положение камней и развёртка гравировки. Это документация конкретной пары, а не актуальные условия заказа.',
+      'Archive version v220927: ring profiles, gemstone placement and engraving layout. It documents this particular pair, rather than current commissioning terms.',
+    ),
+    href: '/documents/oda-rings-drawings-v220927.pdf',
+    year: 2022,
+    language: 'en',
+    pages: 1,
+    bytes: 4636536,
+    rights: 'cleared',
+    sha256: 'db6d16e59bdb669e81049f48a3752c07c8e71e180aea33d6bbd62176e88e3593',
+    source:
+      'src/content/media-oda-rings-drawings.md; owner permission to display works and private commissions 2026-10-05',
+    sourceRefs: refs('media-oda-rings-drawings.md'),
+  },
+  {
+    id: 'oda-rings-banner',
+    legacyId: 'media-oda-rings-banner',
+    workId: 'rings',
+    title: text('Выставочный баннер Synergy', 'Synergy exhibition banner'),
+    description: text(
+      'Архивный баннер 2022 года с авторской историей колец. Текст и контакты сохранены в оригинале; это исторический материал, не актуальное предложение студии.',
+      'A 2022 archive banner telling the authors’ ring story. Original wording and contacts are retained; this is historical material, not the studio’s current offer.',
+    ),
+    href: '/documents/oda-rings-synergy-banner-2022.pdf',
+    year: 2022,
+    language: 'en',
+    pages: 1,
+    bytes: 40404691,
+    rights: 'cleared',
+    sha256: 'bb32ed031005fdbe96b8f31c82f76a0c1fa95f7e582f52a5f589b4eea73b069f',
+    source:
+      'src/content/media-oda-rings-banner.md; owner permission to display works and private commissions 2026-10-05',
+    sourceRefs: refs('media-oda-rings-banner.md'),
+  },
+];
 
 // Selected, edited source material. The source archive is never rendered or imported at runtime.
 export const workDetails: Record<string, WorkDetail> = {

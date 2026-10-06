@@ -2,7 +2,7 @@ import type { PublicationPlan } from '../lib/publication-scope';
 
 // Candidate packet, not editorial approval. Each selected record must also be published.
 export const publicationPlan: PublicationPlan = {
-  version: 'v2-packet-2026-10-06.4',
+  version: 'v2-packet-2026-10-06.5',
   asOf: '2026-10-06',
   methods: ['neuromandala'],
   cooperationPages: ['cooperation'],

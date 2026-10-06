@@ -188,7 +188,7 @@ test('featured carousel, editorial links and card media follow the design gramma
   await expect(page.locator('.nm-brand-intro')).toHaveCount(0);
   await expect(page.locator('.section-rail .page-code').first()).toHaveAttribute('data-page-code', 'H.01');
   await expect(page.locator('.nm-heading .page-code').first()).toHaveAttribute('data-page-code', 'H');
-  await expect(page.locator('.site-nav .page-code')).toHaveCount(8);
+  await expect(page.locator('.site-nav .page-code')).toHaveCount(10);
   await expect(page.locator('.site-nav a[data-route="home"]')).toHaveAttribute('href', '/ru/');
   await expect(page.locator('.site-nav a[data-route="home"]')).toContainText('Главная');
   await expect(page.locator('.site-nav .page-code').first()).toHaveCSS('padding', '0px');
