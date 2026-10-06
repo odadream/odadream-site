@@ -15,7 +15,10 @@ test('all 238 legacy IDs retain language and identity or reach an existing page 
   for (const preview of [true, false]) {
     const pages = createPages(createPublicationScope(source, publicationPlan, preview));
     const routes = resolveLegacyRoutes(rows, pages);
-    assert.equal(Object.keys(routes).length, 238);
+    assert.equal(
+      Object.keys(routes).length,
+      rows.length + rows.reduce((sum, row) => sum + (row.aliases?.length ?? 0), 0),
+    );
     for (const row of rows)
       for (const [index, lang] of ['en', 'ru'].entries()) {
         const target = new URL(routes[row.id][index], 'https://odadream.art');
@@ -30,6 +33,19 @@ test('all 238 legacy IDs retain language and identity or reach an existing page 
         }
       }
   }
+});
+
+test('agency-kit alias follows its canonical scenario and retains alias identity when deferred', () => {
+  const row = rows.find((row) => row.id === 'hub-event-agencies');
+  assert.deepEqual(row.aliases, ['for-events']);
+  let routes = resolveLegacyRoutes(rows, createPages(createPublicationScope(source, publicationPlan, true)));
+  assert.deepEqual(routes['for-events'], ['/en/cooperation/#for-events', '/ru/cooperation/#for-events']);
+  routes = resolveLegacyRoutes(rows, createPages(createPublicationScope(source, publicationPlan, false)));
+  assert.deepEqual(routes['for-events'], [
+    '/legacy/unavailable/?id=for-events&lang=en',
+    '/legacy/unavailable/?id=for-events&lang=ru',
+  ]);
+  assert.equal(rows.length, 238);
 });
 
 test('malformed anchors and unavailable targets never lose or corrupt a legacy ID', () => {

@@ -1,7 +1,7 @@
 import type { Page } from './routes';
 
 export function resolveLegacyRoutes(
-  rows: { id: string; targetEn: string; targetRu: string }[],
+  rows: { id: string; aliases?: string[]; targetEn: string; targetRu: string }[],
   pages: Pick<Page, 'path' | 'anchors'>[],
 ) {
   const availablePages = new Map(pages.map((page) => [page.path, page]));
@@ -17,6 +17,11 @@ export function resolveLegacyRoutes(
     return `/legacy/unavailable/?id=${encodeURIComponent(id)}&lang=${lang}`;
   };
   return Object.fromEntries(
-    rows.map((row) => [row.id, [target(row.id, 'en', row.targetEn), target(row.id, 'ru', row.targetRu)]]),
+    rows.flatMap((row) =>
+      [row.id, ...(row.aliases ?? [])].map((id) => [
+        id,
+        [target(id, 'en', row.targetEn), target(id, 'ru', row.targetRu)],
+      ]),
+    ),
   );
 }

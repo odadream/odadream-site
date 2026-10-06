@@ -65,18 +65,18 @@ if (rootHtml.includes('"ancestors"')) fail('Root bridge must not inline the lega
 const { resolveLegacyRoutes } = await loadSiteModule('src/lib/legacy-routes.ts');
 const expectedLegacy = resolveLegacyRoutes(legacy, pages);
 const legacyRoutes = JSON.parse(await readFile(resolve(root, 'legacy-map.json'), 'utf8'));
-if (Object.keys(legacyRoutes).length !== legacy.length) fail('Legacy redirect index is incomplete');
-for (const row of legacy) {
-  if (JSON.stringify(legacyRoutes[row.id]) !== JSON.stringify(expectedLegacy[row.id]))
-    fail(`Incorrect legacy redirect index entry: ${row.id}`);
-  if (row.disposition === 'not-transferred') continue;
-  for (const target of expectedLegacy[row.id]) {
+if (Object.keys(legacyRoutes).length !== Object.keys(expectedLegacy).length)
+  fail('Legacy redirect index is incomplete');
+for (const [id, targets] of Object.entries(expectedLegacy)) {
+  if (JSON.stringify(legacyRoutes[id]) !== JSON.stringify(targets))
+    fail(`Incorrect legacy redirect index entry: ${id}`);
+  for (const target of targets) {
     const url = new URL(target, 'https://odadream.art');
     const html = await readFile(resolve(root, url.pathname.slice(1), 'index.html'), 'utf8').catch(() =>
-      fail(`Legacy target missing: ${row.id} → ${target}`),
+      fail(`Legacy target missing: ${id} → ${target}`),
     );
     if (url.hash && !html.includes(`id="${decodeURIComponent(url.hash.slice(1))}"`))
-      fail(`Legacy anchor missing: ${row.id} → ${target}`);
+      fail(`Legacy anchor missing: ${id} → ${target}`);
   }
 }
 const unresolved = await readFile(resolve(root, 'legacy/unavailable/index.html'), 'utf8');

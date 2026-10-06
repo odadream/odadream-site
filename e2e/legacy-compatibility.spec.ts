@@ -29,6 +29,7 @@ test('legacy aliases and restricted records retain both languages; internal is n
       ['neurobattle', 'works/neurobattle/'],
       ['emomandala-os', 'works/emomandala/#work-story-selection'],
       ['media-oda-rings-story', 'works/oda-rings/#work-story-history'],
+      ['for-events', 'cooperation/#for-events'],
     ]) {
       await page.goto(`/?id=${id}&lang=${lang}&internal=true`);
       await expect(page).toHaveURL((url) => url.pathname + url.hash === `/${lang}/${target}`);

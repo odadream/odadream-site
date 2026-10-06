@@ -2,9 +2,12 @@ import { createHash } from 'node:crypto';
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve, basename } from 'node:path';
 import YAML from 'yaml';
+import { format, resolveConfig } from 'prettier';
 
 const sourceDir = resolve(process.argv[2] || '../odadream-site-archive-2026-09-21/src/content');
 const target = resolve('src/data/legacy-map.json');
+// Observed in the agency media kit's _LINK_TO_ODADREAM_SITE.url, 2026-10-06.
+const aliases = { 'hub-event-agencies': ['for-events'] };
 const overrides = {
   neuromandala: ['/technology/#method-overview', 'Method overview / Обзор метода'],
   'event-portal-2025': ['/cases/#case-portal-2025', 'Selected historical context / Исторический контекст'],
@@ -122,9 +125,20 @@ for (const filename of (await readdir(sourceDir)).filter((name) => name.endsWith
     targetRu: suffix ? `/ru${suffix}` : '/legacy/unavailable/',
     note,
     hash,
+    ...(aliases[id] ? { aliases: aliases[id] } : {}),
   });
 }
 const rows = [...entries.values()].sort((a, b) => a.id.localeCompare(b.id, 'en'));
 if (rows.length !== 238) throw new Error(`Expected 238 unique legacy IDs, got ${rows.length}`);
-await writeFile(target, JSON.stringify(rows, null, 2) + '\n');
+const entrances = new Set(rows.map((row) => row.id));
+for (const row of rows)
+  for (const alias of row.aliases ?? []) {
+    if (!/^[a-z0-9-]+$/.test(alias) || entrances.has(alias))
+      throw new Error(`Conflicting/invalid legacy alias ${alias}`);
+    entrances.add(alias);
+  }
+await writeFile(
+  target,
+  await format(JSON.stringify(rows), { ...(await resolveConfig(target)), parser: 'json' }),
+);
 console.log(`Wrote ${rows.length} explicit legacy mappings to ${target}`);
