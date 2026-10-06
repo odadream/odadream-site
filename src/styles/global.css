@@ -812,6 +812,16 @@ figcaption {
 .work-section p + p {
   margin-top: var(--s4);
 }
+.editorial-sections {
+  display: grid;
+  gap: var(--gap-group);
+}
+.editorial-sections > article {
+  min-width: 0;
+}
+.editorial-sections > article > * + * {
+  margin-top: var(--gap-copy);
+}
 :where(.facts) {
   margin: 0;
 }

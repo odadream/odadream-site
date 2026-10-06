@@ -7,6 +7,7 @@ export const catalogue = createPublicationScope(source, publicationPlan, preview
 export const {
   methods,
   cooperationPages,
+  studioPages,
   works,
   cases,
   formats,

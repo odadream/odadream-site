@@ -129,6 +129,66 @@ export const sourceSnapshots: Record<string, SourceReference> = {
     sha256: '635a13274ff2b9e8d98d470464efe758a30d0b60e1c9db2a2d4aeb1d8118333e',
     snapshot: '2026-10-06',
   },
+  'schrodinger.md': {
+    file: 'schrodinger.md',
+    sha256: '6cbf183b79cbf422b2230a1e676f337c0eb9c9e1f792f2600b0fab2fb44845cd',
+    snapshot: '2026-10-06',
+  },
+  'oda-rings.md': {
+    file: 'oda-rings.md',
+    sha256: '9efd555b796918ae7206bc5b36ff2ca4d919b9bfd28ae8e418e6c53f3a3214fa',
+    snapshot: '2026-10-06',
+  },
+  'media-oda-rings-story.md': {
+    file: 'media-oda-rings-story.md',
+    sha256: '6486812194330172ddd7434181bd8867ce7ff3a7776416083d89085abe5f3e8a',
+    snapshot: '2026-10-06',
+  },
+  'emomandala.md': {
+    file: 'emomandala.md',
+    sha256: 'e68e539158480d3c1ea9573fca543008cf32164daaaf143e6a0c78c3a26b640b',
+    snapshot: '2026-10-06',
+  },
+  'emomandala-os.md': {
+    file: 'emomandala-os.md',
+    sha256: '7c2036536bd9e54decc4342816af2729dbc1156e1cb5a5e9f692522400eecda9',
+    snapshot: '2026-10-06',
+  },
+  'sync-circle.md': {
+    file: 'sync-circle.md',
+    sha256: '3578b0c23ad53ef52ac2b8f25bbafdac751a5ba16e757fd09ddec1b8dd42538d',
+    snapshot: '2026-10-06',
+  },
+  'ancestors.md': {
+    file: 'ancestors.md',
+    sha256: 'e5abe407a26962672638b83847acd894d008d7b4fecc52e418c3040e92c210eb',
+    snapshot: '2026-10-06',
+  },
+  'hub-cv.md': {
+    file: 'hub-cv.md',
+    sha256: '6386eb90ddae81ad262c97580849703a7627069ea6c8a103e29aaf4eed0f1c6e',
+    snapshot: '2026-10-06',
+  },
+  'hub-manifesto.md': {
+    file: 'hub-manifesto.md',
+    sha256: 'c4f600813ecadde929a6547e04eda26ed53720b0dfc74b2567d5edbccdf26eb4',
+    snapshot: '2026-10-06',
+  },
+  'event-hse-beautiful-brain-2025.md': {
+    file: 'event-hse-beautiful-brain-2025.md',
+    sha256: 'faabc98a69ed979bd1ef47c80de439ea529acaf247d6aa527d4a656f74eea5f4',
+    snapshot: '2026-10-06',
+  },
+  'event-sber-lecture-2025.md': {
+    file: 'event-sber-lecture-2025.md',
+    sha256: '28d62adfd4ba872753ae9f493025d6d41c56915b4df13238223ec142ec5698c8',
+    snapshot: '2026-10-06',
+  },
+  'event-mipt-terraforming-2025.md': {
+    file: 'event-mipt-terraforming-2025.md',
+    sha256: '7e457443d870a3c473b79a399d583f6cd313be34317eb067f4f357116fdf8324',
+    snapshot: '2026-10-06',
+  },
 };
 const refs = (...files: string[]) => files.map((file) => sourceSnapshots[file]);
 const l = (ru: string, en: string): Localized => ({ ru, en });

@@ -1,0 +1,161 @@
+import type { Localized, Person, Publication } from './site';
+import type { EditorialSection, SourceReference } from './editorial';
+import { sourceSnapshots } from './editorial';
+
+export interface StudioPage {
+  id: string;
+  title: Localized;
+  summary: Localized;
+  people: string[];
+  sections: EditorialSection[];
+  teaching: (EditorialSection & { year: number })[];
+  materials: { id: string; title: Localized; body: Localized; path: string }[];
+  sourceRefs: SourceReference[];
+  source: string;
+  publication: Publication;
+}
+const l = (ru: string, en: string): Localized => ({ ru, en });
+const refs = (...files: string[]) => files.map((file) => sourceSnapshots[file]);
+
+export const studioPeople: Person[] = [
+  {
+    id: 'olga',
+    name: l('Ольга Арабова', 'Olga Arabova'),
+    role: l('Междисциплинарная художница и фасилитатор', 'Interdisciplinary artist and facilitator'),
+    biography: l(
+      'Работает с телесным вниманием, коммуникацией и опытом участника. В ODA.dream связывает художественный замысел с фасилитацией: знакомством с форматом, взаимодействием группы и разбором пережитого. Участвует в разработке образовательных и партисипаторных работ.',
+      'Works with embodied attention, communication and participant experience. Within ODA.dream, she connects artistic concepts with facilitation: introducing a format, supporting group interaction and reflecting on the experience. She contributes to educational and participatory works.',
+    ),
+    sourceRefs: refs('hub-cv.md'),
+    source: 'src/content/hub-cv.md',
+    publication: 'review',
+  },
+  {
+    id: 'daler',
+    name: l('Далер Арабов', 'Daler Arabov'),
+    role: l('Медиахудожник, инженер и проектировщик систем', 'Media artist, engineer and system designer'),
+    biography: l(
+      'Создаёт системы реального времени, генеративные среды и взаимодействия с нейроинтерфейсами. В ODA.dream соединяет художественный визуальный язык с архитектурой сенсоров и авторского ПО, подготовкой сценической или выставочной конфигурации и её работой во время показа.',
+      'Creates real-time systems, generative environments and interactions with neurointerfaces. Within ODA.dream, he connects an artistic visual language with sensor and custom-software architecture, the preparation of stage or exhibition configurations and their operation during a presentation.',
+    ),
+    sourceRefs: refs('hub-cv.md'),
+    source: 'src/content/hub-cv.md',
+    publication: 'review',
+  },
+];
+
+export const studioPages: StudioPage[] = [
+  {
+    id: 'studio',
+    title: l('Студия ODA.dream', 'ODA.dream studio'),
+    summary: l(
+      'Ольга и Далер Арабовы создают произведения на пересечении сценического искусства, человеческого восприятия и технологических систем. Художественный замысел, инженерная работа и сопровождение участия образуют общий процесс.',
+      'Olga and Daler Arabov create works at the intersection of performance, human perception and technological systems. Artistic concepts, engineering and participant facilitation form one shared process.',
+    ),
+    people: ['olga', 'daler'],
+    sections: [
+      {
+        id: 'position',
+        title: l('Человек внутри системы', 'The person within the system'),
+        body: l(
+          'Биосигналы используются как материал изображения, звука и взаимодействия. Сенсорный отклик не заменяет живой опыт человека: значение возникает из наблюдения, рассказа и контекста. Нейромандала связывает индивидуальный сигнал с художественной средой; коллективные работы добавляют движение, сценическую партитуру и участие группы.',
+          'Biosignals become material for image, sound and interaction. A sensor’s response does not replace lived experience: meaning emerges through observation, personal accounts and context. Neuromandala connects an individual signal with an artistic environment; collective works add movement, a stage score and group participation.',
+        ),
+      },
+      {
+        id: 'ethics',
+        title: l('Согласие и интерпретация', 'Consent and interpretation'),
+        body: l(
+          'Сигналы не используются для медицинских или психологических выводов о человеке. Для каждого показа определяются добровольность участия, работа с записью, хранение данных и доступ к результату. Личная история, измерение и художественная метафора различаются; устройство не получает права объяснять участника вместо него самого.',
+          'Signals are not used to make medical or psychological judgments about a person. Voluntary participation, recording, data retention and access to results are defined for each presentation. Personal accounts, measurements and artistic metaphors remain distinct; a device does not speak on a participant’s behalf.',
+        ),
+      },
+      {
+        id: 'production',
+        title: l('Авторская работа и инфраструктура показа', 'Authored work and presentation infrastructure'),
+        body: l(
+          'Студия отвечает за свою художественную и техническую часть и сопровождение участников по выбранной конфигурации. Исполнители, соавторы и специалисты включаются в конкретный проект и получают обозначенные роли. Экран, звук, пространство, local production и поток посетителей согласуются с площадкой; состав команды и длительность эксплуатации не выводятся из одного архивного показа.',
+          'The studio provides its artistic and technical contribution and participant facilitation for the chosen configuration. Performers, co-authors and specialists join specific projects with attributed roles. Screen, sound, space, local production and visitor flow are agreed with the venue; staffing and operating duration are not inferred from a single archival presentation.',
+        ),
+      },
+    ],
+    teaching: [
+      {
+        id: 'hse',
+        year: 2025,
+        title: l('«Красиво про мозг» · НИУ ВШЭ', 'Beautiful About the Brain · HSE University'),
+        body: l(
+          'В архиве зафиксировано экспертное приглашение к лекции в НИУ ВШЭ в Москве. Это контекст образовательной практики студии; роль приглашённого автора не подменяется постоянной преподавательской должностью.',
+          'The archive records an expert invitation to give a lecture at HSE University in Moscow. This is a context for the studio’s educational practice; an invited contribution does not imply a permanent teaching position.',
+        ),
+      },
+      {
+        id: 'sber',
+        year: 2025,
+        title: l('Science-art лекция · Сбербанк', 'Science-art lecture · Sberbank'),
+        body: l(
+          'Архив описывает экспертное приглашение к science-art лекции для корпоративной аудитории в Москве. Это лекционное участие, а не заказ интерактивного стенда. Точный день не уточнён; сохранён год события.',
+          'The archive describes an expert invitation for a science-art lecture to a corporate audience in Moscow. This is a lecture contribution, not a commission for an interactive stand. The exact day is unconfirmed; the event year is retained.',
+        ),
+      },
+      {
+        id: 'mipt',
+        year: 2025,
+        title: l('«Терраформинг» · МФТИ', 'Terraforming · MIPT'),
+        body: l(
+          'Архив связывает выставку Нейромандалы «Терраформинг» на площадке МФТИ с воркшопами. Событийная запись указывает приглашение и площадку; образовательное описание раскрывает практическую часть. Участие не обозначено бессрочным партнёрством с институцией.',
+          'The archive connects the Neuromandala exhibition Terraforming at MIPT with workshops. The event record identifies an invitation and venue; the educational description explains the practical contribution. Participation is not described as an ongoing institutional partnership.',
+        ),
+      },
+    ],
+    materials: [
+      {
+        id: 'portfolio',
+        path: 'works/',
+        title: l('Работы и их истории', 'Works and their stories'),
+        body: l(
+          'Страницы реализованных работ и отдельная подборка концепций и прототипов.',
+          'Pages for realised works and a separate selection of concepts and prototypes.',
+        ),
+      },
+      {
+        id: 'method',
+        path: 'technology/',
+        title: l('Нейромандала: метод', 'Neuromandala: the method'),
+        body: l(
+          'Сигнал, визуальный язык, участие и границы интерпретации.',
+          'Signal, visual language, participation and interpretation boundaries.',
+        ),
+      },
+      {
+        id: 'programme',
+        path: 'formats/',
+        title: l('Форматы и образовательная программа', 'Formats and the educational programme'),
+        body: l(
+          'Механика участия, базовые темы лаборатории, исторические параметры и условия подготовки.',
+          'Participation mechanics, core laboratory topics, historical parameters and preparation requirements.',
+        ),
+      },
+      {
+        id: 'brief',
+        path: 'cooperation/',
+        title: l('Сотрудничество и состав брифа', 'Cooperation and briefing'),
+        body: l(
+          'Сценарии сотрудничества, роли студии и площадки, данные для первого обращения.',
+          'Cooperation scenarios, studio and venue roles, and information for an initial inquiry.',
+        ),
+      },
+    ],
+    sourceRefs: refs(
+      'hub-cv.md',
+      'hub-manifesto.md',
+      'hub-education.md',
+      'hub-collab.md',
+      'event-hse-beautiful-brain-2025.md',
+      'event-sber-lecture-2025.md',
+      'event-mipt-terraforming-2025.md',
+    ),
+    source: 'src/content/hub-cv.md; hub-manifesto.md; hub-education.md; hub-collab.md',
+    publication: 'review',
+  },
+];

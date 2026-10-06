@@ -1,0 +1,19 @@
+---
+import type { EditorialSection } from '../data/editorial';
+import type { Lang } from '../data/site';
+interface Props {
+  sections: EditorialSection[];
+  lang: Lang;
+  anchorPrefix: string;
+}
+const { sections, lang, anchorPrefix } = Astro.props;
+---
+
+<div class="editorial-sections">
+  {sections.map((section) => (
+    <article id={`${anchorPrefix}-${section.id}`}>
+      <h3>{section.title[lang]}</h3>
+      <p>{section.body[lang]}</p>
+    </article>
+  ))}
+</div>

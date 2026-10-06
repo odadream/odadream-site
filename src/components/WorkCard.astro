@@ -4,7 +4,7 @@ import { mediaById } from '../data/catalogue';
 import { workStageLabels, type Lang, type Work } from '../data/site';
 import { workUrl } from '../lib/routes';
 interface Props {
-  item: Work;
+  item: Pick<Work, 'id' | 'stage' | 'media' | 'category' | 'year' | 'title' | 'summary'>;
   lang: Lang;
   eager?: boolean;
 }

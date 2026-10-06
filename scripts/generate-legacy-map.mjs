@@ -7,6 +7,11 @@ const sourceDir = resolve(process.argv[2] || '../odadream-site-archive-2026-09-2
 const target = resolve('src/data/legacy-map.json');
 const overrides = {
   neuromandala: ['/technology/#method-overview', 'Method overview / Обзор метода'],
+  'emomandala-os': [
+    '/works/emomandala/#work-story-selection',
+    'Method element within Emomandala / Метод внутри Эмомандалы',
+  ],
+  'media-oda-rings-story': ['/works/oda-rings/#work-story-history', 'Edited rings chronicle / История колец'],
   'hub-host-events': ['/formats/', 'Merged format overview / Обзор форматов'],
   'hub-lectures': ['/formats/#talk-workshop', 'Educational format / Образовательный формат'],
   'hub-institutions': [
@@ -23,7 +28,20 @@ const overrides = {
   'hub-collab': ['/cooperation/', 'Cooperation / Сотрудничество'],
   'hub-world': ['/studio/', 'Studio / Студия'],
   'hub-team': ['/studio/#people', 'People / Люди'],
-  'hub-cv': ['/studio/#milestones', 'Milestones / Вехи'],
+  'hub-cv': ['/studio/', 'Edited duo profile / Профиль дуэта'],
+  'hub-manifesto': ['/studio/#method', 'Artistic position and ethics / Позиция и этика'],
+  'event-hse-beautiful-brain-2025': [
+    '/studio/#teaching-hse',
+    'Educational context / Образовательный контекст',
+  ],
+  'event-sber-lecture-2025': [
+    '/studio/#teaching-sber',
+    'Invited lecture context / Контекст приглашённой лекции',
+  ],
+  'event-mipt-terraforming-2025': [
+    '/studio/#teaching-mipt',
+    'Exhibition and workshop context / Выставочный и образовательный контекст',
+  ],
   'hub-events': ['/cases/', 'Cases / Кейсы'],
   'hub-registry': ['/cases/', 'Cases / Кейсы'],
   'hub-letters': ['/studio/#evidence', 'Evidence policy / Подтверждения'],

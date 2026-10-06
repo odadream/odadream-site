@@ -1,5 +1,6 @@
 ---
 import MindDBStamp from './MindDBStamp.astro';
+import EditorialSections from './EditorialSections.astro';
 import MediaFigure from './MediaFigure.astro';
 import WorkCard from './WorkCard.astro';
 import RecognitionCard from './RecognitionCard.astro';
@@ -12,6 +13,7 @@ import StatisticsStamp from './StatisticsStamp.astro';
 import {
   methods,
   cooperationPages,
+  studioPages,
   cases,
   evidence,
   formats,
@@ -37,7 +39,6 @@ const lang = page.lang;
 const family = page.family;
 const ru = lang === 'ru';
 const work = page.kind === 'work' ? works.find((x) => x.slug === page.slug) : undefined;
-const workHasMethodSection = work ? ['interference', 'mindshow', 'neurobattle'].includes(work.id) : false;
 const oneCase = page.kind === 'case' ? cases.find((x) => x.slug === page.slug) : undefined;
 const publishedRecognitions = recognitions.filter(
   (item) => item.publication === 'published' && item.documentRights === 'cleared',
@@ -55,6 +56,11 @@ const sectionName = {
 };
 const method = methods.find((item) => item.id === 'neuromandala');
 const cooperation = cooperationPages.find((item) => item.id === 'cooperation');
+const studio = studioPages.find((item) => item.id === 'studio');
+const studioMembers = (studio?.people ?? []).flatMap((id) => {
+  const person = people.find((item) => item.id === id);
+  return person ? [person] : [];
+});
 const featured = publicHeroVisuals;
 const homepageRecognitions = recognitions.filter((item) => item.featuredOnHome);
 const caseTypeLabels = {
@@ -610,33 +616,44 @@ const timeline = [...cases]
             </div>
           )}
         </section>
-        {['interference', 'mindshow', 'neurobattle'].includes(work.id) && (
-          <section class="work-section">
-            <span class="eyebrow">
-              <PageCode family={family} section={3} lang={lang} /> /{' '}
-              {ru ? 'Опыт и метод' : 'Experience and method'}
-            </span>
-            <h2>{ru ? 'Человек внутри работы' : 'The participant inside the work'}</h2>
-            <p>{work.experience[lang]}</p>
-            <p>
-              {work.id === 'interference'
-                ? ru
-                  ? 'Движение, выбор и рассказ соседствуют с виртуальным пространством, которое остаётся самостоятельной сценой. ЭЭГ и компьютерное зрение присутствуют как художественные инструменты, но не выдают точную карту внутреннего мира.'
-                  : 'Movement, choice and narrative meet a virtual space that remains a stage in its own right. EEG and computer vision act as artistic instruments, not a precise map of inner life.'
-                : work.id === 'mindshow'
-                  ? ru
-                    ? 'Состояние участника и его слова участвуют в генерации визуального сюжета. Разные версии произведения имеют разный технический состав, поэтому конфигурация оговаривается отдельно.'
-                    : 'A participant’s state and words shape a visual sequence. Versions differ technically, so the configuration is agreed for each context.'
-                  : ru
-                    ? 'Система показывает относительные изменения в моменте, а не сравнивает интеллект или «силу мозга». Участие не требует предварительной подготовки.'
-                    : 'The system shows relative changes in the moment, not intelligence or “brain power”. No advance training is needed.'}
-            </p>
-          </section>
-        )}
+        <section class="work-section" id="work-story">
+          <span class="eyebrow">
+            <PageCode family={family} section={3} lang={lang} /> /{' '}
+            {ru ? 'История и устройство' : 'Story and structure'}
+          </span>
+          <h2>{ru ? 'Внутри работы' : 'Inside the work'}</h2>
+          <EditorialSections sections={work.story} lang={lang} anchorPrefix="work-story" />
+          <div class="provenance">
+            {work.reviewNotes.map((note) => (
+              <p>{note[lang]}</p>
+            ))}
+          </div>
+          {work.relatedWorks.length > 0 && (
+            <div class="link-row spaced-actions">
+              {work.relatedWorks.map((id) => (
+                <CalloutLink href={workUrl(lang, id)}>{workById(id)?.title[lang]}</CalloutLink>
+              ))}
+            </div>
+          )}
+        </section>
+        <section class="work-section" id="work-credits">
+          <span class="eyebrow">
+            <PageCode family={family} section={4} lang={lang} /> /{' '}
+            {ru ? 'Авторство и роли' : 'Credits and roles'}
+          </span>
+          <h2>{ru ? 'Кто создаёт работу' : 'Who makes the work'}</h2>
+          {work.credits.map((item) => (
+            <div class="list-row">
+              <div>
+                <h3>{item.name[lang]}</h3>
+                <p>{item.role[lang]}</p>
+              </div>
+            </div>
+          ))}
+        </section>
         <section class="work-section" id="work-availability">
           <span class="eyebrow">
-            <PageCode family={family} section={workHasMethodSection ? 4 : 3} lang={lang} /> /{' '}
-            {ru ? 'Доступность' : 'Availability'}
+            <PageCode family={family} section={5} lang={lang} /> / {ru ? 'Доступность' : 'Availability'}
           </span>
           <h2>{ru ? 'Как работать с проектом' : 'Working with the project'}</h2>
           <p>{work.availability[lang]}</p>
@@ -915,9 +932,10 @@ const timeline = [...cases]
       </p>
       <h1>{ru ? 'Студия ODA.dream' : 'ODA.dream studio'}</h1>
       <p class="lead">
-        {ru
-          ? 'Ольга и Далер Арабовы создают произведения на пересечении сценического искусства, человеческого восприятия и технологических систем.'
-          : 'Olga and Daler Arabov create work at the intersection of performance, human perception and technological systems.'}
+        {studio?.summary[lang] ??
+          (ru
+            ? 'Ольга и Далер Арабовы создают произведения на пересечении сценического искусства, человеческого восприятия и технологических систем.'
+            : 'Olga and Daler Arabov create work at the intersection of performance, human perception and technological systems.')}
       </p>
     </section>
     <section class="section shell section-grid" id="people">
@@ -926,13 +944,21 @@ const timeline = [...cases]
         <span class="eyebrow">{ru ? 'Люди' : 'People'}</span>
       </div>
       <div class="section-body">
-        <h2>{people[0]?.name[lang] ?? (ru ? 'Команда' : 'Team')}</h2>
+        <h2>{people.find((person) => person.id === 'founders')?.name[lang] ?? (ru ? 'Команда' : 'Team')}</h2>
         <p>
-          {people[0]?.role[lang] ?? ''}.{' '}
           {ru
             ? 'Для каждого проекта команда расширяется за счёт художников, исполнителей и технических специалистов. Роли соавторов отмечаются на страницах конкретных работ.'
             : 'Each project brings in artists, performers and technical specialists. Co-authorship is credited in the context of each work.'}
         </p>
+        {studioMembers.map((person) => (
+          <article class="list-row" id={`person-${person.id}`}>
+            <div>
+              <h3>{person.name[lang]}</h3>
+              <p>{person.role[lang]}</p>
+              {person.biography && <p>{person.biography[lang]}</p>}
+            </div>
+          </article>
+        ))}
       </div>
     </section>
     <section class="section shell section-grid" id="milestones">
@@ -965,11 +991,65 @@ const timeline = [...cases]
             ? 'Сигналы в работах используются как материал для художественного взаимодействия, а не для медицинских или психологических выводов. Для каждого показа отдельно определяются согласие участников, хранение данных, права на изображение и документацию.'
             : 'Signals in our work become material for artistic interaction, not medical or psychological claims. Consent, data retention, image rights and documentation terms are established for each presentation.'}
         </p>
+        {studio && <EditorialSections sections={studio.sections} lang={lang} anchorPrefix="studio-method" />}
+        <div class="link-row">
+          <CalloutLink href={`/${lang}/technology/`}>
+            {ru ? 'Метод Нейромандалы' : 'Neuromandala method'}
+          </CalloutLink>
+          <CalloutLink href={`/${lang}/cooperation/`}>
+            {ru ? 'Условия сотрудничества' : 'Cooperation conditions'}
+          </CalloutLink>
+        </div>
       </div>
     </section>
+    {studio && (
+      <>
+        <section class="section shell section-grid" id="teaching">
+          <div class="section-label">
+            <PageCode family={family} section={4} lang={lang} />
+            <span class="eyebrow">{ru ? 'Образовательная практика' : 'Educational practice'}</span>
+          </div>
+          <div class="section-body">
+            <h2>{ru ? 'Лекции, выставки и воркшопы' : 'Lectures, exhibitions and workshops'}</h2>
+            {studio.teaching.map((item) => (
+              <article class="list-row" id={`teaching-${item.id}`}>
+                <span class="meta">{item.year}</span>
+                <div>
+                  <h3>{item.title[lang]}</h3>
+                  <p>{item.body[lang]}</p>
+                </div>
+                <CalloutLink href={`/${lang}/formats/`}>{ru ? 'Форматы' : 'Formats'}</CalloutLink>
+              </article>
+            ))}
+          </div>
+        </section>
+        <section class="section shell section-grid" id="materials">
+          <div class="section-label">
+            <PageCode family={family} section={5} lang={lang} />
+            <span class="eyebrow">{ru ? 'Материалы' : 'Materials'}</span>
+          </div>
+          <div class="section-body">
+            <h2>{ru ? 'Для знакомства и подготовки показа' : 'For discovery and presentation planning'}</h2>
+            {studio.materials.map((item) => (
+              <article class="list-row">
+                <div>
+                  <h3>
+                    <CalloutLink href={`/${lang}/${item.path}`}>{item.title[lang]}</CalloutLink>
+                  </h3>
+                  <p>{item.body[lang]}</p>
+                </div>
+              </article>
+            ))}
+            <a class="button primary" href={`/${lang}/contact/`}>
+              {ru ? 'Обсудить задачу' : 'Discuss a project'}
+            </a>
+          </div>
+        </section>
+      </>
+    )}
     <section class="section shell section-grid" id="evidence">
       <div class="section-label">
-        <PageCode family={family} section={4} lang={lang} />
+        <PageCode family={family} section={studio ? 6 : 4} lang={lang} />
         <span class="eyebrow">{ru ? 'Подтверждение' : 'Evidence'}</span>
       </div>
       <div class="section-body">

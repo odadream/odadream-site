@@ -7,6 +7,7 @@ import StatisticsStamp from '../components/StatisticsStamp.astro';
 import MindDBStamp from '../components/MindDBStamp.astro';
 import SectionRail from '../components/SectionRail.astro';
 import RecordStamp from '../components/RecordStamp.astro';
+import EditorialSections from '../components/EditorialSections.astro';
 import TechnicalMark from '../components/TechnicalMark.astro';
 import CalloutLink from '../components/CalloutLink.astro';
 import PageCode from '../components/PageCode.astro';
@@ -628,6 +629,7 @@ const profileTokens = [
             { label: 'Кейсы в каталоге', value: works[0].cases.length },
           ]}
         />
+        <EditorialSections sections={works[0].story.slice(0, 1)} lang="ru" anchorPrefix="system-story" />
         <RecordStamp
           title="Два поля / вся доступная ширина"
           wide

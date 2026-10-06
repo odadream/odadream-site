@@ -34,6 +34,7 @@ function checkCollection(name, rows) {
 for (const name of [
   'methods',
   'cooperationPages',
+  'studioPages',
   'works',
   'formats',
   'cases',
@@ -70,7 +71,14 @@ for (const [file, ref] of Object.entries(data.sourceSnapshots)) {
     errors.push(`source snapshot ${file}: invalid provenance`);
   if (snapshots[file]?.sha256 !== ref.sha256) errors.push(`source snapshot ${file}: inventory drift`);
 }
-for (const row of [...data.methods, ...data.cooperationPages, ...data.formats]) {
+for (const row of [
+  ...data.methods,
+  ...data.cooperationPages,
+  ...data.formats,
+  ...data.works,
+  ...data.studioPages,
+  ...data.people.filter((row) => row.sourceRefs),
+]) {
   checkLocales(row, row.id);
   if (
     !row.sourceRefs.length ||
@@ -89,6 +97,19 @@ for (const format of data.formats) {
   }
 }
 const ids = (rows) => new Set(rows.map((row) => row.id));
+for (const studio of data.studioPages) {
+  for (const id of studio.people) {
+    const person = data.people.find((row) => row.id === id);
+    if (!person?.biography || !person?.sourceRefs?.length)
+      errors.push(`studio ${studio.id}: missing biography or source for ${id}`);
+  }
+  for (const item of studio.teaching)
+    if (!Number.isInteger(item.year) || item.year < 1900 || item.year > 2100)
+      errors.push(`studio ${studio.id}: invalid context year`);
+  for (const item of studio.materials)
+    if (!/^(works|technology|formats|cooperation)\/$/.test(item.path))
+      errors.push(`studio ${studio.id}: invalid material destination ${item.path}`);
+}
 const workIds = ids(data.works),
   formatIds = ids(data.formats),
   caseIds = ids(data.cases),
@@ -112,6 +133,22 @@ for (const hero of data.heroVisuals) {
     errors.push(`hero ${hero.id}: missing work`);
 }
 for (const work of data.works) {
+  if (!work.story?.length || !work.credits?.length || !work.reviewNotes?.length)
+    errors.push(`work ${work.id}: narrative, credits or interpretation boundaries missing`);
+  const storyIds = new Set();
+  for (const section of work.story ?? []) {
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(section.id) || storyIds.has(section.id))
+      errors.push(`work ${work.id}: invalid or duplicate story anchor ${section.id}`);
+    storyIds.add(section.id);
+  }
+  for (const id of work.relatedWorks ?? [])
+    if (
+      !workIds.has(id) ||
+      id === work.id ||
+      work.basedOn.includes(id) ||
+      data.works.some((related) => related.id === id && related.basedOn.includes(work.id))
+    )
+      errors.push(`work ${work.id}: invalid or duplicate related work ${id}`);
   for (const field of ['title', 'category', 'summary', 'experience', 'question', 'availability']) {
     for (const lang of ['en', 'ru']) {
       if (typeof work[field]?.[lang] !== 'string' || !work[field][lang].trim())

@@ -76,7 +76,7 @@ const copy = {
 
 export const createPages = (
   records: Pick<typeof catalogue, 'works' | 'cases'> &
-    Partial<Pick<typeof catalogue, 'formats' | 'methods' | 'cooperationPages'>>,
+    Partial<Pick<typeof catalogue, 'formats' | 'methods' | 'cooperationPages' | 'studioPages'>>,
 ): Page[] =>
   (['en', 'ru'] as Lang[]).flatMap((lang) => [
     {
@@ -126,7 +126,20 @@ export const createPages = (
                     : []),
                 ]
               : kind === 'studio'
-                ? ['people', 'milestones', 'evidence']
+                ? [
+                    'people',
+                    'milestones',
+                    'method',
+                    'evidence',
+                    ...(records.studioPages?.length
+                      ? [
+                          'teaching',
+                          'materials',
+                          ...records.studioPages[0].teaching.map((row) => `teaching-${row.id}`),
+                          ...records.studioPages[0].people.map((id) => `person-${id}`),
+                        ]
+                      : []),
+                  ]
                 : [],
       title: `${copy[kind][lang][0]} — ODA.dream`,
       description: copy[kind][lang][1],
@@ -139,6 +152,13 @@ export const createPages = (
       path: `/${lang}/works/${work.slug}/`,
       title: `${work.title[lang]} — ODA.dream`,
       description: work.summary[lang],
+      anchors: [
+        'work-context',
+        'work-story',
+        'work-credits',
+        'work-availability',
+        ...work.story.map((row) => `work-story-${row.id}`),
+      ],
     })),
     ...records.cases.map((item) => ({
       lang,

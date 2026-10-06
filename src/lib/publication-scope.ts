@@ -13,12 +13,13 @@ export type CatalogueSource = Pick<
   | 'heroVisuals'
   | 'minddbSnapshot'
 > &
-  Partial<Pick<typeof import('../data/site'), 'methods' | 'cooperationPages'>>;
+  Partial<Pick<typeof import('../data/site'), 'methods' | 'cooperationPages' | 'studioPages'>>;
 export interface PublicationPlan {
   version: string;
   asOf: string;
   methods?: string[];
   cooperationPages?: string[];
+  studioPages?: string[];
   works: string[];
   formats: string[];
   cases: string[];
@@ -78,6 +79,12 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
     })),
   }));
   const people = select('people', source.people);
+  const studioPages = select('studioPages', source.studioPages ?? []).filter((row) => {
+    const missing = row.people.filter((id) => !people.some((person) => person.id === id));
+    if (!missing.length) return true;
+    errors.push(`studio ${row.id}: people ${missing.join(', ')} are outside the published packet`);
+    return false;
+  });
   const recognitions = select('recognitions', source.recognitions).filter((row) => {
     if (preview || row.documentRights === 'cleared') return true;
     errors.push(`recognition ${row.id}: document rights ${row.documentRights}`);
@@ -155,6 +162,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
   works = works.map((row) => ({
     ...row,
     basedOn: row.basedOn.filter((id) => workIds.has(id)),
+    relatedWorks: row.relatedWorks.filter((id) => workIds.has(id)),
     cases: row.cases.filter((id) => caseIds.has(id)),
     formats: row.formats.filter((id) => formatIds.has(id)),
     media: row.media.filter((id) => availableMedia.has(id)),
@@ -177,6 +185,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
     ? {
         methods,
         cooperationPages,
+        studioPages,
         works,
         formats,
         cases: safeCases,
@@ -188,6 +197,18 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
         minddbSnapshot,
       }
     : {
+        studioPages: studioPages.map((row) =>
+          project(row, [
+            'id',
+            'title',
+            'summary',
+            'people',
+            'sections',
+            'teaching',
+            'materials',
+            'publication',
+          ]),
+        ),
         methods: methods.map((row) =>
           project(row, [
             'id',
@@ -228,6 +249,10 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'summary',
             'experience',
             'question',
+            'story',
+            'credits',
+            'reviewNotes',
+            'relatedWorks',
             'stage',
             'workType',
             'aliases',
@@ -285,7 +310,9 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'publication',
           ]),
         ),
-        people: people.map((row) => project(row, ['id', 'legacyId', 'name', 'role', 'publication'])),
+        people: people.map((row) =>
+          project(row, ['id', 'legacyId', 'name', 'role', 'biography', 'publication']),
+        ),
         recognitions: recognitions.map((row) => ({
           ...project(row, [
             'id',
@@ -351,4 +378,4 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
   };
 }
 
-export const isRealizedWork = (work: Work) => work.stage === 'realized';
+export const isRealizedWork = (work: Pick<Work, 'stage'>) => work.stage === 'realized';

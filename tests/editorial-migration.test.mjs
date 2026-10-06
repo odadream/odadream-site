@@ -23,7 +23,7 @@ const plan = {
 };
 
 test('selected editorial sources retain exact dated provenance and coverage in the inventory', () => {
-  assert.equal(Object.keys(data.sourceSnapshots).length, 14);
+  assert.deepEqual(Object.keys(data.sourceSnapshots).sort(), Object.keys(inventory.v2SourceSnapshots).sort());
   for (const [file, snapshot] of Object.entries(data.sourceSnapshots)) {
     assert.deepEqual(snapshot, inventory.v2SourceSnapshots[file]);
     const row = inventory.entries.find((entry) => entry.sourceFile === file);
@@ -54,6 +54,85 @@ test('method and cooperation stay out of public projection until editorial appro
   assert.equal(scope.cooperationPages.length, 0);
   assert.ok(scope.errors.some((error) => error.includes('neuromandala: review')));
   assert.ok(scope.errors.some((error) => error.includes('cooperation: review')));
+});
+
+test('work narratives retain owner decisions, real roles and source coverage', () => {
+  for (const work of data.works) {
+    assert.ok(work.story.length >= 2, work.id);
+    assert.ok(work.credits.length, work.id);
+    assert.ok(
+      work.sourceRefs.some((ref) => ref.file === `${work.legacyId}.md`),
+      work.id,
+    );
+    assert.equal(new Set(work.story.map((row) => row.id)).size, work.story.length, work.id);
+  }
+  assert.equal(data.works.find((w) => w.id === 'sync').stage, 'concept');
+  assert.equal(data.works.find((w) => w.id === 'ancestors').stage, 'prototype');
+  assert.match(
+    data.works.find((w) => w.id === 'schrodinger').story[1].body.ru,
+    /четыре канала.*четыре пульсоканала/,
+  );
+  assert.ok(data.works.find((w) => w.id === 'mindshow').aliases.includes('MindGrid'));
+  assert.equal(data.works.filter((w) => w.legacyId === 'emomandala-os').length, 0);
+});
+
+test('approved work exports its story but hides source locators and links to deferred works', () => {
+  const source = { ...data, works: structuredClone(data.works) };
+  source.works.find((w) => w.id === 'rings').publication = 'published';
+  const packet = { ...plan, methods: [], cooperationPages: [], works: ['rings'] };
+  const scope = createPublicationScope(source, packet);
+  assert.deepEqual(scope.errors, []);
+  assert.equal(scope.works[0].story.length, 3);
+  assert.equal(scope.works[0].credits.length, 1);
+  assert.deepEqual(scope.works[0].relatedWorks, []);
+  assert.ok(!JSON.stringify(scope.works).includes('sourceRefs'));
+  assert.ok(!JSON.stringify(scope.works).includes('sourceSnapshots'));
+  assert.ok(
+    createPages(scope)
+      .find((row) => row.path === '/ru/works/oda-rings/')
+      .anchors.includes('work-story-history'),
+  );
+});
+
+test('studio biographies require published people and public data never includes internal source references', () => {
+  const source = {
+    ...data,
+    studioPages: structuredClone(data.studioPages),
+    people: structuredClone(data.people),
+  };
+  source.studioPages[0].publication = 'published';
+  const packet = {
+    ...plan,
+    methods: [],
+    cooperationPages: [],
+    studioPages: ['studio'],
+    people: ['olga', 'daler'],
+  };
+  const pending = createPublicationScope(source, packet);
+  assert.equal(pending.studioPages.length, 0);
+  assert.ok(pending.errors.some((error) => error.includes('outside the published packet')));
+  source.people
+    .filter((row) => packet.people.includes(row.id))
+    .forEach((row) => (row.publication = 'published'));
+  const scope = createPublicationScope(source, packet);
+  assert.deepEqual(scope.errors, []);
+  assert.equal(scope.studioPages.length, 1);
+  assert.equal(scope.people.length, 2);
+  assert.ok(!JSON.stringify(scope.studioPages).includes('sourceRefs'));
+  assert.ok(!JSON.stringify(scope.people).includes('sourceRefs'));
+  assert.ok(scope.people.every((row) => row.biography.en && row.biography.ru));
+  assert.ok(scope.studioPages[0].teaching.every((row) => row.year === 2025 && !('date' in row)));
+  const routes = createPages(scope);
+  assert.ok(routes.find((row) => row.path === '/ru/studio/').anchors.includes('teaching-sber'));
+  const deferredRoutes = createPages(createPublicationScope(data, packet));
+  const old = [
+    {
+      id: 'event-sber-lecture-2025',
+      targetEn: '/en/studio/#teaching-sber',
+      targetRu: '/ru/studio/#teaching-sber',
+    },
+  ];
+  assert.match(resolveLegacyRoutes(old, deferredRoutes)['event-sber-lecture-2025'][1], /legacy\/unavailable/);
 });
 
 test('approved method hero depends on that method and cleared media, not a fabricated artwork', () => {

@@ -1,6 +1,11 @@
 import { formatDetails } from './editorial';
 import type { FormatDetail } from './editorial';
+import type { SourceReference } from './editorial';
+import { studioPeople } from './studio';
+import { workDetails } from './work-details';
+import type { WorkDetail } from './work-details';
 export { methods, cooperationPages, sourceSnapshots } from './editorial';
+export { studioPages } from './studio';
 
 export type Lang = 'en' | 'ru';
 export type Localized = Record<Lang, string>;
@@ -60,7 +65,7 @@ export const minddbSnapshot = {
   } as Localized,
   source: 'MindDB sessions/catalog.json + qc_media_probe_20260830.json; aggregate-only calculation',
 };
-export interface Work {
+export interface Work extends WorkDetail {
   id: string;
   legacyId: string;
   slug: string;
@@ -145,6 +150,8 @@ export interface Person {
   legacyId?: string;
   name: Localized;
   role: Localized;
+  biography?: Localized;
+  sourceRefs?: SourceReference[];
   source: string;
   publication: Publication;
 }
@@ -487,7 +494,7 @@ export const workStageLabels: Record<WorkStage, Localized> = {
   realized: { en: 'Realized', ru: 'Реализовано' },
 };
 
-export const works: Work[] = [
+const workRecords: Omit<Work, keyof WorkDetail>[] = [
   {
     id: 'interference',
     legacyId: 'interference',
@@ -586,7 +593,7 @@ export const works: Work[] = [
     stage: 'realized',
     year: null,
     workType: 'installation',
-    aliases: [],
+    aliases: ['MindGrid', 'Майнд-шоу'],
     basedOn: [],
     featuredOnHome: true,
   },
@@ -971,6 +978,8 @@ export const works: Work[] = [
   },
 ];
 
+export const works: Work[] = workRecords.map((work) => ({ ...work, ...workDetails[work.id] }));
+
 export const formats: Format[] = [
   {
     ...formatDetails['mindshow-installation'],
@@ -1290,13 +1299,14 @@ export const people: Person[] = [
     source: 'src/content/hub-cv.md; interference.md',
     publication: 'review',
   },
+  ...studioPeople,
 ];
 
 export const mediaById = (id: string) => media.find((item) => item.id === id);
 export const workById = (id: string) => works.find((item) => item.id === id);
 
 /** Shared catalogue selection; availability and repertoire remain independent fields. */
-export const isRealizedWork = (work: Work) => work.stage === 'realized';
+export const isRealizedWork = (work: Pick<Work, 'stage'>) => work.stage === 'realized';
 export const realizedWorks = works.filter(isRealizedWork);
 export const researchWorks = works.filter((work) => !isRealizedWork(work));
 export const selectedWorks = realizedWorks.filter((work) => work.featuredOnHome);
