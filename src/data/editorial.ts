@@ -57,8 +57,19 @@ export interface CooperationPage {
   publication: Publication;
 }
 
-// Exact bytes of the read-only V1 worktree snapshot, not a claim of current availability.
+// Exact bytes of dated V1 and owner-provided editorial snapshots, not current availability claims.
 export const sourceSnapshots: Record<string, SourceReference> = {
+  'Olga_Arabova_CV.md': {
+    file: 'Olga_Arabova_CV.md',
+    sha256: '2966e4351153df8bb69ef364bfaa8bd3fdb0cb5a5172bc025d426de6614192dd',
+    snapshot: '2026-10-06',
+  },
+  'Daler_Arabov_CV.md': {
+    file: 'Daler_Arabov_CV.md',
+    sha256: '1b885da92ecf1da2d8fe07d9a0c8f5672e3c0a7444bcf2918a84f4f25e1db6ae',
+    snapshot: '2026-10-06',
+  },
+
   'neuromandala.md': {
     file: 'neuromandala.md',
     sha256: '273d875e1851366b5587e8331265e90c2fb5a5b56392b4cdf49bc2226c621457',

@@ -1,6 +1,7 @@
 import { formatDetails } from './editorial';
 import type { FormatDetail } from './editorial';
 import type { SourceReference } from './editorial';
+import type { EditorialSection } from './editorial';
 import { studioPeople } from './studio';
 import { workDetails } from './work-details';
 export { workDocuments, legacyWorkResources } from './work-details';
@@ -163,6 +164,7 @@ export interface Person {
   name: Localized;
   role: Localized;
   biography?: Localized;
+  cv?: { sections: EditorialSection[]; base: Localized; workIds: string[]; caseIds: string[] };
   sourceRefs?: SourceReference[];
   source: string;
   publication: Publication;

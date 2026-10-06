@@ -425,9 +425,16 @@ const profileTokens = [
         </p>
         <DocumentList documents={workDocuments} lang="ru" />
         <DocumentList
-          documents={referenceDocuments.filter((row) => row.language === 'ru')}
+          documents={referenceDocuments.filter(
+            (row) => row.kind === 'technical-overview' && row.language === 'ru',
+          )}
           lang="ru"
           title="Технический обзор · 6 октября 2026"
+        />
+        <DocumentList
+          documents={referenceDocuments.filter((row) => row.kind === 'cv' && row.language === 'ru')}
+          lang="ru"
+          title="CV авторов"
         />
         <p class="component-title">Медиа + подпись + источник</p>
         <MediaFigure id="interference-stage" lang="ru" priority />

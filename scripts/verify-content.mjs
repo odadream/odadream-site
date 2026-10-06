@@ -2,7 +2,7 @@ import { readFile, stat } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 import { loadSiteModule } from './site-data.mjs';
-import { technicalOverviewInput } from './document-input.mjs';
+import { technicalOverviewInput, cvInput } from './document-input.mjs';
 
 const data = await loadSiteModule();
 const { isLocalAssetPath } = await loadSiteModule('src/lib/publication-scope.ts');
@@ -67,8 +67,18 @@ function checkLocales(value, label) {
     }
   } else for (const [key, child] of Object.entries(value)) checkLocales(child, `${label}.${key}`);
 }
-const snapshots =
-  JSON.parse(await readFile('docs/migration/INVENTORY-2026-10-05.json', 'utf8')).v2SourceSnapshots ?? {};
+const migrationInventory = JSON.parse(await readFile('docs/migration/INVENTORY-2026-10-05.json', 'utf8'));
+const snapshots = migrationInventory.v2SourceSnapshots ?? {};
+// Explicitly registered owner-provided editorial snapshots, independent of the 238 V1 IDs.
+for (const [file, snapshot] of Object.entries(migrationInventory.externalSourceSnapshots ?? {}))
+  if (
+    snapshot.kind === 'external-editorial' &&
+    snapshot.sourcePath &&
+    snapshot.sha256 === snapshots[file]?.sha256 &&
+    snapshot.v2Migration?.sourceSha256 === snapshot.sha256 &&
+    snapshot.v2Migration?.targets?.length
+  )
+    files.add(file);
 for (const [file, ref] of Object.entries(data.sourceSnapshots)) {
   if (
     !files.has(file) ||
@@ -110,6 +120,16 @@ for (const format of data.formats) {
   }
 }
 const ids = (rows) => new Set(rows.map((row) => row.id));
+for (const person of data.people.filter((row) => row.cv)) {
+  if (
+    !person.cv.sections.length ||
+    !person.cv.base.ru ||
+    !person.cv.base.en ||
+    person.cv.workIds.some((id) => !data.works.some((row) => row.id === id)) ||
+    person.cv.caseIds.some((id) => !data.cases.some((row) => row.id === id))
+  )
+    errors.push(`person ${person.id}: invalid CV facts or portfolio references`);
+}
 for (const studio of data.studioPages) {
   for (const id of studio.people) {
     const person = data.people.find((row) => row.id === id);
@@ -342,7 +362,9 @@ for (const item of data.referenceDocuments) {
     !owners.some((row) => row.id === item.owner.id) ||
     !['cleared', 'review', 'restricted'].includes(item.rights) ||
     item.requiredFormats.some((id) => !data.formats.some((row) => row.id === id)) ||
-    item.requiredPeople.some((id) => !data.people.some((row) => row.id === id))
+    item.requiredPeople.some((id) => !data.people.some((row) => row.id === id)) ||
+    (item.requiredWorks ?? []).some((id) => !data.works.some((row) => row.id === id)) ||
+    (item.requiredCases ?? []).some((id) => !data.cases.some((row) => row.id === id))
   )
     errors.push(`reference document ${item.id}: invalid owner/dependencies/rights`);
   if (!isLocalAssetPath(item.href) || !item.href.startsWith('/documents/') || !item.href.endsWith('.pdf')) {
@@ -350,14 +372,26 @@ for (const item of data.referenceDocuments) {
     continue;
   }
   if (
-    item.kind !== 'technical-overview' ||
-    item.pages !== 2 ||
+    !['technical-overview', 'cv'].includes(item.kind) ||
+    item.pages !== (item.kind === 'cv' ? 1 : 2) ||
     !['en', 'ru'].includes(item.language) ||
     !/^\d{4}-\d{2}-\d{2}$/.test(item.asOf) ||
     item.year !== Number(item.asOf.slice(0, 4))
   )
     errors.push(`reference document ${item.id}: invalid metadata`);
-  const input = technicalOverviewInput(data, item.asOf);
+  if (item.kind === 'cv') {
+    const person = data.people.find((row) => row.id === item.personId);
+    if (
+      item.owner.kind !== 'studio' ||
+      !person?.cv ||
+      item.requiredPeople.length !== 1 ||
+      item.requiredPeople[0] !== item.personId ||
+      JSON.stringify(item.requiredWorks) !== JSON.stringify(person?.cv?.workIds) ||
+      JSON.stringify(item.requiredCases) !== JSON.stringify(person?.cv?.caseIds)
+    )
+      errors.push(`reference document ${item.id}: CV dependencies disagree with the person`);
+  }
+  const input = item.kind === 'cv' ? cvInput(data, item) : technicalOverviewInput(data, item.asOf);
   if (createHash('sha256').update(JSON.stringify(input)).digest('hex') !== item.contentFingerprint)
     errors.push(`reference document ${item.id}: PDF is stale against current HTML facts`);
   const bytes = await readFile(resolve('public', item.href.slice(1))).catch(() => undefined);

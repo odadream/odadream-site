@@ -53,7 +53,7 @@ test('studio has separate biographies, educational roles, live dossiers and exac
 }) => {
   for (const lang of ['ru', 'en']) {
     await page.goto(`/${lang}/studio/`);
-    await expect(page.locator('#people article.list-row')).toHaveCount(2);
+    await expect(page.locator('#people > .section-body > article.list-row')).toHaveCount(2);
     await expect(page.locator('#person-olga')).toContainText(
       lang === 'ru' ? 'Ольга Арабова' : 'Olga Arabova',
     );

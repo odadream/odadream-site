@@ -10,7 +10,7 @@ import json
 from pathlib import Path
 import re
 import sys
-from urllib.parse import parse_qs, urlsplit
+from urllib.parse import parse_qs, urlsplit, quote
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--hub', required=True)
@@ -101,9 +101,23 @@ for provider, source_id in [('google', 'odadream-site-ga4'), ('metrica', 'odadre
         results['providers'][provider] = result
     except Exception as exc:
         results['providers'][provider] = safe_error(exc)
+try:
+    source = next(row for row in config.sources if row['id'] == 'odadream-search-console')
+    auth = bearer(make_collector(source['provider'], source, hub).token())
+    report = http.request('POST', 'https://searchconsole.googleapis.com/webmasters/v3/sites/' + quote(source['site_url'], safe='') + '/searchAnalytics/query', headers=auth, json_body={'startDate': start.isoformat(), 'endDate': end.isoformat(), 'dimensions': ['page'], 'type': 'web', 'dataState': 'final', 'rowLimit': 1000, 'dimensionFilterGroups': [{'filters': [{'dimension': 'page', 'operator': 'includingRegex', 'expression': r'^https?://(?:www\.)?odadream\.art(?:/|$)'}]}]})
+    totals = {}
+    for row in report.get('rows', []):
+        key = classify(row['keys'][0])
+        total = totals.setdefault(key, {'kind': key[0], 'identity': key[1], 'clicks': 0, 'impressions': 0})
+        total['clicks'] += row.get('clicks', 0)
+        total['impressions'] += row.get('impressions', 0)
+    results['searchConsole'] = {'status': 'read-verified', 'property': source['site_url'], 'rowsReturned': len(report.get('rows', [])), 'rowLimit': 1000, 'dataState': 'final', 'type': 'web', 'dateTimezone': 'America/Los_Angeles', 'guaranteeAllRows': False, 'entries': list(totals.values()), 'limitation': 'Search Console returns top rows, not a guarantee of all indexed/visited URLs. No observed legacy row does not prove no indexed entrance. Only page aggregates; search terms and raw query/contact values are not saved.'}
+except Exception as exc:
+    results['searchConsole'] = safe_error(exc)
 results['limitation'] = 'Provider settings and historical aggregate traffic are not a live V2 delivery test. No observed traffic does not establish no external entrances; dates, consent, provider capture and truncation limit coverage. Unknown URLs and all query/contact payloads are redacted. No provider/hub state changed.'
 inventory['currentAnalyticsPreflight'] = results
 inventory_path.write_text(json.dumps(inventory, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
 for name, result in results['providers'].items():
     traffic = result.get('traffic', {})
     print(json.dumps({'provider': name, 'status': result['status'], 'trafficStatus': traffic.get('status'), 'rowCount': traffic.get('rowCount'), 'complete': traffic.get('complete'), 'entries': traffic.get('entries'), 'httpStatus': traffic.get('httpStatus')}, ensure_ascii=False))
+print(json.dumps({'searchConsole': results['searchConsole']}, ensure_ascii=False))

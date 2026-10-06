@@ -1,16 +1,21 @@
 import type { WorkDocument } from './work-details';
 import type { Rights } from './site';
 import type { SourceReference } from './editorial';
+import { sourceSnapshots } from './editorial';
+const refs = (...files: string[]) => files.map((file) => sourceSnapshots[file]);
 
 export type DocumentMetadata = Pick<
   WorkDocument,
   'id' | 'title' | 'description' | 'href' | 'year' | 'language' | 'pages' | 'bytes'
 >;
 export interface ReferenceDocument extends DocumentMetadata {
-  kind: 'technical-overview';
+  kind: 'technical-overview' | 'cv';
+  personId?: string;
   owner: { kind: 'cooperation' | 'studio'; id: string };
   requiredFormats: string[];
   requiredPeople: string[];
+  requiredWorks?: string[];
+  requiredCases?: string[];
   asOf: string;
   rights: Rights;
   sha256: string;
@@ -48,63 +53,19 @@ export const referenceDocuments: ReferenceDocument[] = [
     rights: 'cleared',
     sha256: '93be5b48e1fc658fd60c8d4503772a12f63db9fed0ab15e29517dd70361bae76',
     contentFingerprint: '5882f6f6ccda6e01e17be58626558a9024fa41667af0d2683f97cc13cd2f4310',
-    sourceRefs: [
-      {
-        file: 'mindshow.md',
-        sha256: '2f1ec367646d8a7bc439ce55ec4e96454bbec005807d4c535f8335b0e03d5ffa',
-        snapshot: '2026-10-06',
-      },
-      {
-        file: 'hub-host-events.md',
-        sha256: 'ad1457377cb0f05148e726ac485cdfebcbb4ac7fb8886fd933a3a844a27e500e',
-        snapshot: '2026-10-06',
-      },
-      {
-        file: 'hub-collab.md',
-        sha256: '12f7d5307ee36168fca26eeef06ef7545e241ae02327d84b1e72250398ee1fef',
-        snapshot: '2026-10-06',
-      },
-      {
-        file: 'neurobattle.md',
-        sha256: '4d8e095213544cda0de10d4450ed4f1714a95917b66ef69fadcd3f52655ecc98',
-        snapshot: '2026-10-06',
-      },
-      {
-        file: 'hub-lectures.md',
-        sha256: '8640c12613c002b01bbe5ee7c54bf202d647c979ea4ba3e2f22078d8cfb411f4',
-        snapshot: '2026-10-06',
-      },
-      {
-        file: 'hub-education.md',
-        sha256: '9ddef4b4459c23304b1c5568f08b7c066587043439bf5183caa265b52b4670ae',
-        snapshot: '2026-10-06',
-      },
-      {
-        file: 'hub-institutions.md',
-        sha256: '4c7c7585fca2fd1bcc25a3fb3e8686ffe24015df29e77ed7ec5c0a6f83449cb9',
-        snapshot: '2026-10-06',
-      },
-      {
-        file: 'hub-galleries.md',
-        sha256: '589b5f9d9f1f8358fac90af050129f2f80e7de67ba202882f8e71b39312973ee',
-        snapshot: '2026-10-06',
-      },
-      {
-        file: 'hub-event-agencies.md',
-        sha256: 'a2ad89edc59edfb4486e4a253b8abc1f0dba1da17af009644cd053b515019491',
-        snapshot: '2026-10-06',
-      },
-      {
-        file: 'hub-business.md',
-        sha256: '0707d9a96cf473bd57671644b8250069ef60f2537259381480663e5fb5d73440',
-        snapshot: '2026-10-06',
-      },
-      {
-        file: 'hub-creators.md',
-        sha256: '355a1b04f6fcb97bc7fc82622acf0c403054ecf237b4fee9aac0afec364fdff4',
-        snapshot: '2026-10-06',
-      },
-    ],
+    sourceRefs: refs(
+      'mindshow.md',
+      'hub-host-events.md',
+      'hub-collab.md',
+      'neurobattle.md',
+      'hub-lectures.md',
+      'hub-education.md',
+      'hub-institutions.md',
+      'hub-galleries.md',
+      'hub-event-agencies.md',
+      'hub-business.md',
+      'hub-creators.md',
+    ),
     source:
       'Typed V2 format conditions and cooperation scope; source snapshots recorded in sourceRefs. Authored overview, 2026-10-06.',
   },
@@ -134,64 +95,197 @@ export const referenceDocuments: ReferenceDocument[] = [
     rights: 'cleared',
     sha256: 'f51b66a6d2584fa2e5629a1a31b144b66e0c222a8cff58a2c1391b07b0b2f7fd',
     contentFingerprint: '5882f6f6ccda6e01e17be58626558a9024fa41667af0d2683f97cc13cd2f4310',
-    sourceRefs: [
-      {
-        file: 'mindshow.md',
-        sha256: '2f1ec367646d8a7bc439ce55ec4e96454bbec005807d4c535f8335b0e03d5ffa',
-        snapshot: '2026-10-06',
-      },
-      {
-        file: 'hub-host-events.md',
-        sha256: 'ad1457377cb0f05148e726ac485cdfebcbb4ac7fb8886fd933a3a844a27e500e',
-        snapshot: '2026-10-06',
-      },
-      {
-        file: 'hub-collab.md',
-        sha256: '12f7d5307ee36168fca26eeef06ef7545e241ae02327d84b1e72250398ee1fef',
-        snapshot: '2026-10-06',
-      },
-      {
-        file: 'neurobattle.md',
-        sha256: '4d8e095213544cda0de10d4450ed4f1714a95917b66ef69fadcd3f52655ecc98',
-        snapshot: '2026-10-06',
-      },
-      {
-        file: 'hub-lectures.md',
-        sha256: '8640c12613c002b01bbe5ee7c54bf202d647c979ea4ba3e2f22078d8cfb411f4',
-        snapshot: '2026-10-06',
-      },
-      {
-        file: 'hub-education.md',
-        sha256: '9ddef4b4459c23304b1c5568f08b7c066587043439bf5183caa265b52b4670ae',
-        snapshot: '2026-10-06',
-      },
-      {
-        file: 'hub-institutions.md',
-        sha256: '4c7c7585fca2fd1bcc25a3fb3e8686ffe24015df29e77ed7ec5c0a6f83449cb9',
-        snapshot: '2026-10-06',
-      },
-      {
-        file: 'hub-galleries.md',
-        sha256: '589b5f9d9f1f8358fac90af050129f2f80e7de67ba202882f8e71b39312973ee',
-        snapshot: '2026-10-06',
-      },
-      {
-        file: 'hub-event-agencies.md',
-        sha256: 'a2ad89edc59edfb4486e4a253b8abc1f0dba1da17af009644cd053b515019491',
-        snapshot: '2026-10-06',
-      },
-      {
-        file: 'hub-business.md',
-        sha256: '0707d9a96cf473bd57671644b8250069ef60f2537259381480663e5fb5d73440',
-        snapshot: '2026-10-06',
-      },
-      {
-        file: 'hub-creators.md',
-        sha256: '355a1b04f6fcb97bc7fc82622acf0c403054ecf237b4fee9aac0afec364fdff4',
-        snapshot: '2026-10-06',
-      },
-    ],
+    sourceRefs: refs(
+      'mindshow.md',
+      'hub-host-events.md',
+      'hub-collab.md',
+      'neurobattle.md',
+      'hub-lectures.md',
+      'hub-education.md',
+      'hub-institutions.md',
+      'hub-galleries.md',
+      'hub-event-agencies.md',
+      'hub-business.md',
+      'hub-creators.md',
+    ),
     source:
       'Typed V2 format conditions and cooperation scope; source snapshots recorded in sourceRefs. Authored overview, 2026-10-06.',
+  },
+
+  {
+    id: 'cv-olga-ru',
+    kind: 'cv',
+    personId: 'olga',
+    owner: {
+      kind: 'studio',
+      id: 'studio',
+    },
+    requiredPeople: ['olga'],
+    requiredFormats: [],
+    requiredWorks: ['mindshow', 'neurobattle', 'interference'],
+    requiredCases: ['tsiolkovsky-2026', 'cipr-2026'],
+    asOf: '2026-10-06',
+    language: 'ru',
+    title: {
+      ru: 'CV · Ольга Арабова',
+      en: 'CV · Olga Arabova',
+    },
+    description: {
+      ru: 'Биография, образование и профессиональный опыт, выбранные проекты и события студии. Версия от 6 октября 2026.',
+      en: 'Biography, education and professional background, selected studio projects and engagements. Version dated 6 October 2026.',
+    },
+    href: '/documents/oda-dream-cv-olga-ru.pdf',
+    year: 2026,
+    pages: 1,
+    bytes: 24960,
+    rights: 'cleared',
+    sha256: '0f0a644f495ca2a71632f7f76c7cc346627c7eb6c50eb87e8c23870f26bb4ece',
+    contentFingerprint: '081539b21bf3f9d63a36e620096413fad99e7e3835117d1c038d3122d2b031ac',
+    sourceRefs: refs(
+      'hub-cv.md',
+      'Olga_Arabova_CV.md',
+      'interference.md',
+      'schrodinger.md',
+      'mindshow.md',
+      'neurobattle.md',
+      'event-tsiolkovsky-2026.md',
+      'event-cipr-mindshow-2026.md',
+      'proof-tst-cipr-techfriendly.md',
+      'org-ashram.md',
+    ),
+    source:
+      'Curated V2 biography and selected studio projects; owner-provided CYENS profile snapshot recorded in sourceRefs. Current CV export, 2026-10-06.',
+  },
+  {
+    id: 'cv-olga-en',
+    kind: 'cv',
+    personId: 'olga',
+    owner: {
+      kind: 'studio',
+      id: 'studio',
+    },
+    requiredPeople: ['olga'],
+    requiredFormats: [],
+    requiredWorks: ['mindshow', 'neurobattle', 'interference'],
+    requiredCases: ['tsiolkovsky-2026', 'cipr-2026'],
+    asOf: '2026-10-06',
+    language: 'en',
+    title: {
+      ru: 'CV · Ольга Арабова',
+      en: 'CV · Olga Arabova',
+    },
+    description: {
+      ru: 'Биография, образование и профессиональный опыт, выбранные проекты и события студии. Версия от 6 октября 2026.',
+      en: 'Biography, education and professional background, selected studio projects and engagements. Version dated 6 October 2026.',
+    },
+    href: '/documents/oda-dream-cv-olga-en.pdf',
+    year: 2026,
+    pages: 1,
+    bytes: 20964,
+    rights: 'cleared',
+    sha256: 'a5a59cdf1dacda230cb72254707efcd02dcd839a2c56d2c6d716b4dfa6ed933e',
+    contentFingerprint: '081539b21bf3f9d63a36e620096413fad99e7e3835117d1c038d3122d2b031ac',
+    sourceRefs: refs(
+      'hub-cv.md',
+      'Olga_Arabova_CV.md',
+      'interference.md',
+      'schrodinger.md',
+      'mindshow.md',
+      'neurobattle.md',
+      'event-tsiolkovsky-2026.md',
+      'event-cipr-mindshow-2026.md',
+      'proof-tst-cipr-techfriendly.md',
+      'org-ashram.md',
+    ),
+    source:
+      'Curated V2 biography and selected studio projects; owner-provided CYENS profile snapshot recorded in sourceRefs. Current CV export, 2026-10-06.',
+  },
+  {
+    id: 'cv-daler-ru',
+    kind: 'cv',
+    personId: 'daler',
+    owner: {
+      kind: 'studio',
+      id: 'studio',
+    },
+    requiredPeople: ['daler'],
+    requiredFormats: [],
+    requiredWorks: ['mindshow', 'neurobattle', 'interference'],
+    requiredCases: ['tsiolkovsky-2026', 'cipr-2026'],
+    asOf: '2026-10-06',
+    language: 'ru',
+    title: {
+      ru: 'CV · Далер Арабов',
+      en: 'CV · Daler Arabov',
+    },
+    description: {
+      ru: 'Биография, образование и профессиональный опыт, выбранные проекты и события студии. Версия от 6 октября 2026.',
+      en: 'Biography, education and professional background, selected studio projects and engagements. Version dated 6 October 2026.',
+    },
+    href: '/documents/oda-dream-cv-daler-ru.pdf',
+    year: 2026,
+    pages: 1,
+    bytes: 25365,
+    rights: 'cleared',
+    sha256: '0d392fd86422dd3cf01688075cbc3ae9986607ea8f4dc1ab40ba944af4db2df8',
+    contentFingerprint: '029f41f81513d8b3d89d30f871d5424c0d0aa66fd02f6265539863177a5d39b0',
+    sourceRefs: refs(
+      'hub-cv.md',
+      'Daler_Arabov_CV.md',
+      'interference.md',
+      'schrodinger.md',
+      'mindshow.md',
+      'neurobattle.md',
+      'event-tsiolkovsky-2026.md',
+      'event-cipr-mindshow-2026.md',
+      'proof-tst-cipr-techfriendly.md',
+      'org-ashram.md',
+    ),
+    source:
+      'Curated V2 biography and selected studio projects; owner-provided CYENS profile snapshot recorded in sourceRefs. Current CV export, 2026-10-06.',
+  },
+  {
+    id: 'cv-daler-en',
+    kind: 'cv',
+    personId: 'daler',
+    owner: {
+      kind: 'studio',
+      id: 'studio',
+    },
+    requiredPeople: ['daler'],
+    requiredFormats: [],
+    requiredWorks: ['mindshow', 'neurobattle', 'interference'],
+    requiredCases: ['tsiolkovsky-2026', 'cipr-2026'],
+    asOf: '2026-10-06',
+    language: 'en',
+    title: {
+      ru: 'CV · Далер Арабов',
+      en: 'CV · Daler Arabov',
+    },
+    description: {
+      ru: 'Биография, образование и профессиональный опыт, выбранные проекты и события студии. Версия от 6 октября 2026.',
+      en: 'Biography, education and professional background, selected studio projects and engagements. Version dated 6 October 2026.',
+    },
+    href: '/documents/oda-dream-cv-daler-en.pdf',
+    year: 2026,
+    pages: 1,
+    bytes: 20995,
+    rights: 'cleared',
+    sha256: 'a8827265adce52a3731d14cf937445fab5add2a29c18c9a30da8028b55b4ac1b',
+    contentFingerprint: '029f41f81513d8b3d89d30f871d5424c0d0aa66fd02f6265539863177a5d39b0',
+    sourceRefs: refs(
+      'hub-cv.md',
+      'Daler_Arabov_CV.md',
+      'interference.md',
+      'schrodinger.md',
+      'mindshow.md',
+      'neurobattle.md',
+      'event-tsiolkovsky-2026.md',
+      'event-cipr-mindshow-2026.md',
+      'proof-tst-cipr-techfriendly.md',
+      'org-ashram.md',
+    ),
+    source:
+      'Curated V2 biography and selected studio projects; owner-provided CYENS profile snapshot recorded in sourceRefs. Current CV export, 2026-10-06.',
   },
 ];

@@ -26,7 +26,11 @@ test('selected editorial sources retain exact dated provenance and coverage in t
   assert.deepEqual(Object.keys(data.sourceSnapshots).sort(), Object.keys(inventory.v2SourceSnapshots).sort());
   for (const [file, snapshot] of Object.entries(data.sourceSnapshots)) {
     assert.deepEqual(snapshot, inventory.v2SourceSnapshots[file]);
-    const row = inventory.entries.find((entry) => entry.sourceFile === file);
+    const row =
+      inventory.entries.find((entry) => entry.sourceFile === file) ??
+      inventory.externalSourceSnapshots?.[file];
+    assert.ok(row, `Unregistered editorial source ${file}`);
+    if (inventory.externalSourceSnapshots?.[file]) assert.equal(row.kind, 'external-editorial');
     assert.equal(row.v2Migration.sourceSha256, snapshot.sha256);
     assert.ok(row.v2Migration.targets.length);
   }

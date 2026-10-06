@@ -134,7 +134,9 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
     }
     if (
       row.requiredFormats.some((id) => !formats.some((format) => format.id === id)) ||
-      row.requiredPeople.some((id) => !people.some((person) => person.id === id))
+      row.requiredPeople.some((id) => !people.some((person) => person.id === id)) ||
+      (row.requiredWorks ?? []).some((id) => !workIds.has(id)) ||
+      (row.requiredCases ?? []).some((id) => !cases.some((item) => item.id === id))
     )
       return false;
     return true;
@@ -269,6 +271,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
           ...project(row, [
             'id',
             'kind',
+            'personId',
             'title',
             'description',
             'href',
@@ -415,9 +418,19 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'publication',
           ]),
         ),
-        people: people.map((row) =>
-          project(row, ['id', 'legacyId', 'name', 'role', 'biography', 'publication']),
-        ),
+        people: people.map((row) => ({
+          ...project(row, ['id', 'legacyId', 'name', 'role', 'biography', 'publication']),
+          ...(row.cv
+            ? {
+                cv: {
+                  sections: row.cv.sections.map((section) => pick(section, ['id', 'title', 'body'])),
+                  base: row.cv.base,
+                  workIds: row.cv.workIds.filter((id) => workIds.has(id)),
+                  caseIds: row.cv.caseIds.filter((id) => cases.some((item) => item.id === id)),
+                },
+              }
+            : {}),
+        })),
         recognitions: recognitions.map((row) => ({
           ...project(row, [
             'id',

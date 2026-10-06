@@ -984,6 +984,23 @@ const timeline = [...cases]
               <h3>{person.name[lang]}</h3>
               <p>{person.role[lang]}</p>
               {person.biography && <p>{person.biography[lang]}</p>}
+              {person.cv && (
+                <>
+                  <EditorialSections
+                    sections={person.cv.sections}
+                    lang={lang}
+                    anchorPrefix={`person-${person.id}-cv`}
+                  />
+                  <p class="small-note">{person.cv.base[lang]}</p>
+                </>
+              )}
+              <DocumentList
+                documents={referenceDocuments.filter(
+                  (row) => row.kind === 'cv' && row.personId === person.id && row.language === lang,
+                )}
+                lang={lang}
+                title="CV"
+              />
             </div>
           </article>
         ))}

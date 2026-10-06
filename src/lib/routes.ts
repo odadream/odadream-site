@@ -165,6 +165,14 @@ export const createPages = (
                           'materials',
                           ...records.studioPages[0].teaching.map((row) => `teaching-${row.id}`),
                           ...records.studioPages[0].people.map((id) => `person-${id}`),
+                          ...(records.referenceDocuments ?? [])
+                            .filter(
+                              (row) =>
+                                row.owner.kind === 'studio' &&
+                                row.owner.id === records.studioPages![0].id &&
+                                row.language === lang,
+                            )
+                            .map((row) => `document-${row.id}`),
                         ]
                       : []),
                   ]

@@ -26,7 +26,33 @@ export const studioPeople: Person[] = [
       'Работает с телесным вниманием, коммуникацией и опытом участника. В ODA.dream связывает художественный замысел с фасилитацией: знакомством с форматом, взаимодействием группы и разбором пережитого. Участвует в разработке образовательных и партисипаторных работ.',
       'Works with embodied attention, communication and participant experience. Within ODA.dream, she connects artistic concepts with facilitation: introducing a format, supporting group interaction and reflecting on the experience. She contributes to educational and participatory works.',
     ),
-    sourceRefs: refs('hub-cv.md'),
+    cv: {
+      sections: [
+        {
+          id: 'practice',
+          title: l('Практика', 'Practice'),
+          body: l(
+            'Партисипаторные и образовательные форматы, телесное внимание, коммуникация и фасилитация групп. В художественных проектах связывает взаимодействие участников с замыслом работы и последующим обсуждением опыта.',
+            'Participatory and educational formats, embodied attention, communication and group facilitation. In artistic projects, she connects participant interaction with the work’s concept and reflection on the experience.',
+          ),
+        },
+        {
+          id: 'background',
+          title: l('Образование и профессиональный опыт', 'Education and professional background'),
+          body: l(
+            'В биографическом источнике для заявки CYENS указаны высшее образование в Астраханском государственном техническом университете, коучинговая квалификация ICF PCC и подготовка в телесных и танцевально-двигательных практиках. Даты обучения и текущий сертификационный статус источником не уточнены.',
+            'The CYENS application biography records higher education at Astrakhan State Technical University, an ICF PCC coaching qualification, and training in embodied and dance-movement practices. Study dates and current certification status are not specified by the source.',
+          ),
+        },
+      ],
+      base: l(
+        'Текущая рабочая база и условия поездок уточняются при обращении.',
+        'Current working base and travel arrangements are confirmed on inquiry.',
+      ),
+      workIds: ['mindshow', 'neurobattle', 'interference'],
+      caseIds: ['tsiolkovsky-2026', 'cipr-2026'],
+    },
+    sourceRefs: refs('hub-cv.md', 'Olga_Arabova_CV.md'),
     source: 'src/content/hub-cv.md',
     publication: 'review',
   },
@@ -38,7 +64,33 @@ export const studioPeople: Person[] = [
       'Создаёт системы реального времени, генеративные среды и взаимодействия с нейроинтерфейсами. В ODA.dream соединяет художественный визуальный язык с архитектурой сенсоров и авторского ПО, подготовкой сценической или выставочной конфигурации и её работой во время показа.',
       'Creates real-time systems, generative environments and interactions with neurointerfaces. Within ODA.dream, he connects an artistic visual language with sensor and custom-software architecture, the preparation of stage or exhibition configurations and their operation during a presentation.',
     ),
-    sourceRefs: refs('hub-cv.md'),
+    cv: {
+      sections: [
+        {
+          id: 'practice',
+          title: l('Практика', 'Practice'),
+          body: l(
+            'Генеративные среды, интерактивные инсталляции, сценические системы и прототипирование художественных интерфейсов. Соединяет программирование, сенсоры и визуальный язык с подготовкой и работой системы во время показа.',
+            'Generative environments, interactive installations, stage systems and artistic-interface prototyping. He connects software, sensors and a visual language with preparing and operating a system during a presentation.',
+          ),
+        },
+        {
+          id: 'background',
+          title: l('Образование и профессиональный опыт', 'Education and professional background'),
+          body: l(
+            'Биографический источник CYENS указывает инженерное образование в МГТУ им. Н. Э. Баумана по направлению проектирования и технологии электронной аппаратуры, преподавание технического творчества, руководство выпускными работами и создание FabLab «ЦЕХ-4» в МГТУ. Точные периоды в источнике не приведены.',
+            'The CYENS biography records an engineering degree in electronic-equipment design and technology at Bauman Moscow State Technical University, teaching technical creativity, supervising graduation projects and founding FabLab TSEKH-4 at BMSTU. Exact periods are not provided by the source.',
+          ),
+        },
+      ],
+      base: l(
+        'Текущая рабочая база и условия поездок уточняются при обращении.',
+        'Current working base and travel arrangements are confirmed on inquiry.',
+      ),
+      workIds: ['mindshow', 'neurobattle', 'interference'],
+      caseIds: ['tsiolkovsky-2026', 'cipr-2026'],
+    },
+    sourceRefs: refs('hub-cv.md', 'Daler_Arabov_CV.md'),
     source: 'src/content/hub-cv.md',
     publication: 'review',
   },
