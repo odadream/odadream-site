@@ -15069,5 +15069,904 @@
       }
     ],
     "note": "All 11 archived PDFs parsed. Annotation links inspected, not fetched. Contacts counted without address disclosure. Printed QR destinations and links hidden in raster artwork are not established by this audit. No publication or retirement approvals inferred."
+  },
+  "currentCandidateVerification": {
+    "asOf": "2026-10-06",
+    "fixture": true,
+    "scope": "Selected packet with synthetic approval statuses in an isolated private copy; rights are unchanged. Not a release artifact.",
+    "localizedPages": 44,
+    "works": 9,
+    "cases": 7,
+    "workDocuments": 2,
+    "recognitions": 0,
+    "minddb": false,
+    "internalLinksChecked": 846,
+    "geometryScenarios": 60,
+    "resourcesWithHttp200": 29,
+    "environment": {
+      "node": "v22.17.0",
+      "platform": "win32",
+      "chromium": "153.0.8010.12",
+      "server": "Loopback HTTP, no compression or cache headers; not the target hosting configuration",
+      "runsPerScenario": 3,
+      "lighthouse": "12.8.2"
+    },
+    "performance": [
+      {
+        "mode": "mobile",
+        "path": "/ru/",
+        "runs": [
+          {
+            "scores": {
+              "performance": 85,
+              "accessibility": 100,
+              "best-practices": 100,
+              "seo": 100
+            },
+            "fcpMs": 1509,
+            "lcpMs": 4368,
+            "cls": 0.0004373260147328842,
+            "tbtMs": 0,
+            "failedAudits": [
+              {
+                "id": "first-contentful-paint",
+                "title": "First Contentful Paint",
+                "score": 0.96
+              },
+              {
+                "id": "largest-contentful-paint",
+                "title": "Largest Contentful Paint",
+                "score": 0.4
+              },
+              {
+                "id": "interactive",
+                "title": "Time to Interactive",
+                "score": 0.82
+              },
+              {
+                "id": "largest-contentful-paint-element",
+                "title": "Largest Contentful Paint element",
+                "score": 0
+              },
+              {
+                "id": "unsized-images",
+                "title": "Image elements do not have explicit `width` and `height`",
+                "score": 0.5
+              },
+              {
+                "id": "uses-long-cache-ttl",
+                "title": "Serve static assets with an efficient cache policy",
+                "score": 0.5
+              },
+              {
+                "id": "render-blocking-resources",
+                "title": "Eliminate render-blocking resources",
+                "score": 0
+              },
+              {
+                "id": "unused-css-rules",
+                "title": "Reduce unused CSS",
+                "score": 0
+              },
+              {
+                "id": "uses-text-compression",
+                "title": "Enable text compression",
+                "score": 0
+              },
+              {
+                "id": "uses-responsive-images",
+                "title": "Properly size images",
+                "score": 0
+              },
+              {
+                "id": "cache-insight",
+                "title": "Use efficient cache lifetimes",
+                "score": 0
+              },
+              {
+                "id": "document-latency-insight",
+                "title": "Document request latency",
+                "score": 0.5
+              },
+              {
+                "id": "forced-reflow-insight",
+                "title": "Forced reflow",
+                "score": 0
+              },
+              {
+                "id": "image-delivery-insight",
+                "title": "Improve image delivery",
+                "score": 0
+              },
+              {
+                "id": "lcp-discovery-insight",
+                "title": "LCP request discovery",
+                "score": 0
+              },
+              {
+                "id": "network-dependency-tree-insight",
+                "title": "Network dependency tree",
+                "score": 0
+              },
+              {
+                "id": "render-blocking-insight",
+                "title": "Render blocking requests",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "scores": {
+              "performance": 83,
+              "accessibility": 100,
+              "best-practices": 100,
+              "seo": 100
+            },
+            "fcpMs": 1662,
+            "lcpMs": 4374,
+            "cls": 0.0004373260147328842,
+            "tbtMs": 133,
+            "failedAudits": [
+              {
+                "id": "first-contentful-paint",
+                "title": "First Contentful Paint",
+                "score": 0.93
+              },
+              {
+                "id": "largest-contentful-paint",
+                "title": "Largest Contentful Paint",
+                "score": 0.4
+              },
+              {
+                "id": "total-blocking-time",
+                "title": "Total Blocking Time",
+                "score": 0.96
+              },
+              {
+                "id": "max-potential-fid",
+                "title": "Max Potential First Input Delay",
+                "score": 0.72
+              },
+              {
+                "id": "interactive",
+                "title": "Time to Interactive",
+                "score": 0.82
+              },
+              {
+                "id": "largest-contentful-paint-element",
+                "title": "Largest Contentful Paint element",
+                "score": 0
+              },
+              {
+                "id": "unsized-images",
+                "title": "Image elements do not have explicit `width` and `height`",
+                "score": 0.5
+              },
+              {
+                "id": "uses-long-cache-ttl",
+                "title": "Serve static assets with an efficient cache policy",
+                "score": 0.5
+              },
+              {
+                "id": "render-blocking-resources",
+                "title": "Eliminate render-blocking resources",
+                "score": 0
+              },
+              {
+                "id": "unused-css-rules",
+                "title": "Reduce unused CSS",
+                "score": 0
+              },
+              {
+                "id": "uses-text-compression",
+                "title": "Enable text compression",
+                "score": 0
+              },
+              {
+                "id": "uses-responsive-images",
+                "title": "Properly size images",
+                "score": 0
+              },
+              {
+                "id": "cache-insight",
+                "title": "Use efficient cache lifetimes",
+                "score": 0
+              },
+              {
+                "id": "document-latency-insight",
+                "title": "Document request latency",
+                "score": 0.5
+              },
+              {
+                "id": "forced-reflow-insight",
+                "title": "Forced reflow",
+                "score": 0
+              },
+              {
+                "id": "image-delivery-insight",
+                "title": "Improve image delivery",
+                "score": 0
+              },
+              {
+                "id": "lcp-discovery-insight",
+                "title": "LCP request discovery",
+                "score": 0
+              },
+              {
+                "id": "network-dependency-tree-insight",
+                "title": "Network dependency tree",
+                "score": 0
+              },
+              {
+                "id": "render-blocking-insight",
+                "title": "Render blocking requests",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "scores": {
+              "performance": 84,
+              "accessibility": 100,
+              "best-practices": 100,
+              "seo": 100
+            },
+            "fcpMs": 1659,
+            "lcpMs": 4443,
+            "cls": 0.0004373260147328842,
+            "tbtMs": 0,
+            "failedAudits": [
+              {
+                "id": "first-contentful-paint",
+                "title": "First Contentful Paint",
+                "score": 0.93
+              },
+              {
+                "id": "largest-contentful-paint",
+                "title": "Largest Contentful Paint",
+                "score": 0.38
+              },
+              {
+                "id": "interactive",
+                "title": "Time to Interactive",
+                "score": 0.81
+              },
+              {
+                "id": "largest-contentful-paint-element",
+                "title": "Largest Contentful Paint element",
+                "score": 0
+              },
+              {
+                "id": "unsized-images",
+                "title": "Image elements do not have explicit `width` and `height`",
+                "score": 0.5
+              },
+              {
+                "id": "uses-long-cache-ttl",
+                "title": "Serve static assets with an efficient cache policy",
+                "score": 0.5
+              },
+              {
+                "id": "render-blocking-resources",
+                "title": "Eliminate render-blocking resources",
+                "score": 0
+              },
+              {
+                "id": "unused-css-rules",
+                "title": "Reduce unused CSS",
+                "score": 0
+              },
+              {
+                "id": "uses-text-compression",
+                "title": "Enable text compression",
+                "score": 0
+              },
+              {
+                "id": "uses-responsive-images",
+                "title": "Properly size images",
+                "score": 0
+              },
+              {
+                "id": "cache-insight",
+                "title": "Use efficient cache lifetimes",
+                "score": 0
+              },
+              {
+                "id": "document-latency-insight",
+                "title": "Document request latency",
+                "score": 0.5
+              },
+              {
+                "id": "forced-reflow-insight",
+                "title": "Forced reflow",
+                "score": 0
+              },
+              {
+                "id": "image-delivery-insight",
+                "title": "Improve image delivery",
+                "score": 0
+              },
+              {
+                "id": "lcp-discovery-insight",
+                "title": "LCP request discovery",
+                "score": 0
+              },
+              {
+                "id": "network-dependency-tree-insight",
+                "title": "Network dependency tree",
+                "score": 0
+              },
+              {
+                "id": "render-blocking-insight",
+                "title": "Render blocking requests",
+                "score": 0
+              }
+            ]
+          }
+        ],
+        "scores": {
+          "performance": 84,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "fcpMs": 1659,
+        "lcpMs": 4374,
+        "cls": 0.0004373260147328842,
+        "tbtMs": 0
+      },
+      {
+        "mode": "desktop",
+        "path": "/ru/",
+        "runs": [
+          {
+            "scores": {
+              "performance": 99,
+              "accessibility": 100,
+              "best-practices": 100,
+              "seo": 100
+            },
+            "fcpMs": 375,
+            "lcpMs": 840,
+            "cls": 0.000153845255815311,
+            "tbtMs": 0,
+            "failedAudits": [
+              {
+                "id": "largest-contentful-paint",
+                "title": "Largest Contentful Paint",
+                "score": 0.97
+              },
+              {
+                "id": "unsized-images",
+                "title": "Image elements do not have explicit `width` and `height`",
+                "score": 0.5
+              },
+              {
+                "id": "uses-long-cache-ttl",
+                "title": "Serve static assets with an efficient cache policy",
+                "score": 0.5
+              },
+              {
+                "id": "render-blocking-resources",
+                "title": "Eliminate render-blocking resources",
+                "score": 0.5
+              },
+              {
+                "id": "unused-css-rules",
+                "title": "Reduce unused CSS",
+                "score": 0.5
+              },
+              {
+                "id": "uses-text-compression",
+                "title": "Enable text compression",
+                "score": 0
+              },
+              {
+                "id": "uses-responsive-images",
+                "title": "Properly size images",
+                "score": 0
+              },
+              {
+                "id": "cache-insight",
+                "title": "Use efficient cache lifetimes",
+                "score": 0
+              },
+              {
+                "id": "document-latency-insight",
+                "title": "Document request latency",
+                "score": 0.5
+              },
+              {
+                "id": "forced-reflow-insight",
+                "title": "Forced reflow",
+                "score": 0
+              },
+              {
+                "id": "image-delivery-insight",
+                "title": "Improve image delivery",
+                "score": 0
+              },
+              {
+                "id": "lcp-discovery-insight",
+                "title": "LCP request discovery",
+                "score": 0
+              },
+              {
+                "id": "network-dependency-tree-insight",
+                "title": "Network dependency tree",
+                "score": 0
+              },
+              {
+                "id": "render-blocking-insight",
+                "title": "Render blocking requests",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "scores": {
+              "performance": 99,
+              "accessibility": 100,
+              "best-practices": 100,
+              "seo": 100
+            },
+            "fcpMs": 457,
+            "lcpMs": 842,
+            "cls": 0.000153845255815311,
+            "tbtMs": 0,
+            "failedAudits": [
+              {
+                "id": "largest-contentful-paint",
+                "title": "Largest Contentful Paint",
+                "score": 0.97
+              },
+              {
+                "id": "unsized-images",
+                "title": "Image elements do not have explicit `width` and `height`",
+                "score": 0.5
+              },
+              {
+                "id": "uses-long-cache-ttl",
+                "title": "Serve static assets with an efficient cache policy",
+                "score": 0.5
+              },
+              {
+                "id": "render-blocking-resources",
+                "title": "Eliminate render-blocking resources",
+                "score": 0.5
+              },
+              {
+                "id": "unused-css-rules",
+                "title": "Reduce unused CSS",
+                "score": 0.5
+              },
+              {
+                "id": "uses-text-compression",
+                "title": "Enable text compression",
+                "score": 0
+              },
+              {
+                "id": "uses-responsive-images",
+                "title": "Properly size images",
+                "score": 0
+              },
+              {
+                "id": "cache-insight",
+                "title": "Use efficient cache lifetimes",
+                "score": 0
+              },
+              {
+                "id": "document-latency-insight",
+                "title": "Document request latency",
+                "score": 0.5
+              },
+              {
+                "id": "forced-reflow-insight",
+                "title": "Forced reflow",
+                "score": 0
+              },
+              {
+                "id": "image-delivery-insight",
+                "title": "Improve image delivery",
+                "score": 0
+              },
+              {
+                "id": "lcp-discovery-insight",
+                "title": "LCP request discovery",
+                "score": 0
+              },
+              {
+                "id": "network-dependency-tree-insight",
+                "title": "Network dependency tree",
+                "score": 0
+              },
+              {
+                "id": "render-blocking-insight",
+                "title": "Render blocking requests",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "scores": {
+              "performance": 99,
+              "accessibility": 100,
+              "best-practices": 100,
+              "seo": 100
+            },
+            "fcpMs": 408,
+            "lcpMs": 857,
+            "cls": 0.000153845255815311,
+            "tbtMs": 0,
+            "failedAudits": [
+              {
+                "id": "largest-contentful-paint",
+                "title": "Largest Contentful Paint",
+                "score": 0.97
+              },
+              {
+                "id": "unsized-images",
+                "title": "Image elements do not have explicit `width` and `height`",
+                "score": 0.5
+              },
+              {
+                "id": "uses-long-cache-ttl",
+                "title": "Serve static assets with an efficient cache policy",
+                "score": 0.5
+              },
+              {
+                "id": "render-blocking-resources",
+                "title": "Eliminate render-blocking resources",
+                "score": 0
+              },
+              {
+                "id": "unused-css-rules",
+                "title": "Reduce unused CSS",
+                "score": 0
+              },
+              {
+                "id": "uses-text-compression",
+                "title": "Enable text compression",
+                "score": 0
+              },
+              {
+                "id": "uses-responsive-images",
+                "title": "Properly size images",
+                "score": 0
+              },
+              {
+                "id": "cache-insight",
+                "title": "Use efficient cache lifetimes",
+                "score": 0
+              },
+              {
+                "id": "document-latency-insight",
+                "title": "Document request latency",
+                "score": 0.5
+              },
+              {
+                "id": "forced-reflow-insight",
+                "title": "Forced reflow",
+                "score": 0
+              },
+              {
+                "id": "image-delivery-insight",
+                "title": "Improve image delivery",
+                "score": 0
+              },
+              {
+                "id": "lcp-discovery-insight",
+                "title": "LCP request discovery",
+                "score": 0
+              },
+              {
+                "id": "network-dependency-tree-insight",
+                "title": "Network dependency tree",
+                "score": 0
+              },
+              {
+                "id": "render-blocking-insight",
+                "title": "Render blocking requests",
+                "score": 0
+              }
+            ]
+          }
+        ],
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "fcpMs": 408,
+        "lcpMs": 842,
+        "cls": 0.000153845255815311,
+        "tbtMs": 0
+      },
+      {
+        "mode": "mobile",
+        "path": "/ru/works/oda-rings/",
+        "runs": [
+          {
+            "scores": {
+              "performance": 98,
+              "accessibility": 100,
+              "best-practices": 100,
+              "seo": 100
+            },
+            "fcpMs": 1506,
+            "lcpMs": 2331,
+            "cls": 0.0002428728939244178,
+            "tbtMs": 0,
+            "failedAudits": [
+              {
+                "id": "first-contentful-paint",
+                "title": "First Contentful Paint",
+                "score": 0.96
+              },
+              {
+                "id": "largest-contentful-paint",
+                "title": "Largest Contentful Paint",
+                "score": 0.93
+              },
+              {
+                "id": "interactive",
+                "title": "Time to Interactive",
+                "score": 0.99
+              },
+              {
+                "id": "unsized-images",
+                "title": "Image elements do not have explicit `width` and `height`",
+                "score": 0.5
+              },
+              {
+                "id": "uses-long-cache-ttl",
+                "title": "Serve static assets with an efficient cache policy",
+                "score": 0.5
+              },
+              {
+                "id": "render-blocking-resources",
+                "title": "Eliminate render-blocking resources",
+                "score": 0
+              },
+              {
+                "id": "unused-css-rules",
+                "title": "Reduce unused CSS",
+                "score": 0
+              },
+              {
+                "id": "uses-text-compression",
+                "title": "Enable text compression",
+                "score": 0
+              },
+              {
+                "id": "uses-responsive-images",
+                "title": "Properly size images",
+                "score": 0
+              },
+              {
+                "id": "cache-insight",
+                "title": "Use efficient cache lifetimes",
+                "score": 0
+              },
+              {
+                "id": "document-latency-insight",
+                "title": "Document request latency",
+                "score": 0.5
+              },
+              {
+                "id": "forced-reflow-insight",
+                "title": "Forced reflow",
+                "score": 0
+              },
+              {
+                "id": "image-delivery-insight",
+                "title": "Improve image delivery",
+                "score": 0
+              },
+              {
+                "id": "network-dependency-tree-insight",
+                "title": "Network dependency tree",
+                "score": 0
+              },
+              {
+                "id": "render-blocking-insight",
+                "title": "Render blocking requests",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "scores": {
+              "performance": 98,
+              "accessibility": 100,
+              "best-practices": 100,
+              "seo": 100
+            },
+            "fcpMs": 1658,
+            "lcpMs": 2333,
+            "cls": 0.0002428728939244178,
+            "tbtMs": 0,
+            "failedAudits": [
+              {
+                "id": "first-contentful-paint",
+                "title": "First Contentful Paint",
+                "score": 0.93
+              },
+              {
+                "id": "largest-contentful-paint",
+                "title": "Largest Contentful Paint",
+                "score": 0.93
+              },
+              {
+                "id": "interactive",
+                "title": "Time to Interactive",
+                "score": 0.99
+              },
+              {
+                "id": "unsized-images",
+                "title": "Image elements do not have explicit `width` and `height`",
+                "score": 0.5
+              },
+              {
+                "id": "uses-long-cache-ttl",
+                "title": "Serve static assets with an efficient cache policy",
+                "score": 0.5
+              },
+              {
+                "id": "render-blocking-resources",
+                "title": "Eliminate render-blocking resources",
+                "score": 0
+              },
+              {
+                "id": "unused-css-rules",
+                "title": "Reduce unused CSS",
+                "score": 0
+              },
+              {
+                "id": "uses-text-compression",
+                "title": "Enable text compression",
+                "score": 0
+              },
+              {
+                "id": "uses-responsive-images",
+                "title": "Properly size images",
+                "score": 0
+              },
+              {
+                "id": "cache-insight",
+                "title": "Use efficient cache lifetimes",
+                "score": 0
+              },
+              {
+                "id": "document-latency-insight",
+                "title": "Document request latency",
+                "score": 0.5
+              },
+              {
+                "id": "forced-reflow-insight",
+                "title": "Forced reflow",
+                "score": 0
+              },
+              {
+                "id": "image-delivery-insight",
+                "title": "Improve image delivery",
+                "score": 0
+              },
+              {
+                "id": "network-dependency-tree-insight",
+                "title": "Network dependency tree",
+                "score": 0
+              },
+              {
+                "id": "render-blocking-insight",
+                "title": "Render blocking requests",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "scores": {
+              "performance": 97,
+              "accessibility": 100,
+              "best-practices": 100,
+              "seo": 100
+            },
+            "fcpMs": 1807,
+            "lcpMs": 2336,
+            "cls": 0.0002428728939244178,
+            "tbtMs": 0,
+            "failedAudits": [
+              {
+                "id": "first-contentful-paint",
+                "title": "First Contentful Paint",
+                "score": 0.89
+              },
+              {
+                "id": "largest-contentful-paint",
+                "title": "Largest Contentful Paint",
+                "score": 0.93
+              },
+              {
+                "id": "interactive",
+                "title": "Time to Interactive",
+                "score": 0.99
+              },
+              {
+                "id": "unsized-images",
+                "title": "Image elements do not have explicit `width` and `height`",
+                "score": 0.5
+              },
+              {
+                "id": "uses-long-cache-ttl",
+                "title": "Serve static assets with an efficient cache policy",
+                "score": 0.5
+              },
+              {
+                "id": "render-blocking-resources",
+                "title": "Eliminate render-blocking resources",
+                "score": 0
+              },
+              {
+                "id": "unused-css-rules",
+                "title": "Reduce unused CSS",
+                "score": 0
+              },
+              {
+                "id": "uses-text-compression",
+                "title": "Enable text compression",
+                "score": 0
+              },
+              {
+                "id": "uses-responsive-images",
+                "title": "Properly size images",
+                "score": 0
+              },
+              {
+                "id": "cache-insight",
+                "title": "Use efficient cache lifetimes",
+                "score": 0
+              },
+              {
+                "id": "document-latency-insight",
+                "title": "Document request latency",
+                "score": 0.5
+              },
+              {
+                "id": "forced-reflow-insight",
+                "title": "Forced reflow",
+                "score": 0
+              },
+              {
+                "id": "image-delivery-insight",
+                "title": "Improve image delivery",
+                "score": 0
+              },
+              {
+                "id": "network-dependency-tree-insight",
+                "title": "Network dependency tree",
+                "score": 0
+              },
+              {
+                "id": "render-blocking-insight",
+                "title": "Render blocking requests",
+                "score": 0
+              }
+            ]
+          }
+        ],
+        "scores": {
+          "performance": 98,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "fcpMs": 1658,
+        "lcpMs": 2333,
+        "cls": 0.0002428728939244178,
+        "tbtMs": 0
+      }
+    ],
+    "limitation": "Lighthouse laboratory measurements of this candidate fixture, not field INP, editorial approval, real analytics delivery or permission to deploy."
   }
 }
