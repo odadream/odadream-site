@@ -399,7 +399,9 @@ h3 {
 .section-label .eyebrow {
   max-width: 22ch;
 }
-.section-body > * + * {
+.section-body > * + *,
+.system-content > * + *,
+.work-section > .facts:not(:first-child) {
   margin-top: var(--s5);
 }
 .section-body {
@@ -754,13 +756,22 @@ figcaption {
 .list-row:last-child {
   border-bottom: 1px solid var(--soft-line);
 }
+/* A narrative has one body; metadata rows retain their separate date/body/action tracks. */
+.list-row:has(> :only-child) {
+  grid-template-columns: minmax(0, 1fr);
+}
+.list-row > * {
+  min-width: 0;
+}
 .list-row h3 {
   font-size: var(--type-list-title);
 }
 .list-row p {
   font-size: var(--type-small);
   color: var(--muted);
-  margin-top: var(--s2);
+}
+.list-row > div > * + * {
+  margin-top: var(--gap-copy);
 }
 .list-row .quiet-link {
   white-space: nowrap;
@@ -801,18 +812,26 @@ figcaption {
 .work-section p + p {
   margin-top: var(--s4);
 }
+:where(.facts) {
+  margin: 0;
+}
 .facts {
   list-style: none;
   padding: 0;
-  margin: 0;
   display: grid;
   gap: var(--s3);
   font-size: var(--type-small);
 }
+.facts li {
+  position: relative;
+  padding-inline-start: calc(var(--mark-size) + var(--s3));
+}
 .facts li::before {
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
   content: '↳';
   color: var(--accent);
-  margin-right: var(--s3);
 }
 .provenance {
   background: var(--surface);
@@ -1085,6 +1104,9 @@ figcaption {
   .list-row {
     grid-template-columns: 130px minmax(0, 1fr);
   }
+  .list-row > :nth-child(3) {
+    grid-column: 2;
+  }
   .method-steps {
     grid-template-columns: 1fr;
     gap: var(--s4);
@@ -1135,6 +1157,9 @@ figcaption {
     grid-template-columns: 1fr;
     gap: var(--s3);
   }
+  .list-row > :nth-child(3) {
+    grid-column: auto;
+  }
   .list-row .quiet-link {
     justify-self: start;
   }
@@ -1178,7 +1203,8 @@ figcaption {
 .brand {
   text-decoration: none;
 }
-@media (max-width: 900px) {
+/* Full RU navigation and utility controls need more room than the content grid. */
+@media (max-width: 1200px) {
   .menu-toggle {
     display: block;
     margin-left: auto;

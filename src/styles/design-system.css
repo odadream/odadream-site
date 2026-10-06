@@ -46,6 +46,9 @@
 .system-side > .section-label {
   padding-top: var(--panel-pad);
 }
+.system-side:has(+ .system-content > h2:first-child) > .section-label {
+  padding-top: calc(var(--panel-pad) + var(--label-optical-offset));
+}
 .system-side p {
   margin-top: var(--gap-label);
   color: var(--muted);
@@ -70,9 +73,6 @@
   inset: 0 calc(-1 * var(--panel-pad));
   background: var(--surface);
   pointer-events: none;
-}
-.system-content > * + * {
-  margin-top: var(--gap-group);
 }
 .system-lede {
   max-width: 60ch;
@@ -504,7 +504,8 @@
   .system-side {
     padding-top: 0;
   }
-  .system-side > .section-label {
+  .system-side > .section-label,
+  .system-side:has(+ .system-content > h2:first-child) > .section-label {
     padding-top: 0;
   }
   .swatch-grid {

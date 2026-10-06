@@ -236,6 +236,38 @@ const profileTokens = [
         </p>
       </aside>
       <div class="system-content">
+        <h2>Метка на поле, материал на общей оси</h2>
+        <p>
+          Метка привязана к первой строке заголовка оптически, а не к центру всей секции. Фон панели выступает
+          наружу; заголовок, текст, список и паспорт начинают на одной оси. На телефоне метка предшествует
+          материалу в одном потоке.
+        </p>
+        <article class="list-row" id="system-narrative-row">
+          <div>
+            <h3>Текстовая строка без отдельной даты</h3>
+            <p>
+              Единственный блок занимает доступную колонку. Длина абзаца ограничена шириной чтения, а не
+              пустыми колонками для отсутствующих даты и действия.
+            </p>
+            <CalloutLink href="/ru/cooperation/">Сценарии сотрудничества</CalloutLink>
+          </div>
+        </article>
+        <h3>Список после заголовка</h3>
+        <ul class="facts" id="system-facts">
+          <li>Интервал перед списком равен интервалу между остальными блоками содержания.</li>
+          <li>
+            Длинный пункт переносится по оси текста; маркер остаётся слева. Список может содержать
+            <strong>выделение</strong> и обычные ссылки внутри пункта.
+          </li>
+        </ul>
+        <article class="list-row" id="system-metadata-row">
+          <span class="meta">2026-10-06</span>
+          <div>
+            <h3>Запись с датой и действием</h3>
+            <p>Отдельные реквизиты получают свои колонки; на телефоне следуют в одном потоке.</p>
+          </div>
+          <CalloutLink href="/ru/cases/">Кейсы</CalloutLink>
+        </article>
         <div class="scale-list">
           <div>
             <span>LABEL</span>
@@ -594,6 +626,34 @@ const profileTokens = [
             { label: 'Работа', value: works[0].title.ru, href: `/ru/works/${works[0].slug}/` },
             { label: 'Форма', value: works[0].category.ru },
             { label: 'Кейсы в каталоге', value: works[0].cases.length },
+          ]}
+        />
+        <RecordStamp
+          title="Два поля / вся доступная ширина"
+          wide
+          fields={[
+            { label: 'Студия', value: 'Художественный и технический контур выбранной работы.' },
+            { label: 'Площадка', value: 'Инфраструктура и условия показа по согласованному райдеру.' },
+          ]}
+        />
+        <RecordStamp
+          title="Три поля / без пустой четвёртой ячейки"
+          wide
+          fields={[
+            { label: 'Форма', value: works[0].category.ru },
+            { label: 'Название', value: works[0].title.ru },
+            { label: 'ID', value: works[0].legacyId },
+          ]}
+        />
+        <RecordStamp
+          title="Пять полей / последняя строка заполнена"
+          wide
+          fields={[
+            { label: 'Форма', value: works[0].category.ru },
+            { label: 'Название', value: works[0].title.ru },
+            { label: 'ID', value: works[0].legacyId },
+            { label: 'Кейсы', value: works[0].cases.length },
+            { label: 'Смысл примера', value: 'Оставшееся поле заполняет строку без пустых реквизитов.' },
           ]}
         />
         <dl class="notation-key">

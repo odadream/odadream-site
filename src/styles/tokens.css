@@ -157,6 +157,8 @@
   --type-metric: calc(24px * var(--type-scale));
   --annotation-rule: 1px;
   --stamp-surface: var(--surface);
+  --stamp-columns: 2;
+  --stamp-wide-columns: 4;
 }
 
 :root[data-section='works'] {
@@ -262,6 +264,7 @@
 }
 @media (max-width: 700px) {
   :root {
+    --stamp-wide-columns: 2;
     --header-height: 72px;
     --type-hero-intro: clamp(
       calc(24px * var(--type-scale)),
