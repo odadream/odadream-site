@@ -78,7 +78,7 @@ test('public artifact excludes editorial-only HTML and physical document files',
   expect(errors).toEqual([]);
 });
 
-test('deferred work routes are absent from HTML and sitemap; query links preserve ID and language', async ({
+test('deferred work routes are absent from HTML and sitemap; obsolete query links return home in their language', async ({
   page,
   request,
 }) => {
@@ -100,4 +100,27 @@ test('deferred work routes are absent from HTML and sitemap; query links preserv
   await expect(page).toHaveURL(/\/ru\/$/, { timeout: 8000 });
   expect(sitemap).not.toContain('/formats/');
   expect((await request.get(base + '/legacy-map.json')).status()).toBe(404);
+});
+
+test('unknown page addresses warn and return home; missing binary assets remain 404', async ({
+  page,
+  request,
+}) => {
+  for (const lang of ['en', 'ru']) {
+    const response = await page.goto(`${base}/${lang}/former-page-that-no-longer-exists/`);
+    expect(response?.status()).toBe(404);
+    await expect(page.locator('[data-legacy-notice]')).toBeVisible();
+    await expect(page.locator('html')).toHaveAttribute('lang', lang);
+    await expect(page.locator('h1')).toHaveText(lang === 'ru' ? 'Сайт обновился' : 'The site has changed');
+    await expect(page.locator('.legacy-home-link')).toHaveAttribute('href', `/${lang}/`);
+    await expect(page.locator('meta[name=robots]')).toHaveAttribute('content', 'noindex,follow');
+    await expect(page).toHaveURL(new RegExp(`/${lang}/$`), { timeout: 8000 });
+  }
+  for (const path of [
+    '/images/removed-image.webp',
+    '/videos/removed-video.mp4',
+    '/documents/removed-file.pdf',
+  ]) {
+    expect((await request.get(base + path)).status()).toBe(404);
+  }
 });
