@@ -44,7 +44,7 @@
 | `--header-bg`, `--shadow-material`, `--radius-media`                                         | Шапка и раскрытое меню — передний материальный слой (`--plane-front`) с общей мягкой тенью. Градиентной полосы нет; статистика без тени.    |
 | `--motion-fast/media`                                                                        | Отклик интерфейса / мягкий переход медиа; reduced-motion отключает необязательное движение.                                                 |
 | `--texture-dot`, `--nav-current/hover`                                                       | Фоновая фактура и состояния текущей/наведённой навигации.                                                                                   |
-| `--signal-home/works/formats/cooperation/studio/cases/contact/technology/recognition/design` | Семантические цвета буквенного семейства страницы; номер раздела остаётся нейтральным.                                                      |
+| `--signal-home/works/education/cooperation/studio/cases/contact/technology/recognition/design` | Семантические цвета буквенного семейства страницы; номер раздела остаётся нейтральным.                                                      |
 
 ## Адресация страниц и цветовой сигнал
 

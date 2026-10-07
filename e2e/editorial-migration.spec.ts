@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-test('method, format parameters and cooperation form a connected bilingual structure', async ({ page }) => {
+test('method, work configurations and education and cooperation form a connected bilingual structure', async ({
+  page,
+}) => {
   for (const lang of ['ru', 'en']) {
     await page.goto(`/${lang}/technology/`);
     await expect(page.locator('#method-overview')).toBeVisible();
@@ -8,10 +10,22 @@ test('method, format parameters and cooperation form a connected bilingual struc
     await expect(page.locator('#participation .list-row')).toHaveCount(3);
     await expect(page.locator('#method-boundaries .facts li')).toHaveCount(4);
     await expect(page.locator('#visual-language video')).toHaveCount(1);
-    await page.goto(`/${lang}/formats/`);
+    await page.goto(`/${lang}/works/mindshow/`);
     await expect(page.locator('#mindshow-installation')).toContainText('7 ± 2');
+    await page.goto(`/${lang}/works/neurobattle/`);
     await expect(page.locator('#neurobattle-game')).toContainText('90');
-    await expect(page.locator('#talk-workshop .facts li')).toHaveCount(4);
+    await page.goto(`/${lang}/education/`);
+    await expect(page.locator('.programme-card')).toHaveCount(8);
+    await expect(page.locator('#site-nav [data-route="education"]')).toHaveAttribute('aria-current', 'page');
+    await expect(page.locator('#site-nav [data-route="formats"]')).toHaveCount(0);
+    await expect(page.locator('#education-conditions .record-stamp')).toHaveCount(1);
+    await page.locator('[data-programme-id="beautiful-brain"] a').click();
+    await expect(page).toHaveURL(new RegExp(`/${lang}/education/beautiful-about-the-brain/$`));
+    await expect(page.locator('#site-nav [data-route="education"]')).toHaveAttribute('aria-current', 'page');
+    await expect(page.locator('#programme-content .facts li')).toHaveCount(3);
+    await expect(page.locator('#programme-content')).not.toContainText('src/content/');
+    await page.goto(`/${lang}/education/neuro-laboratory/`);
+    await expect(page.locator('.page-intro .meta')).toContainText(lang === 'ru' ? 'Проект' : 'Proposed');
     await page.goto(`/${lang}/cooperation/`);
     await expect(page.locator('#cooperation-scenarios article')).toHaveCount(4);
     await expect(page.locator('#cooperation-modes .list-row')).toHaveCount(3);
@@ -21,10 +35,8 @@ test('method, format parameters and cooperation form a connected bilingual struc
   }
 });
 
-test('merged old educational entrance opens the exact scenario and method hero has a real destination', async ({
-  page,
-}) => {
-  await page.goto('/?id=hub-education&lang=ru');
+test('educational scenario links to programmes and method hero has a real destination', async ({ page }) => {
+  await page.goto('/ru/cooperation/#for-education');
   await expect(page).toHaveURL(/\/ru\/cooperation\/#for-education$/);
   await expect(page.locator('#for-education')).toBeVisible();
   await page.goto('/ru/');

@@ -21,7 +21,7 @@ test('case narratives and source claims use event roles and readable provenance 
     await expect(page.locator('#case-portal-2025 .meta')).toContainText('2025');
     await expect(page.locator('#case-portal-2025 .meta')).not.toContainText('01-01');
     await expect(page.locator('#case-wildmint-2025 > a')).toHaveAttribute('href', `/${lang}/technology/`);
-    await page.goto(`/?id=event-portal-2025&lang=${lang}`);
+    await page.goto(`/${lang}/cases/#case-portal-2025`);
     await expect(page).toHaveURL(new RegExp(`/${lang}/cases/#case-portal-2025$`));
     await page.goto(`/${lang}/recognition/`);
     await expect(page.locator('.recognition-card')).toHaveCount(5);

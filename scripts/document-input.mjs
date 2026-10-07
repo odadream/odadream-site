@@ -6,8 +6,11 @@ export function technicalOverviewInput(source, asOf) {
   return {
     asOf,
     formats: ids.map((id) => {
-      const row = source.formats.find((item) => item.id === id);
-      if (!row) throw Error(`Technical overview requires format ${id}`);
+      const row =
+        id === 'talk-workshop'
+          ? source.educationOverview
+          : source.configurations.find((item) => item.id === id);
+      if (!row) throw Error(`Technical overview requires participation record ${id}`);
       return Object.fromEntries(
         ['id', 'title', 'participation', 'conditions', 'studioProvides', 'venueProvides'].map((key) => [
           key,

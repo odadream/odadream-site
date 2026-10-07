@@ -306,6 +306,15 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "targets": [
+          "Programme:beautiful-brain"
+        ],
+        "sourceSha256": "8506aa9cf6bbcb3e283f807b1d3b44e9606fa27ee9010eddf460ee4a6ff9fe81",
+        "state": "programme narrative and direct route prepared; linked media review remains pending",
+        "scope": "Authored bilingual source narrative with explicit historical/per-brief conditions; the expanded programme/media corpus is not yet declared complete."
       }
     },
     {
@@ -3271,6 +3280,15 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "targets": [
+          "Programme:feedback-empathy-brain"
+        ],
+        "sourceSha256": "1fffeb3417a8550b6d9db0a534c15294360eafc5662309644d370797d49330e7",
+        "state": "programme narrative and direct route prepared; linked media review remains pending",
+        "scope": "Authored bilingual source narrative with explicit historical/per-brief conditions; the expanded programme/media corpus is not yet declared complete."
       }
     },
     {
@@ -3383,6 +3401,15 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "targets": [
+          "Programme:gong"
+        ],
+        "sourceSha256": "8d7e6a3fdd64527a44e151fcb6195a4cd8ca0ad50579b9a8c6d45b724e19200b",
+        "state": "programme narrative and direct route prepared; linked media review remains pending",
+        "scope": "Authored bilingual source narrative with explicit historical/per-brief conditions; the expanded programme/media corpus is not yet declared complete."
       }
     },
     {
@@ -3778,7 +3805,7 @@
       "v2Migration": {
         "asOf": "2026-10-06",
         "targets": [
-          "Format:detail",
+          "WorkConfiguration:detail",
           "Cooperation:cooperation",
           "Studio:studio"
         ],
@@ -4549,9 +4576,11 @@
       "v2Migration": {
         "asOf": "2026-10-06",
         "targets": [
-          "Format:detail",
+          "WorkConfiguration:detail",
           "Cooperation:cooperation",
-          "Studio:studio"
+          "Studio:studio",
+          "Programme:neuromandala-workshop",
+          "Programme:neuro-laboratory"
         ],
         "sourceSha256": "9ddef4b4459c23304b1c5568f08b7c066587043439bf5183caa265b52b4670ae",
         "state": "selected-content-migrated; editorial-review-pending",
@@ -5036,7 +5065,7 @@
       "v2Migration": {
         "asOf": "2026-10-06",
         "targets": [
-          "Format:detail"
+          "WorkConfiguration:detail"
         ],
         "sourceSha256": "ad1457377cb0f05148e726ac485cdfebcbb4ac7fb8886fd933a3a844a27e500e",
         "state": "selected-content-migrated; editorial-review-pending",
@@ -5233,7 +5262,8 @@
         "asOf": "2026-10-06",
         "targets": [
           "Method:neuromandala",
-          "Format:detail"
+          "WorkConfiguration:detail",
+          "EducationOverview:talk-workshop"
         ],
         "sourceSha256": "8640c12613c002b01bbe5ee7c54bf202d647c979ea4ba3e2f22078d8cfb411f4",
         "state": "selected-content-migrated; editorial-review-pending",
@@ -8345,7 +8375,7 @@
         "asOf": "2026-10-06",
         "targets": [
           "Method:neuromandala",
-          "Format:detail",
+          "WorkConfiguration:detail",
           "Work:mindshow"
         ],
         "sourceSha256": "2f1ec367646d8a7bc439ce55ec4e96454bbec005807d4c535f8335b0e03d5ffa",
@@ -8536,6 +8566,15 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "targets": [
+          "Programme:neuroaesthetics-lec"
+        ],
+        "sourceSha256": "9cd85af87006acf612703cd34c842e8666a062f22276db03ec1f2561b1f98048",
+        "state": "programme narrative and direct route prepared; linked media review remains pending",
+        "scope": "Authored bilingual source narrative with explicit historical/per-brief conditions; the expanded programme/media corpus is not yet declared complete."
       }
     },
     {
@@ -8596,7 +8635,7 @@
         "asOf": "2026-10-06",
         "targets": [
           "Method:neuromandala",
-          "Format:detail",
+          "WorkConfiguration:detail",
           "Work:neurobattle"
         ],
         "sourceSha256": "4d8e095213544cda0de10d4450ed4f1714a95917b66ef69fadcd3f52655ecc98",
@@ -14145,6 +14184,15 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "targets": [
+          "Programme:sound-brain"
+        ],
+        "sourceSha256": "d91a3061003393265021e51d55a109afae5df2def49c67a115ca92e6c6dffe23",
+        "state": "programme narrative and direct route prepared; linked media review remains pending",
+        "scope": "Authored bilingual source narrative with explicit historical/per-brief conditions; the expanded programme/media corpus is not yet declared complete."
       }
     },
     {
@@ -14276,6 +14324,15 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "targets": [
+          "Programme:taste-brain"
+        ],
+        "sourceSha256": "a8802e9082d05bbb292866396e92bd32eb9787257a57b8628aea8ce7c62d6764",
+        "state": "programme narrative and direct route prepared; linked media review remains pending",
+        "scope": "Authored bilingual source narrative with explicit historical/per-brief conditions; the expanded programme/media corpus is not yet declared complete."
       }
     },
     {
@@ -18023,6 +18080,36 @@
       "file": "Daler_Arabov_CV.md",
       "sha256": "1b885da92ecf1da2d8fe07d9a0c8f5672e3c0a7444bcf2918a84f4f25e1db6ae",
       "snapshot": "2026-10-06"
+    },
+    "beautiful-brain.md": {
+      "file": "beautiful-brain.md",
+      "sha256": "8506aa9cf6bbcb3e283f807b1d3b44e9606fa27ee9010eddf460ee4a6ff9fe81",
+      "snapshot": "2026-10-07"
+    },
+    "neuroaesthetics-lec.md": {
+      "file": "neuroaesthetics-lec.md",
+      "sha256": "9cd85af87006acf612703cd34c842e8666a062f22276db03ec1f2561b1f98048",
+      "snapshot": "2026-10-07"
+    },
+    "sound-brain.md": {
+      "file": "sound-brain.md",
+      "sha256": "d91a3061003393265021e51d55a109afae5df2def49c67a115ca92e6c6dffe23",
+      "snapshot": "2026-10-07"
+    },
+    "taste-brain.md": {
+      "file": "taste-brain.md",
+      "sha256": "a8802e9082d05bbb292866396e92bd32eb9787257a57b8628aea8ce7c62d6764",
+      "snapshot": "2026-10-07"
+    },
+    "feedback-empathy-brain.md": {
+      "file": "feedback-empathy-brain.md",
+      "sha256": "1fffeb3417a8550b6d9db0a534c15294360eafc5662309644d370797d49330e7",
+      "snapshot": "2026-10-07"
+    },
+    "gong.md": {
+      "file": "gong.md",
+      "sha256": "8d7e6a3fdd64527a44e151fcb6195a4cd8ca0ad50579b9a8c6d45b724e19200b",
+      "snapshot": "2026-10-07"
     }
   },
   "currentRouting": {
@@ -23836,9 +23923,11 @@
     },
     "note": "All substantive work/education/event content is scheduled for migration. Linked metadata/evidence of placeholders must be checked; roles are planned semantic uses, not claims that records/pages have already been created. Old checks and exclusions retain their snapshot dates and are not current expanded completion.",
     "nextTasks": [
-      "WORK-CONFIGURATIONS-01",
-      "EDUCATION-STRUCTURE-01",
-      "MEDIA-GALLERY-01"
+      "MEDIA-GALLERY-01",
+      "WORKS-01",
+      "EDUCATION-MIGRATION-01",
+      "HISTORY-01",
+      "MEDIA-MIGRATION-FULL-01"
     ],
     "baselinePercent": 32,
     "verification": {
@@ -23868,5 +23957,86 @@
       "dependencyCycles": 0,
       "releaseGate": "expected-blocked: runtime publication criteria and historical resource decisions remain pending"
     }
+  },
+  "currentAddressPolicy": {
+    "asOf": "2026-10-07",
+    "approvedBy": "owner",
+    "decision": "Exact V1 page and file URL preservation is not required; obsolete page addresses show a bilingual notice and return home after 5 seconds. Source-content migration remains required.",
+    "publicRuntimeMap": false,
+    "httpRedirect": false,
+    "warningComponent": "LegacyNotice",
+    "fileHandling": "Unknown binary asset remains HTTP 404; no HTML masquerading as an image, video or PDF."
+  },
+  "currentPublicationBasis": {
+    "asOf": "2026-10-07",
+    "ownerInstructions": [
+      "2026-10-05: works and private commissions may be shown by default",
+      "2026-10-07: migrate all substantive works, education and events without waiting for post-migration editing"
+    ],
+    "appliedToPreparedRecords": {
+      "works": 9,
+      "workConfigurations": 2,
+      "programmes": 8,
+      "cases": 7,
+      "methods": 1,
+      "cooperationPages": 1,
+      "studioPages": 1,
+      "people": 3
+    },
+    "unchangedRestrictions": [
+      "individual media/document rights",
+      "award scans",
+      "MindDB privacy"
+    ],
+    "deployment": false
+  },
+  "currentStructureVerification": {
+    "asOf": "2026-10-07",
+    "scopeVersion": "v2-full-content-2026-10-07.1",
+    "tasks": [
+      "WORK-CONFIGURATIONS-01",
+      "EDUCATION-STRUCTURE-01",
+      "COOPERATION-STRUCTURE-02",
+      "NAVIGATION-STRUCTURE-02"
+    ],
+    "status": "verified",
+    "model": {
+      "works": 9,
+      "workConfigurations": 2,
+      "programmes": 8,
+      "cases": 7,
+      "canonicalLocalizedPages": 60,
+      "noindexFormatsEntrances": 2
+    },
+    "checks": {
+      "unitPassed": 57,
+      "astroErrors": 0,
+      "astroWarnings": 0,
+      "astroHints": 0,
+      "fullE2EPassed": 92,
+      "fullE2ESkipped": 12,
+      "programmeNavigationFollowupPassed": 4,
+      "content": "passed",
+      "build": "passed",
+      "format": "passed",
+      "selectedPacketReleaseGate": "passed"
+    },
+    "visual": {
+      "viewports": [
+        390,
+        908,
+        1440
+      ],
+      "reviewed": [
+        "education catalogue",
+        "MindShow participation panel"
+      ],
+      "fullGeometryMatrix": "existing E2E across all registered RU/EN routes and both themes"
+    },
+    "scopeLimits": [
+      "all remaining works/events/media are still queued",
+      "education source completeness and media are not declared complete",
+      "no deploy/push/PR/domain change"
+    ]
   }
 }

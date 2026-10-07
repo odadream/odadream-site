@@ -12,7 +12,15 @@ function fixture() {
   const source = structuredClone(
     Object.fromEntries(Object.entries(original).filter(([, value]) => typeof value !== 'function')),
   );
-  for (const key of ['works', 'formats', 'cases', 'people', 'methods', 'cooperationPages', 'studioPages'])
+  for (const key of [
+    'works',
+    'configurations',
+    'cases',
+    'people',
+    'methods',
+    'cooperationPages',
+    'studioPages',
+  ])
     source[key] = source[key].map((row) => ({ ...row, publication: 'published' }));
   return source;
 }

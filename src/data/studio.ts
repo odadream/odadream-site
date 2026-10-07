@@ -54,7 +54,7 @@ export const studioPeople: Person[] = [
     },
     sourceRefs: refs('hub-cv.md', 'Olga_Arabova_CV.md'),
     source: 'src/content/hub-cv.md',
-    publication: 'review',
+    publication: 'published',
   },
   {
     id: 'daler',
@@ -92,7 +92,7 @@ export const studioPeople: Person[] = [
     },
     sourceRefs: refs('hub-cv.md', 'Daler_Arabov_CV.md'),
     source: 'src/content/hub-cv.md',
-    publication: 'review',
+    publication: 'published',
   },
 ];
 
@@ -181,8 +181,8 @@ export const studioPages: StudioPage[] = [
       },
       {
         id: 'programme',
-        path: 'formats/',
-        title: l('Форматы и образовательная программа', 'Formats and the educational programme'),
+        path: 'education/',
+        title: l('Образовательные программы', 'Educational programmes'),
         body: l(
           'Механика участия, базовые темы лаборатории, исторические параметры и условия подготовки.',
           'Participation mechanics, core laboratory topics, historical parameters and preparation requirements.',
@@ -208,6 +208,6 @@ export const studioPages: StudioPage[] = [
       'event-mipt-terraforming-2025.md',
     ),
     source: 'src/content/hub-cv.md; hub-manifesto.md; hub-education.md; hub-collab.md',
-    publication: 'review',
+    publication: 'published',
   },
 ];

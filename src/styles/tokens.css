@@ -6,7 +6,7 @@
   --weight-folio: 800;
   --signal-works: #36c9a0;
   --signal-home: #9dbca8;
-  --signal-formats: #65bdbf;
+  --signal-education: #65bdbf;
   --signal-cooperation: #d3a868;
   --signal-studio: #b9a5d2;
   --signal-cases: #cdaa70;
@@ -167,8 +167,9 @@
 :root[data-section='home'] {
   --section-accent: var(--signal-home);
 }
-:root[data-section='formats'] {
-  --section-accent: var(--signal-formats);
+:root[data-section='education'],
+:root[data-section='programme'] {
+  --section-accent: var(--signal-education);
 }
 :root[data-section='cooperation'] {
   --section-accent: var(--signal-cooperation);
@@ -196,7 +197,7 @@
   color-scheme: light;
   --signal-works: #126844;
   --signal-home: #4f6b53;
-  --signal-formats: #286c71;
+  --signal-education: #286c71;
   --signal-cooperation: #80571c;
   --signal-studio: #66518b;
   --signal-cases: #765218;
@@ -228,8 +229,9 @@
 :root[data-theme='light'][data-section='works'] {
   --section-accent: var(--signal-works);
 }
-:root[data-theme='light'][data-section='formats'] {
-  --section-accent: var(--signal-formats);
+:root[data-theme='light'][data-section='education'],
+:root[data-theme='light'][data-section='programme'] {
+  --section-accent: var(--signal-education);
 }
 :root[data-theme='light'][data-section='cooperation'] {
   --section-accent: var(--signal-cooperation);

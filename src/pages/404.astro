@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import CalloutLink from '../components/CalloutLink.astro';
+import LegacyNotice from '../components/LegacyNotice.astro';
 ---
 
 <!doctype html>
@@ -9,18 +9,12 @@ import CalloutLink from '../components/CalloutLink.astro';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex,follow" />
-    <title>Page not found — ODA.dream</title>
-    <meta name="description" content="This page does not exist on ODA.dream." />
+    <title>The site has changed — ODA.dream</title>
+    <meta name="description" content="The site structure has changed. Continue to the ODA.dream home page." />
   </head>
   <body>
-    <main class="shell page-intro">
-      <p class="eyebrow">ODA.DREAM / 404</p>
-      <h1>Page not found</h1>
-      <p class="lead mt-5">The requested address does not match a published page.</p>
-      <CalloutLink class="mt-6" href="/en/">
-        Return to ODA.dream
-      </CalloutLink>
+    <main>
+      <LegacyNotice />
     </main>
   </body>
 </html>
---- import TechnicalMark from '../components/TechnicalMark.astro'; ---

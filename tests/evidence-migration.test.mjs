@@ -8,7 +8,7 @@ const empty = {
   version: 'fixture',
   asOf: '2026-10-06',
   works: [],
-  formats: [],
+  configurations: [],
   cases: [],
   people: [],
   recognitions: [],
@@ -56,6 +56,7 @@ test('inspecting a prize image neither approves document rights nor exposes inte
 test('a method context requires the published method and never creates a fictional work or standalone page', () => {
   const source = { ...data, methods: structuredClone(data.methods), cases: structuredClone(data.cases) };
   source.cases.find((row) => row.id === 'wildmint-2025').publication = 'published';
+  source.methods[0].publication = 'review';
   const plan = { ...empty, cases: ['wildmint-2025'], methods: ['neuromandala'] };
   assert.equal(createPublicationScope(source, plan).cases.length, 0);
   source.methods[0].publication = 'published';

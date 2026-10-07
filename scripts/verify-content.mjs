@@ -41,7 +41,8 @@ for (const name of [
   'cooperationPages',
   'studioPages',
   'works',
-  'formats',
+  'configurations',
+  'programmes',
   'cases',
   'evidence',
   'recognitions',
@@ -92,7 +93,9 @@ for (const [file, ref] of Object.entries(data.sourceSnapshots)) {
 for (const row of [
   ...data.methods,
   ...data.cooperationPages,
-  ...data.formats,
+  ...data.configurations,
+  ...data.programmes,
+  data.educationOverview,
   ...data.works,
   ...data.studioPages,
   ...data.cases,
@@ -109,13 +112,13 @@ for (const row of [
   )
     errors.push(`${row.id}: missing or inconsistent source references`);
 }
-for (const format of data.formats) {
+for (const format of [...data.configurations, ...data.programmes, data.educationOverview]) {
   if (!format.conditions.length || !format.story || !format.participation || !format.outcome)
-    errors.push(`format ${format.id}: incomplete migrated detail`);
+    errors.push(`participation ${format.id}: incomplete migrated detail`);
   const conditions = new Set();
   for (const condition of format.conditions) {
     if (conditions.has(condition.id) || !['historical', 'per-brief', 'conflict'].includes(condition.state))
-      errors.push(`format ${format.id}: invalid or duplicate condition ${condition.id}`);
+      errors.push(`participation ${format.id}: invalid or duplicate condition ${condition.id}`);
     conditions.add(condition.id);
   }
 }
@@ -140,11 +143,12 @@ for (const studio of data.studioPages) {
     if (!Number.isInteger(item.year) || item.year < 1900 || item.year > 2100)
       errors.push(`studio ${studio.id}: invalid context year`);
   for (const item of studio.materials)
-    if (!/^(works|technology|formats|cooperation)\/$/.test(item.path))
+    if (!/^(works|technology|education|cooperation)\/$/.test(item.path))
       errors.push(`studio ${studio.id}: invalid material destination ${item.path}`);
 }
 const workIds = ids(data.works),
-  formatIds = ids(data.formats),
+  configurationIds = ids(data.configurations),
+  programmeIds = ids(data.programmes),
   caseIds = ids(data.cases),
   mediaIds = ids(data.media),
   orgIds = ids(data.organizations),
@@ -156,8 +160,8 @@ for (const method of data.methods) {
 }
 for (const page of data.cooperationPages)
   for (const scenario of page.scenarios)
-    for (const id of scenario.formatIds)
-      if (!formatIds.has(id)) errors.push(`cooperation ${scenario.id}: missing format ${id}`);
+    for (const id of scenario.configurationIds)
+      if (!configurationIds.has(id)) errors.push(`cooperation ${scenario.id}: missing format ${id}`);
 for (const hero of data.heroVisuals) {
   if (!mediaIds.has(hero.mediaId)) errors.push(`hero ${hero.id}: missing media`);
   if (hero.target.kind === 'method' && !data.methods.some((row) => row.id === hero.target.methodId))
@@ -208,10 +212,12 @@ for (const work of data.works) {
     errors.push(`work ${work.id}: repertoire without realization`);
   for (const id of work.media) if (!mediaIds.has(id)) errors.push(`work ${work.id}: missing media ${id}`);
   for (const id of work.cases) if (!caseIds.has(id)) errors.push(`work ${work.id}: missing case ${id}`);
-  for (const id of work.formats) if (!formatIds.has(id)) errors.push(`work ${work.id}: missing format ${id}`);
+  for (const id of work.configurations)
+    if (!configurationIds.has(id)) errors.push(`work ${work.id}: missing format ${id}`);
 }
-for (const format of data.formats)
-  for (const id of format.works) if (!workIds.has(id)) errors.push(`format ${format.id}: missing work ${id}`);
+for (const format of data.configurations)
+  if (!workIds.has(format.workId))
+    errors.push(`configuration ${format.id}: missing owner work ${format.workId}`);
 for (const item of data.cases) {
   const datePatterns = { day: /^\d{4}-\d{2}-\d{2}$/, month: /^\d{4}-\d{2}$/, year: /^\d{4}$/ };
   if (!datePatterns[item.datePrecision]?.test(item.date))
@@ -361,7 +367,8 @@ for (const item of data.referenceDocuments) {
     !['cooperation', 'studio'].includes(item.owner.kind) ||
     !owners.some((row) => row.id === item.owner.id) ||
     !['cleared', 'review', 'restricted'].includes(item.rights) ||
-    item.requiredFormats.some((id) => !data.formats.some((row) => row.id === id)) ||
+    (item.requiredEducationOverview && !data.educationOverview) ||
+    item.requiredConfigurations.some((id) => !data.configurations.some((row) => row.id === id)) ||
     item.requiredPeople.some((id) => !data.people.some((row) => row.id === id)) ||
     (item.requiredWorks ?? []).some((id) => !data.works.some((row) => row.id === id)) ||
     (item.requiredCases ?? []).some((id) => !data.cases.some((row) => row.id === id))
@@ -435,10 +442,38 @@ for (const item of data.workDocuments) {
   )
     errors.push(`work document ${item.id}: original PDF missing or changed`);
 }
+
+for (const programme of data.programmes) {
+  if (
+    !['lecture', 'workshop', 'laboratory'].includes(programme.programmeType) ||
+    !['documented', 'proposed'].includes(programme.deliveryStatus)
+  )
+    errors.push('Invalid educational type/stage ' + programme.id);
+  if (
+    !programme.topics.length ||
+    !programme.conditions.length ||
+    !programme.audience.ru ||
+    !programme.audience.en ||
+    !programme.authorsNote.ru ||
+    !programme.authorsNote.en
+  )
+    errors.push('Incomplete programme ' + programme.id);
+  for (const id of programme.works)
+    if (!workIds.has(id)) errors.push('Programme references unknown work ' + id);
+  for (const id of programme.cases)
+    if (!caseIds.has(id)) errors.push('Programme references unknown case ' + id);
+  for (const id of programme.media)
+    if (!mediaIds.has(id)) errors.push('Programme references unknown media ' + id);
+}
+for (const page of data.cooperationPages)
+  for (const scenario of page.scenarios)
+    for (const id of scenario.programmeIds)
+      if (!programmeIds.has(id)) errors.push('Cooperation references unknown programme ' + id);
+
 if (errors.length) {
   console.error(errors.join('\n'));
   process.exitCode = 1;
 } else
   console.log(
-    `Verified ${data.works.length} works, ${data.formats.length} formats, ${data.cases.length} cases, ${data.media.length} media and relationships.`,
+    `Verified ${data.works.length} works, ${data.configurations.length} configurations, ${data.programmes.length} programmes, ${data.cases.length} cases, ${data.media.length} media and relationships.`,
   );

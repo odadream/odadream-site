@@ -25,7 +25,7 @@ export interface Method {
   source: string;
   publication: Publication;
 }
-export interface FormatDetail {
+export interface ParticipationDetail {
   story: Localized;
   participation: Localized;
   outcome: Localized;
@@ -46,7 +46,11 @@ export interface CooperationPage {
   legacyId: string;
   title: Localized;
   summary: Localized;
-  scenarios: (EditorialSection & { request: Localized; formatIds: string[] })[];
+  scenarios: (EditorialSection & {
+    request: Localized;
+    configurationIds: string[];
+    programmeIds: string[];
+  })[];
   modes: EditorialSection[];
   process: EditorialSection[];
   studioProvides: Record<'en' | 'ru', string[]>;
@@ -59,6 +63,36 @@ export interface CooperationPage {
 
 // Exact bytes of dated V1 and owner-provided editorial snapshots, not current availability claims.
 export const sourceSnapshots: Record<string, SourceReference> = {
+  'beautiful-brain.md': {
+    file: 'beautiful-brain.md',
+    sha256: '8506aa9cf6bbcb3e283f807b1d3b44e9606fa27ee9010eddf460ee4a6ff9fe81',
+    snapshot: '2026-10-07',
+  },
+  'neuroaesthetics-lec.md': {
+    file: 'neuroaesthetics-lec.md',
+    sha256: '9cd85af87006acf612703cd34c842e8666a062f22276db03ec1f2561b1f98048',
+    snapshot: '2026-10-07',
+  },
+  'sound-brain.md': {
+    file: 'sound-brain.md',
+    sha256: 'd91a3061003393265021e51d55a109afae5df2def49c67a115ca92e6c6dffe23',
+    snapshot: '2026-10-07',
+  },
+  'taste-brain.md': {
+    file: 'taste-brain.md',
+    sha256: 'a8802e9082d05bbb292866396e92bd32eb9787257a57b8628aea8ce7c62d6764',
+    snapshot: '2026-10-07',
+  },
+  'feedback-empathy-brain.md': {
+    file: 'feedback-empathy-brain.md',
+    sha256: '1fffeb3417a8550b6d9db0a534c15294360eafc5662309644d370797d49330e7',
+    snapshot: '2026-10-07',
+  },
+  'gong.md': {
+    file: 'gong.md',
+    sha256: '8d7e6a3fdd64527a44e151fcb6195a4cd8ca0ad50579b9a8c6d45b724e19200b',
+    snapshot: '2026-10-07',
+  },
   'Olga_Arabova_CV.md': {
     file: 'Olga_Arabova_CV.md',
     sha256: '2966e4351153df8bb69ef364bfaa8bd3fdb0cb5a5172bc025d426de6614192dd',
@@ -414,11 +448,11 @@ export const methods: Method[] = [
       'interference.md',
     ),
     source: 'neuromandala.md; mindshow.md; neurobattle.md; hub-lectures.md',
-    publication: 'review',
+    publication: 'published',
   },
 ];
 
-export const formatDetails: Record<string, FormatDetail> = {
+export const participationDetails: Record<string, ParticipationDetail> = {
   'mindshow-installation': {
     story: l(
       'Участник входит в короткую сессию наблюдения: параметры сигнала становятся основой отзывчивого визуального поля. В версиях с нарративом добавляются ассоциации или рассказ, из которых развивается образная анимация.',
@@ -690,7 +724,8 @@ export const cooperationPages: CooperationPage[] = [
           'Пришлите концепцию, пространство, даты, рамку финансирования и требуемый вид документации.',
           'Send the concept, space, dates, funding framework and required documentation.',
         ),
-        formatIds: ['mindshow-installation'],
+        configurationIds: ['mindshow-installation'],
+        programmeIds: [],
       },
       {
         id: 'events',
@@ -703,7 +738,8 @@ export const cooperationPages: CooperationPage[] = [
           'Нужны дата и город, программа, аудитория, длительность работы зоны, план площадки и бюджетный диапазон.',
           'Provide date and city, programme, audience, operating duration, venue plan and budget range.',
         ),
-        formatIds: ['mindshow-installation', 'neurobattle-game'],
+        configurationIds: ['mindshow-installation', 'neurobattle-game'],
+        programmeIds: [],
       },
       {
         id: 'production',
@@ -716,7 +752,8 @@ export const cooperationPages: CooperationPage[] = [
           'Опишите концепцию, стадию, предполагаемое пространство, поток посетителей, команду и недостающую часть производства.',
           'Describe the concept, stage, intended space, visitor flow, team and missing production contribution.',
         ),
-        formatIds: ['mindshow-installation'],
+        configurationIds: ['mindshow-installation'],
+        programmeIds: [],
       },
       {
         id: 'education',
@@ -729,7 +766,17 @@ export const cooperationPages: CooperationPage[] = [
           'Укажите возраст и размер группы, цели, число встреч, оборудование, доступность и рамку оплаты.',
           'Specify audience age and size, objectives, number of sessions, equipment, accessibility and payment framework.',
         ),
-        formatIds: ['talk-workshop'],
+        configurationIds: [],
+        programmeIds: [
+          'beautiful-brain',
+          'neuroaesthetics-lec',
+          'sound-brain',
+          'taste-brain',
+          'feedback-empathy-brain',
+          'gong',
+          'neuromandala-workshop',
+          'neuro-laboratory',
+        ],
       },
     ],
     modes: [
@@ -837,6 +884,6 @@ export const cooperationPages: CooperationPage[] = [
     ),
     source:
       'hub-collab.md; hub-institutions.md; hub-galleries.md; hub-event-agencies.md; hub-business.md; hub-education.md; hub-creators.md',
-    publication: 'review',
+    publication: 'published',
   },
 ];

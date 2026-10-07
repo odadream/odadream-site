@@ -1,5 +1,5 @@
-import { formatDetails } from './editorial';
-import type { FormatDetail } from './editorial';
+import { participationDetails } from './editorial';
+import type { ParticipationDetail } from './editorial';
 import type { SourceReference } from './editorial';
 import type { EditorialSection } from './editorial';
 import { studioPeople } from './studio';
@@ -13,6 +13,7 @@ import type { EvidenceDetail, RecognitionDetail } from './evidence-details';
 export { methods, cooperationPages, sourceSnapshots } from './editorial';
 export { studioPages } from './studio';
 export { referenceDocuments } from './reference-documents';
+export { programmes, educationOverview } from './programmes';
 
 export type Lang = 'en' | 'ru';
 export type Localized = Record<Lang, string>;
@@ -98,18 +99,18 @@ export interface Work extends WorkDetail {
   facts: Record<Lang, string[]>;
   media: string[];
   cases: string[];
-  formats: string[];
+  configurations: string[];
   source: string;
   publication: Publication;
 }
-export interface Format extends FormatDetail {
+export interface WorkConfiguration extends ParticipationDetail {
   id: string;
   legacyId: string;
   slug: string;
   title: Localized;
   summary: Localized;
   scope: Localized;
-  works: string[];
+  workId: string;
   source: string;
   publication: Publication;
 }
@@ -128,6 +129,7 @@ export interface CaseEvent extends CaseDetail {
   role: Localized;
   work?: string;
   method?: string;
+  programme?: string;
   organizations: string[];
   evidence: string[];
   media: string[];
@@ -562,9 +564,9 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
     },
     media: ['interference-stage'],
     cases: ['tsiolkovsky-2026'],
-    formats: [],
+    configurations: [],
     source: 'src/content/interference.md',
-    publication: 'review',
+    publication: 'published',
     stage: 'realized',
     year: null,
     workType: 'performance',
@@ -609,9 +611,9 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
     },
     media: ['mindshow'],
     cases: ['byob-2026', 'portal-2025', 'cipr-2026'],
-    formats: ['mindshow-installation'],
+    configurations: ['mindshow-installation'],
     source: 'src/content/mindshow.md',
-    publication: 'review',
+    publication: 'published',
     stage: 'realized',
     year: null,
     workType: 'installation',
@@ -656,9 +658,9 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
     },
     media: ['neurobattle'],
     cases: ['dano-2025'],
-    formats: ['neurobattle-game'],
+    configurations: ['neurobattle-game'],
     source: 'src/content/neurobattle.md',
-    publication: 'review',
+    publication: 'published',
     stage: 'realized',
     year: null,
     workType: 'game',
@@ -711,9 +713,9 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
     },
     media: ['schrodinger'],
     cases: ['tsiolkovsky-2025'],
-    formats: [],
+    configurations: [],
     source: 'src/content/schrodinger.md',
-    publication: 'review',
+    publication: 'published',
     stage: 'realized',
     year: null,
     workType: 'performance',
@@ -758,9 +760,9 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
     },
     media: ['rings'],
     cases: [],
-    formats: [],
+    configurations: [],
     source: 'src/content/oda-rings.md',
-    publication: 'review',
+    publication: 'published',
     stage: 'realized',
     year: 2020,
     workType: 'object',
@@ -809,9 +811,9 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
     },
     media: ['sync'],
     cases: [],
-    formats: [],
+    configurations: [],
     source: 'src/content/sync-circle.md',
-    publication: 'review',
+    publication: 'published',
     stage: 'concept',
     year: null,
     workType: 'installation',
@@ -829,8 +831,8 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
     rnd: false,
     featuredOnHome: true,
     cases: [],
-    formats: [],
-    publication: 'review',
+    configurations: [],
+    publication: 'published',
     id: 'emomandala',
     title: {
       en: 'Emomandala',
@@ -900,8 +902,8 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
     rnd: false,
     featuredOnHome: false,
     cases: [],
-    formats: [],
-    publication: 'review',
+    configurations: [],
+    publication: 'published',
     id: 'neurosync',
     title: {
       en: 'Neurosynchronization',
@@ -953,8 +955,8 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
     rnd: true,
     featuredOnHome: false,
     cases: [],
-    formats: [],
-    publication: 'review',
+    configurations: [],
+    publication: 'published',
     id: 'ancestors',
     title: {
       en: 'Ancestors in the Noise',
@@ -1002,9 +1004,9 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
 
 export const works: Work[] = workRecords.map((work) => ({ ...work, ...workDetails[work.id] }));
 
-export const formats: Format[] = [
+export const configurations: WorkConfiguration[] = [
   {
-    ...formatDetails['mindshow-installation'],
+    ...participationDetails['mindshow-installation'],
     id: 'mindshow-installation',
     legacyId: 'mindshow',
     slug: 'mindshow-installation',
@@ -1017,12 +1019,12 @@ export const formats: Format[] = [
       en: 'Requires a dedicated area, display, EEG equipment and an operator; final configuration depends on the venue.',
       ru: 'Нужны отдельная зона, экран, ЭЭГ-оборудование и оператор; итоговая конфигурация зависит от площадки.',
     },
-    works: ['mindshow'],
+    workId: 'mindshow',
     source: 'src/content/hub-collab.md; mindshow.md',
-    publication: 'review',
+    publication: 'published',
   },
   {
-    ...formatDetails['neurobattle-game'],
+    ...participationDetails['neurobattle-game'],
     id: 'neurobattle-game',
     legacyId: 'neurobattle',
     slug: 'neurobattle-game',
@@ -1035,27 +1037,9 @@ export const formats: Format[] = [
       en: 'Requires screen or projector, two seats, power and ODA.dream operators; venue production is not included by default.',
       ru: 'Нужны экран или проектор, два места, питание и операторы ODA.dream; производство площадки не включено по умолчанию.',
     },
-    works: ['neurobattle'],
+    workId: 'neurobattle',
     source: 'src/content/hub-collab.md; neurobattle.md',
-    publication: 'review',
-  },
-  {
-    ...formatDetails['talk-workshop'],
-    id: 'talk-workshop',
-    legacyId: 'hub-lectures',
-    slug: 'talk-workshop',
-    title: { en: 'Talk or workshop', ru: 'Лекция или практикум' },
-    summary: {
-      en: 'A situated conversation about art, perception and neurotechnology.',
-      ru: 'Разговор об искусстве, восприятии и нейротехнологиях в контексте вашей программы.',
-    },
-    scope: {
-      en: 'Topic, duration, demonstration and recording permissions are agreed for each invitation.',
-      ru: 'Тема, длительность, демонстрация и разрешения на запись согласуются для каждого приглашения.',
-    },
-    works: [],
-    source: 'src/content/hub-collab.md',
-    publication: 'review',
+    publication: 'published',
   },
 ];
 
@@ -1281,7 +1265,7 @@ const caseRecords: Omit<CaseEvent, keyof CaseDetail | 'datePrecision' | 'detailP
     evidence: ['tsiolkovsky-2026-record'],
     media: ['interference-stage'],
     source: 'src/content/event-tsiolkovsky-2026.md',
-    publication: 'review',
+    publication: 'published',
   },
   {
     id: 'tsiolkovsky-2025',
@@ -1304,7 +1288,7 @@ const caseRecords: Omit<CaseEvent, keyof CaseDetail | 'datePrecision' | 'detailP
     evidence: ['tsiolkovsky-2025-record'],
     media: ['schrodinger'],
     source: 'src/content/event-tsiolkovsky-2025.md',
-    publication: 'review',
+    publication: 'published',
   },
   {
     id: 'dano-2025',
@@ -1327,7 +1311,7 @@ const caseRecords: Omit<CaseEvent, keyof CaseDetail | 'datePrecision' | 'detailP
     evidence: ['dano-2025-record'],
     media: ['neurobattle-dano'],
     source: 'src/content/event-dano-ekoniva-2025.md',
-    publication: 'review',
+    publication: 'published',
   },
   {
     id: 'byob-2026',
@@ -1350,7 +1334,7 @@ const caseRecords: Omit<CaseEvent, keyof CaseDetail | 'datePrecision' | 'detailP
     evidence: ['byob-2026-record'],
     media: ['mindshow'],
     source: 'src/content/event-byob-2026.md',
-    publication: 'review',
+    publication: 'published',
   },
 ];
 
@@ -1371,7 +1355,7 @@ export const people: Person[] = [
     name: { en: 'Olga and Daler Arabov', ru: 'Ольга и Далер Арабовы' },
     role: { en: 'Artists and founders of ODA.dream', ru: 'Художники и основатели ODA.dream' },
     source: 'src/content/hub-cv.md; interference.md',
-    publication: 'review',
+    publication: 'published',
   },
   ...studioPeople,
 ];

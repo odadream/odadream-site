@@ -12,7 +12,7 @@ const plan = {
   version: 'fixture',
   asOf: '2026-10-06',
   works: [],
-  formats: [],
+  configurations: [],
   cases: [],
   people: [],
   recognitions: [],
@@ -37,23 +37,25 @@ test('selected editorial sources retain exact dated provenance and coverage in t
 });
 
 test('conflicting timing and historical throughput remain distinct from current guarantees', () => {
-  const mindshow = data.formats.find((row) => row.id === 'mindshow-installation');
+  const mindshow = data.configurations.find((row) => row.id === 'mindshow-installation');
   assert.equal(mindshow.conditions.find((row) => row.id === 'session').state, 'conflict');
   assert.match(mindshow.conditions.find((row) => row.id === 'session').value.ru, /7 ± 2/);
   assert.match(mindshow.conditions.find((row) => row.id === 'session').value.ru, /1,5/);
-  const game = data.formats.find((row) => row.id === 'neurobattle-game');
+  const game = data.configurations.find((row) => row.id === 'neurobattle-game');
   assert.match(game.title.ru, /Парадокс Успеха/);
   assert.equal(game.conditions.find((row) => row.id === 'flow').state, 'historical');
-  assert.equal(
-    data.formats
-      .find((row) => row.id === 'talk-workshop')
-      .conditions.find((row) => row.id === 'talk-duration').state,
-    'conflict',
-  );
+  assert.equal(data.educationOverview.conditions.find((row) => row.id === 'talk-duration').state, 'conflict');
 });
 
 test('method and cooperation stay out of public projection until editorial approval', () => {
-  const scope = createPublicationScope(data, plan);
+  const pending = {
+    ...data,
+    methods: structuredClone(data.methods),
+    cooperationPages: structuredClone(data.cooperationPages),
+  };
+  pending.methods.forEach((row) => (row.publication = 'review'));
+  pending.cooperationPages.forEach((row) => (row.publication = 'review'));
+  const scope = createPublicationScope(pending, plan);
   assert.equal(scope.methods.length, 0);
   assert.equal(scope.cooperationPages.length, 0);
   assert.ok(scope.errors.some((error) => error.includes('neuromandala: review')));
@@ -105,6 +107,7 @@ test('studio biographies require published people and public data never includes
     people: structuredClone(data.people),
   };
   source.studioPages[0].publication = 'published';
+  source.people.forEach((row) => (row.publication = 'review'));
   const packet = {
     ...plan,
     methods: [],
@@ -128,7 +131,7 @@ test('studio biographies require published people and public data never includes
   assert.ok(scope.studioPages[0].teaching.every((row) => row.year === 2025 && !('date' in row)));
   const routes = createPages(scope);
   assert.ok(routes.find((row) => row.path === '/ru/studio/').anchors.includes('teaching-sber'));
-  const deferredRoutes = createPages(createPublicationScope(data, packet));
+  const deferredRoutes = createPages(createPublicationScope({ ...data, people: [] }, packet));
   const old = [
     {
       id: 'event-sber-lecture-2025',
@@ -166,6 +169,9 @@ test('legacy section links are exact in preview and fall back safely when the pu
   const preview = createPublicationScope(data, plan, true);
   const previewRoutes = resolveLegacyRoutes(rows, createPages(preview));
   assert.equal(previewRoutes['hub-education'][1], rows[0].targetRu);
-  const publicRoutes = resolveLegacyRoutes(rows, createPages(createPublicationScope(data, plan)));
+  const publicRoutes = resolveLegacyRoutes(
+    rows,
+    createPages(createPublicationScope(data, { ...plan, cooperationPages: [] })),
+  );
   assert.equal(publicRoutes['hub-education'][1], '/legacy/unavailable/?id=hub-education&lang=ru');
 });

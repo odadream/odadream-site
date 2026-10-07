@@ -16,13 +16,14 @@ async function visit(directory, prefix) {
 }
 for (const lang of ['en', 'ru']) await visit(resolve(root, lang), `/${lang}/`);
 const { pages } = await loadSiteModule('src/lib/routes.ts');
-const expectedPaths = new Set(pages.map((page) => page.path));
+const compatibilityPaths = ['/en/formats/', '/ru/formats/'];
+const expectedPaths = new Set([...pages.map((page) => page.path), ...compatibilityPaths]);
 for (const path of expectedPaths) if (!pagePaths.includes(path)) fail(`Missing localized page ${path}`);
 for (const path of pagePaths) if (!expectedPaths.has(path)) fail(`Unexpected localized page ${path}`);
 for (const path of pagePaths) {
   const lang = path.startsWith('/ru/') ? 'ru' : 'en';
   const html = await readFile(resolve(root, path.slice(1), 'index.html'), 'utf8');
-  validatePageCodes(html, path);
+  if (!compatibilityPaths.includes(path)) validatePageCodes(html, path);
   for (const token of [
     `<html lang="${lang}"`,
     '<title>',
@@ -32,7 +33,8 @@ for (const path of pagePaths) {
     'property="og:title"',
     'name="description"',
   ])
-    if (!html.includes(token)) fail(`Missing ${token} in ${path}`);
+    if (compatibilityPaths.includes(path) && token.startsWith('hreflang=')) continue;
+    else if (!html.includes(token)) fail(`Missing ${token} in ${path}`);
   if (html.includes('id="root"')) fail(`SPA root in ${path}`);
   for (const match of html.matchAll(/(?:src|poster)="(\/[^"?]+)"/g)) {
     await stat(resolve(root, match[1].slice(1))).catch(() =>
@@ -58,38 +60,32 @@ for (const file of [
 ])
   await stat(resolve(root, file)).catch(() => fail(`Missing ${file}`));
 const rootHtml = await readFile(resolve(root, 'index.html'), 'utf8');
-if (!rootHtml.includes('/legacy-map.json') || !rootHtml.includes('https://odadream.art/en/'))
-  fail('Root legacy bridge or canonical absent');
-const legacy = JSON.parse(await readFile('src/data/legacy-map.json', 'utf8'));
-if (rootHtml.includes('"ancestors"')) fail('Root bridge must not inline the legacy ID catalogue');
-const { resolveLegacyRoutes } = await loadSiteModule('src/lib/legacy-routes.ts');
-const expectedLegacy = resolveLegacyRoutes(legacy, pages);
-const legacyRoutes = JSON.parse(await readFile(resolve(root, 'legacy-map.json'), 'utf8'));
-if (Object.keys(legacyRoutes).length !== Object.keys(expectedLegacy).length)
-  fail('Legacy redirect index is incomplete');
-for (const [id, targets] of Object.entries(expectedLegacy)) {
-  if (JSON.stringify(legacyRoutes[id]) !== JSON.stringify(targets))
-    fail(`Incorrect legacy redirect index entry: ${id}`);
-  for (const target of targets) {
-    const url = new URL(target, 'https://odadream.art');
-    const html = await readFile(resolve(root, url.pathname.slice(1), 'index.html'), 'utf8').catch(() =>
-      fail(`Legacy target missing: ${id} → ${target}`),
-    );
-    if (url.hash && !html.includes(`id="${decodeURIComponent(url.hash.slice(1))}"`))
-      fail(`Legacy anchor missing: ${id} → ${target}`);
-  }
-}
+if (!rootHtml.includes('/legacy/unavailable/?lang=') || !rootHtml.includes('https://odadream.art/en/'))
+  fail('Root obsolete-address notice or canonical absent');
+if (
+  await stat(resolve(root, 'legacy-map.json')).then(
+    () => true,
+    () => false,
+  )
+)
+  fail('Runtime legacy map must not be published');
 const unresolved = await readFile(resolve(root, 'legacy/unavailable/index.html'), 'utf8');
 if (!unresolved.includes('noindex,follow')) fail('Legacy unavailable must be noindex');
 const sitemap = await readFile(resolve(root, 'sitemap-0.xml'), 'utf8');
 const lastmod = JSON.parse(await readFile('src/data/lastmod.json', 'utf8'));
 if (
   sitemap.includes('/legacy/') ||
+  sitemap.includes('/formats/') ||
   sitemap.includes('/design-system/') ||
   sitemap.includes('<loc>https://odadream.art/</loc>')
 )
   fail('Noncanonical route in sitemap');
 for (const path of pagePaths) {
+  if (compatibilityPaths.includes(path)) {
+    const html = await readFile(resolve(root, path.slice(1), 'index.html'), 'utf8');
+    if (!html.includes('noindex,follow')) fail(`Compatibility entrance must be noindex: ${path}`);
+    continue;
+  }
   if (!sitemap.includes(`https://odadream.art${path}`)) fail(`Page absent from sitemap: ${path}`);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(lastmod[path] ?? '')) fail(`Missing editorial lastmod: ${path}`);
   if (!sitemap.includes(`<loc>https://odadream.art${path}</loc><lastmod>${lastmod[path]}`))

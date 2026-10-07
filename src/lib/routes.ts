@@ -1,4 +1,4 @@
-import { cases, formats, works, catalogue } from '../data/catalogue';
+import { cases, configurations, programmes, works, catalogue } from '../data/catalogue';
 import type { Lang } from '../data/site';
 import { familyByKind, type PageFamily } from './page-codes';
 
@@ -6,7 +6,8 @@ export type PageKind =
   | 'home'
   | 'works'
   | 'work'
-  | 'formats'
+  | 'education'
+  | 'programme'
   | 'cooperation'
   | 'studio'
   | 'cases'
@@ -32,9 +33,9 @@ const copy = {
       'Избранные работы ODA.dream: партисипаторный спектакль, медиаискусство и художественное исследование.',
     ],
   },
-  formats: {
-    en: ['Formats', 'Adaptable formats for exhibitions, public programmes and events.'],
-    ru: ['Форматы', 'Адаптируемые форматы для выставок, публичных программ и событий.'],
+  education: {
+    en: ['Education', 'Lectures, workshops and educational laboratories by ODA.dream.'],
+    ru: ['Образование', 'Лекции, практикумы и образовательные лаборатории ODA.dream.'],
   },
   cooperation: {
     en: ['Cooperation', 'How to commission, present or develop a project with ODA.dream.'],
@@ -76,7 +77,7 @@ const copy = {
 
 const overviewKinds = [
   'works',
-  'formats',
+  'education',
   'cooperation',
   'studio',
   'cases',
@@ -90,7 +91,9 @@ export const createPages = (
     Partial<
       Pick<
         typeof catalogue,
-        | 'formats'
+        | 'configurations'
+        | 'programmes'
+        | 'educationOverview'
         | 'methods'
         | 'cooperationPages'
         | 'studioPages'
@@ -121,8 +124,8 @@ export const createPages = (
       family: familyByKind[kind],
       path: `/${lang}/${kind}/`,
       anchors:
-        kind === 'formats'
-          ? (records.formats ?? []).map((row) => row.slug)
+        kind === 'education'
+          ? ['education-programmes', ...(records.educationOverview ? ['education-conditions'] : [])]
           : kind === 'technology'
             ? records.methods?.length
               ? [
@@ -197,11 +200,22 @@ export const createPages = (
         'work-story',
         'work-credits',
         'work-availability',
+        ...(records.configurations ?? []).filter((row) => row.workId === work.id).map((row) => row.slug),
         ...work.story.map((row) => `work-story-${row.id}`),
         ...(records.workDocuments ?? [])
           .filter((row) => row.workId === work.id)
           .map((row) => `document-${row.id}`),
       ],
+    })),
+    ...(records.programmes ?? []).map((programme) => ({
+      lang,
+      kind: 'programme' as const,
+      family: familyByKind.programme,
+      slug: programme.slug,
+      path: `/${lang}/education/${programme.slug}/`,
+      title: `${programme.title[lang]} — ODA.dream`,
+      description: programme.summary[lang],
+      anchors: ['programme-content', 'programme-participation', 'programme-conditions'],
     })),
     ...records.cases
       .filter((item) => item.detailPage)
@@ -222,7 +236,10 @@ export const pages = createPages(catalogue);
 /** The menu follows the same overview registry as static routes; detail pages stay within their section. */
 export const navigationFor = (lang: Lang) =>
   pages
-    .filter((page) => page.lang === lang && page.kind !== 'work' && page.kind !== 'case')
+    .filter(
+      (page) =>
+        page.lang === lang && page.kind !== 'work' && page.kind !== 'case' && page.kind !== 'programme',
+    )
     .map((page) => ({
       route: page.kind,
       href: page.path,
@@ -240,7 +257,17 @@ export const caseUrl = (lang: Lang, id: string) =>
   cases.find((row) => row.id === id)?.detailPage
     ? `/${lang}/cases/${cases.find((row) => row.id === id)!.slug}/`
     : `/${lang}/cases/#case-${cases.find((row) => row.id === id)?.slug ?? ''}`;
-export const caseTargetUrl = (lang: Lang, item: { work?: string; method?: string }) =>
-  item.work ? workUrl(lang, item.work) : `/${lang}/technology/`;
-export const formatUrl = (lang: Lang, id: string) =>
-  `/${lang}/formats/#${formats.find((x) => x.id === id)?.slug ?? ''}`;
+export const caseTargetUrl = (lang: Lang, item: { work?: string; method?: string; programme?: string }) =>
+  item.work
+    ? workUrl(lang, item.work)
+    : item.programme
+      ? programmeUrl(lang, item.programme)
+      : `/${lang}/technology/`;
+export const configurationUrl = (lang: Lang, id: string) => {
+  const configuration = configurations.find((row) => row.id === id);
+  return configuration
+    ? workUrl(lang, configuration.workId) + '#' + configuration.slug
+    : `/${lang}/cooperation/`;
+};
+export const programmeUrl = (lang: Lang, id: string) =>
+  `/${lang}/education/${programmes.find((row) => row.id === id)?.slug ?? ''}/`;

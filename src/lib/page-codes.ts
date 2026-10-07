@@ -5,7 +5,8 @@ export const familyByKind: Record<PageKind, PageFamily> = {
   home: 'H',
   works: 'W',
   work: 'W',
-  formats: 'F',
+  education: 'E',
+  programme: 'E',
   cooperation: 'C',
   studio: 'S',
   cases: 'K',
@@ -15,7 +16,7 @@ export const familyByKind: Record<PageKind, PageFamily> = {
   recognition: 'R',
 };
 
-export type PageFamily = 'H' | 'W' | 'F' | 'C' | 'S' | 'K' | 'N' | 'M' | 'R' | 'D';
+export type PageFamily = 'H' | 'W' | 'E' | 'C' | 'S' | 'K' | 'N' | 'M' | 'R' | 'D';
 
 export function makePageCode(family: PageFamily, section = 0) {
   if (!Number.isInteger(section) || section < 0 || section > 99)

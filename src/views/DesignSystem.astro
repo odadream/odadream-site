@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import MediaFigure from '../components/MediaFigure.astro';
 import VideoPreview from '../components/VideoPreview.astro';
+import ProgrammeCard from '../components/ProgrammeCard.astro';
+import ParticipationPanel from '../components/ParticipationPanel.astro';
 import WorkCard from '../components/WorkCard.astro';
 import RecognitionCard from '../components/RecognitionCard.astro';
 import StatisticsStamp from '../components/StatisticsStamp.astro';
@@ -15,7 +17,15 @@ import EvidenceNote from '../components/EvidenceNote.astro';
 import TechnicalMark from '../components/TechnicalMark.astro';
 import CalloutLink from '../components/CalloutLink.astro';
 import PageCode from '../components/PageCode.astro';
-import { recognitions, works, evidence, workDocuments, referenceDocuments } from '../data/site';
+import {
+  recognitions,
+  works,
+  evidence,
+  workDocuments,
+  referenceDocuments,
+  configurations,
+  programmes,
+} from '../data/site';
 import { siteStats } from '../lib/site-stats';
 import { navigationFor } from '../lib/routes';
 import '../styles/design-system.css';
@@ -43,7 +53,7 @@ const sections = [
 const signalFamilies = [
   ['H', 'Главная', '--signal-home'],
   ['W', 'Работы', '--signal-works'],
-  ['F', 'Форматы', '--signal-formats'],
+  ['E', 'Образование', '--signal-education'],
   ['C', 'Сотрудничество', '--signal-cooperation'],
   ['S', 'Студия', '--signal-studio'],
   ['K', 'Кейсы', '--signal-cases'],
@@ -71,7 +81,7 @@ const profileTokens = [
   ['--tap-target', 'Минимальная цель нажатия'],
   ['--signal-home', 'Цвет кода главной страницы'],
   ['--signal-works', 'Цвет кода страницы работ'],
-  ['--signal-formats', 'Цвет кода страницы форматов'],
+  ['--signal-education', 'Цвет кода образовательных страниц'],
   ['--signal-cooperation', 'Цвет кода страницы сотрудничества'],
   ['--signal-studio', 'Цвет кода страницы студии'],
   ['--signal-cases', 'Цвет кода страницы кейсов'],
@@ -672,6 +682,13 @@ const profileTokens = [
           ]}
         />
         <EditorialSections sections={works[0].story.slice(0, 1)} lang="ru" anchorPrefix="system-story" />
+        <h3>Программы образования и условия показа работы</h3>
+        <div class="programme-grid">
+          {[programmes[0], programmes[7]].map((item) => (
+            <ProgrammeCard item={item} lang="ru" />
+          ))}
+        </div>
+        <ParticipationPanel item={configurations[0]} lang="ru" anchor="system-work-configuration" />
         <EvidenceNote item={evidence[0]} lang="ru" />
         <RecordStamp
           title="Два поля / вся доступная ширина"

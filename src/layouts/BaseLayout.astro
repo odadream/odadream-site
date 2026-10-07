@@ -29,7 +29,14 @@ const canonical = new URL(canonicalPath, site).href;
 const alternateEn = new URL(pairedPath(page.path, 'en'), site).href;
 const alternateRu = new URL(pairedPath(page.path, 'ru'), site).href;
 const nav = navigationFor(page.lang);
-const navRoot = page.kind === 'work' ? 'works' : page.kind === 'case' ? 'cases' : page.kind;
+const navRoot =
+  page.kind === 'work'
+    ? 'works'
+    : page.kind === 'case'
+      ? 'cases'
+      : page.kind === 'programme'
+        ? 'education'
+        : page.kind;
 const pageSection = page.family === 'D' ? 'design' : navRoot;
 const contentDate = lastmod[page.path as keyof typeof lastmod];
 const record =
@@ -71,7 +78,7 @@ const crumbNames: Record<string, string> =
     ? {
         en: 'Home',
         works: 'Works',
-        formats: 'Formats',
+        education: 'Education',
         cooperation: 'Cooperation',
         studio: 'Studio',
         cases: 'Cases',
@@ -82,7 +89,7 @@ const crumbNames: Record<string, string> =
     : {
         ru: 'Главная',
         works: 'Работы',
-        formats: 'Форматы',
+        education: 'Образование',
         cooperation: 'Сотрудничество',
         studio: 'Студия',
         cases: 'Кейсы',

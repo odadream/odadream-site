@@ -94,13 +94,10 @@ test('deferred work routes are absent from HTML and sitemap; query links preserv
       expect(sitemap).not.toContain(path);
     }
   }
-  if (deferred.length) {
-    await page.goto(`${base}/?id=${deferred[0].legacyId}&lang=ru`);
-    await expect(page).toHaveURL(new RegExp(`/legacy/unavailable/\\?id=${deferred[0].legacyId}&lang=ru`));
-    await expect(page.locator('#legacy-id')).toHaveText(deferred[0].legacyId);
-    await expect(page.locator('html')).toHaveAttribute('lang', 'ru');
-    await expect(page.locator('.legacy-works-link')).toHaveAttribute('href', '/ru/works/');
-    await expect(page.locator('.legacy-contact-link')).toHaveAttribute('href', '/ru/contact/');
-    await expect(page.locator('.legacy-works-link')).toContainText('Посмотреть работы');
-  }
+  await page.goto(`${base}/?id=unknown-record&lang=ru`);
+  await expect(page.locator('[data-legacy-notice]')).toBeVisible();
+  await expect(page.locator('.legacy-home-link')).toHaveAttribute('href', '/ru/');
+  await expect(page).toHaveURL(/\/ru\/$/, { timeout: 8000 });
+  expect(sitemap).not.toContain('/formats/');
+  expect((await request.get(base + '/legacy-map.json')).status()).toBe(404);
 });

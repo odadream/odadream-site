@@ -1,6 +1,6 @@
 import eventSummary from '../data/golem-event-summary.json';
 import legacyRecognitionSummary from '../data/legacy-recognition-summary.json';
-import { cases, recognitions, works, realizedWorks, researchWorks } from '../data/catalogue';
+import { cases, recognitions, works, realizedWorks, researchWorks, programmes } from '../data/catalogue';
 import type { CaseEvent, RecognitionKind, WorkStage } from '../data/site';
 
 const countBy = <T extends string>(items: T[]) =>
@@ -10,6 +10,12 @@ const countBy = <T extends string>(items: T[]) =>
   }, {});
 
 export const siteStats = {
+  education: {
+    total: programmes.length,
+    lectures: programmes.filter((row) => row.programmeType === 'lecture').length,
+    workshops: programmes.filter((row) => row.programmeType === 'workshop').length,
+    laboratories: programmes.filter((row) => row.programmeType === 'laboratory').length,
+  },
   works: {
     total: works.length,
     realized: realizedWorks.length,

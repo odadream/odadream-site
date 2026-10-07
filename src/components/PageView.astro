@@ -5,6 +5,8 @@ import DocumentList from './DocumentList.astro';
 import MediaFigure from './MediaFigure.astro';
 import VideoPreview from './VideoPreview.astro';
 import WorkCard from './WorkCard.astro';
+import ProgrammeCard from './ProgrammeCard.astro';
+import ParticipationPanel from './ParticipationPanel.astro';
 import RecognitionCard from './RecognitionCard.astro';
 import SectionRail from './SectionRail.astro';
 import RecordStamp from './RecordStamp.astro';
@@ -20,7 +22,9 @@ import {
   referenceDocuments,
   cases,
   evidence,
-  formats,
+  configurations,
+  programmes,
+  educationOverview,
   publicHeroVisuals,
   selectedWorks,
   realizedWorks,
@@ -34,7 +38,7 @@ import {
 } from '../data/catalogue';
 import { workStageLabels } from '../data/site';
 import { minddbSnapshot, preview } from '../data/catalogue';
-import { caseUrl, caseTargetUrl, formatUrl, workUrl, type Page } from '../lib/routes';
+import { caseUrl, caseTargetUrl, configurationUrl, programmeUrl, workUrl, type Page } from '../lib/routes';
 import EvidenceNote from './EvidenceNote.astro';
 interface Props {
   page: Page;
@@ -48,7 +52,7 @@ const oneCase = page.kind === 'case' ? cases.find((x) => x.slug === page.slug) :
 const sectionName = {
   home: ru ? 'Главная' : 'Home',
   works: ru ? 'Работы' : 'Works',
-  formats: ru ? 'Форматы' : 'Formats',
+  education: ru ? 'Образование' : 'Education',
   cooperation: ru ? 'Сотрудничество' : 'Cooperation',
   studio: ru ? 'Студия' : 'Studio',
   cases: ru ? 'Кейсы' : 'Cases',
@@ -267,7 +271,7 @@ const timeline = [...cases]
           <CalloutLink href={`/${lang}/technology/`}>
             {ru ? 'Как устроена Нейромандала' : 'How Neuromandala works'}
           </CalloutLink>
-          <CalloutLink href={`/${lang}/formats/`}>{ru ? 'Форматы' : 'Formats'}</CalloutLink>
+          <CalloutLink href={`/${lang}/education/`}>{ru ? 'Образование' : 'Education'}</CalloutLink>
         </div>
       </div>
       <SectionRail
@@ -502,8 +506,8 @@ const timeline = [...cases]
               ))}
             </div>
             <div class="link-row spaced-actions">
-              <CalloutLink href={`/${lang}/formats/`}>
-                {ru ? 'Форматы участия' : 'Participation formats'}
+              <CalloutLink href={`/${lang}/education/`}>
+                {ru ? 'Образовательные программы' : 'Educational programmes'}
               </CalloutLink>
               <CalloutLink href={`/${lang}/cooperation/`}>
                 {ru ? 'Обсудить показ или разработку' : 'Discuss presentation or development'}
@@ -676,15 +680,12 @@ const timeline = [...cases]
           </span>
           <h2>{ru ? 'Как работать с проектом' : 'Working with the project'}</h2>
           <p>{work.availability[lang]}</p>
-          {work.formats.length > 0 && (
-            <div class="link-row spaced-actions">
-              {work.formats.map((id) => (
-                <CalloutLink href={formatUrl(lang, id)}>
-                  {formats.find((x) => x.id === id)?.title[lang]}
-                </CalloutLink>
-              ))}
-            </div>
-          )}
+          {configurations
+            .filter((item) => item.workId === work.id)
+            .map((item) => (
+              <ParticipationPanel item={item} lang={lang} anchor={item.slug} />
+            ))}
+
           <div class="link-row spaced-actions">
             <a class="button primary" href={`/${lang}/contact/`}>
               {ru ? 'Обсудить проект' : 'Discuss a project'}
@@ -735,83 +736,145 @@ const timeline = [...cases]
     </div>
   </article>
 )}
-{page.kind === 'formats' && (
+{page.kind === 'education' && (
   <>
     <section class="page-intro shell">
       <p class="eyebrow">
-        <PageCode family={family} lang={lang} /> / {sectionName.formats}
+        <PageCode family={family} lang={lang} /> / {sectionName.education}
       </p>
-      <h1>{ru ? 'Форматы' : 'Formats'}</h1>
+      <h1>{ru ? 'Образование' : 'Education'}</h1>
       <p class="lead">
         {ru
-          ? 'Формат — это согласуемая конфигурация работы или отдельная образовательная программа. Наличие реализованной работы само по себе не означает готовность к заказу.'
-          : 'A format is an agreed configuration of a work or an educational programme. A realized artwork is not automatically available to commission.'}
+          ? 'Лекции, практикумы и образовательные лаборатории об искусстве, восприятии и обратной связи. У каждой программы свой вопрос, ход участия и условия.'
+          : 'Lectures, workshops and educational laboratories on art, perception and feedback. Each programme has its own question, participation and conditions.'}
       </p>
     </section>
-    <section class="shell">
-      {formats.map((item, i) => (
-        <article class="section section-grid" id={item.slug} data-format-id={item.id}>
-          <div class="section-label">
-            <PageCode family={family} section={i + 1} lang={lang} />
-            <span class="eyebrow">{ru ? 'Конфигурация' : 'Configuration'}</span>
-          </div>
-          <div class="section-body">
-            <h2>{item.title[lang]}</h2>
-            <p class="lead">{item.summary[lang]}</p>
-            <p>{item.story[lang]}</p>
-            <h3>{ru ? 'Участие и результат' : 'Participation and outcome'}</h3>
-            <p>{item.participation[lang]}</p>
-            <p>{item.outcome[lang]}</p>
-            {item.topics.length > 0 && (
+    <section class="section shell section-grid" id="education-programmes">
+      <SectionRail note="" family={family} section={1} lang={lang} label={ru ? 'Программы' : 'Programmes'} />
+      <div class="section-body">
+        <h2>{ru ? 'Лекции, практикумы и лаборатории' : 'Lectures, workshops and laboratories'}</h2>
+        <StatisticsStamp kind="education" lang={lang} />
+        <div class="programme-grid">
+          {programmes.map((item) => (
+            <ProgrammeCard item={item} lang={lang} />
+          ))}
+        </div>
+      </div>
+    </section>
+    {educationOverview && (
+      <section class="section shell section-grid" id="education-conditions">
+        <SectionRail
+          note=""
+          family={family}
+          section={2}
+          lang={lang}
+          label={ru ? 'Подготовка' : 'Preparation'}
+        />
+        <div class="section-body">
+          <h2>{ru ? 'Как подготовить встречу' : 'Preparing an encounter'}</h2>
+          <p>{educationOverview.story[lang]}</p>
+          <RecordStamp
+            wide
+            title={ru ? 'Общие архивные рамки' : 'General archival parameters'}
+            fields={educationOverview.conditions.map((c) => ({ label: c.label[lang], value: c.value[lang] }))}
+          />
+          <p>{educationOverview.scope[lang]}</p>
+          <CalloutLink href={`/${lang}/cooperation/#for-education`}>
+            {ru ? 'Обсудить образовательную программу' : 'Discuss an educational programme'}
+          </CalloutLink>
+        </div>
+      </section>
+    )}
+  </>
+)}
+{page.kind === 'programme' &&
+  (() => {
+    const programme = programmes.find((item) => item.slug === page.slug);
+    return (
+      programme && (
+        <>
+          <section class="page-intro shell">
+            <p class="eyebrow">
+              <PageCode family={family} lang={lang} /> / {ru ? 'Образование' : 'Education'}
+            </p>
+            <h1>{programme.title[lang]}</h1>
+            {programme.deliveryStatus === 'proposed' && (
+              <p class="meta">{ru ? 'Проект образовательной программы' : 'Proposed educational programme'}</p>
+            )}
+            <p class="lead">{programme.summary[lang]}</p>
+            <CalloutLink href={`/${lang}/education/`}>{ru ? 'Все программы' : 'All programmes'}</CalloutLink>
+          </section>
+          <section class="section shell section-grid" id="programme-content">
+            <SectionRail
+              note=""
+              family={family}
+              section={1}
+              lang={lang}
+              label={ru ? 'Содержание' : 'Content'}
+            />
+            <div class="section-body">
+              <h2>{ru ? 'Вопрос и ход программы' : 'Question and programme'}</h2>
+              <p>{programme.story[lang]}</p>
               <ul class="facts">
-                {item.topics.map((topic) => (
+                {programme.topics.map((topic) => (
                   <li>{topic[lang]}</li>
                 ))}
               </ul>
-            )}
-            <RecordStamp
-              title={ru ? 'Конфигурация и параметры' : 'Configuration and parameters'}
-              wide
-              fields={item.conditions.map((condition) => ({
-                label: condition.label[lang],
-                value: condition.value[lang],
-              }))}
+              <RecordStamp
+                title={ru ? 'Программа' : 'Programme'}
+                wide
+                fields={[
+                  { label: ru ? 'Аудитория' : 'Audience', value: programme.audience[lang] },
+                  {
+                    label: ru ? 'Авторство и ведущие' : 'Authorship and facilitators',
+                    value: programme.authorsNote[lang],
+                  },
+                ]}
+              />
+            </div>
+          </section>
+          <section class="section shell section-grid" id="programme-participation">
+            <SectionRail
+              note=""
+              family={family}
+              section={2}
+              lang={lang}
+              label={ru ? 'Участие' : 'Participation'}
             />
-            <p class="small-note">
-              {ru
-                ? 'Числа относятся к архивным конфигурациям. Параметры конкретного приглашения фиксируются в предложении; это не готовый актуальный райдер.'
-                : 'Numbers describe archival configurations. Parameters for a specific invitation are fixed in the proposal; this is not a current ready-to-use rider.'}
-            </p>
-            <h3>{ru ? 'Рамка производства' : 'Production responsibilities'}</h3>
-            <RecordStamp
-              title={ru ? 'Студия и площадка' : 'Studio and venue'}
-              wide
-              fields={[
-                { label: 'ODA.dream', value: item.studioProvides[lang].join(' · ') },
-                {
-                  label: ru ? 'Площадка / организатор' : 'Venue / organiser',
-                  value: item.venueProvides[lang].join(' · '),
-                },
-              ]}
+            <div class="section-body">
+              <h2>{ru ? 'Практика и результат' : 'Practice and outcome'}</h2>
+              <p>{programme.participation[lang]}</p>
+              <p>{programme.outcome[lang]}</p>
+            </div>
+          </section>
+          <section class="section shell section-grid" id="programme-conditions">
+            <SectionRail
+              note=""
+              family={family}
+              section={3}
+              lang={lang}
+              label={ru ? 'Условия' : 'Conditions'}
             />
-            {item.reviewNotes.map((note) => (
-              <p class="small-note">{note[lang]}</p>
-            ))}
-            <p>{item.scope[lang]}</p>
-            <div class="link-row">
-              {item.works.map((id) => (
-                <CalloutLink href={workUrl(lang, id)}>{workById(id)?.title[lang]}</CalloutLink>
+            <div class="section-body">
+              <h2>{ru ? 'Подготовка и условия' : 'Preparation and conditions'}</h2>
+              <RecordStamp
+                wide
+                title={ru ? 'Рамка приглашения' : 'Invitation scope'}
+                fields={programme.conditions.map((c) => ({ label: c.label[lang], value: c.value[lang] }))}
+              />
+              <p>{programme.scope[lang]}</p>
+              {programme.reviewNotes.map((note) => (
+                <p class="small-note">{note[lang]}</p>
               ))}
-              <CalloutLink href={`/${lang}/cooperation/`}>
-                {ru ? 'Условия сотрудничества' : 'Cooperation details'}
+              <CalloutLink href={`/${lang}/cooperation/#for-education`}>
+                {ru ? 'Обсудить программу' : 'Discuss the programme'}
               </CalloutLink>
             </div>
-          </div>
-        </article>
-      ))}
-    </section>
-  </>
-)}
+          </section>
+        </>
+      )
+    );
+  })()}
 {page.kind === 'cooperation' && (
   <>
     <section class="page-intro shell">
@@ -842,9 +905,14 @@ const timeline = [...cases]
                   <p>{item.body[lang]}</p>
                   <p class="small-note">{item.request[lang]}</p>
                   <div class="link-row">
-                    {item.formatIds.map((id) => (
-                      <CalloutLink href={formatUrl(lang, id)}>
-                        {formats.find((format) => format.id === id)?.title[lang]}
+                    {item.configurationIds.map((id) => (
+                      <CalloutLink href={configurationUrl(lang, id)}>
+                        {configurations.find((format) => format.id === id)?.title[lang]}
+                      </CalloutLink>
+                    ))}
+                    {item.programmeIds.map((id) => (
+                      <CalloutLink href={programmeUrl(lang, id)}>
+                        {programmes.find((programme) => programme.id === id)?.title[lang]}
                       </CalloutLink>
                     ))}
                   </div>
@@ -893,8 +961,8 @@ const timeline = [...cases]
                 },
               ]}
             />
-            <CalloutLink href={`/${lang}/formats/`}>
-              {ru ? 'Параметры трёх форматов' : 'Parameters of the three formats'}
+            <CalloutLink href={`/${lang}/education/`}>
+              {ru ? 'Образовательные программы' : 'Educational programmes'}
             </CalloutLink>
             <DocumentList
               documents={referenceDocuments.filter(
@@ -1064,7 +1132,7 @@ const timeline = [...cases]
                   <h3>{item.title[lang]}</h3>
                   <p>{item.body[lang]}</p>
                 </div>
-                <CalloutLink href={`/${lang}/formats/`}>{ru ? 'Форматы' : 'Formats'}</CalloutLink>
+                <CalloutLink href={`/${lang}/education/`}>{ru ? 'Образование' : 'Education'}</CalloutLink>
               </article>
             ))}
           </div>

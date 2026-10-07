@@ -85,7 +85,7 @@ try {
         '/ru/works/oda-rings/',
         '/en/cases/dano-2025/',
         '/ru/studio/',
-        '/en/formats/',
+        '/en/education/',
       ]) {
         await page.goto(base + path, { waitUntil: 'domcontentloaded' });
         await page.evaluate(async (theme) => {

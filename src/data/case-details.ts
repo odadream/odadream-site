@@ -232,7 +232,7 @@ export const historicalEvents: CaseEvent[] = [
     ],
     sourceRefs: refs('event-portal-2025.md', 'proof-award-portal-visioning.md', 'hub-letters.md'),
     source: 'src/content/event-portal-2025.md; proof-award-portal-visioning.md',
-    publication: 'review',
+    publication: 'published',
   },
   {
     id: 'wildmint-2025',
@@ -272,7 +272,7 @@ export const historicalEvents: CaseEvent[] = [
     ],
     sourceRefs: refs('event-myata-2025.md', 'proof-let-wildmint.md', 'hub-letters.md'),
     source: 'src/content/event-myata-2025.md; proof-let-wildmint.md',
-    publication: 'review',
+    publication: 'published',
   },
   {
     id: 'cipr-2026',
@@ -321,6 +321,6 @@ export const historicalEvents: CaseEvent[] = [
     ],
     sourceRefs: refs('event-cipr-mindshow-2026.md', 'proof-tst-cipr-techfriendly.md', 'org-ashram.md'),
     source: 'src/content/event-cipr-mindshow-2026.md; proof-tst-cipr-techfriendly.md',
-    publication: 'review',
+    publication: 'published',
   },
 ];

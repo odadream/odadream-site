@@ -12,7 +12,10 @@ export default defineConfig({
     publicationIntegration(),
     sitemap({
       filter: (page) =>
-        !page.includes('/legacy/') && !page.includes('/design-system/') && page !== 'https://odadream.art/',
+        !page.includes('/legacy/') &&
+        !page.includes('/design-system/') &&
+        !page.endsWith('/formats/') &&
+        page !== 'https://odadream.art/',
       serialize: (item) => ({ ...item, lastmod: lastmod[new URL(item.url).pathname] }),
     }),
   ],

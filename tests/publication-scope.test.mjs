@@ -11,7 +11,7 @@ const { resolveLegacyRoutes } = await loadSiteModule('src/lib/legacy-routes.ts')
 function fixture() {
   const source = structuredClone({
     works: original.works,
-    formats: original.formats,
+    configurations: original.configurations,
     cases: original.cases,
     people: original.people,
     organizations: original.organizations,
@@ -26,7 +26,7 @@ function fixture() {
     version: 'fixture',
     asOf: '2026-10-06',
     works: [source.works[0].id],
-    formats: [],
+    configurations: [],
     cases: [],
     people: [],
     recognitions: [],

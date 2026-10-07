@@ -179,8 +179,8 @@ p {
 .page-code[data-family='W'] .page-code__family {
   color: var(--signal-works);
 }
-.page-code[data-family='F'] .page-code__family {
-  color: var(--signal-formats);
+.page-code[data-family='E'] .page-code__family {
+  color: var(--signal-education);
 }
 .page-code[data-family='C'] .page-code__family {
   color: var(--signal-cooperation);
@@ -1639,4 +1639,28 @@ figcaption {
 .catalogue-note {
   margin-block: var(--s4) var(--s6);
   color: var(--muted);
+}
+
+.programme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: var(--s6);
+}
+.programme-card__link {
+  display: grid;
+  gap: var(--s3);
+  color: inherit;
+  text-decoration: none;
+}
+.programme-card h3 {
+  font-size: var(--type-h3);
+}
+.participation-panel {
+  margin-block: var(--s6);
+  display: grid;
+  gap: var(--s3);
+}
+.participation-panel p,
+.programme-card p {
+  margin: 0;
 }

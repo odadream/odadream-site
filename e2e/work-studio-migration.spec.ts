@@ -63,10 +63,10 @@ test('studio has separate biographies, educational roles, live dossiers and exac
     await expect(page.locator('#teaching .list-row')).toHaveCount(3);
     await expect(page.locator('#materials .list-row')).toHaveCount(4);
     await expect(page.locator('#materials a[download]')).toHaveCount(0);
-    await page.goto(`/?id=event-sber-lecture-2025&lang=${lang}`);
+    await page.goto(`/${lang}/studio/#teaching-sber`);
     await expect(page).toHaveURL(new RegExp(`/${lang}/studio/#teaching-sber$`));
     await expect(page.locator('#teaching-sber')).toBeVisible();
-    await page.goto(`/?id=emomandala-os&lang=${lang}`);
+    await page.goto(`/${lang}/works/emomandala/#work-story-selection`);
     await expect(page).toHaveURL(new RegExp(`/${lang}/works/emomandala/#work-story-selection$`));
     await expect(page.locator('#work-story-selection')).toContainText('p5.js');
   }

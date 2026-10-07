@@ -9,16 +9,8 @@ const page = pages.find((item) => item.path === '/en/')!;
   <script is:inline>
     const params = new URLSearchParams(location.search);
     if (params.has('id')) {
-      const id = params.get('id') || '';
       const lang = params.get('lang') === 'ru' ? 'ru' : 'en';
-      const fallback = '/legacy/unavailable/?id=' + encodeURIComponent(id) + '&lang=' + lang;
-      fetch('/legacy-map.json')
-        .then((response) => {
-          if (!response.ok) throw new Error('Legacy map unavailable');
-          return response.json();
-        })
-        .then((routes) => location.replace(routes[id]?.[lang === 'ru' ? 1 : 0] || fallback))
-        .catch(() => location.replace(fallback));
+      location.replace('/legacy/unavailable/?lang=' + lang);
     }
   </script>
   <PageView page={page} />

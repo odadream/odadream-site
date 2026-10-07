@@ -10,7 +10,7 @@ test('every overview route has one menu entrance in its language, including meth
   for (const lang of ['en', 'ru']) {
     const nav = navigationFor(lang);
     const overview = createPages(original).filter(
-      (page) => page.lang === lang && !['work', 'case'].includes(page.kind),
+      (page) => page.lang === lang && !['work', 'case', 'programme'].includes(page.kind),
     );
     assert.equal(new Set(nav.map((row) => row.href)).size, overview.length);
     assert.deepEqual(nav.map((row) => row.href).sort(), overview.map((row) => row.path).sort());
@@ -28,13 +28,14 @@ test('historical PDFs require their published work and independent cleared right
     ...publicationPlan,
     works: ['rings'],
     methods: [],
-    formats: [],
+    configurations: [],
     cases: [],
     people: [],
     studioPages: [],
     cooperationPages: [],
     heroVisuals: [],
   };
+  source.works.find((row) => row.id === 'rings').publication = 'review';
   let scope = createPublicationScope(source, plan);
   assert.equal(scope.workDocuments.length, 0);
   for (const row of source.workDocuments) assert.ok(!scope.assetPaths.has(row.href));

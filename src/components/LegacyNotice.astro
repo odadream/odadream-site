@@ -1,0 +1,55 @@
+---
+import CalloutLink from './CalloutLink.astro';
+import type { Lang } from '../data/site';
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'en' } = Astro.props;
+const ru = lang === 'ru';
+---
+
+<section class="shell page-intro" data-legacy-notice data-notice-lang={lang}>
+  <p class="eyebrow">ODA.DREAM</p>
+  <h1>{ru ? 'Сайт обновился' : 'The site has changed'}</h1>
+  <p class="lead mt-5">
+    {ru
+      ? 'Этот адрес относится к прежней структуре сайта или больше не существует. Через 5 секунд откроется главная страница ODA.dream.'
+      : 'This address belongs to the former site structure or no longer exists. The ODA.dream home page will open in 5 seconds.'}
+  </p>
+  <CalloutLink class="legacy-home-link mt-6" href={`/${lang}/`}>
+    {ru ? 'Перейти на главную' : 'Open the home page'}
+  </CalloutLink>
+  <noscript>
+    <p class="mt-5">
+      JavaScript: off. <a href="/ru/">Русский</a> · <a href="/en/">English</a>
+    </p>
+  </noscript>
+</section>
+<script>
+  const notice = document.querySelector<HTMLElement>('[data-legacy-notice]');
+  if (notice) {
+    const lang =
+      new URLSearchParams(location.search).get('lang') === 'ru' ||
+      location.pathname.startsWith('/ru/') ||
+      notice.dataset.noticeLang === 'ru'
+        ? 'ru'
+        : 'en';
+    document.documentElement.lang = lang;
+    const heading = notice.querySelector('h1');
+    const lead = notice.querySelector('.lead');
+    const home = notice.querySelector<HTMLAnchorElement>('.legacy-home-link');
+    const target = `/${lang}/`;
+    if (lang === 'ru') {
+      document.title = 'Сайт обновился — ODA.dream';
+      if (heading) heading.textContent = 'Сайт обновился';
+      if (lead)
+        lead.textContent =
+          'Этот адрес относится к прежней структуре сайта или больше не существует. Через 5 секунд откроется главная страница ODA.dream.';
+    }
+    if (home) {
+      home.href = target;
+      home.textContent = lang === 'ru' ? 'Перейти на главную' : 'Open the home page';
+    }
+    window.setTimeout(() => location.replace(target), 5000);
+  }
+</script>

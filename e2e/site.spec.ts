@@ -130,14 +130,6 @@ test('language toggle preserves a work and back/forward', async ({ page }) => {
   await expect(page).toHaveURL(/\/ru\/works\/mindshow\/$/);
 });
 
-test('old query links resolve explicitly; unknown IDs do not become home', async ({ page }) => {
-  await page.goto('/?internal=true&id=interference&lang=ru');
-  await expect(page).toHaveURL(/\/ru\/works\/interference-of-realities\/$/);
-  await page.goto('/?id=unknown-record&lang=en');
-  await expect(page).toHaveURL(/\/legacy\/unavailable\/\?id=unknown-record&lang=en$/);
-  await expect(page.locator('meta[name=robots]')).toHaveAttribute('content', 'noindex,follow');
-});
-
 test('mobile navigation, media, lightbox and contact work without horizontal overflow', async ({
   page,
   isMobile,
@@ -364,6 +356,8 @@ test('key pages have no serious or critical accessibility violations', async ({ 
     '/en/works/interference-of-realities/',
     '/en/cases/dano-2025/',
     '/en/contact/',
+    '/ru/education/',
+    '/en/education/neuro-laboratory/',
     '/design-system/',
   ]) {
     await page.goto(path);

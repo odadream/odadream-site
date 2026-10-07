@@ -59,7 +59,7 @@ test('rings archive documents use original PDFs, precise anchors and explicit hi
       lang === 'ru' ? '40,4 МБ' : '40.4 MB',
     );
     await expect(page.locator('link[rel="preload"][href$=".pdf"]')).toHaveCount(0);
-    await page.goto(`/?id=media-oda-rings-drawings&lang=${lang}`);
+    await page.goto(`/${lang}/works/oda-rings/#document-oda-rings-drawings`);
     await expect(page).toHaveURL(
       (url) => url.pathname + url.hash === `/${lang}/works/oda-rings/#document-oda-rings-drawings`,
     );

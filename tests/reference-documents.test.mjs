@@ -13,12 +13,20 @@ function fixture() {
     Object.fromEntries(Object.entries(original).filter(([, value]) => typeof value !== 'function')),
   );
   source.referenceDocuments = source.referenceDocuments.filter((row) => row.kind === 'technical-overview');
-  for (const key of ['works', 'formats', 'methods', 'cooperationPages', 'studioPages', 'people', 'cases'])
+  for (const key of [
+    'works',
+    'configurations',
+    'methods',
+    'cooperationPages',
+    'studioPages',
+    'people',
+    'cases',
+  ])
     source[key] = source[key].map((row) => ({ ...row, publication: 'published' }));
   return source;
 }
 
-test('current PDFs require their published owner, every referenced format and independent rights', () => {
+test('current PDFs require their published owner, every referenced configuration and educational framework and independent rights', () => {
   const source = fixture();
   const paths = source.referenceDocuments.map((row) => row.href);
   let scope = createPublicationScope(source, publicationPlan, false);
@@ -29,9 +37,12 @@ test('current PDFs require their published owner, every referenced format and in
   assert.equal(scope.referenceDocuments.length, 0);
   for (const path of paths) assert.ok(!scope.assetPaths.has(path));
   source.cooperationPages[0].publication = 'published';
-  source.formats[0].publication = 'review';
+  source.configurations[0].publication = 'review';
   assert.equal(createPublicationScope(source, publicationPlan, false).referenceDocuments.length, 0);
-  source.formats[0].publication = 'published';
+  source.configurations[0].publication = 'published';
+  source.educationOverview.publication = 'review';
+  assert.equal(createPublicationScope(source, publicationPlan, false).referenceDocuments.length, 0);
+  source.educationOverview.publication = 'published';
   source.referenceDocuments[0].rights = 'restricted';
   scope = createPublicationScope(source, publicationPlan, false);
   assert.ok(!scope.assetPaths.has(paths[0]));
@@ -48,7 +59,13 @@ test('document fingerprints and internal future fields stay outside the public p
   const scope = createPublicationScope(source, publicationPlan, false);
   const output = JSON.stringify(scope.referenceDocuments);
   assert.ok(!output.includes('DO-NOT-EXPORT'));
-  for (const key of ['sha256', 'sourceRefs', 'contentFingerprint', 'requiredFormats', 'requiredPeople'])
+  for (const key of [
+    'sha256',
+    'sourceRefs',
+    'contentFingerprint',
+    'requiredConfigurations',
+    'requiredPeople',
+  ])
     assert.ok(!output.includes(`"${key}"`));
 });
 
@@ -63,7 +80,7 @@ test('prepared overview bytes and editorial facts agree; a changed condition req
     assert.equal(bytes.length, row.bytes);
     assert.equal(createHash('sha256').update(bytes).digest('hex'), row.sha256);
   }
-  source.formats[0].conditions[0].value.en = 'Changed venue requirement';
+  source.configurations[0].conditions[0].value.en = 'Changed venue requirement';
   const row = source.referenceDocuments[0];
   assert.notEqual(
     createHash('sha256')

@@ -40,7 +40,10 @@ test('agency-kit alias follows its canonical scenario and retains alias identity
   assert.deepEqual(row.aliases, ['for-events']);
   let routes = resolveLegacyRoutes(rows, createPages(createPublicationScope(source, publicationPlan, true)));
   assert.deepEqual(routes['for-events'], ['/en/cooperation/#for-events', '/ru/cooperation/#for-events']);
-  routes = resolveLegacyRoutes(rows, createPages(createPublicationScope(source, publicationPlan, false)));
+  routes = resolveLegacyRoutes(
+    rows,
+    createPages(createPublicationScope(source, { ...publicationPlan, cooperationPages: [] }, false)),
+  );
   assert.deepEqual(routes['for-events'], [
     '/legacy/unavailable/?id=for-events&lang=en',
     '/legacy/unavailable/?id=for-events&lang=ru',

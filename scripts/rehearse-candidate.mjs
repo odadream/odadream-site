@@ -25,7 +25,7 @@ const fixture = original
   .replace(
     'export const catalogue = createPublicationScope(source, publicationPlan, preview);',
     `const fixture = {...source};
-for (const key of ['works','formats','methods','cooperationPages','studioPages','cases','people','recognitions'] as const) {
+for (const key of ['works','configurations','programmes','methods','cooperationPages','studioPages','cases','people','recognitions'] as const) {
   const selected = new Set(publicationPlan[key] ?? []);
   fixture[key] = source[key].map(row => ({...row, publication: selected.has(row.id) ? 'published' as const : row.publication})) as never;
 }

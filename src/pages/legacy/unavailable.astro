@@ -1,6 +1,6 @@
 ---
 import '../../styles/global.css';
-import CalloutLink from '../../components/CalloutLink.astro';
+import LegacyNotice from '../../components/LegacyNotice.astro';
 ---
 
 <!doctype html>
@@ -9,58 +9,12 @@ import CalloutLink from '../../components/CalloutLink.astro';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex,follow" />
-    <title>Record not transferred — ODA.dream</title>
-    <meta
-      name="description"
-      content="This archived ODA.dream record has not been transferred to the new public site."
-    />
-    <link rel="canonical" href="https://odadream.art/legacy/unavailable/" />
+    <title>The site has changed — ODA.dream</title>
+    <meta name="description" content="The site structure has changed. Continue to the ODA.dream home page." />
   </head>
   <body>
-    <main class="shell page-intro">
-      <p class="eyebrow">ODA.DREAM / LEGACY RECORD</p>
-      <h1>Record not transferred</h1>
-      <p class="lead mt-5">
-        This archived record is currently unavailable in this version of the site. Its source remains in the
-        studio archive; contact us to clarify its status or request related material.
-      </p>
-      <p class="small-note mt-5">
-        Legacy ID: <code id="legacy-id">unknown</code>
-      </p>
-      <div class="link-row mt-6">
-        <CalloutLink class="legacy-works-link" href="/en/works/">
-          Explore works
-        </CalloutLink>
-        <CalloutLink class="legacy-contact-link" href="/en/contact/">
-          Ask the studio
-        </CalloutLink>
-      </div>
+    <main>
+      <LegacyNotice />
     </main>
-    <script is:inline>
-      const params = new URLSearchParams(location.search);
-      const id = params.get('id');
-      const output = document.querySelector('#legacy-id');
-      if (output) output.textContent = id || 'unknown';
-      if (params.get('lang') === 'ru') {
-        document.documentElement.lang = 'ru';
-        const heading = document.querySelector('h1');
-        const lead = document.querySelector('.lead');
-        document.title = 'Запись не перенесена — ODA.dream';
-        const works = document.querySelector('.legacy-works-link');
-        const contact = document.querySelector('.legacy-contact-link');
-        if (works) {
-          works.href = '/ru/works/';
-          works.textContent = 'Посмотреть работы';
-        }
-        if (contact) {
-          contact.href = '/ru/contact/';
-          contact.textContent = 'Связаться со студией';
-        }
-        if (heading) heading.textContent = 'Запись не перенесена';
-        if (lead)
-          lead.textContent =
-            'Эта архивная запись сейчас недоступна в данной версии сайта. Исходник остаётся в архиве студии; свяжитесь с нами, чтобы уточнить статус или запросить связанный материал.';
-      }
-    </script>
   </body>
 </html>

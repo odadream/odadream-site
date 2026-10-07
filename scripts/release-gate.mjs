@@ -1,7 +1,4 @@
-import { readFile } from 'node:fs/promises';
-import { unresolvedLegacyMedia, preservedLegacyPaths } from './legacy-media-check.mjs';
 import { loadSiteModule } from './site-data.mjs';
-import { resolve } from 'node:path';
 import { loadEnv } from 'vite';
 
 const { catalogue } = await loadSiteModule('src/data/catalogue.ts');
@@ -14,15 +11,11 @@ failures.push(
 );
 if (!catalogue.works.length)
   failures.push('Public packet has no approved works; editorial selection is not ready');
-const audit = JSON.parse(await readFile('docs/media-audit.json', 'utf8'));
-const decisions = JSON.parse(await readFile('docs/media-decisions.json', 'utf8'));
-const publicPaths = await preservedLegacyPaths(audit, resolve('public'), catalogue.assetPaths);
-const unresolved = unresolvedLegacyMedia(audit, decisions, publicPaths);
-if (unresolved.length)
-  failures.push(
-    `${unresolved.length} old public media URLs still require an approved preserve/retire decision`,
-  );
+// Owner decision 2026-10-07: obsolete V1 addresses show a notice and return home.
+// Old URL preservation is not a release requirement. Actual selected media rights
+// remain enforced by createPublicationScope and the physical build allowlist.
 if (failures.length) {
   console.error('Release blocked:\n' + failures.map((x) => `- ${x}`).join('\n'));
   process.exitCode = 1;
-} else console.log('Editorial, media rights and legacy media gates cleared.');
+} else
+  console.log('Selected content and media rights gates cleared. Migration completion is tracked separately.');

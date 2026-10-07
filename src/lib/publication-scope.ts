@@ -3,7 +3,7 @@ import type { Publication, Work } from '../data/site';
 export type CatalogueSource = Pick<
   typeof import('../data/site'),
   | 'works'
-  | 'formats'
+  | 'configurations'
   | 'cases'
   | 'people'
   | 'organizations'
@@ -22,6 +22,8 @@ export type CatalogueSource = Pick<
       | 'workDocuments'
       | 'legacyWorkResources'
       | 'referenceDocuments'
+      | 'programmes'
+      | 'educationOverview'
     >
   >;
 export interface PublicationPlan {
@@ -31,7 +33,9 @@ export interface PublicationPlan {
   cooperationPages?: string[];
   studioPages?: string[];
   works: string[];
-  formats: string[];
+  configurations: string[];
+  programmes?: string[];
+  educationOverview?: boolean;
   cases: string[];
   people: string[];
   recognitions: string[];
@@ -86,10 +90,25 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
     }
     return true;
   });
-  const formats = select('formats', source.formats).map((row) => ({
+  const configurations = select('configurations', source.configurations).filter((row) => {
+    if (workIds.has(row.workId)) return true;
+    if (!preview)
+      errors.push(`configuration ${row.id}: owner work ${row.workId} is outside the published packet`);
+    return false;
+  });
+  let programmes = select('programmes', source.programmes ?? []).map((row) => ({
     ...row,
     works: row.works.filter((id) => workIds.has(id)),
   }));
+  const programmeIds = ids(programmes);
+  const educationOverview =
+    (preview || plan.educationOverview) && source.educationOverview
+      ? preview || source.educationOverview.publication === 'published'
+        ? source.educationOverview
+        : undefined
+      : undefined;
+  if (!preview && plan.educationOverview && !educationOverview)
+    errors.push('education overview: publication unresolved');
   const methods = select('methods', source.methods ?? []).map((row) => ({
     ...row,
     works: row.works.filter((id) => workIds.has(id)),
@@ -98,8 +117,9 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
   const cases = select('cases', source.cases).filter((row) => {
     if (row.work && workIds.has(row.work)) return true;
     if (row.method && methodIds.has(row.method)) return true;
+    if (row.programme && programmeIds.has(row.programme)) return true;
     errors.push(
-      `case ${row.id}: ${row.method ? 'method ' + row.method : 'work ' + row.work} is outside the published packet`,
+      `case ${row.id}: ${row.method ? 'method ' + row.method : row.programme ? 'programme ' + row.programme : 'work ' + row.work} is outside the published packet`,
     );
     return false;
   });
@@ -107,7 +127,10 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
     ...row,
     scenarios: row.scenarios.map((scenario) => ({
       ...scenario,
-      formatIds: scenario.formatIds.filter((id) => formats.some((format) => format.id === id)),
+      configurationIds: scenario.configurationIds.filter((id) =>
+        configurations.some((format) => format.id === id),
+      ),
+      programmeIds: scenario.programmeIds.filter((id) => programmeIds.has(id)),
     })),
   }));
   const people = select('people', source.people);
@@ -133,7 +156,8 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
       return false;
     }
     if (
-      row.requiredFormats.some((id) => !formats.some((format) => format.id === id)) ||
+      (row.requiredEducationOverview && !educationOverview) ||
+      row.requiredConfigurations.some((id) => !configurations.some((format) => format.id === id)) ||
       row.requiredPeople.some((id) => !people.some((person) => person.id === id)) ||
       (row.requiredWorks ?? []).some((id) => !workIds.has(id)) ||
       (row.requiredCases ?? []).some((id) => !cases.some((item) => item.id === id))
@@ -180,6 +204,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
   const mediaIds = new Set([
     ...methods.flatMap((row) => row.media),
     ...works.flatMap((row) => row.media),
+    ...programmes.flatMap((row) => row.media),
     ...cases.flatMap((row) => row.media),
     ...heroVisuals.map((row) => row.mediaId),
   ]);
@@ -226,13 +251,18 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
         }
         return [row];
       });
-  const formatIds = ids(formats);
+  const configurationIds = ids(configurations);
   works = works.map((row) => ({
     ...row,
     basedOn: row.basedOn.filter((id) => workIds.has(id)),
     relatedWorks: row.relatedWorks.filter((id) => workIds.has(id)),
     cases: row.cases.filter((id) => caseIds.has(id)),
-    formats: row.formats.filter((id) => formatIds.has(id)),
+    configurations: row.configurations.filter((id) => configurationIds.has(id)),
+    media: row.media.filter((id) => availableMedia.has(id)),
+  }));
+  programmes = programmes.map((row) => ({
+    ...row,
+    cases: row.cases.filter((id) => caseIds.has(id)),
     media: row.media.filter((id) => availableMedia.has(id)),
   }));
   const safeCases = cases.map((row) => ({
@@ -257,7 +287,9 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
         works,
         workDocuments,
         referenceDocuments,
-        formats,
+        configurations,
+        programmes,
+        educationOverview,
         cases: safeCases,
         people,
         recognitions,
@@ -368,11 +400,54 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'facts',
             'media',
             'cases',
-            'formats',
+            'configurations',
             'publication',
           ]),
         ),
-        formats: formats.map((row) =>
+        educationOverview: educationOverview
+          ? project(educationOverview, [
+              'id',
+              'title',
+              'summary',
+              'story',
+              'participation',
+              'outcome',
+              'conditions',
+              'studioProvides',
+              'venueProvides',
+              'topics',
+              'reviewNotes',
+              'scope',
+              'publication',
+            ])
+          : undefined,
+        programmes: programmes.map((row) =>
+          project(row, [
+            'id',
+            'legacyId',
+            'slug',
+            'title',
+            'summary',
+            'story',
+            'participation',
+            'outcome',
+            'programmeType',
+            'deliveryStatus',
+            'audience',
+            'authorsNote',
+            'conditions',
+            'studioProvides',
+            'venueProvides',
+            'topics',
+            'reviewNotes',
+            'scope',
+            'works',
+            'cases',
+            'media',
+            'publication',
+          ]),
+        ),
+        configurations: configurations.map((row) =>
           project(row, [
             'id',
             'legacyId',
@@ -380,7 +455,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'title',
             'summary',
             'scope',
-            'works',
+            'workId',
             'publication',
             'story',
             'participation',
@@ -408,6 +483,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'role',
             'work',
             'method',
+            'programme',
             'story',
             'organizationRoles',
             'participants',

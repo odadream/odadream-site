@@ -12,7 +12,8 @@ export interface ReferenceDocument extends DocumentMetadata {
   kind: 'technical-overview' | 'cv';
   personId?: string;
   owner: { kind: 'cooperation' | 'studio'; id: string };
-  requiredFormats: string[];
+  requiredConfigurations: string[];
+  requiredEducationOverview?: boolean;
   requiredPeople: string[];
   requiredWorks?: string[];
   requiredCases?: string[];
@@ -47,7 +48,8 @@ export const referenceDocuments: ReferenceDocument[] = [
     language: 'ru',
     pages: 2,
     bytes: 28464,
-    requiredFormats: ['mindshow-installation', 'neurobattle-game', 'talk-workshop'],
+    requiredConfigurations: ['mindshow-installation', 'neurobattle-game'],
+    requiredEducationOverview: true,
     requiredPeople: [],
     asOf: '2026-10-06',
     rights: 'cleared',
@@ -89,7 +91,8 @@ export const referenceDocuments: ReferenceDocument[] = [
     language: 'en',
     pages: 2,
     bytes: 23109,
-    requiredFormats: ['mindshow-installation', 'neurobattle-game', 'talk-workshop'],
+    requiredConfigurations: ['mindshow-installation', 'neurobattle-game'],
+    requiredEducationOverview: true,
     requiredPeople: [],
     asOf: '2026-10-06',
     rights: 'cleared',
@@ -121,7 +124,7 @@ export const referenceDocuments: ReferenceDocument[] = [
       id: 'studio',
     },
     requiredPeople: ['olga'],
-    requiredFormats: [],
+    requiredConfigurations: [],
     requiredWorks: ['mindshow', 'neurobattle', 'interference'],
     requiredCases: ['tsiolkovsky-2026', 'cipr-2026'],
     asOf: '2026-10-06',
@@ -165,7 +168,7 @@ export const referenceDocuments: ReferenceDocument[] = [
       id: 'studio',
     },
     requiredPeople: ['olga'],
-    requiredFormats: [],
+    requiredConfigurations: [],
     requiredWorks: ['mindshow', 'neurobattle', 'interference'],
     requiredCases: ['tsiolkovsky-2026', 'cipr-2026'],
     asOf: '2026-10-06',
@@ -209,7 +212,7 @@ export const referenceDocuments: ReferenceDocument[] = [
       id: 'studio',
     },
     requiredPeople: ['daler'],
-    requiredFormats: [],
+    requiredConfigurations: [],
     requiredWorks: ['mindshow', 'neurobattle', 'interference'],
     requiredCases: ['tsiolkovsky-2026', 'cipr-2026'],
     asOf: '2026-10-06',
@@ -253,7 +256,7 @@ export const referenceDocuments: ReferenceDocument[] = [
       id: 'studio',
     },
     requiredPeople: ['daler'],
-    requiredFormats: [],
+    requiredConfigurations: [],
     requiredWorks: ['mindshow', 'neurobattle', 'interference'],
     requiredCases: ['tsiolkovsky-2026', 'cipr-2026'],
     asOf: '2026-10-06',

@@ -2,8 +2,8 @@ import type { PublicationPlan } from '../lib/publication-scope';
 
 // Candidate packet, not editorial approval. Each selected record must also be published.
 export const publicationPlan: PublicationPlan = {
-  version: 'v2-packet-2026-10-06.5',
-  asOf: '2026-10-06',
+  version: 'v2-packet-2026-10-07.1',
+  asOf: '2026-10-07',
   methods: ['neuromandala'],
   cooperationPages: ['cooperation'],
   studioPages: ['studio'],
@@ -18,7 +18,18 @@ export const publicationPlan: PublicationPlan = {
     'neurosync',
     'ancestors',
   ],
-  formats: ['mindshow-installation', 'neurobattle-game', 'talk-workshop'],
+  configurations: ['mindshow-installation', 'neurobattle-game'],
+  programmes: [
+    'beautiful-brain',
+    'neuroaesthetics-lec',
+    'sound-brain',
+    'taste-brain',
+    'feedback-empathy-brain',
+    'gong',
+    'neuromandala-workshop',
+    'neuro-laboratory',
+  ],
+  educationOverview: true,
   cases: [
     'tsiolkovsky-2026',
     'tsiolkovsky-2025',

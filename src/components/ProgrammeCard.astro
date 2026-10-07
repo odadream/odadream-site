@@ -1,0 +1,31 @@
+---
+import CalloutLink from './CalloutLink.astro';
+import { programmeUrl } from '../lib/routes';
+import type { Lang } from '../data/site';
+import type { Programme } from '../data/programmes';
+interface Props {
+  item: Pick<Programme, 'id' | 'title' | 'summary' | 'programmeType' | 'deliveryStatus'>;
+  lang: Lang;
+}
+const { item, lang } = Astro.props;
+const labels = {
+  lecture: { ru: 'Лекция', en: 'Lecture' },
+  workshop: { ru: 'Практикум', en: 'Workshop' },
+  laboratory: { ru: 'Лаборатория', en: 'Laboratory' },
+};
+---
+
+<article class="programme-card" data-programme-id={item.id}>
+  <a class="programme-card__link" href={programmeUrl(lang, item.id)}>
+    <span class="meta">
+      {labels[item.programmeType][lang]}{' '}
+      {item.deliveryStatus === 'proposed' && (
+        <span>· {lang === 'ru' ? 'Проект программы' : 'Proposed programme'}</span>
+      )}
+    </span>
+    <h3>
+      <CalloutLink>{item.title[lang]}</CalloutLink>
+    </h3>
+    <p>{item.summary[lang]}</p>
+  </a>
+</article>

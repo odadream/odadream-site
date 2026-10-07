@@ -1,0 +1,66 @@
+---
+import RecordStamp from './RecordStamp.astro';
+import type { Localized, Lang } from '../data/site';
+import type { ParticipationDetail } from '../data/editorial';
+interface Props {
+  item: Pick<
+    ParticipationDetail,
+    | 'story'
+    | 'participation'
+    | 'outcome'
+    | 'topics'
+    | 'conditions'
+    | 'studioProvides'
+    | 'venueProvides'
+    | 'reviewNotes'
+  > & { id: string; title: Localized; summary: Localized; scope: Localized };
+  lang: Lang;
+  anchor?: string;
+}
+const { item, lang, anchor } = Astro.props;
+const ru = lang === 'ru';
+---
+
+<section class="participation-panel" id={anchor} data-participation-id={item.id}>
+  <h3>{item.title[lang]}</h3>
+  <p>{item.summary[lang]}</p>
+  <p>{item.story[lang]}</p>
+  <h4>{ru ? 'Участие и результат' : 'Participation and outcome'}</h4>
+  <p>{item.participation[lang]}</p>
+  <p>{item.outcome[lang]}</p>
+  {item.topics.length > 0 && (
+    <ul class="facts">
+      {item.topics.map((topic) => (
+        <li>{topic[lang]}</li>
+      ))}
+    </ul>
+  )}
+  <RecordStamp
+    title={ru ? 'Условия и параметры' : 'Conditions and parameters'}
+    wide
+    fields={item.conditions.map((condition) => ({
+      label: condition.label[lang],
+      value: condition.value[lang],
+    }))}
+  />
+  <p class="small-note">
+    {ru
+      ? 'Архивные параметры описывают конкретные версии. Для приглашения условия уточняются; это не готовый согласованный райдер.'
+      : 'Archival parameters describe specific versions. Conditions are clarified for the invitation; this is not an agreed rider.'}
+  </p>
+  <RecordStamp
+    title={ru ? 'Студия и площадка' : 'Studio and venue'}
+    wide
+    fields={[
+      { label: 'ODA.dream', value: item.studioProvides[lang].join(' · ') },
+      {
+        label: ru ? 'Площадка / организатор' : 'Venue / organizer',
+        value: item.venueProvides[lang].join(' · '),
+      },
+    ]}
+  />
+  {item.reviewNotes.map((note) => (
+    <p class="small-note">{note[lang]}</p>
+  ))}
+  <p>{item.scope[lang]}</p>
+</section>

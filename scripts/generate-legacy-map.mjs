@@ -9,6 +9,16 @@ const target = resolve('src/data/legacy-map.json');
 // Observed in the agency media kit's _LINK_TO_ODADREAM_SITE.url, 2026-10-06.
 const aliases = { 'hub-event-agencies': ['for-events'] };
 const overrides = {
+  'beautiful-brain': ['/education/beautiful-about-the-brain/', 'Lecture programme / Лекция'],
+  'neuroaesthetics-lec': ['/education/neuroaesthetics/', 'Lecture programme / Лекция'],
+  'sound-brain': ['/education/sound-and-attention/', 'Lecture with listening / Лекция с практикой слушания'],
+  'taste-brain': ['/education/taste-and-the-brain/', 'Interactive lecture / Интерактивная лекция'],
+  'feedback-empathy-brain': ['/education/empathy-protocol/', 'Lecture-discussion / Лекция-дискуссия'],
+  gong: ['/education/gong-theatre/', 'Listening practice / Звуковая практика'],
+  'meditation-brain': [
+    '/education/beautiful-about-the-brain/#programme-content',
+    'Topic in sourced lecture / Тема лекции с содержательным источником',
+  ],
   neuromandala: ['/technology/#method-overview', 'Method overview / Обзор метода'],
   'event-portal-2025': ['/cases/#case-portal-2025', 'Selected historical context / Исторический контекст'],
   'event-myata-2025': [
@@ -48,8 +58,8 @@ const overrides = {
     '/works/oda-rings/#document-oda-rings-banner',
     'Historical exhibition PDF / Архивный баннер',
   ],
-  'hub-host-events': ['/formats/', 'Merged format overview / Обзор форматов'],
-  'hub-lectures': ['/formats/#talk-workshop', 'Educational format / Образовательный формат'],
+  'hub-host-events': ['/cooperation/', 'Cooperation scenarios / Сценарии сотрудничества'],
+  'hub-lectures': ['/education/', 'Education catalogue / Образовательные программы'],
   'hub-institutions': [
     '/cooperation/#for-institutions',
     'Institutional scenario / Институциональный сценарий',

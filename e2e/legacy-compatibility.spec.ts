@@ -21,29 +21,24 @@ test('historical images keep their original URLs and bytes in editorial preview'
   }
 });
 
-test('legacy aliases and restricted records retain both languages; internal is not an access grant', async ({
+test('obsolete addresses show a bilingual notice before returning home, without a runtime ID map', async ({
   page,
+  request,
 }) => {
   for (const lang of ['en', 'ru']) {
-    for (const [id, target] of [
-      ['neurobattle', 'works/neurobattle/'],
-      ['emomandala-os', 'works/emomandala/#work-story-selection'],
-      ['media-oda-rings-story', 'works/oda-rings/#work-story-history'],
-      ['for-events', 'cooperation/#for-events'],
-    ]) {
+    for (const id of ['neurobattle', 'unknown-record', 'hub-debug']) {
       await page.goto(`/?id=${id}&lang=${lang}&internal=true`);
-      await expect(page).toHaveURL((url) => url.pathname + url.hash === `/${lang}/${target}`);
-    }
-    for (const id of ['hub-debug', 'media-interference-recording']) {
-      await page.goto(`/?id=${id}&lang=${lang}&internal=true`);
-      await expect(page).toHaveURL(new RegExp(`/legacy/unavailable/\\?id=${id}&lang=${lang}$`));
-      await expect(page.locator('#legacy-id')).toHaveText(id);
+      await expect(page).toHaveURL(new RegExp(`/legacy/unavailable/\\?lang=${lang}$`));
       await expect(page.locator('html')).toHaveAttribute('lang', lang);
-      await expect(page.locator('.legacy-contact-link')).toHaveAttribute('href', `/${lang}/contact/`);
+      await expect(page.locator('h1')).toHaveText(lang === 'ru' ? 'Сайт обновился' : 'The site has changed');
+      await expect(page.locator('.legacy-home-link')).toHaveAttribute('href', `/${lang}/`);
+      await expect(page.locator('meta[name=robots]')).toHaveAttribute('content', 'noindex,follow');
     }
+    await expect(page).toHaveURL(new RegExp(`/${lang}/$`), { timeout: 8000 });
+    await page.goto(`/${lang}/formats/#mindshow-installation`);
+    await expect(page.locator('[data-legacy-notice]')).toBeVisible();
+    await page.locator('.legacy-home-link').click();
+    await expect(page).toHaveURL(new RegExp(`/${lang}/$`));
   }
-  await page.route('**/legacy-map.json', (route) => route.abort());
-  await page.goto('/?id=neurobattle&lang=ru');
-  await expect(page).toHaveURL(/\/legacy\/unavailable\/\?id=neurobattle&lang=ru$/);
-  await expect(page.locator('#legacy-id')).toHaveText('neurobattle');
+  expect((await request.get('/legacy-map.json')).status()).toBe(404);
 });
