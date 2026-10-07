@@ -192,7 +192,10 @@ for (const work of data.works) {
         errors.push(`work ${work.id}: missing ${field}.${lang}`);
     }
   }
-  if (!work.media.length) errors.push(`work ${work.id}: card preview missing`);
+  if (work.methodId && !data.methods.some((row) => row.id === work.methodId))
+    errors.push(`work ${work.id}: missing method ${work.methodId}`);
+  if (!work.media.length && (!work.mediaNote?.ru || !work.mediaNote?.en))
+    errors.push(`work ${work.id}: missing preview or explicit media availability note`);
   if (work.year !== null && (!Number.isInteger(work.year) || work.year < 1000 || work.year > 2100))
     errors.push(`work ${work.id}: year must be a documented integer or explicit null`);
   if (

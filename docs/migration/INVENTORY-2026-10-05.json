@@ -138,6 +138,14 @@
           "Work:ancestors"
         ],
         "needsSourceResolution": false
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:ancestors"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -194,6 +202,32 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "c86255153891004552e8ee7a831674568c315c38468e97d0935a4e76d14ff5cc",
+        "targets": [
+          "Work:another-people"
+        ],
+        "state": "additional artwork preparation in progress; full linked-media review remains pending"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:another-people"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+      },
+      "currentMaterialApplication": {
+        "asOf": "2026-10-07",
+        "workId": "another-people",
+        "mediaId": "archive-another-people",
+        "sourcePath": "/images/content/works/another-people/other-people-gallery.webp",
+        "destination": "/images/works/archive-another-people.webp",
+        "sha256": "c68ef2a38bf76863cb21953b4c4e288bb3a8597e10170c04426114831a935240",
+        "purpose": "primary artwork image; remaining linked materials still pending",
+        "rights": "owner work/media display permission applied"
       }
     },
     {
@@ -315,6 +349,14 @@
         "sourceSha256": "8506aa9cf6bbcb3e283f807b1d3b44e9606fa27ee9010eddf460ee4a6ff9fe81",
         "state": "programme narrative and direct route prepared; linked media review remains pending",
         "scope": "Authored bilingual source narrative with explicit historical/per-brief conditions; the expanded programme/media corpus is not yet declared complete."
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "educational programme; full educational coverage still audited separately",
+        "targets": [
+          "Programme:beautiful-brain"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -372,6 +414,22 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "adb2f3a84f0a944581cf7c4d60d3ab7cf3e1f174303ad02659646bee7c7e580c",
+        "targets": [
+          "Work:brain-hack"
+        ],
+        "state": "additional artwork preparation in progress; full linked-media review remains pending"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:brain-hack"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -778,6 +836,22 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "4c7f4a1c058baaba2056dd06d1b340616cf63e2dbf919de2d77cac43ac423168",
+        "targets": [
+          "Work:cultural-neuro-code"
+        ],
+        "state": "additional artwork preparation in progress; full linked-media review remains pending"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:cultural-neuro-code"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -834,6 +908,32 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "b810a523a89a8546fa8821e2d3dceed2f95f002db19f9c19198a97989efcb6b8",
+        "targets": [
+          "Work:dashran"
+        ],
+        "state": "additional artwork preparation in progress; full linked-media review remains pending"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:dashran"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+      },
+      "currentMaterialApplication": {
+        "asOf": "2026-10-07",
+        "workId": "dashran",
+        "mediaId": "archive-dashran",
+        "sourcePath": "/images/content/works/dashran/dashran-tech-render-b.webp",
+        "destination": "/images/works/archive-dashran.webp",
+        "sha256": "ee02553e29efb1ceb487a6e5e16014ccdfb2c8cf1b639ebb5cecb6da46591798",
+        "purpose": "primary artwork image; remaining linked materials still pending",
+        "rights": "owner work/media display permission applied"
       }
     },
     {
@@ -907,6 +1007,14 @@
           "Work:emomandala"
         ],
         "needsSourceResolution": false
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:emomandala"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -974,6 +1082,14 @@
           "Work:emomandala"
         ],
         "needsSourceResolution": false
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "component of composite Emomandala work; no duplicate artwork",
+        "targets": [
+          "Work:emomandala"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -3289,6 +3405,14 @@
         "sourceSha256": "1fffeb3417a8550b6d9db0a534c15294360eafc5662309644d370797d49330e7",
         "state": "programme narrative and direct route prepared; linked media review remains pending",
         "scope": "Authored bilingual source narrative with explicit historical/per-brief conditions; the expanded programme/media corpus is not yet declared complete."
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "educational programme; full educational coverage still audited separately",
+        "targets": [
+          "Programme:feedback-empathy-brain"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -3345,6 +3469,32 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "e9ee2286ddd413a345d1a4b3d21a83488f31c1065c4a3ee7bb4592a3a6bfa4b8",
+        "targets": [
+          "Work:fourth-dimension"
+        ],
+        "state": "additional artwork preparation in progress; full linked-media review remains pending"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:fourth-dimension"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+      },
+      "currentMaterialApplication": {
+        "asOf": "2026-10-07",
+        "workId": "fourth-dimension",
+        "mediaId": "archive-fourth-dimension",
+        "sourcePath": "/images/content/materia/fourth-dimension/fourth-dimension-cover.webp",
+        "destination": "/images/works/archive-fourth-dimension.webp",
+        "sha256": "49e2eac5cb35128f02e416e1d73670abd686cae0dd66111e0e2586216de69681",
+        "purpose": "primary artwork image; remaining linked materials still pending",
+        "rights": "owner work/media display permission applied"
       }
     },
     {
@@ -3410,6 +3560,14 @@
         "sourceSha256": "8d7e6a3fdd64527a44e151fcb6195a4cd8ca0ad50579b9a8c6d45b724e19200b",
         "state": "programme narrative and direct route prepared; linked media review remains pending",
         "scope": "Authored bilingual source narrative with explicit historical/per-brief conditions; the expanded programme/media corpus is not yet declared complete."
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "educational programme; full educational coverage still audited separately",
+        "targets": [
+          "Programme:gong"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -3466,6 +3624,32 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "6d75c2c2a5b7dca88e66773ff9d741cf09511da492da067fbae0e5b776744aff",
+        "targets": [
+          "Work:happiness"
+        ],
+        "state": "additional artwork preparation in progress; full linked-media review remains pending"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:happiness"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+      },
+      "currentMaterialApplication": {
+        "asOf": "2026-10-07",
+        "workId": "happiness",
+        "mediaId": "archive-happiness",
+        "sourcePath": "/images/content/materia/happiness/happiness-cover.webp",
+        "destination": "/images/works/archive-happiness.webp",
+        "sha256": "5330111f82e8cffa36651cd26f12891f549d9dc2799cedb9bb3501888f2bad34",
+        "purpose": "primary artwork image; remaining linked materials still pending",
+        "rights": "owner work/media display permission applied"
       }
     },
     {
@@ -3522,6 +3706,32 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "2ae359bdd7cbb24aa8b2e7b11065d3379840526cb3e4eeaaade98361973250c0",
+        "targets": [
+          "Work:honors"
+        ],
+        "state": "additional artwork preparation in progress; full linked-media review remains pending"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:honors"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+      },
+      "currentMaterialApplication": {
+        "asOf": "2026-10-07",
+        "workId": "honors",
+        "mediaId": "archive-honors",
+        "sourcePath": "/images/content/works/honors-skolkovo/honors-skolkovo-cover.webp",
+        "destination": "/images/works/archive-honors.webp",
+        "sha256": "a1900f6bdd50d872a03514c66533ddc07364c1b254792da769a018921e25a9d2",
+        "purpose": "primary artwork image; remaining linked materials still pending",
+        "rights": "owner work/media display permission applied"
       }
     },
     {
@@ -6097,6 +6307,12 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "explicit empty restructuring stub; no standalone content copied",
+        "targets": [],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -6174,6 +6390,14 @@
           "Work:schrodinger"
         ],
         "needsSourceResolution": false
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:interference"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -6230,6 +6454,22 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "6d5b8a8886f6646cbf25ed0dce180a949f360bddde0dc71158c8ff26956fbc95",
+        "targets": [
+          "Work:journey"
+        ],
+        "state": "additional artwork preparation in progress; full linked-media review remains pending"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:journey"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -6286,6 +6526,32 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "c7a9c8122737fc5a2f48fc63d208a53a039d6a3f665aa8a0f46fd489e3f289ff",
+        "targets": [
+          "Work:lighthouse"
+        ],
+        "state": "additional artwork preparation in progress; full linked-media review remains pending"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:lighthouse"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+      },
+      "currentMaterialApplication": {
+        "asOf": "2026-10-07",
+        "workId": "lighthouse",
+        "mediaId": "archive-lighthouse",
+        "sourcePath": "/images/content/works/lighthouse/lighthouse-cover.webp",
+        "destination": "/images/works/archive-lighthouse.webp",
+        "sha256": "9e55e946829eaf6358bc942d3d6d5b805be2a32408cf06eb84044a7a4fb4db60",
+        "purpose": "primary artwork image; remaining linked materials still pending",
+        "rights": "owner work/media display permission applied"
       }
     },
     {
@@ -8324,6 +8590,12 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "explicit empty restructuring stub; no standalone content copied",
+        "targets": [],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -8406,6 +8678,14 @@
           "Work:mindshow"
         ],
         "needsSourceResolution": false
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:mindshow"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -8462,6 +8742,32 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "8fa3cefd1b16af4e0bbe37ab1b0de0a23ca7842e0d9a8dc34db38fbaf4250d0e",
+        "targets": [
+          "Work:mom-baby"
+        ],
+        "state": "additional artwork preparation in progress; full linked-media review remains pending"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:mom-baby"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+      },
+      "currentMaterialApplication": {
+        "asOf": "2026-10-07",
+        "workId": "mom-baby",
+        "mediaId": "archive-mom-baby",
+        "sourcePath": "/images/content/materia/mom-baby/mom-baby-cover.webp",
+        "destination": "/images/works/archive-mom-baby.webp",
+        "sha256": "7a0d6c3c821971d1589bc0fde18372cb808cb1d56f6e0ff4d2420efff27c0b9b",
+        "purpose": "primary artwork image; remaining linked materials still pending",
+        "rights": "owner work/media display permission applied"
       }
     },
     {
@@ -8519,6 +8825,22 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "sourceSha256": "b20b33f486d9275c84aea8dcc36fdc99c3f1c8b70f16d116b606decc9faf86e8",
+        "asOf": "2026-10-07",
+        "targets": [
+          "Method:neuromandala"
+        ],
+        "state": "multi-stream technological meaning included in the shared method; no fictional standalone artwork"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "multi-stream technological component of the shared method",
+        "targets": [
+          "Method:neuromandala"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -8584,6 +8906,14 @@
         "sourceSha256": "9cd85af87006acf612703cd34c842e8666a062f22276db03ec1f2561b1f98048",
         "state": "programme narrative and direct route prepared; linked media review remains pending",
         "scope": "Authored bilingual source narrative with explicit historical/per-brief conditions; the expanded programme/media corpus is not yet declared complete."
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "educational programme; full educational coverage still audited separately",
+        "targets": [
+          "Programme:neuroaesthetics-lec"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -8666,6 +8996,14 @@
           "Work:neurobattle"
         ],
         "needsSourceResolution": false
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:neurobattle"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -8714,7 +9052,8 @@
       "v2Migration": {
         "asOf": "2026-10-06",
         "targets": [
-          "Method:neuromandala"
+          "Method:neuromandala",
+          "Work:neuromandala"
         ],
         "sourceSha256": "273d875e1851366b5587e8331265e90c2fb5a5b56392b4cdf49bc2226c621457",
         "state": "selected-content-migrated; editorial-review-pending",
@@ -8726,7 +9065,8 @@
         "plannedUse": "integrate method/configuration context",
         "targetRoles": [
           "Method",
-          "Configuration"
+          "Configuration",
+          "Work"
         ],
         "batch": "configurations",
         "state": "scheduled-use; not a completed transfer or publication approval",
@@ -8734,6 +9074,14 @@
           "Method:neuromandala"
         ],
         "needsSourceResolution": false
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:neuromandala"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -8790,6 +9138,12 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "explicit empty restructuring stub; no standalone content copied",
+        "targets": [],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -8867,6 +9221,14 @@
           "Work:sync"
         ],
         "needsSourceResolution": false
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:neurosync"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -8940,6 +9302,14 @@
           "Work:rings"
         ],
         "needsSourceResolution": false
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:rings"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -11918,6 +12288,32 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "5176229008c5cf339b72e0485c414056302efdd1a8ce331a6b73319f00bd297b",
+        "targets": [
+          "Work:potustoronniy"
+        ],
+        "state": "additional artwork preparation in progress; full linked-media review remains pending"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:potustoronniy"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+      },
+      "currentMaterialApplication": {
+        "asOf": "2026-10-07",
+        "workId": "potustoronniy",
+        "mediaId": "archive-potustoronniy",
+        "sourcePath": "/images/content/works/potustoronniy/potustoronniy-cover.webp",
+        "destination": "/images/works/archive-potustoronniy.webp",
+        "sha256": "96ce043c7695b719c2bc4ce2817e91ed39ff07211a235543a3bab892605a40f0",
+        "purpose": "primary artwork image; remaining linked materials still pending",
+        "rights": "owner work/media display permission applied"
       }
     },
     {
@@ -14137,6 +14533,14 @@
           "Work:schrodinger"
         ],
         "needsSourceResolution": false
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:schrodinger"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -14202,6 +14606,14 @@
         "sourceSha256": "d91a3061003393265021e51d55a109afae5df2def49c67a115ca92e6c6dffe23",
         "state": "programme narrative and direct route prepared; linked media review remains pending",
         "scope": "Authored bilingual source narrative with explicit historical/per-brief conditions; the expanded programme/media corpus is not yet declared complete."
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "educational programme; full educational coverage still audited separately",
+        "targets": [
+          "Programme:sound-brain"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -14277,6 +14689,14 @@
           "Work:neurosync"
         ],
         "needsSourceResolution": false
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:sync"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -14342,6 +14762,14 @@
         "sourceSha256": "a8802e9082d05bbb292866396e92bd32eb9787257a57b8628aea8ce7c62d6764",
         "state": "programme narrative and direct route prepared; linked media review remains pending",
         "scope": "Authored bilingual source narrative with explicit historical/per-brief conditions; the expanded programme/media corpus is not yet declared complete."
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "educational programme; full educational coverage still audited separately",
+        "targets": [
+          "Programme:taste-brain"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
       }
     },
     {
@@ -14398,6 +14826,32 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "d68e41bb4f46e7c4457db74233f18e2bef0aa0bc472ba54cc1524b66f1bd6dd0",
+        "targets": [
+          "Work:theatre-my-name"
+        ],
+        "state": "additional artwork preparation in progress; full linked-media review remains pending"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:theatre-my-name"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+      },
+      "currentMaterialApplication": {
+        "asOf": "2026-10-07",
+        "workId": "theatre-my-name",
+        "mediaId": "archive-theatre-my-name",
+        "sourcePath": "/images/content/works/theatre-my-name/tim-kod-provincii-hero.webp",
+        "destination": "/images/works/archive-theatre-my-name.webp",
+        "sha256": "8a27c618d7185d081ce8d29a5f3164dc4cac048deaaf172c289b84053d85138b",
+        "purpose": "primary artwork image; remaining linked materials still pending",
+        "rights": "owner work/media display permission applied"
       }
     },
     {
@@ -14513,6 +14967,32 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "12c02692eded4af9a3dae2af337f2ccc3bc02e44953c6abd7b64f71c4c820f98",
+        "targets": [
+          "Work:voronka"
+        ],
+        "state": "additional artwork preparation in progress; full linked-media review remains pending"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "use": "canonical artwork; narrative, stage, source and available media prepared",
+        "targets": [
+          "Work:voronka"
+        ],
+        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+      },
+      "currentMaterialApplication": {
+        "asOf": "2026-10-07",
+        "workId": "voronka",
+        "mediaId": "archive-voronka",
+        "sourcePath": "/images/content/materia/voronka/voronka-cover.webp",
+        "destination": "/images/works/archive-voronka.webp",
+        "sha256": "c5a0ab9332ed2dd1585bd2ddedf2727268f2f3d87238e08a13f7b766f857b6f9",
+        "purpose": "primary artwork image; remaining linked materials still pending",
+        "rights": "owner work/media display permission applied"
       }
     }
   ],
@@ -18118,6 +18598,86 @@
     "gong.md": {
       "file": "gong.md",
       "sha256": "8d7e6a3fdd64527a44e151fcb6195a4cd8ca0ad50579b9a8c6d45b724e19200b",
+      "snapshot": "2026-10-07"
+    },
+    "another-people.md": {
+      "file": "another-people.md",
+      "sha256": "c86255153891004552e8ee7a831674568c315c38468e97d0935a4e76d14ff5cc",
+      "snapshot": "2026-10-07"
+    },
+    "dashran.md": {
+      "file": "dashran.md",
+      "sha256": "b810a523a89a8546fa8821e2d3dceed2f95f002db19f9c19198a97989efcb6b8",
+      "snapshot": "2026-10-07"
+    },
+    "fourth-dimension.md": {
+      "file": "fourth-dimension.md",
+      "sha256": "e9ee2286ddd413a345d1a4b3d21a83488f31c1065c4a3ee7bb4592a3a6bfa4b8",
+      "snapshot": "2026-10-07"
+    },
+    "mom-baby.md": {
+      "file": "mom-baby.md",
+      "sha256": "8fa3cefd1b16af4e0bbe37ab1b0de0a23ca7842e0d9a8dc34db38fbaf4250d0e",
+      "snapshot": "2026-10-07"
+    },
+    "happiness.md": {
+      "file": "happiness.md",
+      "sha256": "6d75c2c2a5b7dca88e66773ff9d741cf09511da492da067fbae0e5b776744aff",
+      "snapshot": "2026-10-07"
+    },
+    "voronka.md": {
+      "file": "voronka.md",
+      "sha256": "12c02692eded4af9a3dae2af337f2ccc3bc02e44953c6abd7b64f71c4c820f98",
+      "snapshot": "2026-10-07"
+    },
+    "lighthouse.md": {
+      "file": "lighthouse.md",
+      "sha256": "c7a9c8122737fc5a2f48fc63d208a53a039d6a3f665aa8a0f46fd489e3f289ff",
+      "snapshot": "2026-10-07"
+    },
+    "potustoronniy.md": {
+      "file": "potustoronniy.md",
+      "sha256": "5176229008c5cf339b72e0485c414056302efdd1a8ce331a6b73319f00bd297b",
+      "snapshot": "2026-10-07"
+    },
+    "honors.md": {
+      "file": "honors.md",
+      "sha256": "2ae359bdd7cbb24aa8b2e7b11065d3379840526cb3e4eeaaade98361973250c0",
+      "snapshot": "2026-10-07"
+    },
+    "theatre-my-name.md": {
+      "file": "theatre-my-name.md",
+      "sha256": "d68e41bb4f46e7c4457db74233f18e2bef0aa0bc472ba54cc1524b66f1bd6dd0",
+      "snapshot": "2026-10-07"
+    },
+    "cultural-neuro-code.md": {
+      "file": "cultural-neuro-code.md",
+      "sha256": "4c7f4a1c058baaba2056dd06d1b340616cf63e2dbf919de2d77cac43ac423168",
+      "snapshot": "2026-10-07"
+    },
+    "brain-hack.md": {
+      "file": "brain-hack.md",
+      "sha256": "adb2f3a84f0a944581cf7c4d60d3ab7cf3e1f174303ad02659646bee7c7e580c",
+      "snapshot": "2026-10-07"
+    },
+    "journey.md": {
+      "file": "journey.md",
+      "sha256": "6d5b8a8886f6646cbf25ed0dce180a949f360bddde0dc71158c8ff26956fbc95",
+      "snapshot": "2026-10-07"
+    },
+    "Golem_Work_Roles.json": {
+      "file": "Golem_Work_Roles.json",
+      "sha256": "4ed3247ce620e8c9101557ba3b01f1622bc487078313fb85dcb9acf0bb6938d1",
+      "snapshot": "2026-10-07"
+    },
+    "Ossetia_2025_Golem_Source.md": {
+      "file": "Ossetia_2025_Golem_Source.md",
+      "sha256": "7d81a0d0faa1fb6ee5655f77bf370f9bbc344fb3030955a059590e4b1bf225e5",
+      "snapshot": "2026-10-07"
+    },
+    "multisync.md": {
+      "file": "multisync.md",
+      "sha256": "b20b33f486d9275c84aea8dcc36fdc99c3f1c8b70f16d116b606decc9faf86e8",
       "snapshot": "2026-10-07"
     }
   },
@@ -23769,6 +24329,39 @@
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Professional biography sections only; archived contacts and award/application claims not migrated. Current period/certification/base unknowns remain explicit."
       }
+    },
+    "Golem_Work_Roles.json": {
+      "sha256": "4ed3247ce620e8c9101557ba3b01f1622bc487078313fb85dcb9acf0bb6938d1",
+      "snapshot": "2026-10-07",
+      "kind": "external-editorial",
+      "sourcePath": "D:/YandexDisk/_ODA2/Software_Neo/Projects/Golem Data Base/knowledge-base/etl/work_registry_owner_roles.v1.json",
+      "scope": "Role decisions and event participation context only; private contacts and full source files not published.",
+      "sourceFile": "Golem_Work_Roles.json",
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "targets": [
+          "Work:neuromandala",
+          "Work:cultural-neuro-code"
+        ],
+        "sourceSha256": "4ed3247ce620e8c9101557ba3b01f1622bc487078313fb85dcb9acf0bb6938d1",
+        "state": "selected source preparation in progress"
+      }
+    },
+    "Ossetia_2025_Golem_Source.md": {
+      "sha256": "7d81a0d0faa1fb6ee5655f77bf370f9bbc344fb3030955a059590e4b1bf225e5",
+      "snapshot": "2026-10-07",
+      "kind": "external-editorial",
+      "sourcePath": "D:/Obsidian/Chudodeystvo/События/Культурный код Северной Осетии 2025.md",
+      "scope": "Role decisions and event participation context only; private contacts and full source files not published.",
+      "sourceFile": "Ossetia_2025_Golem_Source.md",
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "targets": [
+          "Work:cultural-neuro-code"
+        ],
+        "sourceSha256": "7d81a0d0faa1fb6ee5655f77bf370f9bbc344fb3030955a059590e4b1bf225e5",
+        "state": "selected source preparation in progress"
+      }
     }
   },
   "currentRedirectStrategy": {
@@ -23974,7 +24567,18 @@
     "publicRuntimeMap": false,
     "httpRedirect": false,
     "warningComponent": "LegacyNotice",
-    "fileHandling": "Unknown binary asset remains HTTP 404; no HTML masquerading as an image, video or PDF."
+    "fileHandling": "Unknown binary asset remains HTTP 404; no HTML masquerading as an image, video or PDF.",
+    "verification": {
+      "publicBuild": "passed",
+      "languages": [
+        "ru",
+        "en"
+      ],
+      "unknownPageStatus": 404,
+      "automaticHomeReturnSeconds": 5,
+      "missingBinaryAssetsStatus": 404,
+      "tests": "e2e/public-build.spec.ts; 3 passed, 3 skipped (checks run once on public artifact)"
+    }
   },
   "currentPublicationBasis": {
     "asOf": "2026-10-07",
@@ -24119,6 +24723,50 @@
     "limits": [
       "all 198 original materials are not yet migrated",
       "no deploy/push/PR/domain change"
+    ]
+  },
+  "currentWorksExpansion": {
+    "asOf": "2026-10-07",
+    "scopeVersion": "v2-full-content-2026-10-07.1",
+    "status": "records-prepared; full chronology links pending",
+    "counts": {
+      "works": 23,
+      "realized": 13,
+      "research": 10,
+      "newWorks": 14,
+      "sourceMedia": 27,
+      "canonicalLocalizedPages": 88,
+      "writtenConceptsWithoutImages": 2
+    },
+    "productSourceCoverage": {
+      "total": 34,
+      "substantive": 31,
+      "stubs": 3,
+      "roles": "artwork, programme, composite component, technological component, explicit empty stub"
+    },
+    "verified": {
+      "unit": 62,
+      "astroErrors": 0,
+      "content": "passed",
+      "build": "passed",
+      "selectedPacketReleaseGate": "passed",
+      "browser": {
+        "passed": 101,
+        "skipped": 13,
+        "failed": 0,
+        "matrix": "desktop/mobile; full suite"
+      }
+    },
+    "inProgress": {
+      "fullBrowserMatrix": false,
+      "historyLinks": "HISTORY-01",
+      "allLinkedMaterials": "MEDIA-MIGRATION-FULL-01"
+    },
+    "sourceNotes": [
+      "Golem owner role record supports Neuromandala and Cultural Neuro Code as works",
+      "MultiSync retained in the technological method, not a fabricated artwork alias",
+      "2008 at Beyond is not assigned as its creation year",
+      "awards mentioned by Honor Board archive still require their separate award proof"
     ]
   }
 }

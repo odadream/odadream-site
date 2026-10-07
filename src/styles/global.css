@@ -1779,3 +1779,7 @@ figcaption {
 .lightbox-navigation {
   flex-wrap: wrap;
 }
+
+.work-card__visual[data-fit='contain'] img {
+  object-fit: contain;
+}

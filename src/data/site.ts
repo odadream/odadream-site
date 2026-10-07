@@ -2,6 +2,7 @@ import { participationDetails } from './editorial';
 import type { ParticipationDetail } from './editorial';
 import type { SourceReference } from './editorial';
 import type { EditorialSection } from './editorial';
+import { additionalWorks, additionalMedia } from './additional-works';
 import { studioPeople } from './studio';
 import { workDetails } from './work-details';
 export { workDocuments, legacyWorkResources } from './work-details';
@@ -109,6 +110,8 @@ export interface Work extends WorkDetail {
   availability: Localized;
   facts: Record<Lang, string[]>;
   media: string[];
+  mediaNote?: Localized;
+  methodId?: string;
   cases: string[];
   configurations: string[];
   source: string;
@@ -260,7 +263,7 @@ export const media: Media[] = [
     src: '/images/content/works/honors-skolkovo/honors-skolkovo-scheme.webp',
     kind: 'image',
     representation: 'diagram',
-    rights: 'review',
+    rights: 'cleared',
     width: 1229,
     height: 880,
     alt: { ru: 'Схема размещения экранов «Нейродоски почёта»', en: 'Neuro Honor Board screen-layout scheme' },
@@ -546,6 +549,7 @@ export const media: Media[] = [
     },
     source: 'src/content/neuromandala.md; owner display permission 2026-10-05',
   },
+  ...additionalMedia,
 ];
 
 export const heroVisuals: HeroVisual[] = [
@@ -567,7 +571,7 @@ export const heroVisuals: HeroVisual[] = [
   {
     id: 'cultural-code',
     mediaId: 'neuromandala-cultural-code',
-    target: { kind: 'method', methodId: 'neuromandala' },
+    target: { kind: 'work', workId: 'cultural-neuro-code' },
   },
   {
     id: 'kovylina',
@@ -1067,7 +1071,10 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
   },
 ];
 
-export const works: Work[] = workRecords.map((work) => ({ ...work, ...workDetails[work.id] }));
+export const works: Work[] = [
+  ...workRecords.map((work) => ({ ...work, ...workDetails[work.id] })),
+  ...additionalWorks,
+];
 
 export const configurations: WorkConfiguration[] = [
   {

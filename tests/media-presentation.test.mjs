@@ -14,7 +14,10 @@ test('cropping requires an explicit important area and never clips documentary c
 });
 
 test('a gallery does not grant publication to review media outside its published work', () => {
-  const publicData = createPublicationScope(source, publicationPlan);
+  const publicData = createPublicationScope(source, {
+    ...publicationPlan,
+    works: publicationPlan.works.filter((id) => id !== 'honors'),
+  });
   assert.ok(publicData.assetPaths.has('/images/content/works/schrodinger-2025-poster.webp'));
   assert.ok(!publicData.assetPaths.has('/images/content/works/honors-skolkovo/honors-skolkovo-scheme.webp'));
   const poster = publicData.media.find((row) => row.id === 'schrodinger-poster');

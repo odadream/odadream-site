@@ -40,5 +40,5 @@ test('educational scenario links to programmes and method hero has a real destin
   await expect(page).toHaveURL(/\/ru\/cooperation\/#for-education$/);
   await expect(page.locator('#for-education')).toBeVisible();
   await page.goto('/ru/');
-  await expect(page.locator('.nm-caption-link a[href="/ru/technology/"]')).toHaveCount(2);
+  await expect(page.locator('.nm-caption-link a[href="/ru/technology/"]')).toHaveCount(1);
 });

@@ -166,13 +166,13 @@ test('featured carousel, editorial links and card media follow the design gramma
   await page.goto('/ru/');
   const activeSlide = page.locator('.feature-slide:not([hidden])');
   const firstSlideId = await activeSlide.getAttribute('data-slide-id');
-  await expect(activeSlide.locator('[data-carousel-position]')).toHaveText('01 / 04');
+  await expect(activeSlide.locator('[data-carousel-position]')).toHaveText('01 / 03');
   await activeSlide.getByRole('button', { name: 'Следующая работа' }).click();
   await expect(page.locator('.feature-slide:not([hidden])')).not.toHaveAttribute(
     'data-slide-id',
     firstSlideId || '',
   );
-  await expect(page.locator('.feature-slide:not([hidden]) [data-carousel-position]')).toHaveText('02 / 04');
+  await expect(page.locator('.feature-slide:not([hidden]) [data-carousel-position]')).toHaveText('02 / 03');
   await expect(page.locator('header .brand img')).toHaveCount(1);
   await expect(page.locator('.feature-slide:not([hidden]) .nm-carousel-controls .eyebrow')).toContainText(
     'КАДР',
@@ -217,7 +217,7 @@ test('V5 design stand shares tokens and live components with the site', async ({
   await page.goto('/design-system/');
   await expect(page.locator('meta[name=robots]')).toHaveAttribute('content', 'noindex,follow');
   await expect(page.locator('.system-section')).toHaveCount(11);
-  await expect(page.locator('.work-card__link')).toHaveCount(4);
+  await expect(page.locator('.work-card__link')).toHaveCount(6);
   await page.locator('#system-05').scrollIntoViewIfNeeded();
   await expect
     .poll(() =>

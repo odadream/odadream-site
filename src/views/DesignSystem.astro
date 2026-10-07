@@ -703,6 +703,12 @@ const profileTokens = [
           ]}
         />
         <EditorialSections sections={works[0].story.slice(0, 1)} lang="ru" anchorPrefix="system-story" />
+        <h3>Карточки концептов: визуализация и доступность медиа</h3>
+        <div class="work-grid">
+          {['another-people', 'brain-hack'].map((id) => (
+            <WorkCard item={works.find((work) => work.id === id)!} lang="ru" />
+          ))}
+        </div>
         <h3>Программы образования и условия показа работы</h3>
         <div class="programme-grid">
           {[programmes[0], programmes[7]].map((item) => (

@@ -254,6 +254,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
   const configurationIds = ids(configurations);
   works = works.map((row) => ({
     ...row,
+    methodId: row.methodId && methodIds.has(row.methodId) ? row.methodId : undefined,
     basedOn: row.basedOn.filter((id) => workIds.has(id)),
     relatedWorks: row.relatedWorks.filter((id) => workIds.has(id)),
     cases: row.cases.filter((id) => caseIds.has(id)),
@@ -401,6 +402,8 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'media',
             'cases',
             'configurations',
+            'mediaNote',
+            'methodId',
             'publication',
           ]),
         ),

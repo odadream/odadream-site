@@ -570,7 +570,11 @@ const timeline = [...cases]
         </p>
         <h1>{work.title[lang]}</h1>
         <p class="lead">{work.experience[lang]}</p>
-        <MediaFigure id={work.media[0]} lang={lang} priority />
+        {work.media.length ? (
+          <MediaFigure id={work.media[0]} lang={lang} priority />
+        ) : (
+          <p class="small-note">{work.mediaNote?.[lang]}</p>
+        )}
         <section class="work-section">
           <span class="eyebrow">
             <PageCode family={family} section={1} lang={lang} /> /{' '}
@@ -646,6 +650,11 @@ const timeline = [...cases]
           </span>
           <h2>{ru ? 'Внутри работы' : 'Inside the work'}</h2>
           <EditorialSections sections={work.story} lang={lang} anchorPrefix="work-story" />
+          {work.methodId && (
+            <CalloutLink href={`/${lang}/technology/`}>
+              {ru ? 'Метод и технологический разбор' : 'Method and technological account'}
+            </CalloutLink>
+          )}
           {work.media.length > 1 && (
             <>
               <h3>{ru ? 'Материалы работы' : 'Work materials'}</h3>

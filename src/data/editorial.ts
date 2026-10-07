@@ -63,6 +63,87 @@ export interface CooperationPage {
 
 // Exact bytes of dated V1 and owner-provided editorial snapshots, not current availability claims.
 export const sourceSnapshots: Record<string, SourceReference> = {
+  'multisync.md': {
+    file: 'multisync.md',
+    sha256: 'b20b33f486d9275c84aea8dcc36fdc99c3f1c8b70f16d116b606decc9faf86e8',
+    snapshot: '2026-10-07',
+  },
+  'another-people.md': {
+    file: 'another-people.md',
+    sha256: 'c86255153891004552e8ee7a831674568c315c38468e97d0935a4e76d14ff5cc',
+    snapshot: '2026-10-07',
+  },
+  'dashran.md': {
+    file: 'dashran.md',
+    sha256: 'b810a523a89a8546fa8821e2d3dceed2f95f002db19f9c19198a97989efcb6b8',
+    snapshot: '2026-10-07',
+  },
+  'fourth-dimension.md': {
+    file: 'fourth-dimension.md',
+    sha256: 'e9ee2286ddd413a345d1a4b3d21a83488f31c1065c4a3ee7bb4592a3a6bfa4b8',
+    snapshot: '2026-10-07',
+  },
+  'mom-baby.md': {
+    file: 'mom-baby.md',
+    sha256: '8fa3cefd1b16af4e0bbe37ab1b0de0a23ca7842e0d9a8dc34db38fbaf4250d0e',
+    snapshot: '2026-10-07',
+  },
+  'happiness.md': {
+    file: 'happiness.md',
+    sha256: '6d75c2c2a5b7dca88e66773ff9d741cf09511da492da067fbae0e5b776744aff',
+    snapshot: '2026-10-07',
+  },
+  'voronka.md': {
+    file: 'voronka.md',
+    sha256: '12c02692eded4af9a3dae2af337f2ccc3bc02e44953c6abd7b64f71c4c820f98',
+    snapshot: '2026-10-07',
+  },
+  'lighthouse.md': {
+    file: 'lighthouse.md',
+    sha256: 'c7a9c8122737fc5a2f48fc63d208a53a039d6a3f665aa8a0f46fd489e3f289ff',
+    snapshot: '2026-10-07',
+  },
+  'potustoronniy.md': {
+    file: 'potustoronniy.md',
+    sha256: '5176229008c5cf339b72e0485c414056302efdd1a8ce331a6b73319f00bd297b',
+    snapshot: '2026-10-07',
+  },
+  'honors.md': {
+    file: 'honors.md',
+    sha256: '2ae359bdd7cbb24aa8b2e7b11065d3379840526cb3e4eeaaade98361973250c0',
+    snapshot: '2026-10-07',
+  },
+  'theatre-my-name.md': {
+    file: 'theatre-my-name.md',
+    sha256: 'd68e41bb4f46e7c4457db74233f18e2bef0aa0bc472ba54cc1524b66f1bd6dd0',
+    snapshot: '2026-10-07',
+  },
+  'cultural-neuro-code.md': {
+    file: 'cultural-neuro-code.md',
+    sha256: '4c7f4a1c058baaba2056dd06d1b340616cf63e2dbf919de2d77cac43ac423168',
+    snapshot: '2026-10-07',
+  },
+  'brain-hack.md': {
+    file: 'brain-hack.md',
+    sha256: 'adb2f3a84f0a944581cf7c4d60d3ab7cf3e1f174303ad02659646bee7c7e580c',
+    snapshot: '2026-10-07',
+  },
+  'journey.md': {
+    file: 'journey.md',
+    sha256: '6d5b8a8886f6646cbf25ed0dce180a949f360bddde0dc71158c8ff26956fbc95',
+    snapshot: '2026-10-07',
+  },
+  'Golem_Work_Roles.json': {
+    file: 'Golem_Work_Roles.json',
+    sha256: '4ed3247ce620e8c9101557ba3b01f1622bc487078313fb85dcb9acf0bb6938d1',
+    snapshot: '2026-10-07',
+  },
+  'Ossetia_2025_Golem_Source.md': {
+    file: 'Ossetia_2025_Golem_Source.md',
+    sha256: '7d81a0d0faa1fb6ee5655f77bf370f9bbc344fb3030955a059590e4b1bf225e5',
+    snapshot: '2026-10-07',
+  },
+
   'beautiful-brain.md': {
     file: 'beautiful-brain.md',
     sha256: '8506aa9cf6bbcb3e283f807b1d3b44e9606fa27ee9010eddf460ee4a6ff9fe81',
@@ -342,8 +423,8 @@ export const methods: Method[] = [
         id: 'method-overview',
         title: l('Метод и художественная позиция', 'Method and artistic position'),
         body: l(
-          'Нейромандала связывает измерение, художественные правила и участие человека. Это общий технологический и художественный слой разных произведений, а не отдельное событие или универсальный пакет заказа. История показов относится к работам и конкретным кейсам.',
-          'Neuromandala connects measurement, artistic rules and human participation. It is a shared technological and artistic layer across works, rather than an event or a universal commission package. Presentation history belongs to artworks and specific cases.',
+          'Нейромандала связывает измерение, художественные правила и участие человека. Это общий технологический и художественный слой разных произведений, а не отдельное событие или универсальный пакет заказа. История показов относится к работам и конкретным кейсам. MultiSync / гиперсканирование обозначает связанный контур одновременной записи нескольких ЭЭГ-потоков и сопоставления исследовательских маркеров для коллективной визуальной, световой или звуковой среды.',
+          'Neuromandala connects measurement, artistic rules and human participation. It is a shared technological and artistic layer across works, rather than an event or a universal commission package. Presentation history belongs to artworks and specific cases. MultiSync / hyperscanning denotes a related system for simultaneously capturing several EEG streams and juxtaposing research markers for collective visual, light or sound environments.',
         ),
       },
       {
@@ -437,10 +518,11 @@ export const methods: Method[] = [
         'Rhythms and numbers in archival footage are not statistics about the website visitor or a current database.',
       ],
     },
-    works: ['mindshow', 'neurosync', 'interference', 'neurobattle'],
+    works: ['neuromandala', 'mindshow', 'neurosync', 'interference', 'neurobattle'],
     media: ['neuromandala-frequencies'],
     sourceRefs: refs(
       'neuromandala.md',
+      'multisync.md',
       'mindshow.md',
       'neurobattle.md',
       'hub-lectures.md',
