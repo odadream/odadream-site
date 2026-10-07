@@ -3,6 +3,13 @@ import type { ParticipationDetail } from './editorial';
 import type { SourceReference } from './editorial';
 import type { EditorialSection } from './editorial';
 import { additionalWorks, additionalMedia } from './additional-works';
+import {
+  additionalEvents,
+  eventMedia,
+  eventOrganizations,
+  eventSeries as seriesRecords,
+} from './additional-events';
+import { programmes as programmeRecords } from './programmes';
 import { studioPeople } from './studio';
 import { workDetails } from './work-details';
 export { workDocuments, legacyWorkResources } from './work-details';
@@ -14,7 +21,7 @@ import type { EvidenceDetail, RecognitionDetail } from './evidence-details';
 export { methods, cooperationPages, sourceSnapshots } from './editorial';
 export { studioPages } from './studio';
 export { referenceDocuments } from './reference-documents';
-export { programmes, educationOverview } from './programmes';
+export { educationOverview } from './programmes';
 
 export type Lang = 'en' | 'ru';
 export type Localized = Record<Lang, string>;
@@ -130,15 +137,21 @@ export interface WorkConfiguration extends ParticipationDetail {
 }
 export interface CaseEvent extends CaseDetail {
   id: string;
-  legacyId: string;
+  legacyId?: string;
   slug: string;
   title: Localized;
   summary: Localized;
   date: string;
   datePrecision: 'day' | 'month' | 'year';
+  dateEnd?: string;
+  dateMeaning: 'participation' | 'event-window' | 'series-start' | 'reported-by';
+  participationStatus: 'held' | 'invited' | 'submitted' | 'declined' | 'planned' | 'recorded';
+  context: 'public' | 'private' | 'laboratory' | 'application';
+  relatedWorks?: string[];
+  relatedProgrammes?: string[];
   detailPage: boolean;
   featuredOnHome: boolean;
-  type: 'performance' | 'presentation' | 'participatory-format';
+  type: 'performance' | 'presentation' | 'participatory-format' | 'lecture' | 'discussion' | 'laboratory';
   place: Localized;
   role: Localized;
   work?: string;
@@ -188,7 +201,7 @@ export interface Person {
 export type OrganizationRole = 'venue' | 'organizer' | 'client' | 'co-producer' | 'technology';
 export interface Organization {
   id: string;
-  legacyId: string;
+  legacyId?: string;
   name: Localized;
   role: OrganizationRole;
   source: string;
@@ -238,6 +251,7 @@ export const socialLinks: SocialLink[] = [
 ];
 
 export const media: Media[] = [
+  ...eventMedia,
   {
     id: 'schrodinger-poster',
     src: '/images/content/works/schrodinger-2025-poster.webp',
@@ -1071,7 +1085,7 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
   },
 ];
 
-export const works: Work[] = [
+const artworkRecords: Work[] = [
   ...workRecords.map((work) => ({ ...work, ...workDetails[work.id] })),
   ...additionalWorks,
 ];
@@ -1116,6 +1130,7 @@ export const configurations: WorkConfiguration[] = [
 ];
 
 export const organizations: Organization[] = [
+  ...eventOrganizations,
   {
     id: 'moscow2030',
     legacyId: 'org-moscow2030',
@@ -1315,7 +1330,16 @@ export const recognitions: Recognition[] = recognitionRecords.map((row) => ({
   ...recognitionDetails[row.id],
 }));
 
-const caseRecords: Omit<CaseEvent, keyof CaseDetail | 'datePrecision' | 'detailPage' | 'featuredOnHome'>[] = [
+const caseRecords: Omit<
+  CaseEvent,
+  | keyof CaseDetail
+  | 'datePrecision'
+  | 'detailPage'
+  | 'featuredOnHome'
+  | 'dateMeaning'
+  | 'participationStatus'
+  | 'context'
+>[] = [
   {
     id: 'tsiolkovsky-2026',
     legacyId: 'event-tsiolkovsky-2026',
@@ -1414,12 +1438,40 @@ export const cases: CaseEvent[] = [
   ...caseRecords.map((row) => ({
     ...row,
     datePrecision: 'day' as const,
+    dateMeaning: 'participation' as const,
+    participationStatus: 'held' as const,
+    context: 'public' as const,
     detailPage: true,
     featuredOnHome: true,
     ...caseDetails[row.id],
   })),
   ...historicalEvents,
+  ...additionalEvents,
 ];
+
+export const eventSeries = seriesRecords;
+export const works: Work[] = artworkRecords.map((work) => ({
+  ...work,
+  cases: [
+    ...new Set([
+      ...work.cases,
+      ...cases
+        .filter((item) => item.work === work.id || item.relatedWorks?.includes(work.id))
+        .map((item) => item.id),
+    ]),
+  ],
+}));
+export const programmes = programmeRecords.map((programme) => ({
+  ...programme,
+  cases: [
+    ...new Set([
+      ...programme.cases,
+      ...cases
+        .filter((item) => item.programme === programme.id || item.relatedProgrammes?.includes(programme.id))
+        .map((item) => item.id),
+    ]),
+  ],
+}));
 
 export const people: Person[] = [
   {

@@ -8,6 +8,7 @@ import VideoPreview from '../components/VideoPreview.astro';
 import ProgrammeCard from '../components/ProgrammeCard.astro';
 import ParticipationPanel from '../components/ParticipationPanel.astro';
 import WorkCard from '../components/WorkCard.astro';
+import CaseRow from '../components/CaseRow.astro';
 import RecognitionCard from '../components/RecognitionCard.astro';
 import StatisticsStamp from '../components/StatisticsStamp.astro';
 import MindDBStamp from '../components/MindDBStamp.astro';
@@ -23,6 +24,7 @@ import PageCode from '../components/PageCode.astro';
 import {
   recognitions,
   works,
+  cases,
   evidence,
   workDocuments,
   referenceDocuments,
@@ -537,6 +539,11 @@ const profileTokens = [
         </p>
       </aside>
       <div class="system-content record-grid">
+        <div class="system-span-2">
+          <span class="component-title">Хронология / CaseRow</span>
+          <CaseRow item={cases.find((item) => item.id === 'hse-2025')!} lang="ru" specimen />
+          <CaseRow item={cases.find((item) => item.id === 'tavrida-ai-2025')!} lang="ru" specimen />
+        </div>
         <article>
           <span class="component-title">Событие / показ</span>
           <h3>Интерференция реальностей</h3>

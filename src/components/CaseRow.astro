@@ -1,0 +1,77 @@
+---
+import type { CaseEvent, Lang } from '../data/site';
+import { works, programmes, methods, mediaById } from '../data/catalogue';
+import MediaGallery from './MediaGallery.astro';
+import { caseUrl, caseTargetUrl, workUrl, programmeUrl } from '../lib/routes';
+import { caseTypeLabels, participationLabels, contextLabels, formatCaseDate } from '../lib/case-presentation';
+import CalloutLink from './CalloutLink.astro';
+interface Props {
+  item: Omit<
+    CaseEvent,
+    'sourceRefs' | 'source' | 'organizationRoles' | 'story' | 'participants' | 'evidence' | 'organizations'
+  >;
+  lang: Lang;
+  specimen?: boolean;
+}
+const { item, lang, specimen = false } = Astro.props;
+const links = [
+  ...[item.work, ...(item.relatedWorks ?? [])].flatMap((id) => {
+    const work = works.find((row) => row.id === id);
+    return work ? [{ href: workUrl(lang, work.id), title: work.title[lang] }] : [];
+  }),
+  ...[item.programme, ...(item.relatedProgrammes ?? [])].flatMap((id) => {
+    const programme = programmes.find((row) => row.id === id);
+    return programme ? [{ href: programmeUrl(lang, programme.id), title: programme.title[lang] }] : [];
+  }),
+  ...methods
+    .filter((row) => row.id === item.method)
+    .map((row) => ({ href: `/${lang}/technology/`, title: row.title[lang] })),
+];
+---
+
+<article
+  class="list-row case-row"
+  id={specimen ? undefined : `case-${item.slug}`}
+  data-case-id={item.id}
+  data-participation-status={item.participationStatus}
+>
+  <div class="meta case-row__metadata">
+    <p>{formatCaseDate(item, lang)}</p>
+    <p>{item.place[lang]}</p>
+    <p>{caseTypeLabels[item.type][lang]}</p>
+    <p>{participationLabels[item.participationStatus][lang]}</p>
+    {item.context !== 'public' && <p>{contextLabels[item.context][lang]}</p>}
+  </div>
+  <div>
+    <h3>{item.title[lang]}</h3>
+    <p>{item.summary[lang]}</p>
+    <p>{item.role[lang]}</p>
+    {!item.detailPage && item.limitations.map((note) => <p class="small-note">{note[lang]}</p>)}
+    {!item.detailPage && !specimen && (
+      <MediaGallery
+        id={`case-media-${item.id}`}
+        items={item.media.flatMap((id) => {
+          const media = mediaById(id);
+          return media ? [media] : [];
+        })}
+        lang={lang}
+        mode="sequence"
+        label={lang === 'ru' ? 'Материалы события' : 'Event materials'}
+      />
+    )}
+    <div class="link-row spaced-actions">
+      {links.map((link) => (
+        <CalloutLink href={link.href}>{link.title}</CalloutLink>
+      ))}
+    </div>
+  </div>
+  <CalloutLink href={item.detailPage ? caseUrl(lang, item.id) : caseTargetUrl(lang, item)}>
+    {item.detailPage
+      ? lang === 'ru'
+        ? 'Открыть кейс'
+        : 'Open case'
+      : lang === 'ru'
+        ? 'Материал'
+        : 'Related material'}
+  </CalloutLink>
+</article>

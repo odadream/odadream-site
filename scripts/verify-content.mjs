@@ -36,24 +36,6 @@ function checkCollection(name, rows) {
       if (!files.has(match[1])) errors.push(`${name} ${row.id}: missing source ${match[1]}`);
   }
 }
-for (const name of [
-  'methods',
-  'cooperationPages',
-  'studioPages',
-  'works',
-  'configurations',
-  'programmes',
-  'cases',
-  'evidence',
-  'recognitions',
-  'people',
-  'organizations',
-  'media',
-  'workDocuments',
-  'referenceDocuments',
-  'legacyWorkResources',
-])
-  checkCollection(name, data[name]);
 function checkLocales(value, label) {
   if (!value || typeof value !== 'object') return;
   if ('en' in value || 'ru' in value) {
@@ -80,6 +62,24 @@ for (const [file, snapshot] of Object.entries(migrationInventory.externalSourceS
     snapshot.v2Migration?.targets?.length
   )
     files.add(file);
+for (const name of [
+  'methods',
+  'cooperationPages',
+  'studioPages',
+  'works',
+  'configurations',
+  'programmes',
+  'cases',
+  'evidence',
+  'recognitions',
+  'people',
+  'organizations',
+  'media',
+  'workDocuments',
+  'referenceDocuments',
+  'legacyWorkResources',
+])
+  checkCollection(name, data[name]);
 for (const [file, ref] of Object.entries(data.sourceSnapshots)) {
   if (
     !files.has(file) ||
@@ -99,6 +99,7 @@ for (const row of [
   ...data.works,
   ...data.studioPages,
   ...data.cases,
+  ...data.eventSeries,
   ...data.evidence,
   ...data.recognitions,
   ...data.people.filter((row) => row.sourceRefs),
@@ -225,14 +226,38 @@ for (const item of data.cases) {
   const datePatterns = { day: /^\d{4}-\d{2}-\d{2}$/, month: /^\d{4}-\d{2}$/, year: /^\d{4}$/ };
   if (!datePatterns[item.datePrecision]?.test(item.date))
     errors.push(`case ${item.id}: invalid date precision`);
-  if (!['performance', 'presentation', 'participatory-format'].includes(item.type))
+  if (
+    !['performance', 'presentation', 'participatory-format', 'lecture', 'discussion', 'laboratory'].includes(
+      item.type,
+    )
+  )
     errors.push(`case ${item.id}: invalid event type`);
   if (
-    !!item.work === !!item.method ||
+    [item.work, item.method, item.programme].filter(Boolean).length !== 1 ||
     (item.work && !workIds.has(item.work)) ||
+    (item.programme && !programmeIds.has(item.programme)) ||
     (item.method && !data.methods.some((row) => row.id === item.method))
   )
     errors.push(`case ${item.id}: invalid work/method target`);
+  if (
+    !['held', 'invited', 'submitted', 'declined', 'planned', 'recorded'].includes(item.participationStatus) ||
+    !['public', 'private', 'laboratory', 'application'].includes(item.context) ||
+    !['participation', 'event-window', 'series-start', 'reported-by'].includes(item.dateMeaning)
+  )
+    errors.push(`case ${item.id}: invalid participation status, context or date meaning`);
+  if (
+    item.dateEnd &&
+    (!datePatterns[item.datePrecision]?.test(item.dateEnd) ||
+      item.dateEnd < item.date ||
+      item.dateMeaning !== 'event-window')
+  )
+    errors.push(`case ${item.id}: invalid event window`);
+  if (item.featuredOnHome && item.participationStatus !== 'held')
+    errors.push(`case ${item.id}: unconfirmed participation featured on home`);
+  for (const id of item.relatedWorks ?? [])
+    if (!workIds.has(id)) errors.push(`case ${item.id}: missing related work ${id}`);
+  for (const id of item.relatedProgrammes ?? [])
+    if (!programmeIds.has(id)) errors.push(`case ${item.id}: missing related programme ${id}`);
   if (item.detailPage && (!item.story.length || !item.media.length))
     errors.push(`case ${item.id}: detail page missing narrative or media`);
   if (typeof item.detailPage !== 'boolean' || typeof item.featuredOnHome !== 'boolean')
@@ -247,6 +272,10 @@ for (const item of data.cases) {
   for (const id of item.evidence)
     if (!evidenceIds.has(id)) errors.push(`case ${item.id}: missing evidence ${id}`);
   for (const id of item.media) if (!mediaIds.has(id)) errors.push(`case ${item.id}: missing media ${id}`);
+}
+for (const series of data.eventSeries) {
+  if (!series.cases.length || series.cases.some((id) => !caseIds.has(id)))
+    errors.push(`series ${series.id}: missing editions`);
 }
 for (const item of data.recognitions) {
   for (const id of item.relatedWorks)

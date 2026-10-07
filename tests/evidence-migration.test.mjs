@@ -16,10 +16,11 @@ const empty = {
   minddb: false,
 };
 
-test('selected history has four detailed cases and three bounded contexts with honest date precision', () => {
+test('the original core retains four detailed cases and three bounded contexts with honest date precision', () => {
   assert.equal(data.cases.filter((row) => row.detailPage).length, 4);
-  assert.equal(data.cases.filter((row) => !row.detailPage).length, 3);
-  for (const row of data.cases.filter((row) => !row.detailPage)) {
+  const baseline = data.cases.filter((row) => ['portal-2025', 'wildmint-2025', 'cipr-2026'].includes(row.id));
+  assert.equal(baseline.length, 3);
+  for (const row of baseline) {
     assert.equal(row.datePrecision, 'year');
     assert.match(row.date, /^\d{4}$/);
     assert.equal(row.featuredOnHome, false);

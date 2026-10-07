@@ -6,6 +6,8 @@ import MediaGallery from './MediaGallery.astro';
 import MediaFigure from './MediaFigure.astro';
 import VideoPreview from './VideoPreview.astro';
 import WorkCard from './WorkCard.astro';
+import CaseRow from './CaseRow.astro';
+import { caseTypeLabels, participationLabels, formatCaseDate } from '../lib/case-presentation';
 import ProgrammeCard from './ProgrammeCard.astro';
 import ParticipationPanel from './ParticipationPanel.astro';
 import RecognitionCard from './RecognitionCard.astro';
@@ -22,6 +24,7 @@ import {
   workDocuments,
   referenceDocuments,
   cases,
+  eventSeries,
   evidence,
   configurations,
   programmes,
@@ -70,11 +73,6 @@ const studioMembers = (studio?.people ?? []).flatMap((id) => {
 });
 const featured = publicHeroVisuals;
 const homepageRecognitions = recognitions.filter((item) => item.featuredOnHome);
-const caseTypeLabels = {
-  performance: { ru: 'Перформанс', en: 'Performance' },
-  presentation: { ru: 'Публичный показ', en: 'Public presentation' },
-  'participatory-format': { ru: 'Партисипаторный формат', en: 'Participatory format' },
-};
 const timeline = [...cases]
   .filter((item) => item.featuredOnHome)
   .sort((a, b) => a.date.localeCompare(b.date))
@@ -890,6 +888,18 @@ const timeline = [...cases]
               {programme.reviewNotes.map((note) => (
                 <p class="small-note">{note[lang]}</p>
               ))}
+              {programme.cases.length > 0 && (
+                <div
+                  class="link-row spaced-actions"
+                  aria-label={ru ? 'Событийный контекст программы' : 'Programme event context'}
+                >
+                  {programme.cases.map((id) => (
+                    <CalloutLink href={caseUrl(lang, id)}>
+                      {cases.find((item) => item.id === id)?.title[lang]}
+                    </CalloutLink>
+                  ))}
+                </div>
+              )}
               <CalloutLink href={`/${lang}/cooperation/#for-education`}>
                 {ru ? 'Обсудить программу' : 'Discuss the programme'}
               </CalloutLink>
@@ -1211,30 +1221,57 @@ const timeline = [...cases]
       <h1>{ru ? 'Кейсы и события' : 'Cases and events'}</h1>
       <p class="lead">
         {ru
-          ? 'Конкретные показы и заказы, отделённые от художественных описаний работ. Роли организаций указаны только в пределах подтверждённых источников.'
-          : 'Specific presentations and commissions, distinct from the artistic description of each work. Organizational roles are stated only as supported by source records.'}
+          ? 'Хронология показов, образовательных встреч и исследований. Состоявшееся участие, приглашение и конкурсная заявка имеют разные статусы; серии объединяют отдельные события.'
+          : 'A chronology of presentations, educational encounters and research. Completed contributions, invitations and competition submissions have different statuses; series connect individual events.'}
       </p>
     </section>
-    <section class="shell">
-      {cases.map((item) => (
-        <article class="list-row" id={`case-${item.slug}`}>
-          <span class="meta">
-            <br />
-            {item.date}
-            <br />
-            {item.place[lang]}
-          </span>
-          <div>
-            <h3>{item.title[lang]}</h3>
-            <p>{item.summary[lang]}</p>
-            <p>{item.role[lang]}</p>
-            {!item.detailPage && item.limitations.map((note) => <p class="small-note">{note[lang]}</p>)}
-          </div>
-          <CalloutLink href={item.detailPage ? caseUrl(lang, item.id) : caseTargetUrl(lang, item)}>
-            {item.detailPage ? (ru ? 'Открыть' : 'Open') : ru ? 'Материал' : 'Related material'}
-          </CalloutLink>
-        </article>
-      ))}
+    {[
+      {
+        id: 'case-events',
+        section: 1,
+        title: ru ? 'События и встречи' : 'Events and encounters',
+        research: false,
+      },
+      {
+        id: 'case-research',
+        section: 2,
+        title: ru ? 'Лаборатории и заявки' : 'Laboratories and applications',
+        research: true,
+      },
+    ].map((group) => (
+      <section class="section shell section-grid" id={group.id}>
+        <SectionRail family={family} section={group.section} label={group.title} lang={lang} />
+        <div class="section-body">
+          <h2>{group.title}</h2>
+          {cases
+            .filter((item) => ['laboratory', 'application'].includes(item.context) === group.research)
+            .sort((a, b) => b.date.localeCompare(a.date))
+            .map((item) => (
+              <CaseRow item={item} lang={lang} />
+            ))}
+        </div>
+      </section>
+    ))}
+    <section class="section shell section-grid" id="case-series">
+      <SectionRail family={family} section={3} label={ru ? 'Серии' : 'Series'} lang={lang} />
+      <div class="section-body">
+        <h2>{ru ? 'Повторяющиеся линии' : 'Recurring trajectories'}</h2>
+        {eventSeries.map((series) => (
+          <article class="list-row" id={`series-${series.id}`}>
+            <div>
+              <h3>{series.title[lang]}</h3>
+              <p>{series.summary[lang]}</p>
+              <div class="link-row spaced-actions">
+                {series.cases.map((id) => (
+                  <CalloutLink href={caseUrl(lang, id)}>
+                    {cases.find((item) => item.id === id)?.title[lang]}
+                  </CalloutLink>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
     </section>
   </>
 )}
@@ -1254,7 +1291,7 @@ const timeline = [...cases]
         </p>
         <h1>{oneCase.title[lang]}</h1>
         <p class="lead">{oneCase.summary[lang]}</p>
-        <MediaFigure id={oneCase.media[0]} lang={lang} priority />
+        {oneCase.media[0] && <MediaFigure id={oneCase.media[0]} lang={lang} priority />}
         <section class="work-section" id="case-contribution">
           <span class="eyebrow">
             <PageCode family={family} section={1} lang={lang} /> / {ru ? 'Участие' : 'Participation'}
@@ -1265,7 +1302,9 @@ const timeline = [...cases]
             {ru ? 'Связанный материал' : 'Related material'}:{' '}
             {oneCase.work
               ? workById(oneCase.work)?.title[lang]
-              : methods.find((row) => row.id === oneCase.method)?.title[lang]}
+              : oneCase.programme
+                ? programmes.find((row) => row.id === oneCase.programme)?.title[lang]
+                : methods.find((row) => row.id === oneCase.method)?.title[lang]}
           </CalloutLink>
         </section>
         <section class="work-section" id="case-story">
@@ -1322,15 +1361,21 @@ const timeline = [...cases]
         <RecordStamp
           title={ru ? 'Паспорт события' : 'Event record'}
           fields={[
-            { label: 'ID', value: oneCase.legacyId },
+            { label: 'ID', value: oneCase.legacyId ?? oneCase.id },
             { label: ru ? 'Тип' : 'Type', value: caseTypeLabels[oneCase.type][lang] },
-            { label: ru ? 'Дата' : 'Date', value: oneCase.date },
+            { label: ru ? 'Дата' : 'Date', value: formatCaseDate(oneCase, lang) },
+            {
+              label: ru ? 'Статус участия' : 'Participation status',
+              value: participationLabels[oneCase.participationStatus][lang],
+            },
             { label: ru ? 'Место' : 'Place', value: oneCase.place[lang] },
             {
               label: ru ? 'Работа' : 'Work',
               value: oneCase.work
                 ? workById(oneCase.work)!.title[lang]
-                : methods.find((row) => row.id === oneCase.method)!.title[lang],
+                : oneCase.programme
+                  ? programmes.find((row) => row.id === oneCase.programme)!.title[lang]
+                  : methods.find((row) => row.id === oneCase.method)!.title[lang],
               href: caseTargetUrl(lang, oneCase),
             },
           ]}

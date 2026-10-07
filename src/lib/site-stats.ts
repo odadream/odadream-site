@@ -27,6 +27,7 @@ export const siteStats = {
   cases: {
     total: cases.length,
     byType: countBy<CaseEvent['type']>(cases.map((item) => item.type)),
+    byStatus: countBy<CaseEvent['participationStatus']>(cases.map((item) => item.participationStatus)),
     scope: 'curated-site-records',
   },
   recognitions: {

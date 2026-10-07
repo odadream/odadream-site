@@ -117,7 +117,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "Work:ancestors"
         ],
@@ -145,7 +145,7 @@
         "targets": [
           "Work:ancestors"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -217,7 +217,7 @@
         "targets": [
           "Work:another-people"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       },
       "currentMaterialApplication": {
         "asOf": "2026-10-07",
@@ -356,7 +356,7 @@
         "targets": [
           "Programme:beautiful-brain"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -429,7 +429,7 @@
         "targets": [
           "Work:brain-hack"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -841,6 +841,7 @@
         "asOf": "2026-10-07",
         "sourceSha256": "4c7f4a1c058baaba2056dd06d1b340616cf63e2dbf919de2d77cac43ac423168",
         "targets": [
+          "CaseEvent:ossetia-2025",
           "Work:cultural-neuro-code"
         ],
         "state": "additional artwork preparation in progress; full linked-media review remains pending"
@@ -851,7 +852,7 @@
         "targets": [
           "Work:cultural-neuro-code"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -923,7 +924,7 @@
         "targets": [
           "Work:dashran"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       },
       "currentMaterialApplication": {
         "asOf": "2026-10-07",
@@ -986,7 +987,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "Work:emomandala"
         ],
@@ -1014,7 +1015,7 @@
         "targets": [
           "Work:emomandala"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -1061,7 +1062,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "Work:emomandala"
         ],
@@ -1089,7 +1090,7 @@
         "targets": [
           "Work:emomandala"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -1144,9 +1145,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "56f2d859100bc5c4f0a006592af2ce1c7a1ce5978e05c48368e76acaaa44dd59",
+        "targets": [
+          "CaseEvent:ashram-birthday-2024"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:ashram-birthday-2024"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -1201,9 +1219,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "50f820c87d5d1503fa67ced2539180473b9ae5b681e9aea85abaf27d40a71952",
+        "targets": [
+          "CaseEvent:ashram-tim"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:ashram-tim"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -1262,9 +1297,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "5efae18508eec59b4e59b34c1a3a9d42051d14ef2b9be58b7ba07fe798f60be6",
+        "targets": [
+          "CaseEvent:audi-application-2020"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:audi-application-2020"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -1321,9 +1373,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "3440b118ba5ba4bb03ef8a65b22433c0acf3dbca7809168b9f5448b91139788f",
+        "targets": [
+          "CaseEvent:bauman-2025"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:bauman-2025"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -1380,9 +1449,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "cb2f255a8c1e74baf7180f6cc962b8d941bba48a6f04cf3c223cb1846fc12d11",
+        "targets": [
+          "CaseEvent:battle-billion-2024"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:battle-billion-2024"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -1437,9 +1523,24 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "b4714caaaa659980fa0d4a94c8f795311cd1dae77b59e46584dbb4cc02858aaf",
+        "targets": [
+          "Excluded:empty-event-stub-without-participation-evidence"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "excluded-empty-stub",
+        "targets": [],
+        "reason": "BRICS+ source is only a Phase-G placeholder; no studio contribution/date/programme found in linked V1 context, GDB source registry, Obsidian vault or public-channel export. Not published as an event.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -1494,9 +1595,28 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "a72e66836a521be021775ff55fb3dbc37002cca5af3b3efbb15f277138ba7331",
+        "targets": [
+          "CaseEvent:byob-2019",
+          "CaseEvent:byob-2020",
+          "EventSeries:byob"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "EventSeries",
+        "targets": [
+          "EventSeries:byob"
+        ],
+        "reason": "Series narrative merged into the linked editions; no extra event manufactured from source updated date.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -1551,9 +1671,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "a56707d5ed6478a2bdaea7cd9eb6dfd1ef81f0d2f05ba65faceeb694f264c9a4",
+        "targets": [
+          "CaseEvent:byob-2019"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:byob-2019"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -1608,9 +1745,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "a86ae37d6bae492273c5a37ba3e02112b1df72d722a07968240e67e7fb7a5f29",
+        "targets": [
+          "CaseEvent:byob-2020"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:byob-2020"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -1668,12 +1822,12 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "CaseEvent:byob-2026"
         ],
         "sourceSha256": "1bca3361594638165e795284518c4bf6fe33262f94f23c4e04f75050bc2009fb",
-        "state": "selected-content-migrated; editorial-review-pending",
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
       },
       "scopeRebase": {
@@ -1685,11 +1839,20 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [
           "CaseEvent:byob-2026"
         ],
         "needsSourceResolution": false
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:byob-2026"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -1736,12 +1899,12 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "CaseEvent:cipr-2026"
         ],
         "sourceSha256": "587eebd47098e6f9b2f86da80b0d34942394f441187b75dffd95be38e1f788cc",
-        "state": "selected-content-migrated; editorial-review-pending",
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
       },
       "scopeRebase": {
@@ -1753,11 +1916,20 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [
           "CaseEvent:cipr-2026"
         ],
         "needsSourceResolution": false
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:cipr-2026"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -1815,12 +1987,12 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "CaseEvent:dano-2025"
         ],
         "sourceSha256": "10c72da82b3b50203219ab086cd8bce286ba578e6d1eb8301b53b8574294f4a5",
-        "state": "selected-content-migrated; editorial-review-pending",
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
       },
       "scopeRebase": {
@@ -1832,11 +2004,20 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [
           "CaseEvent:dano-2025"
         ],
         "needsSourceResolution": false
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:dano-2025"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -1893,9 +2074,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "05ab0a96dcce3dc84dbaa433c9df0ab684eb0363afcf93e05d6d2820816e2934",
+        "targets": [
+          "CaseEvent:gonchar-2024"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:gonchar-2024"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -1952,9 +2150,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "9a854f621f3db8040006f1dc741b84cb60c3bd78c560f990d6d5e8b0c98759ab",
+        "targets": [
+          "EventSeries:gong-fest"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "EventSeries",
+        "targets": [
+          "EventSeries:gong-fest"
+        ],
+        "reason": "Series narrative merged into the linked editions; no extra event manufactured from source updated date.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -2011,9 +2226,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "33491ce50f1b290d31e39028f34b8b5a901ffcf31ecb98ba3973147296a18d33",
+        "targets": [
+          "CaseEvent:gong-fest-2024"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:gong-fest-2024"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -2070,9 +2302,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "0a09f298a6198429b97e77605beff38bf05fd0f17130a893a6dc3298b5ac14c8",
+        "targets": [
+          "CaseEvent:gong-fest-2025"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:gong-fest-2025"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -2119,12 +2368,13 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
+          "CaseEvent:hse-2025",
           "Studio:teaching-hse"
         ],
         "sourceSha256": "faabc98a69ed979bd1ef47c80de439ea529acaf247d6aa527d4a656f74eea5f4",
-        "state": "selected-content-migrated; editorial-review-pending",
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result",
         "scope": "Selected biography, artistic position and attributed educational contexts; credentials, award claims and aggregate CV counts are not implicitly verified. Available HTML dossiers are linked; archived PDF decks remain outside this core material selection."
       },
       "scopeRebase": {
@@ -2136,11 +2386,20 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [
           "Studio:teaching-hse"
         ],
         "needsSourceResolution": false
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:hse-2025"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -2197,9 +2456,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "f6be722e96737e0172a801989e7fd3570d49921160ffa6a639ee9354a51821f8",
+        "targets": [
+          "CaseEvent:itb-lab-2024"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:itb-lab-2024"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -2256,9 +2532,28 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "e32a5397f0e905427e2eced5eb2bf15c8a001cfb1fa6bea08043056174efcc5d",
+        "targets": [
+          "CaseEvent:itb-lab-2024",
+          "CaseEvent:kod-provincii-2024",
+          "EventSeries:tsiolkovsky"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:kod-provincii-2024"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -2313,9 +2608,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "5f8c0e3375d9bb34cff2057172dd678d6529d56aaa80a69c8705592c1a84ed55",
+        "targets": [
+          "CaseEvent:korablik-2020"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:korablik-2020"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -2374,9 +2686,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "e4e95c03c7f15b604495e646e396eabb48dbb25f15bc7b70440c12950a796629",
+        "targets": [
+          "CaseEvent:lamborghini-tea"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:lamborghini-tea"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -2433,9 +2762,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "613d094041ce19ce81ac419f3c5fcf664e8a00437ba4c81db3c69f09a038474f",
+        "targets": [
+          "CaseEvent:merck-2025"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:merck-2025"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -2482,12 +2828,13 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
+          "CaseEvent:mipt-2025",
           "Studio:teaching-mipt"
         ],
         "sourceSha256": "7e457443d870a3c473b79a399d583f6cd313be34317eb067f4f357116fdf8324",
-        "state": "selected-content-migrated; editorial-review-pending",
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result",
         "scope": "Selected biography, artistic position and attributed educational contexts; credentials, award claims and aggregate CV counts are not implicitly verified. Available HTML dossiers are linked; archived PDF decks remain outside this core material selection."
       },
       "scopeRebase": {
@@ -2499,11 +2846,20 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [
           "Studio:teaching-mipt"
         ],
         "needsSourceResolution": false
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:mipt-2025"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -2550,12 +2906,12 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "CaseEvent:wildmint-2025"
         ],
         "sourceSha256": "f2a2a01c03293a1ddc95d2ab8f8014c125fc48e022c5f7b0345247ab8ae01d9d",
-        "state": "selected-content-migrated; editorial-review-pending",
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
       },
       "scopeRebase": {
@@ -2567,11 +2923,20 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [
           "CaseEvent:wildmint-2025"
         ],
         "needsSourceResolution": true
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:wildmint-2025"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -2628,9 +2993,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "1fe0b69012db966e7f13cc645402fdc4734682586201897b4ecdce0d09e83f1d",
+        "targets": [
+          "CaseEvent:bashkiria-2025"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:bashkiria-2025"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -2689,9 +3071,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "9595703d8f1ce2edcd649925897d9f8115d457fc327e2a740cdbe088b1c65e48",
+        "targets": [
+          "CaseEvent:metro-2024"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:metro-2024"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -2746,9 +3145,27 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "e456d764a42b8c94062f316e4bca79351926b786fe1a56eb8cb55f620a272dcb",
+        "targets": [
+          "CaseEvent:portal-2024",
+          "EventSeries:portal"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "EventSeries",
+        "targets": [
+          "EventSeries:portal"
+        ],
+        "reason": "Series narrative merged into the linked editions; no extra event manufactured from source updated date.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -2805,9 +3222,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "d4ce4ae350b1a6a5a9a43928c4e506dcab08ce4ea8020ad611da3e8262fede1a",
+        "targets": [
+          "CaseEvent:portal-2024"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:portal-2024"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -2856,13 +3290,13 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "CaseEvent:portal-2025",
           "Recognition:portal-2030-2025"
         ],
         "sourceSha256": "838dcff35d2615a0817bfbee1d99baeb3ff0777792b68d548072b18b1cc8f302",
-        "state": "selected-content-migrated; editorial-review-pending",
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
       },
       "scopeRebase": {
@@ -2874,12 +3308,21 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [
           "CaseEvent:portal-2025",
           "Recognition:portal-2030-2025"
         ],
         "needsSourceResolution": true
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:portal-2025"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -2928,12 +3371,13 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
+          "CaseEvent:sber-2025",
           "Studio:teaching-sber"
         ],
         "sourceSha256": "28d62adfd4ba872753ae9f493025d6d41c56915b4df13238223ec142ec5698c8",
-        "state": "selected-content-migrated; editorial-review-pending",
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result",
         "scope": "Selected biography, artistic position and attributed educational contexts; credentials, award claims and aggregate CV counts are not implicitly verified. Available HTML dossiers are linked; archived PDF decks remain outside this core material selection."
       },
       "scopeRebase": {
@@ -2945,11 +3389,20 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [
           "Studio:teaching-sber"
         ],
         "needsSourceResolution": true
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:sber-2025"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -3004,9 +3457,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "2854c5acc27d251c5d65655b687d7a252a4bf16025f539eb2797d36a9f7bdc28",
+        "targets": [
+          "CaseEvent:tavrida-ai-2025"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:tavrida-ai-2025"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -3063,9 +3533,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "fce4833daf6ff06d6fdaf70092d0e27760e0e7d38f9a899b06666e8870b1caac",
+        "targets": [
+          "CaseEvent:techweek-2024"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:techweek-2024"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -3122,9 +3609,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "90ae4e8842bf7a3b8bd05f19b277acbe3ce58e1f7d6d40393c36eaaa34fd6a2f",
+        "targets": [
+          "CaseEvent:tpp-2025"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:tpp-2025"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -3179,9 +3683,27 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "f888c2e572c0bdaa689ae530e96bd78c06c7cab9632bed87fd08e793571d8ddc",
+        "targets": [
+          "CaseEvent:kod-provincii-2024",
+          "EventSeries:tsiolkovsky"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "EventSeries",
+        "targets": [
+          "EventSeries:tsiolkovsky"
+        ],
+        "reason": "Series narrative merged into the linked editions; no extra event manufactured from source updated date.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -3239,12 +3761,12 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "CaseEvent:tsiolkovsky-2025"
         ],
         "sourceSha256": "93ff388a0afa6fd40f1e50eef3549a7bb4764bef26db28ad1a9731936656a6ae",
-        "state": "selected-content-migrated; editorial-review-pending",
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
       },
       "scopeRebase": {
@@ -3256,11 +3778,20 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [
           "CaseEvent:tsiolkovsky-2025"
         ],
         "needsSourceResolution": false
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:tsiolkovsky-2025"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -3318,12 +3849,12 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "CaseEvent:tsiolkovsky-2026"
         ],
         "sourceSha256": "51ed45eb5ba2516b29efb59c50f5fc564b63c0e88e253ebe9816d886b4935e31",
-        "state": "selected-content-migrated; editorial-review-pending",
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
       },
       "scopeRebase": {
@@ -3335,11 +3866,20 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [
           "CaseEvent:tsiolkovsky-2026"
         ],
         "needsSourceResolution": false
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:tsiolkovsky-2026"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -3412,7 +3952,7 @@
         "targets": [
           "Programme:feedback-empathy-brain"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -3484,7 +4024,7 @@
         "targets": [
           "Work:fourth-dimension"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       },
       "currentMaterialApplication": {
         "asOf": "2026-10-07",
@@ -3567,7 +4107,7 @@
         "targets": [
           "Programme:gong"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -3639,7 +4179,7 @@
         "targets": [
           "Work:happiness"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       },
       "currentMaterialApplication": {
         "asOf": "2026-10-07",
@@ -3721,7 +4261,7 @@
         "targets": [
           "Work:honors"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       },
       "currentMaterialApplication": {
         "asOf": "2026-10-07",
@@ -3834,7 +4374,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "Cooperation:cooperation"
         ],
@@ -4013,11 +4553,11 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
-          "WorkConfiguration:detail",
           "Cooperation:cooperation",
-          "Studio:studio"
+          "Studio:studio",
+          "WorkConfiguration:detail"
         ],
         "sourceSha256": "12f7d5307ee36168fca26eeef06ef7545e241ae02327d84b1e72250398ee1fef",
         "state": "selected-content-migrated; editorial-review-pending",
@@ -4196,7 +4736,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "Cooperation:cooperation"
         ],
@@ -4263,11 +4803,11 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
-          "Studio:studio",
+          "Person:daler",
           "Person:olga",
-          "Person:daler"
+          "Studio:studio"
         ],
         "sourceSha256": "6386eb90ddae81ad262c97580849703a7627069ea6c8a103e29aaf4eed0f1c6e",
         "state": "selected-content-migrated; editorial-review-pending",
@@ -4784,13 +5324,14 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
-          "WorkConfiguration:detail",
+          "CaseEvent:mipt-2025",
           "Cooperation:cooperation",
-          "Studio:studio",
+          "Programme:neuro-laboratory",
           "Programme:neuromandala-workshop",
-          "Programme:neuro-laboratory"
+          "Studio:studio",
+          "WorkConfiguration:detail"
         ],
         "sourceSha256": "9ddef4b4459c23304b1c5568f08b7c066587043439bf5183caa265b52b4670ae",
         "state": "selected-content-migrated; editorial-review-pending",
@@ -4857,7 +5398,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "Cooperation:cooperation"
         ],
@@ -5148,7 +5689,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "Cooperation:cooperation"
         ],
@@ -5273,7 +5814,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "WorkConfiguration:detail"
         ],
@@ -5396,7 +5937,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "Cooperation:cooperation"
         ],
@@ -5469,11 +6010,11 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
+          "EducationOverview:talk-workshop",
           "Method:neuromandala",
-          "WorkConfiguration:detail",
-          "EducationOverview:talk-workshop"
+          "WorkConfiguration:detail"
         ],
         "sourceSha256": "8640c12613c002b01bbe5ee7c54bf202d647c979ea4ba3e2f22078d8cfb411f4",
         "state": "selected-content-migrated; editorial-review-pending",
@@ -5539,13 +6080,15 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
+          "CaseEvent:portal-2025",
+          "CaseEvent:wildmint-2025",
           "Recognition:digital-art-ai-2026",
+          "Recognition:hse-letter-2025",
           "Recognition:mipt-letter-2025",
           "Recognition:portal-2030-2025",
-          "Recognition:tavrida-letter-2025",
-          "Recognition:hse-letter-2025"
+          "Recognition:tavrida-letter-2025"
         ],
         "sourceSha256": "f1b6541f16a38346a46bb3b33f92415edce96b850c1cdd0399c0640e95bb4705",
         "state": "selected-content-migrated; editorial-review-pending",
@@ -5614,7 +6157,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "Studio:studio"
         ],
@@ -6312,7 +6855,7 @@
         "asOf": "2026-10-07",
         "use": "explicit empty restructuring stub; no standalone content copied",
         "targets": [],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -6365,8 +6908,9 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
+          "CaseEvent:tsiolkovsky-2026",
           "Method:neuromandala",
           "Work:interference",
           "Work:schrodinger"
@@ -6397,7 +6941,7 @@
         "targets": [
           "Work:interference"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -6469,7 +7013,7 @@
         "targets": [
           "Work:journey"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -6541,7 +7085,7 @@
         "targets": [
           "Work:lighthouse"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       },
       "currentMaterialApplication": {
         "asOf": "2026-10-07",
@@ -7797,7 +8341,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "WorkDocument:oda-rings-banner"
         ],
@@ -7865,7 +8409,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "WorkDocument:oda-rings-drawings"
         ],
@@ -7933,7 +8477,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "Work:rings"
         ],
@@ -8595,7 +9139,7 @@
         "asOf": "2026-10-07",
         "use": "explicit empty restructuring stub; no standalone content copied",
         "targets": [],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -8653,11 +9197,12 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
+          "CaseEvent:byob-2026",
           "Method:neuromandala",
-          "WorkConfiguration:detail",
-          "Work:mindshow"
+          "Work:mindshow",
+          "WorkConfiguration:detail"
         ],
         "sourceSha256": "2f1ec367646d8a7bc439ce55ec4e96454bbec005807d4c535f8335b0e03d5ffa",
         "state": "selected-content-migrated; editorial-review-pending",
@@ -8685,7 +9230,7 @@
         "targets": [
           "Work:mindshow"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -8757,7 +9302,7 @@
         "targets": [
           "Work:mom-baby"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       },
       "currentMaterialApplication": {
         "asOf": "2026-10-07",
@@ -8830,6 +9375,7 @@
         "sourceSha256": "b20b33f486d9275c84aea8dcc36fdc99c3f1c8b70f16d116b606decc9faf86e8",
         "asOf": "2026-10-07",
         "targets": [
+          "CaseEvent:byob-2020",
           "Method:neuromandala"
         ],
         "state": "multi-stream technological meaning included in the shared method; no fictional standalone artwork"
@@ -8840,7 +9386,7 @@
         "targets": [
           "Method:neuromandala"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -8913,7 +9459,7 @@
         "targets": [
           "Programme:neuroaesthetics-lec"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -8971,11 +9517,12 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
+          "CaseEvent:dano-2025",
           "Method:neuromandala",
-          "WorkConfiguration:detail",
-          "Work:neurobattle"
+          "Work:neurobattle",
+          "WorkConfiguration:detail"
         ],
         "sourceSha256": "4d8e095213544cda0de10d4450ed4f1714a95917b66ef69fadcd3f52655ecc98",
         "state": "selected-content-migrated; editorial-review-pending",
@@ -9003,7 +9550,7 @@
         "targets": [
           "Work:neurobattle"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -9050,7 +9597,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "Method:neuromandala",
           "Work:neuromandala"
@@ -9081,7 +9628,7 @@
         "targets": [
           "Work:neuromandala"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -9143,7 +9690,7 @@
         "asOf": "2026-10-07",
         "use": "explicit empty restructuring stub; no standalone content copied",
         "targets": [],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -9196,7 +9743,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "Method:neuromandala",
           "Work:neurosync",
@@ -9228,7 +9775,7 @@
         "targets": [
           "Work:neurosync"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -9281,7 +9828,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "Work:rings"
         ],
@@ -9309,7 +9856,7 @@
         "targets": [
           "Work:rings"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -9418,8 +9965,9 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
+          "CaseEvent:ashram-tim",
           "CaseEvent:cipr-2026"
         ],
         "sourceSha256": "6e2f945c50b65ccac27eb6ef859934ddb66d149db28d3ff6014027d3f2e88951",
@@ -10462,7 +11010,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "CaseEvent:byob-2026"
         ],
@@ -10845,6 +11393,13 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "3ae16c99e3a42a3804ac619f2310c0ab745e5c9f6e5b0d20fec6f51524ac34ce",
+        "targets": [
+          "CaseEvent:merck-2025"
+        ]
       }
     },
     {
@@ -12303,7 +12858,7 @@
         "targets": [
           "Work:potustoronniy"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       },
       "currentMaterialApplication": {
         "asOf": "2026-10-07",
@@ -12476,7 +13031,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "CaseEvent:portal-2025",
           "Recognition:portal-2030-2025"
@@ -12899,6 +13454,13 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "2d22029b2649b1a0dbf812acf03a12e08fd230c07f91fe4113f3af9d3433e05e",
+        "targets": [
+          "CaseEvent:bashkiria-2025"
+        ]
       }
     },
     {
@@ -13065,8 +13627,9 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
+          "CaseEvent:hse-2025",
           "Recognition:hse-letter-2025"
         ],
         "sourceSha256": "af359fd754fac9ccfbb13837f339a2df0db22db29fb6ff299b510485d59acfdb",
@@ -13361,7 +13924,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "Recognition:tavrida-letter-2025"
         ],
@@ -13600,7 +14163,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "CaseEvent:wildmint-2025"
         ],
@@ -13674,8 +14237,9 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
+          "CaseEvent:mipt-2025",
           "Recognition:mipt-letter-2025"
         ],
         "sourceSha256": "6e0713a7014d65b8e374471c248349f46f288fd329fab9dbdbab2a88ab83d14a",
@@ -13981,6 +14545,13 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "0c92923e3d08eec5adfe3724514cb11cea45e45ad929390c548e3869a4455eb7",
+        "targets": [
+          "CaseEvent:metro-2024"
+        ]
       }
     },
     {
@@ -14095,6 +14666,13 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "f3519304910cb11d7f1bbc07bf6aaa68a8ac5137fcc9137a4750b6e31f08083c",
+        "targets": [
+          "CaseEvent:bashkiria-2025"
+        ]
       }
     },
     {
@@ -14318,7 +14896,7 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
           "CaseEvent:cipr-2026"
         ],
@@ -14510,8 +15088,9 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
+          "CaseEvent:tsiolkovsky-2025",
           "Work:interference",
           "Work:schrodinger"
         ],
@@ -14540,7 +15119,7 @@
         "targets": [
           "Work:schrodinger"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -14613,7 +15192,7 @@
         "targets": [
           "Programme:sound-brain"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -14666,10 +15245,10 @@
         "standalonePageRequired": false
       },
       "v2Migration": {
-        "asOf": "2026-10-06",
+        "asOf": "2026-10-07",
         "targets": [
-          "Work:sync",
-          "Work:neurosync"
+          "Work:neurosync",
+          "Work:sync"
         ],
         "sourceSha256": "3578b0c23ad53ef52ac2b8f25bbafdac751a5ba16e757fd09ddec1b8dd42538d",
         "state": "selected-content-migrated; editorial-review-pending",
@@ -14696,7 +15275,7 @@
         "targets": [
           "Work:sync"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -14769,7 +15348,7 @@
         "targets": [
           "Programme:taste-brain"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       }
     },
     {
@@ -14831,6 +15410,7 @@
         "asOf": "2026-10-07",
         "sourceSha256": "d68e41bb4f46e7c4457db74233f18e2bef0aa0bc472ba54cc1524b66f1bd6dd0",
         "targets": [
+          "CaseEvent:korablik-2020",
           "Work:theatre-my-name"
         ],
         "state": "additional artwork preparation in progress; full linked-media review remains pending"
@@ -14841,7 +15421,7 @@
         "targets": [
           "Work:theatre-my-name"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       },
       "currentMaterialApplication": {
         "asOf": "2026-10-07",
@@ -14908,9 +15488,26 @@
           "EventSeries"
         ],
         "batch": "history",
-        "state": "scheduled-use; not a completed transfer or publication approval",
+        "state": "applied and verified",
         "retainedBaselineTargets": [],
         "needsSourceResolution": true
+      },
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "sourceSha256": "4b33a58d4ac65ee85e07f36af8d750c59782b036df2778fa42794425767c2548",
+        "targets": [
+          "CaseEvent:unique-russia-2026"
+        ],
+        "state": "event/series/exclusion application verified; complete media selection remains a separate result"
+      },
+      "currentCanonicalApplication": {
+        "asOf": "2026-10-07",
+        "role": "CaseEvent",
+        "targets": [
+          "CaseEvent:unique-russia-2026"
+        ],
+        "reason": "Source event transformed into a bilingual chronology record; date/status/relationships use the linked evidence.",
+        "state": "verified source application; implemented chronology/series or explicit empty-stub exclusion"
       }
     },
     {
@@ -14982,7 +15579,7 @@
         "targets": [
           "Work:voronka"
         ],
-        "verification": "catalogue records, source roles and direct pages verified; full linked-event history and materials remain pending"
+        "verification": "Canonical roles, records, direct pages, media availability and full linked-event chronology verified; full asset selection remains in MEDIA-MIGRATION-FULL-01."
       },
       "currentMaterialApplication": {
         "asOf": "2026-10-07",
@@ -18678,6 +19275,211 @@
     "multisync.md": {
       "file": "multisync.md",
       "sha256": "b20b33f486d9275c84aea8dcc36fdc99c3f1c8b70f16d116b606decc9faf86e8",
+      "snapshot": "2026-10-07"
+    },
+    "event-ashram-birthday-2024.md": {
+      "file": "event-ashram-birthday-2024.md",
+      "sha256": "56f2d859100bc5c4f0a006592af2ce1c7a1ce5978e05c48368e76acaaa44dd59",
+      "snapshot": "2026-10-07"
+    },
+    "event-ashram-tim.md": {
+      "file": "event-ashram-tim.md",
+      "sha256": "50f820c87d5d1503fa67ced2539180473b9ae5b681e9aea85abaf27d40a71952",
+      "snapshot": "2026-10-07"
+    },
+    "event-audi-brand-2024.md": {
+      "file": "event-audi-brand-2024.md",
+      "sha256": "5efae18508eec59b4e59b34c1a3a9d42051d14ef2b9be58b7ba07fe798f60be6",
+      "snapshot": "2026-10-07"
+    },
+    "event-bauman-moscow2030-2025.md": {
+      "file": "event-bauman-moscow2030-2025.md",
+      "sha256": "3440b118ba5ba4bb03ef8a65b22433c0acf3dbca7809168b9f5448b91139788f",
+      "snapshot": "2026-10-07"
+    },
+    "event-bitva-milliard-2024.md": {
+      "file": "event-bitva-milliard-2024.md",
+      "sha256": "cb2f255a8c1e74baf7180f6cc962b8d941bba48a6f04cf3c223cb1846fc12d11",
+      "snapshot": "2026-10-07"
+    },
+    "event-brics-plus.md": {
+      "file": "event-brics-plus.md",
+      "sha256": "b4714caaaa659980fa0d4a94c8f795311cd1dae77b59e46584dbb4cc02858aaf",
+      "snapshot": "2026-10-07"
+    },
+    "event-byob.md": {
+      "file": "event-byob.md",
+      "sha256": "a72e66836a521be021775ff55fb3dbc37002cca5af3b3efbb15f277138ba7331",
+      "snapshot": "2026-10-07"
+    },
+    "event-byob-2019.md": {
+      "file": "event-byob-2019.md",
+      "sha256": "a56707d5ed6478a2bdaea7cd9eb6dfd1ef81f0d2f05ba65faceeb694f264c9a4",
+      "snapshot": "2026-10-07"
+    },
+    "event-byob-2020.md": {
+      "file": "event-byob-2020.md",
+      "sha256": "a86ae37d6bae492273c5a37ba3e02112b1df72d722a07968240e67e7fb7a5f29",
+      "snapshot": "2026-10-07"
+    },
+    "event-gonchar-private-2024.md": {
+      "file": "event-gonchar-private-2024.md",
+      "sha256": "05ab0a96dcce3dc84dbaa433c9df0ab684eb0363afcf93e05d6d2820816e2934",
+      "snapshot": "2026-10-07"
+    },
+    "event-gong-fest.md": {
+      "file": "event-gong-fest.md",
+      "sha256": "9a854f621f3db8040006f1dc741b84cb60c3bd78c560f990d6d5e8b0c98759ab",
+      "snapshot": "2026-10-07"
+    },
+    "event-gong-fest-2024.md": {
+      "file": "event-gong-fest-2024.md",
+      "sha256": "33491ce50f1b290d31e39028f34b8b5a901ffcf31ecb98ba3973147296a18d33",
+      "snapshot": "2026-10-07"
+    },
+    "event-gong-fest-2025.md": {
+      "file": "event-gong-fest-2025.md",
+      "sha256": "0a09f298a6198429b97e77605beff38bf05fd0f17130a893a6dc3298b5ac14c8",
+      "snapshot": "2026-10-07"
+    },
+    "event-itb-lab-2024-11.md": {
+      "file": "event-itb-lab-2024-11.md",
+      "sha256": "f6be722e96737e0172a801989e7fd3570d49921160ffa6a639ee9354a51821f8",
+      "snapshot": "2026-10-07"
+    },
+    "event-kod-provincii.md": {
+      "file": "event-kod-provincii.md",
+      "sha256": "e32a5397f0e905427e2eced5eb2bf15c8a001cfb1fa6bea08043056174efcc5d",
+      "snapshot": "2026-10-07"
+    },
+    "event-korablik-2020.md": {
+      "file": "event-korablik-2020.md",
+      "sha256": "5f8c0e3375d9bb34cff2057172dd678d6529d56aaa80a69c8705592c1a84ed55",
+      "snapshot": "2026-10-07"
+    },
+    "event-lamborghini-brand-2024.md": {
+      "file": "event-lamborghini-brand-2024.md",
+      "sha256": "e4e95c03c7f15b604495e646e396eabb48dbb25f15bc7b70440c12950a796629",
+      "snapshot": "2026-10-07"
+    },
+    "event-merck-corporate.md": {
+      "file": "event-merck-corporate.md",
+      "sha256": "613d094041ce19ce81ac419f3c5fcf664e8a00437ba4c81db3c69f09a038474f",
+      "snapshot": "2026-10-07"
+    },
+    "event-pleinair-bashkiria-2025.md": {
+      "file": "event-pleinair-bashkiria-2025.md",
+      "sha256": "1fe0b69012db966e7f13cc645402fdc4734682586201897b4ecdce0d09e83f1d",
+      "snapshot": "2026-10-07"
+    },
+    "event-pleinair-metro-2024.md": {
+      "file": "event-pleinair-metro-2024.md",
+      "sha256": "9595703d8f1ce2edcd649925897d9f8115d457fc327e2a740cdbe088b1c65e48",
+      "snapshot": "2026-10-07"
+    },
+    "event-portal.md": {
+      "file": "event-portal.md",
+      "sha256": "e456d764a42b8c94062f316e4bca79351926b786fe1a56eb8cb55f620a272dcb",
+      "snapshot": "2026-10-07"
+    },
+    "event-portal-2024.md": {
+      "file": "event-portal-2024.md",
+      "sha256": "d4ce4ae350b1a6a5a9a43928c4e506dcab08ce4ea8020ad611da3e8262fede1a",
+      "snapshot": "2026-10-07"
+    },
+    "event-tavrida-ai-2025.md": {
+      "file": "event-tavrida-ai-2025.md",
+      "sha256": "2854c5acc27d251c5d65655b687d7a252a4bf16025f539eb2797d36a9f7bdc28",
+      "snapshot": "2026-10-07"
+    },
+    "event-techweek.md": {
+      "file": "event-techweek.md",
+      "sha256": "fce4833daf6ff06d6fdaf70092d0e27760e0e7d38f9a899b06666e8870b1caac",
+      "snapshot": "2026-10-07"
+    },
+    "event-tpp-mindshow-2025.md": {
+      "file": "event-tpp-mindshow-2025.md",
+      "sha256": "90ae4e8842bf7a3b8bd05f19b277acbe3ce58e1f7d6d40393c36eaaa34fd6a2f",
+      "snapshot": "2026-10-07"
+    },
+    "event-tsiolkovsky.md": {
+      "file": "event-tsiolkovsky.md",
+      "sha256": "f888c2e572c0bdaa689ae530e96bd78c06c7cab9632bed87fd08e793571d8ddc",
+      "snapshot": "2026-10-07"
+    },
+    "unique-russia.md": {
+      "file": "unique-russia.md",
+      "sha256": "4b33a58d4ac65ee85e07f36af8d750c59782b036df2778fa42794425767c2548",
+      "snapshot": "2026-10-07"
+    },
+    "Golem_Event_Ashram_2024.md": {
+      "file": "Golem_Event_Ashram_2024.md",
+      "sha256": "a2b3ee13c67fac54178ccb87e2c3582e2e59cb67b15acd0e368477a79695918c",
+      "snapshot": "2026-10-07"
+    },
+    "Golem_Event_Audi_2020.md": {
+      "file": "Golem_Event_Audi_2020.md",
+      "sha256": "323dfe27efcdfe884fae6e58a876fb996507b5af4dd5727ec8fc284755a700b0",
+      "snapshot": "2026-10-07"
+    },
+    "Golem_Event_Gong_2024.md": {
+      "file": "Golem_Event_Gong_2024.md",
+      "sha256": "bb533741b045335c50160a911c31a297e7d6a2d74ba27b04c72d0f861f686cbc",
+      "snapshot": "2026-10-07"
+    },
+    "Golem_Event_Gong_2025.md": {
+      "file": "Golem_Event_Gong_2025.md",
+      "sha256": "6bd55838e230925e8cb17c1d5b505ab839177850be7faadbd420ee689827be2b",
+      "snapshot": "2026-10-07"
+    },
+    "Golem_Event_Terraforming_2025.md": {
+      "file": "Golem_Event_Terraforming_2025.md",
+      "sha256": "baa78d96680d5cc8157163b136f946b427c65f87869e894212e7c7e086921795",
+      "snapshot": "2026-10-07"
+    },
+    "Golem_Event_Tavrida_AI_2025.md": {
+      "file": "Golem_Event_Tavrida_AI_2025.md",
+      "sha256": "46d379b4c959636cf7f70a01ee5eb0d51ba314c79e313d83e98cf700e0404222",
+      "snapshot": "2026-10-07"
+    },
+    "Golem_Event_TechWeek_2024.md": {
+      "file": "Golem_Event_TechWeek_2024.md",
+      "sha256": "c8995c569b92aad4457dbe9c647d290033afcddbedf755073f57d25df7f126b3",
+      "snapshot": "2026-10-07"
+    },
+    "Golem_Event_Battle_Billion_2024.md": {
+      "file": "Golem_Event_Battle_Billion_2024.md",
+      "sha256": "8409deaf5b31eb49217f0fb2a6fd45a24b1cf00fe4fda05e23d691ee56e48727",
+      "snapshot": "2026-10-07"
+    },
+    "Golem_Event_Unique_Russia_2026.md": {
+      "file": "Golem_Event_Unique_Russia_2026.md",
+      "sha256": "ece0582f039b5bc9574057ec1662e2f39a4ef17a34ed50bab922f8befb94c0fa",
+      "snapshot": "2026-10-07"
+    },
+    "Golem_Telegram_Lamborghini.json": {
+      "file": "Golem_Telegram_Lamborghini.json",
+      "sha256": "55246123ce95ba4cff35e8caa4f2cbc532b83886a41f8645566684f4dcadd4d1",
+      "snapshot": "2026-10-07"
+    },
+    "org-merck.md": {
+      "file": "org-merck.md",
+      "sha256": "3ae16c99e3a42a3804ac619f2310c0ab745e5c9f6e5b0d20fec6f51524ac34ce",
+      "snapshot": "2026-10-07"
+    },
+    "proof-let-bashkiria.md": {
+      "file": "proof-let-bashkiria.md",
+      "sha256": "2d22029b2649b1a0dbf812acf03a12e08fd230c07f91fe4113f3af9d3433e05e",
+      "snapshot": "2026-10-07"
+    },
+    "proof-press-tskhr-bashkiria.md": {
+      "file": "proof-press-tskhr-bashkiria.md",
+      "sha256": "f3519304910cb11d7f1bbc07bf6aaa68a8ac5137fcc9137a4750b6e31f08083c",
+      "snapshot": "2026-10-07"
+    },
+    "proof-press-ntv-metro.md": {
+      "file": "proof-press-ntv-metro.md",
+      "sha256": "0c92923e3d08eec5adfe3724514cb11cea45e45ad929390c548e3869a4455eb7",
       "snapshot": "2026-10-07"
     }
   },
@@ -24362,6 +25164,166 @@
         "sourceSha256": "7d81a0d0faa1fb6ee5655f77bf370f9bbc344fb3030955a059590e4b1bf225e5",
         "state": "selected source preparation in progress"
       }
+    },
+    "Golem_Event_Ashram_2024.md": {
+      "sourceFile": "Golem_Event_Ashram_2024.md",
+      "sourcePath": "D:/Obsidian/Chudodeystvo/События/ДР Ашрама Осман 2024.md",
+      "sha256": "a2b3ee13c67fac54178ccb87e2c3582e2e59cb67b15acd0e368477a79695918c",
+      "snapshot": "2026-10-07",
+      "kind": "external-editorial",
+      "scope": "Event status, dates, contribution and credited roles only; private contacts and complete original are not published.",
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "targets": [
+          "CaseEvent:ashram-birthday-2024"
+        ],
+        "sourceSha256": "a2b3ee13c67fac54178ccb87e2c3582e2e59cb67b15acd0e368477a79695918c",
+        "state": "event chronology transfer in progress"
+      }
+    },
+    "Golem_Event_Audi_2020.md": {
+      "sourceFile": "Golem_Event_Audi_2020.md",
+      "sourcePath": "D:/Obsidian/Chudodeystvo/События/Audi Born Digital 2020.md",
+      "sha256": "323dfe27efcdfe884fae6e58a876fb996507b5af4dd5727ec8fc284755a700b0",
+      "snapshot": "2026-10-07",
+      "kind": "external-editorial",
+      "scope": "Event status, dates, contribution and credited roles only; private contacts and complete original are not published.",
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "targets": [
+          "CaseEvent:audi-application-2020"
+        ],
+        "sourceSha256": "323dfe27efcdfe884fae6e58a876fb996507b5af4dd5727ec8fc284755a700b0",
+        "state": "event chronology transfer in progress"
+      }
+    },
+    "Golem_Event_Gong_2024.md": {
+      "sourceFile": "Golem_Event_Gong_2024.md",
+      "sourcePath": "D:/Obsidian/Chudodeystvo/События/Гонг Фест 2024.md",
+      "sha256": "bb533741b045335c50160a911c31a297e7d6a2d74ba27b04c72d0f861f686cbc",
+      "snapshot": "2026-10-07",
+      "kind": "external-editorial",
+      "scope": "Event status, dates, contribution and credited roles only; private contacts and complete original are not published.",
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "targets": [
+          "CaseEvent:gong-fest-2024"
+        ],
+        "sourceSha256": "bb533741b045335c50160a911c31a297e7d6a2d74ba27b04c72d0f861f686cbc",
+        "state": "event chronology transfer in progress"
+      }
+    },
+    "Golem_Event_Gong_2025.md": {
+      "sourceFile": "Golem_Event_Gong_2025.md",
+      "sourcePath": "D:/Obsidian/Chudodeystvo/События/Гонг Фест 2025.md",
+      "sha256": "6bd55838e230925e8cb17c1d5b505ab839177850be7faadbd420ee689827be2b",
+      "snapshot": "2026-10-07",
+      "kind": "external-editorial",
+      "scope": "Event status, dates, contribution and credited roles only; private contacts and complete original are not published.",
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "targets": [
+          "CaseEvent:gong-fest-2025"
+        ],
+        "sourceSha256": "6bd55838e230925e8cb17c1d5b505ab839177850be7faadbd420ee689827be2b",
+        "state": "event chronology transfer in progress"
+      }
+    },
+    "Golem_Event_Terraforming_2025.md": {
+      "sourceFile": "Golem_Event_Terraforming_2025.md",
+      "sourcePath": "D:/Obsidian/Chudodeystvo/События/Терраформинг 2025.md",
+      "sha256": "baa78d96680d5cc8157163b136f946b427c65f87869e894212e7c7e086921795",
+      "snapshot": "2026-10-07",
+      "kind": "external-editorial",
+      "scope": "Event status, dates, contribution and credited roles only; private contacts and complete original are not published.",
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "targets": [
+          "CaseEvent:mipt-2025"
+        ],
+        "sourceSha256": "baa78d96680d5cc8157163b136f946b427c65f87869e894212e7c7e086921795",
+        "state": "event chronology transfer in progress"
+      }
+    },
+    "Golem_Event_Tavrida_AI_2025.md": {
+      "sourceFile": "Golem_Event_Tavrida_AI_2025.md",
+      "sourcePath": "D:/Obsidian/Chudodeystvo/События/Таврида ИИ 2025.md",
+      "sha256": "46d379b4c959636cf7f70a01ee5eb0d51ba314c79e313d83e98cf700e0404222",
+      "snapshot": "2026-10-07",
+      "kind": "external-editorial",
+      "scope": "Event status, dates, contribution and credited roles only; private contacts and complete original are not published.",
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "targets": [
+          "CaseEvent:tavrida-ai-2025"
+        ],
+        "sourceSha256": "46d379b4c959636cf7f70a01ee5eb0d51ba314c79e313d83e98cf700e0404222",
+        "state": "event chronology transfer in progress"
+      }
+    },
+    "Golem_Event_TechWeek_2024.md": {
+      "sourceFile": "Golem_Event_TechWeek_2024.md",
+      "sourcePath": "D:/Obsidian/Chudodeystvo/События/TechWeek 2024.md",
+      "sha256": "c8995c569b92aad4457dbe9c647d290033afcddbedf755073f57d25df7f126b3",
+      "snapshot": "2026-10-07",
+      "kind": "external-editorial",
+      "scope": "Event status, dates, contribution and credited roles only; private contacts and complete original are not published.",
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "targets": [
+          "CaseEvent:techweek-2024"
+        ],
+        "sourceSha256": "c8995c569b92aad4457dbe9c647d290033afcddbedf755073f57d25df7f126b3",
+        "state": "event chronology transfer in progress"
+      }
+    },
+    "Golem_Event_Battle_Billion_2024.md": {
+      "sourceFile": "Golem_Event_Battle_Billion_2024.md",
+      "sourcePath": "D:/Obsidian/Chudodeystvo/События/Битва за миллиард 2024.md",
+      "sha256": "8409deaf5b31eb49217f0fb2a6fd45a24b1cf00fe4fda05e23d691ee56e48727",
+      "snapshot": "2026-10-07",
+      "kind": "external-editorial",
+      "scope": "Event status, dates, contribution and credited roles only; private contacts and complete original are not published.",
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "targets": [
+          "CaseEvent:battle-billion-2024"
+        ],
+        "sourceSha256": "8409deaf5b31eb49217f0fb2a6fd45a24b1cf00fe4fda05e23d691ee56e48727",
+        "state": "event chronology transfer in progress"
+      }
+    },
+    "Golem_Event_Unique_Russia_2026.md": {
+      "sourceFile": "Golem_Event_Unique_Russia_2026.md",
+      "sourcePath": "D:/Obsidian/Chudodeystvo/События/Уникальна Россия 2026.md",
+      "sha256": "ece0582f039b5bc9574057ec1662e2f39a4ef17a34ed50bab922f8befb94c0fa",
+      "snapshot": "2026-10-07",
+      "kind": "external-editorial",
+      "scope": "Event status, dates, contribution and credited roles only; private contacts and complete original are not published.",
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "targets": [
+          "CaseEvent:unique-russia-2026"
+        ],
+        "sourceSha256": "ece0582f039b5bc9574057ec1662e2f39a4ef17a34ed50bab922f8befb94c0fa",
+        "state": "event chronology transfer in progress"
+      }
+    },
+    "Golem_Telegram_Lamborghini.json": {
+      "sourceFile": "Golem_Telegram_Lamborghini.json",
+      "sourcePath": "D:/YandexDisk/_ODA2/Software_Neo/Projects/Golem Data Base/knowledge-base/etl/channels/telegram/odadream.json",
+      "sha256": "55246123ce95ba4cff35e8caa4f2cbc532b83886a41f8645566684f4dcadd4d1",
+      "snapshot": "2026-10-07",
+      "kind": "external-editorial",
+      "scope": "Public post 722 (2025-12-14), event concept and attributed collaboration only. Other channel entries and private links are not exported.",
+      "v2Migration": {
+        "asOf": "2026-10-07",
+        "targets": [
+          "CaseEvent:lamborghini-tea"
+        ],
+        "sourceSha256": "55246123ce95ba4cff35e8caa4f2cbc532b83886a41f8645566684f4dcadd4d1",
+        "state": "event chronology transfer in progress"
+      }
     }
   },
   "currentRedirectStrategy": {
@@ -24728,7 +25690,7 @@
   "currentWorksExpansion": {
     "asOf": "2026-10-07",
     "scopeVersion": "v2-full-content-2026-10-07.1",
-    "status": "records-prepared; full chronology links pending",
+    "status": "complete canonical catalogue and chronology relationships; full asset selection tracked separately",
     "counts": {
       "works": 23,
       "realized": 13,
@@ -24745,21 +25707,21 @@
       "roles": "artwork, programme, composite component, technological component, explicit empty stub"
     },
     "verified": {
-      "unit": 62,
+      "unit": 65,
       "astroErrors": 0,
       "content": "passed",
       "build": "passed",
       "selectedPacketReleaseGate": "passed",
       "browser": {
-        "passed": 101,
-        "skipped": 13,
+        "passed": 106,
+        "skipped": 14,
         "failed": 0,
-        "matrix": "desktop/mobile; full suite"
-      }
+        "matrix": "full desktop/mobile suite; chronology additionally both themes at 390/601/797/1440/1920"
+      },
+      "historyRelationships": "passed; reciprocal Work/CaseEvent/Programme links"
     },
     "inProgress": {
       "fullBrowserMatrix": false,
-      "historyLinks": "HISTORY-01",
       "allLinkedMaterials": "MEDIA-MIGRATION-FULL-01"
     },
     "sourceNotes": [
@@ -24767,6 +25729,95 @@
       "MultiSync retained in the technological method, not a fabricated artwork alias",
       "2008 at Beyond is not assigned as its creation year",
       "awards mentioned by Honor Board archive still require their separate award proof"
+    ]
+  },
+  "currentHistoryMediaApplications": {
+    "event-bauman-lecture": {
+      "sourcePath": "../odadream-site-archive-2026-09-21/public/images/content/lectures-moscow2030.webp",
+      "destination": "public/images/events/lectures-moscow2030.webp",
+      "sha256": "13dc35ffe257d28ec3490221b1e82ded50c763fa527299ba274768b63e448e98",
+      "rights": "owner-approved display of studio works and related materials; original photographer unconfirmed"
+    },
+    "event-sber-lecture": {
+      "sourcePath": "../odadream-site-archive-2026-09-21/public/images/content/lectures-sber.webp",
+      "destination": "public/images/events/lectures-sber.webp",
+      "sha256": "840f43e895e58f74b1c2ac04fc1632d533e2e9626096ab00a01c73b739435e4f",
+      "rights": "owner-approved display of studio works and related materials; original photographer unconfirmed"
+    },
+    "event-tpp-mindshow": {
+      "sourcePath": "../odadream-site-archive-2026-09-21/public/images/content/mindshow_tpp.webp",
+      "destination": "public/images/events/mindshow_tpp.webp",
+      "sha256": "fa041680aa991c1b935afc66d74e3435527602c0cd1efdce534dd033c00db9ac",
+      "rights": "owner-approved display of studio works and related materials; original photographer unconfirmed"
+    },
+    "ashram-neuro-art-dance-poster": {
+      "sourcePath": "../odadream-site-archive-2026-09-21/public/images/content/mindshow_ashram.webp",
+      "destination": "public/images/events/mindshow_ashram.webp",
+      "sha256": "484f1fd06baf78a82a43424ac819bd9ecadd525741ceaaed1ec64ca54bb27bfc",
+      "rights": "owner-approved display of studio works and related materials; original photographer unconfirmed",
+      "target": "CaseEvent:ashram-tim",
+      "representation": "poster",
+      "correction": "Visual inspection: Neuro Art Dance poster dated 19 January, unknown year; not birthday presentation evidence."
+    }
+  },
+  "currentHistoryExpansion": {
+    "asOf": "2026-10-07",
+    "scopeVersion": "v2-full-content-2026-10-07.1",
+    "status": "complete source chronology transfer",
+    "sourceEvents": 37,
+    "mappedV1Events": 32,
+    "mergedSeries": 4,
+    "excludedEmptyStubs": 1,
+    "additionalGdbEvents": 1,
+    "catalogueEvents": 33,
+    "selectedMedia": 31,
+    "sourceSnapshots": 109,
+    "semanticCorrections": [
+      "Audi metadata 2024 replaced by documented competition application 2020; no commercial show inferred",
+      "Tavrida AI application declined; not a performance",
+      "Lamborghini public report date kept distinct from unknown performance date; owners club not manufacturer commission",
+      "Festival windows and recurring-series start dates do not imply exact participation days"
+    ],
+    "lookupRoots": [
+      "GDB reports/source-registry.json",
+      "Obsidian/Chudodeystvo/События",
+      "GDB etl/channels/telegram/odadream.json"
+    ],
+    "pending": [
+      "Full media selection is tracked independently in MEDIA-MIGRATION-FULL-01"
+    ],
+    "verified": {
+      "unit": 65,
+      "browserPassed": 106,
+      "browserSkipped": 14,
+      "browserFailed": 0,
+      "astroErrors": 0,
+      "content": "passed",
+      "build": "passed",
+      "canonicalLocalizedPages": 88,
+      "visualInspection": "601/1440 screenshots inspected; archive source images inspected and Ashram poster corrected"
+    }
+  },
+  "currentEducationSourceSearch": {
+    "asOf": "2026-10-07",
+    "status": "primary sources located; transfer not yet complete",
+    "sourceRegistry": "GDB reports/source-registry.json",
+    "roots": [
+      "D:/Obsidian/Chudodeystvo/Продукты и услуги/Лекции МК Лабы (продукт)"
+    ],
+    "findings": [
+      {
+        "source": "Мозг и цвет/Цвет и мозг.md",
+        "role": "substantive lecture outline in Excalidraw Text Elements; not an empty missing V1 page"
+      },
+      {
+        "source": "Красиво про мозг/Лекция в Сбере.md",
+        "role": "working lecture/business outline; proposals must not be treated as delivered products"
+      },
+      {
+        "source": "Мозг БОС и танец/Мастер-класс-лаборатория- Влияние нейросинхронизайции на станцованность.md",
+        "role": "empty frontmatter only; do not manufacture an independent programme from its title"
+      }
     ]
   }
 }

@@ -50,18 +50,18 @@ const fields =
               metric: true,
             },
             {
-              label: ru ? 'Перформансы' : 'Performances',
-              value: siteStats.cases.byType.performance ?? 0,
+              label: ru ? 'Участие состоялось' : 'Completed contributions',
+              value: siteStats.cases.byStatus.held ?? 0,
               metric: true,
             },
             {
-              label: ru ? 'Публичные показы' : 'Presentations',
-              value: siteStats.cases.byType.presentation ?? 0,
+              label: ru ? 'Приглашения' : 'Invitations',
+              value: siteStats.cases.byStatus.invited ?? 0,
               metric: true,
             },
             {
-              label: ru ? 'Интерактивные форматы' : 'Participatory configurations',
-              value: siteStats.cases.byType['participatory-format'] ?? 0,
+              label: ru ? 'Заявки' : 'Applications',
+              value: (siteStats.cases.byStatus.submitted ?? 0) + (siteStats.cases.byStatus.declined ?? 0),
               metric: true,
             },
             ...(preview

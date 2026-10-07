@@ -193,6 +193,9 @@ export const caseDetails: Record<string, CaseDetail> = {
 export const historicalEvents: CaseEvent[] = [
   {
     id: 'portal-2025',
+    dateMeaning: 'participation',
+    participationStatus: 'held',
+    context: 'public',
     legacyId: 'event-portal-2025',
     slug: 'portal-2025',
     title: l('MindShow · Портал 2030–2050', 'MindShow · Portal 2030–2050'),
@@ -236,6 +239,9 @@ export const historicalEvents: CaseEvent[] = [
   },
   {
     id: 'wildmint-2025',
+    dateMeaning: 'participation',
+    participationStatus: 'held',
+    context: 'public',
     legacyId: 'event-myata-2025',
     slug: 'wildmint-2025',
     title: l('Нейромандала · Дикая Мята', 'Neuromandala · Wild Mint'),
@@ -276,6 +282,9 @@ export const historicalEvents: CaseEvent[] = [
   },
   {
     id: 'cipr-2026',
+    dateMeaning: 'participation',
+    participationStatus: 'invited',
+    context: 'public',
     legacyId: 'event-cipr-mindshow-2026',
     slug: 'cipr-2026',
     title: l('MindShow · TechFriendly / ЦИПР', 'MindShow · TechFriendly / CIPR'),

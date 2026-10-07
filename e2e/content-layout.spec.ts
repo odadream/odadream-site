@@ -35,7 +35,7 @@ for (const width of [360, 797, 908, 1100, 1201, 1529]) {
             if (Math.abs(a - b) > 1) problems.push(`${label}: ${a} / ${b}`);
           };
           if (document.documentElement.scrollWidth > innerWidth) problems.push('horizontal overflow');
-          document.querySelectorAll('.list-row').forEach((row) => {
+          document.querySelectorAll('.list-row:not(.case-row)').forEach((row) => {
             const children = [...row.children];
             if (children.length === 1) equal(rect(children[0]).width, rect(row).width, 'narrative width');
             else if (children.length === 3 && innerWidth <= 900)

@@ -63,6 +63,213 @@ export interface CooperationPage {
 
 // Exact bytes of dated V1 and owner-provided editorial snapshots, not current availability claims.
 export const sourceSnapshots: Record<string, SourceReference> = {
+  'org-merck.md': {
+    file: 'org-merck.md',
+    sha256: '3ae16c99e3a42a3804ac619f2310c0ab745e5c9f6e5b0d20fec6f51524ac34ce',
+    snapshot: '2026-10-07',
+  },
+  'proof-let-bashkiria.md': {
+    file: 'proof-let-bashkiria.md',
+    sha256: '2d22029b2649b1a0dbf812acf03a12e08fd230c07f91fe4113f3af9d3433e05e',
+    snapshot: '2026-10-07',
+  },
+  'proof-press-tskhr-bashkiria.md': {
+    file: 'proof-press-tskhr-bashkiria.md',
+    sha256: 'f3519304910cb11d7f1bbc07bf6aaa68a8ac5137fcc9137a4750b6e31f08083c',
+    snapshot: '2026-10-07',
+  },
+  'proof-press-ntv-metro.md': {
+    file: 'proof-press-ntv-metro.md',
+    sha256: '0c92923e3d08eec5adfe3724514cb11cea45e45ad929390c548e3869a4455eb7',
+    snapshot: '2026-10-07',
+  },
+
+  'event-ashram-birthday-2024.md': {
+    file: 'event-ashram-birthday-2024.md',
+    sha256: '56f2d859100bc5c4f0a006592af2ce1c7a1ce5978e05c48368e76acaaa44dd59',
+    snapshot: '2026-10-07',
+  },
+  'event-ashram-tim.md': {
+    file: 'event-ashram-tim.md',
+    sha256: '50f820c87d5d1503fa67ced2539180473b9ae5b681e9aea85abaf27d40a71952',
+    snapshot: '2026-10-07',
+  },
+  'event-audi-brand-2024.md': {
+    file: 'event-audi-brand-2024.md',
+    sha256: '5efae18508eec59b4e59b34c1a3a9d42051d14ef2b9be58b7ba07fe798f60be6',
+    snapshot: '2026-10-07',
+  },
+  'event-bauman-moscow2030-2025.md': {
+    file: 'event-bauman-moscow2030-2025.md',
+    sha256: '3440b118ba5ba4bb03ef8a65b22433c0acf3dbca7809168b9f5448b91139788f',
+    snapshot: '2026-10-07',
+  },
+  'event-bitva-milliard-2024.md': {
+    file: 'event-bitva-milliard-2024.md',
+    sha256: 'cb2f255a8c1e74baf7180f6cc962b8d941bba48a6f04cf3c223cb1846fc12d11',
+    snapshot: '2026-10-07',
+  },
+  'event-brics-plus.md': {
+    file: 'event-brics-plus.md',
+    sha256: 'b4714caaaa659980fa0d4a94c8f795311cd1dae77b59e46584dbb4cc02858aaf',
+    snapshot: '2026-10-07',
+  },
+  'event-byob.md': {
+    file: 'event-byob.md',
+    sha256: 'a72e66836a521be021775ff55fb3dbc37002cca5af3b3efbb15f277138ba7331',
+    snapshot: '2026-10-07',
+  },
+  'event-byob-2019.md': {
+    file: 'event-byob-2019.md',
+    sha256: 'a56707d5ed6478a2bdaea7cd9eb6dfd1ef81f0d2f05ba65faceeb694f264c9a4',
+    snapshot: '2026-10-07',
+  },
+  'event-byob-2020.md': {
+    file: 'event-byob-2020.md',
+    sha256: 'a86ae37d6bae492273c5a37ba3e02112b1df72d722a07968240e67e7fb7a5f29',
+    snapshot: '2026-10-07',
+  },
+  'event-gonchar-private-2024.md': {
+    file: 'event-gonchar-private-2024.md',
+    sha256: '05ab0a96dcce3dc84dbaa433c9df0ab684eb0363afcf93e05d6d2820816e2934',
+    snapshot: '2026-10-07',
+  },
+  'event-gong-fest.md': {
+    file: 'event-gong-fest.md',
+    sha256: '9a854f621f3db8040006f1dc741b84cb60c3bd78c560f990d6d5e8b0c98759ab',
+    snapshot: '2026-10-07',
+  },
+  'event-gong-fest-2024.md': {
+    file: 'event-gong-fest-2024.md',
+    sha256: '33491ce50f1b290d31e39028f34b8b5a901ffcf31ecb98ba3973147296a18d33',
+    snapshot: '2026-10-07',
+  },
+  'event-gong-fest-2025.md': {
+    file: 'event-gong-fest-2025.md',
+    sha256: '0a09f298a6198429b97e77605beff38bf05fd0f17130a893a6dc3298b5ac14c8',
+    snapshot: '2026-10-07',
+  },
+  'event-itb-lab-2024-11.md': {
+    file: 'event-itb-lab-2024-11.md',
+    sha256: 'f6be722e96737e0172a801989e7fd3570d49921160ffa6a639ee9354a51821f8',
+    snapshot: '2026-10-07',
+  },
+  'event-kod-provincii.md': {
+    file: 'event-kod-provincii.md',
+    sha256: 'e32a5397f0e905427e2eced5eb2bf15c8a001cfb1fa6bea08043056174efcc5d',
+    snapshot: '2026-10-07',
+  },
+  'event-korablik-2020.md': {
+    file: 'event-korablik-2020.md',
+    sha256: '5f8c0e3375d9bb34cff2057172dd678d6529d56aaa80a69c8705592c1a84ed55',
+    snapshot: '2026-10-07',
+  },
+  'event-lamborghini-brand-2024.md': {
+    file: 'event-lamborghini-brand-2024.md',
+    sha256: 'e4e95c03c7f15b604495e646e396eabb48dbb25f15bc7b70440c12950a796629',
+    snapshot: '2026-10-07',
+  },
+  'event-merck-corporate.md': {
+    file: 'event-merck-corporate.md',
+    sha256: '613d094041ce19ce81ac419f3c5fcf664e8a00437ba4c81db3c69f09a038474f',
+    snapshot: '2026-10-07',
+  },
+  'event-pleinair-bashkiria-2025.md': {
+    file: 'event-pleinair-bashkiria-2025.md',
+    sha256: '1fe0b69012db966e7f13cc645402fdc4734682586201897b4ecdce0d09e83f1d',
+    snapshot: '2026-10-07',
+  },
+  'event-pleinair-metro-2024.md': {
+    file: 'event-pleinair-metro-2024.md',
+    sha256: '9595703d8f1ce2edcd649925897d9f8115d457fc327e2a740cdbe088b1c65e48',
+    snapshot: '2026-10-07',
+  },
+  'event-portal.md': {
+    file: 'event-portal.md',
+    sha256: 'e456d764a42b8c94062f316e4bca79351926b786fe1a56eb8cb55f620a272dcb',
+    snapshot: '2026-10-07',
+  },
+  'event-portal-2024.md': {
+    file: 'event-portal-2024.md',
+    sha256: 'd4ce4ae350b1a6a5a9a43928c4e506dcab08ce4ea8020ad611da3e8262fede1a',
+    snapshot: '2026-10-07',
+  },
+  'event-tavrida-ai-2025.md': {
+    file: 'event-tavrida-ai-2025.md',
+    sha256: '2854c5acc27d251c5d65655b687d7a252a4bf16025f539eb2797d36a9f7bdc28',
+    snapshot: '2026-10-07',
+  },
+  'event-techweek.md': {
+    file: 'event-techweek.md',
+    sha256: 'fce4833daf6ff06d6fdaf70092d0e27760e0e7d38f9a899b06666e8870b1caac',
+    snapshot: '2026-10-07',
+  },
+  'event-tpp-mindshow-2025.md': {
+    file: 'event-tpp-mindshow-2025.md',
+    sha256: '90ae4e8842bf7a3b8bd05f19b277acbe3ce58e1f7d6d40393c36eaaa34fd6a2f',
+    snapshot: '2026-10-07',
+  },
+  'event-tsiolkovsky.md': {
+    file: 'event-tsiolkovsky.md',
+    sha256: 'f888c2e572c0bdaa689ae530e96bd78c06c7cab9632bed87fd08e793571d8ddc',
+    snapshot: '2026-10-07',
+  },
+  'unique-russia.md': {
+    file: 'unique-russia.md',
+    sha256: '4b33a58d4ac65ee85e07f36af8d750c59782b036df2778fa42794425767c2548',
+    snapshot: '2026-10-07',
+  },
+  'Golem_Event_Ashram_2024.md': {
+    file: 'Golem_Event_Ashram_2024.md',
+    sha256: 'a2b3ee13c67fac54178ccb87e2c3582e2e59cb67b15acd0e368477a79695918c',
+    snapshot: '2026-10-07',
+  },
+  'Golem_Event_Audi_2020.md': {
+    file: 'Golem_Event_Audi_2020.md',
+    sha256: '323dfe27efcdfe884fae6e58a876fb996507b5af4dd5727ec8fc284755a700b0',
+    snapshot: '2026-10-07',
+  },
+  'Golem_Event_Gong_2024.md': {
+    file: 'Golem_Event_Gong_2024.md',
+    sha256: 'bb533741b045335c50160a911c31a297e7d6a2d74ba27b04c72d0f861f686cbc',
+    snapshot: '2026-10-07',
+  },
+  'Golem_Event_Gong_2025.md': {
+    file: 'Golem_Event_Gong_2025.md',
+    sha256: '6bd55838e230925e8cb17c1d5b505ab839177850be7faadbd420ee689827be2b',
+    snapshot: '2026-10-07',
+  },
+  'Golem_Event_Terraforming_2025.md': {
+    file: 'Golem_Event_Terraforming_2025.md',
+    sha256: 'baa78d96680d5cc8157163b136f946b427c65f87869e894212e7c7e086921795',
+    snapshot: '2026-10-07',
+  },
+  'Golem_Event_Tavrida_AI_2025.md': {
+    file: 'Golem_Event_Tavrida_AI_2025.md',
+    sha256: '46d379b4c959636cf7f70a01ee5eb0d51ba314c79e313d83e98cf700e0404222',
+    snapshot: '2026-10-07',
+  },
+  'Golem_Event_TechWeek_2024.md': {
+    file: 'Golem_Event_TechWeek_2024.md',
+    sha256: 'c8995c569b92aad4457dbe9c647d290033afcddbedf755073f57d25df7f126b3',
+    snapshot: '2026-10-07',
+  },
+  'Golem_Event_Battle_Billion_2024.md': {
+    file: 'Golem_Event_Battle_Billion_2024.md',
+    sha256: '8409deaf5b31eb49217f0fb2a6fd45a24b1cf00fe4fda05e23d691ee56e48727',
+    snapshot: '2026-10-07',
+  },
+  'Golem_Event_Unique_Russia_2026.md': {
+    file: 'Golem_Event_Unique_Russia_2026.md',
+    sha256: 'ece0582f039b5bc9574057ec1662e2f39a4ef17a34ed50bab922f8befb94c0fa',
+    snapshot: '2026-10-07',
+  },
+  'Golem_Telegram_Lamborghini.json': {
+    file: 'Golem_Telegram_Lamborghini.json',
+    sha256: '55246123ce95ba4cff35e8caa4f2cbc532b83886a41f8645566684f4dcadd4d1',
+    snapshot: '2026-10-07',
+  },
+
   'multisync.md': {
     file: 'multisync.md',
     sha256: 'b20b33f486d9275c84aea8dcc36fdc99c3f1c8b70f16d116b606decc9faf86e8',

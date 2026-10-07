@@ -17,7 +17,7 @@ test('case narratives and source claims use event roles and readable provenance 
       await expect(page.locator('#case-evidence .button')).toHaveAttribute('href', `/${lang}/contact/`);
     }
     await page.goto(`/${lang}/cases/`);
-    await expect(page.locator('main article.list-row')).toHaveCount(7);
+    await expect(page.locator('main .case-row')).toHaveCount(33);
     await expect(page.locator('#case-portal-2025 .meta')).toContainText('2025');
     await expect(page.locator('#case-portal-2025 .meta')).not.toContainText('01-01');
     await expect(page.locator('#case-wildmint-2025 > a')).toHaveAttribute('href', `/${lang}/technology/`);

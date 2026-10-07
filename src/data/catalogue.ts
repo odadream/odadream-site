@@ -12,6 +12,7 @@ export const {
   workDocuments,
   referenceDocuments,
   cases,
+  eventSeries,
   configurations,
   programmes,
   educationOverview,

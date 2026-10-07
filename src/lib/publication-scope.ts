@@ -24,6 +24,7 @@ export type CatalogueSource = Pick<
       | 'referenceDocuments'
       | 'programmes'
       | 'educationOverview'
+      | 'eventSeries'
     >
   >;
 export interface PublicationPlan {
@@ -268,9 +269,14 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
   }));
   const safeCases = cases.map((row) => ({
     ...row,
+    relatedWorks: (row.relatedWorks ?? []).filter((id) => workIds.has(id)),
+    relatedProgrammes: (row.relatedProgrammes ?? []).filter((id) => programmeIds.has(id)),
     evidence: row.evidence.filter((id) => evidenceAvailable.has(id)),
     media: row.media.filter((id) => availableMedia.has(id)),
   }));
+  const eventSeries = (source.eventSeries ?? [])
+    .map((row) => ({ ...row, cases: row.cases.filter((id) => caseIds.has(id)) }))
+    .filter((row) => row.cases.length > 0);
   let minddbSnapshot = preview ? source.minddbSnapshot : undefined;
   if (!preview && plan.minddb) {
     if (
@@ -292,6 +298,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
         programmes,
         educationOverview,
         cases: safeCases,
+        eventSeries,
         people,
         recognitions,
         media,
@@ -470,6 +477,13 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'reviewNotes',
           ]),
         ),
+        eventSeries: eventSeries.map(({ id, legacyId, title, summary, cases }) => ({
+          id,
+          legacyId,
+          title,
+          summary,
+          cases,
+        })),
         cases: safeCases.map((row) =>
           project(row, [
             'id',
@@ -479,6 +493,12 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'summary',
             'date',
             'datePrecision',
+            'dateEnd',
+            'dateMeaning',
+            'participationStatus',
+            'context',
+            'relatedWorks',
+            'relatedProgrammes',
             'detailPage',
             'featuredOnHome',
             'type',

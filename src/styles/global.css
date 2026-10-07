@@ -773,6 +773,24 @@ figcaption {
 .list-row .quiet-link {
   white-space: nowrap;
 }
+.case-row.list-row {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+.case-row__metadata {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-label) var(--gap-copy);
+}
+.case-row .case-row__metadata > p {
+  margin: 0;
+  font-size: var(--type-annotation);
+}
+@media (max-width: 580px) {
+  .case-row.list-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
 .work-layout {
   display: grid;
   grid-template-columns: var(--grid-columns);

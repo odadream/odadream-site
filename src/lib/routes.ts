@@ -46,8 +46,11 @@ const copy = {
     ru: ['Студия', 'ODA.dream — художественно-научная студия Ольги и Далера Арабовых.'],
   },
   cases: {
-    en: ['Cases', 'Selected events and verifiable context for ODA.dream works.'],
-    ru: ['Кейсы', 'Избранные события и проверяемый контекст работ ODA.dream.'],
+    en: [
+      'Cases',
+      'Presentations, educational encounters, laboratories and competition submissions in the ODA.dream chronology.',
+    ],
+    ru: ['Кейсы', 'Показы, образовательные встречи, лаборатории и конкурсные заявки в хронологии ODA.dream.'],
   },
   contact: {
     en: ['Contact', 'Contact ODA.dream about presentations, commissions and development.'],
@@ -180,7 +183,12 @@ export const createPages = (
                       : []),
                   ]
                 : kind === 'cases'
-                  ? records.cases.map((row) => `case-${row.slug}`)
+                  ? [
+                      'case-events',
+                      'case-research',
+                      'case-series',
+                      ...records.cases.map((row) => `case-${row.slug}`),
+                    ]
                   : kind === 'recognition'
                     ? (records.recognitions ?? []).map((row) => `recognition-${row.id}`)
                     : [],

@@ -1,3 +1,4 @@
+import { additionalEvents } from './additional-events';
 import type { PublicationPlan } from '../lib/publication-scope';
 
 // Candidate packet, not editorial approval. Each selected record must also be published.
@@ -45,6 +46,7 @@ export const publicationPlan: PublicationPlan = {
   ],
   educationOverview: true,
   cases: [
+    ...additionalEvents.map((item) => item.id),
     'tsiolkovsky-2026',
     'tsiolkovsky-2025',
     'dano-2025',
