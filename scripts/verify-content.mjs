@@ -520,6 +520,10 @@ for (const programme of data.programmes) {
     if (!caseIds.has(id)) errors.push('Programme references unknown case ' + id);
   for (const id of programme.media)
     if (!mediaIds.has(id)) errors.push('Programme references unknown media ' + id);
+  for (const id of programme.authorIds ?? [])
+    if (!data.people.some((row) => row.id === id)) errors.push('Programme references unknown author ' + id);
+  if (new Set((programme.modules ?? []).map((row) => row.id)).size !== (programme.modules ?? []).length)
+    errors.push('Programme module IDs repeat ' + programme.id);
 }
 for (const page of data.cooperationPages)
   for (const scenario of page.scenarios)

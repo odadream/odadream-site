@@ -1,9 +1,10 @@
 import type { Localized, Publication } from './site';
 import { participationDetails, sourceSnapshots, type ParticipationDetail } from './editorial';
+import type { EditorialSection } from './editorial';
 
 export interface Programme extends ParticipationDetail {
   id: string;
-  legacyId: string;
+  legacyId?: string;
   slug: string;
   title: Localized;
   summary: Localized;
@@ -12,6 +13,8 @@ export interface Programme extends ParticipationDetail {
   deliveryStatus: 'documented' | 'proposed';
   audience: Localized;
   authorsNote: Localized;
+  authorIds?: string[];
+  modules?: EditorialSection[];
   media: string[];
   cases: string[];
   works: string[];

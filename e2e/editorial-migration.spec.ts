@@ -15,7 +15,7 @@ test('method, work configurations and education and cooperation form a connected
     await page.goto(`/${lang}/works/neurobattle/`);
     await expect(page.locator('#neurobattle-game')).toContainText('90');
     await page.goto(`/${lang}/education/`);
-    await expect(page.locator('.programme-card')).toHaveCount(8);
+    await expect(page.locator('.programme-card')).toHaveCount(15);
     await expect(page.locator('#site-nav [data-route="education"]')).toHaveAttribute('aria-current', 'page');
     await expect(page.locator('#site-nav [data-route="formats"]')).toHaveCount(0);
     await expect(page.locator('#education-conditions .record-stamp')).toHaveCount(1);

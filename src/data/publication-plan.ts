@@ -1,3 +1,4 @@
+import { additionalProgrammes } from './additional-programmes';
 import { additionalEvents } from './additional-events';
 import type { PublicationPlan } from '../lib/publication-scope';
 
@@ -35,6 +36,7 @@ export const publicationPlan: PublicationPlan = {
   ],
   configurations: ['mindshow-installation', 'neurobattle-game'],
   programmes: [
+    ...additionalProgrammes.map((row) => row.id),
     'beautiful-brain',
     'neuroaesthetics-lec',
     'sound-brain',

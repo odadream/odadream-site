@@ -63,6 +63,227 @@ export interface CooperationPage {
 
 // Exact bytes of dated V1 and owner-provided editorial snapshots, not current availability claims.
 export const sourceSnapshots: Record<string, SourceReference> = {
+  'Education_Source_b386e325729a.md': {
+    file: 'Education_Source_b386e325729a.md',
+    sha256: 'b386e325729a99a52b0b1ed1a38831e7d458f8d7e8a5ec61dd021efea63d24d7',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_875d38acafd9.md': {
+    file: 'Education_Source_875d38acafd9.md',
+    sha256: '875d38acafd98635fe0ff54661bf6fc38c86780f1c0fcf83c6115822d1fff0f4',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_763c5e4423f4.md': {
+    file: 'Education_Source_763c5e4423f4.md',
+    sha256: '763c5e4423f420a08d637d5e5005976449940c715b35408fa96fcc899f49f331',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_934ad240fa6a.md': {
+    file: 'Education_Source_934ad240fa6a.md',
+    sha256: '934ad240fa6a11af238e1f2be0fe9046c6b8ca77e383dfaa5f41595481bc2d72',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_b0ed2d97692d.md': {
+    file: 'Education_Source_b0ed2d97692d.md',
+    sha256: 'b0ed2d97692d86574ec7c07aa8da7f32beca52165b9149fc7333f9deb94e9124',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_fb0b17f9f0d2.md': {
+    file: 'Education_Source_fb0b17f9f0d2.md',
+    sha256: 'fb0b17f9f0d2103265bd9212c8aa33fc8c5966c0e058e305aa397a0d0d1b8d92',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_0f53bf364a61.md': {
+    file: 'Education_Source_0f53bf364a61.md',
+    sha256: '0f53bf364a61953224dd293a53157af277012e3a48c8a680c77b32842befdd57',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_7fcb8b6b94f8.md': {
+    file: 'Education_Source_7fcb8b6b94f8.md',
+    sha256: '7fcb8b6b94f8c8551f292f219b2838503d2b79fa98bf62c9b0f63fa4a48ce781',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_8eb9cc026204.md': {
+    file: 'Education_Source_8eb9cc026204.md',
+    sha256: '8eb9cc026204a783c9a9ff9a18b47ef2b9f2686efff08544095bb6b9e24e5e20',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_223cab046fff.md': {
+    file: 'Education_Source_223cab046fff.md',
+    sha256: '223cab046fff4e1c7998a93543d0e643aa26f1c4e93a686cd02b344f70c6672b',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_acd3449a1d12.md': {
+    file: 'Education_Source_acd3449a1d12.md',
+    sha256: 'acd3449a1d120d39f2441d444b86a01f9b6c8750d4b8173b591884c5cd503b73',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_e3b0c44298fc.md': {
+    file: 'Education_Source_e3b0c44298fc.md',
+    sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_b4dc7e597f91.md': {
+    file: 'Education_Source_b4dc7e597f91.md',
+    sha256: 'b4dc7e597f91603aa5a95a7696cd8e6b002d0083453240c8def890790ad2b3ff',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_824566fc0ab6.md': {
+    file: 'Education_Source_824566fc0ab6.md',
+    sha256: '824566fc0ab68985175b8af6d38785281ec6a5007f07b57787d574d807ee0df5',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_594f523bb8c7.md': {
+    file: 'Education_Source_594f523bb8c7.md',
+    sha256: '594f523bb8c725d3154c1383ee9957469e7c52adb2e2ad886fe3e06e87350634',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_52db415daad4.md': {
+    file: 'Education_Source_52db415daad4.md',
+    sha256: '52db415daad4debbcb869d782af4f49bb3573caca3d60505796f9772f0ce5432',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_7e278d34a0b5.md': {
+    file: 'Education_Source_7e278d34a0b5.md',
+    sha256: '7e278d34a0b5583c3f0061874013855396ef08d572c8cd29c24712e15edf7aff',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_cac95e5bc8a1.md': {
+    file: 'Education_Source_cac95e5bc8a1.md',
+    sha256: 'cac95e5bc8a1eaf70d01c9204de49638ac5dc2bc08c05bce1ef1f9ff7e2427e5',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_79399e8e4d9e.md': {
+    file: 'Education_Source_79399e8e4d9e.md',
+    sha256: '79399e8e4d9e7afbb3baf8a38a9eb84140cce1edf6f2d2658652e788991e166a',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_bcde848360a5.md': {
+    file: 'Education_Source_bcde848360a5.md',
+    sha256: 'bcde848360a578a5bb998f6151d809731575643dd5bee377bb7b041695c501dd',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_f9c8c1722f83.md': {
+    file: 'Education_Source_f9c8c1722f83.md',
+    sha256: 'f9c8c1722f83f6e3a0b590c528f0877d48f06bb495492a8c26d3972a53d9b82c',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_aa23c27f3260.md': {
+    file: 'Education_Source_aa23c27f3260.md',
+    sha256: 'aa23c27f3260d8441325de9bf1c09c59a6fca64daad8c1ac6f3a84905333d32c',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_78eeea9e9dbb.md': {
+    file: 'Education_Source_78eeea9e9dbb.md',
+    sha256: '78eeea9e9dbb263e97576bfaf775cdb90daaefd2cd31a3c1a77a44421f6c187f',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_48282e445db2.md': {
+    file: 'Education_Source_48282e445db2.md',
+    sha256: '48282e445db2527fae739eec7d4aa92a9ad8b48b155a816ca784af0e787cbe7c',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_6f904b40cfc5.md': {
+    file: 'Education_Source_6f904b40cfc5.md',
+    sha256: '6f904b40cfc5951718c53d2ded86ecf58814406e2280aceb682db8f1a3731fe6',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_5dd9430d9826.md': {
+    file: 'Education_Source_5dd9430d9826.md',
+    sha256: '5dd9430d9826a81c3dad6322bb97cc5f3bbba4e323d6a3c9caa8f24b08fc5cd7',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_4f6c274e3626.md': {
+    file: 'Education_Source_4f6c274e3626.md',
+    sha256: '4f6c274e36263e809c6922568ec11b19670c0d4d9aa6c48cb0cf7e93493a9ee9',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_bd1738e44d73.md': {
+    file: 'Education_Source_bd1738e44d73.md',
+    sha256: 'bd1738e44d73fbb4eafc079ea77a95f4dfa5b8e56a3b410ca2e31da765326243',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_61d651dd5054.md': {
+    file: 'Education_Source_61d651dd5054.md',
+    sha256: '61d651dd5054066f19338b1904f8d20d53756c18bb32339ac2bf5f62106f129c',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_e3c9562b8e28.md': {
+    file: 'Education_Source_e3c9562b8e28.md',
+    sha256: 'e3c9562b8e28b199ab5c375668b124277518bb1103d6dd9264a1dd3d99431acc',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_572023a0dfa0.md': {
+    file: 'Education_Source_572023a0dfa0.md',
+    sha256: '572023a0dfa0b83a5ed5967970abdda4c360ff1190e15b7886edcfb997814418',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_7f1fc7173ceb.md': {
+    file: 'Education_Source_7f1fc7173ceb.md',
+    sha256: '7f1fc7173ceb0cc64ae666c0365b0e98d5069df62acf5fb44932e73c1ab28dc6',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_b747caecf375.md': {
+    file: 'Education_Source_b747caecf375.md',
+    sha256: 'b747caecf375e5152c5b8f7c43fa0cf4c19f538b486afce8eede4e2fcb110743',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_e653c2760539.md': {
+    file: 'Education_Source_e653c2760539.md',
+    sha256: 'e653c27605395640e32a1c97ded41bb011f23fe00aae48c620c5cddf172b793b',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_dca2a83fb745.md': {
+    file: 'Education_Source_dca2a83fb745.md',
+    sha256: 'dca2a83fb745ec9a05fe5e71b2815b1f5fc63c1beffa995cf164350ffb629122',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_eec27476a45b.md': {
+    file: 'Education_Source_eec27476a45b.md',
+    sha256: 'eec27476a45bda62978070f1d3a5484f8cd51ebbeb681859fb42d1587840f1c3',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_34a0de1b1729.md': {
+    file: 'Education_Source_34a0de1b1729.md',
+    sha256: '34a0de1b1729bf3bd06dc8b5717bba3b89c56ed835293bf1857a25bfafce077a',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_fcdd23dd1b18.md': {
+    file: 'Education_Source_fcdd23dd1b18.md',
+    sha256: 'fcdd23dd1b18809006a9828cceb432343621d7ee69844afd440d0905eaebd3db',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_d65a0ed80597.md': {
+    file: 'Education_Source_d65a0ed80597.md',
+    sha256: 'd65a0ed805974371b12a6da6976122d4f8f2545c25ecd5db22a35ea34ba0d355',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_da6a1c533bfe.md': {
+    file: 'Education_Source_da6a1c533bfe.md',
+    sha256: 'da6a1c533bfec532fc9be5e23d0f478aca00a230c1b1b93b54fea2d1d98566df',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_4eccbb6244c5.md': {
+    file: 'Education_Source_4eccbb6244c5.md',
+    sha256: '4eccbb6244c54bb31718d4bfae98eb51e0a60152002ce701df49954d18a318f9',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_d740ee68851c.md': {
+    file: 'Education_Source_d740ee68851c.md',
+    sha256: 'd740ee68851cd6f0ec60a1f5ed4588125dd4912193531b941d4bf5b82f554ca4',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_988779f0c13a.md': {
+    file: 'Education_Source_988779f0c13a.md',
+    sha256: '988779f0c13a43977bb10bb87d99979a3accff34ddb89f93b3e9c03b2db0122f',
+    snapshot: '2026-10-07',
+  },
+  'Education_Source_ed1f49fe12a1.md': {
+    file: 'Education_Source_ed1f49fe12a1.md',
+    sha256: 'ed1f49fe12a1a6420097769bc5d6a5dd351ba152d9cd21875b66bf71ab19c512',
+    snapshot: '2026-10-07',
+  },
+
   'org-merck.md': {
     file: 'org-merck.md',
     sha256: '3ae16c99e3a42a3804ac619f2310c0ab745e5c9f6e5b0d20fec6f51524ac34ce',

@@ -1,5 +1,6 @@
 import type { CaseEvent, Localized, Organization, Media } from './site';
 import { sourceSnapshots } from './editorial';
+import { schoolEvents, educationEventRefs } from './additional-programmes';
 
 const l = (ru: string, en: string): Localized => ({ ru, en });
 type Definition = Pick<CaseEvent, 'id' | 'title' | 'summary' | 'date' | 'place' | 'role'> &
@@ -218,13 +219,13 @@ const definitions: Definition[] = [
   },
   {
     id: 'hse-2025',
-    date: '2025-05',
+    date: '2025-03-25',
     programme: 'beautiful-brain',
     type: 'lecture',
     title: l('«Красиво про мозг» · НИУ ВШЭ', 'Beautiful About the Brain · HSE University'),
     summary: l(
-      'Иммерсивная лекция для НИУ ВШЭ, связанная с благодарственным письмом мая 2025.',
-      'An immersive lecture for HSE University, linked to a May 2025 letter of appreciation.',
+      'Иммерсивная лекция для студентов 2–3 курса ИРКИ НИУ ВШЭ, профиль «Запуск и управление медиастартапом».',
+      'An immersive lecture for second- and third-year students at HSE’s Creative Industries Institute, Media Startup Launch and Management programme.',
     ),
     place: l('Москва · НИУ ВШЭ', 'Moscow · HSE University'),
     role: l(
@@ -233,10 +234,15 @@ const definitions: Definition[] = [
     ),
     organizations: ['hse'],
     files: ['event-hse-beautiful-brain-2025.md', 'proof-let-hse-beautiful-brain.md'],
+    sourceRefs: [
+      sourceSnapshots['event-hse-beautiful-brain-2025.md'],
+      sourceSnapshots['proof-let-hse-beautiful-brain.md'],
+      ...educationEventRefs.hse,
+    ],
     limitations: [
       l(
-        'Письмо подтверждает конкретный вклад; постоянная преподавательская должность этим не устанавливается. Точный день неизвестен.',
-        'The letter supports a specific contribution, not an ongoing teaching appointment. The exact day is unknown.',
+        'Письмо подтверждает конкретный вклад; постоянная преподавательская должность этим не устанавливается. Дата 25 марта уточнена по первичной событийной карточке и сводке программы; май в старой записи не используется как дата лекции.',
+        'The letter supports a specific contribution, not an ongoing teaching appointment. 25 March is established by the primary event card and programme summary; the old record’s May date is not used as the lecture date.',
       ),
     ],
   },
@@ -273,7 +279,7 @@ const definitions: Definition[] = [
     date: '2024',
     work: 'theatre-my-name',
     relatedWorks: ['neurosync'],
-    relatedProgrammes: ['feedback-empathy-brain'],
+    relatedProgrammes: ['feedback-empathy-brain', 'dance-feedback'],
     title: l(
       'Код провинции · научная хореографическая конференция',
       'Code of Province · scientific choreography conference',
@@ -288,6 +294,11 @@ const definitions: Definition[] = [
       'ODA.dream: a lecture and two performances. Ksenia Golyzhibina and Elena Panasenko organised the conference.',
     ),
     files: ['event-kod-provincii.md', 'event-tsiolkovsky.md'],
+    sourceRefs: [
+      sourceSnapshots['event-kod-provincii.md'],
+      sourceSnapshots['event-tsiolkovsky.md'],
+      ...educationEventRefs.dance,
+    ],
     limitations: [
       l(
         'Знакомство с театром балета ИКЦ стало началом последующей постановочной линии. Ссылка на статью в РИНЦ в архиве требует отдельной библиографической проверки.',
@@ -481,10 +492,12 @@ const definitions: Definition[] = [
     organizations: ['sberbank'],
     media: ['event-sber-lecture'],
     files: ['event-sber-lecture-2025.md'],
+    relatedProgrammes: ['beautiful-brain'],
+    sourceRefs: [sourceSnapshots['event-sber-lecture-2025.md'], ...educationEventRefs.sber],
     limitations: [
       l(
-        'Архив относит встречу к лекционной линии нейроэстетики; фото показывает конкретную тему БОС и также указывает Рустама Боровика в программе. Это не подтверждает тождество всех лекционных версий. Точный день не установлен.',
-        'The archive associates the encounter with the neuroaesthetics lecture trajectory; the image shows a specific feedback topic and also lists Rustam Borovik in the programme. This does not establish that every lecture version is identical. The exact day is unconfirmed.',
+        'Архив относит встречу к лекционной линии нейроэстетики; фото показывает конкретную тему БОС и также указывает Рустама Боровика в программе. Это не подтверждает тождество всех лекционных версий. Точный день не установлен. Отдельная заметка о встрече-питче для команды Сбера также не имеет даты: её связь сохранена как контекст программы, без вымышленного второго показа.',
+        'The archive associates the encounter with the neuroaesthetics lecture trajectory; the image shows a specific feedback topic and also lists Rustam Borovik in the programme. This does not establish that every lecture version is identical. The exact day is unconfirmed. A separate note about a pitch meeting for the Sber team is also undated: its relationship is retained as programme context without inventing a second presentation.',
       ),
     ],
   },
@@ -644,7 +657,7 @@ const definitions: Definition[] = [
   },
 ];
 
-export const additionalEvents: CaseEvent[] = definitions.map(({ files, ...row }) => ({
+const baseAdditionalEvents: CaseEvent[] = definitions.map(({ files, ...row }) => ({
   legacyId:
     files[0].startsWith('event-') || files[0] === 'unique-russia.md'
       ? files[0].replace(/\.md$/, '')
@@ -679,6 +692,8 @@ export const additionalEvents: CaseEvent[] = definitions.map(({ files, ...row })
   publication: 'published',
   ...row,
 }));
+
+export const additionalEvents: CaseEvent[] = [...baseAdditionalEvents, ...schoolEvents];
 
 export interface EventSeries {
   id: string;

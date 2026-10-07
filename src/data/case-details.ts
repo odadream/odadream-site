@@ -1,6 +1,7 @@
 import type { CaseEvent, Localized, OrganizationRole } from './site';
 import type { EditorialSection, SourceReference } from './editorial';
 import { sourceSnapshots } from './editorial';
+import { educationEventRefs } from './additional-programmes';
 
 export interface CaseDetail {
   story: EditorialSection[];
@@ -257,6 +258,7 @@ export const historicalEvents: CaseEvent[] = [
     place: l('Фестиваль «Дикая Мята» · место уточняется', 'Wild Mint festival · location unconfirmed'),
     role: l('ODA.dream: приглашённые лекция и перформанс.', 'ODA.dream: invited lecture and performance.'),
     method: 'neuromandala',
+    relatedProgrammes: ['beautiful-brain'],
     organizations: ['wildmint'],
     evidence: [],
     media: [],
@@ -276,7 +278,10 @@ export const historicalEvents: CaseEvent[] = [
         'The event body was a stub. The year and format are retained from the linked letter record; the exact day and location are unconfirmed.',
       ),
     ],
-    sourceRefs: refs('event-myata-2025.md', 'proof-let-wildmint.md', 'hub-letters.md'),
+    sourceRefs: [
+      ...refs('event-myata-2025.md', 'proof-let-wildmint.md', 'hub-letters.md'),
+      ...educationEventRefs.beautiful,
+    ],
     source: 'src/content/event-myata-2025.md; proof-let-wildmint.md',
     publication: 'published',
   },

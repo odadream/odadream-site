@@ -223,7 +223,12 @@ export const createPages = (
       path: `/${lang}/education/${programme.slug}/`,
       title: `${programme.title[lang]} — ODA.dream`,
       description: programme.summary[lang],
-      anchors: ['programme-content', 'programme-participation', 'programme-conditions'],
+      anchors: [
+        'programme-content',
+        'programme-participation',
+        'programme-conditions',
+        ...(programme.modules ?? []).map((item) => `programme-${programme.id}-${item.id}`),
+      ],
     })),
     ...records.cases
       .filter((item) => item.detailPage)

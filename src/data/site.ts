@@ -10,6 +10,7 @@ import {
   eventSeries as seriesRecords,
 } from './additional-events';
 import { programmes as programmeRecords } from './programmes';
+import { additionalProgrammes, programmeEnrichments } from './additional-programmes';
 import { studioPeople } from './studio';
 import { workDetails } from './work-details';
 export { workDocuments, legacyWorkResources } from './work-details';
@@ -1461,7 +1462,14 @@ export const works: Work[] = artworkRecords.map((work) => ({
     ]),
   ],
 }));
-export const programmes = programmeRecords.map((programme) => ({
+export const programmes = [
+  ...programmeRecords.map((row) => ({
+    ...row,
+    ...programmeEnrichments[row.id],
+    sourceRefs: [...row.sourceRefs, ...(programmeEnrichments[row.id]?.sourceRefs ?? [])],
+  })),
+  ...additionalProgrammes,
+].map((programme) => ({
   ...programme,
   cases: [
     ...new Set([

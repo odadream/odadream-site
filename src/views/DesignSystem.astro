@@ -718,11 +718,17 @@ const profileTokens = [
         </div>
         <h3>Программы образования и условия показа работы</h3>
         <div class="programme-grid">
-          {[programmes[0], programmes[7]].map((item) => (
-            <ProgrammeCard item={item} lang="ru" />
+          {['beautiful-brain', 'neuro-laboratory', 'color-brain', 'dance-feedback'].map((id) => (
+            <ProgrammeCard item={programmes.find((row) => row.id === id)!} lang="ru" />
           ))}
         </div>
         <ParticipationPanel item={configurations[0]} lang="ru" anchor="system-work-configuration" />
+        <h3>Модули образовательной программы</h3>
+        <EditorialSections
+          sections={programmes.find((row) => row.id === 'dance-feedback')!.modules!}
+          lang="ru"
+          anchorPrefix="system-programme-module"
+        />
         <h3>Галерея: полный кадр и обрезка по важной области</h3>
         <p class="small-note">
           Порядок задаёт редактор. Портрет, квадрат, широкий кадр, скан и видео используют один компонент.

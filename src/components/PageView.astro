@@ -842,6 +842,13 @@ const timeline = [...cases]
                   <li>{topic[lang]}</li>
                 ))}
               </ul>
+              {programme.modules?.length && (
+                <EditorialSections
+                  sections={programme.modules}
+                  lang={lang}
+                  anchorPrefix={`programme-${programme.id}`}
+                />
+              )}
               <RecordStamp
                 title={ru ? 'Программа' : 'Programme'}
                 wide
@@ -866,6 +873,16 @@ const timeline = [...cases]
             <div class="section-body">
               <h2>{ru ? 'Практика и результат' : 'Practice and outcome'}</h2>
               <p>{programme.participation[lang]}</p>
+              <div class="link-row spaced-actions">
+                {(programme.authorIds ?? []).map((id) => (
+                  <CalloutLink href={`/${lang}/studio/#person-${id}`}>
+                    {people.find((person) => person.id === id)?.name[lang]}
+                  </CalloutLink>
+                ))}
+                {programme.works.map((id) => (
+                  <CalloutLink href={workUrl(lang, id)}>{workById(id)?.title[lang]}</CalloutLink>
+                ))}
+              </div>
               <p>{programme.outcome[lang]}</p>
             </div>
           </section>

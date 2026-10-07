@@ -264,6 +264,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
   }));
   programmes = programmes.map((row) => ({
     ...row,
+    authorIds: (row.authorIds ?? []).filter((id) => people.some((person) => person.id === id)),
     cases: row.cases.filter((id) => caseIds.has(id)),
     media: row.media.filter((id) => availableMedia.has(id)),
   }));
@@ -445,6 +446,8 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'deliveryStatus',
             'audience',
             'authorsNote',
+            'authorIds',
+            'modules',
             'conditions',
             'studioProvides',
             'venueProvides',

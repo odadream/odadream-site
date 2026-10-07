@@ -73,3 +73,5 @@ VideoPreview (2026-10-07) shares first-frame stills and one controller across he
 2026-10-07: WorkCard specimens now include a concept rendering and a source-backed written concept with explicit media availability; no image without src is emitted. Portrait/diagram/document covers preserve their complete content within the common card frame.
 
 `CaseRow` и `case-presentation.ts` задают общий вид хронологии и смысл даты/статуса. Раздел 7 показывает учебное участие и отклонённую заявку из тех же данных, что страница событий. Галерея внутри краткого события использует общий MediaGallery; вложенная строка не создаёт ещё одну боковую колонку для метаданных.
+
+Programme: модули используют EditorialSections на подробных страницах и в разделе 11 стенда. ProgrammeCard показывает тип и отдельно proposed. Содержательное описание (`documented`) и проведение в CaseEvent — разные признаки; семейство E, ссылки и сетка общие.

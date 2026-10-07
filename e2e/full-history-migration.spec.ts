@@ -5,7 +5,7 @@ test('full chronology separates contributions, education, research and applicati
 }) => {
   for (const lang of ['ru', 'en']) {
     await page.goto(`/${lang}/cases/`);
-    await expect(page.locator('.case-row')).toHaveCount(33);
+    await expect(page.locator('.case-row')).toHaveCount(37);
     await expect(page.locator('#case-series article')).toHaveCount(4);
     await expect(page.locator('#case-research [data-case-id="tavrida-ai-2025"]')).toHaveAttribute(
       'data-participation-status',
