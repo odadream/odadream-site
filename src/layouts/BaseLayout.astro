@@ -386,6 +386,7 @@ const breadcrumbSchema =
     </dialog>
     <script>
       import { createAnalytics } from '../scripts/analytics';
+      import { initVideoPreviews } from '../scripts/video-previews';
       import { analyticsConfig } from '../data/analytics-config';
       const root = document.documentElement;
       createAnalytics(analyticsConfig, {
@@ -524,63 +525,7 @@ const breadcrumbSchema =
         if (image) image.src = '';
         trigger?.focus();
       });
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-      const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
-        ?.saveData;
-      const canMove = () => !reduceMotion.matches && !saveData;
-      const playPreview = (video: HTMLVideoElement | null) => {
-        if (!video || !canMove()) return;
-        const source = video.querySelector<HTMLSourceElement>('source[data-src]');
-        if (source && !source.src && source.dataset.src) {
-          source.src = source.dataset.src;
-          video.load();
-        }
-        if (!video.poster && video.dataset.poster) video.poster = video.dataset.poster;
-        video.preload = 'metadata';
-        video
-          .play()
-          .then(() => video.classList.add('is-playing'))
-          .catch(() => {});
-      };
-      const stopPreview = (video: HTMLVideoElement | null) => {
-        if (!video) return;
-        video.pause();
-        video.classList.remove('is-playing');
-      };
-      const releasePreview = (video: HTMLVideoElement) => {
-        stopPreview(video);
-        video.removeAttribute('poster');
-        video.preload = 'none';
-        const source = video.querySelector<HTMLSourceElement>('source[data-src]');
-        if (source?.hasAttribute('src')) {
-          source.removeAttribute('src');
-          video.load();
-        }
-      };
-      document.querySelectorAll<HTMLElement>('[data-motion-card]').forEach((card) => {
-        const video = card.querySelector<HTMLVideoElement>('video[data-preview]');
-        const activate = () => {
-          if (!canMove()) return;
-          card.classList.add('is-active');
-          playPreview(video);
-        };
-        const deactivate = () => {
-          card.classList.remove('is-active');
-          stopPreview(video);
-        };
-        card.addEventListener('mouseenter', activate);
-        card.addEventListener('mouseleave', deactivate);
-        card.addEventListener('focusin', activate);
-        card.addEventListener('focusout', deactivate);
-        const observer = new IntersectionObserver(
-          ([entry]) => {
-            if (window.matchMedia('(hover: none)').matches && entry.intersectionRatio >= 0.65) activate();
-            else if (window.matchMedia('(hover: none)').matches) deactivate();
-          },
-          { threshold: [0, 0.65, 1] },
-        );
-        observer.observe(card);
-      });
+      const videoPreviews = initVideoPreviews();
       const carousel = document.querySelector<HTMLElement>('[data-carousel]');
       if (carousel && carousel.querySelector('[data-slide]')) {
         let slides = [...carousel.querySelectorAll<HTMLElement>('[data-slide]')];
@@ -604,18 +549,8 @@ const breadcrumbSchema =
           // Storage may be unavailable; the server-rendered order remains usable.
         }
         let current = 0;
-        let timer: number | undefined;
-        let inView = false;
-        let pointerInside = false;
-        let focusInside = false;
-        const mayPlay = () => canMove() && !document.hidden && inView;
         slides.forEach((slide, index) => {
           slide.hidden = index !== 0;
-          const video = slide.querySelector<HTMLVideoElement>('video[data-preview]');
-          if (video) {
-            if (index === 0 && video.dataset.poster) video.poster = video.dataset.poster;
-            else video.removeAttribute('poster');
-          }
           const counter = slide.querySelector<HTMLElement>('[data-carousel-position]');
           if (counter)
             counter.textContent = `${String(index + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
@@ -625,81 +560,20 @@ const breadcrumbSchema =
           const control = ['data-carousel-prev', 'data-carousel-next'].find((name) =>
             focused?.hasAttribute(name),
           );
-          slides[current]?.querySelectorAll<HTMLVideoElement>('video').forEach(releasePreview);
           slides[current].hidden = true;
           current = (next + slides.length) % slides.length;
           slides[current].hidden = false;
-          const activeVideo = slides[current].querySelector<HTMLVideoElement>('video[data-preview]');
-          if (activeVideo?.dataset.poster) activeVideo.poster = activeVideo.dataset.poster;
-          if (mayPlay()) playPreview(slides[current].querySelector('video'));
+          videoPreviews.refresh();
           if (control)
             slides[current].querySelector<HTMLButtonElement>(`[${control}]`)?.focus({ preventScroll: true });
         };
-        const pause = () => {
-          window.clearInterval(timer);
-          timer = undefined;
-        };
-        const resume = () => {
-          pause();
-          if (mayPlay()) {
-            playPreview(slides[current].querySelector('video'));
-            if (!pointerInside && !focusInside) timer = window.setInterval(() => show(current + 1), 14000);
-          } else {
-            slides[current].querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview);
-          }
-        };
-        carousel.querySelectorAll('[data-carousel-prev]').forEach((button) =>
-          button.addEventListener('click', () => {
-            show(current - 1);
-            resume();
-          }),
-        );
-        carousel.querySelectorAll('[data-carousel-next]').forEach((button) =>
-          button.addEventListener('click', () => {
-            show(current + 1);
-            resume();
-          }),
-        );
-        carousel.addEventListener('mouseenter', () => {
-          pointerInside = true;
-          pause();
-        });
-        carousel.addEventListener('mouseleave', () => {
-          pointerInside = false;
-          resume();
-        });
-        carousel.addEventListener('focusin', () => {
-          focusInside = true;
-          pause();
-        });
-        carousel.addEventListener('focusout', (event) => {
-          if (event.relatedTarget instanceof Node && carousel.contains(event.relatedTarget)) return;
-          focusInside = false;
-          resume();
-        });
-        document.addEventListener('visibilitychange', () => {
-          if (document.hidden) {
-            pause();
-            slides[current]?.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview);
-          } else {
-            resume();
-          }
-        });
-        reduceMotion.addEventListener('change', () => {
-          if (canMove()) resume();
-          else {
-            pause();
-            slides.forEach((slide) => slide.querySelectorAll<HTMLVideoElement>('video').forEach(stopPreview));
-          }
-        });
-        const visibility = new IntersectionObserver(
-          ([entry]) => {
-            inView = entry.isIntersecting;
-            resume();
-          },
-          { threshold: 0 },
-        );
-        visibility.observe(carousel);
+        carousel
+          .querySelectorAll('[data-carousel-prev]')
+          .forEach((button) => button.addEventListener('click', () => show(current - 1)));
+        carousel
+          .querySelectorAll('[data-carousel-next]')
+          .forEach((button) => button.addEventListener('click', () => show(current + 1)));
+        videoPreviews.refresh();
       }
     </script>
   </body>

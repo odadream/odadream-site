@@ -319,6 +319,7 @@ export const media: Media[] = [
   },
   {
     id: 'interference-stage',
+    poster: '/video/interference-dawn-poster.webp',
     previewSrc: '/video/interference-dawn.mp4',
     src: '/images/content/events/interference-2026/interference-2026-01.webp',
     mobileSrc: '/images/content/events/interference-2026/interference-2026-01-mobile.webp',

@@ -207,13 +207,18 @@ test('featured carousel, editorial links and card media follow the design gramma
   await expect(visibleLink).toHaveCSS('text-decoration-line', 'none');
   await expect(visibleLink.locator('.callout-link-drawing path')).toHaveAttribute('d', /H[\d. -]+ L/);
   await expect(visibleLink).toContainText('\u00a0');
+  const preview = page.locator('.work-card [data-video-preview]').first();
+  await expect(preview.locator('img')).toHaveAttribute('src', '/video/interference-dawn-poster.webp');
   if (isMobile) {
-    await page.locator('.work-card').first().scrollIntoViewIfNeeded();
-    await expect(page.locator('.work-card').first()).toHaveClass(/is-active/);
+    await preview.evaluate((node) => {
+      const box = node.getBoundingClientRect();
+      window.scrollBy(0, box.top + box.height / 2 - innerHeight / 2);
+    });
   } else {
-    await page.locator('.work-card').first().hover();
-    await expect(page.locator('.work-card').first()).toHaveClass(/is-active/);
+    await preview.hover();
   }
+  await expect(preview).toHaveClass(/is-playing/);
+  await expect.poll(() => preview.locator('video').evaluate((v: HTMLVideoElement) => !v.paused)).toBeTruthy();
 });
 
 test('V5 design stand shares tokens and live components with the site', async ({ page }) => {

@@ -1,5 +1,6 @@
 ---
 import CalloutLink from './CalloutLink.astro';
+import VideoPreview from './VideoPreview.astro';
 import { mediaById } from '../data/catalogue';
 import { workStageLabels, type Lang, type Work } from '../data/site';
 import { workUrl } from '../lib/routes';
@@ -13,19 +14,26 @@ const media = mediaById(item.media[0]);
 ---
 
 <article class="work-card" data-motion-card data-work-id={item.id} data-work-stage={item.stage}>
-  <a class="work-card__link" href={workUrl(lang, item.id)}>
+  <a class="work-card__link" data-preview-trigger href={workUrl(lang, item.id)}>
     <span class="work-card__media" data-media-id={media?.id}>
       <span class="work-card__visual">
-        <img
-          src={media?.kind === 'video' ? media.poster : media?.src}
-          alt={media?.alt[lang]}
-          loading={eager ? 'eager' : 'lazy'}
-          decoding="async"
-        />
-        {media?.previewSrc && (
-          <video muted playsinline loop preload="none" poster={media.src} aria-hidden="true" data-preview>
-            <source src={media.previewSrc} type="video/mp4" />
-          </video>
+        {media?.previewSrc && media.poster ? (
+          <VideoPreview
+            src={media.previewSrc}
+            poster={media.poster}
+            alt={media.alt[lang]}
+            width={media.width}
+            height={media.height}
+            priority={eager}
+            focusable={false}
+          />
+        ) : (
+          <img
+            src={media?.kind === 'video' ? media.poster : media?.src}
+            alt={media?.alt[lang]}
+            loading={eager ? 'eager' : 'lazy'}
+            decoding="async"
+          />
         )}
       </span>
       {media?.representation === 'illustration' && (

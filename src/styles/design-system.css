@@ -526,3 +526,14 @@
     margin-top: var(--s4);
   }
 }
+
+.video-preview-specimens {
+  display: grid;
+  gap: var(--s4);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 700px) {
+  .video-preview-specimens {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

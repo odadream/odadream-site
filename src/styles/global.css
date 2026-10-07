@@ -600,32 +600,28 @@ figcaption {
   display: block;
   min-width: 0;
 }
-.work-card__visual video,
-.feature-visual video {
+.video-preview {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+.video-preview > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.video-preview > video {
   position: absolute;
   inset: 0;
   width: 100%;
-  height: calc(100% - 26px);
+  height: 100%;
   object-fit: cover;
   opacity: 0;
   pointer-events: none;
   transition: opacity var(--motion-fast);
 }
-.work-card__visual video {
-  height: 100%;
-}
-.work-card.is-active video.is-playing,
-.feature-slide:not([hidden]) video.is-playing {
+.video-preview.is-playing > video {
   opacity: 1;
-}
-.work-card__visual img,
-.feature-visual img {
-  transition:
-    transform var(--motion-media),
-    filter var(--motion-fast);
-}
-.work-card.is-active .work-card__visual img {
-  transform: scale(1.035);
 }
 .work-card__meta {
   display: flex;
@@ -1352,6 +1348,11 @@ figcaption {
   object-position: center;
   opacity: 1 !important;
   background: var(--hero-bg);
+}
+.nm-background-video > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .nm-scrim {
   position: absolute;

@@ -3,6 +3,7 @@ import MindDBStamp from './MindDBStamp.astro';
 import EditorialSections from './EditorialSections.astro';
 import DocumentList from './DocumentList.astro';
 import MediaFigure from './MediaFigure.astro';
+import VideoPreview from './VideoPreview.astro';
 import WorkCard from './WorkCard.astro';
 import RecognitionCard from './RecognitionCard.astro';
 import SectionRail from './SectionRail.astro';
@@ -99,24 +100,24 @@ const timeline = [...cases]
             <article
               class="nm-slide feature-slide"
               data-slide
+              data-preview-trigger
               data-slide-id={item.id}
               data-media-id={item.mediaId}
               hidden={i !== 0}
             >
               <div class="nm-visual">
-                <video
-                  class="nm-background-video"
-                  muted
-                  playsinline
-                  loop
-                  preload="none"
-                  poster={i === 0 ? image?.poster : undefined}
-                  data-poster={image?.poster}
-                  aria-hidden="true"
-                  data-preview
-                >
-                  <source data-src={image?.previewSrc} type="video/mp4" />
-                </video>
+                {image?.previewSrc && image.poster && (
+                  <VideoPreview
+                    class="nm-background-video"
+                    src={image.previewSrc}
+                    poster={image.poster}
+                    alt={image.alt[lang]}
+                    width={image.width}
+                    height={image.height}
+                    priority={i === 0}
+                    focusable={false}
+                  />
+                )}
                 <div class="nm-scrim" aria-hidden="true"></div>
                 <div class="nm-work-caption">
                   <div class="carousel-controls nm-carousel-controls">
