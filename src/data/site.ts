@@ -39,7 +39,18 @@ export interface Media {
   rights: Rights;
   source: string;
   kind: 'image' | 'video';
-  representation?: 'illustration';
+  representation?: 'illustration' | 'photograph' | 'render' | 'diagram' | 'poster' | 'document';
+  credit?: Localized;
+  focalPoint?:
+    | 'top-left'
+    | 'top'
+    | 'top-right'
+    | 'left'
+    | 'center'
+    | 'right'
+    | 'bottom-left'
+    | 'bottom'
+    | 'bottom-right';
 }
 export type HeroVisual =
   | {
@@ -225,12 +236,48 @@ export const socialLinks: SocialLink[] = [
 
 export const media: Media[] = [
   {
+    id: 'schrodinger-poster',
+    src: '/images/content/works/schrodinger-2025-poster.webp',
+    kind: 'image',
+    representation: 'poster',
+    rights: 'cleared',
+    width: 1446,
+    height: 2048,
+    alt: {
+      ru: 'Архивная афиша «Проекта Шрёдингер», 22 мая 2025',
+      en: 'Archival Project Schrödinger poster, 22 May 2025',
+    },
+    caption: {
+      ru: '«Проект Шрёдингер» · афиша лабораторного показа, 2025',
+      en: 'Project Schrödinger · laboratory performance poster, 2025',
+    },
+    credit: { ru: 'Авторы идеи: Ольга и Далер Арабовы', en: 'Idea: Olga and Daler Arabov' },
+    source:
+      'src/content/media-schrodinger-poster.md; owner display permission for works and related materials 2026-10-07',
+  },
+  {
+    id: 'honors-scheme',
+    src: '/images/content/works/honors-skolkovo/honors-skolkovo-scheme.webp',
+    kind: 'image',
+    representation: 'diagram',
+    rights: 'review',
+    width: 1229,
+    height: 880,
+    alt: { ru: 'Схема размещения экранов «Нейродоски почёта»', en: 'Neuro Honor Board screen-layout scheme' },
+    caption: {
+      ru: 'Архивная схема инсталляции; не фотография реализованной работы',
+      en: 'Archival installation scheme; not a photograph of a realized work',
+    },
+    source: 'src/content/media-honors-presentation.md',
+  },
+
+  {
     id: 'neuromandala-terra',
+    width: 1280,
+    height: 720,
     src: '/video/hero/terra-preview.mp4',
     poster: '/video/hero/terra-poster.webp',
     previewSrc: '/video/hero/terra-preview.mp4',
-    width: 1280,
-    height: 720,
     alt: {
       en: 'Neuromandala visual field: Terraforming',
       ru: 'Визуальное поле Нейромандалы: «Терраформинг»',
@@ -245,11 +292,11 @@ export const media: Media[] = [
   },
   {
     id: 'neuromandala-frequencies',
+    width: 1280,
+    height: 720,
     src: '/video/hero/frequencies-preview.mp4',
     poster: '/video/hero/frequencies-poster.webp',
     previewSrc: '/video/hero/frequencies-preview.mp4',
-    width: 1280,
-    height: 720,
     alt: {
       en: 'MindGrid visual field: Frequencies',
       ru: 'Визуальное поле MindGrid: «Частоты»',
@@ -264,11 +311,11 @@ export const media: Media[] = [
   },
   {
     id: 'neuromandala-mindshow',
+    width: 720,
+    height: 720,
     src: '/video/hero/mindshow-preview.mp4',
     poster: '/video/hero/mindshow-poster.webp',
     previewSrc: '/video/hero/mindshow-preview.mp4',
-    width: 1080,
-    height: 1080,
     alt: {
       en: 'Neuromandala sequence from MindShow',
       ru: 'Последовательность Нейромандалы в MindShow',
@@ -283,11 +330,11 @@ export const media: Media[] = [
   },
   {
     id: 'neuromandala-cultural-code',
+    width: 1280,
+    height: 720,
     src: '/video/hero/cultural-code-preview.mp4',
     poster: '/video/hero/cultural-code-poster.webp',
     previewSrc: '/video/hero/cultural-code-preview.mp4',
-    width: 1280,
-    height: 720,
     alt: {
       en: 'Neuromandala ornament visual',
       ru: 'Орнаментальная визуализация Нейромандалы',
@@ -302,11 +349,11 @@ export const media: Media[] = [
   },
   {
     id: 'neuromandala-kovylina',
+    width: 720,
+    height: 720,
     src: '/video/hero/kovylina-preview.mp4',
     poster: '/video/hero/kovylina-poster.webp',
     previewSrc: '/video/hero/kovylina-preview.mp4',
-    width: 1280,
-    height: 720,
     alt: {
       en: 'Neuromandala session with Elena Kovylina',
       ru: 'Сессия Нейромандалы с Еленой Ковылиной',
@@ -321,12 +368,12 @@ export const media: Media[] = [
   },
   {
     id: 'interference-stage',
+    width: 1732,
+    height: 1155,
     poster: '/video/interference-dawn-poster.webp',
     previewSrc: '/video/interference-dawn.mp4',
     src: '/images/content/events/interference-2026/interference-2026-01.webp',
     mobileSrc: '/images/content/events/interference-2026/interference-2026-01-mobile.webp',
-    width: 1732,
-    height: 1155,
     alt: {
       en: 'Performers on stage during Interference of Realities',
       ru: 'Артисты на сцене «Интерференции реальностей»',
@@ -341,6 +388,8 @@ export const media: Media[] = [
   },
   {
     id: 'mindshow',
+    width: 1440,
+    height: 1080,
     src: '/images/content/mindshow_mdsh_v5.webp',
     alt: {
       en: 'Generative visuals from MindShow',
@@ -356,6 +405,8 @@ export const media: Media[] = [
   },
   {
     id: 'neurobattle',
+    width: 1920,
+    height: 1080,
     src: '/images/content/neurobattle_gameplay.webp',
     alt: {
       en: 'Paradox of Success game screen',
@@ -371,6 +422,8 @@ export const media: Media[] = [
   },
   {
     id: 'schrodinger',
+    width: 1706,
+    height: 2560,
     src: '/images/content/events/schrodinger-2025/schrodinger-2025-01.webp',
     alt: {
       en: 'Project Schrödinger laboratory performance',
@@ -386,6 +439,8 @@ export const media: Media[] = [
   },
   {
     id: 'rings',
+    width: 1080,
+    height: 1080,
     legacyPaths: ['/images/content/materia/oda-rings/ig-01-hero.webp'],
     src: '/images/content/materia/oda-rings/oda-rings-cover.webp',
     alt: {
@@ -402,6 +457,8 @@ export const media: Media[] = [
   },
   {
     id: 'sync',
+    width: 1200,
+    height: 675,
     src: '/images/content/works/sync-circle/sync-circle-hero.webp',
     alt: {
       en: 'Sync Circle concept rendering',
@@ -417,6 +474,8 @@ export const media: Media[] = [
   },
   {
     id: 'neurobattle-dano',
+    width: 1920,
+    height: 1080,
     src: '/images/content/neurobattle_dano.webp',
     alt: {
       en: 'Paradox of Success at DANO',
@@ -432,6 +491,8 @@ export const media: Media[] = [
   },
   {
     id: 'emomandala-object',
+    width: 1668,
+    height: 1920,
     legacyPaths: [
       '/images/content/materia/emomandala/emomandala-cover.webp',
       '/images/content/materia/emomandala/photo-pendant-front.webp',
@@ -451,6 +512,8 @@ export const media: Media[] = [
   },
   {
     id: 'ancestors-prototype',
+    width: 1536,
+    height: 1024,
     legacyPaths: ['/images/content/works/ancestors-hero.webp'],
     src: '/images/works/ancestors.webp',
     kind: 'image',
@@ -467,6 +530,8 @@ export const media: Media[] = [
   },
   {
     id: 'neurosync-session',
+    width: 1280,
+    height: 720,
     representation: 'illustration',
     src: '/video/hero/frequencies-poster.webp',
     kind: 'image',
@@ -656,7 +721,7 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
       en: ['Two players per round', 'Approx. 90-second round', 'DANO Olympiad · Moscow, 2025'],
       ru: ['Два игрока в раунде', 'Около 90 секунд на раунд', 'Олимпиада DANO · Москва, 2025'],
     },
-    media: ['neurobattle'],
+    media: ['neurobattle', 'neurobattle-dano'],
     cases: ['dano-2025'],
     configurations: ['neurobattle-game'],
     source: 'src/content/neurobattle.md',
@@ -711,7 +776,7 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
         'Совместно с Инновационным театром балета',
       ],
     },
-    media: ['schrodinger'],
+    media: ['schrodinger', 'schrodinger-poster'],
     cases: ['tsiolkovsky-2025'],
     configurations: [],
     source: 'src/content/schrodinger.md',

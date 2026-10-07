@@ -15,6 +15,7 @@ import { pairedPath, navigationFor, type Page } from '../lib/routes';
 import DzenIcon from '../assets/social/dzen.svg';
 import RecordStamp from '../components/RecordStamp.astro';
 import AnalyticsConsent from '../components/AnalyticsConsent.astro';
+import TechnicalMark from '../components/TechnicalMark.astro';
 import PageCode from '../components/PageCode.astro';
 import lastmod from '../data/lastmod.json';
 import astroPackage from 'astro/package.json';
@@ -379,20 +380,49 @@ const breadcrumbSchema =
     <dialog
       id="lightbox"
       class="lightbox"
-      aria-label={page.lang === 'en' ? 'Image viewer' : 'Просмотр изображения'}
+      aria-label={page.lang === 'en' ? 'Media viewer' : 'Просмотр материалов'}
     >
       <button
         class="lightbox-close"
         type="button"
-        aria-label={page.lang === 'en' ? 'Close image' : 'Закрыть изображение'}
+        aria-label={page.lang === 'en' ? 'Close viewer' : 'Закрыть просмотр'}
       >
         ×
       </button>
-      <img alt="" />
+      <div class="lightbox-stage">
+        <img alt="" />
+        <video controls playsinline preload="none" hidden />
+      </div>
+      <p class="lightbox-status" role="status"></p>
       <p class="lightbox-caption"></p>
+      <div class="lightbox-navigation">
+        <button
+          type="button"
+          class="button"
+          data-viewer-previous
+          hidden
+          aria-label={page.lang === 'ru' ? 'Предыдущий материал' : 'Previous item'}
+        >
+          <TechnicalMark kind="previous" />
+        </button>
+        <span class="lightbox-position" aria-live="polite"></span>
+        <button type="button" class="button" data-viewer-zoom aria-pressed="false">
+          {page.lang === 'ru' ? 'Масштаб 1:1' : 'Zoom 1:1'}
+        </button>
+        <button
+          type="button"
+          class="button"
+          data-viewer-next
+          hidden
+          aria-label={page.lang === 'ru' ? 'Следующий материал' : 'Next item'}
+        >
+          <TechnicalMark kind="next" />
+        </button>
+      </div>
     </dialog>
     <script>
       import { createAnalytics } from '../scripts/analytics';
+      import { initMediaViewer } from '../scripts/media-viewer';
       import { initVideoPreviews } from '../scripts/video-previews';
       import { analyticsConfig } from '../data/analytics-config';
       const root = document.documentElement;
@@ -507,31 +537,7 @@ const breadcrumbSchema =
         nav?.classList.remove('open');
         menu.focus();
       });
-      const dialog = document.querySelector<HTMLDialogElement>('#lightbox');
-      const image = dialog?.querySelector<HTMLImageElement>('img');
-      const caption = dialog?.querySelector<HTMLElement>('.lightbox-caption');
-      let trigger: HTMLElement | null = null;
-      document.querySelectorAll<HTMLButtonElement>('[data-lightbox]').forEach((button) =>
-        button.addEventListener('click', () => {
-          trigger = button;
-          if (image) {
-            image.src = button.dataset.src || '';
-            image.alt = button.dataset.alt || '';
-          }
-          if (caption) caption.textContent = button.dataset.caption || '';
-          dialog?.showModal();
-        }),
-      );
-      dialog
-        ?.querySelector<HTMLButtonElement>('.lightbox-close')
-        ?.addEventListener('click', () => dialog.close());
-      dialog?.addEventListener('click', (event) => {
-        if (event.target === dialog) dialog.close();
-      });
-      dialog?.addEventListener('close', () => {
-        if (image) image.src = '';
-        trigger?.focus();
-      });
+      initMediaViewer();
       const videoPreviews = initVideoPreviews();
       const carousel = document.querySelector<HTMLElement>('[data-carousel]');
       if (carousel && carousel.querySelector('[data-slide]')) {

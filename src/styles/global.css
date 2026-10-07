@@ -1664,3 +1664,118 @@ figcaption {
 .programme-card p {
   margin: 0;
 }
+
+.media-gallery {
+  display: grid;
+  gap: var(--gallery-gap);
+  min-width: 0;
+  align-items: start;
+}
+.media-gallery[data-mode='tiles'] {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--gallery-tile-min)), 1fr));
+}
+.media-gallery[data-mode='sequence'] {
+  grid-template-columns: minmax(0, 1fr);
+}
+.media-gallery .media-figure {
+  min-width: 0;
+}
+.media-figure figcaption {
+  flex-wrap: wrap;
+  margin-top: var(--s2);
+}
+.media-credit {
+  color: var(--muted);
+}
+.media-figure[data-fit='crop'] .media-open img {
+  aspect-ratio: var(--gallery-crop-ratio);
+  object-fit: cover;
+}
+.media-figure[data-fit='natural'] .media-open img {
+  aspect-ratio: auto;
+  height: auto;
+}
+.media-figure[data-representation='document'] .media-open:hover img,
+.media-figure[data-representation='diagram'] .media-open:hover img,
+.media-figure[data-representation='poster'] .media-open:hover img {
+  filter: none;
+}
+.media-figure[data-focal='top-left'] {
+  --media-position: left top;
+}
+.media-figure[data-focal='top'] {
+  --media-position: center top;
+}
+.media-figure[data-focal='top-right'] {
+  --media-position: right top;
+}
+.media-figure[data-focal='left'] {
+  --media-position: left center;
+}
+.media-figure[data-focal='center'] {
+  --media-position: center;
+}
+.media-figure[data-focal='right'] {
+  --media-position: right center;
+}
+.media-figure[data-focal='bottom-left'] {
+  --media-position: left bottom;
+}
+.media-figure[data-focal='bottom'] {
+  --media-position: center bottom;
+}
+.media-figure[data-focal='bottom-right'] {
+  --media-position: right bottom;
+}
+.media-figure .media-open img,
+.media-figure .media-open video {
+  object-position: var(--media-position);
+}
+.lightbox-stage {
+  width: 100%;
+  height: 0;
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+}
+.lightbox-stage img,
+.lightbox-stage video {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.lightbox-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s4);
+  flex-shrink: 0;
+}
+.lightbox-position {
+  font-size: var(--type-note);
+}
+.lightbox-status {
+  font-size: var(--type-note);
+}
+.lightbox-caption {
+  flex-shrink: 0;
+  max-width: var(--copy-measure);
+}
+.lightbox [hidden] {
+  display: none;
+}
+
+.lightbox[data-zoomed] .lightbox-stage {
+  display: block;
+  overflow: auto;
+}
+.lightbox[data-zoomed] .lightbox-stage img {
+  max-width: none;
+  max-height: none;
+  width: auto;
+  height: auto;
+}
+.lightbox-navigation {
+  flex-wrap: wrap;
+}

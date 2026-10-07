@@ -109,7 +109,7 @@ items:
     title: Создать общие галереи с сохранением пропорций и смысловой области
     area: design_system
     priority: P0
-    status: planned
+    status: done
     outcome: Материалы разных пропорций читаются как последовательность либо плитка общим компонентом.
     acceptance:
       - Плитка/крупная последовательность описаны и показаны на стенде; фото разных пропорций, схемы, афиши и документы проверены.
@@ -119,6 +119,8 @@ items:
     depends_on:
       - VIDEO-PREVIEW-01
     source: docs/MIGRATION-PLAN.md, раздел 3
+    notes: MediaGallery/MediaFigure/MediaViewer реализованы и показаны на стенде; natural/crop с явной важной областью, целые афиши/схемы/сканы, RU/EN, обе темы и 390–1920 px. Подборка, клавиатура, 1:1, отказ загрузки, возврат фокуса и остановка видео проверены; полный корпус материалов остаётся MEDIA-MIGRATION-FULL-01.
+
   - id: MEDIA-MIGRATION-FULL-01
     title: Связать материалы полного корпуса с Work/Programme/Case
     area: media_and_content

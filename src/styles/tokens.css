@@ -38,6 +38,10 @@
   --tap-target: 44px;
   --focus-width: 2px;
   --focus-offset: 3px;
+  --copy-measure: 66ch;
+  --gallery-tile-min: 16rem;
+  --gallery-crop-ratio: 4 / 3;
+  --gallery-gap: var(--s5);
   --card-ratio: 1.56;
   --card-gap: var(--s3);
   --card-row-gap: var(--s7);

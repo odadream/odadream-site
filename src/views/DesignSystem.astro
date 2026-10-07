@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import MediaGallery from '../components/MediaGallery.astro';
+import type { MediaItem } from '../lib/media-presentation';
+import { mediaById } from '../data/catalogue';
 import MediaFigure from '../components/MediaFigure.astro';
 import VideoPreview from '../components/VideoPreview.astro';
 import ProgrammeCard from '../components/ProgrammeCard.astro';
@@ -37,6 +40,24 @@ const page = {
   title: 'Дизайн-система V5 → V2 — ODA.dream',
   description: 'Рабочая спецификация визуального языка ODA.dream.',
 };
+const gallerySpecimens: MediaItem[] = [
+  mediaById('emomandala-object')!,
+  mediaById('rings')!,
+  mediaById('neurobattle')!,
+  {
+    id: 'hse-document-specimen',
+    src: recognitions[4].previewSrc!,
+    kind: 'image',
+    width: 659,
+    height: 947,
+    representation: 'document',
+    alt: recognitions[4].title,
+    caption: recognitions[4].claim,
+  },
+  mediaById('neuromandala-terra')!,
+  mediaById('schrodinger-poster')!,
+  mediaById('honors-scheme')!,
+];
 const sections = [
   ['Основание'],
   ['Типографика'],
@@ -689,6 +710,37 @@ const profileTokens = [
           ))}
         </div>
         <ParticipationPanel item={configurations[0]} lang="ru" anchor="system-work-configuration" />
+        <h3>Галерея: полный кадр и обрезка по важной области</h3>
+        <p class="small-note">
+          Порядок задаёт редактор. Портрет, квадрат, широкий кадр, скан и видео используют один компонент.
+          Скан показан только на редакционном стенде; права не изменены.
+        </p>
+        <MediaGallery
+          id="system-gallery-tiles"
+          items={gallerySpecimens}
+          lang="ru"
+          label="Пример плитки материалов"
+        />
+        <MediaGallery
+          id="system-gallery-crop"
+          items={[
+            { ...gallerySpecimens[0], focalPoint: 'center' },
+            gallerySpecimens[3],
+            gallerySpecimens[5],
+            gallerySpecimens[6],
+          ]}
+          lang="ru"
+          fit="crop"
+          label="Явная обрезка фотографии; документ целиком"
+        />
+        <h3>Gallery: large sequence / English</h3>
+        <MediaGallery
+          id="system-gallery-sequence"
+          items={gallerySpecimens.slice(0, 2)}
+          lang="en"
+          mode="sequence"
+          label="Large media sequence"
+        />
         <EvidenceNote item={evidence[0]} lang="ru" />
         <RecordStamp
           title="Два поля / вся доступная ширина"

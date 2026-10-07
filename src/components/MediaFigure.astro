@@ -1,18 +1,39 @@
 ---
 import TechnicalMark from './TechnicalMark.astro';
+import VideoPreview from './VideoPreview.astro';
+import { mediaFit, type MediaItem, type MediaFit } from '../lib/media-presentation';
 import { mediaById } from '../data/catalogue';
 import type { Lang } from '../data/site';
 interface Props {
-  id: string;
+  id?: string;
+  item?: MediaItem;
+  fit?: MediaFit;
+  gallery?: boolean;
+  previewVideo?: boolean;
   lang: Lang;
   priority?: boolean;
 }
-const { id, lang, priority = false } = Astro.props;
-const item = mediaById(id);
+const {
+  id,
+  item: suppliedItem,
+  lang,
+  priority = false,
+  fit = 'natural',
+  gallery = false,
+  previewVideo = false,
+} = Astro.props;
+const item = suppliedItem ?? (id ? mediaById(id) : undefined);
+const presentation = item ? mediaFit(item, fit) : 'natural';
 ---
 
 {item && (
-  <figure class="media-figure" data-media-id={item.id}>
+  <figure
+    class="media-figure"
+    data-media-id={item.id}
+    data-fit={presentation}
+    data-focal={item.focalPoint ?? 'center'}
+    data-representation={item.representation}
+  >
     <div class="media-register">
       <span class="media-register__id">
         <TechnicalMark kind="record" />
@@ -29,13 +50,17 @@ const item = mediaById(id);
         type="button"
         class="media-open"
         data-lightbox
+        data-gallery-item={gallery ? '' : undefined}
         data-src={item.src}
         data-alt={item.alt[lang]}
         data-caption={item.caption[lang]}
+        data-credit={item.credit?.[lang]}
         aria-label={lang === 'en' ? `Enlarge: ${item.alt.en}` : `Увеличить: ${item.alt.ru}`}
       >
         <picture>
-          {item.mobileSrc && <source media="(max-width: 700px)" srcset={item.mobileSrc} />}
+          {item.mobileSrc && !(gallery && presentation === 'natural') && (
+            <source media="(max-width: 700px)" srcset={item.mobileSrc} />
+          )}
           <img
             src={item.src}
             alt={item.alt[lang]}
@@ -50,6 +75,33 @@ const item = mediaById(id);
           <TechnicalMark kind="open" />
         </span>
       </button>
+    ) : previewVideo && item.poster ? (
+      <button
+        type="button"
+        class="media-open"
+        data-preview-trigger
+        data-lightbox
+        data-gallery-item={gallery ? '' : undefined}
+        data-kind="video"
+        data-src={item.src}
+        data-poster={item.poster}
+        data-alt={item.alt[lang]}
+        data-caption={item.caption[lang]}
+        data-credit={item.credit?.[lang]}
+        aria-label={lang === 'ru' ? `Открыть видео: ${item.alt.ru}` : `Open video: ${item.alt.en}`}
+      >
+        <VideoPreview
+          src={item.previewSrc ?? item.src}
+          poster={item.poster}
+          alt={item.alt[lang]}
+          width={item.width}
+          height={item.height}
+          focusable={false}
+        />
+        <span class="media-open__mark">
+          <TechnicalMark kind="open" />
+        </span>
+      </button>
     ) : (
       <video
         src={item.src}
@@ -60,6 +112,9 @@ const item = mediaById(id);
         data-media-id={item.id}
       />
     )}
-    <figcaption>{item.caption[lang]}</figcaption>
+    <figcaption>
+      <span>{item.caption[lang]}</span>
+      {item.credit && <span class="media-credit">{item.credit[lang]}</span>}
+    </figcaption>
   </figure>
 )}

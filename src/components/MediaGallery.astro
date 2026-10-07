@@ -1,0 +1,22 @@
+---
+import MediaFigure from './MediaFigure.astro';
+import type { Lang } from '../data/site';
+import type { MediaItem, MediaFit } from '../lib/media-presentation';
+interface Props {
+  id: string;
+  items: MediaItem[];
+  lang: Lang;
+  mode?: 'tiles' | 'sequence';
+  fit?: MediaFit;
+  label: string;
+}
+const { id, items, lang, mode = 'tiles', fit = 'natural', label } = Astro.props;
+---
+
+{items.length > 0 && (
+  <div id={id} class="media-gallery" data-media-gallery data-mode={mode} role="group" aria-label={label}>
+    {items.map((item) => (
+      <MediaFigure item={item} lang={lang} fit={fit} previewVideo gallery />
+    ))}
+  </div>
+)}

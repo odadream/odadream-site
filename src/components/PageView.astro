@@ -2,6 +2,7 @@
 import MindDBStamp from './MindDBStamp.astro';
 import EditorialSections from './EditorialSections.astro';
 import DocumentList from './DocumentList.astro';
+import MediaGallery from './MediaGallery.astro';
 import MediaFigure from './MediaFigure.astro';
 import VideoPreview from './VideoPreview.astro';
 import WorkCard from './WorkCard.astro';
@@ -645,6 +646,20 @@ const timeline = [...cases]
           </span>
           <h2>{ru ? 'Внутри работы' : 'Inside the work'}</h2>
           <EditorialSections sections={work.story} lang={lang} anchorPrefix="work-story" />
+          {work.media.length > 1 && (
+            <>
+              <h3>{ru ? 'Материалы работы' : 'Work materials'}</h3>
+              <MediaGallery
+                id="work-gallery"
+                items={work.media.slice(1).flatMap((id) => {
+                  const item = mediaById(id);
+                  return item ? [item] : [];
+                })}
+                lang={lang}
+                label={ru ? 'Материалы работы' : 'Work materials'}
+              />
+            </>
+          )}
           <DocumentList documents={workDocuments.filter((row) => row.workId === work.id)} lang={lang} />
           <div class="provenance">
             {work.reviewNotes.map((note) => (

@@ -271,6 +271,30 @@ if (recognitionSummary.total !== Object.values(recognitionSummary.byKind).reduce
 if (recognitionSummary.total < data.recognitions.length)
   errors.push('Legacy recognition summary: fewer listed items than structured records');
 for (const item of data.media) {
+  for (const size of ['width', 'height'])
+    if (item[size] !== undefined && (!Number.isInteger(item[size]) || item[size] < 1))
+      errors.push(`media ${item.id}: invalid ${size}`);
+  if (
+    item.representation &&
+    !['illustration', 'photograph', 'render', 'diagram', 'poster', 'document'].includes(item.representation)
+  )
+    errors.push(`media ${item.id}: invalid representation`);
+  if (
+    item.focalPoint &&
+    ![
+      'top-left',
+      'top',
+      'top-right',
+      'left',
+      'center',
+      'right',
+      'bottom-left',
+      'bottom',
+      'bottom-right',
+    ].includes(item.focalPoint)
+  )
+    errors.push(`media ${item.id}: invalid focal point`);
+
   if (!['cleared', 'review', 'restricted'].includes(item.rights))
     errors.push(`media ${item.id}: invalid rights`);
   if (item.kind === 'video' && !item.poster) errors.push(`media ${item.id}: video poster missing`);

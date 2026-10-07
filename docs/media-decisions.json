@@ -2737,10 +2737,10 @@
     "appliesToScope": "v2-full-content-2026-10-07.1"
   },
   "/images/content/works/schrodinger-2025-poster.webp": {
-    "action": "review",
-    "approvalStatus": "pending-reassessment",
+    "action": "preserve",
+    "approvalStatus": "approved",
     "sha256": "3f3c6f100ab01736ace18e730a805f26e7d5c67969e321f831b75dfac50f145b",
-    "reason": "Expanded scope requires reassessing this file through its semantic Work/Programme/Case owner. A nonselected direct Markdown media node is not proof that its work is outside scope.",
+    "reason": "Archival poster belongs to the prepared Project Schrödinger work; displayed whole in its gallery. Reusing the original local path does not create a blanket requirement to preserve V1 URLs.",
     "reviewGroup": "deferred-archive",
     "sourceDisposition": "retain-read-only",
     "note": "Previous retirement proposal is superseded for scope v2-full-content-2026-10-07.1. No final HTTP outcome, retirement approval, source deletion or deployment. Originals remain read-only; preserve/merge/redirect/exclusion is chosen after linked-source review.",
@@ -2751,7 +2751,10 @@
       "reason": "Resource belongs to work/application/archive material outside the selected V2 packet. Keep the original archive for a later catalogue expansion.",
       "expectedHttpAfterCutover": 404
     },
-    "appliesToScope": "v2-full-content-2026-10-07.1"
+    "appliesToScope": "v2-full-content-2026-10-07.1",
+    "mediaId": "schrodinger-poster",
+    "approvedBy": "owner display permission 2026-10-05; full work/material migration instruction 2026-10-07",
+    "approvedOn": "2026-10-07"
   },
   "/images/content/works/sync-circle/sync-circle-chairs-1.webp": {
     "action": "review",

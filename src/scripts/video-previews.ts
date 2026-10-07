@@ -45,7 +45,12 @@ export function initVideoPreviews() {
   function refresh() {
     if (frame) cancelAnimationFrame(frame);
     frame = 0;
-    const allowed = !suspended && !document.hidden && !reduced.matches && !connection?.saveData;
+    const allowed =
+      !suspended &&
+      !document.hidden &&
+      !reduced.matches &&
+      !connection?.saveData &&
+      !document.querySelector('dialog[open]');
     const candidates = rows.flatMap((row) => {
       const box = row.root.getBoundingClientRect();
       const visible =
@@ -126,6 +131,7 @@ export function initVideoPreviews() {
   window.addEventListener('scroll', schedule, { passive: true });
   window.addEventListener('resize', schedule);
   document.addEventListener('visibilitychange', refresh);
+  document.addEventListener('oda:media-viewer-change', refresh);
   window.addEventListener('pagehide', () => {
     suspended = true;
     refresh();

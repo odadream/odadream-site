@@ -67,3 +67,5 @@ EvidenceNote показывает поддерживаемое утвержде�
 VideoPreview (2026-10-07) shares first-frame stills and one controller across hero, work cards and the specimen. Fine-pointer desktop uses hover/keyboard focus; touch uses the single candidate nearest the viewport centre and overlapping its central 30%. Leaving the active region resets to the still. Sources load only on activation; hidden tabs, pagehide, reduced motion and Save-Data stop playback. Delayed play promises cannot revive an inactive preview. Carousel navigation is manual; full MediaFigure players retain explicit controls.
 
 2026-10-07: Education uses family E / --signal-education. The live ProgrammeCard (documented lecture and proposed laboratory) and WorkConfiguration ParticipationPanel examples are in section 11. Work conditions live with the artwork; the former Formats overview only shows LegacyNotice before returning home.
+
+2026-10-07: section 11 demonstrates MediaGallery (natural tiles, explicit crop, protected poster/diagram/document, English sequence) and the shared keyboard/media viewer. It reuses VideoPreview; full players require an explicit start.

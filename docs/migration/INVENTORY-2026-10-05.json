@@ -7860,6 +7860,15 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "targets": [
+          "Media:schrodinger-poster",
+          "Work:schrodinger"
+        ],
+        "sourceSha256": "c207206fc6504e8d450767db4f2c9c4289d0ea62a4bbc8372abfb44ae00d97cc",
+        "asOf": "2026-10-07",
+        "state": "archival poster displayed whole in the prepared Work gallery; original bytes retained, source does not create a standalone page"
       }
     },
     {
@@ -23923,11 +23932,11 @@
     },
     "note": "All substantive work/education/event content is scheduled for migration. Linked metadata/evidence of placeholders must be checked; roles are planned semantic uses, not claims that records/pages have already been created. Old checks and exclusions retain their snapshot dates and are not current expanded completion.",
     "nextTasks": [
-      "MEDIA-GALLERY-01",
       "WORKS-01",
       "EDUCATION-MIGRATION-01",
       "HISTORY-01",
-      "MEDIA-MIGRATION-FULL-01"
+      "MEDIA-MIGRATION-FULL-01",
+      "URL-MIGRATION-01"
     ],
     "baselinePercent": 32,
     "verification": {
@@ -24036,6 +24045,79 @@
     "scopeLimits": [
       "all remaining works/events/media are still queued",
       "education source completeness and media are not declared complete",
+      "no deploy/push/PR/domain change"
+    ]
+  },
+  "currentMediaGalleryVerification": {
+    "asOf": "2026-10-07",
+    "scopeVersion": "v2-full-content-2026-10-07.1",
+    "task": "MEDIA-GALLERY-01",
+    "status": "verified",
+    "presentation": {
+      "modes": [
+        "tiles",
+        "sequence"
+      ],
+      "defaultFit": "natural",
+      "crop": "requires explicit focalPoint",
+      "protectedRepresentations": [
+        "document",
+        "poster",
+        "diagram"
+      ],
+      "viewer": [
+        "selection boundaries",
+        "arrow navigation",
+        "original trigger focus",
+        "zoom 1:1 with internal scroll",
+        "explicit video playback",
+        "preview pause",
+        "release video source",
+        "loading failure"
+      ]
+    },
+    "checks": {
+      "unitPassed": 59,
+      "e2ePassed": 99,
+      "e2eSkipped": 13,
+      "astroFiles": 102,
+      "astroErrors": 0,
+      "astroWarnings": 0,
+      "astroHints": 0,
+      "content": "passed",
+      "build": "passed",
+      "format": "passed",
+      "selectedPacketReleaseGate": "passed"
+    },
+    "visual": {
+      "matrixViewports": [
+        390,
+        601,
+        797,
+        1440,
+        1920
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "locales": [
+        "ru",
+        "en"
+      ],
+      "reviewedScreenshots": [
+        ".local-server/gallery-tiles-desktop.png",
+        ".local-server/gallery-mobile.png"
+      ]
+    },
+    "assetChanges": {
+      "poster": "Project Schrödinger, source SHA retained",
+      "reusedImage": "DANO image also belongs to Paradox of Success",
+      "deferred": "Honor Board scheme remains review; present in dev specimen only",
+      "dimensions": "17 records measured from local image/video files, including two corrected square clips"
+    },
+    "limits": [
+      "all 198 original materials are not yet migrated",
       "no deploy/push/PR/domain change"
     ]
   }
