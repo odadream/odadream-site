@@ -124,6 +124,20 @@
         "sourceSha256": "e5abe407a26962672638b83847acd894d008d7b4fecc52e418c3040e92c210eb",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected narrative and attributed roles edited for V2; owner decisions on composite work and R&D stages supersede historical production claims. Third-party evidence and unused media are not implicitly transferred."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Work:ancestors"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -168,6 +182,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -212,6 +238,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "exclude standalone placeholder; retain any useful metadata and compatible entrance",
+        "targetRoles": [
+          "linked-context"
+        ],
+        "batch": "source-coverage",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -256,6 +294,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate educational programme",
+        "targetRoles": [
+          "Programme"
+        ],
+        "batch": "education",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -300,6 +350,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "resolve artwork and educational roles from linked narrative",
+        "targetRoles": [
+          "Work",
+          "Programme"
+        ],
+        "batch": "works-and-education",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -344,6 +407,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "exclude standalone placeholder; retain any useful metadata and compatible entrance",
+        "targetRoles": [
+          "linked-context"
+        ],
+        "batch": "source-coverage",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -394,6 +469,20 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -438,6 +527,20 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -482,6 +585,20 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -526,6 +643,20 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -570,6 +701,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "exclude standalone placeholder; retain any useful metadata and compatible entrance",
+        "targetRoles": [
+          "linked-context"
+        ],
+        "batch": "source-coverage",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -614,6 +757,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -658,6 +813,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -717,6 +884,20 @@
         "sourceSha256": "e68e539158480d3c1ea9573fca543008cf32164daaaf143e6a0c78c3a26b640b",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected narrative and attributed roles edited for V2; owner decisions on composite work and R&D stages supersede historical production claims. Third-party evidence and unused media are not implicitly transferred."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Work:emomandala"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -770,6 +951,20 @@
         "sourceSha256": "7c2036536bd9e54decc4342816af2729dbc1156e1cb5a5e9f692522400eecda9",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected narrative and attributed roles edited for V2; owner decisions on composite work and R&D stages supersede historical production claims. Third-party evidence and unused media are not implicitly transferred."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "integrate composite work component",
+        "targetRoles": [
+          "WorkComponent"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Work:emomandala"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -814,6 +1009,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -858,6 +1066,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -906,6 +1127,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -952,6 +1186,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -998,6 +1245,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -1042,6 +1302,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -1086,6 +1359,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -1130,6 +1416,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -1174,6 +1473,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -1238,6 +1550,21 @@
         "sourceSha256": "1bca3361594638165e795284518c4bf6fe33262f94f23c4e04f75050bc2009fb",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "CaseEvent:byob-2026"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -1291,6 +1618,21 @@
         "sourceSha256": "587eebd47098e6f9b2f86da80b0d34942394f441187b75dffd95be38e1f788cc",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "CaseEvent:cipr-2026"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -1355,6 +1697,21 @@
         "sourceSha256": "10c72da82b3b50203219ab086cd8bce286ba578e6d1eb8301b53b8574294f4a5",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "CaseEvent:dano-2025"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -1401,6 +1758,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -1447,6 +1817,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -1493,6 +1876,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -1539,6 +1935,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -1592,6 +2001,21 @@
         "sourceSha256": "faabc98a69ed979bd1ef47c80de439ea529acaf247d6aa527d4a656f74eea5f4",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected biography, artistic position and attributed educational contexts; credentials, award claims and aggregate CV counts are not implicitly verified. Available HTML dossiers are linked; archived PDF decks remain outside this core material selection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Studio:teaching-hse"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -1638,6 +2062,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -1684,6 +2121,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -1728,6 +2178,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -1776,6 +2239,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -1822,6 +2298,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -1875,6 +2364,21 @@
         "sourceSha256": "7e457443d870a3c473b79a399d583f6cd313be34317eb067f4f357116fdf8324",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected biography, artistic position and attributed educational contexts; credentials, award claims and aggregate CV counts are not implicitly verified. Available HTML dossiers are linked; archived PDF decks remain outside this core material selection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Studio:teaching-mipt"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -1928,6 +2432,21 @@
         "sourceSha256": "f2a2a01c03293a1ddc95d2ab8f8014c125fc48e022c5f7b0345247ab8ae01d9d",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "CaseEvent:wildmint-2025"
+        ],
+        "needsSourceResolution": true
       }
     },
     {
@@ -1974,6 +2493,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -2022,6 +2554,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -2066,6 +2611,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -2112,6 +2670,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -2168,6 +2739,22 @@
         "sourceSha256": "838dcff35d2615a0817bfbee1d99baeb3ff0777792b68d548072b18b1cc8f302",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "CaseEvent:portal-2025",
+          "Recognition:portal-2030-2025"
+        ],
+        "needsSourceResolution": true
       }
     },
     {
@@ -2223,6 +2810,21 @@
         "sourceSha256": "28d62adfd4ba872753ae9f493025d6d41c56915b4df13238223ec142ec5698c8",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected biography, artistic position and attributed educational contexts; credentials, award claims and aggregate CV counts are not implicitly verified. Available HTML dossiers are linked; archived PDF decks remain outside this core material selection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Studio:teaching-sber"
+        ],
+        "needsSourceResolution": true
       }
     },
     {
@@ -2267,6 +2869,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -2313,6 +2928,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -2359,6 +2987,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -2403,6 +3044,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -2467,6 +3121,21 @@
         "sourceSha256": "93ff388a0afa6fd40f1e50eef3549a7bb4764bef26db28ad1a9731936656a6ae",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "CaseEvent:tsiolkovsky-2025"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -2531,6 +3200,21 @@
         "sourceSha256": "51ed45eb5ba2516b29efb59c50f5fc564b63c0e88e253ebe9816d886b4935e31",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "CaseEvent:tsiolkovsky-2026"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -2575,6 +3259,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate educational programme",
+        "targetRoles": [
+          "Programme"
+        ],
+        "batch": "education",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -2619,6 +3315,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -2663,6 +3371,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate educational programme",
+        "targetRoles": [
+          "Programme"
+        ],
+        "batch": "education",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -2707,6 +3427,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -2751,6 +3483,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -2795,6 +3539,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -2848,6 +3604,20 @@
         "sourceSha256": "0707d9a96cf473bd57671644b8250069ef60f2537259381480663e5fb5d73440",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected meaning and technical/participation facts merged into V2; old credentials, testimonials and event lists are not implicitly verified or transferred."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Cooperation:cooperation"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -2892,6 +3662,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain source/archive; exclude old technical service page from content",
+        "targetRoles": [
+          "service-archive"
+        ],
+        "batch": "source-coverage",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -2936,6 +3718,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -2991,6 +3785,22 @@
         "sourceSha256": "12f7d5307ee36168fca26eeef06ef7545e241ae02327d84b1e72250398ee1fef",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected biography, artistic position and attributed educational contexts; credentials, award claims and aggregate CV counts are not implicitly verified. Available HTML dossiers are linked; archived PDF decks remain outside this core material selection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Format:detail",
+          "Cooperation:cooperation",
+          "Studio:studio"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -3035,6 +3845,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge old navigation into appropriate target catalogue/section; no automatic page copy",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "structure",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -3079,6 +3901,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -3132,6 +3966,20 @@
         "sourceSha256": "355a1b04f6fcb97bc7fc82622acf0c403054ecf237b4fee9aac0afec364fdff4",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected meaning and technical/participation facts merged into V2; old credentials, testimonials and event lists are not implicitly verified or transferred."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Cooperation:cooperation"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -3187,6 +4035,22 @@
         "sourceSha256": "6386eb90ddae81ad262c97580849703a7627069ea6c8a103e29aaf4eed0f1c6e",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected biography, artistic position and attributed educational contexts; credentials, award claims and aggregate CV counts are not implicitly verified. Available HTML dossiers are linked; archived PDF decks remain outside this core material selection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Studio:studio",
+          "Person:olga",
+          "Person:daler"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -3233,6 +4097,18 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain source/archive; exclude old technical service page from content",
+        "targetRoles": [
+          "service-archive"
+        ],
+        "batch": "source-coverage",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -3277,6 +4153,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain source/archive; exclude old technical service page from content",
+        "targetRoles": [
+          "service-archive"
+        ],
+        "batch": "source-coverage",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -3321,6 +4209,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain source/archive; exclude old technical service page from content",
+        "targetRoles": [
+          "service-archive"
+        ],
+        "batch": "source-coverage",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -3365,6 +4265,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain source/archive; exclude old technical service page from content",
+        "targetRoles": [
+          "service-archive"
+        ],
+        "batch": "source-coverage",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -3409,6 +4321,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain source/archive; exclude old technical service page from content",
+        "targetRoles": [
+          "service-archive"
+        ],
+        "batch": "source-coverage",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -3453,6 +4377,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain source/archive; exclude old technical service page from content",
+        "targetRoles": [
+          "service-archive"
+        ],
+        "batch": "source-coverage",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -3497,6 +4433,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain source/archive; exclude old technical service page from content",
+        "targetRoles": [
+          "service-archive"
+        ],
+        "batch": "source-coverage",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -3541,6 +4489,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge old navigation into appropriate target catalogue/section; no automatic page copy",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "structure",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -3596,6 +4556,22 @@
         "sourceSha256": "9ddef4b4459c23304b1c5568f08b7c066587043439bf5183caa265b52b4670ae",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected biography, artistic position and attributed educational contexts; credentials, award claims and aggregate CV counts are not implicitly verified. Available HTML dossiers are linked; archived PDF decks remain outside this core material selection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Format:detail",
+          "Cooperation:cooperation",
+          "Studio:studio"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -3649,6 +4625,20 @@
         "sourceSha256": "a2ad89edc59edfb4486e4a253b8abc1f0dba1da17af009644cd053b515019491",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected meaning and technical/participation facts merged into V2; old credentials, testimonials and event lists are not implicitly verified or transferred."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Cooperation:cooperation"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -3693,6 +4683,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -3737,6 +4739,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge old navigation into appropriate target catalogue/section; no automatic page copy",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "structure",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -3781,6 +4795,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge old navigation into appropriate target catalogue/section; no automatic page copy",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "structure",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -3825,6 +4851,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge old navigation into appropriate target catalogue/section; no automatic page copy",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "structure",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -3878,6 +4916,20 @@
         "sourceSha256": "589b5f9d9f1f8358fac90af050129f2f80e7de67ba202882f8e71b39312973ee",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected meaning and technical/participation facts merged into V2; old credentials, testimonials and event lists are not implicitly verified or transferred."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Cooperation:cooperation"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -3922,6 +4974,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -3977,6 +5041,20 @@
         "sourceSha256": "ad1457377cb0f05148e726ac485cdfebcbb4ac7fb8886fd933a3a844a27e500e",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected meaning and technical/participation facts merged into V2; old credentials, testimonials and event lists are not implicitly verified or transferred."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Format:detail"
+        ],
+        "needsSourceResolution": true
       }
     },
     {
@@ -4021,6 +5099,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -4074,6 +5164,20 @@
         "sourceSha256": "4c7c7585fca2fd1bcc25a3fb3e8686ffe24015df29e77ed7ec5c0a6f83449cb9",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected meaning and technical/participation facts merged into V2; old credentials, testimonials and event lists are not implicitly verified or transferred."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Cooperation:cooperation"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -4134,6 +5238,21 @@
         "sourceSha256": "8640c12613c002b01bbe5ee7c54bf202d647c979ea4ba3e2f22078d8cfb411f4",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected meaning and technical/participation facts merged into V2; old credentials, testimonials and event lists are not implicitly verified or transferred."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Method:neuromandala",
+          "Format:detail"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -4191,6 +5310,24 @@
         "sourceSha256": "f1b6541f16a38346a46bb3b33f92415edce96b850c1cdd0399c0640e95bb4705",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Recognition:digital-art-ai-2026",
+          "Recognition:mipt-letter-2025",
+          "Recognition:portal-2030-2025",
+          "Recognition:tavrida-letter-2025",
+          "Recognition:hse-letter-2025"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -4244,6 +5381,20 @@
         "sourceSha256": "c4f600813ecadde929a6547e04eda26ed53720b0dfc74b2567d5edbccdf26eb4",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected biography, artistic position and attributed educational contexts; credentials, award claims and aggregate CV counts are not implicitly verified. Available HTML dossiers are linked; archived PDF decks remain outside this core material selection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Studio:studio"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -4288,6 +5439,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -4332,6 +5495,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -4376,6 +5551,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -4420,6 +5607,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge old navigation into appropriate target catalogue/section; no automatic page copy",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "structure",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -4464,6 +5663,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -4508,6 +5719,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -4552,6 +5775,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge old navigation into appropriate target catalogue/section; no automatic page copy",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "structure",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -4596,6 +5831,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge old navigation into appropriate target catalogue/section; no automatic page copy",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "structure",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -4640,6 +5887,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -4684,6 +5943,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -4728,6 +5999,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "merge substantive narrative into target Work/Programme/method/cooperation/studio context",
+        "targetRoles": [
+          "SiteSection"
+        ],
+        "batch": "context",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -4772,6 +6055,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "check-linked-context; exclude standalone placeholder",
+        "targetRoles": [
+          "linked-context"
+        ],
+        "batch": "source-coverage",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -4833,6 +6128,22 @@
         "sourceSha256": "635a13274ff2b9e8d98d470464efe758a30d0b60e1c9db2a2d4aeb1d8118333e",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected narrative and attributed roles edited for V2; owner decisions on composite work and R&D stages supersede historical production claims. Third-party evidence and unused media are not implicitly transferred."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Method:neuromandala",
+          "Work:interference",
+          "Work:schrodinger"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -4877,6 +6188,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -4921,6 +6244,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -4965,6 +6300,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5009,6 +6357,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5053,6 +6414,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5097,6 +6471,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5141,6 +6528,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5185,6 +6585,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5229,6 +6642,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5273,6 +6699,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5317,6 +6756,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5361,6 +6813,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5405,6 +6870,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5449,6 +6927,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5493,6 +6984,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5537,6 +7041,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5581,6 +7098,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5625,6 +7155,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5671,6 +7214,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -5715,6 +7271,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5759,6 +7328,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5803,6 +7385,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5847,6 +7442,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5900,6 +7508,21 @@
         "sourceSha256": "1f33aaff1eb64014e3aedc59ca79d55032909a06f75b9309c97380c9243b7f15",
         "state": "selected-historical-document-migrated; editorial-review-pending",
         "scope": "Exact historical PDF, visually inspected and attached to rings. Not a current commissioning document."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "WorkDocument:oda-rings-banner"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -5953,6 +7576,21 @@
         "sourceSha256": "5dcee125dab875ae7a1a41c96c79986f51158bc9af94ae2df23267530bf71940",
         "state": "selected-historical-document-migrated; editorial-review-pending",
         "scope": "Exact historical PDF, visually inspected and attached to rings. Not a current commissioning document."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "WorkDocument:oda-rings-drawings"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -6006,6 +7644,21 @@
         "sourceSha256": "6486812194330172ddd7434181bd8867ce7ff3a7776416083d89085abe5f3e8a",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected narrative and attributed roles edited for V2; owner decisions on composite work and R&D stages supersede historical production claims. Third-party evidence and unused media are not implicitly transferred."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Work:rings"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -6050,6 +7703,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -6094,6 +7760,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -6138,6 +7817,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -6182,6 +7874,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -6226,6 +7931,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -6270,6 +7988,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -6314,6 +8045,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -6358,6 +8102,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -6402,6 +8159,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -6446,6 +8216,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach content media/document to semantic owner; review old URL independently",
+        "targetRoles": [
+          "Media",
+          "Document"
+        ],
+        "batch": "media",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -6490,6 +8273,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "check-linked-context; exclude standalone placeholder",
+        "targetRoles": [
+          "linked-context"
+        ],
+        "batch": "source-coverage",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -6556,6 +8351,22 @@
         "sourceSha256": "2f1ec367646d8a7bc439ce55ec4e96454bbec005807d4c535f8335b0e03d5ffa",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected narrative and attributed roles edited for V2; owner decisions on composite work and R&D stages supersede historical production claims. Third-party evidence and unused media are not implicitly transferred."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Method:neuromandala",
+          "Format:detail",
+          "Work:mindshow"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -6600,6 +8411,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -6644,6 +8467,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "integrate method/configuration context",
+        "targetRoles": [
+          "Method",
+          "Configuration"
+        ],
+        "batch": "configurations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -6688,6 +8524,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate educational programme",
+        "targetRoles": [
+          "Programme"
+        ],
+        "batch": "education",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -6754,6 +8602,22 @@
         "sourceSha256": "4d8e095213544cda0de10d4450ed4f1714a95917b66ef69fadcd3f52655ecc98",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected narrative and attributed roles edited for V2; owner decisions on composite work and R&D stages supersede historical production claims. Third-party evidence and unused media are not implicitly transferred."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Method:neuromandala",
+          "Format:detail",
+          "Work:neurobattle"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -6807,6 +8671,21 @@
         "sourceSha256": "273d875e1851366b5587e8331265e90c2fb5a5b56392b4cdf49bc2226c621457",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected meaning and technical/participation facts merged into V2; old credentials, testimonials and event lists are not implicitly verified or transferred."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "integrate method/configuration context",
+        "targetRoles": [
+          "Method",
+          "Configuration"
+        ],
+        "batch": "configurations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Method:neuromandala"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -6851,6 +8730,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "check-linked-context; exclude standalone placeholder",
+        "targetRoles": [
+          "linked-context"
+        ],
+        "batch": "source-coverage",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -6912,6 +8803,22 @@
         "sourceSha256": "965010bb4daf6292719a2d05a46b5431d04f946d0640580b39a22dc73c0cf2c8",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected narrative and attributed roles edited for V2; owner decisions on composite work and R&D stages supersede historical production claims. Third-party evidence and unused media are not implicitly transferred."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Method:neuromandala",
+          "Work:neurosync",
+          "Work:sync"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -6971,6 +8878,20 @@
         "sourceSha256": "9efd555b796918ae7206bc5b36ff2ca4d919b9bfd28ae8e418e6c53f3a3214fa",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected narrative and attributed roles edited for V2; owner decisions on composite work and R&D stages supersede historical production claims. Third-party evidence and unused media are not implicitly transferred."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Work:rings"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -7017,6 +8938,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -7072,6 +9007,22 @@
         "sourceSha256": "6e2f945c50b65ccac27eb6ef859934ddb66d149db28d3ff6014027d3f2e88951",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Context role only; private outreach details and other participation records are not implicitly transferred."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "CaseEvent:cipr-2026"
+        ],
+        "needsSourceResolution": true
       }
     },
     {
@@ -7118,6 +9069,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -7164,6 +9129,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -7210,6 +9189,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -7256,6 +9249,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -7302,6 +9309,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -7346,6 +9367,20 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -7392,6 +9427,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -7438,6 +9487,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -7490,6 +9553,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -7536,6 +9613,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -7582,6 +9673,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -7629,6 +9734,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -7681,6 +9800,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -7731,6 +9864,20 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -7777,6 +9924,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -7821,6 +9982,20 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -7876,6 +10051,22 @@
         "sourceSha256": "b4ac17971ff4a83b0b06ec318d4f90619efbcc3bd873701a8acfcea197e6579b",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "CaseEvent:byob-2026"
+        ],
+        "needsSourceResolution": true
       }
     },
     {
@@ -7922,6 +10113,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -7968,6 +10173,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8014,6 +10233,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8060,6 +10293,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8106,6 +10353,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8152,6 +10413,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8198,6 +10473,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8244,6 +10533,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8296,6 +10599,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8342,6 +10659,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8388,6 +10719,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8435,6 +10780,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8481,6 +10840,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8527,6 +10900,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8571,6 +10958,20 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -8617,6 +11018,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8663,6 +11078,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8709,6 +11138,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8755,6 +11198,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8807,6 +11264,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8853,6 +11324,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8899,6 +11384,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8945,6 +11444,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -8991,6 +11504,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -9037,6 +11564,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -9083,6 +11624,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -9129,6 +11684,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -9175,6 +11744,20 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "retain attributed participant/organization relations and context",
+        "targetRoles": [
+          "Organization",
+          "Person",
+          "Participation"
+        ],
+        "batch": "relations",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -9219,6 +11802,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "exclude standalone placeholder; retain any useful metadata and compatible entrance",
+        "targetRoles": [
+          "linked-context"
+        ],
+        "batch": "source-coverage",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -9263,6 +11858,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -9307,6 +11914,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -9351,6 +11971,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -9407,6 +12040,22 @@
         "sourceSha256": "3e58790c95fd528240e7073e88c604af2cab639a8e4d12fe5e7d868e6b813602",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "CaseEvent:portal-2025",
+          "Recognition:portal-2030-2025"
+        ],
+        "needsSourceResolution": true
       }
     },
     {
@@ -9451,6 +12100,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -9495,6 +12157,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -9539,6 +12214,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -9583,6 +12271,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -9627,6 +12328,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -9671,6 +12385,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -9715,6 +12442,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -9759,6 +12499,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -9803,6 +12556,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -9862,6 +12628,21 @@
         "sourceSha256": "af359fd754fac9ccfbb13837f339a2df0db22db29fb6ff299b510485d59acfdb",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Recognition:hse-letter-2025"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -9906,6 +12687,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -9950,6 +12744,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -9994,6 +12801,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -10038,6 +12858,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -10091,6 +12924,21 @@
         "sourceSha256": "1be420106451eca6a000e985259684cdb0c35b221e510a5bdbbe1ecc1bf386bc",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Recognition:tavrida-letter-2025"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -10135,6 +12983,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -10179,6 +13040,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -10223,6 +13097,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -10276,6 +13163,21 @@
         "sourceSha256": "0c31e831894a652618ba381ffb75c48d81c5777639ebf179f816d0e0113f00bc",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "CaseEvent:wildmint-2025"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -10335,6 +13237,21 @@
         "sourceSha256": "6e0713a7014d65b8e374471c248349f46f288fd329fab9dbdbab2a88ab83d14a",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Recognition:mipt-letter-2025"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -10379,6 +13296,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -10423,6 +13353,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -10467,6 +13410,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -10511,6 +13467,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -10555,6 +13524,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -10599,6 +13581,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -10643,6 +13638,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -10687,6 +13695,19 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -10733,6 +13754,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -10779,6 +13813,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -10834,6 +13881,21 @@
         "sourceSha256": "2e3d1f89c5d3e55c47992d6890fef5c0b30f56d0047e6a5f7f585264872babdd",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected event facts, context roles and bounded evidence claims; placeholder days and testimonial quotations are not treated as verified facts. Recognition permissions remain independent from source inspection."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "CaseEvent:cipr-2026"
+        ],
+        "needsSourceResolution": true
       }
     },
     {
@@ -10880,6 +13942,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -10926,6 +14001,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "attach substantiated evidence/recognition to the asserted fact; no automatic independent proof page",
+        "targetRoles": [
+          "Evidence",
+          "Recognition"
+        ],
+        "batch": "evidence",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -10986,6 +14074,21 @@
         "sourceSha256": "6cbf183b79cbf422b2230a1e676f337c0eb9c9e1f792f2600b0fab2fb44845cd",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected narrative and attributed roles edited for V2; owner decisions on composite work and R&D stages supersede historical production claims. Third-party evidence and unused media are not implicitly transferred."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Work:interference",
+          "Work:schrodinger"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -11030,6 +14133,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate educational programme",
+        "targetRoles": [
+          "Programme"
+        ],
+        "batch": "education",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -11090,6 +14205,21 @@
         "sourceSha256": "3578b0c23ad53ef52ac2b8f25bbafdac751a5ba16e757fd09ddec1b8dd42538d",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Selected narrative and attributed roles edited for V2; owner decisions on composite work and R&D stages supersede historical production claims. Third-party evidence and unused media are not implicitly transferred."
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [
+          "Work:sync",
+          "Work:neurosync"
+        ],
+        "needsSourceResolution": false
       }
     },
     {
@@ -11134,6 +14264,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate educational programme",
+        "targetRoles": [
+          "Programme"
+        ],
+        "batch": "education",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -11178,6 +14320,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     },
     {
@@ -11224,6 +14378,19 @@
         ],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "review complete event context and precision; migrate chronology/case or merge series",
+        "targetRoles": [
+          "CaseEvent",
+          "EventSeries"
+        ],
+        "batch": "history",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": true
       }
     },
     {
@@ -11268,6 +14435,18 @@
         "qualityFlags": [],
         "disposition": "source role screened; publication/fact verification remains separate",
         "standalonePageRequired": false
+      },
+      "scopeRebase": {
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "asOf": "2026-10-07",
+        "plannedUse": "migrate canonical artwork; merge aliases/components where supported",
+        "targetRoles": [
+          "Work"
+        ],
+        "batch": "works",
+        "state": "scheduled-use; not a completed transfer or publication approval",
+        "retainedBaselineTargets": [],
+        "needsSourceResolution": false
       }
     }
   ],
@@ -16071,7 +19250,9 @@
         "tbtMs": 0
       }
     ],
-    "limitation": "Lighthouse laboratory measurements of this candidate fixture, not field INP, editorial approval, real analytics delivery or permission to deploy."
+    "limitation": "Lighthouse laboratory measurements of this candidate fixture, not field INP, editorial approval, real analytics delivery or permission to deploy.",
+    "historicalOnly": true,
+    "supersededByScope": "v2-full-content-2026-10-07.1"
   },
   "currentOutboundAudit": {
     "asOf": "2026-10-06",
@@ -16336,7 +19517,9 @@
         ]
       }
     ],
-    "note": "Review queue for every content URL; not retirement/redirect approval. The actual public packet and verified files determine preservation. Source placeholder was visually inspected on 2026-10-06."
+    "note": "Review queue for every content URL; not retirement/redirect approval. The actual public packet and verified files determine preservation. Source placeholder was visually inspected on 2026-10-06.",
+    "historicalOnly": true,
+    "supersededByScope": "v2-full-content-2026-10-07.1"
   },
   "currentCandidateResourceVerification": {
     "asOf": "2026-10-06",
@@ -16346,7 +19529,9 @@
     "allowedResourcePaths": 44,
     "historicalOriginalsHttp200AndSha256": 28,
     "newWorkOriginals": 15,
-    "note": "All historical content files in this isolated candidate were fetched over loopback HTTP and matched original archive SHA-256. Third-party review letters and the ASSET placeholder are excluded. The ordinary public packet is still editorially unapproved; full URL compatibility remains unresolved."
+    "note": "All historical content files in this isolated candidate were fetched over loopback HTTP and matched original archive SHA-256. Third-party review letters and the ASSET placeholder are excluded. The ordinary public packet is still editorially unapproved; full URL compatibility remains unresolved.",
+    "historicalOnly": true,
+    "supersededByScope": "v2-full-content-2026-10-07.1"
   },
   "currentGdbSourceSearch": {
     "asOf": "2026-10-06",
@@ -20220,7 +23405,9 @@
       "pdfLinkTargetsHttpAndAnchors": 24,
       "privateContactPayloads": 0,
       "publicReviewFilesExcluded": true
-    }
+    },
+    "historicalOnly": true,
+    "supersededByScope": "v2-full-content-2026-10-07.1"
   },
   "currentTechnicalOverviewVerification": {
     "asOf": "2026-10-06",
@@ -20376,7 +23563,9 @@
     "remaining": [
       "Owner decision on 170 proposed legacy resource exclusions",
       "Owner-approved isolated analytics setup and actual V2 delivery/processing test; current Google grant has no analytics.edit"
-    ]
+    ],
+    "historicalOnly": true,
+    "supersededByScope": "v2-full-content-2026-10-07.1"
   },
   "currentCvVerification": {
     "asOf": "2026-10-06",
@@ -20581,7 +23770,9 @@
     "percent": 95,
     "weightsChanged": false,
     "publicationChanged": false,
-    "productionChanged": false
+    "productionChanged": false,
+    "historicalOnly": true,
+    "supersededByScope": "v2-full-content-2026-10-07.1"
   },
   "currentVideoPreviewVerification": {
     "asOf": "2026-10-07",
@@ -20625,5 +23816,57 @@
     },
     "runtime": "Stops and resets on exit, hidden page/pagehide and reduced-motion/Save-Data; late play result cannot revive inactive preview; deferred source loading; silent preview events are not explicit analytics video intents.",
     "scope": "Preview interaction and design-system contract only. No legacy URL disposition, provider setting or editorial publication approval changed; historical migration checks retain their own dates."
+  },
+  "currentCourseRevision": {
+    "asOf": "2026-10-07",
+    "scopeVersion": "v2-full-content-2026-10-07.1",
+    "previousScope": {
+      "version": "v2-core-2026-10-06.1",
+      "percent": 95,
+      "sourceCommit": "3486e44",
+      "frozen": true
+    },
+    "coverageRegister": "entries[].scopeRebase",
+    "registeredLegacyIds": 238,
+    "planningRoleNotPublication": true,
+    "resourceDecisions": {
+      "preserve": 28,
+      "review": 170,
+      "newRetirementApprovals": 0
+    },
+    "note": "All substantive work/education/event content is scheduled for migration. Linked metadata/evidence of placeholders must be checked; roles are planned semantic uses, not claims that records/pages have already been created. Old checks and exclusions retain their snapshot dates and are not current expanded completion.",
+    "nextTasks": [
+      "WORK-CONFIGURATIONS-01",
+      "EDUCATION-STRUCTURE-01",
+      "MEDIA-GALLERY-01"
+    ],
+    "baselinePercent": 32,
+    "verification": {
+      "scope": "course/register/progress revision and regression checks of the existing site; not QA of the unimplemented expanded candidate",
+      "format": "passed",
+      "unitTests": {
+        "passed": 54,
+        "failed": 0
+      },
+      "content": "passed",
+      "astro": {
+        "files": 92,
+        "errors": 0,
+        "warnings": 0,
+        "hints": 0
+      },
+      "publicBuild": {
+        "htmlPages": 21,
+        "passed": true
+      },
+      "browserTests": {
+        "passed": 94,
+        "skipped": 12,
+        "failed": 0
+      },
+      "retainedCompletedTasks": 31,
+      "dependencyCycles": 0,
+      "releaseGate": "expected-blocked: runtime publication criteria and historical resource decisions remain pending"
+    }
   }
 }

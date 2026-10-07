@@ -9,7 +9,11 @@ export function migrationStatus(backlog) {
     throw new Error('Migration scope/checkpoints are not defined');
   const ids = new Set();
   const tasks = new Map(backlog.items.map((row) => [row.id, row]));
+  if (tasks.size !== backlog.items.length) throw new Error('Duplicate backlog task ID');
+  for (const task of tasks.values())
+    if (!backlog.status_values.includes(task.status)) throw new Error(`Invalid task status ${task.id}`);
   const taskIds = new Set(tasks.keys());
+  const weightedTasks = new Set();
   let total = 0;
   let completed = 0;
   let closedStages = 0;
@@ -21,7 +25,13 @@ export function migrationStatus(backlog) {
       throw new Error(`Invalid weight ${checkpoint.id}`);
     if (!backlog.status_values.includes(checkpoint.status))
       throw new Error(`Invalid status ${checkpoint.id}`);
-    for (const task of checkpoint.tasks) if (!taskIds.has(task)) throw new Error(`Unknown task ${task}`);
+    if (!checkpoint.tasks?.length || new Set(checkpoint.tasks).size !== checkpoint.tasks.length)
+      throw new Error(`Missing/duplicate checkpoint tasks ${checkpoint.id}`);
+    for (const task of checkpoint.tasks) {
+      if (!taskIds.has(task)) throw new Error(`Unknown task ${task}`);
+      if (weightedTasks.has(task)) throw new Error(`Task counted across checkpoints ${task}`);
+      weightedTasks.add(task);
+    }
     total += checkpoint.weight;
     if (checkpoint.status === 'done') closedStages += checkpoint.weight;
     let earned = 0;
@@ -62,12 +72,28 @@ export function migrationStatus(backlog) {
     breakdown.push({ ...checkpoint, earned });
   }
   if (total !== 100) throw new Error(`Migration weights must total 100, got ${total}`);
+  const historyIds = new Set();
+  const previousScopes = (backlog.migration_progress_history ?? []).map((row) => {
+    if (
+      !row.scope_version ||
+      row.scope_version === progress.scope_version ||
+      historyIds.has(row.scope_version) ||
+      row.frozen !== true ||
+      !Number.isInteger(row.percent) ||
+      row.percent < 0 ||
+      row.percent > 100
+    )
+      throw new Error('Invalid frozen migration history');
+    historyIds.add(row.scope_version);
+    return { scope: row.scope_version, percent: row.percent, recordedOn: row.recorded_on };
+  });
   return {
     scope: progress.scope_version,
     measurement: progress.method,
     percent: completed,
     closedStagePercent: closedStages,
     checkpoints: breakdown,
+    previousScopes,
   };
 }
 
@@ -77,6 +103,8 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
   );
   console.log(`Migration ${report.scope}: ${report.percent}%`);
   console.log(`Closed stages: ${report.closedStagePercent}%; method: ${report.measurement}`);
+  for (const previous of report.previousScopes)
+    console.log(`Previous scope ${previous.scope}: ${previous.percent}% (frozen, ${previous.recordedOn})`);
   for (const row of report.checkpoints)
     console.log(
       `${row.status === 'done' ? '+' : '-'} ${row.id} (${row.earned}/${row.weight}%) — ${row.title}`,
