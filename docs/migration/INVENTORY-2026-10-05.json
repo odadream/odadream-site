@@ -27459,8 +27459,8 @@
     }
   },
   "currentFullMediaReassessment": {
-    "asOf": "2026-10-07",
-    "status": "preflight; not publication or task completion",
+    "asOf": "2026-10-08",
+    "status": "image curation applied; documents/video/evidence review continues",
     "count": 198,
     "method": "Original V1 parent graph traced to current canonical entities; prepared original-byte matches identified. Filename-only and ambiguous ownership remain for visual assessment.",
     "items": [
@@ -27628,7 +27628,12 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed non-content or external reference excluded",
+        "application": {
+          "action": "excluded",
+          "reason": "Служебное OG-превью прежнего сайта, не самостоятельный материал работы.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/art-brain.svg",
@@ -27648,7 +27653,12 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed non-content or external reference excluded",
+        "application": {
+          "action": "excluded",
+          "reason": "Шаблонная картинка ASSET, не изображение работы.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/events/byob-2020/projection-pentagon.webp",
@@ -27662,7 +27672,18 @@
           "CaseEvent:byob-2020"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-byob-2020-projection-pentagon",
+          "owners": [
+            "case:byob-2020",
+            "work:mindshow"
+          ],
+          "reason": "BYOB 2020 · проекция",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/events/byob-2026/neuromandala-installation.webp",
@@ -27676,7 +27697,18 @@
           "CaseEvent:byob-2026"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-byob-2026-neuromandala-installation",
+          "owners": [
+            "case:byob-2026",
+            "work:mindshow"
+          ],
+          "reason": "BYOB 2026 · инсталляция",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/events/interference-2026/interference-2026-01.webp",
@@ -27698,7 +27730,18 @@
             "path": "/images/content/events/interference-2026/interference-2026-01.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "interference-stage",
+          "owners": [
+            "work:interference",
+            "case:tsiolkovsky-2026"
+          ],
+          "reason": "Интерференция · сценическая фотография 1",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/events/interference-2026/interference-2026-02.webp",
@@ -27715,7 +27758,18 @@
           "Work:schrodinger"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-interference-interference-2026-02",
+          "owners": [
+            "work:interference",
+            "case:tsiolkovsky-2026"
+          ],
+          "reason": "Интерференция · сценическая фотография 2",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/events/interference-2026/interference-2026-03.webp",
@@ -27732,7 +27786,18 @@
           "Work:schrodinger"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-interference-interference-2026-03",
+          "owners": [
+            "work:interference",
+            "case:tsiolkovsky-2026"
+          ],
+          "reason": "Интерференция · сценическая фотография 3",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/events/interference-2026/interference-2026-04.webp",
@@ -27749,7 +27814,18 @@
           "Work:schrodinger"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-interference-interference-2026-04",
+          "owners": [
+            "work:interference",
+            "case:tsiolkovsky-2026"
+          ],
+          "reason": "Интерференция · сценическая фотография 4",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/events/interference-2026/interference-2026-05.webp",
@@ -27766,7 +27842,18 @@
           "Work:schrodinger"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-interference-interference-2026-05",
+          "owners": [
+            "work:interference",
+            "case:tsiolkovsky-2026"
+          ],
+          "reason": "Интерференция · сценическая фотография 5",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/events/interference-2026/interference-2026-06.webp",
@@ -27783,7 +27870,18 @@
           "Work:schrodinger"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-interference-interference-2026-06",
+          "owners": [
+            "work:interference",
+            "case:tsiolkovsky-2026"
+          ],
+          "reason": "Интерференция · сценическая фотография 6",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/events/interference-2026/interference-2026-07.webp",
@@ -27800,7 +27898,18 @@
           "Work:schrodinger"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-interference-interference-2026-07",
+          "owners": [
+            "work:interference",
+            "case:tsiolkovsky-2026"
+          ],
+          "reason": "Интерференция · сценическая фотография 7",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/events/interference-2026/interference-2026-08.webp",
@@ -27817,7 +27926,18 @@
           "Work:schrodinger"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-interference-interference-2026-08",
+          "owners": [
+            "work:interference",
+            "case:tsiolkovsky-2026"
+          ],
+          "reason": "Интерференция · сценическая фотография 8",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/events/interference-2026/interference-2026-09.webp",
@@ -27834,7 +27954,18 @@
           "Work:schrodinger"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-interference-interference-2026-09",
+          "owners": [
+            "work:interference",
+            "case:tsiolkovsky-2026"
+          ],
+          "reason": "Интерференция · сценическая фотография 9",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/events/schrodinger-2025/schrodinger-2025-01.webp",
@@ -27855,7 +27986,18 @@
             "path": "/images/content/events/schrodinger-2025/schrodinger-2025-01.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "schrodinger",
+          "owners": [
+            "work:schrodinger",
+            "case:tsiolkovsky-2025"
+          ],
+          "reason": "Проект Шрёдингер · сценическая фотография 1",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/events/schrodinger-2025/schrodinger-2025-02.webp",
@@ -27871,7 +28013,18 @@
           "Work:interference"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-schrodinger-schrodinger-2025-02",
+          "owners": [
+            "work:schrodinger",
+            "case:tsiolkovsky-2025"
+          ],
+          "reason": "Проект Шрёдингер · сценическая фотография 2",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/events/schrodinger-2025/schrodinger-2025-03.webp",
@@ -27887,7 +28040,18 @@
           "Work:interference"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-schrodinger-schrodinger-2025-03",
+          "owners": [
+            "work:schrodinger",
+            "case:tsiolkovsky-2025"
+          ],
+          "reason": "Проект Шрёдингер · сценическая фотография 3",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/events/schrodinger-2025/schrodinger-2025-04.webp",
@@ -27903,7 +28067,18 @@
           "Work:interference"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-schrodinger-schrodinger-2025-04",
+          "owners": [
+            "work:schrodinger",
+            "case:tsiolkovsky-2025"
+          ],
+          "reason": "Проект Шрёдингер · сценическая фотография 4",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/events/schrodinger-2025/schrodinger-2025-05.webp",
@@ -27919,7 +28094,18 @@
           "Work:interference"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-schrodinger-schrodinger-2025-05",
+          "owners": [
+            "work:schrodinger",
+            "case:tsiolkovsky-2025"
+          ],
+          "reason": "Проект Шрёдингер · сценическая фотография 5",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/events/schrodinger-2025/schrodinger-2025-06.webp",
@@ -27935,7 +28121,18 @@
           "Work:interference"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-schrodinger-schrodinger-2025-06",
+          "owners": [
+            "work:schrodinger",
+            "case:tsiolkovsky-2025"
+          ],
+          "reason": "Проект Шрёдингер · сценическая фотография 6",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/events/schrodinger-2025/schrodinger-2025-07.webp",
@@ -27951,7 +28148,18 @@
           "Work:interference"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-schrodinger-schrodinger-2025-07",
+          "owners": [
+            "work:schrodinger",
+            "case:tsiolkovsky-2025"
+          ],
+          "reason": "Проект Шрёдингер · сценическая фотография 7",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/events/schrodinger-2025/schrodinger-2025-08.webp",
@@ -27967,7 +28175,18 @@
           "Work:interference"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-schrodinger-schrodinger-2025-08",
+          "owners": [
+            "work:schrodinger",
+            "case:tsiolkovsky-2025"
+          ],
+          "reason": "Проект Шрёдингер · сценическая фотография 8",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/jewellery.svg",
@@ -27987,7 +28206,12 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed non-content or external reference excluded",
+        "application": {
+          "action": "excluded",
+          "reason": "Шаблонная картинка ASSET, не изображение работы.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/lectures-ashram.webp",
@@ -27997,7 +28221,17 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-talk-workshop-lectures-ashram",
+          "owners": [
+            "education:talk-workshop"
+          ],
+          "reason": "Учебная встреча · Ashram; дата не уточнена",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/lectures-gonchar.webp",
@@ -28011,7 +28245,18 @@
           "CaseEvent:gonchar-2024"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-gonchar-2024-lectures-gonchar",
+          "owners": [
+            "case:gonchar-2024",
+            "work:mindshow"
+          ],
+          "reason": "Учебная встреча у Наты Гончар",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/lectures-ikc.webp",
@@ -28021,7 +28266,17 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-talk-workshop-lectures-ikc",
+          "owners": [
+            "education:talk-workshop"
+          ],
+          "reason": "Практическая демонстрация · ИКЦ; дата не уточнена",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/lectures-moscow2030.webp",
@@ -28040,7 +28295,18 @@
             "path": "/images/events/lectures-moscow2030.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "event-bauman-lecture",
+          "owners": [
+            "case:bauman-2025",
+            "work:mindshow"
+          ],
+          "reason": "Лекция · Москва 2030",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/lectures-sber.webp",
@@ -28059,7 +28325,18 @@
             "path": "/images/events/lectures-sber.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "event-sber-lecture",
+          "owners": [
+            "case:sber-2025",
+            "work:mindshow"
+          ],
+          "reason": "Лекция · Сбер",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/lectures-tavrida.webp",
@@ -28069,7 +28346,17 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-talk-workshop-lectures-tavrida",
+          "owners": [
+            "education:talk-workshop"
+          ],
+          "reason": "Учебное выступление · Таврида; издание события не уточнено",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/lectures-tshr.webp",
@@ -28079,7 +28366,17 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-talk-workshop-lectures-tshr",
+          "owners": [
+            "education:talk-workshop"
+          ],
+          "reason": "Учебные материалы · анатомическая доска",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/emomandala/abundance-color-palette.webp",
@@ -28093,7 +28390,17 @@
           "Work:emomandala"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-emomandala-abundance-color-palette",
+          "owners": [
+            "work:emomandala"
+          ],
+          "reason": "Эмомандала · цветовая палитра",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/emomandala/emomandala-cover-thumb.webp",
@@ -28108,7 +28415,14 @@
           "Work:emomandala"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/materia/emomandala/emomandala-cover.webp",
+          "mediaId": "emomandala-object",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/emomandala/emomandala-cover.webp",
@@ -28123,7 +28437,17 @@
             "path": "/images/works/emomandala.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "emomandala-object",
+          "owners": [
+            "work:emomandala"
+          ],
+          "reason": "Архивный материал работы",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/emomandala/laser-material-variations.webp",
@@ -28137,7 +28461,17 @@
           "Work:emomandala"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-emomandala-laser-material-variations",
+          "owners": [
+            "work:emomandala"
+          ],
+          "reason": "Эмомандала · варианты материалов",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/emomandala/mandala-ring-sizes.webp",
@@ -28151,7 +28485,17 @@
           "Work:emomandala"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-emomandala-mandala-ring-sizes",
+          "owners": [
+            "work:emomandala"
+          ],
+          "reason": "Эмомандала · схема размеров",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/emomandala/photo-charm.webp",
@@ -28165,7 +28509,17 @@
           "Work:emomandala"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-emomandala-photo-charm",
+          "owners": [
+            "work:emomandala"
+          ],
+          "reason": "Эмомандала · подвеска-шарм",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/emomandala/photo-pendant-back.webp",
@@ -28179,7 +28533,17 @@
           "Work:emomandala"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-emomandala-photo-pendant-back",
+          "owners": [
+            "work:emomandala"
+          ],
+          "reason": "Эмомандала · оборотная сторона",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/emomandala/photo-pendant-front.webp",
@@ -28198,7 +28562,17 @@
             "path": "/images/works/emomandala.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "emomandala-object",
+          "owners": [
+            "work:emomandala"
+          ],
+          "reason": "Эмомандала · лицевая сторона",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/emomandala/render-charm.webp",
@@ -28212,7 +28586,17 @@
           "Work:emomandala"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-emomandala-render-charm",
+          "owners": [
+            "work:emomandala"
+          ],
+          "reason": "Эмомандала · рендер шарма",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/fourth-dimension/fourth-dimension-cover-thumb.webp",
@@ -28228,7 +28612,14 @@
           "Work:fourth-dimension"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/materia/fourth-dimension/fourth-dimension-cover.webp",
+          "mediaId": "archive-fourth-dimension",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/fourth-dimension/fourth-dimension-cover.webp",
@@ -28243,7 +28634,17 @@
             "path": "/images/works/archive-fourth-dimension.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "archive-fourth-dimension",
+          "owners": [
+            "work:fourth-dimension"
+          ],
+          "reason": "Архивный материал работы",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/fourth-dimension/neuromandala-source.webp",
@@ -28257,7 +28658,17 @@
           "Work:fourth-dimension"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-fourth-dimension-neuromandala-source",
+          "owners": [
+            "work:fourth-dimension"
+          ],
+          "reason": "Четвёртое измерение · исходная нейромандала",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/fourth-dimension/photo-product.webp",
@@ -28276,7 +28687,17 @@
             "path": "/images/works/archive-fourth-dimension.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "archive-fourth-dimension",
+          "owners": [
+            "work:fourth-dimension"
+          ],
+          "reason": "Четвёртое измерение · изготовленный кулон",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/fourth-dimension/render-back.webp",
@@ -28290,7 +28711,17 @@
           "Work:fourth-dimension"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-fourth-dimension-render-back",
+          "owners": [
+            "work:fourth-dimension"
+          ],
+          "reason": "Четвёртое измерение · рендер оборотной стороны",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/fourth-dimension/render-front.webp",
@@ -28304,7 +28735,17 @@
           "Work:fourth-dimension"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-fourth-dimension-render-front",
+          "owners": [
+            "work:fourth-dimension"
+          ],
+          "reason": "Четвёртое измерение · рендер лицевой стороны",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/happiness/happiness-cover-thumb.webp",
@@ -28319,7 +28760,14 @@
           "Work:happiness"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/materia/happiness/happiness-cover.webp",
+          "mediaId": "archive-happiness",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/happiness/happiness-cover.webp",
@@ -28334,7 +28782,17 @@
             "path": "/images/works/archive-happiness.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "archive-happiness",
+          "owners": [
+            "work:happiness"
+          ],
+          "reason": "Архивный материал работы",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/happiness/photo-back.webp",
@@ -28348,7 +28806,17 @@
           "Work:happiness"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-happiness-photo-back",
+          "owners": [
+            "work:happiness"
+          ],
+          "reason": "Счастье · оборотная сторона",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/happiness/photo-front.webp",
@@ -28362,7 +28830,17 @@
           "Work:happiness"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-happiness-photo-front",
+          "owners": [
+            "work:happiness"
+          ],
+          "reason": "Счастье · лицевая сторона",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/happiness/photo-gift-box.webp",
@@ -28381,7 +28859,17 @@
             "path": "/images/works/archive-happiness.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "archive-happiness",
+          "owners": [
+            "work:happiness"
+          ],
+          "reason": "Счастье · подарочная упаковка",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/happiness/source-emoto-outline.webp",
@@ -28395,7 +28883,12 @@
           "Work:happiness"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed non-content or external reference excluded",
+        "application": {
+          "action": "excluded",
+          "reason": "Чужая фотография кристалла Эмото с copyright; смысловой референс сохранён в рассказе, право на републикацию файла не установлено.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/mom-baby/mom-baby-cover-thumb.webp",
@@ -28412,7 +28905,14 @@
           "Work:mom-baby"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/materia/mom-baby/mom-baby-cover.webp",
+          "mediaId": "archive-mom-baby",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/mom-baby/mom-baby-cover.webp",
@@ -28427,7 +28927,17 @@
             "path": "/images/works/archive-mom-baby.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "archive-mom-baby",
+          "owners": [
+            "work:mom-baby"
+          ],
+          "reason": "Архивный материал работы",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/mom-baby/photo-baby-leg.webp",
@@ -28441,7 +28951,17 @@
           "Work:mom-baby"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-mom-baby-photo-baby-leg",
+          "owners": [
+            "work:mom-baby"
+          ],
+          "reason": "Архивный кадр Stories с кулоном: скриншот, а не исходный фотографический файл.",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/mom-baby/photo-borzikh-main.webp",
@@ -28460,7 +28980,17 @@
             "path": "/images/works/archive-mom-baby.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "archive-mom-baby",
+          "owners": [
+            "work:mom-baby"
+          ],
+          "reason": "Мама и малыш · изготовленная подвеска",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/mom-baby/photo-gift-set.webp",
@@ -28474,7 +29004,17 @@
           "Work:mom-baby"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-mom-baby-photo-gift-set",
+          "owners": [
+            "work:mom-baby"
+          ],
+          "reason": "Мама и малыш · подарочный комплект",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/mom-baby/photo-iowa-gift.webp",
@@ -28488,7 +29028,17 @@
           "Work:mom-baby"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-mom-baby-photo-iowa-gift",
+          "owners": [
+            "work:mom-baby"
+          ],
+          "reason": "Мама и малыш · вручение подарка",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/mom-baby/photo-on-leaves.webp",
@@ -28502,7 +29052,17 @@
           "Work:mom-baby"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-mom-baby-photo-on-leaves",
+          "owners": [
+            "work:mom-baby"
+          ],
+          "reason": "Мама и малыш · подвеска на листьях",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/mom-baby/photo-parts-two-pendants.webp",
@@ -28516,7 +29076,17 @@
           "Work:mom-baby"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-mom-baby-photo-parts-two-pendants",
+          "owners": [
+            "work:mom-baby"
+          ],
+          "reason": "Мама и малыш · две части подвески",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/mom-baby/photo-with-statuette.webp",
@@ -28530,7 +29100,17 @@
           "Work:mom-baby"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-mom-baby-photo-with-statuette",
+          "owners": [
+            "work:mom-baby"
+          ],
+          "reason": "Мама и малыш · подвеска и фигурка",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/mom-baby/rhino-drawing.webp",
@@ -28544,7 +29124,17 @@
           "Work:mom-baby"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-mom-baby-rhino-drawing",
+          "owners": [
+            "work:mom-baby"
+          ],
+          "reason": "Мама и малыш · производственный чертёж",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/oda-rings/ig-01-hero.webp",
@@ -28563,7 +29153,17 @@
             "path": "/images/content/materia/oda-rings/oda-rings-cover.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "rings",
+          "owners": [
+            "work:rings"
+          ],
+          "reason": "Архивный материал работы",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/oda-rings/ig-02-wedding.webp",
@@ -28577,7 +29177,17 @@
           "Work:rings"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-rings-ig-02-wedding",
+          "owners": [
+            "work:rings"
+          ],
+          "reason": "Кольца · свадьба",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/oda-rings/ig-03-sketch.webp",
@@ -28591,7 +29201,17 @@
           "Work:rings"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-rings-ig-03-sketch",
+          "owners": [
+            "work:rings"
+          ],
+          "reason": "Кольца · эскиз",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/oda-rings/ig-04-workshop.webp",
@@ -28605,7 +29225,17 @@
           "Work:rings"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-rings-ig-04-workshop",
+          "owners": [
+            "work:rings"
+          ],
+          "reason": "Кольца · изготовление в мастерской",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/oda-rings/ig-05-model-eeg.webp",
@@ -28619,7 +29249,17 @@
           "Work:rings"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-rings-ig-05-model-eeg",
+          "owners": [
+            "work:rings"
+          ],
+          "reason": "Кольца · модель и нейровизуализация",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/oda-rings/ig-06-hands.webp",
@@ -28633,7 +29273,17 @@
           "Work:rings"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-rings-ig-06-hands",
+          "owners": [
+            "work:rings"
+          ],
+          "reason": "Кольца · изготовленные объекты",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/oda-rings/ig-07-flight.webp",
@@ -28647,7 +29297,17 @@
           "Work:rings"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-rings-ig-07-flight",
+          "owners": [
+            "work:rings"
+          ],
+          "reason": "Кольца · путешествие",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/oda-rings/ig-08-dream-photo.webp",
@@ -28661,7 +29321,17 @@
           "Work:rings"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-rings-ig-08-dream-photo",
+          "owners": [
+            "work:rings"
+          ],
+          "reason": "Кольца · авторская история",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/oda-rings/ig-09-lempuyang.webp",
@@ -28675,7 +29345,17 @@
           "Work:rings"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-rings-ig-09-lempuyang",
+          "owners": [
+            "work:rings"
+          ],
+          "reason": "Кольца · Lempuyang",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/oda-rings/oda-rings-cover-thumb.webp",
@@ -28691,7 +29371,14 @@
           "Work:rings"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/materia/oda-rings/oda-rings-cover.webp",
+          "mediaId": "rings",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/oda-rings/oda-rings-cover.webp",
@@ -28706,7 +29393,17 @@
             "path": "/images/content/materia/oda-rings/oda-rings-cover.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "rings",
+          "owners": [
+            "work:rings"
+          ],
+          "reason": "Архивный материал работы",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/oda-rings/synergy-banner-preview-thumb.webp",
@@ -28720,7 +29417,14 @@
           "Work:rings"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/materia/oda-rings/synergy-banner-preview.webp",
+          "mediaId": "archive-rings-synergy-banner-preview",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/oda-rings/synergy-banner-preview.webp",
@@ -28734,7 +29438,17 @@
           "Work:rings"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-rings-synergy-banner-preview",
+          "owners": [
+            "work:rings"
+          ],
+          "reason": "Архивный материал работы",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/voronka/neuromandala-source.webp",
@@ -28748,7 +29462,17 @@
           "Work:voronka"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-voronka-neuromandala-source",
+          "owners": [
+            "work:voronka"
+          ],
+          "reason": "Воронка · исходная нейромандала",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/voronka/photo-detail.webp",
@@ -28762,7 +29486,17 @@
           "Work:voronka"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-voronka-photo-detail",
+          "owners": [
+            "work:voronka"
+          ],
+          "reason": "Воронка · деталь кулона",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/voronka/photo-set.webp",
@@ -28781,7 +29515,17 @@
             "path": "/images/works/archive-voronka.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "archive-voronka",
+          "owners": [
+            "work:voronka"
+          ],
+          "reason": "Воронка · изготовленный комплект",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/voronka/render-exploded.webp",
@@ -28795,7 +29539,17 @@
           "Work:voronka"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-voronka-render-exploded",
+          "owners": [
+            "work:voronka"
+          ],
+          "reason": "Воронка · рендер сборки",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/voronka/render-hero.webp",
@@ -28809,7 +29563,17 @@
           "Work:voronka"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-voronka-render-hero",
+          "owners": [
+            "work:voronka"
+          ],
+          "reason": "Воронка · рендер объекта",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/voronka/render-section.webp",
@@ -28823,7 +29587,17 @@
           "Work:voronka"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-voronka-render-section",
+          "owners": [
+            "work:voronka"
+          ],
+          "reason": "Воронка · разрез модели",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/voronka/voronka-cover-thumb.webp",
@@ -28838,7 +29612,14 @@
           "Work:voronka"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/materia/voronka/voronka-cover.webp",
+          "mediaId": "archive-voronka",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/materia/voronka/voronka-cover.webp",
@@ -28853,7 +29634,17 @@
             "path": "/images/works/archive-voronka.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "archive-voronka",
+          "owners": [
+            "work:voronka"
+          ],
+          "reason": "Архивный материал работы",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/mindshow_ashram.webp",
@@ -28872,7 +29663,18 @@
             "path": "/images/events/mindshow_ashram.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "ashram-neuro-art-dance-poster",
+          "owners": [
+            "case:ashram-tim",
+            "work:theatre-my-name"
+          ],
+          "reason": "Афиша Neuro Art Dance · 19 января; год не указан",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/mindshow_mdsh_v5.webp",
@@ -28887,7 +29689,18 @@
             "path": "/images/content/mindshow_mdsh_v5.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "mindshow",
+          "owners": [
+            "work:mindshow",
+            "case:lamborghini-tea"
+          ],
+          "reason": "MindShow · тестовый интерфейс визуализации, не фотография показа",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/mindshow_metro_2.webp",
@@ -28897,7 +29710,18 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-metro-2024-mindshow-metro-2",
+          "owners": [
+            "case:metro-2024",
+            "work:mindshow"
+          ],
+          "reason": "Метро · фотография нейрошоу",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/mindshow_myata.webp",
@@ -28907,7 +29731,18 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-wildmint-2025-mindshow-myata",
+          "owners": [
+            "case:wildmint-2025",
+            "work:mindshow"
+          ],
+          "reason": "Дикая Мята · учебное выступление",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/mindshow_portal.webp",
@@ -28917,7 +29752,18 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-portal-2024-mindshow-portal",
+          "owners": [
+            "case:portal-2024",
+            "work:mindshow"
+          ],
+          "reason": "Портал 2024 · проекция",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/mindshow_tpp.webp",
@@ -28936,7 +29782,18 @@
             "path": "/images/events/mindshow_tpp.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "event-tpp-mindshow",
+          "owners": [
+            "case:tpp-2025",
+            "work:mindshow"
+          ],
+          "reason": "ТПП · MindShow",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/mindshow_ufa.webp",
@@ -28946,7 +29803,18 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-bashkiria-2025-mindshow-ufa",
+          "owners": [
+            "case:bashkiria-2025",
+            "work:mindshow"
+          ],
+          "reason": "Уфа · инсталляция MindShow",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/mindshow_urban_forum.webp",
@@ -28956,7 +29824,17 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-mindshow-mindshow-urban-forum",
+          "owners": [
+            "work:mindshow"
+          ],
+          "reason": "Московский урбанистический форум · архивный кадр",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/neurobattle_dano.webp",
@@ -28975,7 +29853,18 @@
             "path": "/images/content/neurobattle_dano.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "neurobattle-dano",
+          "owners": [
+            "case:dano-2025",
+            "work:neurobattle"
+          ],
+          "reason": "ДАНО · Парадокс Успеха",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/neurobattle_gameplay.webp",
@@ -28996,7 +29885,17 @@
             "path": "/images/content/neurobattle_gameplay.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "neurobattle",
+          "owners": [
+            "work:neurobattle"
+          ],
+          "reason": "Парадокс Успеха · игровой интерфейс",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/neurobattle_tnt.webp",
@@ -29006,7 +29905,12 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed non-content or external reference excluded",
+        "application": {
+          "action": "excluded",
+          "reason": "Кадр передачи ТНТ — материал вещателя; публичный рассказ о работе сохранён без экспорта чужого телевизионного кадра.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/neurobattle_veter.webp",
@@ -29016,7 +29920,17 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-neurobattle-neurobattle-veter",
+          "owners": [
+            "work:neurobattle"
+          ],
+          "reason": "Парадокс Успеха · два участника, Ветер перемен",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/neuromandala-cover.svg",
@@ -29043,7 +29957,12 @@
           "Method:neuromandala"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed non-content or external reference excluded",
+        "application": {
+          "action": "excluded",
+          "reason": "Шаблонная картинка ASSET, не изображение метода.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/proofs/collab_2024_ODA_Bitva_za_milliard.webp",
@@ -29064,7 +29983,12 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "application": {
+          "action": "evidence-review",
+          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/proofs/collab_2024_ODA_Kod_provintsii_Daler.webp",
@@ -29085,7 +30009,12 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "application": {
+          "action": "evidence-review",
+          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/proofs/collab_2024_ODA_TechWeek_Olya.webp",
@@ -29106,7 +30035,12 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "application": {
+          "action": "evidence-review",
+          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/proofs/collab_2025_ODA_Dikaya_myata.webp",
@@ -29127,7 +30061,12 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "application": {
+          "action": "evidence-review",
+          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/proofs/collab_2025_ODA_Khaskel.webp",
@@ -29148,7 +30087,12 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "application": {
+          "action": "evidence-review",
+          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/proofs/collab_2025_ODA_Moskva_2030_Olga.webp",
@@ -29169,7 +30113,12 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "application": {
+          "action": "evidence-review",
+          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/proofs/collab_2025_ODA_Portal.webp",
@@ -29190,7 +30139,12 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "application": {
+          "action": "evidence-review",
+          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/proofs/collab_2025_ODA_Severnaya_Osetiya_Media_Eksperty.webp",
@@ -29211,7 +30165,12 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "application": {
+          "action": "evidence-review",
+          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/proofs/collab_2025_ODA_Shulgan_Tash.webp",
@@ -29233,7 +30192,12 @@
           "CaseEvent:bashkiria-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "application": {
+          "action": "evidence-review",
+          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/proofs/collab_2025_ODA_Tavrida_II.webp",
@@ -29254,7 +30218,12 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "application": {
+          "action": "evidence-review",
+          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/proofs/collab_2025_ODA_TPP.webp",
@@ -29275,7 +30244,12 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "application": {
+          "action": "evidence-review",
+          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/proofs/collab_2025_ODA_VShE_ch2.webp",
@@ -29297,7 +30271,12 @@
           "CaseEvent:hse-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "application": {
+          "action": "evidence-review",
+          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/proofs/collab_2026_ODA_Gostinyy_dvor.webp",
@@ -29318,7 +30297,12 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "application": {
+          "action": "evidence-review",
+          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/ancestors-hero-thumb.webp",
@@ -29328,7 +30312,14 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/works/ancestors-hero.webp",
+          "mediaId": "ancestors-prototype",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/ancestors-hero.webp",
@@ -29347,7 +30338,17 @@
             "path": "/images/works/ancestors.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "ancestors-prototype",
+          "owners": [
+            "work:ancestors"
+          ],
+          "reason": "Архивный материал работы",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/ancestors-sketch-thumb.webp",
@@ -29357,7 +30358,14 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/works/ancestors-sketch.webp",
+          "mediaId": "archive-ancestors-ancestors-sketch",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/ancestors-sketch.webp",
@@ -29367,7 +30375,17 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-ancestors-ancestors-sketch",
+          "owners": [
+            "work:ancestors"
+          ],
+          "reason": "Предки в шуме · эскиз прототипа",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/another-people/other-people-character-card.webp",
@@ -29381,7 +30399,17 @@
           "Work:another-people"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-another-people-other-people-character-card",
+          "owners": [
+            "work:another-people"
+          ],
+          "reason": "Другие люди · пример макета карточки героя",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/another-people/other-people-eeg-session.webp",
@@ -29395,7 +30423,14 @@
           "Work:another-people"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/works/another-people/other-people-character-card.webp",
+          "mediaId": "archive-another-people-other-people-character-card",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/another-people/other-people-gallery-thumb.webp",
@@ -29410,7 +30445,14 @@
           "Work:another-people"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/works/another-people/other-people-gallery.webp",
+          "mediaId": "archive-another-people",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/another-people/other-people-gallery.webp",
@@ -29429,7 +30471,17 @@
             "path": "/images/works/archive-another-people.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "archive-another-people",
+          "owners": [
+            "work:another-people"
+          ],
+          "reason": "Архивный материал работы",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/another-people/other-people-neuromandala.webp",
@@ -29443,7 +30495,17 @@
           "Work:another-people"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-another-people-other-people-neuromandala",
+          "owners": [
+            "work:another-people"
+          ],
+          "reason": "Другие люди · визуальный материал концепции",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/another-people/other-people-portrait.webp",
@@ -29457,7 +30519,12 @@
           "Work:another-people"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed non-content or external reference excluded",
+        "application": {
+          "action": "excluded",
+          "reason": "Стоковый референс с водяным знаком VectorStock; не портрет участника и не авторский материал.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/another-people/other-people-workshop.webp",
@@ -29471,7 +30538,12 @@
           "Work:another-people"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed non-content or external reference excluded",
+        "application": {
+          "action": "excluded",
+          "reason": "Референс белого выставочного зала: старое имя workshop ошибочно; изготовление/авторство пространства не подтверждены.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/byob-2019-mindgrid.webp",
@@ -29485,7 +30557,18 @@
           "CaseEvent:byob-2019"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-mindshow-byob-2019-mindgrid",
+          "owners": [
+            "work:mindshow",
+            "case:byob-2019"
+          ],
+          "reason": "Mind Grid · авторское полотно BYOB 2019",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/dashran/dashran-playda-01-thumb.webp",
@@ -29495,7 +30578,14 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/works/dashran/dashran-playda-01.webp",
+          "mediaId": "archive-dashran-dashran-playda-01",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/dashran/dashran-playda-01.webp",
@@ -29509,7 +30599,17 @@
           "Work:dashran"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-dashran-dashran-playda-01",
+          "owners": [
+            "work:dashran"
+          ],
+          "reason": "Даршан-момент · композиционный эскиз с референсами",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/dashran/dashran-system-flow.webp",
@@ -29523,7 +30623,17 @@
           "Work:dashran"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-dashran-dashran-system-flow",
+          "owners": [
+            "work:dashran"
+          ],
+          "reason": "Даршан-момент · схема системы",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/dashran/dashran-tech-plan.webp",
@@ -29537,7 +30647,17 @@
           "Work:dashran"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-dashran-dashran-tech-plan",
+          "owners": [
+            "work:dashran"
+          ],
+          "reason": "Даршан-момент · технический план",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/dashran/dashran-tech-render-b-thumb.webp",
@@ -29552,7 +30672,14 @@
           "Work:dashran"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/works/dashran/dashran-tech-render-b.webp",
+          "mediaId": "archive-dashran",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/dashran/dashran-tech-render-b.webp",
@@ -29571,7 +30698,17 @@
             "path": "/images/works/archive-dashran.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "archive-dashran",
+          "owners": [
+            "work:dashran"
+          ],
+          "reason": "Даршан-момент · рендер технической сцены",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/dashran/dashran-tech-space.webp",
@@ -29585,7 +30722,17 @@
           "Work:dashran"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-dashran-dashran-tech-space",
+          "owners": [
+            "work:dashran"
+          ],
+          "reason": "Даршан-момент · пространственная схема",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/dashran/dashran-wiring.webp",
@@ -29599,7 +30746,17 @@
           "Work:dashran"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-dashran-dashran-wiring",
+          "owners": [
+            "work:dashran"
+          ],
+          "reason": "Даршан-момент · схема соединений",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/honors-skolkovo/honors-skolkovo-cover-thumb.webp",
@@ -29614,7 +30771,14 @@
           "Work:honors"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/works/honors-skolkovo/honors-skolkovo-cover.webp",
+          "mediaId": "archive-honors",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/honors-skolkovo/honors-skolkovo-cover.webp",
@@ -29633,7 +30797,17 @@
             "path": "/images/works/archive-honors.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "archive-honors",
+          "owners": [
+            "work:honors"
+          ],
+          "reason": "Архивный материал работы",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/honors-skolkovo/honors-skolkovo-dome.webp",
@@ -29647,7 +30821,17 @@
           "Work:honors"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-honors-honors-skolkovo-dome",
+          "owners": [
+            "work:honors"
+          ],
+          "reason": "Нейродоска почёта · рендер купола",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/honors-skolkovo/honors-skolkovo-interior.webp",
@@ -29661,7 +30845,17 @@
           "Work:honors"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-honors-honors-skolkovo-interior",
+          "owners": [
+            "work:honors"
+          ],
+          "reason": "Нейродоска почёта · пространственная визуализация",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/honors-skolkovo/honors-skolkovo-mandala.webp",
@@ -29675,7 +30869,17 @@
           "Work:honors"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-honors-honors-skolkovo-mandala",
+          "owners": [
+            "work:honors"
+          ],
+          "reason": "Нейродоска почёта · пример карточки героя",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/honors-skolkovo/honors-skolkovo-plan-detail.webp",
@@ -29689,7 +30893,17 @@
           "Work:honors"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-honors-honors-skolkovo-plan-detail",
+          "owners": [
+            "work:honors"
+          ],
+          "reason": "Нейродоска почёта · деталь плана",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/honors-skolkovo/honors-skolkovo-plan.webp",
@@ -29703,7 +30917,17 @@
           "Work:honors"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-honors-honors-skolkovo-plan",
+          "owners": [
+            "work:honors"
+          ],
+          "reason": "Нейродоска почёта · план",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/honors-skolkovo/honors-skolkovo-scheme.webp",
@@ -29722,7 +30946,17 @@
             "path": "/images/content/works/honors-skolkovo/honors-skolkovo-scheme.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "honors-scheme",
+          "owners": [
+            "work:honors"
+          ],
+          "reason": "Нейродоска почёта · общая схема",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/honors-skolkovo/honors-skolkovo-viz.webp",
@@ -29736,7 +30970,17 @@
           "Work:honors"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-honors-honors-skolkovo-viz",
+          "owners": [
+            "work:honors"
+          ],
+          "reason": "Нейродоска почёта · визуализация концепта",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/interference-2026-poster-thumb.webp",
@@ -29754,7 +30998,14 @@
           "Work:schrodinger"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/works/interference-2026-poster.webp",
+          "mediaId": "archive-interference-interference-2026-poster",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/interference-2026-poster.webp",
@@ -29771,7 +31022,17 @@
           "Work:schrodinger"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-interference-interference-2026-poster",
+          "owners": [
+            "work:interference"
+          ],
+          "reason": "Интерференция · афиша 2026",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/interference-plakats/interference-plakat-01-light.webp",
@@ -29788,7 +31049,17 @@
           "Work:schrodinger"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-interference-interference-plakat-01-light",
+          "owners": [
+            "work:interference"
+          ],
+          "reason": "Интерференция · авторский плакат «Свет»",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/interference-plakats/interference-plakat-02-sound.webp",
@@ -29805,7 +31076,17 @@
           "Work:schrodinger"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-interference-interference-plakat-02-sound",
+          "owners": [
+            "work:interference"
+          ],
+          "reason": "Интерференция · авторский плакат «Звук»",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/interference-plakats/interference-plakat-03-dance.webp",
@@ -29822,7 +31103,17 @@
           "Work:schrodinger"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-interference-interference-plakat-03-dance",
+          "owners": [
+            "work:interference"
+          ],
+          "reason": "Интерференция · авторский плакат «Танец»",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/interference-plakats/interference-plakat-04-brain.webp",
@@ -29839,7 +31130,17 @@
           "Work:schrodinger"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-interference-interference-plakat-04-brain",
+          "owners": [
+            "work:interference"
+          ],
+          "reason": "Интерференция · авторский плакат «Мозг»",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/interference-plakats/interference-plakat-05-technology.webp",
@@ -29856,7 +31157,17 @@
           "Work:schrodinger"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-interference-interference-plakat-05-technology",
+          "owners": [
+            "work:interference"
+          ],
+          "reason": "Интерференция · авторский плакат «Технология»",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/interference-plakats/interference-plakat-06-waves.webp",
@@ -29873,7 +31184,17 @@
           "Work:schrodinger"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-interference-interference-plakat-06-waves",
+          "owners": [
+            "work:interference"
+          ],
+          "reason": "Интерференция · авторский плакат «Волны»",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/interference-plakats/interference-plakat-07-reality.webp",
@@ -29890,7 +31211,17 @@
           "Work:schrodinger"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-interference-interference-plakat-07-reality",
+          "owners": [
+            "work:interference"
+          ],
+          "reason": "Интерференция · авторский плакат «Реальность»",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/interference-plakats/interference-plakat-08-dramaturgy.webp",
@@ -29907,7 +31238,17 @@
           "Work:schrodinger"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-interference-interference-plakat-08-dramaturgy",
+          "owners": [
+            "work:interference"
+          ],
+          "reason": "Интерференция · авторский плакат «Драматургия»",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/lighthouse/blend-multi-1.webp",
@@ -29921,7 +31262,17 @@
           "Work:lighthouse"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-lighthouse-blend-multi-1",
+          "owners": [
+            "work:lighthouse"
+          ],
+          "reason": "Маяк · пластический вариант 1",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/lighthouse/blend-multi-2.webp",
@@ -29935,7 +31286,17 @@
           "Work:lighthouse"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-lighthouse-blend-multi-2",
+          "owners": [
+            "work:lighthouse"
+          ],
+          "reason": "Маяк · пластический вариант 2",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/lighthouse/lighthouse-cover-thumb.webp",
@@ -29950,7 +31311,14 @@
           "Work:lighthouse"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/works/lighthouse/lighthouse-cover.webp",
+          "mediaId": "archive-lighthouse",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/lighthouse/lighthouse-cover.webp",
@@ -29965,7 +31333,17 @@
             "path": "/images/works/archive-lighthouse.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "archive-lighthouse",
+          "owners": [
+            "work:lighthouse"
+          ],
+          "reason": "Архивный материал работы",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/lighthouse/sections-shaped.webp",
@@ -29984,7 +31362,17 @@
             "path": "/images/works/archive-lighthouse.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "archive-lighthouse",
+          "owners": [
+            "work:lighthouse"
+          ],
+          "reason": "Маяк · форма секций",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/lighthouse/state-alpha.webp",
@@ -29998,7 +31386,17 @@
           "Work:lighthouse"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-lighthouse-state-alpha",
+          "owners": [
+            "work:lighthouse"
+          ],
+          "reason": "Маяк · рендер состояния alpha",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/lighthouse/state-theta.webp",
@@ -30012,7 +31410,17 @@
           "Work:lighthouse"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-lighthouse-state-theta",
+          "owners": [
+            "work:lighthouse"
+          ],
+          "reason": "Маяк · рендер состояния theta",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/potustoronniy/potustoronniy-concept.webp",
@@ -30026,7 +31434,17 @@
           "Work:potustoronniy"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-potustoronniy-potustoronniy-concept",
+          "owners": [
+            "work:potustoronniy"
+          ],
+          "reason": "Потусторонний · концепция и визуальные референсы",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/potustoronniy/potustoronniy-cover-thumb.webp",
@@ -30041,7 +31459,14 @@
           "Work:potustoronniy"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/works/potustoronniy/potustoronniy-cover.webp",
+          "mediaId": "archive-potustoronniy",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/potustoronniy/potustoronniy-cover.webp",
@@ -30060,7 +31485,17 @@
             "path": "/images/works/archive-potustoronniy.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "archive-potustoronniy",
+          "owners": [
+            "work:potustoronniy"
+          ],
+          "reason": "Архивный материал работы",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/potustoronniy/potustoronniy-drum.webp",
@@ -30074,7 +31509,17 @@
           "Work:potustoronniy"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-potustoronniy-potustoronniy-drum",
+          "owners": [
+            "work:potustoronniy"
+          ],
+          "reason": "Потусторонний · рендер барабана",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/potustoronniy/potustoronniy-storyboard.webp",
@@ -30088,7 +31533,17 @@
           "Work:potustoronniy"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-potustoronniy-potustoronniy-storyboard",
+          "owners": [
+            "work:potustoronniy"
+          ],
+          "reason": "Потусторонний · раскадровка",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/potustoronniy/potustoronniy-tech.webp",
@@ -30102,7 +31557,17 @@
           "Work:potustoronniy"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-potustoronniy-potustoronniy-tech",
+          "owners": [
+            "work:potustoronniy"
+          ],
+          "reason": "Потусторонний · техническая схема",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/schrodinger-2025-poster-thumb.webp",
@@ -30119,7 +31584,14 @@
           "Work:interference"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/works/schrodinger-2025-poster.webp",
+          "mediaId": "schrodinger-poster",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/schrodinger-2025-poster.webp",
@@ -30138,7 +31610,17 @@
             "path": "/images/content/works/schrodinger-2025-poster.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "schrodinger-poster",
+          "owners": [
+            "work:schrodinger"
+          ],
+          "reason": "Проект Шрёдингер · афиша 2025",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/sync-circle/sync-circle-chairs-1.webp",
@@ -30153,7 +31635,17 @@
           "Work:neurosync"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-sync-sync-circle-chairs-1",
+          "owners": [
+            "work:sync"
+          ],
+          "reason": "Круг синхронизации · рендер кресел 1",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/sync-circle/sync-circle-chairs-2.webp",
@@ -30168,7 +31660,17 @@
           "Work:neurosync"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-sync-sync-circle-chairs-2",
+          "owners": [
+            "work:sync"
+          ],
+          "reason": "Круг синхронизации · рендер кресел 2",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/sync-circle/sync-circle-chairs-3.webp",
@@ -30183,7 +31685,17 @@
           "Work:neurosync"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-sync-sync-circle-chairs-3",
+          "owners": [
+            "work:sync"
+          ],
+          "reason": "Круг синхронизации · рендер кресел 3",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/sync-circle/sync-circle-dimensions.webp",
@@ -30198,7 +31710,17 @@
           "Work:neurosync"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-sync-sync-circle-dimensions",
+          "owners": [
+            "work:sync"
+          ],
+          "reason": "Круг синхронизации · схема размеров",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/sync-circle/sync-circle-hero-thumb.webp",
@@ -30214,7 +31736,14 @@
           "Work:neurosync"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/works/sync-circle/sync-circle-hero.webp",
+          "mediaId": "sync",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/sync-circle/sync-circle-hero.webp",
@@ -30234,7 +31763,17 @@
             "path": "/images/content/works/sync-circle/sync-circle-hero.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "sync",
+          "owners": [
+            "work:sync"
+          ],
+          "reason": "Архивный материал работы",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/sync-circle/sync-circle-mandala.webp",
@@ -30249,7 +31788,17 @@
           "Work:neurosync"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-sync-sync-circle-mandala",
+          "owners": [
+            "work:sync"
+          ],
+          "reason": "Круг синхронизации · визуальная схема",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/sync-circle/sync-circle-mvc.webp",
@@ -30264,7 +31813,17 @@
           "Work:neurosync"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-sync-sync-circle-mvc",
+          "owners": [
+            "work:sync"
+          ],
+          "reason": "Круг синхронизации · схема MVC",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/sync-circle/sync-circle-states.webp",
@@ -30279,7 +31838,17 @@
           "Work:neurosync"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-sync-sync-circle-states",
+          "owners": [
+            "work:sync"
+          ],
+          "reason": "Круг синхронизации · таблица состояний",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/theatre-my-name/tim-ashram-2024-06.webp",
@@ -30294,7 +31863,18 @@
           "CaseEvent:korablik-2020"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-theatre-my-name-tim-ashram-2024-06",
+          "owners": [
+            "work:theatre-my-name",
+            "case:ashram-tim"
+          ],
+          "reason": "Театр Имени Меня · Ashram · архивный кадр 1",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/theatre-my-name/tim-ashram-2024-07.webp",
@@ -30309,7 +31889,18 @@
           "CaseEvent:korablik-2020"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-theatre-my-name-tim-ashram-2024-07",
+          "owners": [
+            "work:theatre-my-name",
+            "case:ashram-tim"
+          ],
+          "reason": "Театр Имени Меня · Ashram · архивный кадр 2",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/theatre-my-name/tim-ashram-2025-07.webp",
@@ -30324,7 +31915,18 @@
           "CaseEvent:korablik-2020"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-theatre-my-name-tim-ashram-2025-07",
+          "owners": [
+            "work:theatre-my-name",
+            "case:ashram-tim"
+          ],
+          "reason": "Театр Имени Меня · Ashram · архивный кадр 3",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/theatre-my-name/tim-kod-provincii-02.webp",
@@ -30339,7 +31941,18 @@
           "CaseEvent:korablik-2020"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-kod-provincii-2024-tim-kod-provincii-02",
+          "owners": [
+            "case:kod-provincii-2024",
+            "work:theatre-my-name"
+          ],
+          "reason": "Код провинции · Театр Имени Меня",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/theatre-my-name/tim-kod-provincii-hero-thumb.webp",
@@ -30356,7 +31969,14 @@
           "CaseEvent:korablik-2020"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/works/theatre-my-name/tim-kod-provincii-hero.webp",
+          "mediaId": "archive-theatre-my-name",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/theatre-my-name/tim-kod-provincii-hero.webp",
@@ -30376,7 +31996,18 @@
             "path": "/images/works/archive-theatre-my-name.webp"
           }
         ],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "represented",
+          "mediaId": "archive-theatre-my-name",
+          "owners": [
+            "case:kod-provincii-2024",
+            "work:theatre-my-name"
+          ],
+          "reason": "Код провинции · сцена",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/works/theatre-my-name/tim-korablik-2020-archive.webp",
@@ -30391,7 +32022,18 @@
           "CaseEvent:korablik-2020"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "visual/source review applied; image in shared gallery",
+        "application": {
+          "action": "applied",
+          "mediaId": "archive-korablik-2020-tim-korablik-2020-archive",
+          "owners": [
+            "case:korablik-2020",
+            "work:theatre-my-name"
+          ],
+          "reason": "Кораблик · архивный кадр 2020 года",
+          "reviewed": "visual and source metadata",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/nodes/neurobattle.webp",
@@ -30401,7 +32043,14 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "reviewed duplicate represented by canonical image",
+        "application": {
+          "action": "merged",
+          "representedBy": "/images/content/neurobattle_veter.webp",
+          "mediaId": "archive-neurobattle-neurobattle-veter",
+          "reason": "Миниатюра, копия или повтор той же сцены; полный материал сохранён один раз.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/proofs/proof-mipt-letter.svg",
@@ -30537,6 +32186,33 @@
         "build": "104 localized HTML; 107 total pages; public asset allowlist passed",
         "content": "passed",
         "releaseGate": "passed; not full migration completion"
+      }
+    },
+    "imageApplication": {
+      "asOf": "2026-10-08",
+      "newMedia": 104,
+      "currentMedia": 135,
+      "ownerGroups": 37,
+      "rasterDecisions": {
+        "applied": 104,
+        "represented": 32,
+        "merged": 21,
+        "evidenceReview": 13,
+        "excluded": 8
+      },
+      "originalAccess": "new archival originals excluded from dist; prepared derivatives inherit semantic-owner and rights gates",
+      "verification": {
+        "unit": 74,
+        "e2eFull": 115,
+        "e2eSkipped": 15,
+        "additionalFinalGalleryChecks": 2,
+        "astro": "0 errors / warnings / hints",
+        "content": "passed",
+        "build": "104 localized / 107 total HTML; asset allowlist and private-locator checks passed",
+        "visual": [
+          "mom-and-baby 390 px",
+          "mom-and-baby 1440 px"
+        ]
       }
     }
   }

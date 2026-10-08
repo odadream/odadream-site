@@ -807,6 +807,23 @@ const timeline = [...cases]
         </div>
       </section>
     )}
+    {educationOverview?.media.length && (
+      <section class="section shell section-grid" id="education-gallery">
+        <SectionRail note="" family={family} section={3} lang={lang} label={ru ? 'Материалы' : 'Materials'} />
+        <div class="section-body">
+          <h2>{ru ? 'Архив учебных встреч' : 'Educational encounter archive'}</h2>
+          <MediaGallery
+            id="education-media"
+            items={educationOverview.media.flatMap((id) => {
+              const item = mediaById(id);
+              return item ? [item] : [];
+            })}
+            lang={lang}
+            label={ru ? 'Архив учебных встреч' : 'Educational encounter archive'}
+          />
+        </div>
+      </section>
+    )}
   </>
 )}
 {page.kind === 'programme' &&
@@ -1330,6 +1347,20 @@ const timeline = [...cases]
           </span>
           <h2>{ru ? 'Как проходил показ' : 'The presentation'}</h2>
           <EditorialSections sections={oneCase.story} lang={lang} anchorPrefix="case-story" />
+          {oneCase.media.length > 1 && (
+            <>
+              <h3>{ru ? 'Материалы события' : 'Event materials'}</h3>
+              <MediaGallery
+                id="case-gallery"
+                items={oneCase.media.slice(1).flatMap((id) => {
+                  const item = mediaById(id);
+                  return item ? [item] : [];
+                })}
+                lang={lang}
+                label={ru ? 'Материалы события' : 'Event materials'}
+              />
+            </>
+          )}
         </section>
         <section class="work-section" id="case-context">
           <span class="eyebrow">

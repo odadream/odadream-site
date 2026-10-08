@@ -128,7 +128,17 @@ export const createPages = (
       path: `/${lang}/${kind}/`,
       anchors:
         kind === 'education'
-          ? ['education-programmes', ...(records.educationOverview ? ['education-conditions'] : [])]
+          ? [
+              'education-programmes',
+              ...(records.educationOverview
+                ? [
+                    'education-conditions',
+                    ...(records.educationOverview.media.length
+                      ? ['education-gallery', 'education-media']
+                      : []),
+                  ]
+                : []),
+            ]
           : kind === 'technology'
             ? records.methods?.length
               ? [
@@ -240,7 +250,13 @@ export const createPages = (
         path: `/${lang}/cases/${item.slug}/`,
         title: `${item.title[lang]} — ODA.dream`,
         description: item.summary[lang],
-        anchors: ['case-contribution', 'case-story', 'case-context', 'case-evidence'],
+        anchors: [
+          'case-contribution',
+          'case-story',
+          ...(item.media.length > 1 ? ['case-gallery'] : []),
+          'case-context',
+          'case-evidence',
+        ],
       })),
   ]);
 

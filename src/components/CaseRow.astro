@@ -55,7 +55,7 @@ const links = [
           return media ? [media] : [];
         })}
         lang={lang}
-        mode="sequence"
+        mode={item.media.length > 1 ? 'tiles' : 'sequence'}
         label={lang === 'ru' ? 'Материалы события' : 'Event materials'}
       />
     )}

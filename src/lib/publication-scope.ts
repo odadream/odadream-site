@@ -208,6 +208,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
     ...works.flatMap((row) => row.media),
     ...programmes.flatMap((row) => row.media),
     ...cases.flatMap((row) => row.media),
+    ...(educationOverview?.media ?? []),
     ...heroVisuals.map((row) => row.mediaId),
   ]);
   const media = preview
@@ -425,6 +426,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
               'summary',
               'story',
               'participation',
+              'media',
               'outcome',
               'conditions',
               'studioProvides',
@@ -599,6 +601,11 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             ])
           : undefined,
       };
+  if (projected.educationOverview)
+    projected.educationOverview = {
+      ...projected.educationOverview,
+      media: projected.educationOverview.media.filter((id) => availableMedia.has(id)),
+    };
   projected.media = projected.media.map((row) => {
     if (row.kind !== 'image') return row;
     const prepared = preparedMedia[row.src]?.images[0];
@@ -629,9 +636,10 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
       if (path?.startsWith('/')) assetPaths.add(path);
   // Use the already permission-checked dependency set; aliases never publish a deferred work.
   for (const row of media)
-    for (const path of [row.src, row.mobileSrc, ...(row.legacyPaths ?? [])].filter(
-      (path): path is string => !!path,
-    )) {
+    for (const path of [
+      ...(row.originalAccess === 'internal' ? [] : [row.src, row.mobileSrc]),
+      ...(row.legacyPaths ?? []),
+    ].filter((path): path is string => !!path)) {
       if (isLocalAssetPath(path)) assetPaths.add(path);
       else errors.push(`media ${row.id}: invalid legacy asset path ${path}`);
     }

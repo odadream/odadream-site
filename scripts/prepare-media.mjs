@@ -33,7 +33,9 @@ for (const row of data.media.filter((row) => row.kind === 'image')) {
         href,
         source: resolve('public', href.slice(1)),
         kind: 'image',
-        profile: ['document', 'diagram', 'poster'].includes(row.representation) ? 'document' : 'photograph',
+        profile: ['document', 'diagram', 'poster', 'screenshot'].includes(row.representation)
+          ? 'document'
+          : 'photograph',
         publish: row.rights === 'cleared',
       },
       row.id,

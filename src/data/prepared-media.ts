@@ -228,11 +228,11 @@ export const preparedMedia: Record<string, PreparedAsset> = {
     sourceBytes: 80684,
     images: [
       {
-        src: '/images/prepared/1ef4848afb78efab5e2cc888/image.webp',
+        src: '/images/prepared/3deb5f8d752623432a2c412c/image.webp',
         width: 1440,
         height: 1080,
-        bytes: 79948,
-        sha256: '64405fa41e25e26a203d8a1f68a3fec3003c9aea57f46ae33038f53e4dd35fb8',
+        bytes: 93170,
+        sha256: 'b8b340f9aa150859a2009d0e72825b7011578fc49a7ed4a7e8f954ad26ba741a',
       },
     ],
   },
@@ -241,11 +241,11 @@ export const preparedMedia: Record<string, PreparedAsset> = {
     sourceBytes: 85760,
     images: [
       {
-        src: '/images/prepared/92226cb4eb5c494939ee7151/image.webp',
+        src: '/images/prepared/5e93513765f9cc1b345e5daf/image.webp',
         width: 1920,
         height: 1080,
-        bytes: 82156,
-        sha256: '4c07e72bcbfa0415705c5e1804c666363a90cbc5cde007494f4bc1160fb00c77',
+        bytes: 102104,
+        sha256: 'f69e6ef8f336030e571f242922398693c1e96fa23daca8cbf8a917dcd73aa803',
       },
     ],
   },
@@ -467,6 +467,1358 @@ export const preparedMedia: Record<string, PreparedAsset> = {
         height: 1282,
         bytes: 74208,
         sha256: 'a9083cf960eed7cc9880b1538b5496060c7b5e6437476cba54a1d08d250c95c8',
+      },
+    ],
+  },
+  '/images/archive/content/events/interference-2026/interference-2026-02.webp': {
+    sourceSha256: 'e7542f33dca35d29fe7c7aeb657d42685cc04d423f033796be6d88797408fa6d',
+    sourceBytes: 135210,
+    images: [
+      {
+        src: '/images/prepared/73643d82f05da0a5cf89461b/image.webp',
+        width: 1732,
+        height: 1155,
+        bytes: 130076,
+        sha256: '1823014399f5f1c48ff0ead44b87c337355d0d7be8d01bea79e22e3add6de3a3',
+      },
+    ],
+  },
+  '/images/archive/content/events/interference-2026/interference-2026-03.webp': {
+    sourceSha256: '79d7c14d495f5837e248ed257718b55d45b9fe75395836978ed24a59171d5db2',
+    sourceBytes: 157986,
+    images: [
+      {
+        src: '/images/prepared/c379a7615db2e9031e749623/image.webp',
+        width: 1732,
+        height: 1155,
+        bytes: 151206,
+        sha256: '78921be1c604e47f9e0026c840f7feaf2aa4f5299b37d3ae153c48a7b3185e29',
+      },
+    ],
+  },
+  '/images/archive/content/events/interference-2026/interference-2026-04.webp': {
+    sourceSha256: '0ec8f9037e24c75cb19d6a92d86fbaabedd4c09af32444203c41bd5356fae2cd',
+    sourceBytes: 135082,
+    images: [
+      {
+        src: '/images/prepared/a0dceee15ab7644843306526/image.webp',
+        width: 1732,
+        height: 1155,
+        bytes: 127418,
+        sha256: 'f5e8e2333019a6dec1cc5d88328945165c6ff0366e13a601d85cec59775aba4c',
+      },
+    ],
+  },
+  '/images/archive/content/events/interference-2026/interference-2026-05.webp': {
+    sourceSha256: '2cc9e421bd3a1236b8f3222bfdf99b9f1b3f0b7e13d33c661b869b0813939530',
+    sourceBytes: 98324,
+    images: [
+      {
+        src: '/images/prepared/dada3bd170c649e56539f49b/image.webp',
+        width: 1732,
+        height: 1155,
+        bytes: 95118,
+        sha256: 'cf008ee41e94cdf6cdbd9e9824b0903749728a81f4b2191ad08d3c36cbb415d9',
+      },
+    ],
+  },
+  '/images/archive/content/events/interference-2026/interference-2026-06.webp': {
+    sourceSha256: 'fbb8f787f310e8b29e5aeef1f502034e915ccc828d9ce6e17d10b70a24d72e46',
+    sourceBytes: 123354,
+    images: [
+      {
+        src: '/images/prepared/b3a45f5335db80f19e26101c/image.webp',
+        width: 1732,
+        height: 1155,
+        bytes: 117516,
+        sha256: '9dccdfd67d6782620f5472eaea2508f2ee0e80b760e166815c46a9ad4d239e97',
+      },
+    ],
+  },
+  '/images/archive/content/events/interference-2026/interference-2026-07.webp': {
+    sourceSha256: '9d3b62e084b4ad2c35ba956fb847b773f44a8255d50a757d7c4246be759e6533',
+    sourceBytes: 163622,
+    images: [
+      {
+        src: '/images/prepared/4123580af9016e29b277d20a/image.webp',
+        width: 1732,
+        height: 1155,
+        bytes: 155186,
+        sha256: '9a010d2a4ccb8682caf7dc7caa1e92197e0f66a9f9a2d2a5cef8504a6d0d3ae9',
+      },
+    ],
+  },
+  '/images/archive/content/events/interference-2026/interference-2026-08.webp': {
+    sourceSha256: '9c19bff68377cd5ac85b16734d3303d9280fef42a5fb2d8fbec0345644c322fb',
+    sourceBytes: 65182,
+    images: [
+      {
+        src: '/images/prepared/2959fdbe380fb27cda2a7d26/image.webp',
+        width: 1155,
+        height: 1732,
+        bytes: 62070,
+        sha256: '59fbd7e6d4a89a380d096c0b83b43620c8afa419730a3ad2da03ee933dfeda04',
+      },
+    ],
+  },
+  '/images/archive/content/events/interference-2026/interference-2026-09.webp': {
+    sourceSha256: '3081470d885b28e539c0df9660ceff0f070eb9501dd6b7dd66ae5d5cca2615ab',
+    sourceBytes: 64326,
+    images: [
+      {
+        src: '/images/prepared/491078f55fae663ace798ae3/image.webp',
+        width: 1155,
+        height: 1732,
+        bytes: 61546,
+        sha256: '5fef31f888eb40c8b9f9904988f9b4558fc02817fe32848726be1000086a7c97',
+      },
+    ],
+  },
+  '/images/archive/content/events/schrodinger-2025/schrodinger-2025-02.webp': {
+    sourceSha256: '01f0e7793bdd37275bef8f8e2c741f4ef62ac22f58a12acad463524e668fbc89',
+    sourceBytes: 161834,
+    images: [
+      {
+        src: '/images/prepared/1eaacd45f62b5df68033aa5f/image.webp',
+        width: 2000,
+        height: 1333,
+        bytes: 79578,
+        sha256: '73d284297924647c56c03ec892c88df5dc5a0c9d7e38ad4f51391badb05e73b5',
+      },
+    ],
+  },
+  '/images/archive/content/events/schrodinger-2025/schrodinger-2025-03.webp': {
+    sourceSha256: '94b2d5de5ac288b576e9a38fb11a5f35adaaa829b62b65d0b3789d2226e9d368',
+    sourceBytes: 228752,
+    images: [
+      {
+        src: '/images/prepared/5e0302fc4983b05ad2d7c26e/image.webp',
+        width: 1333,
+        height: 2000,
+        bytes: 113580,
+        sha256: 'df5acb272a5298c6c57a40991f4e69276b6d4eb8dd67eaa367074c6c8f682f36',
+      },
+    ],
+  },
+  '/images/archive/content/events/schrodinger-2025/schrodinger-2025-04.webp': {
+    sourceSha256: '762973c7578017a1667cae2d90b1a0a82572b2ac567302aac1ac8dc9c2267179',
+    sourceBytes: 248348,
+    images: [
+      {
+        src: '/images/prepared/60a7cb0c8197034bdb7b07a0/image.webp',
+        width: 1333,
+        height: 2000,
+        bytes: 115402,
+        sha256: '99b2a34cda587c53a3917977c2a813d68226e9bb5fd450b83cfcf54e9594c9be',
+      },
+    ],
+  },
+  '/images/archive/content/events/schrodinger-2025/schrodinger-2025-05.webp': {
+    sourceSha256: 'ab4548b74b10e5436002c85798d803a9f9b7199752323b42538a489dbf5ab152',
+    sourceBytes: 224142,
+    images: [
+      {
+        src: '/images/prepared/d3ec6b20c8aff5291c3f42a0/image.webp',
+        width: 1333,
+        height: 2000,
+        bytes: 107476,
+        sha256: '18686e4ca75364b05dfbce366da0317d234c16bdac9bcfa6f7bfc60c4b7d43be',
+      },
+    ],
+  },
+  '/images/archive/content/events/schrodinger-2025/schrodinger-2025-06.webp': {
+    sourceSha256: 'bc82bf5215e47371e4706c88298f555b5b5843a809531086127687ce2b2ef221',
+    sourceBytes: 216710,
+    images: [
+      {
+        src: '/images/prepared/a4852f2b8c3be33060b4c93d/image.webp',
+        width: 2000,
+        height: 1333,
+        bytes: 119278,
+        sha256: '75c8a053da2373df2498c5c884119a5128c15a995fd21ea438f120a107a382eb',
+      },
+    ],
+  },
+  '/images/archive/content/events/schrodinger-2025/schrodinger-2025-07.webp': {
+    sourceSha256: 'bbf42085639c8499323f54d5eaf4b62f919ac51128d4f3c4a6302093bd84b1f1',
+    sourceBytes: 182318,
+    images: [
+      {
+        src: '/images/prepared/9b94e644933f84c81f98b76b/image.webp',
+        width: 2000,
+        height: 1333,
+        bytes: 91610,
+        sha256: '510c8c534ca75a0935ce808a055d1fee497e4467dc0a05e66270f8680bd4562b',
+      },
+    ],
+  },
+  '/images/archive/content/events/schrodinger-2025/schrodinger-2025-08.webp': {
+    sourceSha256: '1e47a64eeff7b1bbd2f6e91f84b671b785a8e4f21dd7aa724b39cf79f1d163f1',
+    sourceBytes: 212362,
+    images: [
+      {
+        src: '/images/prepared/cd8cb6e5c3343601f87d67fa/image.webp',
+        width: 2000,
+        height: 1333,
+        bytes: 106944,
+        sha256: '4da03f007f862514e4dfed5c8817940fcba4c5c6a16f8e3c07c3a23ff43ff913',
+      },
+    ],
+  },
+  '/images/archive/content/events/byob-2020/projection-pentagon.webp': {
+    sourceSha256: '78bebf6378ab335f948bb911b6a7223548176de4934dc818e650b735aa351df0',
+    sourceBytes: 200984,
+    images: [
+      {
+        src: '/images/prepared/ea0a8a9352b92e3aa7cd7257/image.webp',
+        width: 1920,
+        height: 1920,
+        bytes: 175892,
+        sha256: '115a04e7c70c170b93534c838fee0d9d54d56cfb61e6e22207ba29cdcaf01a84',
+      },
+    ],
+  },
+  '/images/archive/content/events/byob-2026/neuromandala-installation.webp': {
+    sourceSha256: '8be48788a1905a46ae884b23e82be7a6cf458309df2b8029d91be7bd3176ded1',
+    sourceBytes: 125704,
+    images: [
+      {
+        src: '/images/prepared/53bd24670b15f08f15712105/image.webp',
+        width: 1440,
+        height: 1920,
+        bytes: 114334,
+        sha256: '81952dc29b0d60a23a5c213dfc10ab795e7dff2b3b85c96c9e6b0e745cefd654',
+      },
+    ],
+  },
+  '/images/archive/content/lectures-gonchar.webp': {
+    sourceSha256: 'e51602c13c0c01dee5c23994c32084d08c759583cae3e7665f33ab9f4efeaad9',
+    sourceBytes: 123930,
+    images: [
+      {
+        src: '/images/prepared/23395ae6eb7454ef74a4158c/image.webp',
+        width: 1920,
+        height: 1080,
+        bytes: 121510,
+        sha256: 'fea9dc7503870b84bdf3bcc3425f0f575825d89bbd2f5e9ae9400a47517f4e32',
+      },
+    ],
+  },
+  '/images/archive/content/mindshow_metro_2.webp': {
+    sourceSha256: 'd8cd320ac2dab6c7ffbe050b742686da28047fa0668d56d4f1599b80e65f024c',
+    sourceBytes: 122114,
+    images: [
+      {
+        src: '/images/prepared/63ad6edd277d1e7d6c86314d/image.webp',
+        width: 1280,
+        height: 960,
+        bytes: 117236,
+        sha256: '4f914f1f8b2db459cd27ca2160bd5ace8d3df74ebeb69bb7a6a806391b5899ab',
+      },
+    ],
+  },
+  '/images/archive/content/mindshow_myata.webp': {
+    sourceSha256: 'c709e21c8188c16c0c758b3fa60cb900234b50920cd21f6a7c3ff8b889ab7cd2',
+    sourceBytes: 108790,
+    images: [
+      {
+        src: '/images/prepared/d4e2bd43c45491789de4a5ce/image.webp',
+        width: 1920,
+        height: 1080,
+        bytes: 103178,
+        sha256: '86f694ccc3bc10e78e59487bbbc10e37e2248465231cffc1df5af6406b49182b',
+      },
+    ],
+  },
+  '/images/archive/content/mindshow_portal.webp': {
+    sourceSha256: '50183370dd27878707832efba6d4e83b21b8219e15b7731706fa65cd1d061587',
+    sourceBytes: 59256,
+    images: [
+      {
+        src: '/images/prepared/cb31080427fe583e9c248a3c/image.webp',
+        width: 1920,
+        height: 1080,
+        bytes: 58502,
+        sha256: 'c1a6687e338bab00763472d06429bdd8dfacd2e24c550b349fe0c5b40a8f6e25',
+      },
+    ],
+  },
+  '/images/archive/content/mindshow_ufa.webp': {
+    sourceSha256: '5df8922f5c29753525596065d46bc774edf1605c09c415dbb51b7354574873f4',
+    sourceBytes: 35240,
+    images: [
+      {
+        src: '/images/prepared/4a2bc92fb25c144a5191adbf/image.webp',
+        width: 608,
+        height: 1080,
+        bytes: 34926,
+        sha256: '9081eb6501f834695f967040bd4014a0afd461f71fa2c976621a0b381b726c26',
+      },
+    ],
+  },
+  '/images/archive/content/mindshow_urban_forum.webp': {
+    sourceSha256: '07ca70080611ae203db1ebc43ac7427f0281607e6648f93a4a121a5d4237dd28',
+    sourceBytes: 109442,
+    images: [
+      {
+        src: '/images/prepared/a9923dbae98691619789154c/image.webp',
+        width: 810,
+        height: 1080,
+        bytes: 107092,
+        sha256: '2a26e71b135e8f39fdffb007448e6a7550075c5af9779d60f34dd41ecf5ea5d1',
+      },
+    ],
+  },
+  '/images/archive/content/works/theatre-my-name/tim-kod-provincii-02.webp': {
+    sourceSha256: 'c2443d94bc36a4dd35c33734ad1beec0ec2d9b5f5d30c9829b861dcca925d262',
+    sourceBytes: 109420,
+    images: [
+      {
+        src: '/images/prepared/b2c7b672711c31a7ecfc9501/image.webp',
+        width: 1920,
+        height: 1282,
+        bytes: 99246,
+        sha256: '5e7ff247d77a081b56145c6ce63919c3e2dd4869f549e2ceb1ad4d46c500bd38',
+      },
+    ],
+  },
+  '/images/archive/content/works/theatre-my-name/tim-korablik-2020-archive.webp': {
+    sourceSha256: '5ff115863240f7a5b323419bcb541bda5b394fd8a1b2899101a89d02c8fbb33d',
+    sourceBytes: 105536,
+    images: [
+      {
+        src: '/images/prepared/e4d679ca19a499b4676cf87f/image.webp',
+        width: 960,
+        height: 1280,
+        bytes: 101028,
+        sha256: '2ac2d1dc2714b6e263109ff5fbed4c8fb371bb14e82fc4d713f235393887a0c2',
+      },
+    ],
+  },
+  '/images/archive/content/lectures-ashram.webp': {
+    sourceSha256: '6e49f33c638005c7b5c5fff09eb13aac22d10ec303cd99a89a16354717f2278f',
+    sourceBytes: 62702,
+    images: [
+      {
+        src: '/images/prepared/6e31cbd959195b5831fb7b30/image.webp',
+        width: 608,
+        height: 1080,
+        bytes: 61190,
+        sha256: 'cbaa7887c2f23dfb3054b92abc47e6176f4ad1f359162563cb610124df99636b',
+      },
+    ],
+  },
+  '/images/archive/content/lectures-ikc.webp': {
+    sourceSha256: '7f8dd7b4aa6bf0c85a62677caf6fa5c535554a019c89dc748ddcaae3dba7997c',
+    sourceBytes: 56278,
+    images: [
+      {
+        src: '/images/prepared/99f1a4897a26176a0327a636/image.webp',
+        width: 1920,
+        height: 1080,
+        bytes: 52616,
+        sha256: '2be5ffc915cc749ad8eff31521c82149a3485b2c11dd17289d4b0705d8a13e87',
+      },
+    ],
+  },
+  '/images/archive/content/lectures-tavrida.webp': {
+    sourceSha256: '01e6f3c22f9ec51992831a869a9cb4a0a5a88aea8dd083c79ca30eb3c235b54d',
+    sourceBytes: 110042,
+    images: [
+      {
+        src: '/images/prepared/fc6416de7b2628eca508da53/image.webp',
+        width: 1201,
+        height: 901,
+        bytes: 106442,
+        sha256: '8f982e36df65f8134f5bea87cf88c5265cad63993aebba296cc78dc7b83e2f83',
+      },
+    ],
+  },
+  '/images/archive/content/lectures-tshr.webp': {
+    sourceSha256: 'b19d91ed729c2e364f6dafe43b53621da594a4a5697f9aca6d0d7fca77157a39',
+    sourceBytes: 84360,
+    images: [
+      {
+        src: '/images/prepared/1db99d152a7ed7d5ddddd1d4/image.webp',
+        width: 608,
+        height: 1080,
+        bytes: 84132,
+        sha256: '9bf437b61ea36755b3bacf0702e5a58ffe70100a854546813f57f7f5107b11c5',
+      },
+    ],
+  },
+  '/images/archive/content/materia/emomandala/abundance-color-palette.webp': {
+    sourceSha256: '5f3a3490fe22c4e96389c1c6f60eae46484d46d7fba5892fc1e60c32981bc759',
+    sourceBytes: 200790,
+    images: [
+      {
+        src: '/images/prepared/27536b1eed9294d29d09780e/image.webp',
+        width: 1636,
+        height: 1351,
+        bytes: 223016,
+        sha256: 'e126aa78974825a8dd515a8941acc2a964bb01883bba43007ce6bd95b57a9590',
+      },
+    ],
+  },
+  '/images/archive/content/materia/emomandala/laser-material-variations.webp': {
+    sourceSha256: 'f2f4b806d53a9f04f7ad6af817a9054ca9a96ebe8f9828dc34c8ee49cfdc8e5b',
+    sourceBytes: 81878,
+    images: [
+      {
+        src: '/images/prepared/f1c4c8f79db4027d711e77fd/image.webp',
+        width: 714,
+        height: 952,
+        bytes: 89172,
+        sha256: 'c08116885a4c498b85abc531195f5de689177ffd897b74f510f728637d85a3e4',
+      },
+    ],
+  },
+  '/images/archive/content/materia/emomandala/mandala-ring-sizes.webp': {
+    sourceSha256: '128813298df270d100bc4df2fda2b80b64d55fe01b9e1b554af990059767f2df',
+    sourceBytes: 74526,
+    images: [
+      {
+        src: '/images/prepared/42f6c098fa6f2b413ead5aaa/image.webp',
+        width: 1588,
+        height: 1119,
+        bytes: 81742,
+        sha256: '985f3d4bf7f75e269f547a23daf9914cf79b31d626ecb7a467ec370218e087f7',
+      },
+    ],
+  },
+  '/images/archive/content/materia/emomandala/photo-charm.webp': {
+    sourceSha256: '016454e560ee74a7615fc154a7ecc042c72e709cb80311a39db2b91a80e233a3',
+    sourceBytes: 23436,
+    images: [
+      {
+        src: '/images/prepared/ab3df0009e6c46cd061e3ce0/image.webp',
+        width: 768,
+        height: 1024,
+        bytes: 21502,
+        sha256: 'ddf3270472bd1fc8ed4630c8725beeccc6cf6a2188ecf00542cab5595ca4fe1d',
+      },
+    ],
+  },
+  '/images/archive/content/materia/emomandala/photo-pendant-back.webp': {
+    sourceSha256: '019392394a6519bde50ea6874aeb108e7958fd38c3caab4176bd99d65c6782fb',
+    sourceBytes: 247600,
+    images: [
+      {
+        src: '/images/prepared/6976b88b840c1b7f755407f0/image.webp',
+        width: 1440,
+        height: 1920,
+        bytes: 227218,
+        sha256: '3939836b15d29ac0570b1c24b4306022fffa50fee2c79b14a3e6806aad708c1d',
+      },
+    ],
+  },
+  '/images/archive/content/materia/emomandala/render-charm.webp': {
+    sourceSha256: '2791eca5ba1b68918b3c956fa281e57cf8085add531a7cef97a66b3cdf707774',
+    sourceBytes: 12924,
+    images: [
+      {
+        src: '/images/prepared/9b31703e665c0d43cf926135/image.webp',
+        width: 772,
+        height: 772,
+        bytes: 12306,
+        sha256: '3cd26cfad3f40a7dafbae472a81f9bb05964d4c33871ca0c7fac7c17686406d3',
+      },
+    ],
+  },
+  '/images/archive/content/materia/fourth-dimension/neuromandala-source.webp': {
+    sourceSha256: 'd18aaca8dde5b35799de5055e271dd10a802c8fed6c53ab1a2c50aee3771d388',
+    sourceBytes: 54808,
+    images: [
+      {
+        src: '/images/prepared/fba5c835e6e4e68b36b0ba60/image.webp',
+        width: 800,
+        height: 800,
+        bytes: 59804,
+        sha256: '37484f7538ac2c5cfc6f5de6878601c58527ecb10a65cb049f582929c12b8418',
+      },
+    ],
+  },
+  '/images/archive/content/materia/fourth-dimension/render-back.webp': {
+    sourceSha256: '70221f9d6844025467cbd071f7a0db1ada276db63c200a83e278b5407f9d65dd',
+    sourceBytes: 10144,
+    images: [
+      {
+        src: '/images/prepared/ca21d8c55f3e93c74e0d457e/image.webp',
+        width: 523,
+        height: 700,
+        bytes: 9892,
+        sha256: '7c4b457d9fc3991db592b4c5562bcc9d2e70a0a263308d8041dda79bdc981e63',
+      },
+    ],
+  },
+  '/images/archive/content/materia/fourth-dimension/render-front.webp': {
+    sourceSha256: '155b6454d8743041715eaaf30791a5faaa032b2a6bba611f60df93475e154163',
+    sourceBytes: 9356,
+    images: [
+      {
+        src: '/images/prepared/2c0ee754d98f647519e99317/image.webp',
+        width: 523,
+        height: 700,
+        bytes: 8906,
+        sha256: '876c66cd2bd469c3dfba8dccf2cbab2f21f841ba4488253b14e432349a4a6d82',
+      },
+    ],
+  },
+  '/images/archive/content/materia/happiness/photo-back.webp': {
+    sourceSha256: '307717b618292858b9100676f221f570bd11ca3121d8051b2d1ca23fb079cdda',
+    sourceBytes: 155230,
+    images: [
+      {
+        src: '/images/prepared/b0f47a705ae3b5c08fdec5c4/image.webp',
+        width: 1440,
+        height: 1920,
+        bytes: 139944,
+        sha256: 'dfcf224fc93ad33810f2f37ac991a3fc233de88b2ba25c70c7a9a897ed566f6f',
+      },
+    ],
+  },
+  '/images/archive/content/materia/happiness/photo-front.webp': {
+    sourceSha256: 'bff120f43a095cbce032fdc5b22554d9e42fa72478b93aa8737527e0cbb54548',
+    sourceBytes: 84176,
+    images: [
+      {
+        src: '/images/prepared/bd110c5c869339c2193c0c26/image.webp',
+        width: 1440,
+        height: 1920,
+        bytes: 75806,
+        sha256: 'a472df07afe715663b368e09f28a4d5f936eb62b911b7195e4fb7735973a93a4',
+      },
+    ],
+  },
+  '/images/archive/content/materia/mom-baby/photo-baby-leg.webp': {
+    sourceSha256: '572335df1afebc56ca5565fde811c168281c9c72f17ff8c9ee47155cbcf93413',
+    sourceBytes: 58376,
+    images: [
+      {
+        src: '/images/prepared/fea339ae83a1d992dcd056b0/image.webp',
+        width: 873,
+        height: 1920,
+        bytes: 67646,
+        sha256: '2fdcafb0d9005a6121fe132ad759183099028183498a75d140b687a17cab5b51',
+      },
+    ],
+  },
+  '/images/archive/content/materia/mom-baby/photo-gift-set.webp': {
+    sourceSha256: '702d2277876da767cf1d5c89399b85ec07ff1a067aee48340e968833263352f2',
+    sourceBytes: 239846,
+    images: [
+      {
+        src: '/images/prepared/dc8983bf722fce05ff2fd6ae/image.webp',
+        width: 1440,
+        height: 1920,
+        bytes: 216856,
+        sha256: '6614c8095c431315e087edc9e98614f46094261f315f3403c6881b313e2b767e',
+      },
+    ],
+  },
+  '/images/archive/content/materia/mom-baby/photo-iowa-gift.webp': {
+    sourceSha256: '067c409cd495686ad1357a56355d198ab2559c130c13615ccf05f9da69adeefe',
+    sourceBytes: 276648,
+    images: [
+      {
+        src: '/images/prepared/d9fb2d5b4f2bb6f5e82e8d27/image.webp',
+        width: 1440,
+        height: 1920,
+        bytes: 254204,
+        sha256: 'df3547e1ca7a4010c0667851065ae5fd70ba36c6932b92d8f9fbc0b7bcec698a',
+      },
+    ],
+  },
+  '/images/archive/content/materia/mom-baby/photo-on-leaves.webp': {
+    sourceSha256: 'c642c81bad9d2be31e9ea2725e385732ca389e238c3096af2a9f0f27ac7948eb',
+    sourceBytes: 101556,
+    images: [
+      {
+        src: '/images/prepared/5cb574c0ce492a3259927115/image.webp',
+        width: 1440,
+        height: 1920,
+        bytes: 94096,
+        sha256: '2275684888393594fecfb72428feb51927cac22462c2a7723c42c9bf04cc6a50',
+      },
+    ],
+  },
+  '/images/archive/content/materia/mom-baby/photo-parts-two-pendants.webp': {
+    sourceSha256: 'cf7d15f81e1d1e44d06d4a862b542feacb774742d867898dad277ca27776cf2d',
+    sourceBytes: 165932,
+    images: [
+      {
+        src: '/images/prepared/8b62428d88baf13e55bb5b01/image.webp',
+        width: 1920,
+        height: 1920,
+        bytes: 151582,
+        sha256: '5bbf5b65b0aae66889e008f8baf2d500a1135f694e4950a923ade20a92eb31a0',
+      },
+    ],
+  },
+  '/images/archive/content/materia/mom-baby/photo-with-statuette.webp': {
+    sourceSha256: '775a0f22cdbfdcab896fc1dd443ed2f2ab5350eb58a059f69489b7de6b0b82d1',
+    sourceBytes: 21374,
+    images: [
+      {
+        src: '/images/prepared/50ed8bdd5c38d14d0cb1779f/image.webp',
+        width: 699,
+        height: 932,
+        bytes: 19964,
+        sha256: '4353a3be59b1a5d0c1deb3def379a0c4fd229d8e1397426df204c1fdecf3e87d',
+      },
+    ],
+  },
+  '/images/archive/content/materia/mom-baby/rhino-drawing.webp': {
+    sourceSha256: 'e3f24a5655a56b4607517a5bc2870c09997a04b75d15d5062e012d7af7b2d609',
+    sourceBytes: 74964,
+    images: [
+      {
+        src: '/images/prepared/5535f5a3cf48f93e14f82c98/image.webp',
+        width: 1560,
+        height: 783,
+        bytes: 87184,
+        sha256: '5514cd955b8169af740d80ae58bab3c6edd20a66ad1df3255f1e8e004c383b93',
+      },
+    ],
+  },
+  '/images/archive/content/materia/oda-rings/ig-02-wedding.webp': {
+    sourceSha256: '9835fe48bccd2d84c53f10426f9e5f4214e09b4636799ba147a7f5145c60d479',
+    sourceBytes: 104336,
+    images: [
+      {
+        src: '/images/prepared/9881f8642bd96ae1fbd211bc/image.webp',
+        width: 1081,
+        height: 1081,
+        bytes: 91358,
+        sha256: '209da4c8193a91836883d382cea161c0c41e5127e9ccb8dd8baa990d7d78cbf1',
+      },
+    ],
+  },
+  '/images/archive/content/materia/oda-rings/ig-03-sketch.webp': {
+    sourceSha256: '76326ce2cf00553baaeac1b52142586fb0ae63b2cce013888e007b14d077adf9',
+    sourceBytes: 100760,
+    images: [
+      {
+        src: '/images/prepared/07320b58b46dd3e6e0f2ba35/image.webp',
+        width: 1080,
+        height: 1080,
+        bytes: 108288,
+        sha256: '0906512fb1aceaf7cebcc4478b778bfc43cb258187403cc9974abbee051835b8',
+      },
+    ],
+  },
+  '/images/archive/content/materia/oda-rings/ig-04-workshop.webp': {
+    sourceSha256: 'ccf3572170aab3f523f5e3b37375395931af58ed56f6747a84b7a16a7130be1b',
+    sourceBytes: 104092,
+    images: [
+      {
+        src: '/images/prepared/26f6b06b095e0a3a15544f2e/image.webp',
+        width: 1080,
+        height: 1081,
+        bytes: 99200,
+        sha256: '6abae1b7f1701282ea61af519b41a4db506c7843399d864e08152ed2fe18682a',
+      },
+    ],
+  },
+  '/images/archive/content/materia/oda-rings/ig-05-model-eeg.webp': {
+    sourceSha256: 'b702ea261ccf0f926a972328b0ee5b01b9d661c444501f548420fbfdd3f077d3',
+    sourceBytes: 67092,
+    images: [
+      {
+        src: '/images/prepared/009ab7bc9d039d2d8277d524/image.webp',
+        width: 1080,
+        height: 1081,
+        bytes: 74116,
+        sha256: '1cf43e5251a7a57678b7dd99929a366653ad4d85893bc7d1b61c515ac5878990',
+      },
+    ],
+  },
+  '/images/archive/content/materia/oda-rings/ig-06-hands.webp': {
+    sourceSha256: '33bf52defe211924260d67c9d0b072bcb7f7d46aed75ff9d9905c02bc302766f',
+    sourceBytes: 142486,
+    images: [
+      {
+        src: '/images/prepared/1f66ad400d066d36e21e1830/image.webp',
+        width: 1081,
+        height: 1081,
+        bytes: 134672,
+        sha256: '9dd6010731eb08ae9a5477eb733debf8c2deb706c3fa75e6d0cd4ec15cb28fbd',
+      },
+    ],
+  },
+  '/images/archive/content/materia/oda-rings/ig-07-flight.webp': {
+    sourceSha256: '3d55ac2e94a3cfa1e3db3749f513d0ed8d8183a7fc23451a5f349b01af513c17',
+    sourceBytes: 39130,
+    images: [
+      {
+        src: '/images/prepared/006113e2e4bf3733450da126/image.webp',
+        width: 1080,
+        height: 1080,
+        bytes: 36648,
+        sha256: '30e46c69fbe75a2bb15a14a67c77dfb470cdd777098ca39f16a742cf6c3368a3',
+      },
+    ],
+  },
+  '/images/archive/content/materia/oda-rings/ig-08-dream-photo.webp': {
+    sourceSha256: 'cff4361c2e315b3686f71e81742d1c90a6dd1158055db823854581516fd52810',
+    sourceBytes: 66150,
+    images: [
+      {
+        src: '/images/prepared/db9928cd9089ac537560e5d8/image.webp',
+        width: 1080,
+        height: 1080,
+        bytes: 59634,
+        sha256: 'def391ff9c16d458b756db9d47bc03157bf84629ec703420166b99a32b1a4aaa',
+      },
+    ],
+  },
+  '/images/archive/content/materia/oda-rings/ig-09-lempuyang.webp': {
+    sourceSha256: '5a4a8f6d6a7bf3b207cad58dc8b59e3335d1204c8e2047135532156a6aaaf63d',
+    sourceBytes: 122228,
+    images: [
+      {
+        src: '/images/prepared/eca1fcaace8a673e5ad62bf2/image.webp',
+        width: 1080,
+        height: 1080,
+        bytes: 115084,
+        sha256: '14d6915adce5934eee08b26fd0ef8c1fdf5051db6c239ff913d92acb5fc99746',
+      },
+    ],
+  },
+  '/images/archive/content/materia/voronka/neuromandala-source.webp': {
+    sourceSha256: 'fd57b0e9d7f08a12d243c590a148f57138699e0d99a0ae51662a6214fbfea1f3',
+    sourceBytes: 87564,
+    images: [
+      {
+        src: '/images/prepared/766a869e61f754bdebc52732/image.webp',
+        width: 1200,
+        height: 1200,
+        bytes: 95794,
+        sha256: '403370ee528f7fe194364b28f1f76a14fbbb38a898874f2c23c133aa5d577e92',
+      },
+    ],
+  },
+  '/images/archive/content/materia/voronka/photo-detail.webp': {
+    sourceSha256: '7d9518e7447dac143a042a51aa8fe80ebf20876ff92377765cb163e7b01b2477',
+    sourceBytes: 96578,
+    images: [
+      {
+        src: '/images/prepared/2b9585f28ef9758bc7fa3aca/image.webp',
+        width: 960,
+        height: 1280,
+        bytes: 88092,
+        sha256: 'e1310ba325b829c1fc04dcb706dcd1a932b3d82b39064bd9378fb85af16d2d4b',
+      },
+    ],
+  },
+  '/images/archive/content/materia/voronka/render-exploded.webp': {
+    sourceSha256: 'b54961f48b736a256b83c490591f015ef39d0d5bd4c9ff4db83edb3458e99d4b',
+    sourceBytes: 25654,
+    images: [
+      {
+        src: '/images/prepared/732ea46ecdb78ad8444e1aec/image.webp',
+        width: 808,
+        height: 717,
+        bytes: 24532,
+        sha256: '92177b31b236e0eb5a687736741cc7c104bb7552bcfe39e2a29357549455465f',
+      },
+    ],
+  },
+  '/images/archive/content/materia/voronka/render-hero.webp': {
+    sourceSha256: 'a74bb0f7fa10d7ee1265c02750aa38e48e3c2217773de9efa0962b3060bd2ea8',
+    sourceBytes: 26330,
+    images: [
+      {
+        src: '/images/prepared/2f20b90cf039d356c945496f/image.webp',
+        width: 823,
+        height: 709,
+        bytes: 24574,
+        sha256: '268e1dcff3ab1c580619d5cc6601e19423362905f59971604bc9377641733b81',
+      },
+    ],
+  },
+  '/images/archive/content/materia/voronka/render-section.webp': {
+    sourceSha256: '28e9806fac8e12df84cf50dd678b02384703040882bf55d2a8c38d335aeff08f',
+    sourceBytes: 27984,
+    images: [
+      {
+        src: '/images/prepared/b8903481a07230ceb9737226/image.webp',
+        width: 956,
+        height: 689,
+        bytes: 30322,
+        sha256: 'a3726b64bad1db9e457d91f89e8e12086e077e5306620e8e45b3f752a5c29d33',
+      },
+    ],
+  },
+  '/images/archive/content/neurobattle_veter.webp': {
+    sourceSha256: '2329bb67012309c6ca6430b294a869482a9bfb36844de2ee9d33981997d2c4e4',
+    sourceBytes: 252276,
+    images: [
+      {
+        src: '/images/prepared/5430d777b52d992e2d8ccbbd/image.webp',
+        width: 1920,
+        height: 1080,
+        bytes: 246224,
+        sha256: 'd1c1e7ac4c993d0bbfcdf0b05b59ab68195bc9ddcd0899f38377d1f9b295048a',
+      },
+    ],
+  },
+  '/images/archive/content/works/ancestors-sketch.webp': {
+    sourceSha256: 'e2fae3a2bf9ec2edf49ad6fc9f62de6d7ac46b3c217aec68c11b44d726b70a3b',
+    sourceBytes: 368832,
+    images: [
+      {
+        src: '/images/prepared/bfa5ad8f3f0dba6f07193587/image.webp',
+        width: 1536,
+        height: 1024,
+        bytes: 339278,
+        sha256: 'ef06bb00e319f66a724cd82ed600467755d89dfc2fa968607be9a5f13bd6f380',
+      },
+    ],
+  },
+  '/images/archive/content/works/another-people/other-people-character-card.webp': {
+    sourceSha256: 'f9c9444bc0d53375d61cb66c62685656db93ba156cd18ab1e825c5e6465881ab',
+    sourceBytes: 25240,
+    images: [
+      {
+        src: '/images/prepared/77dd2bcbf428fe5ea11238f4/image.webp',
+        width: 1427,
+        height: 835,
+        bytes: 27810,
+        sha256: '68c203036a53087aaf0352fcd898311f20f64c29ad6bf6ee2edbd39e65c3deb1',
+      },
+    ],
+  },
+  '/images/archive/content/works/another-people/other-people-neuromandala.webp': {
+    sourceSha256: 'ee2892150bcc3cc15a8d71550a6c90d56314eeea8eb60adad5db5738e401707f',
+    sourceBytes: 87492,
+    images: [
+      {
+        src: '/images/prepared/b976f773e14ffdf65ce93c9c/image.webp',
+        width: 891,
+        height: 502,
+        bytes: 96802,
+        sha256: 'f018de7187b0240dae176e04fc490d1c20f58bb6914f52c9e3311241f972a488',
+      },
+    ],
+  },
+  '/images/archive/content/works/byob-2019-mindgrid.webp': {
+    sourceSha256: 'd56d63322d0a855da9ccf440c6ee555a4802e5736c14ab2c0268ea8787a8f82e',
+    sourceBytes: 272440,
+    images: [
+      {
+        src: '/images/prepared/17f989f2b2f89b6b525db262/image.webp',
+        width: 1655,
+        height: 1920,
+        bytes: 297558,
+        sha256: '57484a74459110624a9a007035050fc6e203a77b8d9671b9497c8b99ed0f2d43',
+      },
+    ],
+  },
+  '/images/archive/content/works/dashran/dashran-playda-01.webp': {
+    sourceSha256: 'd0c3caa2409d0ffd0294adcdad98261349b973ff6f1478669e3ba58462912b9e',
+    sourceBytes: 138036,
+    images: [
+      {
+        src: '/images/prepared/e4fecbe4b6078bb8c85a8184/image.webp',
+        width: 1375,
+        height: 2062,
+        bytes: 151988,
+        sha256: '42fc83b456282087a734b0b38c6f5d7b7d7af010ca6a72497cf58ccd9d04ec81',
+      },
+    ],
+  },
+  '/images/archive/content/works/dashran/dashran-system-flow.webp': {
+    sourceSha256: 'cb2ea015412e8757a8a2dc6c564671863e5e308d142062181109bed2b02d69f8',
+    sourceBytes: 16950,
+    images: [
+      {
+        src: '/images/prepared/e69bd0c0e8d5124009ba4022/image.webp',
+        width: 767,
+        height: 291,
+        bytes: 18712,
+        sha256: '4c90b4b3105cc6632899761bf54e2ec40bc94b50b9e292c2d529e9aee9b3056b',
+      },
+    ],
+  },
+  '/images/archive/content/works/dashran/dashran-tech-plan.webp': {
+    sourceSha256: '1e71c4925140ac4c474f87a7bf741fc0e0aa7457f8dd7b39a9433107b0542a7b',
+    sourceBytes: 59518,
+    images: [
+      {
+        src: '/images/prepared/88ea3cf2f39006c7b975d3ca/image.webp',
+        width: 1077,
+        height: 855,
+        bytes: 64844,
+        sha256: '78b62673874fd6560dfe8243c44366f4449b60446ccd303b4a592447a25fa50d',
+      },
+    ],
+  },
+  '/images/archive/content/works/dashran/dashran-tech-space.webp': {
+    sourceSha256: 'ccdc924b098b78bc15f6f6636446f44b9124cda08c5116b1da5f6d200df18255',
+    sourceBytes: 127328,
+    images: [
+      {
+        src: '/images/prepared/9f2bc1f99f68f12ed35b9462/image.webp',
+        width: 2141,
+        height: 1721,
+        bytes: 135680,
+        sha256: 'e573537b35f0ef8590fe0e6b145af7234baede9a32f19836abe5b77c4ba87c79',
+      },
+    ],
+  },
+  '/images/archive/content/works/dashran/dashran-wiring.webp': {
+    sourceSha256: '639c0beb5085272771628622f85be2e5c9476006b39836619ecc22df9d38721c',
+    sourceBytes: 10896,
+    images: [
+      {
+        src: '/images/prepared/8e3547071c56712e7f1f4205/image.webp',
+        width: 574,
+        height: 313,
+        bytes: 12188,
+        sha256: 'd1d08ef966c7fd3d94fe6d9eda60b5a6dd2313c5188f56c13c72ed14e6888eec',
+      },
+    ],
+  },
+  '/images/archive/content/works/honors-skolkovo/honors-skolkovo-dome.webp': {
+    sourceSha256: 'a38073141c2b5cb87535d4d1a48e633f6f094c035aca3f51d57de6a1e4b613bd',
+    sourceBytes: 162250,
+    images: [
+      {
+        src: '/images/prepared/b23ed7bce3a6ee974052a2c3/image.webp',
+        width: 1199,
+        height: 799,
+        bytes: 159536,
+        sha256: 'd65a8acd3f0e7a1868f971e532bc5037aa74c31ccf6b8cd6574721fa6a6ae6cc',
+      },
+    ],
+  },
+  '/images/archive/content/works/honors-skolkovo/honors-skolkovo-interior.webp': {
+    sourceSha256: '435c5dec089b7c4856c02ed6857c5d19e1d13eb32d4270a2d6a656fbf7b6940e',
+    sourceBytes: 274398,
+    images: [
+      {
+        src: '/images/prepared/ad08bf0989e1249f1a5b21c3/image.webp',
+        width: 1226,
+        height: 867,
+        bytes: 266478,
+        sha256: '344149e815f7061b16362fcd6fa11c7ee76c1151f05a03a86595ed078176853c',
+      },
+    ],
+  },
+  '/images/archive/content/works/honors-skolkovo/honors-skolkovo-mandala.webp': {
+    sourceSha256: '23a2f4c94603ffc164afd560774c74d31a0168eeb34cadc5008a5adca74c21e0',
+    sourceBytes: 25556,
+    images: [
+      {
+        src: '/images/prepared/105eb39eab8b3415e1afab63/image.webp',
+        width: 1428,
+        height: 837,
+        bytes: 28052,
+        sha256: 'afaf9efcdfeaa1635707d86784536ebe4271c1a0b0d3934b94e150ffa076654a',
+      },
+    ],
+  },
+  '/images/archive/content/works/honors-skolkovo/honors-skolkovo-plan-detail.webp': {
+    sourceSha256: '4ec58655c6354a01ef32028142cb1cd6e3a264ba715a9a58fc37ee4323cf9577',
+    sourceBytes: 7044,
+    images: [
+      {
+        src: '/images/prepared/61aae96a08cefdbc68af23e7/image.webp',
+        width: 523,
+        height: 388,
+        bytes: 7856,
+        sha256: 'f7f51d71d5d67fd5865050889c74cfb020b6fbe0970ab1f515fc4d192c2252a9',
+      },
+    ],
+  },
+  '/images/archive/content/works/honors-skolkovo/honors-skolkovo-plan.webp': {
+    sourceSha256: '7a83affdd1b653c16492294c1944646c217e2779d0a81ba020673279dc235cf4',
+    sourceBytes: 9528,
+    images: [
+      {
+        src: '/images/prepared/5eb78b677b38df9557c074d5/image.webp',
+        width: 642,
+        height: 605,
+        bytes: 10556,
+        sha256: 'b34c4247877db167becad1018705daa411c12a653201bf5ad23d0e827e616160',
+      },
+    ],
+  },
+  '/images/archive/content/works/honors-skolkovo/honors-skolkovo-viz.webp': {
+    sourceSha256: 'd9cc5c634a8cb129d1ca499c2c36bb675a776b08fc9a5a35d0282c1d5edd5cb9',
+    sourceBytes: 20180,
+    images: [
+      {
+        src: '/images/prepared/5d41dadc4605317842013a0f/image.webp',
+        width: 900,
+        height: 660,
+        bytes: 18586,
+        sha256: 'ca86c4f4f97e18808aa6b8b919131beda641c6526785b6b9a5f3882496f2d50c',
+      },
+    ],
+  },
+  '/images/archive/content/works/interference-2026-poster.webp': {
+    sourceSha256: 'b9d65c168c0efa062ab7e725e92a2d21e613f84431f94ec4e75864dbea79daf1',
+    sourceBytes: 658786,
+    images: [
+      {
+        src: '/images/prepared/0646fbf8d97f3a7b8de8a989/image.webp',
+        width: 1684,
+        height: 2384,
+        bytes: 731118,
+        sha256: '92e9070d9ea12af094ef129d7ac85c5626c5698456742d281a9cb572d3caa80c',
+      },
+    ],
+  },
+  '/images/archive/content/works/interference-plakats/interference-plakat-01-light.webp': {
+    sourceSha256: 'fb1e62e3280e6b5ac49b7a77fa25d503c5398e9ba8c76ee28054bff47c29cab7',
+    sourceBytes: 69666,
+    images: [
+      {
+        src: '/images/prepared/8b70cf260634735563e598e4/image.webp',
+        width: 1536,
+        height: 1024,
+        bytes: 75474,
+        sha256: '781040e5f3636f228e34ec7d03e966045c13f74f4fb1cc972e74b5b871c57fc0',
+      },
+    ],
+  },
+  '/images/archive/content/works/interference-plakats/interference-plakat-02-sound.webp': {
+    sourceSha256: '7394e2790c33ac63519e96a7d40dc987fe3d87390b7d147b76e59d3da615d334',
+    sourceBytes: 99152,
+    images: [
+      {
+        src: '/images/prepared/6da269eac71df47aa6921fc7/image.webp',
+        width: 1536,
+        height: 1024,
+        bytes: 109098,
+        sha256: '50d0500bde11f4fe4259367dca10c6474651b892a3fefe0325844d8e1845a923',
+      },
+    ],
+  },
+  '/images/archive/content/works/interference-plakats/interference-plakat-03-dance.webp': {
+    sourceSha256: '48d357f7ff7760547babea81ac476c79a687cc8fb5f5e298cddc5d0e1bf07089',
+    sourceBytes: 94042,
+    images: [
+      {
+        src: '/images/prepared/46521ef14f7ba80756cee3f5/image.webp',
+        width: 1536,
+        height: 1024,
+        bytes: 102656,
+        sha256: 'bf667586effaf6d7d92ecadc83267a79d8058631bfdf37c8f408721de5bff58b',
+      },
+    ],
+  },
+  '/images/archive/content/works/interference-plakats/interference-plakat-04-brain.webp': {
+    sourceSha256: '52062148d7120c0934904b1a61d00a93259b8a0c4baf01a58d547fe9ccb27b8d',
+    sourceBytes: 151090,
+    images: [
+      {
+        src: '/images/prepared/6f173025ae67adc1e85e5605/image.webp',
+        width: 1536,
+        height: 1024,
+        bytes: 168350,
+        sha256: '21b207c1a3dce3ddd6fca38e6de1f9aeb97482747d5bd951eff418d9ffe38318',
+      },
+    ],
+  },
+  '/images/archive/content/works/interference-plakats/interference-plakat-05-technology.webp': {
+    sourceSha256: 'abd0dd098b142ea90452fb1aeea911702918db63f00ab7e9731c6611b75a3d49',
+    sourceBytes: 119996,
+    images: [
+      {
+        src: '/images/prepared/c3a825d90ecdeb37a16bc4f2/image.webp',
+        width: 1536,
+        height: 1024,
+        bytes: 133848,
+        sha256: 'b1eb80f54a23f88f6f896db4b258c52cea7d7860c85a61c10b4ae35a1d59b1d1',
+      },
+    ],
+  },
+  '/images/archive/content/works/interference-plakats/interference-plakat-06-waves.webp': {
+    sourceSha256: 'f361a944e5c2a8560066810f1b00e49b50cd2b55e499667c85fcaa4298fa7e63',
+    sourceBytes: 135308,
+    images: [
+      {
+        src: '/images/prepared/d434cbc196fd202fed44f99f/image.webp',
+        width: 1536,
+        height: 1024,
+        bytes: 150146,
+        sha256: 'ab7be57b8edcab2cee8c9c254a06a31c51ed81f389b5408aa27e17be46b2b136',
+      },
+    ],
+  },
+  '/images/archive/content/works/interference-plakats/interference-plakat-07-reality.webp': {
+    sourceSha256: '6c1b313c3ef304cbd7fa83a0236635bd38f6ea00328d1b3ed03dcc54a250311c',
+    sourceBytes: 135404,
+    images: [
+      {
+        src: '/images/prepared/dd9e6b79bab5e5d730715087/image.webp',
+        width: 1536,
+        height: 1024,
+        bytes: 151230,
+        sha256: '2a39368ea22c13a7cdc37b49d27c1d15f4d9d7087e5baf267fbfb662ec2e73a4',
+      },
+    ],
+  },
+  '/images/archive/content/works/interference-plakats/interference-plakat-08-dramaturgy.webp': {
+    sourceSha256: '4986b8c2ff12f7d5309fd49e0e5003c04a66ecf75a91fc180f34319e57491590',
+    sourceBytes: 117484,
+    images: [
+      {
+        src: '/images/prepared/75df060db760be8a9c7df1cd/image.webp',
+        width: 1536,
+        height: 1024,
+        bytes: 129030,
+        sha256: 'cc6cefd5c7de74226bf4e4a7af1c2f84fc2258da2821b57832c458aebe188436',
+      },
+    ],
+  },
+  '/images/archive/content/works/lighthouse/blend-multi-1.webp': {
+    sourceSha256: '997dc926fa6e0971f7dfeebbd92d8d18dc8c8b372543c9e59db3b2e68c530bbb',
+    sourceBytes: 44632,
+    images: [
+      {
+        src: '/images/prepared/cd27bd1edbf4367ec3a02748/image.webp',
+        width: 1065,
+        height: 1110,
+        bytes: 43004,
+        sha256: '909b128598a3f4f4773198a6ad76985482e45e1db6f394a4efc4dd27e126d9d5',
+      },
+    ],
+  },
+  '/images/archive/content/works/lighthouse/blend-multi-2.webp': {
+    sourceSha256: '2f6e66b6349fb1aef3dcdcefe42e96e85c7efd1dcbb3100bb3dcdab3688544a4',
+    sourceBytes: 44958,
+    images: [
+      {
+        src: '/images/prepared/cc6a99459d7874003fd37215/image.webp',
+        width: 1065,
+        height: 1110,
+        bytes: 43676,
+        sha256: 'ed3f4f58a69a25fdf43f4d16019c6d22558a0ba5a98de77d196697f8057b5786',
+      },
+    ],
+  },
+  '/images/archive/content/works/lighthouse/state-alpha.webp': {
+    sourceSha256: '661d75638ebdbdfd5d3a7aa0ba82cb116604edc323d034e505b25e9ee59014c3',
+    sourceBytes: 45484,
+    images: [
+      {
+        src: '/images/prepared/d324d661ae73c3f64aa38a2f/image.webp',
+        width: 1065,
+        height: 1110,
+        bytes: 42996,
+        sha256: 'fa688e7aea7df15b0e91be35acd6a4d4dea3ad178d726be8bb73e2669a860bb3',
+      },
+    ],
+  },
+  '/images/archive/content/works/lighthouse/state-theta.webp': {
+    sourceSha256: '64c0feacb0aaf5fadebe12e1d1cb819d01cd6b157d44ee00f1e161bb1672028e',
+    sourceBytes: 46800,
+    images: [
+      {
+        src: '/images/prepared/2474f3cd6ebf6cee095f83cb/image.webp',
+        width: 1065,
+        height: 1110,
+        bytes: 45362,
+        sha256: '3553765fe87c5f753d3602c05970011c90e26d5db5550ae2d5635357a0289737',
+      },
+    ],
+  },
+  '/images/archive/content/works/potustoronniy/potustoronniy-concept.webp': {
+    sourceSha256: '9fea83204543420b0ccf3a9c0bb035cfdf85304907f1d0d334a529d52fb863b3',
+    sourceBytes: 237658,
+    images: [
+      {
+        src: '/images/prepared/3f8cb83a5f3ad9a2fa90c2f2/image.webp',
+        width: 1920,
+        height: 1080,
+        bytes: 261200,
+        sha256: 'c614e9fc991aca80946742c8e218f2839f6a51d0960fcc5b8ee275ae99118102',
+      },
+    ],
+  },
+  '/images/archive/content/works/potustoronniy/potustoronniy-drum.webp': {
+    sourceSha256: '1068ff3229038f75f386be5555f786bb7e6215c9b6dfa243665fadf73fb4dc83',
+    sourceBytes: 3930,
+    images: [
+      {
+        src: '/images/prepared/fae63492e5fa1401e83e8bb6/image.webp',
+        width: 1200,
+        height: 675,
+        bytes: 3736,
+        sha256: '1f85ca6122240bd8e57ced1565afb582a3a6e741dc780896cd854b4d7907f29c',
+      },
+    ],
+  },
+  '/images/archive/content/works/potustoronniy/potustoronniy-storyboard.webp': {
+    sourceSha256: '96a8535da02dd4a50efaaf116935deb3ffba88ed0769ce8a80ad77cc661e1fe7',
+    sourceBytes: 188428,
+    images: [
+      {
+        src: '/images/prepared/1bfc00f0218541bd060a23c9/image.webp',
+        width: 1920,
+        height: 1080,
+        bytes: 209978,
+        sha256: 'd16e414108dc9dfd0357f8437bf6253840ca70162097e5fc4d012f1b28c1b63e',
+      },
+    ],
+  },
+  '/images/archive/content/works/potustoronniy/potustoronniy-tech.webp': {
+    sourceSha256: '3ba5feaa90b76d8c8b19c45802223545de32e4ebeb2477fa7bdd31d9c28ae3db',
+    sourceBytes: 80386,
+    images: [
+      {
+        src: '/images/prepared/d39a6f174d8c5f4a77cb8a35/image.webp',
+        width: 1920,
+        height: 1080,
+        bytes: 86984,
+        sha256: '15a3f10b7b362d5129e4888db7918d8f7c05eebbad31d7052aa7a3efca7d4545',
+      },
+    ],
+  },
+  '/images/archive/content/works/sync-circle/sync-circle-chairs-1.webp': {
+    sourceSha256: '1feeed434ad1daf3b1bc597e5427a21ce5a39f13246be5a708a4defbc9f24ef0',
+    sourceBytes: 17512,
+    images: [
+      {
+        src: '/images/prepared/f6094f60debc7284fe08635f/image.webp',
+        width: 1200,
+        height: 675,
+        bytes: 16096,
+        sha256: '6814b50b386ac68a25a8dea57b672dc395ded163e31b99843316dc8b36365dea',
+      },
+    ],
+  },
+  '/images/archive/content/works/sync-circle/sync-circle-chairs-2.webp': {
+    sourceSha256: '8f0a058d68a8a9273b4c47bbbd2ce7c0c12e7ab18659cab9f3eb6c24e8a2a7f0',
+    sourceBytes: 15126,
+    images: [
+      {
+        src: '/images/prepared/c7390500a8592a144d2d255b/image.webp',
+        width: 1200,
+        height: 675,
+        bytes: 14124,
+        sha256: '160578284effa117f1585c35d54c7f5757bb0b727103476e34decb8a73fd8e89',
+      },
+    ],
+  },
+  '/images/archive/content/works/sync-circle/sync-circle-chairs-3.webp': {
+    sourceSha256: '1560b62e5250d361c5e2294756fdc805becb7fe0f66461e09d7c9b2bddc6608a',
+    sourceBytes: 6138,
+    images: [
+      {
+        src: '/images/prepared/4bcbeb1ca84f1d97061a1482/image.webp',
+        width: 499,
+        height: 720,
+        bytes: 5790,
+        sha256: '24b79dc9bd1c39266fdd1c3c61d44b5aeeb2e74a4fa7a9db228321caff7433ad',
+      },
+    ],
+  },
+  '/images/archive/content/works/sync-circle/sync-circle-dimensions.webp': {
+    sourceSha256: '663426a2677541c72e120809892eafdead99b07eaf67771cb3de26b8e0147007',
+    sourceBytes: 64668,
+    images: [
+      {
+        src: '/images/prepared/edbf51a1c789bd02d4ceba34/image.webp',
+        width: 1200,
+        height: 1018,
+        bytes: 72164,
+        sha256: 'fb446222783c484706b1390c379552a83b8f20fb758edb9cf1b327cf5bbc03b3',
+      },
+    ],
+  },
+  '/images/archive/content/works/sync-circle/sync-circle-mandala.webp': {
+    sourceSha256: '819b4caf53cdfd910cae932828733f413d20373098f86805c297e0f14ccd25fd',
+    sourceBytes: 56788,
+    images: [
+      {
+        src: '/images/prepared/3d102bf540455f3d6c5893c8/image.webp',
+        width: 1200,
+        height: 1200,
+        bytes: 62540,
+        sha256: 'f33448b42b8a63426ab2007b9b61dbf5a2e1233f1d9dd0a1a79c2949df39fe2e',
+      },
+    ],
+  },
+  '/images/archive/content/works/sync-circle/sync-circle-mvc.webp': {
+    sourceSha256: '7a245eaa86a7ea2bb55493b591ddbd28463e68a928c314c23e9ec5b951ff58fe',
+    sourceBytes: 57682,
+    images: [
+      {
+        src: '/images/prepared/ef3c2eb25f619fbbd8a7510d/image.webp',
+        width: 1200,
+        height: 761,
+        bytes: 63062,
+        sha256: '226ef4841c036e859556676efab5639abb9f7db9ad937aa538c9b714c351a5be',
+      },
+    ],
+  },
+  '/images/archive/content/works/sync-circle/sync-circle-states.webp': {
+    sourceSha256: 'ba0f52441a8479e87f8388aed9e8276ec5faf44271ec360f0e197b9e1f1ebe8c',
+    sourceBytes: 58244,
+    images: [
+      {
+        src: '/images/prepared/3c2a1a648fa4dd956a91f39b/image.webp',
+        width: 1200,
+        height: 591,
+        bytes: 63346,
+        sha256: '671f9d7ef8286c604740dca8cc97bb7c46f755502b8e2cb42b6b8fb7c8373f76',
+      },
+    ],
+  },
+  '/images/archive/content/works/theatre-my-name/tim-ashram-2024-06.webp': {
+    sourceSha256: '2713ad4b04a51573498070a8102a7232c9df47fd62fa721d41688ab9f9aeb231',
+    sourceBytes: 107266,
+    images: [
+      {
+        src: '/images/prepared/131aee33da5f983732fe1f1e/image.webp',
+        width: 1920,
+        height: 1080,
+        bytes: 78512,
+        sha256: '411456a0515bf10976d9ffe46220fa5bc12cda21257c52cdbec0cb7d898f7164',
+      },
+    ],
+  },
+  '/images/archive/content/works/theatre-my-name/tim-ashram-2024-07.webp': {
+    sourceSha256: '23c9289b1a5483e73bc48d9fff2bf50fddd70a06a3fd258bd52a5fff1059bc85',
+    sourceBytes: 102772,
+    images: [
+      {
+        src: '/images/prepared/7c36adb8df059c1d5e008adc/image.webp',
+        width: 1080,
+        height: 1920,
+        bytes: 92550,
+        sha256: 'd03f1157858ef32f07fb4cc6c07d57ec39f8af71b8aa358da9cf0b69318a4557',
+      },
+    ],
+  },
+  '/images/archive/content/works/theatre-my-name/tim-ashram-2025-07.webp': {
+    sourceSha256: '78a3b484adf56ffd3e50bcb8127441bdb381c8fd86905d2d066864a1eb331579',
+    sourceBytes: 89542,
+    images: [
+      {
+        src: '/images/prepared/fdcf1530966e5a61e575f83a/image.webp',
+        width: 1080,
+        height: 1920,
+        bytes: 75574,
+        sha256: '15972a7b408a4d7a188f963b66a476cf14541fe01750febee0b2ee44867fe800',
+      },
+    ],
+  },
+  '/images/archive/content/materia/oda-rings/synergy-banner-preview.webp': {
+    sourceSha256: '6c10e4386ed01ffdba6f295b0d904562e455626d0a49f0b70e85c603a42eb790',
+    sourceBytes: 179244,
+    images: [
+      {
+        src: '/images/prepared/3fd3af5fc90de43d66b99c63/image.webp',
+        width: 1440,
+        height: 1920,
+        bytes: 160984,
+        sha256: 'c564ae9d19dd136c421d9886b25c3da22d16a51518dacaa011235244a2f91bc4',
       },
     ],
   },

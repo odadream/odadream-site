@@ -1723,7 +1723,8 @@ figcaption {
 }
 .media-figure[data-representation='document'] .media-open:hover img,
 .media-figure[data-representation='diagram'] .media-open:hover img,
-.media-figure[data-representation='poster'] .media-open:hover img {
+.media-figure[data-representation='poster'] .media-open:hover img,
+.media-figure[data-representation='screenshot'] .media-open:hover img {
   filter: none;
 }
 .media-figure[data-focal='top-left'] {

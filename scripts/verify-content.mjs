@@ -309,7 +309,9 @@ for (const item of data.media) {
       errors.push(`media ${item.id}: invalid ${size}`);
   if (
     item.representation &&
-    !['illustration', 'photograph', 'render', 'diagram', 'poster', 'document'].includes(item.representation)
+    !['illustration', 'photograph', 'render', 'diagram', 'poster', 'document', 'screenshot'].includes(
+      item.representation,
+    )
   )
     errors.push(`media ${item.id}: invalid representation`);
   if (
@@ -330,6 +332,19 @@ for (const item of data.media) {
 
   if (!['cleared', 'review', 'restricted'].includes(item.rights))
     errors.push(`media ${item.id}: invalid rights`);
+  if (item.originalAccess && !['public', 'internal'].includes(item.originalAccess))
+    errors.push(`media ${item.id}: invalid original access`);
+  if (item.archiveSource) {
+    const origin = mediaAudit.find((row) => row.path === item.archiveSource.path);
+    const input = await readFile(resolve('public', item.src.slice(1))).catch(() => undefined);
+    if (
+      !origin ||
+      origin.sha256 !== item.archiveSource.sha256 ||
+      !input ||
+      createHash('sha256').update(input).digest('hex') !== origin.sha256
+    )
+      errors.push(`media ${item.id}: archival source fingerprint drift`);
+  }
   if (item.kind === 'video' && !item.poster) errors.push(`media ${item.id}: video poster missing`);
   if (!item.src.startsWith('/')) errors.push(`media ${item.id}: source is not local`);
   else

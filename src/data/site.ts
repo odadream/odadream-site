@@ -3,6 +3,7 @@ import type { ParticipationDetail } from './editorial';
 import type { SourceReference } from './editorial';
 import type { EditorialSection } from './editorial';
 import { additionalWorks, additionalMedia } from './additional-works';
+import { archiveMedia, archiveMediaFor } from './archive-media';
 import {
   additionalEvents,
   eventMedia,
@@ -38,6 +39,9 @@ export interface Media {
   /** Byte-identical historical resources, subject to this media's publication scope and rights. */
   legacyPaths?: string[];
   src: string;
+  /** Preparation input retained for provenance; internal originals are excluded from dist. */
+  originalAccess?: 'public' | 'internal';
+  archiveSource?: { path: string; sha256: string; sourceIds: string[] };
   mobileSrc?: string;
   width?: number;
   height?: number;
@@ -48,7 +52,8 @@ export interface Media {
   rights: Rights;
   source: string;
   kind: 'image' | 'video';
-  representation?: 'illustration' | 'photograph' | 'render' | 'diagram' | 'poster' | 'document';
+  representation?:
+    'illustration' | 'photograph' | 'render' | 'diagram' | 'poster' | 'document' | 'screenshot';
   credit?: Localized;
   focalPoint?:
     | 'top-left'
@@ -409,13 +414,14 @@ export const media: Media[] = [
     width: 1440,
     height: 1080,
     src: '/images/content/mindshow_mdsh_v5.webp',
+    representation: 'screenshot',
     alt: {
       en: 'Generative visuals from MindShow',
       ru: 'Генеративная графика MindShow',
     },
     caption: {
-      en: 'MindShow · audiovisual study',
-      ru: 'MindShow · аудиовизуальный этюд',
+      en: 'MindShow · test visualization interface',
+      ru: 'MindShow · тестовый интерфейс визуализации',
     },
     rights: 'cleared',
     source: 'src/content/mindshow.md',
@@ -426,6 +432,7 @@ export const media: Media[] = [
     width: 1920,
     height: 1080,
     src: '/images/content/neurobattle_gameplay.webp',
+    representation: 'screenshot',
     alt: {
       en: 'Paradox of Success game screen',
       ru: 'Экран игры «Парадокс Успеха»',
@@ -565,6 +572,7 @@ export const media: Media[] = [
     source: 'src/content/neuromandala.md; owner display permission 2026-10-05',
   },
   ...additionalMedia,
+  ...archiveMedia,
 ];
 
 export const heroVisuals: HeroVisual[] = [
@@ -1448,11 +1456,12 @@ export const cases: CaseEvent[] = [
   })),
   ...historicalEvents,
   ...additionalEvents,
-];
+].map((row) => ({ ...row, media: [...new Set([...row.media, ...archiveMediaFor('case', row.id)])] }));
 
 export const eventSeries = seriesRecords;
 export const works: Work[] = artworkRecords.map((work) => ({
   ...work,
+  media: [...new Set([...work.media, ...archiveMediaFor('work', work.id)])],
   cases: [
     ...new Set([
       ...work.cases,
@@ -1471,6 +1480,7 @@ export const programmes = [
   ...additionalProgrammes,
 ].map((programme) => ({
   ...programme,
+  media: [...new Set([...programme.media, ...archiveMediaFor('programme', programme.id)])],
   cases: [
     ...new Set([
       ...programme.cases,

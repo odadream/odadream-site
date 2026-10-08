@@ -1,3 +1,4 @@
+import { archiveMediaFor } from './archive-media';
 import type { Localized, Publication } from './site';
 import { participationDetails, sourceSnapshots, type ParticipationDetail } from './editorial';
 import type { EditorialSection } from './editorial';
@@ -27,6 +28,7 @@ export interface Programme extends ParticipationDetail {
 export const educationOverview = {
   ...participationDetails['talk-workshop'],
   id: 'talk-workshop',
+  media: archiveMediaFor('education', 'talk-workshop'),
   legacyId: 'hub-lectures',
   slug: 'talk-workshop',
   title: { en: 'Talk or workshop', ru: 'Лекция или практикум' },

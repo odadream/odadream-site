@@ -16,7 +16,7 @@ export type MediaItem = Pick<
   | 'focalPoint'
 >;
 export type MediaFit = 'natural' | 'crop';
-export const fullFrameRepresentations = new Set(['diagram', 'poster', 'document']);
+export const fullFrameRepresentations = new Set(['diagram', 'poster', 'document', 'screenshot']);
 export function mediaFit(item: MediaItem, requested: MediaFit): MediaFit {
   return fullFrameRepresentations.has(item.representation ?? '') || (requested === 'crop' && !item.focalPoint)
     ? 'natural'
