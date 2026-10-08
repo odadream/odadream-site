@@ -969,9 +969,20 @@ export const sourceSnapshots: Record<string, SourceReference> = {
     sha256: '115796223779c30abb46085c805ae6adff18afc9f1e79d5d2fc33e31162b0032',
     snapshot: '2026-09-21',
   },
+  'Owner_IP_Confirmation_2026-10-08.md': {
+    file: 'Owner_IP_Confirmation_2026-10-08.md',
+    sha256: '2a387d30cfa066c91206c0e40540db11dfd73e8704e5de7fb435edaf222db018',
+    snapshot: '2026-10-08',
+  },
 };
 const refs = (...files: string[]) => files.map((file) => sourceSnapshots[file]);
 const l = (ru: string, en: string): Localized => ({ ru, en });
+
+// Registration and filing metadata confirmed by the owner on 2026-10-08; scans remain separate.
+export const intellectualProperty = {
+  trademark: { name: 'ODA.dream', number: '1237624', registeredOn: '2026-02-25' },
+  inventionApplication: { number: '2026113457/14(030103)', filedOn: '2026-04-30', status: 'filed' },
+} as const;
 
 export const methods: Method[] = [
   {
@@ -983,6 +994,14 @@ export const methods: Method[] = [
       'Neuromandala is ODA.dream’s system for using biosignal parameters to shape image, sound and an artistic environment. A participant observes its response and becomes a co-author of the process.',
     ),
     sections: [
+      {
+        id: 'invention-application',
+        title: l('Заявка на изобретение', 'Invention application'),
+        body: l(
+          `Заявка на изобретение №${intellectualProperty.inventionApplication.number} подана 30 апреля 2026 года. Номер и дата подтверждены владельцем студии. Подача заявки не означает выдачу патента.`,
+          `Invention application No. ${intellectualProperty.inventionApplication.number} was filed on 30 April 2026. The number and date were confirmed by the studio owner. Filing does not establish a granted patent.`,
+        ),
+      },
       {
         id: 'method-overview',
         title: l('Метод и художественная позиция', 'Method and artistic position'),
@@ -1085,6 +1104,7 @@ export const methods: Method[] = [
     works: ['neuromandala', 'mindshow', 'neurosync', 'interference', 'neurobattle'],
     media: ['neuromandala-frequencies'],
     sourceRefs: refs(
+      'Owner_IP_Confirmation_2026-10-08.md',
       'neuromandala.md',
       'multisync.md',
       'mindshow.md',

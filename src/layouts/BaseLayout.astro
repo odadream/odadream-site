@@ -10,6 +10,7 @@ import '@fontsource/manrope/latin-500.css';
 import '@fontsource/manrope/latin-800.css';
 import '@fontsource/manrope/cyrillic-500.css';
 import { socialLinks } from '../data/site';
+import { intellectualProperty } from '../data/editorial';
 import { cases, mediaById, works, preview, people } from '../data/catalogue';
 import { pairedPath, navigationFor, type Page } from '../lib/routes';
 import DzenIcon from '../assets/social/dzen.svg';
@@ -314,7 +315,13 @@ const breadcrumbSchema =
             © 2018–{new Date().getFullYear()}{' '}
             <span class="footer-brand">
               ODA.dream
-              <sup title={page.lang === 'ru' ? 'Зарегистрированный товарный знак' : 'Registered trademark'}>
+              <sup
+                title={
+                  page.lang === 'ru'
+                    ? `Товарный знак №${intellectualProperty.trademark.number} от 25.02.2026`
+                    : `Registered trademark No. ${intellectualProperty.trademark.number}, 25 February 2026`
+                }
+              >
                 ®
               </sup>
             </span>

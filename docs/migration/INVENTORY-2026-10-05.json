@@ -12602,6 +12602,14 @@
         "scopeVersion": "v2-full-content-2026-10-07.1",
         "state": "excluded",
         "targets": [],
+        "reason": "Institution-only pointer excluded: owner confirms application filing, not formal-examination outcome or an institutional relationship.",
+        "sourceSha256": "9b425f9639f5893c35724b493d375c2012118b426c956f0862275865f05406f8"
+      },
+      "previousIPReview": {
+        "asOf": "2026-10-08",
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "state": "excluded",
+        "targets": [],
         "reason": "Only unsupported patent-status pointer; no application number or examination receipt found in supplied sources; no institutional relationship inferred",
         "sourceSha256": "9b425f9639f5893c35724b493d375c2012118b426c956f0862275865f05406f8"
       }
@@ -14034,6 +14042,16 @@
         "needsSourceResolution": true
       },
       "currentCanonicalApplication": {
+        "asOf": "2026-10-08",
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "state": "merged",
+        "targets": [
+          "StudioPage:studio"
+        ],
+        "reason": "Legal registration context merged into studio IP metadata, confirmed by owner identifiers. No institutional partnership inferred.",
+        "sourceSha256": "20817228b933a94b2e7bb06b4c956639f9b534b4d9d208c785d4c29e37371892"
+      },
+      "previousIPReview": {
         "asOf": "2026-10-08",
         "scopeVersion": "v2-full-content-2026-10-07.1",
         "state": "excluded",
@@ -15843,6 +15861,17 @@
       "currentCanonicalApplication": {
         "asOf": "2026-10-08",
         "scopeVersion": "v2-full-content-2026-10-07.1",
+        "state": "applied",
+        "targets": [
+          "Method:neuromandala",
+          "StudioPage:studio"
+        ],
+        "reason": "Owner confirmed application No. 2026113457/14(030103), filed 2026-04-30. Filing only; no granted patent or formal-examination outcome inferred.",
+        "sourceSha256": "228cf8615a4ad46ef0d29d95538c2743280d921c5349c74a98e4ed1d874441cc"
+      },
+      "previousIPReview": {
+        "asOf": "2026-10-08",
+        "scopeVersion": "v2-full-content-2026-10-07.1",
         "state": "excluded",
         "targets": [],
         "reason": "Template filing-status assertion lacks application identifier/receipt; technical method retained, filing/granted status not invented",
@@ -15909,6 +15938,16 @@
         "needsSourceResolution": false
       },
       "currentCanonicalApplication": {
+        "asOf": "2026-10-08",
+        "scopeVersion": "v2-full-content-2026-10-07.1",
+        "state": "applied",
+        "targets": [
+          "StudioPage:studio"
+        ],
+        "reason": "Owner confirmed trademark No. 1237624, registered 2026-02-25. Shared footer uses the same identifier; certificate scan not yet located.",
+        "sourceSha256": "fd158c81535809049e5b55f5f6c347b100608f7d3efc4ad171247b4c61d4636b"
+      },
+      "previousIPReview": {
         "asOf": "2026-10-08",
         "scopeVersion": "v2-full-content-2026-10-07.1",
         "state": "merged",
@@ -22748,6 +22787,11 @@
       "file": "hub-chastoti.md",
       "sha256": "115796223779c30abb46085c805ae6adff18afc9f1e79d5d2fc33e31162b0032",
       "snapshot": "2026-09-21"
+    },
+    "Owner_IP_Confirmation_2026-10-08.md": {
+      "file": "Owner_IP_Confirmation_2026-10-08.md",
+      "sha256": "2a387d30cfa066c91206c0e40540db11dfd73e8704e5de7fb435edaf222db018",
+      "snapshot": "2026-10-08"
     }
   },
   "currentRouting": {
@@ -28057,7 +28101,23 @@
       ],
       "limitation": "Search Console returns top rows, not a guarantee of all indexed/visited URLs. No observed legacy row does not prove no indexed entrance. Only page aggregates; search terms and raw query/contact values are not saved."
     },
-    "limitation": "Provider settings and historical aggregate traffic are not a live V2 delivery test. No observed traffic does not establish no external entrances; dates, consent, provider capture and truncation limit coverage. Unknown URLs and all query/contact payloads are redacted. No provider/hub state changed."
+    "limitation": "Provider settings and historical aggregate traffic are not a live V2 delivery test. No observed traffic does not establish no external entrances; dates, consent, provider capture and truncation limit coverage. Unknown URLs and all query/contact payloads are redacted. No provider/hub state changed.",
+    "latestAccessCheck": {
+      "asOf": "2026-10-08",
+      "mode": "read-only",
+      "google": {
+        "analyticsReadOnly": true,
+        "analyticsEdit": false,
+        "streamCount": 1,
+        "isolatedV2StreamFound": false
+      },
+      "metrica": {
+        "counterCount": 1,
+        "existingCounterPermission": "own",
+        "isolatedV2CounterFound": false
+      },
+      "outcome": "Read access works; no provider configuration changed and no V2 delivery test claimed."
+    }
   },
   "currentSentMaterialEvidence": {
     "asOf": "2026-10-06",
@@ -29474,6 +29534,24 @@
         ],
         "asOf": "2026-10-08",
         "state": "selected event facts applied; conflicting exhibition end dates not assigned"
+      }
+    },
+    "Owner_IP_Confirmation_2026-10-08.md": {
+      "sha256": "2a387d30cfa066c91206c0e40540db11dfd73e8704e5de7fb435edaf222db018",
+      "snapshot": "2026-10-08",
+      "kind": "external-editorial",
+      "sourcePath": "D:\\YandexDisk\\_ODA2\\Сайт\\odadream-site-v2\\.local-server\\source-snapshots\\Owner_IP_Confirmation_2026-10-08.md",
+      "scope": "Owner confirmation in the current Codex conversation; identifiers and dates only, no certificate scan or examination outcome.",
+      "sourceFile": "Owner_IP_Confirmation_2026-10-08.md",
+      "v2Migration": {
+        "asOf": "2026-10-08",
+        "targets": [
+          "StudioPage:studio",
+          "Method:neuromandala"
+        ],
+        "sourceSha256": "2a387d30cfa066c91206c0e40540db11dfd73e8704e5de7fb435edaf222db018",
+        "state": "selected-content-migrated; editorial-review-pending",
+        "scope": "Public registration/filing metadata. Patent application scan kept internal; trademark certificate scan not located."
       }
     }
   },
@@ -35677,8 +35755,8 @@
     "status": "passed",
     "sourceIds": 238,
     "counts": {
-      "applied": 154,
-      "excluded": 23,
+      "applied": 156,
+      "excluded": 21,
       "merged": 61
     },
     "canonicalWorks": 23,
@@ -35687,7 +35765,7 @@
     "recognitions": 17,
     "historicalSummary": "summary/routing/proposedAction are dated V1/core analysis, not the current transfer status",
     "authority": "entries.currentCanonicalApplication plus currentFullMediaReassessment.items.application",
-    "bounds": "Editorial transfer, not verbatim copy; unavailable legal identifiers and unsubstantiated assertions remain explicitly unknown/excluded. No physical realization or direct organizer quotation is invented.",
+    "bounds": "Editorial transfer, not verbatim copy. Owner confirmed trademark registration and invention application identifiers on 2026-10-08; scans remain unpublished. No examination outcome, granted patent, physical realization or direct organizer quotation is invented.",
     "verification": {
       "verifier": "scripts/verify-source-coverage.mjs; integrated into content:check",
       "versionedDispositions": 238,
@@ -35696,7 +35774,7 @@
       "additionalRecoveredContexts": 4,
       "e2ePassed": 127,
       "e2eSkipped": 17,
-      "astroFiles": 134,
+      "astroFiles": 135,
       "astroErrors": 0,
       "canonicalPages": 102,
       "localizedHtml": 104,
@@ -35706,6 +35784,33 @@
       "publicAllowedAssets": 279
     },
     "sourceMedia": 137,
-    "publicMedia": 136
+    "publicMedia": 136,
+    "ownerIPConfirmation": {
+      "asOf": "2026-10-08",
+      "source": "Owner_IP_Confirmation_2026-10-08.md",
+      "trademark": {
+        "number": "1237624",
+        "registeredOn": "2026-02-25"
+      },
+      "inventionApplication": {
+        "number": "2026113457/14(030103)",
+        "filedOn": "2026-04-30",
+        "status": "filed"
+      },
+      "scans": "Not published; invention scan kept internal, trademark certificate scan not located.",
+      "verification": {
+        "unitPassed": 83,
+        "e2ePassed": 127,
+        "e2eSkipped": 17,
+        "astroErrors": 0,
+        "contentCheck": "238 source dispositions and all public targets passed",
+        "build": "107 HTML pages; 2454 internal links; 1548 resource references",
+        "visualWidths": [
+          601,
+          1280
+        ],
+        "scanPublished": false
+      }
+    }
   }
 }

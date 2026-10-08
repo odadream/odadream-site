@@ -1,6 +1,6 @@
 import type { Localized, Person, Publication } from './site';
 import type { EditorialSection, SourceReference } from './editorial';
-import { sourceSnapshots } from './editorial';
+import { intellectualProperty, sourceSnapshots } from './editorial';
 
 export interface StudioPage {
   id: string;
@@ -106,6 +106,14 @@ export const studioPages: StudioPage[] = [
     ),
     people: ['olga', 'daler'],
     sections: [
+      {
+        id: 'intellectual-property',
+        title: l('Товарный знак и изобретение', 'Trademark and invention'),
+        body: l(
+          `ODA.dream® — зарегистрированный товарный знак №${intellectualProperty.trademark.number} от 25 февраля 2026 года. Заявка на изобретение №${intellectualProperty.inventionApplication.number} подана 30 апреля 2026 года. Номера и даты подтверждены владельцем студии; подача заявки не означает выдачу патента.`,
+          `ODA.dream® is registered trademark No. ${intellectualProperty.trademark.number}, dated 25 February 2026. Invention application No. ${intellectualProperty.inventionApplication.number} was filed on 30 April 2026. The numbers and dates were confirmed by the studio owner; filing does not establish a granted patent.`,
+        ),
+      },
       {
         id: 'submissions',
         title: {
@@ -252,6 +260,7 @@ export const studioPages: StudioPage[] = [
       },
     ],
     sourceRefs: refs(
+      'Owner_IP_Confirmation_2026-10-08.md',
       'Golem_Ars_2026.md',
       'CYENS_Final_Status_2026.md',
       'hub-press.md',
