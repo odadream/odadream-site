@@ -82,3 +82,10 @@ const result = spawnSync(
 );
 if (result.error) throw result.error;
 process.exitCode = result.status ?? 1;
+if (process.exitCode === 0) {
+  const { format, resolveConfig } = await import('prettier');
+  for (const path of ['src/data/prepared-media.ts', 'src/data/prepared-videos.ts']) {
+    const config = await resolveConfig(path);
+    await writeFile(path, await format(await readFile(path, 'utf8'), { ...config, filepath: path }));
+  }
+}

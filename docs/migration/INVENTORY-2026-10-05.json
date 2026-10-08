@@ -20198,18 +20198,21 @@
     "note": "All 11 archived PDFs parsed. Annotation links inspected, not fetched. Contacts counted without address disclosure. All 55 pages scanned for QR at 144 dpi; two historical personal contact codes in the selected rings banner decoded. No absence, delivery or current contact ownership inferred. No publication or retirement approvals inferred."
   },
   "currentCandidateVerification": {
-    "asOf": "2026-10-06",
-    "fixture": true,
-    "scope": "Selected packet with synthetic approval statuses in an isolated private copy; rights are unchanged. Not a release artifact.",
-    "localizedPages": 44,
-    "works": 9,
-    "cases": 7,
-    "workDocuments": 2,
-    "recognitions": 0,
+    "asOf": "2026-10-08",
+    "fixture": false,
+    "isolated": true,
+    "scope": "Full current publication projection in an isolated private copy; approvals and rights unchanged. Not authorized for deployment.",
+    "localizedPages": 102,
+    "works": 23,
+    "programmes": 15,
+    "media": 136,
+    "cases": 37,
+    "workDocuments": 11,
+    "recognitions": 14,
     "minddb": false,
-    "internalLinksChecked": 846,
-    "geometryScenarios": 60,
-    "resourcesWithHttp200": 29,
+    "internalLinksChecked": 2388,
+    "geometryScenarios": 110,
+    "resourcesWithHttp200": 279,
     "environment": {
       "node": "v22.17.0",
       "platform": "win32",
@@ -20225,30 +20228,30 @@
         "runs": [
           {
             "scores": {
-              "performance": 85,
+              "performance": 87,
               "accessibility": 100,
-              "best-practices": 100,
+              "best-practices": 96,
               "seo": 100
             },
-            "fcpMs": 1509,
-            "lcpMs": 4368,
+            "fcpMs": 1414,
+            "lcpMs": 3929,
             "cls": 0.0004373260147328842,
             "tbtMs": 0,
             "failedAudits": [
               {
                 "id": "first-contentful-paint",
                 "title": "First Contentful Paint",
-                "score": 0.96
+                "score": 0.97
               },
               {
                 "id": "largest-contentful-paint",
                 "title": "Largest Contentful Paint",
-                "score": 0.4
+                "score": 0.51
               },
               {
                 "id": "interactive",
                 "title": "Time to Interactive",
-                "score": 0.82
+                "score": 0.88
               },
               {
                 "id": "largest-contentful-paint-element",
@@ -20283,6 +20286,11 @@
               {
                 "id": "uses-responsive-images",
                 "title": "Properly size images",
+                "score": 0
+              },
+              {
+                "id": "font-size",
+                "title": "Document doesn't use legible font sizes",
                 "score": 0
               },
               {
@@ -20324,40 +20332,30 @@
           },
           {
             "scores": {
-              "performance": 83,
+              "performance": 87,
               "accessibility": 100,
-              "best-practices": 100,
+              "best-practices": 96,
               "seo": 100
             },
-            "fcpMs": 1662,
-            "lcpMs": 4374,
+            "fcpMs": 1528,
+            "lcpMs": 3955,
             "cls": 0.0004373260147328842,
-            "tbtMs": 133,
+            "tbtMs": 0,
             "failedAudits": [
               {
                 "id": "first-contentful-paint",
                 "title": "First Contentful Paint",
-                "score": 0.93
+                "score": 0.95
               },
               {
                 "id": "largest-contentful-paint",
                 "title": "Largest Contentful Paint",
-                "score": 0.4
-              },
-              {
-                "id": "total-blocking-time",
-                "title": "Total Blocking Time",
-                "score": 0.96
-              },
-              {
-                "id": "max-potential-fid",
-                "title": "Max Potential First Input Delay",
-                "score": 0.72
+                "score": 0.51
               },
               {
                 "id": "interactive",
                 "title": "Time to Interactive",
-                "score": 0.82
+                "score": 0.87
               },
               {
                 "id": "largest-contentful-paint-element",
@@ -20392,6 +20390,11 @@
               {
                 "id": "uses-responsive-images",
                 "title": "Properly size images",
+                "score": 0.5
+              },
+              {
+                "id": "font-size",
+                "title": "Document doesn't use legible font sizes",
                 "score": 0
               },
               {
@@ -20433,30 +20436,30 @@
           },
           {
             "scores": {
-              "performance": 84,
+              "performance": 89,
               "accessibility": 100,
-              "best-practices": 100,
+              "best-practices": 96,
               "seo": 100
             },
-            "fcpMs": 1659,
-            "lcpMs": 4443,
+            "fcpMs": 1531,
+            "lcpMs": 3730,
             "cls": 0.0004373260147328842,
             "tbtMs": 0,
             "failedAudits": [
               {
                 "id": "first-contentful-paint",
                 "title": "First Contentful Paint",
-                "score": 0.93
+                "score": 0.95
               },
               {
                 "id": "largest-contentful-paint",
                 "title": "Largest Contentful Paint",
-                "score": 0.38
+                "score": 0.57
               },
               {
                 "id": "interactive",
                 "title": "Time to Interactive",
-                "score": 0.81
+                "score": 0.9
               },
               {
                 "id": "largest-contentful-paint-element",
@@ -20491,6 +20494,11 @@
               {
                 "id": "uses-responsive-images",
                 "title": "Properly size images",
+                "score": 0.5
+              },
+              {
+                "id": "font-size",
+                "title": "Document doesn't use legible font sizes",
                 "score": 0
               },
               {
@@ -20532,13 +20540,13 @@
           }
         ],
         "scores": {
-          "performance": 84,
+          "performance": 87,
           "accessibility": 100,
-          "best-practices": 100,
+          "best-practices": 96,
           "seo": 100
         },
-        "fcpMs": 1659,
-        "lcpMs": 4374,
+        "fcpMs": 1528,
+        "lcpMs": 3929,
         "cls": 0.0004373260147328842,
         "tbtMs": 0
       },
@@ -20548,20 +20556,25 @@
         "runs": [
           {
             "scores": {
-              "performance": 99,
+              "performance": 100,
               "accessibility": 100,
               "best-practices": 100,
               "seo": 100
             },
-            "fcpMs": 375,
-            "lcpMs": 840,
-            "cls": 0.000153845255815311,
-            "tbtMs": 0,
+            "fcpMs": 487,
+            "lcpMs": 717,
+            "cls": 0.0001746070104777749,
+            "tbtMs": 12,
             "failedAudits": [
               {
                 "id": "largest-contentful-paint",
                 "title": "Largest Contentful Paint",
-                "score": 0.97
+                "score": 0.99
+              },
+              {
+                "id": "lcp-lazy-loaded",
+                "title": "Largest Contentful Paint image was lazily loaded",
+                "score": 0.5
               },
               {
                 "id": "unsized-images",
@@ -20576,7 +20589,7 @@
               {
                 "id": "render-blocking-resources",
                 "title": "Eliminate render-blocking resources",
-                "score": 0.5
+                "score": 0
               },
               {
                 "id": "unused-css-rules",
@@ -20591,7 +20604,7 @@
               {
                 "id": "uses-responsive-images",
                 "title": "Properly size images",
-                "score": 0
+                "score": 0.5
               },
               {
                 "id": "cache-insight",
@@ -20611,7 +20624,7 @@
               {
                 "id": "image-delivery-insight",
                 "title": "Improve image delivery",
-                "score": 0
+                "score": 0.5
               },
               {
                 "id": "lcp-discovery-insight",
@@ -20632,20 +20645,25 @@
           },
           {
             "scores": {
-              "performance": 99,
+              "performance": 100,
               "accessibility": 100,
               "best-practices": 100,
               "seo": 100
             },
-            "fcpMs": 457,
-            "lcpMs": 842,
-            "cls": 0.000153845255815311,
+            "fcpMs": 478,
+            "lcpMs": 757,
+            "cls": 0.0001737664536088492,
             "tbtMs": 0,
             "failedAudits": [
               {
                 "id": "largest-contentful-paint",
                 "title": "Largest Contentful Paint",
-                "score": 0.97
+                "score": 0.98
+              },
+              {
+                "id": "lcp-lazy-loaded",
+                "title": "Largest Contentful Paint image was lazily loaded",
+                "score": 0.5
               },
               {
                 "id": "unsized-images",
@@ -20660,7 +20678,7 @@
               {
                 "id": "render-blocking-resources",
                 "title": "Eliminate render-blocking resources",
-                "score": 0.5
+                "score": 0
               },
               {
                 "id": "unused-css-rules",
@@ -20675,7 +20693,7 @@
               {
                 "id": "uses-responsive-images",
                 "title": "Properly size images",
-                "score": 0
+                "score": 0.5
               },
               {
                 "id": "cache-insight",
@@ -20695,7 +20713,7 @@
               {
                 "id": "image-delivery-insight",
                 "title": "Improve image delivery",
-                "score": 0
+                "score": 0.5
               },
               {
                 "id": "lcp-discovery-insight",
@@ -20716,20 +20734,25 @@
           },
           {
             "scores": {
-              "performance": 99,
+              "performance": 100,
               "accessibility": 100,
               "best-practices": 100,
               "seo": 100
             },
-            "fcpMs": 408,
-            "lcpMs": 857,
-            "cls": 0.000153845255815311,
+            "fcpMs": 372,
+            "lcpMs": 699,
+            "cls": 0.0001746070104777749,
             "tbtMs": 0,
             "failedAudits": [
               {
                 "id": "largest-contentful-paint",
                 "title": "Largest Contentful Paint",
-                "score": 0.97
+                "score": 0.99
+              },
+              {
+                "id": "lcp-lazy-loaded",
+                "title": "Largest Contentful Paint image was lazily loaded",
+                "score": 0.5
               },
               {
                 "id": "unsized-images",
@@ -20744,12 +20767,12 @@
               {
                 "id": "render-blocking-resources",
                 "title": "Eliminate render-blocking resources",
-                "score": 0
+                "score": 0.5
               },
               {
                 "id": "unused-css-rules",
                 "title": "Reduce unused CSS",
-                "score": 0
+                "score": 0.5
               },
               {
                 "id": "uses-text-compression",
@@ -20759,7 +20782,7 @@
               {
                 "id": "uses-responsive-images",
                 "title": "Properly size images",
-                "score": 0
+                "score": 0.5
               },
               {
                 "id": "cache-insight",
@@ -20779,7 +20802,7 @@
               {
                 "id": "image-delivery-insight",
                 "title": "Improve image delivery",
-                "score": 0
+                "score": 0.5
               },
               {
                 "id": "lcp-discovery-insight",
@@ -20794,20 +20817,20 @@
               {
                 "id": "render-blocking-insight",
                 "title": "Render blocking requests",
-                "score": 0
+                "score": 0.5
               }
             ]
           }
         ],
         "scores": {
-          "performance": 99,
+          "performance": 100,
           "accessibility": 100,
           "best-practices": 100,
           "seo": 100
         },
-        "fcpMs": 408,
-        "lcpMs": 842,
-        "cls": 0.000153845255815311,
+        "fcpMs": 478,
+        "lcpMs": 717,
+        "cls": 0.0001746070104777749,
         "tbtMs": 0
       },
       {
@@ -20816,213 +20839,218 @@
         "runs": [
           {
             "scores": {
-              "performance": 98,
+              "performance": 93,
               "accessibility": 100,
               "best-practices": 100,
               "seo": 100
             },
-            "fcpMs": 1506,
-            "lcpMs": 2331,
+            "fcpMs": 1963,
+            "lcpMs": 3013,
             "cls": 0.0002428728939244178,
             "tbtMs": 0,
             "failedAudits": [
               {
                 "id": "first-contentful-paint",
                 "title": "First Contentful Paint",
+                "score": 0.85
+              },
+              {
+                "id": "largest-contentful-paint",
+                "title": "Largest Contentful Paint",
+                "score": 0.78
+              },
+              {
+                "id": "speed-index",
+                "title": "Speed Index",
+                "score": 0.99
+              },
+              {
+                "id": "interactive",
+                "title": "Time to Interactive",
+                "score": 0.95
+              },
+              {
+                "id": "largest-contentful-paint-element",
+                "title": "Largest Contentful Paint element",
+                "score": 0
+              },
+              {
+                "id": "uses-long-cache-ttl",
+                "title": "Serve static assets with an efficient cache policy",
+                "score": 0.5
+              },
+              {
+                "id": "render-blocking-resources",
+                "title": "Eliminate render-blocking resources",
+                "score": 0
+              },
+              {
+                "id": "unused-css-rules",
+                "title": "Reduce unused CSS",
+                "score": 0
+              },
+              {
+                "id": "uses-text-compression",
+                "title": "Enable text compression",
+                "score": 0
+              },
+              {
+                "id": "uses-responsive-images",
+                "title": "Properly size images",
+                "score": 0
+              },
+              {
+                "id": "cache-insight",
+                "title": "Use efficient cache lifetimes",
+                "score": 0
+              },
+              {
+                "id": "document-latency-insight",
+                "title": "Document request latency",
+                "score": 0.5
+              },
+              {
+                "id": "forced-reflow-insight",
+                "title": "Forced reflow",
+                "score": 0
+              },
+              {
+                "id": "image-delivery-insight",
+                "title": "Improve image delivery",
+                "score": 0
+              },
+              {
+                "id": "network-dependency-tree-insight",
+                "title": "Network dependency tree",
+                "score": 0
+              },
+              {
+                "id": "render-blocking-insight",
+                "title": "Render blocking requests",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "scores": {
+              "performance": 93,
+              "accessibility": 100,
+              "best-practices": 100,
+              "seo": 100
+            },
+            "fcpMs": 1957,
+            "lcpMs": 3007,
+            "cls": 0.0002428728939244178,
+            "tbtMs": 0,
+            "failedAudits": [
+              {
+                "id": "first-contentful-paint",
+                "title": "First Contentful Paint",
+                "score": 0.85
+              },
+              {
+                "id": "largest-contentful-paint",
+                "title": "Largest Contentful Paint",
+                "score": 0.78
+              },
+              {
+                "id": "speed-index",
+                "title": "Speed Index",
+                "score": 0.99
+              },
+              {
+                "id": "interactive",
+                "title": "Time to Interactive",
+                "score": 0.95
+              },
+              {
+                "id": "largest-contentful-paint-element",
+                "title": "Largest Contentful Paint element",
+                "score": 0
+              },
+              {
+                "id": "uses-long-cache-ttl",
+                "title": "Serve static assets with an efficient cache policy",
+                "score": 0.5
+              },
+              {
+                "id": "render-blocking-resources",
+                "title": "Eliminate render-blocking resources",
+                "score": 0
+              },
+              {
+                "id": "unused-css-rules",
+                "title": "Reduce unused CSS",
+                "score": 0
+              },
+              {
+                "id": "uses-text-compression",
+                "title": "Enable text compression",
+                "score": 0
+              },
+              {
+                "id": "uses-responsive-images",
+                "title": "Properly size images",
+                "score": 0
+              },
+              {
+                "id": "cache-insight",
+                "title": "Use efficient cache lifetimes",
+                "score": 0
+              },
+              {
+                "id": "document-latency-insight",
+                "title": "Document request latency",
+                "score": 0.5
+              },
+              {
+                "id": "forced-reflow-insight",
+                "title": "Forced reflow",
+                "score": 0
+              },
+              {
+                "id": "image-delivery-insight",
+                "title": "Improve image delivery",
+                "score": 0
+              },
+              {
+                "id": "network-dependency-tree-insight",
+                "title": "Network dependency tree",
+                "score": 0
+              },
+              {
+                "id": "render-blocking-insight",
+                "title": "Render blocking requests",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "scores": {
+              "performance": 99,
+              "accessibility": 100,
+              "best-practices": 100,
+              "seo": 100
+            },
+            "fcpMs": 1520,
+            "lcpMs": 2120,
+            "cls": 0.0002428728939244178,
+            "tbtMs": 0,
+            "failedAudits": [
+              {
+                "id": "first-contentful-paint",
+                "title": "First Contentful Paint",
+                "score": 0.95
+              },
+              {
+                "id": "largest-contentful-paint",
+                "title": "Largest Contentful Paint",
                 "score": 0.96
               },
               {
-                "id": "largest-contentful-paint",
-                "title": "Largest Contentful Paint",
-                "score": 0.93
-              },
-              {
                 "id": "interactive",
                 "title": "Time to Interactive",
                 "score": 0.99
-              },
-              {
-                "id": "unsized-images",
-                "title": "Image elements do not have explicit `width` and `height`",
-                "score": 0.5
-              },
-              {
-                "id": "uses-long-cache-ttl",
-                "title": "Serve static assets with an efficient cache policy",
-                "score": 0.5
-              },
-              {
-                "id": "render-blocking-resources",
-                "title": "Eliminate render-blocking resources",
-                "score": 0
-              },
-              {
-                "id": "unused-css-rules",
-                "title": "Reduce unused CSS",
-                "score": 0
-              },
-              {
-                "id": "uses-text-compression",
-                "title": "Enable text compression",
-                "score": 0
-              },
-              {
-                "id": "uses-responsive-images",
-                "title": "Properly size images",
-                "score": 0
-              },
-              {
-                "id": "cache-insight",
-                "title": "Use efficient cache lifetimes",
-                "score": 0
-              },
-              {
-                "id": "document-latency-insight",
-                "title": "Document request latency",
-                "score": 0.5
-              },
-              {
-                "id": "forced-reflow-insight",
-                "title": "Forced reflow",
-                "score": 0
-              },
-              {
-                "id": "image-delivery-insight",
-                "title": "Improve image delivery",
-                "score": 0
-              },
-              {
-                "id": "network-dependency-tree-insight",
-                "title": "Network dependency tree",
-                "score": 0
-              },
-              {
-                "id": "render-blocking-insight",
-                "title": "Render blocking requests",
-                "score": 0
-              }
-            ]
-          },
-          {
-            "scores": {
-              "performance": 98,
-              "accessibility": 100,
-              "best-practices": 100,
-              "seo": 100
-            },
-            "fcpMs": 1658,
-            "lcpMs": 2333,
-            "cls": 0.0002428728939244178,
-            "tbtMs": 0,
-            "failedAudits": [
-              {
-                "id": "first-contentful-paint",
-                "title": "First Contentful Paint",
-                "score": 0.93
-              },
-              {
-                "id": "largest-contentful-paint",
-                "title": "Largest Contentful Paint",
-                "score": 0.93
-              },
-              {
-                "id": "interactive",
-                "title": "Time to Interactive",
-                "score": 0.99
-              },
-              {
-                "id": "unsized-images",
-                "title": "Image elements do not have explicit `width` and `height`",
-                "score": 0.5
-              },
-              {
-                "id": "uses-long-cache-ttl",
-                "title": "Serve static assets with an efficient cache policy",
-                "score": 0.5
-              },
-              {
-                "id": "render-blocking-resources",
-                "title": "Eliminate render-blocking resources",
-                "score": 0
-              },
-              {
-                "id": "unused-css-rules",
-                "title": "Reduce unused CSS",
-                "score": 0
-              },
-              {
-                "id": "uses-text-compression",
-                "title": "Enable text compression",
-                "score": 0
-              },
-              {
-                "id": "uses-responsive-images",
-                "title": "Properly size images",
-                "score": 0
-              },
-              {
-                "id": "cache-insight",
-                "title": "Use efficient cache lifetimes",
-                "score": 0
-              },
-              {
-                "id": "document-latency-insight",
-                "title": "Document request latency",
-                "score": 0.5
-              },
-              {
-                "id": "forced-reflow-insight",
-                "title": "Forced reflow",
-                "score": 0
-              },
-              {
-                "id": "image-delivery-insight",
-                "title": "Improve image delivery",
-                "score": 0
-              },
-              {
-                "id": "network-dependency-tree-insight",
-                "title": "Network dependency tree",
-                "score": 0
-              },
-              {
-                "id": "render-blocking-insight",
-                "title": "Render blocking requests",
-                "score": 0
-              }
-            ]
-          },
-          {
-            "scores": {
-              "performance": 97,
-              "accessibility": 100,
-              "best-practices": 100,
-              "seo": 100
-            },
-            "fcpMs": 1807,
-            "lcpMs": 2336,
-            "cls": 0.0002428728939244178,
-            "tbtMs": 0,
-            "failedAudits": [
-              {
-                "id": "first-contentful-paint",
-                "title": "First Contentful Paint",
-                "score": 0.89
-              },
-              {
-                "id": "largest-contentful-paint",
-                "title": "Largest Contentful Paint",
-                "score": 0.93
-              },
-              {
-                "id": "interactive",
-                "title": "Time to Interactive",
-                "score": 0.99
-              },
-              {
-                "id": "unsized-images",
-                "title": "Image elements do not have explicit `width` and `height`",
-                "score": 0.5
               },
               {
                 "id": "uses-long-cache-ttl",
@@ -21083,20 +21111,18 @@
           }
         ],
         "scores": {
-          "performance": 98,
+          "performance": 93,
           "accessibility": 100,
           "best-practices": 100,
           "seo": 100
         },
-        "fcpMs": 1658,
-        "lcpMs": 2333,
+        "fcpMs": 1957,
+        "lcpMs": 3007,
         "cls": 0.0002428728939244178,
         "tbtMs": 0
       }
     ],
-    "limitation": "Lighthouse laboratory measurements of this candidate fixture, not field INP, editorial approval, real analytics delivery or permission to deploy.",
-    "historicalOnly": true,
-    "supersededByScope": "v2-full-content-2026-10-07.1"
+    "limitation": "Lighthouse laboratory measurements of the current isolated production projection, not field INP, editorial approval, real analytics delivery or permission to deploy."
   },
   "currentOutboundAudit": {
     "asOf": "2026-10-06",
@@ -32600,7 +32626,17 @@
       "content": "passed",
       "build": "107 total / 104 localized HTML; allowlist and internal locator checks passed",
       "releaseGate": "passed; not full migration completion",
-      "textAccess": "Private hashed cache; never exported to dist"
+      "textAccess": "Private hashed cache; never exported to dist",
+      "cacheRepeat": {
+        "sourceCount": 330,
+        "allReused": true,
+        "rerenderOrTextExtractionRequired": false,
+        "pdfSourcePages": 63,
+        "publicPdfPages": 62,
+        "publicPdfPageMedianBytes": 160000,
+        "publicPdfPageMaxBytes": 457000,
+        "publicPdfPageBytesApprox": 11300000
+      }
     }
   },
   "currentCanonicalLinkVerification": {

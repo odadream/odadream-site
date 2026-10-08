@@ -20,24 +20,10 @@ for (const path of ['src', 'scripts', 'public'])
   await cp(resolve(root, path), join(directory, path), { recursive: true });
 for (const file of ['astro.config.mjs', 'package.json', 'tsconfig.json'])
   await cp(resolve(root, file), join(directory, file));
-// A test fixture only: candidate records simulate approval, while rights and the real public projection stay enforced.
-const fixture = original
-  .replace(
-    'export const catalogue = createPublicationScope(source, publicationPlan, preview);',
-    `const fixture = {...source};
-for (const key of ['works','configurations','programmes','methods','cooperationPages','studioPages','cases','people','recognitions'] as const) {
-  const selected = new Set(publicationPlan[key] ?? []);
-  fixture[key] = source[key].map(row => ({...row, publication: selected.has(row.id) ? 'published' as const : row.publication})) as never;
-}
-export const catalogue = createPublicationScope(fixture, publicationPlan, false);
-if(catalogue.errors.length) throw new Error(catalogue.errors.join('\\n'));`,
-  )
-  .replace('export const preview = import.meta.env?.DEV === true;', 'export const preview = false;');
-if (fixture === original) throw new Error('Rehearsal catalogue replacement failed');
-await writeFile(join(directory, 'src/data/catalogue.ts'), fixture);
+// Build the real publication projection in an isolated copy without changing approvals.
 await writeFile(
   join(directory, 'REHEARSAL-NOT-FOR-DEPLOYMENT.txt'),
-  'Synthetic publication statuses only. This directory is not a release artifact.\n',
+  'Isolated QA copy of the current publication projection; not authorized for deployment.\n',
 );
 async function run(args) {
   await new Promise((resolvePromise, reject) => {
@@ -62,7 +48,7 @@ await run([resolve(root, 'node_modules/astro/astro.js'), 'build']);
 await run(['scripts/verify-build.mjs']);
 await writeFile(
   join(directory, 'dist/REHEARSAL-NOT-FOR-DEPLOYMENT.txt'),
-  'Synthetic publication fixture; do not deploy.\n',
+  'Isolated QA artifact; do not deploy.\n',
 );
 if (
   createHash('sha256')
@@ -81,7 +67,7 @@ await new Promise((resolvePromise, reject) => {
       `
     import{loadSiteModule}from'./scripts/site-data.mjs';
     const{catalogue}=await loadSiteModule('src/data/catalogue.ts');const{pages}=await loadSiteModule('src/lib/routes.ts');
-    console.log(JSON.stringify({pages:pages.map(({path,anchors})=>({path,anchors})),assets:[...catalogue.assetPaths],works:catalogue.works.length,cases:catalogue.cases.length,documents:catalogue.workDocuments.length,recognitions:catalogue.recognitions.length,minddb:!!catalogue.minddbSnapshot}));
+    console.log(JSON.stringify({pages:pages.map(({path,anchors})=>({path,anchors})),assets:[...catalogue.assetPaths],works:catalogue.works.length,programmes:catalogue.programmes.length,media:catalogue.media.length,cases:catalogue.cases.length,documents:catalogue.workDocuments.length,recognitions:catalogue.recognitions.length,minddb:!!catalogue.minddbSnapshot}));
   `,
     ],
     { cwd: directory, windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'] },
@@ -100,7 +86,11 @@ await new Promise((resolvePromise, reject) => {
 await writeFile(join(directory, 'scope.json'), JSON.stringify(summary, null, 2) + '\n');
 await writeFile(
   resolve(root, '.local-server/candidate-rehearsal.json'),
-  JSON.stringify({ directory, dist: join(directory, 'dist'), fixture: true, summary }, null, 2) + '\n',
+  JSON.stringify(
+    { directory, dist: join(directory, 'dist'), isolated: true, fixture: false, summary },
+    null,
+    2,
+  ) + '\n',
 );
 console.log(
   `Private candidate rehearsal verified: ${summary.pages.length} localized pages, ${summary.works} works, ${summary.cases} events, ${summary.documents} work PDFs. Real publication statuses unchanged. Pointer: .local-server/candidate-rehearsal.json`,

@@ -180,7 +180,7 @@ items:
     title: Проверить публичный кандидат расширенного корпуса
     area: migration
     priority: P0
-    status: planned
+    status: done
     outcome: Весь новый набор, роли, меню, медиа и старые входы проверены одной воспроизводимой проекцией.
     acceptance:
       - Проверены все реальные Work/Programme/Case, связи, RU/EN, обе темы, мобильный/desktop и отказ загрузки.
@@ -195,6 +195,8 @@ items:
       - NAVIGATION-STRUCTURE-02
       - URL-MIGRATION-01
     source: docs/MIGRATION-PLAN.md, раздел 6
+    progress: "Завершено 2026-10-08: фактическая публичная проекция без синтетических approvals; 102 канонические страницы, 2388 ссылок, 279 файлов HTTP 200, 110 сочетаний ширины/темы/страницы. Три повторных Lighthouse-прогона на сценарий: главная mobile 87, desktop 100, кольца mobile 93; accessibility/SEO 100. 78 unit, 9 engine, 122 E2E, Astro/content/build/format/release прошли. Loopback без HTTP-сжатия/кеша, измерения не равны полевому INP и доставке аналитики. Подробности в inventory, отчёты приватны."
+
   - id: SOURCE-COVERAGE-01
     title: Сверить покрытие всех содержательных источников расширенного переноса
     area: migration

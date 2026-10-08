@@ -7,7 +7,7 @@ import lighthouse, { desktopConfig } from 'lighthouse';
 const pointer = JSON.parse(await readFile('.local-server/candidate-rehearsal.json', 'utf8'));
 const privateRoot = resolve('.local-server');
 const dist = resolve(pointer.dist);
-if (!pointer.fixture || !dist.startsWith(privateRoot + sep))
+if (!pointer.isolated || pointer.fixture || !dist.startsWith(privateRoot + sep))
   throw Error('Candidate is not a private rehearsal');
 const summary = pointer.summary;
 const htmlByPath = new Map();
@@ -17,8 +17,8 @@ let links = 0;
 for (const [pagePath, html] of htmlByPath) {
   for (const match of html.matchAll(/<a\b[^>]*\bhref="([^"\s]+)"/g)) {
     const href = match[1].replaceAll('&amp;', '&');
-    if (!href.startsWith('/')) continue;
-    const target = new URL(href, 'https://odadream.art');
+    if (!href.startsWith('/') && !href.startsWith('#')) continue;
+    const target = new URL(href, 'https://odadream.art' + pagePath);
     if (target.pathname === '/design-system/') throw Error('Design stand in candidate');
     const document = htmlByPath.get(target.pathname);
     if (document) {
@@ -86,8 +86,15 @@ try {
         '/en/cases/dano-2025/',
         '/ru/studio/',
         '/en/education/',
+        '/ru/works/neuro-honor-board/',
+        '/en/works/other-people/',
+        '/ru/recognition/',
+        '/en/cooperation/',
+        '/ru/works/lighthouse/',
       ]) {
-        await page.goto(base + path, { waitUntil: 'domcontentloaded' });
+        if (!htmlByPath.has(path)) throw Error(`Unknown geometry page ${path}`);
+        const response = await page.goto(base + path, { waitUntil: 'domcontentloaded' });
+        if (response?.status() !== 200) throw Error(`Geometry page HTTP ${response?.status()}: ${path}`);
         await page.evaluate(async (theme) => {
           document.documentElement.dataset.theme = theme;
           await document.fonts.ready;
@@ -180,12 +187,15 @@ try {
 const inventoryPath = 'docs/migration/INVENTORY-2026-10-05.json';
 const inventory = JSON.parse(await readFile(inventoryPath, 'utf8'));
 inventory.currentCandidateVerification = {
-  asOf: '2026-10-06',
-  fixture: true,
+  asOf: '2026-10-08',
+  fixture: false,
+  isolated: true,
   scope:
-    'Selected packet with synthetic approval statuses in an isolated private copy; rights are unchanged. Not a release artifact.',
+    'Full current publication projection in an isolated private copy; approvals and rights unchanged. Not authorized for deployment.',
   localizedPages: summary.pages.length,
   works: summary.works,
+  programmes: summary.programmes,
+  media: summary.media,
   cases: summary.cases,
   workDocuments: summary.documents,
   recognitions: summary.recognitions,
@@ -196,7 +206,7 @@ inventory.currentCandidateVerification = {
   environment,
   performance,
   limitation:
-    'Lighthouse laboratory measurements of this candidate fixture, not field INP, editorial approval, real analytics delivery or permission to deploy.',
+    'Lighthouse laboratory measurements of the current isolated production projection, not field INP, editorial approval, real analytics delivery or permission to deploy.',
 };
 await writeFile(inventoryPath, JSON.stringify(inventory, null, 2) + '\n');
 console.log(
