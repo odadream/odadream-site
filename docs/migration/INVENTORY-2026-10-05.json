@@ -32602,5 +32602,18 @@
       "releaseGate": "passed; not full migration completion",
       "textAccess": "Private hashed cache; never exported to dist"
     }
+  },
+  "currentCanonicalLinkVerification": {
+    "asOf": "2026-10-08",
+    "status": "passed",
+    "verifier": "scripts/verify-build.mjs",
+    "localizedHtml": 104,
+    "internalLinks": 2412,
+    "resourceReferences": 1548,
+    "http200CanonicalPages": 102,
+    "http200AllowedAssets": 279,
+    "http404InternalOrExcludedAssets": 25,
+    "errors": 0,
+    "legacyNotice": "RU/EN root?id, /formats/, unknown404; manual home link and 5-second return verified by E2E; no runtime ID map"
   }
 }

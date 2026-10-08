@@ -18,11 +18,13 @@ for (const lang of ['en', 'ru']) await visit(resolve(root, lang), `/${lang}/`);
 const { pages } = await loadSiteModule('src/lib/routes.ts');
 const compatibilityPaths = ['/en/formats/', '/ru/formats/'];
 const expectedPaths = new Set([...pages.map((page) => page.path), ...compatibilityPaths]);
+const htmlByPath = new Map();
 for (const path of expectedPaths) if (!pagePaths.includes(path)) fail(`Missing localized page ${path}`);
 for (const path of pagePaths) if (!expectedPaths.has(path)) fail(`Unexpected localized page ${path}`);
 for (const path of pagePaths) {
   const lang = path.startsWith('/ru/') ? 'ru' : 'en';
   const html = await readFile(resolve(root, path.slice(1), 'index.html'), 'utf8');
+  htmlByPath.set(path, html);
   if (!compatibilityPaths.includes(path)) validatePageCodes(html, path);
   for (const token of [
     `<html lang="${lang}"`,
@@ -110,3 +112,26 @@ for (const path of await publicFiles(root)) {
   if (output.includes('data-editorial-preview')) fail(`Editorial preview included in public output ${path}`);
 }
 console.log(`Verified public asset allowlist and absence of internal locators.`);
+
+// Check the complete emitted link graph, including same-page anchors and lazy media.
+let internalLinks = 0;
+let resourceReferences = 0;
+for (const [path, html] of htmlByPath) {
+  for (const match of html.matchAll(/\b(href|src|poster|data-src|data-poster)="([^"\s]+)"/g)) {
+    const href = match[2].replaceAll('&amp;', '&');
+    if (!href.startsWith('/') && !href.startsWith('#')) continue;
+    const target = new URL(href, `https://odadream.art${path}`);
+    if (target.origin !== 'https://odadream.art') continue;
+    const document = htmlByPath.get(target.pathname);
+    if (document !== undefined) {
+      if (target.hash && !document.includes(`id="${decodeURIComponent(target.hash.slice(1))}"`))
+        fail(`Missing anchor: ${path} -> ${href}`);
+      internalLinks++;
+    } else {
+      const metadata = await stat(resolve(root, target.pathname.slice(1))).catch(() => undefined);
+      if (!metadata?.isFile()) fail(`Missing internal destination: ${path} -> ${href}`);
+      resourceReferences++;
+    }
+  }
+}
+console.log(`Verified ${internalLinks} internal links and ${resourceReferences} resource references.`);
