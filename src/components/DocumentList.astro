@@ -21,10 +21,10 @@ const size = (bytes: number) => {
 };
 const metadata = (document: Props['documents'][number]) =>
   [
-    document.year,
+    document.year ?? (ru ? 'Год не указан' : 'Year unspecified'),
     'WebP',
     document.language.toUpperCase(),
-    `${document.pages} ${ru ? 'стр.' : 'pp.'}`,
+    `${document.pageImages?.length === document.pages ? document.pages : `${document.pageImages?.length ?? 0}/${document.pages}`} ${ru ? 'стр.' : 'pp.'}`,
     size((document.pageImages ?? []).reduce((total, page) => total + page.bytes, 0)),
   ].join(' · ');
 const pageItems = (document: DocumentMetadata): MediaItem[] =>
@@ -34,12 +34,12 @@ const pageItems = (document: DocumentMetadata): MediaItem[] =>
     kind: 'image',
     representation: 'document',
     alt: {
-      ru: `${document.title.ru} — страница ${index + 1}`,
-      en: `${document.title.en} — page ${index + 1}`,
+      ru: `${document.title.ru} — страница ${page.pageNumber ?? index + 1}`,
+      en: `${document.title.en} — page ${page.pageNumber ?? index + 1}`,
     },
     caption: {
-      ru: `Страница ${index + 1} из ${document.pages}`,
-      en: `Page ${index + 1} of ${document.pages}`,
+      ru: `Страница ${page.pageNumber ?? index + 1} из ${document.pages}`,
+      en: `Page ${page.pageNumber ?? index + 1} of ${document.pages}`,
     },
   }));
 ---
@@ -56,9 +56,11 @@ const pageItems = (document: DocumentMetadata): MediaItem[] =>
               <strong>{document.title[lang]}</strong>
               <p class="small-note">{document.description[lang]}</p>
             </div>
-            <CalloutLink href={document.href} target="_blank" rel="noopener">
-              {ru ? 'Исходный PDF' : 'Original PDF'} · {size(document.bytes)}
-            </CalloutLink>
+            {document.href && document.originalAccess !== 'internal' && (
+              <CalloutLink href={document.href} target="_blank" rel="noopener">
+                {ru ? 'Исходный PDF' : 'Original PDF'} · {size(document.bytes)}
+              </CalloutLink>
+            )}
           </div>
           <MediaGallery
             id={`document-pages-${document.id}`}

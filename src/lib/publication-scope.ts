@@ -169,7 +169,8 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
   });
   const recognitions = select('recognitions', source.recognitions)
     .filter((row) => {
-      if (preview || row.documentRights === 'cleared') return true;
+      if (preview || row.documentRights === 'cleared' || (row.documentState === 'missing' && !row.previewSrc))
+        return true;
       errors.push(`recognition ${row.id}: document rights ${row.documentRights}`);
       return false;
     })
@@ -327,21 +328,21 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
           ]),
           owner: { kind: row.owner.kind, id: row.owner.id },
         })),
-        workDocuments: workDocuments.map((row) =>
-          project(row, [
+        workDocuments: workDocuments.map((row) => ({
+          ...project(row, [
             'id',
             'legacyId',
             'workId',
             'title',
             'description',
-            'href',
             'year',
             'language',
             'pages',
             'bytes',
             'pageImages',
           ]),
-        ),
+          ...(row.originalAccess === 'internal' ? {} : { href: row.href }),
+        })),
         studioPages: studioPages.map((row) =>
           project(row, [
             'id',
@@ -621,7 +622,15 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
       : row;
   });
   const assetPaths = new Set(['/CNAME', '/robots.txt', '/brand/oda-logo.svg', '/brand/oda-brain.svg']);
-  for (const row of projected.workDocuments) assetPaths.add(row.href);
+  projected.recognitions = projected.recognitions.map((row) => {
+    const image = row.previewSrc ? preparedMedia[row.previewSrc]?.images[0] : undefined;
+    return image
+      ? { ...row, previewSrc: image.src, documentSource: image.src, width: image.width, height: image.height }
+      : { ...row, documentSource: row.documentState === 'missing' ? '' : row.documentSource };
+  });
+  for (const row of projected.workDocuments)
+    if (row.href && (!('originalAccess' in row) || row.originalAccess !== 'internal'))
+      assetPaths.add(row.href);
   for (const row of projected.referenceDocuments) assetPaths.add(row.href);
   for (const row of [...projected.workDocuments, ...projected.referenceDocuments])
     for (const page of row.pageImages ?? []) {

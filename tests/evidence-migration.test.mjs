@@ -40,6 +40,7 @@ test('inspecting a prize image neither approves document rights nor exposes inte
   assert.match(prize.claim.ru, /первое место/);
   assert.match(prize.documentSha256, /^[a-f0-9]{64}$/);
   prize.publication = 'published';
+  prize.documentRights = 'review';
   const plan = { ...empty, recognitions: [prize.id] };
   const pending = createPublicationScope(source, plan);
   assert.equal(pending.recognitions.length, 0);
@@ -47,8 +48,9 @@ test('inspecting a prize image neither approves document rights nor exposes inte
   prize.documentRights = 'cleared';
   const publicData = createPublicationScope(source, plan);
   assert.equal(publicData.recognitions.length, 1);
-  assert.ok(publicData.assetPaths.has(prize.documentSource));
-  assert.ok(publicData.assetPaths.has(prize.previewSrc));
+  assert.ok(publicData.assetPaths.has(publicData.recognitions[0].documentSource));
+  assert.ok(publicData.assetPaths.has(publicData.recognitions[0].previewSrc));
+  assert.ok(!publicData.assetPaths.has(prize.previewSrc));
   assert.ok(!JSON.stringify(publicData.recognitions).includes('documentSha256'));
   assert.ok(!JSON.stringify(publicData.recognitions).includes('sourceRefs'));
   assert.equal(publicData.recognitions[0].contextPath, undefined);

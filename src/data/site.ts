@@ -1,3 +1,4 @@
+import { archiveRecognitions } from './archive-recognitions';
 import { participationDetails } from './editorial';
 import type { ParticipationDetail } from './editorial';
 import type { SourceReference } from './editorial';
@@ -41,7 +42,7 @@ export interface Media {
   src: string;
   /** Preparation input retained for provenance; internal originals are excluded from dist. */
   originalAccess?: 'public' | 'internal';
-  archiveSource?: { path: string; sha256: string; sourceIds: string[] };
+  archiveSource?: { path: string; sha256: string; sourceIds: string[]; inputPath?: string };
   mobileSrc?: string;
   width?: number;
   height?: number;
@@ -192,6 +193,8 @@ export interface Recognition extends RecognitionDetail {
   previewSrc?: string;
   publication: Publication;
   documentRights: Rights;
+  width?: number;
+  height?: number;
 }
 export interface Person {
   id: string;
@@ -1270,7 +1273,7 @@ const recognitionRecords: Omit<Recognition, keyof RecognitionDetail>[] = [
     legacyId: 'proof-mipt-letter',
     kind: 'acknowledgement-letter',
     year: 2025,
-    featuredOnHome: true,
+    featuredOnHome: false,
     title: { en: 'Letter of recognition', ru: 'Благодарственное письмо' },
     issuer: {
       en: 'Moscow Institute of Physics and Technology',
@@ -1286,7 +1289,7 @@ const recognitionRecords: Omit<Recognition, keyof RecognitionDetail>[] = [
     legacyId: 'proof-award-portal-visioning',
     kind: 'award',
     year: 2025,
-    featuredOnHome: false,
+    featuredOnHome: true,
     title: {
       en: 'First prize · Portal 2030–2050, VJ contest',
       ru: 'Первое место · Портал 2030–2050, «Виджеинг»',
@@ -1334,10 +1337,17 @@ const recognitionRecords: Omit<Recognition, keyof RecognitionDetail>[] = [
   },
 ];
 
-export const recognitions: Recognition[] = recognitionRecords.map((row) => ({
-  ...row,
-  ...recognitionDetails[row.id],
-}));
+export const recognitions: Recognition[] = [
+  ...recognitionRecords.map((row) => ({
+    ...row,
+    ...recognitionDetails[row.id],
+    publication: 'published' as const,
+    documentRights:
+      recognitionDetails[row.id].documentState === 'available' ? ('cleared' as const) : ('review' as const),
+    source: row.source + '; owner authorization for full studio material migration 2026-10-05/07',
+  })),
+  ...archiveRecognitions,
+];
 
 const caseRecords: Omit<
   CaseEvent,

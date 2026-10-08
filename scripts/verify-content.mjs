@@ -336,7 +336,9 @@ for (const item of data.media) {
     errors.push(`media ${item.id}: invalid original access`);
   if (item.archiveSource) {
     const origin = mediaAudit.find((row) => row.path === item.archiveSource.path);
-    const input = await readFile(resolve('public', item.src.slice(1))).catch(() => undefined);
+    const input = await readFile(
+      resolve('public', (item.archiveSource.inputPath ?? item.src).slice(1)),
+    ).catch(() => undefined);
     if (
       !origin ||
       origin.sha256 !== item.archiveSource.sha256 ||
@@ -492,17 +494,27 @@ for (const item of data.workDocuments) {
   if (
     !Number.isInteger(item.pages) ||
     item.pages < 1 ||
-    !Number.isInteger(item.year) ||
+    (item.year !== null && !Number.isInteger(item.year)) ||
     !['en', 'ru'].includes(item.language)
   )
     errors.push(`work document ${item.id}: invalid metadata`);
+  if (item.originalAccess && !['public', 'internal'].includes(item.originalAccess))
+    errors.push(`work document ${item.id}: invalid original access`);
+  if (
+    item.selectedPages &&
+    (!item.selectedPages.length ||
+      new Set(item.selectedPages).size !== item.selectedPages.length ||
+      item.selectedPages.some((page) => !Number.isInteger(page) || page < 1 || page > item.pages))
+  )
+    errors.push(`work document ${item.id}: invalid selected pages`);
   const original = mediaAudit.find((row) => row.path === item.href);
   const decision = mediaDecisions[item.href];
   if (
     original?.sha256 !== item.sha256 ||
-    decision?.action !== 'preserve' ||
-    decision.workDocumentId !== item.id ||
-    decision.sha256 !== item.sha256
+    (item.originalAccess !== 'internal' &&
+      (decision?.action !== 'preserve' ||
+        decision.workDocumentId !== item.id ||
+        decision.sha256 !== item.sha256))
   )
     errors.push(`work document ${item.id}: preservation record drift`);
   const bytes = await readFile(resolve('public', item.href.slice(1))).catch(() => undefined);

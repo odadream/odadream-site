@@ -100,8 +100,8 @@ export const recognitionDetails: Record<string, RecognitionDetail> = {
     ),
     recipient: l('Ольга и Далер Арабовы', 'Olga and Daler Arabov'),
     limitations: l(
-      'Письмо подтверждает участие, а не награду за отдельную работу. Год — по архиву; отдельная дата на показанном документе не указана.',
-      'The letter recognises participation, not an award for an individual work. The year is from the archive; no separate date appears on the displayed document.',
+      'Письмо благодарит участников фестиваля; оно не устанавливает очный показ работы, награду или результат отдельной заявки. Год — по архиву, отдельная дата не указана.',
+      'The letter thanks festival participants; it does not establish an in-person presentation, an award or a particular application result. The year follows the archive; no separate date is printed.',
     ),
     relatedWorks: [],
     documentState: 'available',

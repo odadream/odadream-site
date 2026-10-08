@@ -124,6 +124,7 @@ test('selected document and media permissions are checked, not bypassed by selec
   const { source, plan } = fixture();
   const recognition = source.recognitions[0];
   recognition.publication = 'published';
+  recognition.documentRights = 'review';
   plan.recognitions = [recognition.id];
   const media = source.media.find((row) => row.id === source.works[0].media[0]);
   media.rights = 'restricted';

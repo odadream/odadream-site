@@ -7,20 +7,45 @@ export async function verifyPreparedMedia(data) {
   const { preparedMedia } = await loadSiteModule('src/data/prepared-media.ts');
   const errors = [];
   const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
+  const { preparedVideos } = await loadSiteModule('src/data/prepared-videos.ts');
+  for (const video of data.media.filter((row) => row.kind === 'video' && row.archiveSource?.inputPath)) {
+    const proof = preparedVideos[video.id];
+    if (!proof || proof.sourceSha256 !== video.archiveSource.sha256 || proof.files.length !== 3)
+      errors.push(`video ${video.id}: derivatives missing or stale`);
+    for (const file of proof?.files ?? []) {
+      if (![video.src, video.previewSrc, video.poster].includes(file.src))
+        errors.push(`video ${video.id}: unexpected output`);
+      const bytes = await readFile(resolve('public', file.src.slice(1))).catch(() => undefined);
+      if (!bytes || bytes.length !== file.bytes || hash(bytes) !== file.sha256)
+        errors.push(`video ${video.id}: derivative changed ${file.src}`);
+    }
+  }
   const documents = [...data.workDocuments, ...data.referenceDocuments];
   for (const document of documents) {
     if (document.rights !== 'cleared') continue;
     const proof = preparedMedia[document.href];
-    if (!proof || proof.sourceSha256 !== document.sha256 || proof.images.length !== document.pages)
+    if (
+      !proof ||
+      proof.sourceSha256 !== document.sha256 ||
+      (proof.sourcePages ?? proof.images.length) !== document.pages ||
+      proof.images.length !== (document.selectedPages?.length ?? document.pages)
+    )
       errors.push(`document ${document.id}: page derivatives missing or stale; run media:prepare`);
-    if (document.pageImages?.length !== document.pages)
+    if (document.pageImages?.length !== (document.selectedPages?.length ?? document.pages))
       errors.push(`document ${document.id}: incomplete page gallery`);
-    const expected = proof?.images.map(({ src, width, height, bytes }) => ({ src, width, height, bytes }));
+    const expected = proof?.images.map(({ src, width, height, bytes, pageNumber }) => ({
+      src,
+      width,
+      height,
+      bytes,
+      ...(pageNumber ? { pageNumber } : {}),
+    }));
     if (JSON.stringify(document.pageImages) !== JSON.stringify(expected))
       errors.push(`document ${document.id}: gallery disagrees with preparation record`);
   }
   const sourcePaths = new Set([
     ...documents.map((row) => row.href),
+    ...data.recognitions.flatMap((row) => (row.previewSrc ? [row.previewSrc] : [])),
     ...data.media
       .filter((row) => row.kind === 'image')
       .flatMap((row) => [row.src, row.mobileSrc].filter(Boolean)),

@@ -7,9 +7,10 @@ const refs = (...files: string[]) => files.map((file) => sourceSnapshots[file]);
 
 export type DocumentMetadata = Pick<
   WorkDocument,
-  'id' | 'title' | 'description' | 'href' | 'year' | 'language' | 'pages' | 'bytes' | 'pageImages'
->;
+  'id' | 'title' | 'description' | 'year' | 'language' | 'pages' | 'bytes' | 'pageImages' | 'originalAccess'
+> & { href?: string };
 export interface ReferenceDocument extends DocumentMetadata {
+  href: string;
   kind: 'technical-overview' | 'cv';
   personId?: string;
   owner: { kind: 'cooperation' | 'studio'; id: string };

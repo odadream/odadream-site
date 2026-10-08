@@ -63,6 +63,41 @@ export interface CooperationPage {
 
 // Exact bytes of dated V1 and owner-provided editorial snapshots, not current availability claims.
 export const sourceSnapshots: Record<string, SourceReference> = {
+  'media-another-people-docs.md': {
+    file: 'media-another-people-docs.md',
+    sha256: '49eb30f6f95957874b2cffcd5b839c8cc6b6adec302eda842eb0d4e55970c64a',
+    snapshot: '2026-09-21',
+  },
+  'media-dashran-docs.md': {
+    file: 'media-dashran-docs.md',
+    sha256: 'cedeef5c49f916469b2e49fd8846a49680ef0d5795995bfbf6e31b25c16448c1',
+    snapshot: '2026-09-21',
+  },
+  'media-fourth-dimension-tz.md': {
+    file: 'media-fourth-dimension-tz.md',
+    sha256: 'cddc43a6cc337b9a909912d80c7b3446923702ce96950d28f534623858dc19a3',
+    snapshot: '2026-09-21',
+  },
+  'media-honors-presentation.md': {
+    file: 'media-honors-presentation.md',
+    sha256: '995432a94b011f1ad4552f59afbb8ceb14e1e083e444fddfcae6ed6b9ebc2795',
+    snapshot: '2026-09-21',
+  },
+  'media-mom-baby-brochure.md': {
+    file: 'media-mom-baby-brochure.md',
+    sha256: 'a678afb934c90f7a809e5f4860f17d5be158487775b53837e6f39d67309dd399',
+    snapshot: '2026-09-21',
+  },
+  'media-mom-baby-drawings.md': {
+    file: 'media-mom-baby-drawings.md',
+    sha256: '853d9eeadcc2c95b1854fa77a677447f49d3df05a6388fa44d8bf2ceb34e3f06',
+    snapshot: '2026-09-21',
+  },
+  'media-potustoronniy-deck.md': {
+    file: 'media-potustoronniy-deck.md',
+    sha256: '5dbcb1c6dec8c72eba3c05b1da8396503583798bec622bd88c518abd8dab2b9c',
+    snapshot: '2026-09-21',
+  },
   'Education_Source_b386e325729a.md': {
     file: 'Education_Source_b386e325729a.md',
     sha256: 'b386e325729a99a52b0b1ed1a38831e7d458f8d7e8a5ec61dd021efea63d24d7',

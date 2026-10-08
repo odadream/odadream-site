@@ -124,3 +124,23 @@ test('unknown page addresses warn and return home; missing binary assets remain 
     expect((await request.get(base + path)).status()).toBe(404);
   }
 });
+
+test('private dossier originals and the excluded budget page are absent from the public artifact', async ({
+  page,
+  request,
+}) => {
+  await page.goto(`${base}/ru/works/other-people/`);
+  const dossier = page.locator('#document-other-people-en');
+  await expect(dossier.locator('img')).toHaveCount(4);
+  await expect(dossier.locator('a[href$=".pdf"]')).toHaveCount(0);
+  const first = await dossier.locator('img').first().getAttribute('src');
+  expect((await request.get(base + first!.replace('page-001', 'page-005'))).status()).toBe(404);
+  for (const path of [
+    '/documents/other-people-art-science-society.pdf',
+    '/documents/dashran-tech-spec-nur.pdf',
+    '/video/archive/source/blended-spin.m4v',
+  ])
+    expect((await request.get(base + path)).status()).toBe(404);
+  for (const image of await dossier.locator('img').all())
+    expect((await request.get(base + (await image.getAttribute('src')))).status()).toBe(200);
+});

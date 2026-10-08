@@ -4,6 +4,7 @@ export const preparedMedia: Record<string, PreparedAsset> = {
   '/documents/oda-rings-drawings-v220927.pdf': {
     sourceSha256: 'db6d16e59bdb669e81049f48a3752c07c8e71e180aea33d6bbd62176e88e3593',
     sourceBytes: 4636536,
+    sourcePages: 1,
     images: [
       {
         src: '/images/prepared/6cd8219e84bd66d4d5d6b261/page-001.webp',
@@ -17,6 +18,7 @@ export const preparedMedia: Record<string, PreparedAsset> = {
   '/documents/oda-rings-synergy-banner-2022.pdf': {
     sourceSha256: 'bb32ed031005fdbe96b8f31c82f76a0c1fa95f7e582f52a5f589b4eea73b069f',
     sourceBytes: 40404691,
+    sourcePages: 1,
     images: [
       {
         src: '/images/prepared/9888809e97c51840ed42f146/page-001.webp',
@@ -27,9 +29,441 @@ export const preparedMedia: Record<string, PreparedAsset> = {
       },
     ],
   },
+  '/documents/dashran-tech-description.pdf': {
+    sourceSha256: '6dec4d7293a7d567cb684c1481324f216e19c5b5e87d1596f752645ac204a0e5',
+    sourceBytes: 242546,
+    sourcePages: 6,
+    images: [
+      {
+        src: '/images/prepared/10dd623fa56578e489116b91/page-001.webp',
+        width: 1839,
+        height: 2600,
+        bytes: 309518,
+        sha256: 'a4797729883f0353c46c288ad29f16c5032a2d9f37e7770a3daab2c77c67bb13',
+      },
+      {
+        src: '/images/prepared/10dd623fa56578e489116b91/page-002.webp',
+        width: 1839,
+        height: 2600,
+        bytes: 355710,
+        sha256: 'd843832f80e4b6622ad994d54c7d93cfcd5c7d1f5046ab57cbe4ccf01ccee9f9',
+      },
+      {
+        src: '/images/prepared/10dd623fa56578e489116b91/page-003.webp',
+        width: 1839,
+        height: 2600,
+        bytes: 196170,
+        sha256: '3d46a9c5185531cef3e956e21afea13ecb5999677eff2236a6fb9ac188d01c10',
+      },
+      {
+        src: '/images/prepared/10dd623fa56578e489116b91/page-004.webp',
+        width: 1839,
+        height: 2600,
+        bytes: 221992,
+        sha256: '2ebd112faff08eeb442f518681dc33d48c130fe18399b0c6e15426bd04d62f43',
+      },
+      {
+        src: '/images/prepared/10dd623fa56578e489116b91/page-005.webp',
+        width: 1839,
+        height: 2600,
+        bytes: 212334,
+        sha256: '495779bf922145144dd50192cfed3788c424f4327f2a3c4495bce2d5a0a3cdfc',
+      },
+      {
+        src: '/images/prepared/10dd623fa56578e489116b91/page-006.webp',
+        width: 1839,
+        height: 2600,
+        bytes: 84056,
+        sha256: 'f75f5fe071f278790755c27db190de5d872d2b54e04354bf4d4797f00f22e22a',
+      },
+    ],
+  },
+  '/documents/dashran-tech-spec-nur.pdf': {
+    sourceSha256: 'c523a25ef15a2fd5fa63034640711960477cd548502e758a9dca39e85da4d672',
+    sourceBytes: 1132522,
+    sourcePages: 9,
+    images: [
+      {
+        src: '/images/prepared/700eac05f75091fb65347604/page-001.webp',
+        width: 2010,
+        height: 2600,
+        bytes: 308226,
+        sha256: 'a42fff5ace516d4a84b61e8f0afe43e97b7ce5109d141df354c7effc98edd4f5',
+      },
+      {
+        src: '/images/prepared/700eac05f75091fb65347604/page-002.webp',
+        width: 2010,
+        height: 2600,
+        bytes: 151508,
+        sha256: '080329814a66b6dfd0bb8f3909ff2049ddecd195b37c50bc863233a39a464f44',
+      },
+      {
+        src: '/images/prepared/700eac05f75091fb65347604/page-003.webp',
+        width: 2010,
+        height: 2600,
+        bytes: 168378,
+        sha256: '2b9b64210f7808bf0f2afccb5f782538fae2bedfb9ab92f7008d40a3ad4f19e8',
+      },
+      {
+        src: '/images/prepared/700eac05f75091fb65347604/page-004.webp',
+        width: 2010,
+        height: 2600,
+        bytes: 161834,
+        sha256: 'f22a523764450a018c8618a0771e8d2a52a59de3c7c1870e6eb5cd29b8b43624',
+      },
+      {
+        src: '/images/prepared/700eac05f75091fb65347604/page-005.webp',
+        width: 2010,
+        height: 2600,
+        bytes: 161066,
+        sha256: '967064f28f554f4f793985a20712f90cdaf2f73c35321eeacf447b6f49301f24',
+      },
+      {
+        src: '/images/prepared/700eac05f75091fb65347604/page-006.webp',
+        width: 2010,
+        height: 2600,
+        bytes: 245572,
+        sha256: '8f40c7ad210ddf48733e0d04c2d84403717628c7c46967726ac50b0636481772',
+      },
+      {
+        src: '/images/prepared/700eac05f75091fb65347604/page-007.webp',
+        width: 2010,
+        height: 2600,
+        bytes: 182636,
+        sha256: '3e345a30def03b914651f6b00b51bdc698ba00e7897f8531067ef1f6b7806d48',
+      },
+      {
+        src: '/images/prepared/700eac05f75091fb65347604/page-008.webp',
+        width: 2010,
+        height: 2600,
+        bytes: 176332,
+        sha256: '1100dbfb403bb3c4795d17c9e676ffb89277c5e3e4da56fd13bd400a9186a496',
+      },
+      {
+        src: '/images/prepared/700eac05f75091fb65347604/page-009.webp',
+        width: 2010,
+        height: 2600,
+        bytes: 178666,
+        sha256: '0182e3d1f497ca021ea101a57836f56cde9009cbaab7a5259e40e7a22af5b55e',
+      },
+    ],
+  },
+  '/documents/fourth-dimension-tz-v2.pdf': {
+    sourceSha256: '129cc8870b63c157e9ad7de1bdf836d0ea70c71312a1fdabbeeb8d79e413f445',
+    sourceBytes: 126227,
+    sourcePages: 2,
+    images: [
+      {
+        src: '/images/prepared/a7a3204f88cae14f8e19ea65/page-001.webp',
+        width: 1839,
+        height: 2600,
+        bytes: 181808,
+        sha256: 'f7b0e16d98dd6a105b85a7411e4ef63715ee36add302767c373f08bf55bd7657',
+      },
+      {
+        src: '/images/prepared/a7a3204f88cae14f8e19ea65/page-002.webp',
+        width: 1839,
+        height: 2600,
+        bytes: 107992,
+        sha256: '261235dc9d604aab6dcc98573d3b26063b76ef0b504609fc22594866124bc959',
+      },
+    ],
+  },
+  '/documents/honors-skolkovo-presentation.pdf': {
+    sourceSha256: '9673ea5c7ef2049306da56613dca34a4135db6d11eb24f68ff1f39d0aa8fcc44',
+    sourceBytes: 950207,
+    sourcePages: 19,
+    images: [
+      {
+        src: '/images/prepared/303e886c67df52fd787131fd/page-001.webp',
+        width: 2600,
+        height: 1281,
+        bytes: 103000,
+        sha256: '165717fc91990a9beba5b45fd5fcac9971919de2865cc958eefff9ce2a1b9ae8',
+      },
+      {
+        src: '/images/prepared/303e886c67df52fd787131fd/page-002.webp',
+        width: 2600,
+        height: 1267,
+        bytes: 26376,
+        sha256: 'e2ef568656855f9de0fc9ad6dd48e405556318682ed78e8a26f5853ad7aa40a0',
+      },
+      {
+        src: '/images/prepared/303e886c67df52fd787131fd/page-003.webp',
+        width: 2600,
+        height: 1264,
+        bytes: 151496,
+        sha256: '20c6f72b5ebe5fd4b5800d5f1479d8824719e3de87885d65136af8d78b8919f9',
+      },
+      {
+        src: '/images/prepared/303e886c67df52fd787131fd/page-004.webp',
+        width: 2600,
+        height: 1265,
+        bytes: 29956,
+        sha256: 'e600bc97c70dbb0f5342ca68b17e9d13cfc3bbb681f19965c1a540821106ab5a',
+      },
+      {
+        src: '/images/prepared/303e886c67df52fd787131fd/page-005.webp',
+        width: 2600,
+        height: 1274,
+        bytes: 90212,
+        sha256: '280f066e9efc5f10171b16cdb00cabd9f83406f7bc20ecaae18a2f73d0f4d0f9',
+      },
+      {
+        src: '/images/prepared/303e886c67df52fd787131fd/page-006.webp',
+        width: 2600,
+        height: 1278,
+        bytes: 135640,
+        sha256: 'd0be280ee6d59c47a750e8d120763bcccbab7a743141bd03867343a4cf254e4d',
+      },
+      {
+        src: '/images/prepared/303e886c67df52fd787131fd/page-007.webp',
+        width: 2600,
+        height: 1275,
+        bytes: 31908,
+        sha256: '1ceefbfe0a407a47b1698a08d25853e0a9d6ff19e616b5ca23451bbfa08e45d3',
+      },
+      {
+        src: '/images/prepared/303e886c67df52fd787131fd/page-008.webp',
+        width: 2600,
+        height: 1278,
+        bytes: 108024,
+        sha256: 'c37b5101f911f3cfd5aae7981499ac61c898d8f92c74e76cfeb338f412fa854b',
+      },
+      {
+        src: '/images/prepared/303e886c67df52fd787131fd/page-009.webp',
+        width: 2600,
+        height: 1281,
+        bytes: 64212,
+        sha256: 'f7e0588da37ecf8ad5f73864e82599b9b0726a4901153fb69461aaa6e1fc20d1',
+      },
+      {
+        src: '/images/prepared/303e886c67df52fd787131fd/page-010.webp',
+        width: 2600,
+        height: 1267,
+        bytes: 114650,
+        sha256: '92f3a7773eb7ce12c637fd3634f47781d0226f2763385b7f3b65a7faf2c84d12',
+      },
+      {
+        src: '/images/prepared/303e886c67df52fd787131fd/page-011.webp',
+        width: 2600,
+        height: 1275,
+        bytes: 40410,
+        sha256: '85ff9af661dc5b3d1f650ed49ae2bbb96ef09aadb88d0b4de3bc5419fe7b71e1',
+      },
+      {
+        src: '/images/prepared/303e886c67df52fd787131fd/page-012.webp',
+        width: 2600,
+        height: 1281,
+        bytes: 105500,
+        sha256: '95a89e59a7511fad3fdc51a60d1cf42327d9204479be0300adaaba0626b651d2',
+      },
+      {
+        src: '/images/prepared/303e886c67df52fd787131fd/page-013.webp',
+        width: 2600,
+        height: 1275,
+        bytes: 32440,
+        sha256: '82176e78d0bcd18abc53cb07ca49a2ef833f46ef0aace73d5033fb461cd640cf',
+      },
+      {
+        src: '/images/prepared/303e886c67df52fd787131fd/page-014.webp',
+        width: 2600,
+        height: 1271,
+        bytes: 30544,
+        sha256: '0ec8e733150b0e5fa2cfdb7503297b80601cc280907957f9f38b9a01c1d83c21',
+      },
+      {
+        src: '/images/prepared/303e886c67df52fd787131fd/page-015.webp',
+        width: 2600,
+        height: 1279,
+        bytes: 90978,
+        sha256: '096deb8a17494742646ee6dfd71f081b09a9963b4bc1ab28137492ecf0327419',
+      },
+      {
+        src: '/images/prepared/303e886c67df52fd787131fd/page-016.webp',
+        width: 2600,
+        height: 1263,
+        bytes: 154878,
+        sha256: '5586860cebc8d26b10fe73793fcd9f104dace7239e7a0e3fe936f73438e743cf',
+      },
+      {
+        src: '/images/prepared/303e886c67df52fd787131fd/page-017.webp',
+        width: 2600,
+        height: 1268,
+        bytes: 36504,
+        sha256: 'e616d055052d8a2640b921f8961e192412a47862b2f46c77476751283a2e6784',
+      },
+      {
+        src: '/images/prepared/303e886c67df52fd787131fd/page-018.webp',
+        width: 2600,
+        height: 1277,
+        bytes: 61218,
+        sha256: 'a82eb9e855a7ec160ac560578e24ff63f4f5ae35a25bce70754a87ed515d92d5',
+      },
+      {
+        src: '/images/prepared/303e886c67df52fd787131fd/page-019.webp',
+        width: 2600,
+        height: 1272,
+        bytes: 107052,
+        sha256: '0dec35b220b9d129ec31e8b47b9d17829db37978bb9f74eb189062b4dd0edd48',
+      },
+    ],
+  },
+  '/documents/mom-baby-brochure-v2.pdf': {
+    sourceSha256: '9959bfab16163c3a811016645649633b8ff16979b8e561dead8efa9d7c345b18',
+    sourceBytes: 7837426,
+    sourcePages: 1,
+    images: [
+      {
+        src: '/images/prepared/47011b1a62e9c371fd660ea3/page-001.webp',
+        width: 1839,
+        height: 2600,
+        bytes: 431364,
+        sha256: '7e872227c6795b30df069bcc110cf2d51a52a4f8b10c1e8078d344531ec70dd1',
+      },
+    ],
+  },
+  '/documents/mom-baby-drawings-v220920.pdf': {
+    sourceSha256: 'dd3f3738eb7660dad7cbb4f5f71f4bd4ffb9a71f8a2ae5d7a02baaf55c7bd7d9',
+    sourceBytes: 3118038,
+    sourcePages: 1,
+    images: [
+      {
+        src: '/images/prepared/549dc30dc0980193d2bed2a4/page-001.webp',
+        width: 1841,
+        height: 2600,
+        bytes: 246646,
+        sha256: 'f928e6c3f0e39b33ec890748965b6d251a5a4f141a950e50df724837d361a3fe',
+      },
+    ],
+  },
+  '/documents/other-people-deck-ru.pdf': {
+    sourceSha256: '14051590d0a8a8988c0315cc97dce7e8a36fc4dfa4885edc5c293f421905db27',
+    sourceBytes: 4501902,
+    sourcePages: 5,
+    images: [
+      {
+        src: '/images/prepared/5f7126c3b28f09590a6b98aa/page-001.webp',
+        width: 2010,
+        height: 2600,
+        bytes: 291390,
+        sha256: 'c2ab4f6486eb86a87e7d76e52bc7892b04c1f394e726ac68208bcd24569e5063',
+      },
+      {
+        src: '/images/prepared/5f7126c3b28f09590a6b98aa/page-002.webp',
+        width: 2010,
+        height: 2600,
+        bytes: 257940,
+        sha256: 'f8a5e16d579fce4ba2e428eaf8555bfd2331642c99d9589e399442c4293b9061',
+      },
+      {
+        src: '/images/prepared/5f7126c3b28f09590a6b98aa/page-003.webp',
+        width: 2010,
+        height: 2600,
+        bytes: 241630,
+        sha256: '8aa854729d8040dada6b4afce4a72a0c8771c5dd5dcaebb6aacc392d1744d779',
+      },
+      {
+        src: '/images/prepared/5f7126c3b28f09590a6b98aa/page-004.webp',
+        width: 2010,
+        height: 2600,
+        bytes: 399908,
+        sha256: '4040096fb33c84c4e7e8074361b018dc559ad72777eda6dfb64f8bc60f448cba',
+      },
+      {
+        src: '/images/prepared/5f7126c3b28f09590a6b98aa/page-005.webp',
+        width: 2010,
+        height: 2600,
+        bytes: 362834,
+        sha256: '75afd5fd6a01689155733aa5908688ad8ef0c5e166424aa6c9d5c201737bcfbc',
+      },
+    ],
+  },
+  '/documents/other-people-art-science-society.pdf': {
+    sourceSha256: 'adf38adfb86ac3877bc08c082f2398b44e0e49a214e2d81d9a7a24bd393124f9',
+    sourceBytes: 588256,
+    sourcePages: 5,
+    images: [
+      {
+        src: '/images/prepared/0152c5fb384791b118cd87aa/page-001.webp',
+        width: 2010,
+        height: 2600,
+        bytes: 309184,
+        sha256: '91d3b75980578844d016f5426c3ed0cc3706b0abadb662e0521d82c258a05ae9',
+        pageNumber: 1,
+      },
+      {
+        src: '/images/prepared/0152c5fb384791b118cd87aa/page-002.webp',
+        width: 2010,
+        height: 2600,
+        bytes: 170194,
+        sha256: 'b5e27334e95e6c9ee16c45893866fa1d00d4eb8e3b5cd737ace5e309eab611f0',
+        pageNumber: 2,
+      },
+      {
+        src: '/images/prepared/0152c5fb384791b118cd87aa/page-003.webp',
+        width: 2010,
+        height: 2600,
+        bytes: 397582,
+        sha256: 'cd1be6c19d9e5d0450b59a439a676ad56a8d2b9c9fbcf216069cbc7ad23cfe9a',
+        pageNumber: 3,
+      },
+      {
+        src: '/images/prepared/0152c5fb384791b118cd87aa/page-004.webp',
+        width: 2010,
+        height: 2600,
+        bytes: 327288,
+        sha256: '0fcbb3424e3d7af1bb4c48ad37ba9a585a071dbc670be2ee65e6c59b224cba3f',
+        pageNumber: 4,
+      },
+    ],
+  },
+  '/documents/potustoronniy-deck.pdf': {
+    sourceSha256: '4d59d6f9f90064fbce43725760ce6739ed4fdaaf9dfa803e639a9ccc222d05b9',
+    sourceBytes: 3850815,
+    sourcePages: 5,
+    images: [
+      {
+        src: '/images/prepared/6789fb87fa3638e8f5cc7fa3/page-001.webp',
+        width: 2600,
+        height: 1463,
+        bytes: 79384,
+        sha256: '3852087a90790e6ae6ed717dd2b26784b155158b87df1812965b330d07c4160e',
+      },
+      {
+        src: '/images/prepared/6789fb87fa3638e8f5cc7fa3/page-002.webp',
+        width: 2600,
+        height: 1463,
+        bytes: 350726,
+        sha256: '1e6dab1049dc4c559e627338effc6770bb82b055683dbc43355d9b235a749699',
+      },
+      {
+        src: '/images/prepared/6789fb87fa3638e8f5cc7fa3/page-003.webp',
+        width: 2600,
+        height: 1463,
+        bytes: 456982,
+        sha256: '3e492ed5b02488b06daa0f3b9ece5996af4163a12f6448c42b030fc40fe84ea2',
+      },
+      {
+        src: '/images/prepared/6789fb87fa3638e8f5cc7fa3/page-004.webp',
+        width: 2600,
+        height: 1463,
+        bytes: 157574,
+        sha256: '79de2ced9e97461b0dab9b8c76ac64d3cd5ca6ce8f1fd89955ab2c1b9057a7d3',
+      },
+      {
+        src: '/images/prepared/6789fb87fa3638e8f5cc7fa3/page-005.webp',
+        width: 2600,
+        height: 1463,
+        bytes: 16154,
+        sha256: '3ca6874cff5ae52811544913942880ddd8d153681a841e975dfada74bf2c55d6',
+      },
+    ],
+  },
   '/documents/oda-dream-technical-overview-ru.pdf': {
     sourceSha256: '93be5b48e1fc658fd60c8d4503772a12f63db9fed0ab15e29517dd70361bae76',
     sourceBytes: 28464,
+    sourcePages: 2,
     images: [
       {
         src: '/images/prepared/05542c27d21b1c5855cc0af1/page-001.webp',
@@ -50,6 +484,7 @@ export const preparedMedia: Record<string, PreparedAsset> = {
   '/documents/oda-dream-technical-overview-en.pdf': {
     sourceSha256: 'f51b66a6d2584fa2e5629a1a31b144b66e0c222a8cff58a2c1391b07b0b2f7fd',
     sourceBytes: 23109,
+    sourcePages: 2,
     images: [
       {
         src: '/images/prepared/3bf18d17e2992579219322a5/page-001.webp',
@@ -70,6 +505,7 @@ export const preparedMedia: Record<string, PreparedAsset> = {
   '/documents/oda-dream-cv-olga-ru.pdf': {
     sourceSha256: '0f0a644f495ca2a71632f7f76c7cc346627c7eb6c50eb87e8c23870f26bb4ece',
     sourceBytes: 24960,
+    sourcePages: 1,
     images: [
       {
         src: '/images/prepared/8bee5f30716dd1906ccf5f49/page-001.webp',
@@ -83,6 +519,7 @@ export const preparedMedia: Record<string, PreparedAsset> = {
   '/documents/oda-dream-cv-olga-en.pdf': {
     sourceSha256: 'a5a59cdf1dacda230cb72254707efcd02dcd839a2c56d2c6d716b4dfa6ed933e',
     sourceBytes: 20964,
+    sourcePages: 1,
     images: [
       {
         src: '/images/prepared/321ace899e1657c8d207c225/page-001.webp',
@@ -96,6 +533,7 @@ export const preparedMedia: Record<string, PreparedAsset> = {
   '/documents/oda-dream-cv-daler-ru.pdf': {
     sourceSha256: '0d392fd86422dd3cf01688075cbc3ae9986607ea8f4dc1ab40ba944af4db2df8',
     sourceBytes: 25365,
+    sourcePages: 1,
     images: [
       {
         src: '/images/prepared/c949f73890561a5052a8adc2/page-001.webp',
@@ -109,6 +547,7 @@ export const preparedMedia: Record<string, PreparedAsset> = {
   '/documents/oda-dream-cv-daler-en.pdf': {
     sourceSha256: 'a8827265adce52a3731d14cf937445fab5add2a29c18c9a30da8028b55b4ac1b',
     sourceBytes: 20995,
+    sourcePages: 1,
     images: [
       {
         src: '/images/prepared/e49354af20c3404ce35d899c/page-001.webp',
@@ -116,6 +555,175 @@ export const preparedMedia: Record<string, PreparedAsset> = {
         height: 2600,
         bytes: 153798,
         sha256: '7c226be9b7b360135df667b1ffaba27376638fe86dc5e5c0ebd00019176a6611',
+      },
+    ],
+  },
+  '/images/recognition/digital-art-ai-2026.webp': {
+    sourceSha256: '0bcc494f9036c0834768d94b06d7445e4ddf84931a193e255495239aca2e3de4',
+    sourceBytes: 90834,
+    images: [
+      {
+        src: '/images/prepared/19cc25e03b9eb378048114d1/image.webp',
+        width: 779,
+        height: 1080,
+        bytes: 103756,
+        sha256: '2ed881659c97293174721694c13fbd9b6309b64b5496d606ebdc51d623461c4a',
+      },
+    ],
+  },
+  '/images/recognition/portal-2025.webp': {
+    sourceSha256: '92b1516d2e131b1dfce9ecd2c79a4982cb2c70fc081b2485338c44f4a531cb19',
+    sourceBytes: 67242,
+    images: [
+      {
+        src: '/images/prepared/16143013c1cbd1c5adb2831e/image.webp',
+        width: 1377,
+        height: 982,
+        bytes: 78708,
+        sha256: 'b1c4a30305e4a9580b4e29bc17e9e4ebf48e46ef79acb21bb6e4c054639dc018',
+      },
+    ],
+  },
+  '/images/recognition/tavrida-2025.webp': {
+    sourceSha256: 'da56156c4bcc5e554e6a6fd6c25be87a92d1b33db673cf1706c935a50172488e',
+    sourceBytes: 95746,
+    images: [
+      {
+        src: '/images/prepared/f280d66ef440c6dbce2e7c88/image.webp',
+        width: 762,
+        height: 1080,
+        bytes: 110846,
+        sha256: '3f20781d0c443920c037d9d3784fce2d39299c5f620a6c7ebcc972b9f1e854db',
+      },
+    ],
+  },
+  '/images/recognition/hse-2025.webp': {
+    sourceSha256: '7bd7c1f9ee42e40be7cff3a4f1d1c7f1837fa09c0b3d1350eac09d4d033d8cc9',
+    sourceBytes: 56018,
+    images: [
+      {
+        src: '/images/prepared/b7022fceed4c5410528b4230/image.webp',
+        width: 659,
+        height: 947,
+        bytes: 64626,
+        sha256: 'a194dd532688059b686a8798f134fbb31e29f1e98879e24e36ea63b163afd218',
+      },
+    ],
+  },
+  '/images/recognition/battle-billion-letter-2024.webp': {
+    sourceSha256: '47b5384dc6ead2c246ea45b9128ea4bdcd13ca4d254f649c2b984006e9a42eb3',
+    sourceBytes: 75300,
+    images: [
+      {
+        src: '/images/prepared/cf5237816d8a698d9c1918c5/image.webp',
+        width: 835,
+        height: 1080,
+        bytes: 86508,
+        sha256: '19e3c09e9ade7dc62112828d763e56f004ed8cca1c37f8bdfefeeffba5d763af',
+      },
+    ],
+  },
+  '/images/recognition/province-code-letter-2024.webp': {
+    sourceSha256: '24805a1c080ff35166ab34fe5f2869ee716d8fc850b290f0d5d9b07a045b8cb0',
+    sourceBytes: 63198,
+    images: [
+      {
+        src: '/images/prepared/7d3dc0753f028c19ab220041/image.webp',
+        width: 810,
+        height: 1080,
+        bytes: 71912,
+        sha256: '1f2ad13eb15feffeec97ce98f5dc47a4913800991493055d20f7584ece1d2ae0',
+      },
+    ],
+  },
+  '/images/recognition/techweek-letter-2024.webp': {
+    sourceSha256: 'e07601a68edec998e6d0d8f982df6e909ab31494febe39d1531f1d765f93d7f5',
+    sourceBytes: 90288,
+    images: [
+      {
+        src: '/images/prepared/3713e200897c873e1fd2eccd/image.webp',
+        width: 764,
+        height: 1080,
+        bytes: 105588,
+        sha256: 'c1e6faa3df30058ce98054b5d77967a51b22004dad20c050dd3879b07918b0d5',
+      },
+    ],
+  },
+  '/images/recognition/wildmint-letter-2025.webp': {
+    sourceSha256: '8ee89cc886606fbbccff5bc6c335c5d1500c05bc240a7b9f503ca21fd30e1f90',
+    sourceBytes: 110162,
+    images: [
+      {
+        src: '/images/prepared/8bac5a1d1d5981fa96f2ef18/image.webp',
+        width: 774,
+        height: 1079,
+        bytes: 127766,
+        sha256: 'f28b02c945da656a0d870a5d283611769bcc52158f7eba5449db2bbd94a54542',
+      },
+    ],
+  },
+  '/images/recognition/haskell-letter-2025.webp': {
+    sourceSha256: 'e8870c4d4ed865ba393326d9345c6984a0ff4aa6cfad891be15d8010a7c1174c',
+    sourceBytes: 61698,
+    images: [
+      {
+        src: '/images/prepared/a06a2b387a3908bd322574ac/image.webp',
+        width: 762,
+        height: 1079,
+        bytes: 71344,
+        sha256: 'dbc0668fd8b770d5eb9d125f6bfaa7514d7958dfcb7f2e46a058c2c19d8983c4',
+      },
+    ],
+  },
+  '/images/recognition/moscow2030-letter-2025.webp': {
+    sourceSha256: 'e28d2bf234915aa7d81846091a3fd7b0f10568b56d5f0c6da2c8539bc1ace4de',
+    sourceBytes: 51242,
+    images: [
+      {
+        src: '/images/prepared/f37f6ef1d0cc58926c697415/image.webp',
+        width: 762,
+        height: 1080,
+        bytes: 58592,
+        sha256: '86423dd70c6f6e2144719ccc5659916f32281cfd4fe7658112e851eed4b46fd5',
+      },
+    ],
+  },
+  '/images/recognition/ossetia-letter-2025.webp': {
+    sourceSha256: 'b064b7e8bcce3470f1231791f8726d8287c5cfad585c47c6454f760ed969bb57',
+    sourceBytes: 53884,
+    images: [
+      {
+        src: '/images/prepared/94feb7d8af8ffd2628952cf5/image.webp',
+        width: 774,
+        height: 1080,
+        bytes: 61978,
+        sha256: '98b64178d6dbd0a0215826c71c3ce97b6810894c77593dc1e25273da0a3375c1',
+      },
+    ],
+  },
+  '/images/recognition/digital-pleinair-certificate-2025.webp': {
+    sourceSha256: '1050ac6627ff450549f68506610cb7ccae1565c5a5466e68430a19aa738206bf',
+    sourceBytes: 18156,
+    images: [
+      {
+        src: '/images/prepared/fc43068af2ce18784ce349ed/image.webp',
+        width: 728,
+        height: 957,
+        bytes: 20508,
+        sha256: '93023c1ac35c810d64584e82887fd8ecb7f63d5167bcd1e7cab698fb1f0cc9de',
+      },
+    ],
+  },
+  '/images/recognition/business-awards-letter-2025.webp': {
+    sourceSha256: '175aae078338af17519f927c81b9af968a89ee7b5483614424deb09615912ddb',
+    sourceBytes: 209454,
+    images: [
+      {
+        src: '/images/prepared/21f02a0178219c20f92ae489/image.webp',
+        width: 764,
+        height: 1080,
+        bytes: 242886,
+        sha256: '293d282c6f07ee83acb6c7125e52fef845e408aacd42fcfbd944e4cc25f34299',
       },
     ],
   },

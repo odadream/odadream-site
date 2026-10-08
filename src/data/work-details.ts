@@ -1,7 +1,8 @@
 import type { Localized, Rights } from './site';
 import type { EditorialSection, SourceReference } from './editorial';
 import { sourceSnapshots } from './editorial';
-import { documentPages, type DocumentPage } from '../lib/prepared-media';
+import { documentPages, type NumberedDocumentPage } from '../lib/prepared-media';
+import { archiveDocuments } from './archive-documents';
 
 export interface WorkDetail {
   story: EditorialSection[];
@@ -31,16 +32,18 @@ const refs = (...files: string[]) => files.map((file) => sourceSnapshots[file]);
 
 export interface WorkDocument {
   id: string;
-  legacyId: string;
+  legacyId?: string;
   workId: string;
   title: Localized;
   description: Localized;
   href: string;
-  year: number;
+  year: number | null;
   language: 'en' | 'ru';
   pages: number;
   bytes: number;
-  pageImages?: DocumentPage[];
+  pageImages?: NumberedDocumentPage[];
+  selectedPages?: number[];
+  originalAccess?: 'public' | 'internal';
   rights: Rights;
   sha256: string;
   source: string;
@@ -90,9 +93,9 @@ const documentRecords: WorkDocument[] = [
   },
 ];
 
-export const workDocuments: WorkDocument[] = documentRecords.map((row) => ({
+export const workDocuments: WorkDocument[] = [...documentRecords, ...archiveDocuments].map((row) => ({
   ...row,
-  pageImages: documentPages(row.href),
+  pageImages: documentPages(row.href, row.selectedPages),
 }));
 
 // Selected, edited source material. The source archive is never rendered or imported at runtime.

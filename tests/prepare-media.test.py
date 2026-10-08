@@ -112,6 +112,29 @@ class PreparationTests(unittest.TestCase):
             self.assertEqual(recognizer.call_args_list[0].args[0][-1], '3')
             self.assertEqual(recognizer.call_args_list[1].args[0][-1], '11')
 
+    def test_selected_pdf_pages_keep_source_numbers_and_leave_other_pages_private(self):
+        request = self.pdf()
+        request['selectedPages'] = [2]
+        record = engine.prepare(request)
+        self.assertEqual(len(record['images']), 2)
+        self.assertEqual(len(record['published']), 1)
+        self.assertEqual(record['published'][0]['pageNumber'], 2)
+        self.assertEqual(len(list((self.root / 'public').rglob('*.webp'))), 1)
+        self.assertEqual(len(record['texts']), 3)
+
+    def test_image_documents_have_private_ocr_and_reuse_without_synthetic_text_layer(self):
+        source = self.root / 'scan.png'
+        Image.new('RGB', (600, 800), 'white').save(source)
+        record = engine.prepare({'source': str(source), 'href': '/images/scan.png', 'kind': 'image'})
+        self.assertEqual(record['texts'], [])
+        settings = {'fingerprint': 'scan-model', 'executable': 'test-ocr', 'models': 'test-models'}
+        with patch.object(engine.subprocess, 'run', return_value=SimpleNamespace(stdout='Certificate')) as recognizer:
+            result = engine.search_copy(record, Path(record['cacheDirectory']), settings)
+            self.assertEqual(result['searchStatus'], 'ocr-assisted')
+            engine.search_copy(record, Path(record['cacheDirectory']), settings)
+            self.assertEqual(recognizer.call_count, 1)
+        self.assertEqual(list((self.root / 'public').rglob('*.txt')), [])
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -300,7 +300,7 @@ test('homepage distinguishes catalogue scope and document previews', async ({ pa
   await expect(page.getByText('Работы в каталоге', { exact: true })).toBeVisible();
   await expect(page.getByText('Папки событий · Golem', { exact: true })).toBeVisible();
   await expect(page.getByText('Прежний перечень', { exact: true })).toBeVisible();
-  await expect(page.locator('.recognition-card__image')).toHaveCount(3);
+  await expect(page.locator('.recognition-card__image')).toHaveCount(4);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
   const trigger = page.locator('.recognition-card__image').first();
   await trigger.click();

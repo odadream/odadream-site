@@ -7208,6 +7208,15 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "sourceSha256": "49eb30f6f95957874b2cffcd5b839c8cc6b6adec302eda842eb0d4e55970c64a",
+        "targets": [
+          "Work:another-people",
+          "WorkDocument:other-people-ru"
+        ],
+        "decision": "archival document source applied to owner and reviewed image pages",
+        "asOf": "2026-10-08"
       }
     },
     {
@@ -7436,6 +7445,15 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "sourceSha256": "cedeef5c49f916469b2e49fd8846a49680ef0d5795995bfbf6e31b25c16448c1",
+        "targets": [
+          "Work:dashran",
+          "WorkDocument:dashran-description"
+        ],
+        "decision": "archival document source applied to owner and reviewed image pages",
+        "asOf": "2026-10-08"
       }
     },
     {
@@ -7607,6 +7625,15 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "sourceSha256": "cddc43a6cc337b9a909912d80c7b3446923702ce96950d28f534623858dc19a3",
+        "targets": [
+          "Work:fourth-dimension",
+          "WorkDocument:fourth-dimension-spec"
+        ],
+        "decision": "archival document source applied to owner and reviewed image pages",
+        "asOf": "2026-10-08"
       }
     },
     {
@@ -7778,6 +7805,15 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "sourceSha256": "995432a94b011f1ad4552f59afbb8ceb14e1e083e444fddfcae6ed6b9ebc2795",
+        "targets": [
+          "Work:honors",
+          "WorkDocument:honors-presentation"
+        ],
+        "decision": "archival document source applied to owner and reviewed image pages",
+        "asOf": "2026-10-08"
       }
     },
     {
@@ -8236,6 +8272,15 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "sourceSha256": "a678afb934c90f7a809e5f4860f17d5be158487775b53837e6f39d67309dd399",
+        "targets": [
+          "Work:mom-baby",
+          "WorkDocument:mom-baby-brochure"
+        ],
+        "decision": "archival document source applied to owner and reviewed image pages",
+        "asOf": "2026-10-08"
       }
     },
     {
@@ -8350,6 +8395,15 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "sourceSha256": "853d9eeadcc2c95b1854fa77a677447f49d3df05a6388fa44d8bf2ceb34e3f06",
+        "targets": [
+          "Work:mom-baby",
+          "WorkDocument:mom-baby-drawings"
+        ],
+        "decision": "archival document source applied to owner and reviewed image pages",
+        "asOf": "2026-10-08"
       }
     },
     {
@@ -8611,6 +8665,15 @@
         "state": "scheduled-use; not a completed transfer or publication approval",
         "retainedBaselineTargets": [],
         "needsSourceResolution": false
+      },
+      "v2Migration": {
+        "sourceSha256": "5dbcb1c6dec8c72eba3c05b1da8396503583798bec622bd88c518abd8dab2b9c",
+        "targets": [
+          "Work:potustoronniy",
+          "WorkDocument:beyond-presentation"
+        ],
+        "decision": "archival document source applied to owner and reviewed image pages",
+        "asOf": "2026-10-08"
       }
     },
     {
@@ -19769,6 +19832,41 @@
       "file": "Education_Source_ed1f49fe12a1.md",
       "sha256": "ed1f49fe12a1a6420097769bc5d6a5dd351ba152d9cd21875b66bf71ab19c512",
       "snapshot": "2026-10-07"
+    },
+    "media-dashran-docs.md": {
+      "file": "media-dashran-docs.md",
+      "sha256": "cedeef5c49f916469b2e49fd8846a49680ef0d5795995bfbf6e31b25c16448c1",
+      "snapshot": "2026-09-21"
+    },
+    "media-fourth-dimension-tz.md": {
+      "file": "media-fourth-dimension-tz.md",
+      "sha256": "cddc43a6cc337b9a909912d80c7b3446923702ce96950d28f534623858dc19a3",
+      "snapshot": "2026-09-21"
+    },
+    "media-honors-presentation.md": {
+      "file": "media-honors-presentation.md",
+      "sha256": "995432a94b011f1ad4552f59afbb8ceb14e1e083e444fddfcae6ed6b9ebc2795",
+      "snapshot": "2026-09-21"
+    },
+    "media-mom-baby-brochure.md": {
+      "file": "media-mom-baby-brochure.md",
+      "sha256": "a678afb934c90f7a809e5f4860f17d5be158487775b53837e6f39d67309dd399",
+      "snapshot": "2026-09-21"
+    },
+    "media-mom-baby-drawings.md": {
+      "file": "media-mom-baby-drawings.md",
+      "sha256": "853d9eeadcc2c95b1854fa77a677447f49d3df05a6388fa44d8bf2ceb34e3f06",
+      "snapshot": "2026-09-21"
+    },
+    "media-another-people-docs.md": {
+      "file": "media-another-people-docs.md",
+      "sha256": "49eb30f6f95957874b2cffcd5b839c8cc6b6adec302eda842eb0d4e55970c64a",
+      "snapshot": "2026-09-21"
+    },
+    "media-potustoronniy-deck.md": {
+      "file": "media-potustoronniy-deck.md",
+      "sha256": "5dbcb1c6dec8c72eba3c05b1da8396503583798bec622bd88c518abd8dab2b9c",
+      "snapshot": "2026-09-21"
     }
   },
   "currentRouting": {
@@ -27460,9 +27558,9 @@
   },
   "currentFullMediaReassessment": {
     "asOf": "2026-10-08",
-    "status": "image curation applied; documents/video/evidence review continues",
+    "status": "all 198 historical resources assessed and applied/represented/excluded with reasons",
     "count": 198,
-    "method": "Original V1 parent graph traced to current canonical entities; prepared original-byte matches identified. Filename-only and ambiguous ownership remain for visual assessment.",
+    "method": "Original V1 parent graph, hashes and all 198 assets visually/source assessed; canonical ownership and explicit exclusions recorded per asset.",
     "items": [
       {
         "path": "/documents/dashran-tech-description.pdf",
@@ -27476,7 +27574,23 @@
           "Work:dashran"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "source reviewed; selected image pages attached to work",
+        "application": {
+          "action": "document-pages",
+          "workDocumentId": "dashran-description",
+          "owner": "Work:dashran",
+          "publishedPages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "originalAccess": "internal",
+          "reason": "Архивное описание концепции, цикла, оборудования и площадки для заявки 2025 года. Контактные поля относятся к исходной версии; параметры не являются актуальным райдером.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/documents/dashran-tech-spec-nur.pdf",
@@ -27486,7 +27600,26 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "source reviewed; selected image pages attached to work",
+        "application": {
+          "action": "document-pages",
+          "workDocumentId": "dashran-nur-spec",
+          "owner": "Work:dashran",
+          "publishedPages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "originalAccess": "internal",
+          "reason": "Версия 20.02.2025: пространство, проекция, конструкция и подключения. Документ описывает проектную конфигурацию, а не подтверждает состоявшийся показ.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/documents/fourth-dimension-tz-v2.pdf",
@@ -27500,7 +27633,19 @@
           "Work:fourth-dimension"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "source reviewed; selected image pages attached to work",
+        "application": {
+          "action": "document-pages",
+          "workDocumentId": "fourth-dimension-spec",
+          "owner": "Work:fourth-dimension",
+          "publishedPages": [
+            1,
+            2
+          ],
+          "originalAccess": "internal",
+          "reason": "Два производственных листа, датированные 22.01.2023: кулон и упаковочный мешочек. Архивная документация конкретного изделия.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/documents/honors-skolkovo-presentation.pdf",
@@ -27514,7 +27659,36 @@
           "Work:honors"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "source reviewed; selected image pages attached to work",
+        "application": {
+          "action": "document-pages",
+          "workDocumentId": "honors-presentation",
+          "owner": "Work:honors",
+          "publishedPages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "originalAccess": "internal",
+          "reason": "Архивный конкурсный концепт 2026 года: художественный сценарий, пространственная композиция, портреты и технологическая схема. В исходном PDF доступны 19 страниц; это не фотографии реализованного павильона.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/documents/mom-baby-brochure-v2.pdf",
@@ -27528,7 +27702,18 @@
           "Work:mom-baby"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "source reviewed; selected image pages attached to work",
+        "application": {
+          "action": "document-pages",
+          "workDocumentId": "mom-baby-brochure",
+          "owner": "Work:mom-baby",
+          "publishedPages": [
+            1
+          ],
+          "originalAccess": "internal",
+          "reason": "Архивный буклет о вложенном кулоне «Саша»: история, формы и смысл физических компонентов.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/documents/mom-baby-drawings-v220920.pdf",
@@ -27542,7 +27727,18 @@
           "Work:mom-baby"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "source reviewed; selected image pages attached to work",
+        "application": {
+          "action": "document-pages",
+          "workDocumentId": "mom-baby-drawings",
+          "owner": "Work:mom-baby",
+          "publishedPages": [
+            1
+          ],
+          "originalAccess": "internal",
+          "reason": "Версия v220920: профили, вложенные части и производственные параметры. В исходном файле одна страница; отсутствующий второй лист не реконструирован.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/documents/oda-rings-drawings-v220927.pdf",
@@ -27556,7 +27752,18 @@
           "Work:rings"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "source reviewed; image page attached to work",
+        "application": {
+          "action": "document-pages",
+          "workDocumentId": "oda-rings-drawings",
+          "owner": "Work:rings",
+          "publishedPages": [
+            1
+          ],
+          "originalAccess": "public",
+          "reason": "Ранее подключённый архивный документ колец, оригинал и страница уже опубликованы.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/documents/oda-rings-synergy-banner-2022.pdf",
@@ -27570,7 +27777,18 @@
           "Work:rings"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "source reviewed; image page attached to work",
+        "application": {
+          "action": "document-pages",
+          "workDocumentId": "oda-rings-banner",
+          "owner": "Work:rings",
+          "publishedPages": [
+            1
+          ],
+          "originalAccess": "public",
+          "reason": "Ранее подключённый архивный документ колец, оригинал и страница уже опубликованы.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/documents/other-people-art-science-society.pdf",
@@ -27580,7 +27798,21 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "source reviewed; selected image pages attached to work",
+        "application": {
+          "action": "document-pages",
+          "workDocumentId": "other-people-en",
+          "owner": "Work:another-people",
+          "publishedPages": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "originalAccess": "internal",
+          "reason": "Показаны страницы 1–4 из пяти: концепция, опыт посетителя, предшествующие работы и авторы. Адресная страница бюджета сохранена только в рабочем архиве.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/documents/other-people-deck-ru.pdf",
@@ -27594,7 +27826,22 @@
           "Work:another-people"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "source reviewed; selected image pages attached to work",
+        "application": {
+          "action": "document-pages",
+          "workDocumentId": "other-people-ru",
+          "owner": "Work:another-people",
+          "publishedPages": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "originalAccess": "internal",
+          "reason": "Архивное досье концепции: герои, творческий процесс, нейропортрет и сценарий выставки. Историческое имя Other Forms / Other Lives сохранено внутри документа; утверждения исходника не означают текущих партнёрств.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/documents/potustoronniy-deck.pdf",
@@ -27608,7 +27855,22 @@
           "Work:potustoronniy"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "source reviewed; selected image pages attached to work",
+        "application": {
+          "action": "document-pages",
+          "workDocumentId": "beyond-presentation",
+          "owner": "Work:potustoronniy",
+          "publishedPages": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "originalAccess": "internal",
+          "reason": "Архивная учебная презентация концепции: история, сценарий, техническая схема и предметный образ. Опечатка «Посюсторонний» сохранена в исходнике; год создания документа не установлен.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/assets/oda_favicon.svg",
@@ -27618,7 +27880,12 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "source inspected; service/generated placeholder excluded",
+        "application": {
+          "action": "excluded",
+          "reason": "Служебная иконка V1; брендовый комплект V2 уже подключён.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/assets/oda_preview.png",
@@ -27643,7 +27910,12 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "source inspected; service/generated placeholder excluded",
+        "application": {
+          "action": "excluded",
+          "reason": "Процедурная SVG-заглушка/служебное превью, не содержательный рисунок или скан.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/art-brain.webp",
@@ -28196,7 +28468,12 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "source inspected; service/generated placeholder excluded",
+        "application": {
+          "action": "excluded",
+          "reason": "Процедурная SVG-заглушка/служебное превью, не содержательный рисунок или скан.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/jewellery.webp",
@@ -29940,7 +30217,12 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "source inspected; service/generated placeholder excluded",
+        "application": {
+          "action": "excluded",
+          "reason": "Процедурная SVG-заглушка/служебное превью, не содержательный рисунок или скан.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/images/content/neuromandala-cover.webp",
@@ -29983,10 +30265,11 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "state": "source reviewed; acknowledgement/certificate applied",
         "application": {
-          "action": "evidence-review",
-          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "action": "recognition-document",
+          "recognitionId": "battle-billion-letter-2024",
+          "reason": "Визуально прочитан документ, адресованный ODA.dream/авторам; показ разрешён владельцем в составе полного переноса собственных материалов.",
           "asOf": "2026-10-08"
         }
       },
@@ -30009,10 +30292,11 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "state": "source reviewed; acknowledgement/certificate applied",
         "application": {
-          "action": "evidence-review",
-          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "action": "recognition-document",
+          "recognitionId": "province-code-letter-2024",
+          "reason": "Визуально прочитан документ, адресованный ODA.dream/авторам; показ разрешён владельцем в составе полного переноса собственных материалов.",
           "asOf": "2026-10-08"
         }
       },
@@ -30035,10 +30319,11 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "state": "source reviewed; acknowledgement/certificate applied",
         "application": {
-          "action": "evidence-review",
-          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "action": "recognition-document",
+          "recognitionId": "techweek-letter-2024",
+          "reason": "Визуально прочитан документ, адресованный ODA.dream/авторам; показ разрешён владельцем в составе полного переноса собственных материалов.",
           "asOf": "2026-10-08"
         }
       },
@@ -30061,10 +30346,11 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "state": "source reviewed; acknowledgement/certificate applied",
         "application": {
-          "action": "evidence-review",
-          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "action": "recognition-document",
+          "recognitionId": "wildmint-letter-2025",
+          "reason": "Визуально прочитан документ, адресованный ODA.dream/авторам; показ разрешён владельцем в составе полного переноса собственных материалов.",
           "asOf": "2026-10-08"
         }
       },
@@ -30087,10 +30373,11 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "state": "source reviewed; acknowledgement/certificate applied",
         "application": {
-          "action": "evidence-review",
-          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "action": "recognition-document",
+          "recognitionId": "haskell-letter-2025",
+          "reason": "Визуально прочитан документ, адресованный ODA.dream/авторам; показ разрешён владельцем в составе полного переноса собственных материалов.",
           "asOf": "2026-10-08"
         }
       },
@@ -30113,10 +30400,11 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "state": "source reviewed; acknowledgement/certificate applied",
         "application": {
-          "action": "evidence-review",
-          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "action": "recognition-document",
+          "recognitionId": "moscow2030-letter-2025",
+          "reason": "Визуально прочитан документ, адресованный ODA.dream/авторам; показ разрешён владельцем в составе полного переноса собственных материалов.",
           "asOf": "2026-10-08"
         }
       },
@@ -30139,10 +30427,11 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "state": "source reviewed; award/acknowledgement applied",
         "application": {
-          "action": "evidence-review",
-          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "action": "recognition-document",
+          "recognitionId": "portal-2030-2025",
+          "reason": "Визуально прочитан документ, адресованный авторам; разрешение владельца на перенос собственных материалов учтено.",
           "asOf": "2026-10-08"
         }
       },
@@ -30165,10 +30454,11 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "state": "source reviewed; acknowledgement/certificate applied",
         "application": {
-          "action": "evidence-review",
-          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "action": "recognition-document",
+          "recognitionId": "ossetia-letter-2025",
+          "reason": "Визуально прочитан документ, адресованный ODA.dream/авторам; показ разрешён владельцем в составе полного переноса собственных материалов.",
           "asOf": "2026-10-08"
         }
       },
@@ -30192,10 +30482,11 @@
           "CaseEvent:bashkiria-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "state": "source reviewed; acknowledgement/certificate applied",
         "application": {
-          "action": "evidence-review",
-          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "action": "recognition-document",
+          "recognitionId": "digital-pleinair-certificate-2025",
+          "reason": "Визуально прочитан документ, адресованный ODA.dream/авторам; показ разрешён владельцем в составе полного переноса собственных материалов.",
           "asOf": "2026-10-08"
         }
       },
@@ -30218,10 +30509,11 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "state": "source reviewed; award/acknowledgement applied",
         "application": {
-          "action": "evidence-review",
-          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "action": "recognition-document",
+          "recognitionId": "tavrida-letter-2025",
+          "reason": "Визуально прочитан документ, адресованный авторам; разрешение владельца на перенос собственных материалов учтено.",
           "asOf": "2026-10-08"
         }
       },
@@ -30244,10 +30536,11 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "state": "source reviewed; acknowledgement/certificate applied",
         "application": {
-          "action": "evidence-review",
-          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "action": "recognition-document",
+          "recognitionId": "business-awards-letter-2025",
+          "reason": "Визуально прочитан документ, адресованный ODA.dream/авторам; показ разрешён владельцем в составе полного переноса собственных материалов.",
           "asOf": "2026-10-08"
         }
       },
@@ -30271,10 +30564,11 @@
           "CaseEvent:hse-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "state": "source reviewed; award/acknowledgement applied",
         "application": {
-          "action": "evidence-review",
-          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "action": "recognition-document",
+          "recognitionId": "hse-letter-2025",
+          "reason": "Визуально прочитан документ, адресованный авторам; разрешение владельца на перенос собственных материалов учтено.",
           "asOf": "2026-10-08"
         }
       },
@@ -30297,10 +30591,11 @@
           "Recognition:tavrida-letter-2025"
         ],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required",
+        "state": "source reviewed; award/acknowledgement applied",
         "application": {
-          "action": "evidence-review",
-          "reason": "Скан награды/письма, относится к Evidence/Recognition, а не к галерее произведения. Отдельная проверка документа продолжается.",
+          "action": "recognition-document",
+          "recognitionId": "digital-art-ai-2026",
+          "reason": "Визуально прочитан документ, адресованный авторам; разрешение владельца на перенос собственных материалов учтено.",
           "asOf": "2026-10-08"
         }
       },
@@ -32060,7 +32355,12 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "source inspected; service/generated placeholder excluded",
+        "application": {
+          "action": "excluded",
+          "reason": "Процедурная SVG ASSET-заглушка, не скан письма МФТИ. Запись сохранена как архивное упоминание с явно отсутствующим сканом.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/media/hub-debug/audio-placeholder.svg",
@@ -32070,7 +32370,12 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "source inspected; service/generated placeholder excluded",
+        "application": {
+          "action": "excluded",
+          "reason": "Процедурная SVG-заглушка/служебное превью, не содержательный рисунок или скан.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/media/hub-debug/video-placeholder.svg",
@@ -32080,7 +32385,12 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "source inspected; service/generated placeholder excluded",
+        "application": {
+          "action": "excluded",
+          "reason": "Процедурная SVG-заглушка/служебное превью, не содержательный рисунок или скан.",
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/media/works/lighthouse/blended-spin.m4v",
@@ -32090,7 +32400,32 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "source reviewed; complete render and preview attached to work",
+        "application": {
+          "action": "video-gallery",
+          "mediaId": "lighthouse-blended-spin",
+          "owner": "Work:lighthouse",
+          "reason": "Визуально проверенный видеорендер проектной модели; полный MP4, восьмисекундное превью и первый кадр связаны с общей галереей.",
+          "sourceSha256": "e5f76b714e9731d4f5b1f27546cb07a026ae754a37e7628d728cbe63e523201c",
+          "outputs": [
+            {
+              "src": "/video/archive/lighthouse-blended-spin.mp4",
+              "sha256": "f3679a42cc57c6ace45f0d38e44353d30054dea55ff9a5e66d63a74245170477",
+              "bytes": 6165570
+            },
+            {
+              "src": "/video/archive/lighthouse-blended-spin-preview.mp4",
+              "sha256": "77d59fd037d259c7ea49d8a1b12790c88a8c20fc82822f26cf11ac6e14de3ce5",
+              "bytes": 220656
+            },
+            {
+              "src": "/images/archive/videos/lighthouse-blended-spin-poster.webp",
+              "sha256": "a5e67cf627dafbfe2d76bd749eb8e8f8c4141244ed23b378422fedc55fb22eb5",
+              "bytes": 45744
+            }
+          ],
+          "asOf": "2026-10-08"
+        }
       },
       {
         "path": "/media/works/lighthouse/spin-twist.m4v",
@@ -32100,7 +32435,32 @@
         "sourceIds": [],
         "ownerCandidates": [],
         "preparedByteMatches": [],
-        "state": "preflight candidates; visual/meaning/rights assessment required"
+        "state": "source reviewed; complete render and preview attached to work",
+        "application": {
+          "action": "video-gallery",
+          "mediaId": "lighthouse-spin-twist",
+          "owner": "Work:lighthouse",
+          "reason": "Визуально проверенный видеорендер проектной модели; полный MP4, восьмисекундное превью и первый кадр связаны с общей галереей.",
+          "sourceSha256": "e23bd033d02c8d3a661b9f8bcdda7acbc464bd53f041bdc7e02822508d674938",
+          "outputs": [
+            {
+              "src": "/video/archive/lighthouse-spin-twist.mp4",
+              "sha256": "612cbafb8a638b9d7ce2a956b77cc3b6315b2f04f40dc6114ac387a236e151cd",
+              "bytes": 1266673
+            },
+            {
+              "src": "/video/archive/lighthouse-spin-twist-preview.mp4",
+              "sha256": "95a0467b2df8bb13cf7f0faccf040fd9955e40bb716dc18837b67780835361c9",
+              "bytes": 298872
+            },
+            {
+              "src": "/images/archive/videos/lighthouse-spin-twist-poster.webp",
+              "sha256": "b94b72163ad96a211c1f4e27c93646623adc442c1ffee6d9be932485e2d41ebd",
+              "bytes": 29860
+            }
+          ],
+          "asOf": "2026-10-08"
+        }
       }
     ],
     "preparation": {
@@ -32214,6 +32574,33 @@
           "mom-and-baby 1440 px"
         ]
       }
+    },
+    "fullApplicationVerification": {
+      "asOf": "2026-10-08",
+      "status": "passed",
+      "media": 137,
+      "workDocuments": 11,
+      "referenceDocuments": 6,
+      "pdfSourcePages": 63,
+      "publicPdfPages": 62,
+      "excludedPdfPages": {
+        "other-people-art-science-society.pdf": [
+          5
+        ]
+      },
+      "recognitions": 14,
+      "recognitionScans": 13,
+      "archivalVideos": 2,
+      "unitTests": 78,
+      "engineTests": 9,
+      "e2ePassed": 122,
+      "e2eSkipped": 16,
+      "format": "passed",
+      "astro": "130 files; 0 errors/warnings/hints",
+      "content": "passed",
+      "build": "107 total / 104 localized HTML; allowlist and internal locator checks passed",
+      "releaseGate": "passed; not full migration completion",
+      "textAccess": "Private hashed cache; never exported to dist"
     }
   }
 }

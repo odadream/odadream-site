@@ -1,3 +1,4 @@
+import { archiveVideos } from './archive-videos';
 import type { Media } from './site';
 type OwnerKind = 'work' | 'case' | 'programme' | 'education';
 type Record = Pick<Media, 'id' | 'src' | 'width' | 'height' | 'representation' | 'caption' | 'archiveSource'>;
@@ -2016,7 +2017,7 @@ const links: { kind: OwnerKind; owner: string; media: string[] }[] = [
     ],
   },
 ];
-export const archiveMedia: Media[] = records.map((row) => ({
+const imageRecords: Media[] = records.map((row) => ({
   ...row,
   kind: 'image',
   rights: 'cleared',
@@ -2025,5 +2026,8 @@ export const archiveMedia: Media[] = records.map((row) => ({
   credit: { ru: 'Архив ODA.dream', en: 'ODA.dream archive' },
   source: `V1 archive ${row.archiveSource!.path}; owner permission for works/private commissions and full material migration, 2026-10-05/07`,
 }));
-export const archiveMediaFor = (kind: OwnerKind, owner: string) =>
-  links.find((row) => row.kind === kind && row.owner === owner)?.media ?? [];
+export const archiveMedia: Media[] = [...imageRecords, ...archiveVideos];
+export const archiveMediaFor = (kind: OwnerKind, owner: string) => [
+  ...(links.find((row) => row.kind === kind && row.owner === owner)?.media ?? []),
+  ...(kind === 'work' && owner === 'lighthouse' ? archiveVideos.map((row) => row.id) : []),
+];

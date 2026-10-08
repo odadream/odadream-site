@@ -44,7 +44,7 @@ test('historical PDFs require their published work and independent cleared right
   assert.equal(scope.workDocuments.length, 2);
   assert.ok(!JSON.stringify(scope.workDocuments).includes('sha256'));
   assert.ok(!JSON.stringify(scope.workDocuments).includes('sourceRefs'));
-  for (const row of source.workDocuments) {
+  for (const row of source.workDocuments.filter((document) => document.workId === 'rings')) {
     assert.ok(scope.assetPaths.has(row.href));
     assert.ok(
       createPages(scope)

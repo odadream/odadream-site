@@ -24,7 +24,7 @@ test('case narratives and source claims use event roles and readable provenance 
     await page.goto(`/${lang}/cases/#case-portal-2025`);
     await expect(page).toHaveURL(new RegExp(`/${lang}/cases/#case-portal-2025$`));
     await page.goto(`/${lang}/recognition/`);
-    await expect(page.locator('.recognition-card')).toHaveCount(5);
+    await expect(page.locator('.recognition-card')).toHaveCount(14);
     await expect(page.locator('#recognition-portal-2030-2025 .recognition-card__image')).toBeVisible();
     await expect(page.locator('#recognition-mipt-letter-2025 .recognition-card__missing')).toBeVisible();
     await expect(page.locator('#recognition-portal-2030-2025')).toContainText(
