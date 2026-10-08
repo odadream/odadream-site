@@ -428,6 +428,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
               'story',
               'participation',
               'media',
+              'materials',
               'outcome',
               'conditions',
               'studioProvides',

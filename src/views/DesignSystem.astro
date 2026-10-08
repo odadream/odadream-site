@@ -687,12 +687,17 @@ const profileTokens = [
         <div class="recognition-grid">
           <RecognitionCard item={recognitions[0]} lang="ru" />
           <RecognitionCard item={recognitions[1]} lang="ru" />
+          <RecognitionCard
+            item={recognitions.find((row) => row.id === 'culttech-school-grant-2026')!}
+            lang="ru"
+          />
+          <RecognitionCard item={recognitions.find((row) => row.id === 'cyens-reserve-2026')!} lang="ru" />
         </div>
         <p class="small-note">
           Работы и кейсы подсчитаны из типизированных записей. В прежнем перечне признаний{' '}
-          {siteStats.legacyRecognition.total} позиций, но лишь {siteStats.recognitions.total} перенесены в
-          новую модель. Снимок Golem описывает архивные папки событий, а не опубликованные кейсы. Превью
-          документов открываются тем же lightbox, что и другие изображения.
+          {siteStats.legacyRecognition.total} позиций; текущий каталог содержит {siteStats.recognitions.total}{' '}
+          записей из нескольких источников. Снимок Golem описывает архивные папки событий, а не опубликованные
+          кейсы. Превью документов открываются тем же lightbox, что и другие изображения.
         </p>
       </div>
     </section>
@@ -714,6 +719,14 @@ const profileTokens = [
           ]}
         />
         <EditorialSections sections={works[0].story.slice(0, 1)} lang="ru" anchorPrefix="system-story" />
+        <h3>Записи и публикации на внешних площадках</h3>
+        <EditorialSections
+          sections={works
+            .find((work) => work.id === 'theatre-my-name')!
+            .story.filter((section) => section.links)}
+          lang="ru"
+          anchorPrefix="system-source"
+        />
         <h3>Карточки концептов: визуализация и доступность медиа</h3>
         <div class="work-grid">
           {['another-people', 'brain-hack'].map((id) => (

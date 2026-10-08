@@ -7,6 +7,104 @@ type Definition = Pick<CaseEvent, 'id' | 'title' | 'summary' | 'date' | 'place' 
   Partial<CaseEvent> & { files: string[] };
 const definitions: Definition[] = [
   {
+    id: 'frequencies-2025',
+    date: '2025-10-16',
+    work: 'neuromandala',
+    title: l('Нейромандала · Частоты 6.0', 'Neuromandala · Frequencies 6.0'),
+    summary: l(
+      'Живой перформанс и коллективный нейропортрет выставки «Комиссия по трёхтысячному году».',
+      'A live performance and collective neuro-portrait at the Commission for the Year Three Thousand exhibition.',
+    ),
+    place: l('Москва · Галерея на Песчаной', 'Moscow · Gallery on Peschanaya'),
+    role: l(
+      'ODA.dream: художественная система, запись и участие посетителей. Сергей Страхов указан автором видеоотчёта.',
+      'ODA.dream: artistic system, recording and visitor participation. Sergey Strakhov is credited with the video report.',
+    ),
+    source: 'https://t.me/odadream/708',
+    files: ['hub-chastoti.md', 'Golem_Frequencies_2025.md', 'Golem_Public_Event_Reports.json'],
+    limitations: [
+      l(
+        'Открытие 16 октября подтверждается анонсом студии и последующим отчётом. В источниках расходятся сроки выставки; анонс финисажа 30 ноября не назначается подтверждённым отдельным выступлением.',
+        'The 16 October opening is supported by the studio announcement and subsequent report. Exhibition end dates differ between sources; the 30 November closing announcement is not assigned as a confirmed separate performance.',
+      ),
+    ],
+  },
+  {
+    id: 'wind-of-change-2024',
+    date: '2024-11-18',
+    dateMeaning: 'reported-by',
+    work: 'neurobattle',
+    title: l('Парадокс Успеха · Ветер перемен', 'Paradox of Success · Wind of Change'),
+    summary: l(
+      'Нейроигра для участников семейного благотворительного события.',
+      'A neuro-game for participants in a family charity event.',
+    ),
+    place: l('Площадка не уточнена', 'Venue unspecified'),
+    role: l(
+      'ODA.dream: нейроигры и разговор об эмпатии; дети и родители участвовали в парных игровых сессиях.',
+      'ODA.dream: neuro-games and a conversation about empathy; children and parents joined paired game sessions.',
+    ),
+    source: 'https://t.me/odadream/475',
+    files: ['Golem_Public_Event_Reports.json', 'neurobattle.md'],
+    limitations: [
+      l(
+        '18 ноября — дата отчёта; анонс приглашал на 10 ноября 2024 года. Площадка и число участников в использованном отчёте не указаны. Историческое название игры — «Нейробитва».',
+        '18 November is the report date; the announcement invited audiences for 10 November 2024. The venue and participant count are unspecified in the report used here. The game’s historical name is Neurobattle.',
+      ),
+    ],
+  },
+  {
+    id: 'synergy-bali-2022',
+    date: '2022-08-06',
+    work: 'rings',
+    relatedWorks: ['mom-baby'],
+    title: l('ODA.dream · Synergy Crypto & NFT Forum', 'ODA.dream · Synergy Crypto & NFT Forum'),
+    summary: l(
+      'Форумный дебют ODA.dream на Бали: история колец, линия Материя и начало «Мамы и Малыша».',
+      'ODA.dream’s forum debut in Bali: the ring story, the Materia line and the beginning of Mom & Baby.',
+    ),
+    place: l('Бали · Synergy Crypto & NFT Forum', 'Bali · Synergy Crypto & NFT Forum'),
+    role: l(
+      'ODA.dream: авторский показ истории колец и материальных объектов; диалог с Александрой Борзых стал исходным контекстом вложенного кулона.',
+      'ODA.dream: presenting the ring story and material objects; the conversation with Alexandra Borzikh became the origin context for the nested pendant.',
+    ),
+    files: ['proof-oda-synergy-forum-2022.md', 'Golem_Synergy_Bali_2022.md', 'oda-rings.md', 'mom-baby.md'],
+    limitations: [
+      l(
+        'Форумный дебют под именем ODA.dream не означает, что более ранних художественных работ и показов не было. Материалы этой версии сохранены в архивном баннере; они не являются актуальным предложением.',
+        'The forum debut under the ODA.dream name does not imply there were no earlier artistic works or presentations. This version is retained in the archival banner; it is not a current offer.',
+      ),
+    ],
+  },
+  {
+    id: 'meditation-day-2026',
+    date: '2026-05-24',
+    dateMeaning: 'reported-by',
+    participationStatus: 'held',
+    work: 'neuromandala',
+    title: l(
+      'Нейромандала · III Международный день медитации',
+      'Neuromandala · third International Meditation Day',
+    ),
+    summary: l(
+      'Живая визуализация Нейромандалы Натали Осман на главной сцене.',
+      'Live visualization of Natali Osman’s Neuromandala on the main stage.',
+    ),
+    place: l('Площадка не уточнена', 'Venue unspecified'),
+    role: l(
+      'ODA.dream: запись и визуализация нейросигнала. Натали Осман — ведущая медитации и приглашающая сторона.',
+      'ODA.dream: recording and visualizing the neural signal. Natali Osman led the meditation and invited the studio.',
+    ),
+    source: 'https://t.me/odadream/760',
+    files: ['Golem_Public_Event_Reports.json', 'proof-tst-meditation-day.md'],
+    limitations: [
+      l(
+        '24 мая — дата публикации отчёта студии, не установленный день события. Точная площадка и количество участников не указаны; архивная формулировка отзыва не публикуется как дословная цитата организатора.',
+        '24 May is the studio report’s publication date, not a confirmed event day. The exact venue and participant count are unspecified; the archival testimonial wording is not published as a verbatim organizer quote.',
+      ),
+    ],
+  },
+  {
     id: 'ashram-birthday-2024',
     date: '2024-06-25',
     work: 'mindshow',

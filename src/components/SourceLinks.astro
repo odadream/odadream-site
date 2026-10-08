@@ -1,0 +1,29 @@
+---
+import type { SourceLink } from '../data/editorial';
+import type { Lang } from '../data/site';
+import CalloutLink from './CalloutLink.astro';
+interface Props {
+  links: SourceLink[];
+  lang: Lang;
+}
+const { links, lang } = Astro.props;
+const labels = {
+  video: { ru: 'Видео', en: 'Video' },
+  audio: { ru: 'Интервью', en: 'Interview' },
+  article: { ru: 'Публикация', en: 'Article' },
+};
+---
+
+<ul
+  class="source-links"
+  aria-label={lang === 'ru' ? 'Материалы на внешних площадках' : 'Materials on external platforms'}
+>
+  {links.map((link) => (
+    <li>
+      <span class="meta">{labels[link.kind][lang]}</span>
+      <CalloutLink href={link.href} rel="external">
+        {link.title[lang]}
+      </CalloutLink>
+    </li>
+  ))}
+</ul>

@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { loadSiteModule } from './site-data.mjs';
 import { technicalOverviewInput, cvInput } from './document-input.mjs';
 import { verifyPreparedMedia } from './verify-prepared-media.mjs';
+import { verifySourceCoverage } from './verify-source-coverage.mjs';
 
 const data = await loadSiteModule();
 const { isLocalAssetPath } = await loadSiteModule('src/lib/publication-scope.ts');
@@ -39,6 +40,20 @@ function checkCollection(name, rows) {
 }
 function checkLocales(value, label) {
   if (!value || typeof value !== 'object') return;
+  if (Array.isArray(value.links)) {
+    const linkIds = new Set();
+    for (const link of value.links) {
+      if (!link.id || linkIds.has(link.id)) errors.push(`${label}: duplicate/missing source link id`);
+      linkIds.add(link.id);
+      try {
+        const url = new URL(link.href);
+        if (url.protocol !== 'https:' || url.username || url.password) throw Error('Unsafe URL');
+      } catch {
+        errors.push(`${label}: unsafe source link ${link.id}`);
+      }
+      if (!['video', 'audio', 'article'].includes(link.kind)) errors.push(`${label}: invalid source kind`);
+    }
+  }
   if ('en' in value || 'ru' in value) {
     for (const lang of ['en', 'ru']) {
       const text = value[lang];
@@ -301,8 +316,9 @@ if (golem.total !== Object.values(golem.connectionQuality).reduce((sum, n) => su
 const recognitionSummary = JSON.parse(await readFile('src/data/legacy-recognition-summary.json', 'utf8'));
 if (recognitionSummary.total !== Object.values(recognitionSummary.byKind).reduce((sum, n) => sum + n, 0))
   errors.push('Legacy recognition summary: categories do not sum to total');
-if (recognitionSummary.total < data.recognitions.length)
-  errors.push('Legacy recognition summary: fewer listed items than structured records');
+// This is the dated V1 letters list, not a ceiling on the expanded recognition catalogue.
+if (recognitionSummary.sourceSha256 !== data.sourceSnapshots['hub-letters.md']?.sha256)
+  errors.push('Legacy recognition summary: source fingerprint differs from the archived letters list');
 for (const item of data.media) {
   for (const size of ['width', 'height'])
     if (item[size] !== undefined && (!Number.isInteger(item[size]) || item[size] < 1))
@@ -559,6 +575,14 @@ for (const page of data.cooperationPages)
       if (!programmeIds.has(id)) errors.push('Cooperation references unknown programme ' + id);
 
 errors.push(...(await verifyPreparedMedia(data)));
+try {
+  const { catalogue } = await loadSiteModule('src/data/catalogue.ts');
+  const { pages } = await loadSiteModule('src/lib/routes.ts');
+  const coverage = verifySourceCoverage(migrationInventory, catalogue, pages);
+  if (coverage) console.log(`Verified ${coverage.sourceIds} source dispositions against the public corpus.`);
+} catch (error) {
+  errors.push(error.message);
+}
 if (errors.length) {
   console.error(errors.join('\n'));
   process.exitCode = 1;

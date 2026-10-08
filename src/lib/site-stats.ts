@@ -35,7 +35,7 @@ export const siteStats = {
     featured: recognitions.filter((item) => item.featuredOnHome).length,
     withPreview: recognitions.filter((item) => item.previewSrc).length,
     byKind: countBy<RecognitionKind>(recognitions.map((item) => item.kind)),
-    scope: 'transcribed-legacy-records',
+    scope: 'curated-source-backed-records',
   },
   golemEvents: eventSummary,
   legacyRecognition: legacyRecognitionSummary,

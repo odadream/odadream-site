@@ -9,6 +9,13 @@ export interface EditorialSection {
   id: string;
   title: Localized;
   body: Localized;
+  links?: SourceLink[];
+}
+export interface SourceLink {
+  id: string;
+  title: Localized;
+  href: string;
+  kind: 'video' | 'audio' | 'article';
 }
 export interface Method {
   id: string;
@@ -867,6 +874,100 @@ export const sourceSnapshots: Record<string, SourceReference> = {
     file: 'media-oda-rings-banner.md',
     sha256: '1f33aaff1eb64014e3aedc59ca79d55032909a06f75b9309c97380c9243b7f15',
     snapshot: '2026-10-06',
+  },
+
+  'V1_Media_Registry.ts': {
+    file: 'V1_Media_Registry.ts',
+    sha256: '739819dc172971d758b0fe9cb43f651796a96a62fadaa17fb09d9460592f3cd0',
+    snapshot: '2026-10-08',
+  },
+  'Golem_CultTech_2026.md': {
+    file: 'Golem_CultTech_2026.md',
+    sha256: 'f8a9314dc554e98522ae380107ad6c707554deb80e03e6de0027da97c241a58d',
+    snapshot: '2026-10-08',
+  },
+  'Golem_Skolkovo_2026.md': {
+    file: 'Golem_Skolkovo_2026.md',
+    sha256: 'f6fee4267515468e0cd6fcecfe03eccaeddd18f4e5015a1a2bcf588110940fd0',
+    snapshot: '2026-10-08',
+  },
+  'Golem_Ars_2026.md': {
+    file: 'Golem_Ars_2026.md',
+    sha256: 'd535452814e29af3e3d0f7025f3302ea8c1246950100fadba3fc81c57f1c3ee6',
+    snapshot: '2026-10-08',
+  },
+  'CYENS_Final_Status_2026.md': {
+    file: 'CYENS_Final_Status_2026.md',
+    sha256: '2398c37872aadc9fd9de6792003fc4182919c7cbd2a2e1ccad573d42d937b6b4',
+    snapshot: '2026-10-08',
+  },
+  'proof-award-skolkovo-arttech.md': {
+    file: 'proof-award-skolkovo-arttech.md',
+    sha256: '387796a933270ac8f9698989c2e1e05c8aad270c2de8f316b63941c48909ddd0',
+    snapshot: '2026-09-21',
+  },
+  'proof-award-culttech-vienna.md': {
+    file: 'proof-award-culttech-vienna.md',
+    sha256: '1fcbeecf3f25e3c0fc982f8f4054d433cd30aa5cf0f1e0933231f804a12aafb9',
+    snapshot: '2026-09-21',
+  },
+  'proof-award-ars-electronica.md': {
+    file: 'proof-award-ars-electronica.md',
+    sha256: 'fab73eddf54b847912c50ba0ce8ad19e0cdbad690a9a30d6638100e14f206b8a',
+    snapshot: '2026-09-21',
+  },
+  'proof-press-cyens-cyprus.md': {
+    file: 'proof-press-cyens-cyprus.md',
+    sha256: 'cdcf65545bebcaa8ce609d840ae57a0440cec3bc7cbe7a511784b5cfd7b168c4',
+    snapshot: '2026-09-21',
+  },
+  'hub-press.md': {
+    file: 'hub-press.md',
+    sha256: 'a5bcbba5b1b17f4df73ce37f9b163d4e31a923196f7b6ede126c08ceaba41b5d',
+    snapshot: '2026-09-21',
+  },
+  'proof-emomandala-abundance.md': {
+    file: 'proof-emomandala-abundance.md',
+    sha256: '32073190563e07d448d9c0bbe3ddae8db4ecdbd4e4162b0c352ee554c1e8410b',
+    snapshot: '2026-09-21',
+  },
+  'proof-press-tnt-tykakya.md': {
+    file: 'proof-press-tnt-tykakya.md',
+    sha256: '13b89e65040a56ab4a358c26ff24827bf04b8b73a82bf6aec83aef4f928e3a78',
+    snapshot: '2026-09-21',
+  },
+
+  'Golem_Public_Event_Reports.json': {
+    file: 'Golem_Public_Event_Reports.json',
+    sha256: '55246123ce95ba4cff35e8caa4f2cbc532b83886a41f8645566684f4dcadd4d1',
+    snapshot: '2026-10-08',
+  },
+  'proof-tst-meditation-day.md': {
+    file: 'proof-tst-meditation-day.md',
+    sha256: '65b72ac6cfbffd0b2bfdd6c741f4fb52a2c8ffd2d88096b2adedf5ed0d06f0b2',
+    snapshot: '2026-09-21',
+  },
+
+  'proof-oda-synergy-forum-2022.md': {
+    file: 'proof-oda-synergy-forum-2022.md',
+    sha256: '788358f8482999e928642adc40625efb3749c3171a1c344409eff3837a5055eb',
+    snapshot: '2026-09-21',
+  },
+
+  'Golem_Frequencies_2025.md': {
+    file: 'Golem_Frequencies_2025.md',
+    sha256: '0b8c3a9e5295e59b985a6d3ce60c33e8b2a8fb2fafab5b8d8e8c9c6e02d0e068',
+    snapshot: '2026-10-08',
+  },
+  'Golem_Synergy_Bali_2022.md': {
+    file: 'Golem_Synergy_Bali_2022.md',
+    sha256: 'aa657322abfc7dbe0884b8c241c810e72ef0ee9f714a6bacc7222d6d50a81614',
+    snapshot: '2026-10-08',
+  },
+  'hub-chastoti.md': {
+    file: 'hub-chastoti.md',
+    sha256: '115796223779c30abb46085c805ae6adff18afc9f1e79d5d2fc33e31162b0032',
+    snapshot: '2026-09-21',
   },
 };
 const refs = (...files: string[]) => files.map((file) => sourceSnapshots[file]);

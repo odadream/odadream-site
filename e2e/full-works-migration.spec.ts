@@ -23,8 +23,10 @@ test('additional works expose complete pages and separate real objects from desi
     ]) {
       const response = await page.goto(`/${lang}/works/${slug}/`);
       expect(response!.status()).toBe(200);
-      await expect(page.locator('#work-story .editorial-sections article')).toHaveCount(
-        slug === 'theatre-of-my-name' ? 4 : ['brain-hack', 'journey-to-yourself'].includes(slug) ? 2 : 3,
+      const minimumStoryParts =
+        slug === 'theatre-of-my-name' ? 4 : ['brain-hack', 'journey-to-yourself'].includes(slug) ? 2 : 3;
+      expect(await page.locator('#work-story .editorial-sections article').count()).toBeGreaterThanOrEqual(
+        minimumStoryParts,
       );
       await expect(page.locator('#work-credits .list-row').first()).toBeVisible();
       await expect(page.locator('#site-nav [data-route="works"]')).toHaveAttribute('aria-current', 'page');

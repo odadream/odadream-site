@@ -837,6 +837,17 @@ figcaption {
 .editorial-sections > article > * + * {
   margin-top: var(--gap-copy);
 }
+.source-links {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--gap-copy);
+}
+.source-links li {
+  display: grid;
+  gap: var(--gap-label);
+  min-width: 0;
+}
 :where(.facts) {
   margin: 0;
 }

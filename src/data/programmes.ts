@@ -1,3 +1,4 @@
+import { sourceSectionsFor } from './archive-source-links';
 import { archiveMediaFor } from './archive-media';
 import type { Localized, Publication } from './site';
 import { participationDetails, sourceSnapshots, type ParticipationDetail } from './editorial';
@@ -26,7 +27,9 @@ export interface Programme extends ParticipationDetail {
 // Common educational conditions also preserve the dated overview's factual input.
 // This is not a standalone programme or a public Formats record.
 export const educationOverview = {
+  materials: sourceSectionsFor('education', 'talk-workshop'),
   ...participationDetails['talk-workshop'],
+  sourceRefs: [...participationDetails['talk-workshop'].sourceRefs, sourceSnapshots['V1_Media_Registry.ts']],
   id: 'talk-workshop',
   media: archiveMediaFor('education', 'talk-workshop'),
   legacyId: 'hub-lectures',

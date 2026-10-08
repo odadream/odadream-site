@@ -1,3 +1,4 @@
+import { sourceSectionsFor } from './archive-source-links';
 import { archiveRecognitions } from './archive-recognitions';
 import { participationDetails } from './editorial';
 import type { ParticipationDetail } from './editorial';
@@ -21,6 +22,7 @@ import { caseDetails, historicalEvents } from './case-details';
 import type { CaseDetail } from './case-details';
 import { evidenceDetails, recognitionDetails } from './evidence-details';
 import type { EvidenceDetail, RecognitionDetail } from './evidence-details';
+import { sourceSnapshots } from './editorial';
 export { methods, cooperationPages, sourceSnapshots } from './editorial';
 export { studioPages } from './studio';
 export { referenceDocuments } from './reference-documents';
@@ -178,7 +180,7 @@ export interface Evidence extends EvidenceDetail {
   source: string;
   permission: Rights;
 }
-export type RecognitionKind = 'award' | 'certificate' | 'acknowledgement-letter';
+export type RecognitionKind = 'award' | 'certificate' | 'acknowledgement-letter' | 'grant' | 'selection';
 export interface Recognition extends RecognitionDetail {
   id: string;
   legacyId?: string;
@@ -1471,6 +1473,10 @@ export const cases: CaseEvent[] = [
 export const eventSeries = seriesRecords;
 export const works: Work[] = artworkRecords.map((work) => ({
   ...work,
+  story: [...work.story, ...sourceSectionsFor('work', work.id)],
+  sourceRefs: sourceSectionsFor('work', work.id).length
+    ? [...work.sourceRefs, sourceSnapshots['V1_Media_Registry.ts']]
+    : work.sourceRefs,
   media: [...new Set([...work.media, ...archiveMediaFor('work', work.id)])],
   cases: [
     ...new Set([

@@ -195,13 +195,13 @@ items:
       - NAVIGATION-STRUCTURE-02
       - URL-MIGRATION-01
     source: docs/MIGRATION-PLAN.md, раздел 6
-    progress: "Завершено 2026-10-08: фактическая публичная проекция без синтетических approvals; 102 канонические страницы, 2388 ссылок, 279 файлов HTTP 200, 110 сочетаний ширины/темы/страницы. Три повторных Lighthouse-прогона на сценарий: главная mobile 87, desktop 100, кольца mobile 93; accessibility/SEO 100. 78 unit, 9 engine, 122 E2E, Astro/content/build/format/release прошли. Loopback без HTTP-сжатия/кеша, измерения не равны полевому INP и доставке аналитики. Подробности в inventory, отчёты приватны."
+    progress: "Завершено 2026-10-08: фактическая публичная проекция без синтетических approvals; 102 канонические страницы, 2430 ссылок, 279 файлов HTTP 200, 110 сочетаний ширины/темы/страницы. Три повторных Lighthouse-прогона на сценарий: главная mobile 88, desktop 100, кольца mobile 93; accessibility/SEO 100. 83 unit, 9 engine, 127 E2E, Astro/content/build/format/release прошли. Loopback без HTTP-сжатия/кеша, измерения не равны полевому INP и доставке аналитики. Подробности в inventory, отчёты приватны."
 
   - id: SOURCE-COVERAGE-01
     title: Сверить покрытие всех содержательных источников расширенного переноса
     area: migration
     priority: P0
-    status: planned
+    status: done
     outcome: Ни один содержательный материал не остаётся отложенным только из-за прежнего ограниченного пакета.
     acceptance:
       - Все 238 исходных ID и дополнительные источники имеют фактический результат, целевые сущности/разделы и сохранённые provenance/неизвестные значения.
@@ -214,6 +214,8 @@ items:
       - MEDIA-MIGRATION-FULL-01
       - URL-MIGRATION-01
     source: docs/MIGRATION-PLAN.md, раздел 9
+    progress: "Завершено 2026-10-08: 238 версионных решений — 154 применены, 61 объединён, 23 исключены с причиной. verify-source-coverage сверяет SHA источника и существование каждой цели в реальной публичной модели; подключён к content:check. Пропущенные контексты восстановлены из источников: Бали, Частоты, Ветер перемен, Международный день медитации. Текущий корпус — 23 Work, 15 Programme, 41 Case, 17 Recognition / 13 сканов. Неподтверждённые регалии/агрегаты и синтетические отзывы не публикуются как проверенные факты."
+
   - id: VIDEO-PREVIEW-01
     title: Единое видеопревью по наведению и центру мобильного экрана
     area: design_system
@@ -906,8 +908,8 @@ items:
 migration_progress:
   scope_version: v2-full-content-2026-10-07.1
   method: completed-weighted-deliverables-v3
-  measurement_revision: 2026-10-08.3
-  measurement_note: Новая граница принята владельцем. Подготовленное ядро учитывается один раз; будущие Work/Programme/Case/медиа и QA нового корпуса имеют собственные проверяемые результаты. Результат прежнего ограниченного пакета 95% заморожен отдельно.
+  measurement_revision: 2026-10-08.4
+  measurement_note: Новая граница принята владельцем. Подготовленное ядро учитывается один раз; будущие Work/Programme/Case/медиа и QA нового корпуса имеют собственные проверяемые результаты. Результат прежнего ограниченного пакета 95% заморожен отдельно. 2026-10-08.4 разделяет прежние 3 балла покрытия/завершения на 2 за проверенный учёт источников и 1 за итоговый аудит; веса этапов, общий бюджет и условия 100% сохранены.
   scope: "Весь содержательный корпус V1 и связанные проверенные материалы: Work, Programme, Configuration, события/кейсы, метод, студия, подтверждения, галереи, совместимость и техническая готовность."
   excludes: Финальные отдельные проходы дизайна/контента/движка, live GDB/MindDB, CMS-перестройка, автоматический генератор КП и M6 переключение домена.
   checkpoints:
@@ -1077,10 +1079,13 @@ migration_progress:
           weight: 3
           tasks:
             - ANALYTICS-MIGRATION-01
-        - id: coverage-and-completion
-          weight: 3
+        - id: source-coverage
+          weight: 2
           tasks:
             - SOURCE-COVERAGE-01
+        - id: completion-audit
+          weight: 1
+          tasks:
             - MIGRATION-COMPLETE-01
 migration_progress_history:
   - scope_version: v2-core-2026-10-06.1

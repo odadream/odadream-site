@@ -59,6 +59,9 @@ export const publicationPlan: PublicationPlan = {
   ],
   people: ['founders', 'olga', 'daler'],
   recognitions: [
+    'skolkovo-arttech-2026',
+    'culttech-school-grant-2026',
+    'cyens-reserve-2026',
     'digital-art-ai-2026',
     'mipt-letter-2025',
     'portal-2030-2025',

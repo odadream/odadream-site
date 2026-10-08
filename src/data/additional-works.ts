@@ -585,8 +585,8 @@ const definitions: Definition[] = [
         'competition',
         'Конкурсный проект',
         'Competition project',
-        'Сохранён проект для направления 6 конкурса ART × TECHNOLOGY. Архив сообщает о первом месте и гранте, но эти результаты требуют отдельной проверки наградного источника и не назначают статус изготовленной инсталляции. Условия реализации и размещения не зафиксированы как действующая экспозиция.',
-        'A project for Direction 6 of ART × TECHNOLOGY is retained. The archive reports first place and a grant; those results require separate award-source verification and do not establish a fabricated installation. Implementation and placement are not recorded as an operating exhibition.',
+        'Сохранён проект для направления 6 конкурса ART × TECHNOLOGY. Карточка результата студии фиксирует первое место 20 апреля 2026 года под названием «Мозг Сколково: Нейропортреты». Конкурсное признание не назначает статус изготовленной инсталляции: условия реализации и размещения не зафиксированы как действующая экспозиция.',
+        'A project for Direction 6 of ART × TECHNOLOGY is retained. The studio result record lists first place on 20 April 2026 under the title Brain of Skolkovo: Neuro-portraits. Competition recognition does not establish a fabricated installation: implementation and placement are not recorded as an operating exhibition.',
       ),
     ],
   },
@@ -920,7 +920,12 @@ export const additionalWorks: Work[] = definitions.map((row) => ({
       'Archived version parameters are clarified for a new invitation; unknown dates and conditions remain open.',
     ),
   ],
-  sourceRefs: [sourceSnapshots[row.id + '.md']],
+  sourceRefs: [
+    sourceSnapshots[row.id + '.md'],
+    ...(row.id === 'honors'
+      ? [sourceSnapshots['Golem_Skolkovo_2026.md'], sourceSnapshots['proof-award-skolkovo-arttech.md']]
+      : []),
+  ],
   availability: l(
     row.stage === 'realized'
       ? 'Показ, повторное изготовление или адаптация обсуждаются по задаче; текущие условия отдельно согласуются со студией.'

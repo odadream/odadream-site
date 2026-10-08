@@ -317,12 +317,118 @@ const records = [
       'Owner-authorized studio archive material; full migration permission 2026-10-05/07; visually inspected received document',
     sourceFiles: ['hub-letters.md'],
   },
+
+  {
+    year: 2026,
+    recipient: {
+      ru: 'ODA.dream',
+      en: 'ODA.dream',
+    },
+    documentSource: '',
+    documentState: 'missing',
+    documentRights: 'review',
+    publication: 'published',
+    featuredOnHome: false,
+    source:
+      'Studio source records; owner-authorized full content migration; private correspondence/originals not published',
+    id: 'skolkovo-arttech-2026',
+    legacyId: 'proof-award-skolkovo-arttech',
+    kind: 'award',
+    title: {
+      ru: 'Первое место · ART × TECHNOLOGY',
+      en: 'First place · ART × TECHNOLOGY',
+    },
+    issuer: {
+      ru: 'Технопарк «Сколково»',
+      en: 'Skolkovo Technopark',
+    },
+    claim: {
+      ru: 'Карточка результата конкурса в архиве студии фиксирует первое место проекта «Мозг Сколково: Нейропортреты», связанного с «Нейродоской почёта».',
+      en: 'The studio’s competition-result record lists first place for Brain of Skolkovo: Neuro-portraits, linked to Neuro Honor Board.',
+    },
+    limitations: {
+      ru: 'Результат конкурса не означает изготовление или открытие инсталляции. Скан наградного документа не приложен; дата результата в архиве — 20 апреля 2026 года.',
+      en: 'The competition result does not establish fabrication or opening of the installation. No award scan is attached; the archive gives 20 April 2026 as the result date.',
+    },
+    relatedWorks: ['honors'],
+    sourceFiles: ['proof-award-skolkovo-arttech.md', 'Golem_Skolkovo_2026.md'],
+  },
+  {
+    year: 2026,
+    recipient: {
+      ru: 'ODA.dream',
+      en: 'ODA.dream',
+    },
+    documentSource: '',
+    documentState: 'missing',
+    documentRights: 'review',
+    publication: 'published',
+    featuredOnHome: false,
+    source:
+      'Studio source records; owner-authorized full content migration; private correspondence/originals not published',
+    id: 'culttech-school-grant-2026',
+    legacyId: 'proof-award-culttech-vienna',
+    kind: 'grant',
+    title: {
+      ru: 'Грант на обучение · CultTech Lab',
+      en: 'School participation grant · CultTech Lab',
+    },
+    issuer: {
+      ru: 'CultTech Association',
+      en: 'CultTech Association',
+    },
+    claim: {
+      ru: 'В источнике студии зафиксированы отбор в CultTech Lab 2026 и Participation Grant, покрывающий 100% стоимости School Phase.',
+      en: 'The studio source records selection for CultTech Lab 2026 and a Participation Grant covering the full School Phase fee.',
+    },
+    limitations: {
+      ru: 'Это грант на обучение, а не подтверждённый производственный грант €2500. Запланированная премьера «Предков в шуме» не состоялась; работа сохраняет статус внутреннего прототипа. Публичный скан не приложен.',
+      en: 'This is a school participation grant, not a confirmed €2,500 production grant. The proposed Ancestors in the Noise premiere did not take place; the work remains an internal prototype. No public scan is attached.',
+    },
+    relatedWorks: ['ancestors'],
+    sourceFiles: ['proof-award-culttech-vienna.md', 'Golem_CultTech_2026.md'],
+  },
+  {
+    year: 2026,
+    recipient: {
+      ru: 'ODA.dream',
+      en: 'ODA.dream',
+    },
+    documentSource: '',
+    documentState: 'missing',
+    documentRights: 'review',
+    publication: 'published',
+    featuredOnHome: false,
+    source:
+      'Studio source records; owner-authorized full content migration; private correspondence/originals not published',
+    id: 'cyens-reserve-2026',
+    legacyId: 'proof-press-cyens-cyprus',
+    kind: 'selection',
+    title: {
+      ru: 'Резерв отбора · CYENS WIP',
+      en: 'Selection reserve · CYENS WIP',
+    },
+    issuer: {
+      ru: 'CYENS Centre of Excellence',
+      en: 'CYENS Centre of Excellence',
+    },
+    claim: {
+      ru: 'Заявки Neuromandala: MindGrid и MindShow рассматривались для фестиваля WIP 2026. В источнике зафиксирован runner-up / резервный список.',
+      en: 'Neuromandala: MindGrid and MindShow proposals were considered for WIP 2026. The source records a runner-up / reserve-list status.',
+    },
+    limitations: {
+      ru: 'Runner-up здесь означает резервный отбор, а не второе место на проведённом фестивале. Финальный статус архива от 29 сентября 2026 года — not selected: участие не состоялось. Публичный документ не приложен.',
+      en: 'Runner-up here means reserve selection, not second prize at a completed festival. The archive’s final status on 29 September 2026 is not selected: participation did not take place. No public document is attached.',
+    },
+    relatedWorks: ['mindshow'],
+    sourceFiles: ['proof-press-cyens-cyprus.md', 'CYENS_Final_Status_2026.md'],
+  },
 ];
 export const archiveRecognitions: Recognition[] = records.map(({ sourceFiles, ...row }) => ({
   ...row,
   kind: row.kind as Recognition['kind'],
   publication: 'published',
-  documentRights: 'cleared',
-  documentState: 'available',
+  documentRights: row.documentRights as Recognition['documentRights'],
+  documentState: row.documentState as Recognition['documentState'],
   sourceRefs: sourceFiles.map((file) => sourceSnapshots[file]),
 }));

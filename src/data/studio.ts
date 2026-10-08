@@ -107,6 +107,59 @@ export const studioPages: StudioPage[] = [
     people: ['olga', 'daler'],
     sections: [
       {
+        id: 'submissions',
+        title: {
+          ru: 'Заявки и результаты отбора',
+          en: 'Applications and selection outcomes',
+        },
+        body: {
+          ru: 'В 2026 году Нейромандала подана на Prix Ars Electronica в категории Interactive Art+. Подача не означает награду. Заявки MindGrid и MindShow для CYENS WIP попали в резервный список; итоговый архив от 29 сентября фиксирует отсутствие отбора на фестиваль. Эти истории сохраняются как конкурсная работа, а не состоявшиеся показы.',
+          en: 'In 2026, Neuromandala was submitted to Prix Ars Electronica in the Interactive Art+ category. A submission does not establish an award. The MindGrid and MindShow proposals for CYENS WIP entered the reserve list; the final archive dated 29 September records that festival selection did not follow. These histories remain competition work, not completed presentations.',
+        },
+      },
+      {
+        id: 'professional',
+        title: {
+          ru: 'Профессиональные связи',
+          en: 'Professional affiliations',
+        },
+        body: {
+          ru: 'Биографические материалы студии указывают членство в Творческом союзе художников России: Ольга — в секции научного искусства, Далер — мультимедиа. Участие в событиях других организаций описывается через конкретную роль: автор, соавтор, приглашённый спикер или участник показа.',
+          en: 'Studio biographies record membership in the Creative Union of Artists of Russia: Olga in Scientific Art and Daler in Multimedia. Contributions to other organizations’ events are described through a specific role: author, co-author, invited speaker or presenting participant.',
+        },
+      },
+      {
+        id: 'press',
+        title: {
+          ru: 'Публикации и эфиры',
+          en: 'Publications and broadcasts',
+        },
+        body: {
+          ru: 'Внешние материалы о публичных проектах студии. Публикации сохраняют авторство редакций и открываются на площадке источника.',
+          en: 'External materials about the studio’s public projects. Publications retain their publishers’ authorship and open at the source.',
+        },
+        links: [
+          {
+            id: 'ntv-metro',
+            title: {
+              ru: 'НТВ · цифровой пленэр в московском метро',
+              en: 'NTV · digital plein air in the Moscow metro',
+            },
+            href: 'https://www.ntv.ru/novosti/2887676/',
+            kind: 'article',
+          },
+          {
+            id: 'tskhr-bashkiria',
+            title: {
+              ru: 'ТСХР · первый цифровой пленэр в Башкирии',
+              en: 'TSKhR · first digital plein air in Bashkiria',
+            },
+            href: 'https://tcxp.ru/news/regions/v-bashkirii-proshel-pervyy-cifrovoy-plener',
+            kind: 'article',
+          },
+        ],
+      },
+      {
         id: 'position',
         title: l('Человек внутри системы', 'The person within the system'),
         body: l(
@@ -199,6 +252,11 @@ export const studioPages: StudioPage[] = [
       },
     ],
     sourceRefs: refs(
+      'Golem_Ars_2026.md',
+      'CYENS_Final_Status_2026.md',
+      'hub-press.md',
+      'Olga_Arabova_CV.md',
+      'Daler_Arabov_CV.md',
       'hub-cv.md',
       'hub-manifesto.md',
       'hub-education.md',

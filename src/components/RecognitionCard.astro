@@ -23,6 +23,8 @@ interface Props {
 const { item, lang } = Astro.props;
 const kindLabels: Record<RecognitionKind, Record<Lang, string>> = {
   award: { en: 'Award', ru: 'Награда' },
+  grant: { en: 'Grant', ru: 'Грант' },
+  selection: { en: 'Selection', ru: 'Отбор' },
   certificate: { en: 'Certificate', ru: 'Диплом' },
   'acknowledgement-letter': { en: 'Acknowledgement', ru: 'Благодарность' },
 };

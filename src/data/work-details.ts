@@ -484,7 +484,7 @@ export const workDetails: Record<string, WorkDetail> = {
       ),
     ],
     relatedWorks: [],
-    sourceRefs: refs('ancestors.md'),
+    sourceRefs: refs('ancestors.md', 'Golem_CultTech_2026.md', 'proof-award-culttech-vienna.md'),
   },
 };
 

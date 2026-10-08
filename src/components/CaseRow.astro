@@ -8,7 +8,7 @@ import CalloutLink from './CalloutLink.astro';
 interface Props {
   item: Omit<
     CaseEvent,
-    'sourceRefs' | 'source' | 'organizationRoles' | 'story' | 'participants' | 'evidence' | 'organizations'
+    'sourceRefs' | 'organizationRoles' | 'story' | 'participants' | 'evidence' | 'organizations'
   >;
   lang: Lang;
   specimen?: boolean;
@@ -46,6 +46,13 @@ const links = [
     <h3>{item.title[lang]}</h3>
     <p>{item.summary[lang]}</p>
     <p>{item.role[lang]}</p>
+    {item.source.startsWith('https://') && (
+      <p>
+        <CalloutLink href={item.source} rel="external">
+          {lang === 'ru' ? 'Источник события' : 'Event source'}
+        </CalloutLink>
+      </p>
+    )}
     {!item.detailPage && item.limitations.map((note) => <p class="small-note">{note[lang]}</p>)}
     {!item.detailPage && !specimen && (
       <MediaGallery

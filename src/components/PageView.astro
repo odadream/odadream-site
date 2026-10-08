@@ -801,6 +801,11 @@ const timeline = [...cases]
             fields={educationOverview.conditions.map((c) => ({ label: c.label[lang], value: c.value[lang] }))}
           />
           <p>{educationOverview.scope[lang]}</p>
+          <EditorialSections
+            sections={educationOverview.materials}
+            lang={lang}
+            anchorPrefix="education-material"
+          />
           <CalloutLink href={`/${lang}/cooperation/#for-education`}>
             {ru ? 'Обсудить образовательную программу' : 'Discuss an educational programme'}
           </CalloutLink>

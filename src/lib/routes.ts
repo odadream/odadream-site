@@ -133,6 +133,9 @@ export const createPages = (
               ...(records.educationOverview
                 ? [
                     'education-conditions',
+                    ...(records.educationOverview.materials ?? []).map(
+                      (section) => `education-material-${section.id}`,
+                    ),
                     ...(records.educationOverview.media.length
                       ? ['education-gallery', 'education-media']
                       : []),
