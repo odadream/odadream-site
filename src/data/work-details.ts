@@ -1,6 +1,7 @@
 import type { Localized, Rights } from './site';
 import type { EditorialSection, SourceReference } from './editorial';
 import { sourceSnapshots } from './editorial';
+import { documentPages, type DocumentPage } from '../lib/prepared-media';
 
 export interface WorkDetail {
   story: EditorialSection[];
@@ -39,13 +40,14 @@ export interface WorkDocument {
   language: 'en' | 'ru';
   pages: number;
   bytes: number;
+  pageImages?: DocumentPage[];
   rights: Rights;
   sha256: string;
   source: string;
   sourceRefs: SourceReference[];
 }
 
-export const workDocuments: WorkDocument[] = [
+const documentRecords: WorkDocument[] = [
   {
     id: 'oda-rings-drawings',
     legacyId: 'media-oda-rings-drawings',
@@ -87,6 +89,11 @@ export const workDocuments: WorkDocument[] = [
     sourceRefs: refs('media-oda-rings-banner.md'),
   },
 ];
+
+export const workDocuments: WorkDocument[] = documentRecords.map((row) => ({
+  ...row,
+  pageImages: documentPages(row.href),
+}));
 
 // Selected, edited source material. The source archive is never rendered or imported at runtime.
 export const workDetails: Record<string, WorkDetail> = {

@@ -8,6 +8,8 @@ On Windows, double-click `start-local-v2.cmd` in the project root to start or re
 
 Requires Node 22.19+ (CI uses Node 24). Run `npm ci`, then `npm run dev`. The dev server is an editorial preview with a notice and noindex; it retains review material. The production build contains only the explicit publication packet and its allowed files. Preview the English home at `/en/`, Russian home at `/ru/`, or the root legacy bridge at `/`. Run `npm run format:check`, `npm test`, `npm run content:check`, `npm run check`, `npm run build`, `npm run test:e2e` before review.
 
+Media preparation: `npm run media:prepare` refreshes compressed WebP images and PDF page galleries from typed records. `node scripts/prepare-media.mjs --archive` also prepares the read-only historical archive in the private cache. Python dependencies: `scripts/media-requirements.txt`; ordinary builds need neither Python nor OCR. Extracted/OCR text stays associated with pages in `.local-server/media-cache/index.json` and is never automatically published. Policy, OCR setup and validation are documented in [CONTENT-AND-CMS.md](docs/CONTENT-AND-CMS.md#подготовка-изображений-pdf-и-текстовых-копий).
+
 ## Structure
 
 - `src/data/publication-plan.ts`, `src/lib/publication-scope.ts`, `src/data/catalogue.ts`: versioned candidate IDs, shared publication checks, public projection and dev review mode.

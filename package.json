@@ -17,7 +17,8 @@
     "legacy:generate": "node scripts/generate-legacy-map.mjs",
     "stats:golem": "node scripts/sync-golem-stats.mjs",
     "migration:status": "node scripts/migration-status.mjs",
-    "migration:qa": "node scripts/rehearse-candidate.mjs && node scripts/check-candidate.mjs"
+    "migration:qa": "node scripts/rehearse-candidate.mjs && node scripts/check-candidate.mjs",
+    "media:prepare": "node scripts/prepare-media.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",

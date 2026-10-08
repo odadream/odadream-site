@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 import { loadSiteModule } from './site-data.mjs';
 import { technicalOverviewInput, cvInput } from './document-input.mjs';
+import { verifyPreparedMedia } from './verify-prepared-media.mjs';
 
 const data = await loadSiteModule();
 const { isLocalAssetPath } = await loadSiteModule('src/lib/publication-scope.ts');
@@ -530,6 +531,7 @@ for (const page of data.cooperationPages)
     for (const id of scenario.programmeIds)
       if (!programmeIds.has(id)) errors.push('Cooperation references unknown programme ' + id);
 
+errors.push(...(await verifyPreparedMedia(data)));
 if (errors.length) {
   console.error(errors.join('\n'));
   process.exitCode = 1;

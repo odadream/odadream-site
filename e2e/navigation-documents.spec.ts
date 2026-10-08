@@ -48,7 +48,7 @@ test('all overview sections are reachable and current in both languages, includi
   await expect(page.locator('#site-nav [data-route="design"]')).toHaveAttribute('aria-current', 'page');
 });
 
-test('rings archive documents use original PDFs, precise anchors and explicit historical labels without preload', async ({
+test('rings documents use whole image pages and retain original PDFs and precise historical anchors', async ({
   page,
   request,
 }) => {
@@ -59,6 +59,12 @@ test('rings archive documents use original PDFs, precise anchors and explicit hi
       lang === 'ru' ? '40,4 МБ' : '40.4 MB',
     );
     await expect(page.locator('link[rel="preload"][href$=".pdf"]')).toHaveCount(0);
+    const drawing = page.locator('#document-oda-rings-drawings');
+    await expect(drawing.locator('img')).toHaveAttribute('src', /\/images\/prepared\/.+\.webp$/);
+    await expect(drawing.locator('figure')).toHaveAttribute('data-fit', 'natural');
+    await drawing.locator('[data-lightbox]').click();
+    await expect(page.locator('#lightbox')).toBeVisible();
+    await page.keyboard.press('Escape');
     await page.goto(`/${lang}/works/oda-rings/#document-oda-rings-drawings`);
     await expect(page).toHaveURL(
       (url) => url.pathname + url.hash === `/${lang}/works/oda-rings/#document-oda-rings-drawings`,

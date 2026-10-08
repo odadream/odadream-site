@@ -1,3 +1,4 @@
+import { preparedMedia } from '../data/prepared-media';
 import type { Publication, Work } from '../data/site';
 
 export type CatalogueSource = Pick<
@@ -320,6 +321,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'language',
             'pages',
             'bytes',
+            'pageImages',
             'asOf',
           ]),
           owner: { kind: row.owner.kind, id: row.owner.id },
@@ -336,6 +338,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'language',
             'pages',
             'bytes',
+            'pageImages',
           ]),
         ),
         studioPages: studioPages.map((row) =>
@@ -596,9 +599,28 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             ])
           : undefined,
       };
+  projected.media = projected.media.map((row) => {
+    if (row.kind !== 'image') return row;
+    const prepared = preparedMedia[row.src]?.images[0];
+    const mobile = row.mobileSrc ? preparedMedia[row.mobileSrc]?.images[0] : undefined;
+    return prepared
+      ? {
+          ...row,
+          src: prepared.src,
+          width: prepared.width,
+          height: prepared.height,
+          mobileSrc: mobile?.src ?? row.mobileSrc,
+        }
+      : row;
+  });
   const assetPaths = new Set(['/CNAME', '/robots.txt', '/brand/oda-logo.svg', '/brand/oda-brain.svg']);
   for (const row of projected.workDocuments) assetPaths.add(row.href);
   for (const row of projected.referenceDocuments) assetPaths.add(row.href);
+  for (const row of [...projected.workDocuments, ...projected.referenceDocuments])
+    for (const page of row.pageImages ?? []) {
+      if (isLocalAssetPath(page.src) && page.src.startsWith('/images/prepared/')) assetPaths.add(page.src);
+      else errors.push(`document ${row.id}: invalid prepared page path`);
+    }
   for (const row of projected.media)
     for (const path of [row.src, row.mobileSrc, row.poster, row.previewSrc])
       if (path?.startsWith('/')) assetPaths.add(path);
@@ -607,7 +629,9 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
       if (path?.startsWith('/')) assetPaths.add(path);
   // Use the already permission-checked dependency set; aliases never publish a deferred work.
   for (const row of media)
-    for (const path of row.legacyPaths ?? []) {
+    for (const path of [row.src, row.mobileSrc, ...(row.legacyPaths ?? [])].filter(
+      (path): path is string => !!path,
+    )) {
       if (isLocalAssetPath(path)) assetPaths.add(path);
       else errors.push(`media ${row.id}: invalid legacy asset path ${path}`);
     }

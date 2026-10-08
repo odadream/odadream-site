@@ -2,6 +2,8 @@
 import type { Lang } from '../data/site';
 import type { DocumentMetadata } from '../data/reference-documents';
 import CalloutLink from './CalloutLink.astro';
+import MediaGallery from './MediaGallery.astro';
+import type { MediaItem } from '../lib/media-presentation';
 interface Props {
   documents: DocumentMetadata[];
   lang: Lang;
@@ -20,27 +22,52 @@ const size = (bytes: number) => {
 const metadata = (document: Props['documents'][number]) =>
   [
     document.year,
-    'PDF',
+    'WebP',
     document.language.toUpperCase(),
     `${document.pages} ${ru ? 'стр.' : 'pp.'}`,
-    size(document.bytes),
+    size((document.pageImages ?? []).reduce((total, page) => total + page.bytes, 0)),
   ].join(' · ');
+const pageItems = (document: DocumentMetadata): MediaItem[] =>
+  (document.pageImages ?? []).map((page, index) => ({
+    id: `${document.id}-page-${index + 1}`,
+    ...page,
+    kind: 'image',
+    representation: 'document',
+    alt: {
+      ru: `${document.title.ru} — страница ${index + 1}`,
+      en: `${document.title.en} — page ${index + 1}`,
+    },
+    caption: {
+      ru: `Страница ${index + 1} из ${document.pages}`,
+      en: `Page ${index + 1} of ${document.pages}`,
+    },
+  }));
 ---
 
 {documents.length > 0 && (
   <section class="section-body spaced-actions" aria-label={heading}>
     <h3>{heading}</h3>
-    <div>
+    <div class="document-list">
       {documents.map((document) => (
-        <article class="list-row" id={`document-${document.id}`} data-material-id={document.id}>
-          <span class="meta">{metadata(document)}</span>
-          <div>
-            <strong>{document.title[lang]}</strong>
-            <p class="small-note">{document.description[lang]}</p>
+        <article class="document-list__item" id={`document-${document.id}`} data-material-id={document.id}>
+          <div class="list-row">
+            <span class="meta">{metadata(document)}</span>
+            <div>
+              <strong>{document.title[lang]}</strong>
+              <p class="small-note">{document.description[lang]}</p>
+            </div>
+            <CalloutLink href={document.href} target="_blank" rel="noopener">
+              {ru ? 'Исходный PDF' : 'Original PDF'} · {size(document.bytes)}
+            </CalloutLink>
           </div>
-          <CalloutLink href={document.href} target="_blank" rel="noopener">
-            {ru ? 'Открыть PDF' : 'Open PDF'}
-          </CalloutLink>
+          <MediaGallery
+            id={`document-pages-${document.id}`}
+            items={pageItems(document)}
+            lang={lang}
+            mode="tiles"
+            fit="natural"
+            label={document.title[lang]}
+          />
         </article>
       ))}
     </div>

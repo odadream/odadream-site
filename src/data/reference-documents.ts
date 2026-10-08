@@ -2,11 +2,12 @@ import type { WorkDocument } from './work-details';
 import type { Rights } from './site';
 import type { SourceReference } from './editorial';
 import { sourceSnapshots } from './editorial';
+import { documentPages } from '../lib/prepared-media';
 const refs = (...files: string[]) => files.map((file) => sourceSnapshots[file]);
 
 export type DocumentMetadata = Pick<
   WorkDocument,
-  'id' | 'title' | 'description' | 'href' | 'year' | 'language' | 'pages' | 'bytes'
+  'id' | 'title' | 'description' | 'href' | 'year' | 'language' | 'pages' | 'bytes' | 'pageImages'
 >;
 export interface ReferenceDocument extends DocumentMetadata {
   kind: 'technical-overview' | 'cv';
@@ -27,7 +28,7 @@ export interface ReferenceDocument extends DocumentMetadata {
 
 // Prepared from the same typed editorial facts as the HTML. Publication follows
 // the owner and all dependencies; authorship of this overview does not publish them.
-export const referenceDocuments: ReferenceDocument[] = [
+const documentRecords: ReferenceDocument[] = [
   {
     id: 'technical-overview-ru',
     kind: 'technical-overview',
@@ -292,3 +293,8 @@ export const referenceDocuments: ReferenceDocument[] = [
       'Curated V2 biography and selected studio projects; owner-provided CYENS profile snapshot recorded in sourceRefs. Current CV export, 2026-10-06.',
   },
 ];
+
+export const referenceDocuments: ReferenceDocument[] = documentRecords.map((row) => ({
+  ...row,
+  pageImages: documentPages(row.href),
+}));

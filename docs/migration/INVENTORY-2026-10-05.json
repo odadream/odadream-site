@@ -30453,6 +30453,91 @@
         "preparedByteMatches": [],
         "state": "preflight candidates; visual/meaning/rights assessment required"
       }
-    ]
+    ],
+    "preparation": {
+      "asOf": "2026-10-08",
+      "policyVersion": 1,
+      "status": "prepared; publication/owner review continues separately",
+      "pipeline": "scripts/prepare-media.mjs + scripts/prepare-media.py",
+      "privateCacheIndex": ".local-server/media-cache/index.json",
+      "sourceCount": 213,
+      "pdfCount": 17,
+      "pdfPageCount": 63,
+      "archivePdfCount": 11,
+      "archivePdfPageCount": 55,
+      "currentPdfCount": 6,
+      "rasterSourceCount": 196,
+      "publicPreparedSourceCount": 35,
+      "publicDocumentCount": 8,
+      "publicDocumentPageCount": 10,
+      "publicDerivativeBytes": 5498998,
+      "repeatProof": {
+        "sources": 213,
+        "allReused": true,
+        "renderExtractOcrCalled": false,
+        "cachedFileMtimesUnchanged": true
+      },
+      "textPublication": "private; extracted/OCR text is not automatically exported",
+      "ocrReview": [
+        {
+          "path": "/documents/honors-skolkovo-presentation.pdf",
+          "searchStatus": "ocr-assisted",
+          "machineTextNeedsReview": true,
+          "noReadableTextPages": []
+        },
+        {
+          "path": "/documents/potustoronniy-deck.pdf",
+          "searchStatus": "partial",
+          "machineTextNeedsReview": true,
+          "noReadableTextPages": [
+            5
+          ]
+        }
+      ],
+      "overBudget": [
+        {
+          "path": "/images/works/emomandala.webp",
+          "page": 1,
+          "bytes": 384566
+        },
+        {
+          "path": "/images/content/materia/emomandala/emomandala-cover.webp",
+          "page": 1,
+          "bytes": 384566
+        },
+        {
+          "path": "/images/content/materia/emomandala/photo-pendant-front.webp",
+          "page": 1,
+          "bytes": 384566
+        }
+      ],
+      "verification": {
+        "asOf": "2026-10-08",
+        "engineTests": 7,
+        "unitTests": 71,
+        "e2ePassed": 113,
+        "e2eSkipped": 15,
+        "e2eSkipReason": "duplicate viewport/public-artifact scenarios on mobile",
+        "viewports": [
+          390,
+          601,
+          797,
+          1440,
+          1920
+        ],
+        "languages": [
+          "ru",
+          "en"
+        ],
+        "themes": [
+          "light",
+          "dark"
+        ],
+        "astro": "0 errors / warnings / hints",
+        "build": "104 localized HTML; 107 total pages; public asset allowlist passed",
+        "content": "passed",
+        "releaseGate": "passed; not full migration completion"
+      }
+    }
   }
 }

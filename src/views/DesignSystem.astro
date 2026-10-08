@@ -457,6 +457,10 @@ const profileTokens = [
           Адрес ограничен двумя уровнями: <code>W</code> — страница, <code>W.01</code> — раздел. Карточки не
           получают порядковых кодов: их отличают название, категория, дата и статус.
         </p>
+        <p class="small-note">
+          Документ — подборка целых страниц WebP с общим увеличением. Исходный PDF доступен отдельно;
+          извлечённые текстовые копии остаются в служебном кеше и не публикуются автоматически.
+        </p>
         <DocumentList documents={workDocuments} lang="ru" />
         <DocumentList
           documents={referenceDocuments.filter(
