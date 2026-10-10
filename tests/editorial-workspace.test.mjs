@@ -52,3 +52,18 @@ test('canonical editorial register is valid and includes both languages', async 
   assert.ok(registry.units.some((unit) => unit.kind === 'media'));
   assert.deepEqual(validateEditorialRegister(registry), []);
 });
+
+test('autonomous editing is measurable without implying owner acceptance', () => {
+  const a = unit();
+  a.ru = { status: 'edited', coverage_complete: true, checked_at: '2026-10-10', pass_id: 'first-pass' };
+  const b = unit();
+  b.id = 'work:another';
+  const progress = editorialProgress({ units: [a, b] }, 'ru');
+  assert.equal(progress.editedPercent, 50);
+  assert.equal(progress.percent, 0);
+  assert.deepEqual(validateEditorialRegister({ units: [a, b] }), []);
+  delete a.ru.coverage_complete;
+  assert.ok(
+    validateEditorialRegister({ units: [a] }).some((error) => error.includes('Incomplete editorial pass')),
+  );
+});

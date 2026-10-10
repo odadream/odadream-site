@@ -5,6 +5,7 @@ export const editorialStatuses = {
   draft: 'Вариант',
   awaiting_feedback: 'Ожидает отклика',
   revision: 'Доработка',
+  edited: 'Отредактировано · авторская приёмка впереди',
   accepted: 'Согласовано',
   verified: 'Проверено на сайте',
 };
@@ -32,6 +33,8 @@ export function validateEditorialRegister(data) {
         if (block.status === 'verified' && (!block.applied_commit || block.question))
           errors.push('Unchecked block: ' + block.id);
       }
+      if (entry.status === 'edited' && (!entry.coverage_complete || !entry.checked_at || !entry.pass_id))
+        errors.push('Incomplete editorial pass: ' + unit.id + ':' + lang);
       if (['accepted', 'verified'].includes(entry.status)) {
         if (!entry.coverage_complete || !blocks.length)
           errors.push('Incomplete coverage: ' + unit.id + ':' + lang);
@@ -60,6 +63,10 @@ export function editorialProgress(data, lang) {
   return {
     total: data.units.length,
     states,
+    edited: states.edited + states.accepted + states.verified,
+    editedPercent: Math.floor(
+      (100 * (states.edited + states.accepted + states.verified)) / data.units.length,
+    ),
     percent: Math.floor((100 * states.verified) / data.units.length),
   };
 }

@@ -142,7 +142,10 @@ const progress = { ru: editorialProgress(registry, 'ru'), en: editorialProgress(
             <details>
               <summary>Блоки / решения</summary>
               {!unit[lang].blocks?.length && (
-                <p>Единица ещё не разобрана на смысловые блоки; вычитка не выполнена.</p>
+                <p>
+                  Самостоятельный проход учитывается на уровне записи. Смысловые блоки раскрываются при
+                  обратной связи.
+                </p>
               )}
               {unit[lang].blocks?.map((block: any) => (
                 <div id={'review-' + block.id}>
@@ -182,7 +185,13 @@ const progress = { ru: editorialProgress(registry, 'ru'), en: editorialProgress(
       const current = progress[lang];
       progressNode.textContent =
         lang.toUpperCase() +
-        ': проверено ' +
+        ': редактура ' +
+        current.edited +
+        '/' +
+        current.total +
+        ' (' +
+        current.editedPercent +
+        '%); авторская приёмка и проверка ' +
         current.states.verified +
         '/' +
         current.total +
