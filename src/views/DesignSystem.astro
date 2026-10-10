@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import DevNote from '../components/DevNote.astro';
 import MediaGallery from '../components/MediaGallery.astro';
 import type { MediaItem } from '../lib/media-presentation';
 import { mediaById } from '../data/catalogue';
@@ -891,6 +892,16 @@ const profileTokens = [
         note="Заметка привязана к нижнему краю материала. Она уточняет контекст, а не повторяет заголовок."
         lang="ru"
       />
+    </section>
+    <section class="section" id="dev-workspace-specimen">
+      <h2>DEV · редакционная среда</h2>
+      <DevNote id="dev-specimen-note" lang="ru" block="design-example">
+        <p>
+          Служебный комментарий к смысловому блоку. Отсутствует в публичной сборке вместе со своими данными.
+        </p>
+      </DevNote>
+      <p>Материал вне PUBLIC получает отдельную метку. Статус редакции не меняет публикационный статус.</p>
+      <a href="/editorial/">Тексты / прогресс</a>
     </section>
     <p class="eyebrow system-end">
       Источник: утверждённая V5-спецификация · токены: src/styles/tokens.css · компоненты: рабочий сайт V2

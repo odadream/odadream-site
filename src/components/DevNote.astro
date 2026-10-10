@@ -1,0 +1,33 @@
+---
+import type { Lang } from '../data/site';
+interface Props {
+  id: string;
+  lang: Lang;
+  block?: string;
+  material?: boolean;
+}
+const { id, lang, block, material = false } = Astro.props;
+---
+
+{import.meta.env.DEV && (
+  <aside
+    class="dev-note"
+    id={material ? undefined : id}
+    data-dev-note={id}
+    data-editorial-block={block}
+    aria-label={lang === 'ru' ? 'Служебная заметка, не публикуется' : 'Internal note, not published'}
+  >
+    <strong>
+      {material
+        ? lang === 'ru'
+          ? 'DEV · материал вне PUBLIC'
+          : 'DEV · material outside PUBLIC'
+        : lang === 'ru'
+          ? 'DEV · не публикуется'
+          : 'DEV · not published'}
+    </strong>
+    <div>
+      <slot />
+    </div>
+  </aside>
+)}

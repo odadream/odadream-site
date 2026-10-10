@@ -1,0 +1,22 @@
+---
+import { preview, publicRecordIds } from '../data/catalogue';
+import DevNote from './DevNote.astro';
+import type { Lang } from '../data/site';
+interface Props {
+  kind: string;
+  recordId: string;
+  lang: Lang;
+}
+const { kind, recordId, lang } = Astro.props;
+const excluded = preview && publicRecordIds?.[kind] && !publicRecordIds[kind].has(recordId);
+---
+
+{excluded && (
+  <DevNote id={'dev-material-' + kind + '-' + recordId} lang={lang} material>
+    <p>
+      {lang === 'ru'
+        ? 'Эта запись доступна только в редакционном каталоге.'
+        : 'This record is available only in the editorial catalogue.'}
+    </p>
+  </DevNote>
+)}

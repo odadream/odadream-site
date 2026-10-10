@@ -3,7 +3,7 @@ import { resolve } from 'node:path';
 import { loadSiteModule } from './site-data.mjs';
 import { validatePageCodes } from './page-code-check.mjs';
 
-const root = resolve('dist');
+const root = resolve(process.env.ODA_BUILD_DIR || 'dist');
 const fail = (message) => {
   throw new Error(message);
 };
@@ -52,6 +52,13 @@ if (
   )
 )
   fail('Editorial design system must not be included in a public build');
+if (
+  await stat(resolve(root, 'editorial/index.html')).then(
+    () => true,
+    () => false,
+  )
+)
+  fail('Editorial register must not be published');
 for (const file of [
   'index.html',
   '404.html',
@@ -109,6 +116,12 @@ for (const path of await publicFiles(root)) {
   const output = await readFile(resolve(root, path.slice(1)), 'utf8');
   for (const marker of ['D:/YandexDisk/', 'D:\\YandexDisk', 'C:/Users/', 'trusted_internal'])
     if (output.includes(marker)) fail(`Internal locator in public output ${path}`);
+  if (
+    ['data-dev-note', 'data-editorial-toolbar', '/__editorial/', '/editorial/'].some((marker) =>
+      output.includes(marker),
+    )
+  )
+    fail('Local editorial tools included in public output ' + path);
   if (output.includes('data-editorial-preview')) fail(`Editorial preview included in public output ${path}`);
 }
 console.log(`Verified public asset allowlist and absence of internal locators.`);

@@ -6,6 +6,7 @@ import lastmod from './src/data/lastmod.json' with { type: 'json' };
 export default defineConfig({
   site: 'https://odadream.art',
   output: 'static',
+  outDir: process.env.ODA_BUILD_DIR || './dist',
   devToolbar: { enabled: false },
   trailingSlash: 'always',
   integrations: [

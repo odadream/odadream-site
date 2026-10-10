@@ -23,11 +23,28 @@ export default function publicationIntegration() {
     hooks: {
       'astro:config:setup': ({ command, config, injectRoute }) => {
         publicRoot = fileURLToPath(config.publicDir);
-        if (command === 'dev')
+        if (command === 'dev') {
+          injectRoute({
+            pattern: '/editorial/',
+            entrypoint: fileURLToPath(new URL('../src/views/EditorialWorkspace.astro', import.meta.url)),
+          });
           injectRoute({
             pattern: '/design-system/',
             entrypoint: fileURLToPath(new URL('../src/views/DesignSystem.astro', import.meta.url)),
           });
+        }
+      },
+      'astro:server:setup': ({ server }) => {
+        server.middlewares.use('/__editorial/identity', (req, res) => {
+          if (req.headers.host !== '127.0.0.1:5177' || req.headers.origin) {
+            res.writeHead(403).end();
+            return;
+          }
+          res.setHeader('Content-Type', 'application/json');
+          res.end(
+            JSON.stringify({ project: fileURLToPath(new URL('../', import.meta.url)), pid: process.pid }),
+          );
+        });
       },
       'astro:build:done': async ({ dir, logger }) => {
         const { catalogue } = await loadSiteModule('src/data/catalogue.ts');

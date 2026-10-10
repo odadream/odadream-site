@@ -1,4 +1,5 @@
 ---
+import DevPublicationMark from './DevPublicationMark.astro';
 import TechnicalMark from './TechnicalMark.astro';
 import VideoPreview from './VideoPreview.astro';
 import { mediaFit, type MediaItem, type MediaFit } from '../lib/media-presentation';
@@ -34,6 +35,7 @@ const presentation = item ? mediaFit(item, fit) : 'natural';
     data-focal={item.focalPoint ?? 'center'}
     data-representation={item.representation}
   >
+    <DevPublicationMark kind="media" recordId={item.id} lang={lang} />
     <div class="media-register">
       <span class="media-register__id">
         <TechnicalMark kind="record" />

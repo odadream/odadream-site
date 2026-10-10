@@ -1,4 +1,5 @@
 ---
+import DevPublicationMark from './DevPublicationMark.astro';
 import type { CaseEvent, Lang } from '../data/site';
 import { works, programmes, methods, mediaById } from '../data/catalogue';
 import MediaGallery from './MediaGallery.astro';
@@ -35,6 +36,7 @@ const links = [
   data-case-id={item.id}
   data-participation-status={item.participationStatus}
 >
+  <DevPublicationMark kind="cases" recordId={item.id} lang={lang} />
   <div class="meta case-row__metadata">
     <p>{formatCaseDate(item, lang)}</p>
     <p>{item.place[lang]}</p>

@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DevNote from '../components/DevNote.astro';
+import * as source from '../data/site';
+import { workUrl, programmeUrl, caseUrl, configurationUrl } from '../lib/routes';
+import {
+  readEditorialRegister,
+  editorialProgress,
+  editorialStatuses,
+} from '../../scripts/editorial-register.mjs';
+import '../styles/editorial.css';
+const registry = await readEditorialRegister(new URL('../../docs/EDITORIAL-REGISTER.yaml', import.meta.url));
+const page = {
+  lang: 'ru' as const,
+  kind: 'home' as const,
+  family: 'D' as const,
+  path: '/editorial/',
+  title: 'Тексты / прогресс — ODA.dream',
+  description: 'Локальный редакционный каталог.',
+};
+const initialLang = Astro.url.searchParams.get('lang') === 'en' ? 'en' : 'ru';
+const model = source as unknown as Record<string, unknown>;
+function record(kind: string, id: string) {
+  const collection = model[kind];
+  return Array.isArray(collection) ? collection.find((row) => row.id === id) : undefined;
+}
+function destination(unit: { kind: string; entity?: string }, lang: 'ru' | 'en') {
+  const id = unit.entity ?? '';
+  if (unit.kind === 'works') return workUrl(lang, id);
+  if (unit.kind === 'programmes') return programmeUrl(lang, id);
+  if (unit.kind === 'cases') return caseUrl(lang, id);
+  if (unit.kind === 'configurations') return configurationUrl(lang, id);
+  if (unit.kind === 'recognitions') return '/' + lang + '/recognition/#recognition-' + id;
+  if (unit.kind === 'methods') return '/' + lang + '/technology/';
+  if (['studioPages', 'people'].includes(unit.kind)) return '/' + lang + '/studio/';
+  if (unit.kind === 'cooperationPages') return '/' + lang + '/cooperation/';
+  if (unit.kind === 'educationOverview') return '/' + lang + '/education/';
+  if (unit.kind === 'eventSeries') return '/' + lang + '/cases/';
+  if (unit.kind === 'workDocuments')
+    return workUrl(lang, record(unit.kind, id)?.workId ?? '') + '#document-' + id;
+  if (unit.kind === 'referenceDocuments') return '/' + lang + '/cooperation/';
+  if (['media', 'evidence', 'organizations'].includes(unit.kind)) {
+    for (const kind of ['works', 'programmes', 'cases']) {
+      const collection = model[kind];
+      if (!Array.isArray(collection)) continue;
+      const related = collection.find((row) =>
+        [row.media, row.evidence, row.organizations].some((ids) => ids?.includes(id)),
+      );
+      if (related) return destination({ kind, entity: related.id }, lang);
+    }
+    return '/' + lang + '/';
+  }
+  return unit.kind === 'shared-copy' ? '/design-system/' : '/' + lang + '/';
+}
+const units = registry.units.map((unit: { id: string; kind: string; entity?: string; file?: string }) => {
+  const row = record(unit.kind, unit.entity ?? '');
+  return {
+    ...unit,
+    title: row?.title ?? row?.name ?? { ru: unit.entity ?? unit.file, en: unit.entity ?? unit.file },
+    urls: { ru: destination(unit, 'ru'), en: destination(unit, 'en') },
+  };
+});
+const kinds = [...new Set<string>(units.map((unit: { kind: string }) => unit.kind))];
+const progress = { ru: editorialProgress(registry, 'ru'), en: editorialProgress(registry, 'en') };
+---
+
+<BaseLayout page={page} noindex>
+  <section class="shell editorial-catalogue">
+    <h1>Тексты / прогресс</h1>
+    <DevNote id="dev-editorial-register" lang="ru">
+      <p>
+        Служебный каталог. Тексты читаются из сайта, статусы — из единого реестра. Наличие текста в PUBLIC не
+        означает согласование редакции.
+      </p>
+    </DevNote>
+    <p>
+      Состав {registry.scope_version}: {units.length} единица на язык. Миграция — 100%; редакционная
+      готовность учитывается отдельно.
+    </p>
+    <p data-editorial-progress data-progress={JSON.stringify(progress)} aria-live="polite"></p>
+    <form class="editorial-filters" role="search" aria-label="Фильтры текстов" onsubmit="return false">
+      <label>
+        Язык
+        <select name="language">
+          <option value="ru" selected={initialLang === 'ru'}>
+            RU
+          </option>
+          <option value="en" selected={initialLang === 'en'}>
+            EN
+          </option>
+        </select>
+      </label>
+      <label>
+        Статус
+        <select name="status">
+          <option value="">Все</option>
+          {Object.entries(editorialStatuses).map(([value, title]) => (
+            <option value={value}>{title}</option>
+          ))}
+        </select>
+      </label>
+      <label>
+        Тип
+        <select name="kind">
+          <option value="">Все</option>
+          {kinds.map((kind) => (
+            <option value={kind}>{kind}</option>
+          ))}
+        </select>
+      </label>
+      <label>
+        Название / ID
+        <input name="query" type="search" />
+      </label>
+    </form>
+    <p data-editorial-count aria-live="polite"></p>
+    {units.map((unit: any) => (
+      <article
+        class="editorial-unit"
+        id={'text-' + unit.id.replaceAll(/[^a-zA-Z0-9-]/g, '-')}
+        data-editorial-unit
+        data-kind={unit.kind}
+        data-ru-status={unit.ru.status}
+        data-en-status={unit.en.status}
+        data-search={[unit.id, unit.title.ru, unit.title.en].join(' ').toLowerCase()}
+      >
+        <header>
+          <h2>
+            <span data-editorial-language="ru">{unit.title.ru}</span>
+            <span data-editorial-language="en">{unit.title.en}</span>
+          </h2>
+          <span class="meta">{unit.kind}</span>
+        </header>
+        <p class="small-note">{unit.id}</p>
+        {(['ru', 'en'] as const).map((lang) => (
+          <div data-editorial-language={lang}>
+            <p data-status={unit[lang].status}>
+              {editorialStatuses[unit[lang].status as keyof typeof editorialStatuses]}
+              {unit[lang].field_count !== undefined ? ' · полей: ' + unit[lang].field_count : ''}
+            </p>
+            <a href={unit.urls[lang]}>Открыть на сайте · {lang.toUpperCase()}</a>
+            <details>
+              <summary>Блоки / решения</summary>
+              {!unit[lang].blocks?.length && (
+                <p>Единица ещё не разобрана на смысловые блоки; вычитка не выполнена.</p>
+              )}
+              {unit[lang].blocks?.map((block: any) => (
+                <div id={'review-' + block.id}>
+                  <h3>{block.title ?? block.id}</h3>
+                  <p>{editorialStatuses[block.status as keyof typeof editorialStatuses]}</p>
+                  {block.review_url && <a href={block.review_url}>Открыть блок</a>}
+                  {block.proposal && <p>{block.proposal}</p>}
+                  {block.question && <p>Вопрос: {block.question}</p>}
+                  {block.owner_decision && <p>Решение: {block.owner_decision}</p>}
+                </div>
+              ))}
+            </details>
+          </div>
+        ))}
+      </article>
+    ))}
+  </section>
+  <script>
+    const filters = document.querySelector<HTMLFormElement>('.editorial-filters')!;
+    const nodes = [...document.querySelectorAll<HTMLElement>('[data-editorial-unit]')];
+    const progressNode = document.querySelector<HTMLElement>('[data-editorial-progress]')!;
+    const progress = JSON.parse(progressNode.dataset.progress!);
+    function update() {
+      const form = new FormData(filters);
+      const lang = String(form.get('language'));
+      const status = String(form.get('status'));
+      const kind = String(form.get('kind'));
+      const query = String(form.get('query')).trim().toLowerCase();
+      for (const node of nodes)
+        node.hidden =
+          (!!status && node.dataset[lang + 'Status'] !== status) ||
+          (!!kind && node.dataset.kind !== kind) ||
+          !node.dataset.search!.includes(query);
+      document
+        .querySelectorAll<HTMLElement>('[data-editorial-language]')
+        .forEach((node) => (node.hidden = node.dataset.editorialLanguage !== lang));
+      const current = progress[lang];
+      progressNode.textContent =
+        lang.toUpperCase() +
+        ': проверено ' +
+        current.states.verified +
+        '/' +
+        current.total +
+        ' (' +
+        current.percent +
+        '%); согласовано ' +
+        current.states.accepted +
+        '; ожидает отклика ' +
+        current.states.awaiting_feedback +
+        '; варианты ' +
+        current.states.draft +
+        '; доработка ' +
+        current.states.revision +
+        '; очередь ' +
+        current.states.pending +
+        '.';
+      document.querySelector('[data-editorial-count]')!.textContent =
+        'Показано: ' + nodes.filter((node) => !node.hidden).length + '/' + nodes.length;
+      const url = new URL(location.href);
+      url.searchParams.set('lang', lang);
+      history.replaceState(null, '', url);
+    }
+    filters.addEventListener('input', update);
+    update();
+  </script>
+</BaseLayout>

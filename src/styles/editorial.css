@@ -1,0 +1,115 @@
+.dev-note {
+  border: var(--annotation-rule) dashed var(--signal-design);
+  border-inline-start: var(--space-unit) solid var(--signal-design);
+  padding: var(--s4);
+  margin-block: var(--s4);
+  background: var(--reference-surface);
+  color: var(--ink);
+  font-size: var(--type-small);
+  overflow-wrap: anywhere;
+}
+.dev-note > strong {
+  display: block;
+  color: var(--signal-design);
+  margin-block-end: var(--s2);
+}
+.dev-note p {
+  margin: 0;
+  max-width: var(--copy-measure);
+}
+.editorial-toolbar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s3) var(--page-inset);
+  background: var(--plane-front);
+  border-bottom: var(--annotation-rule) dashed var(--signal-design);
+  font-size: var(--type-small);
+}
+.editorial-toolbar a {
+  min-height: var(--tap-target);
+  display: inline-flex;
+  align-items: center;
+  color: var(--ink);
+}
+.editorial-toolbar [aria-current] {
+  color: var(--signal-design);
+  font-weight: 600;
+}
+.editorial-toolbar output {
+  flex: 1 1 22ch;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.editorial-toolbar [data-editorial-refresh] {
+  min-height: var(--tap-target);
+  padding-inline: var(--s3);
+}
+.editorial-catalogue {
+  padding-block: var(--s7);
+}
+.editorial-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s4);
+  margin-block: var(--s5);
+}
+.editorial-filters label {
+  display: grid;
+  gap: var(--s2);
+}
+.editorial-filters input,
+.editorial-filters select {
+  color: var(--ink);
+  background: var(--surface);
+  border: var(--annotation-rule) solid var(--line-strong);
+  min-height: var(--tap-target);
+  padding: var(--s2);
+  max-width: 100%;
+  font: inherit;
+}
+.editorial-unit {
+  border-top: var(--annotation-rule) solid var(--line);
+  padding-block: var(--s4);
+  overflow-wrap: anywhere;
+}
+.editorial-unit header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+  align-items: baseline;
+}
+.editorial-unit h2 {
+  font-size: var(--type-h3);
+  margin: 0;
+}
+.editorial-unit p {
+  margin-block: var(--s2);
+}
+.editorial-unit summary {
+  min-height: var(--tap-target);
+  cursor: pointer;
+}
+.editorial-unit [data-status] {
+  color: var(--muted);
+}
+.editorial-catalogue [hidden] {
+  display: none;
+}
+
+.editorial-toolbar__status summary {
+  cursor: pointer;
+  min-height: var(--tap-target);
+  display: flex;
+  align-items: center;
+}
+.editorial-toolbar__status[open] {
+  flex: 1 1 100%;
+}
+.editorial-toolbar__status output {
+  display: block;
+  margin-block: var(--s2);
+}

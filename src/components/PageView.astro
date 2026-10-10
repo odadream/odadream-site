@@ -1,5 +1,6 @@
 ---
 import MindDBStamp from './MindDBStamp.astro';
+import DevNote from './DevNote.astro';
 import EditorialSections from './EditorialSections.astro';
 import DocumentList from './DocumentList.astro';
 import MediaGallery from './MediaGallery.astro';
@@ -186,7 +187,7 @@ const timeline = [...cases]
             </article>
           );
         })}
-        <div class="nm-heading">
+        <div class="nm-heading" id="home-intro">
           <span class="eyebrow">
             <PageCode family="H" section={0} lang={lang} /> / {ru ? 'НЕЙРОМАНДАЛА' : 'NEUROMANDALA'}
           </span>
@@ -324,15 +325,21 @@ const timeline = [...cases]
               <RecognitionCard item={item} lang={lang} />
             ))}
           </div>
-          <p class="small-note">
-            {ru
-              ? preview
-                ? 'Превью из прежнего публичного архива. Права на повторную публикацию документов ещё проверяются.'
-                : 'Выбранные документы с подтверждённым разрешением на публикацию.'
-              : preview
-                ? 'Previews from the former public archive. Re-publication rights remain under review.'
+          {preview ? (
+            <DevNote id="dev-home-recognition" lang={lang} block="home-recognition">
+              <p>
+                {ru
+                  ? 'Превью из прежнего публичного архива. Права на повторную публикацию документов ещё проверяются.'
+                  : 'Previews from the former public archive. Re-publication rights remain under review.'}
+              </p>
+            </DevNote>
+          ) : (
+            <p class="small-note">
+              {ru
+                ? 'Выбранные документы с подтверждённым разрешением на публикацию.'
                 : 'Selected documents cleared for publication.'}
-          </p>
+            </p>
+          )}
           <CalloutLink href={`/${lang}/recognition/`}>
             {ru ? 'Архив признаний' : 'Recognition archive'}
           </CalloutLink>
