@@ -35812,5 +35812,313 @@
         "scanPublished": false
       }
     }
+  },
+  "currentAnalyticsValidation": {
+    "asOf": "2026-10-10",
+    "observedAt": "2026-10-10T14:04:42.722Z",
+    "status": "passed",
+    "scopeVersion": "v2-full-content-2026-10-07.1",
+    "ownerAuthorized": true,
+    "environment": "isolated production build served on loopback; normal V2 sending remains disabled",
+    "productionChanged": false,
+    "google": {
+      "account": "accounts/401345925",
+      "property": "properties/558352762",
+      "stream": "properties/558352762/dataStreams/16101394897",
+      "measurementId": "G-5LXP60T8R0",
+      "displayName": "ODA.dream V2 — test",
+      "timeZone": "Europe/Moscow",
+      "enhancedMeasurement": {
+        "streamEnabled": false,
+        "scrollsEnabled": false,
+        "outboundClicksEnabled": false,
+        "siteSearchEnabled": false,
+        "videoEngagementEnabled": false,
+        "fileDownloadsEnabled": false,
+        "pageChangesEnabled": false,
+        "formInteractionsEnabled": false
+      },
+      "customDimensions": [
+        "project_id",
+        "campaign_id",
+        "site_id",
+        "page_language",
+        "work_id",
+        "case_id",
+        "format_id",
+        "material_id",
+        "media_id",
+        "contact_channel"
+      ],
+      "serverObservation": {
+        "api": "analyticsdata.googleapis.com/v1beta/properties/558352762:runRealtimeReport",
+        "window": "provider realtime window; repeated QA visits, not unique conversions",
+        "eventCounts": {
+          "media_view": 44,
+          "page_view": 11,
+          "user_engagement": 5,
+          "click_external": 2,
+          "contact_open": 2,
+          "first_visit": 2,
+          "session_start": 2,
+          "click_email": 1,
+          "material_open": 1,
+          "media_open": 1,
+          "video_complete": 1,
+          "video_start": 1
+        },
+        "allContractEventsObserved": true,
+        "transportStatus": 204
+      }
+    },
+    "metrica": {
+      "counterId": 113596895,
+      "displayName": "ODA.dream V2 — test",
+      "owner": "o.d.a.dream",
+      "site": "127.0.0.1",
+      "timeZone": "Europe/Moscow",
+      "automaticGoals": false,
+      "webvisor": false,
+      "clickmap": false,
+      "ecommerce": false,
+      "ytm": false,
+      "trackHash": false,
+      "filterRobots": 1,
+      "customFilters": 0,
+      "goals": {
+        "contact_open": 671501390,
+        "click_email": 671501391,
+        "click_external": 671501392,
+        "material_open": 671501393,
+        "media_open": 671501394,
+        "media_view": 671501395,
+        "video_start": 671501396,
+        "video_complete": 671501405
+      },
+      "goalCondition": "action / exact event name; page_view uses hit",
+      "serverObservation": {
+        "api": "api-metrika.yandex.net/stat/v1/data",
+        "date": "2026-10-10",
+        "metrics": [
+          "ym:s:pageviews",
+          "ym:s:goal671501390reaches",
+          "ym:s:goal671501391reaches",
+          "ym:s:goal671501392reaches",
+          "ym:s:goal671501393reaches",
+          "ym:s:goal671501394reaches",
+          "ym:s:goal671501395reaches",
+          "ym:s:goal671501396reaches",
+          "ym:s:goal671501405reaches"
+        ],
+        "eventCounts": {
+          "page_view": 7,
+          "contact_open": 2,
+          "click_email": 1,
+          "click_external": 1,
+          "material_open": 1,
+          "media_open": 2,
+          "media_view": 9,
+          "video_start": 2,
+          "video_complete": 2
+        },
+        "allContractEventsObserved": true,
+        "transportStatus": 200
+      }
+    },
+    "privacy": {
+      "zeroProviderRequestsBeforeConsent": true,
+      "noAdditionalEventsAfterRevocation": true,
+      "canonicalUrlOnly": true,
+      "noQueryHashEmailOrRecipientInEventParameters": true,
+      "emailClickMeansIntentOnly": true,
+      "noEmailSent": true,
+      "noFormSubmitted": true
+    },
+    "runtimeFix": "Events/page_view/exposures wait for all configured loading adapters; the slower adapter receives queued actions once. Failed or revoked loading cannot replay denied actions.",
+    "credentialStorage": {
+      "directory": "C:/Users/daler/.oda-dream/analytics-v2",
+      "outsideYandexDisk": true,
+      "tracked": false,
+      "valuesStoredInInventory": false,
+      "originalHubCredentialsChanged": false,
+      "oauthCallbackServerClosed": true,
+      "temporaryRedirectRemoved": true,
+      "remainingRedirect": "https://developers.google.com/oauthplayground",
+      "redirectVerification": "Removed local 60896 URI, saved and reopened the client from the Clients list; only the pre-existing Playground URI remains."
+    },
+    "verification": {
+      "format": "passed",
+      "unitTests": {
+        "passed": 83,
+        "failed": 0
+      },
+      "astro": {
+        "files": 135,
+        "errors": 0,
+        "warnings": 0,
+        "hints": 0
+      },
+      "content": "238 source dispositions and public relationships passed",
+      "build": {
+        "totalHtml": 107,
+        "localizedHtml": 104,
+        "canonicalPages": 102,
+        "internalLinks": 2454,
+        "resourceReferences": 1548,
+        "publicAllowedAssets": 279
+      },
+      "browserTests": {
+        "passed": 129,
+        "skipped": 17,
+        "failed": 0,
+        "skipReason": "intentional duplicate scenarios across browser profiles"
+      },
+      "providerRaceRegression": "slower Metrica SDK held; no early Google events; one page_view and one click_email in each adapter",
+      "releaseGate": "passed"
+    },
+    "limits": [
+      "QA event totals include repeated visits and exposure of multiple media elements; totals of different provider report windows are not compared for equality.",
+      "GA4 session_start, first_visit and user_engagement are standard SDK events; all eight enhanced-measurement flags are verified disabled.",
+      "Test counter/property are not the production domain configuration; M6 and final design/content/engine passes remain separate."
+    ],
+    "sourceCommit": "5fad705"
+  },
+  "currentFullCompletionAudit": {
+    "asOf": "2026-10-10",
+    "scopeVersion": "v2-full-content-2026-10-07.1",
+    "status": "complete",
+    "percent": 100,
+    "weightsChanged": false,
+    "scopeChanged": false,
+    "productionChanged": false,
+    "scope": "Complete substantive migration preparation; separate design/content/engine acceptance and M6 excluded",
+    "requirements": [
+      {
+        "id": "sources",
+        "status": "passed",
+        "legacyIds": 238,
+        "dispositions": {
+          "applied": 156,
+          "excluded": 21,
+          "merged": 61
+        },
+        "evidence": "entries.currentCanonicalApplication; currentSourceCoverage; content:check"
+      },
+      {
+        "id": "structure-and-content",
+        "status": "passed",
+        "works": 23,
+        "configurations": 2,
+        "programmes": 15,
+        "cases": 41,
+        "eventSeries": 4,
+        "recognitions": 17,
+        "sourceMedia": 137,
+        "publicMedia": 136,
+        "evidence": "public typed projection, source relationships, bilingual routes and currentSourceCoverage"
+      },
+      {
+        "id": "historical-resources",
+        "status": "passed",
+        "assessed": 198,
+        "evidence": "currentFullMediaReassessment.items.application",
+        "bounds": "Owner waived exact V1 URLs on 2026-10-07; source originals retained, substantive materials reused with role/permission checks."
+      },
+      {
+        "id": "canonical-links-and-notices",
+        "status": "passed",
+        "canonicalPages": 102,
+        "localizedHtml": 104,
+        "totalHtml": 107,
+        "internalLinks": 2454,
+        "resourceReferences": 1548,
+        "allowedAssets": 279,
+        "evidence": "verify-build; canonical routes and shared RU/EN LegacyNotice E2E"
+      },
+      {
+        "id": "extended-qa",
+        "status": "passed",
+        "evidence": "currentAnalyticsValidation.verification; 83 unit/129 E2E passed; 17 intentional profile duplicates skipped; Astro 135 files zero diagnostics; release gate passed"
+      },
+      {
+        "id": "real-provider-delivery",
+        "status": "passed",
+        "contractEvents": 9,
+        "providers": [
+          "GA4 realtime report",
+          "Metrica daily goals/pageviews report"
+        ],
+        "evidence": "currentAnalyticsValidation; every contract event observed in both reports; no synthetic payload sent through a fake adapter"
+      },
+      {
+        "id": "owner-review-boundary",
+        "status": "prepared-for-separate-layer-review",
+        "evidence": "MIGRATION-PLAN.md sections 6/9; MIGRATION-ACCEPTANCE-01 remains planned",
+        "bounds": "No claim of final artistic/editorial approval; completed migration does not authorize push/PR/domain changes."
+      }
+    ],
+    "remainingOutsideScope": [
+      {
+        "id": "ENGINE-PERFORMANCE-01",
+        "status": "planned"
+      },
+      {
+        "id": "EVIDENCE-EDITORIAL-REVIEW-01",
+        "status": "planned"
+      },
+      {
+        "id": "HOME-01",
+        "status": "planned"
+      },
+      {
+        "id": "HERO-01",
+        "status": "planned"
+      },
+      {
+        "id": "MINDDB-01",
+        "status": "blocked"
+      },
+      {
+        "id": "RECOG-01",
+        "status": "planned"
+      },
+      {
+        "id": "SOCIAL-01",
+        "status": "planned"
+      },
+      {
+        "id": "CMS-01",
+        "status": "planned"
+      },
+      {
+        "id": "GDB-01",
+        "status": "planned"
+      },
+      {
+        "id": "DESIGN-01",
+        "status": "planned"
+      },
+      {
+        "id": "STATS-01",
+        "status": "planned"
+      },
+      {
+        "id": "PERF-01",
+        "status": "planned"
+      },
+      {
+        "id": "QA-01",
+        "status": "planned"
+      },
+      {
+        "id": "ARCH-01",
+        "status": "planned"
+      },
+      {
+        "id": "MIGRATION-ACCEPTANCE-01",
+        "status": "planned"
+      }
+    ],
+    "previousAudit": "currentCompletionAudit is the frozen 2026-10-06 core-scope audit, not the current completion state"
   }
 }
