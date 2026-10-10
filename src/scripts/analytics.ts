@@ -49,7 +49,7 @@ export function createAnalytics(config: AnalyticsConfig, context: AnalyticsConte
   function emit(name: AnalyticsEvent, values: Record<string, unknown> = {}) {
     if (!active || closed || consent !== 'granted') return;
     const parameters = eventParameters(context, values);
-    if (network && !googleReady && !metricaReady) {
+    if (network && (loading || (!googleReady && !metricaReady))) {
       if (pending.length < 20) pending.push({ name, parameters });
       return;
     }
@@ -69,7 +69,13 @@ export function createAnalytics(config: AnalyticsConfig, context: AnalyticsConte
     if (debug) window.dispatchEvent(new CustomEvent('oda:analytics:event', { detail: { name, parameters } }));
   }
   function pageView() {
-    if (!active || closed || consent !== 'granted' || pageSent || (network && !googleReady && !metricaReady))
+    if (
+      !active ||
+      closed ||
+      consent !== 'granted' ||
+      pageSent ||
+      (network && (loading || (!googleReady && !metricaReady)))
+    )
       return;
     pageSent = true;
     emit('page_view');
@@ -164,7 +170,7 @@ export function createAnalytics(config: AnalyticsConfig, context: AnalyticsConte
     return loading;
   }
   function exposures() {
-    if (consent !== 'granted' || (network && !googleReady && !metricaReady)) return;
+    if (consent !== 'granted' || (network && (loading || (!googleReady && !metricaReady)))) return;
     for (const element of visible)
       if (!viewed.has(element)) {
         viewed.add(element);
