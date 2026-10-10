@@ -13,8 +13,8 @@ const ru = lang === 'ru';
 const titles = {
   education: ru ? 'Образовательные программы сайта' : 'Educational programmes on this site',
   works: ru ? 'Каталог сайта' : 'Site catalogue',
-  events: ru ? 'Охват реестра' : 'Registry coverage',
-  recognition: ru ? 'Учёт документов' : 'Document inventory',
+  events: ru ? 'События и участие' : 'Events and contributions',
+  recognition: ru ? 'Признания' : 'Recognition',
 };
 const fields =
   kind === 'education'
@@ -104,7 +104,7 @@ const fields =
             ]
           : [
               {
-                label: ru ? 'Документы на сайте' : 'Documents on this site',
+                label: ru ? 'Записи признаний' : 'Recognition entries',
                 value: siteStats.recognitions.total,
                 metric: true,
               },

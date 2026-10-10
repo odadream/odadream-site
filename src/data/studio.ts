@@ -40,8 +40,8 @@ export const studioPeople: Person[] = [
           id: 'background',
           title: l('Образование и профессиональный опыт', 'Education and professional background'),
           body: l(
-            'В биографическом источнике для заявки CYENS указаны высшее образование в Астраханском государственном техническом университете, коучинговая квалификация ICF PCC и подготовка в телесных и танцевально-двигательных практиках. Даты обучения и текущий сертификационный статус источником не уточнены.',
-            'The CYENS application biography records higher education at Astrakhan State Technical University, an ICF PCC coaching qualification, and training in embodied and dance-movement practices. Study dates and current certification status are not specified by the source.',
+            'Высшее образование — Астраханский государственный технический университет. Профессиональная подготовка включает коучинг, телесные и танцевально-двигательные практики.',
+            'Higher education at Astrakhan State Technical University. Professional training includes coaching, embodied practices and dance-movement practices.',
           ),
         },
       ],
@@ -78,8 +78,8 @@ export const studioPeople: Person[] = [
           id: 'background',
           title: l('Образование и профессиональный опыт', 'Education and professional background'),
           body: l(
-            'Биографический источник CYENS указывает инженерное образование в МГТУ им. Н. Э. Баумана по направлению проектирования и технологии электронной аппаратуры, преподавание технического творчества, руководство выпускными работами и создание FabLab «ЦЕХ-4» в МГТУ. Точные периоды в источнике не приведены.',
-            'The CYENS biography records an engineering degree in electronic-equipment design and technology at Bauman Moscow State Technical University, teaching technical creativity, supervising graduation projects and founding FabLab TSEKH-4 at BMSTU. Exact periods are not provided by the source.',
+            'Получил инженерное образование в МГТУ им. Н. Э. Баумана по направлению проектирования и технологии электронной аппаратуры. Преподавал техническое творчество, руководил выпускными работами и создал FabLab «ЦЕХ-4» в МГТУ.',
+            'Studied electronic-equipment design and technology at Bauman Moscow State Technical University. Taught technical creativity, supervised graduation projects and founded FabLab TSEKH-4 at BMSTU.',
           ),
         },
       ],
@@ -110,8 +110,8 @@ export const studioPages: StudioPage[] = [
         id: 'intellectual-property',
         title: l('Товарный знак и изобретение', 'Trademark and invention'),
         body: l(
-          `ODA.dream® — зарегистрированный товарный знак №${intellectualProperty.trademark.number} от 25 февраля 2026 года. Заявка на изобретение №${intellectualProperty.inventionApplication.number} подана 30 апреля 2026 года. Номера и даты подтверждены владельцем студии; подача заявки не означает выдачу патента.`,
-          `ODA.dream® is registered trademark No. ${intellectualProperty.trademark.number}, dated 25 February 2026. Invention application No. ${intellectualProperty.inventionApplication.number} was filed on 30 April 2026. The numbers and dates were confirmed by the studio owner; filing does not establish a granted patent.`,
+          `ODA.dream® — зарегистрированный товарный знак №${intellectualProperty.trademark.number} от 25 февраля 2026 года. Заявка на изобретение №${intellectualProperty.inventionApplication.number} подана 30 апреля 2026 года.`,
+          `ODA.dream® is registered trademark No. ${intellectualProperty.trademark.number}, dated 25 February 2026. Invention application No. ${intellectualProperty.inventionApplication.number} was filed on 30 April 2026.`,
         ),
       },
       {
@@ -121,8 +121,8 @@ export const studioPages: StudioPage[] = [
           en: 'Applications and selection outcomes',
         },
         body: {
-          ru: 'В 2026 году Нейромандала подана на Prix Ars Electronica в категории Interactive Art+. Подача не означает награду. Заявки MindGrid и MindShow для CYENS WIP попали в резервный список; итоговый архив от 29 сентября фиксирует отсутствие отбора на фестиваль. Эти истории сохраняются как конкурсная работа, а не состоявшиеся показы.',
-          en: 'In 2026, Neuromandala was submitted to Prix Ars Electronica in the Interactive Art+ category. A submission does not establish an award. The MindGrid and MindShow proposals for CYENS WIP entered the reserve list; the final archive dated 29 September records that festival selection did not follow. These histories remain competition work, not completed presentations.',
+          ru: 'В 2026 году Нейромандала участвовала в заявочной кампании Prix Ars Electronica в категории Interactive Art+. Заявки MindGrid и MindShow вошли в резервный список CYENS WIP, но не прошли итоговый отбор.',
+          en: 'In 2026, Neuromandala was submitted to Prix Ars Electronica in the Interactive Art+ category. MindGrid and MindShow were placed on the CYENS WIP reserve list but were not selected for the festival.',
         },
       },
       {
@@ -132,8 +132,8 @@ export const studioPages: StudioPage[] = [
           en: 'Professional affiliations',
         },
         body: {
-          ru: 'Биографические материалы студии указывают членство в Творческом союзе художников России: Ольга — в секции научного искусства, Далер — мультимедиа. Участие в событиях других организаций описывается через конкретную роль: автор, соавтор, приглашённый спикер или участник показа.',
-          en: 'Studio biographies record membership in the Creative Union of Artists of Russia: Olga in Scientific Art and Daler in Multimedia. Contributions to other organizations’ events are described through a specific role: author, co-author, invited speaker or presenting participant.',
+          ru: 'Ольга и Далер — члены Творческого союза художников России: Ольга — секции научного искусства, Далер — секции мультимедиа. В проектах студия сотрудничает с художниками, исполнителями и техническими специалистами; их роли указаны на страницах работ.',
+          en: 'Olga and Daler are members of the Creative Union of Artists of Russia: Olga in the science-art section and Daler in multimedia. The studio collaborates with artists, performers and technical specialists, whose roles are credited on the work pages.',
         },
       },
       {
@@ -187,8 +187,8 @@ export const studioPages: StudioPage[] = [
         id: 'production',
         title: l('Авторская работа и инфраструктура показа', 'Authored work and presentation infrastructure'),
         body: l(
-          'Студия отвечает за свою художественную и техническую часть и сопровождение участников по выбранной конфигурации. Исполнители, соавторы и специалисты включаются в конкретный проект и получают обозначенные роли. Экран, звук, пространство, local production и поток посетителей согласуются с площадкой; состав команды и длительность эксплуатации не выводятся из одного архивного показа.',
-          'The studio provides its artistic and technical contribution and participant facilitation for the chosen configuration. Performers, co-authors and specialists join specific projects with attributed roles. Screen, sound, space, local production and visitor flow are agreed with the venue; staffing and operating duration are not inferred from a single archival presentation.',
+          'Студия готовит художественную и техническую часть проекта и сопровождает участников. Исполнители, соавторы и специалисты присоединяются в зависимости от замысла. Экран, звук, пространство, монтаж и работу с потоком посетителей согласуем с площадкой.',
+          'The studio prepares the artistic and technical parts of a project and supports participants. Performers, co-authors and specialists join according to the concept. We agree screens, sound, space, installation and visitor flow with the venue.',
         ),
       },
     ],
@@ -198,8 +198,8 @@ export const studioPages: StudioPage[] = [
         year: 2025,
         title: l('«Красиво про мозг» · НИУ ВШЭ', 'Beautiful About the Brain · HSE University'),
         body: l(
-          'В архиве зафиксировано экспертное приглашение к лекции в НИУ ВШЭ в Москве. Это контекст образовательной практики студии; роль приглашённого автора не подменяется постоянной преподавательской должностью.',
-          'The archive records an expert invitation to give a lecture at HSE University in Moscow. This is a context for the studio’s educational practice; an invited contribution does not imply a permanent teaching position.',
+          'В 2025 году студия была приглашена с лекцией «Красиво про мозг» в НИУ ВШЭ в Москве.',
+          'In 2025, the studio was invited to give Beautiful About the Brain at HSE University in Moscow.',
         ),
       },
       {
@@ -207,8 +207,8 @@ export const studioPages: StudioPage[] = [
         year: 2025,
         title: l('Science-art лекция · Сбербанк', 'Science-art lecture · Sberbank'),
         body: l(
-          'Архив описывает экспертное приглашение к science-art лекции для корпоративной аудитории в Москве. Это лекционное участие, а не заказ интерактивного стенда. Точный день не уточнён; сохранён год события.',
-          'The archive describes an expert invitation for a science-art lecture to a corporate audience in Moscow. This is a lecture contribution, not a commission for an interactive stand. The exact day is unconfirmed; the event year is retained.',
+          'В 2025 году студия получила приглашение провести science-art лекцию для корпоративной аудитории Сбербанка в Москве.',
+          'In 2025, the studio was invited to give a science-art lecture to a corporate audience at Sberbank in Moscow.',
         ),
       },
       {
@@ -216,8 +216,8 @@ export const studioPages: StudioPage[] = [
         year: 2025,
         title: l('«Терраформинг» · МФТИ', 'Terraforming · MIPT'),
         body: l(
-          'Архив связывает выставку Нейромандалы «Терраформинг» на площадке МФТИ с воркшопами. Событийная запись указывает приглашение и площадку; образовательное описание раскрывает практическую часть. Участие не обозначено бессрочным партнёрством с институцией.',
-          'The archive connects the Neuromandala exhibition Terraforming at MIPT with workshops. The event record identifies an invitation and venue; the educational description explains the practical contribution. Participation is not described as an ongoing institutional partnership.',
+          '«Терраформинг» объединил выставку Нейромандалы и практическую образовательную программу на площадке МФТИ.',
+          'Terraforming combined a Neuromandala exhibition with a practical educational programme at MIPT.',
         ),
       },
     ],

@@ -26,7 +26,7 @@ test('the meditation report preserves the actual contribution without inventing 
   assert.equal(event.place.en, 'Venue unspecified');
   assert.equal(event.work, 'neuromandala');
   assert.equal(event.source, 'https://t.me/odadream/760');
-  assert.match(event.limitations[0].en, /not a confirmed event day/);
+  assert.match(event.limitations[0].en, /publication date/);
   assert.equal(event.evidence.length, 0);
 });
 
@@ -35,7 +35,7 @@ test('competition, school grant and reserve selection remain distinct from reali
   assert.equal(find('skolkovo-arttech-2026').kind, 'award');
   assert.equal(find('culttech-school-grant-2026').kind, 'grant');
   assert.equal(find('cyens-reserve-2026').kind, 'selection');
-  assert.match(find('cyens-reserve-2026').limitations.en, /not selected: participation did not take place/);
+  assert.match(find('cyens-reserve-2026').limitations.en, /not included in the festival programme/);
   assert.match(find('culttech-school-grant-2026').claim.en, /full School Phase fee/);
   assert.equal(scope.works.find((row) => row.id === 'honors').stage, 'concept');
   assert.equal(scope.works.find((row) => row.id === 'ancestors').stage, 'prototype');
@@ -61,7 +61,7 @@ test('archival recordings follow semantic owners while general lecture recording
   assert.ok(scope.programmes.every((row) => !row.materials));
   const sync = scope.works.find((row) => row.id === 'sync');
   assert.equal(sync.stage, 'concept');
-  assert.match(sync.story.find((row) => row.links).body.en, /do not establish fabrication/);
+  assert.match(sync.story.find((row) => row.links).body.en, /installation concept is based/);
   const game = scope.works.find((row) => row.id === 'neurobattle');
   assert.match(game.story.find((row) => row.links).links[0].title.ru, /Парадокс Успеха/);
   const stories = [...scope.works.flatMap((row) => row.story), ...scope.educationOverview.materials];

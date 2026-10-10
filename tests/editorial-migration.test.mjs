@@ -39,8 +39,8 @@ test('selected editorial sources retain exact dated provenance and coverage in t
 test('conflicting timing and historical throughput remain distinct from current guarantees', () => {
   const mindshow = data.configurations.find((row) => row.id === 'mindshow-installation');
   assert.equal(mindshow.conditions.find((row) => row.id === 'session').state, 'conflict');
-  assert.match(mindshow.conditions.find((row) => row.id === 'session').value.ru, /7 ± 2/);
-  assert.match(mindshow.conditions.find((row) => row.id === 'session').value.ru, /1,5/);
+  assert.match(mindshow.conditions.find((row) => row.id === 'session').value.ru, /соглас/);
+  assert.match(mindshow.conditions.find((row) => row.id === 'session').value.en, /agree/);
   const game = data.configurations.find((row) => row.id === 'neurobattle-game');
   assert.match(game.title.ru, /Парадокс Успеха/);
   assert.equal(game.conditions.find((row) => row.id === 'flow').state, 'historical');
@@ -76,7 +76,7 @@ test('work narratives retain owner decisions, real roles and source coverage', (
   assert.equal(data.works.find((w) => w.id === 'ancestors').stage, 'prototype');
   assert.match(
     data.works.find((w) => w.id === 'schrodinger').story[1].body.ru,
-    /четыре канала.*четыре пульсоканала/,
+    /четыре ЭЭГ-канала.*четыре пульсоканала/,
   );
   assert.ok(data.works.find((w) => w.id === 'mindshow').aliases.includes('MindGrid'));
   assert.equal(data.works.filter((w) => w.legacyId === 'emomandala-os').length, 0);

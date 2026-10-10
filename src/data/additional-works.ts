@@ -68,12 +68,12 @@ const definitions: Definition[] = [
       ru: [
         'Выставочный концепт',
         'Материалы заявок Tabakalera и Sónar, 2025',
-        'Публичная премьера не подтверждена',
+        'Сценарий публичного показа в разработке',
       ],
       en: [
         'Exhibition concept',
         'Tabakalera and Sónar application materials, 2025',
-        'Public premiere unconfirmed',
+        'Public presentation scenario in development',
       ],
     },
     story: [
@@ -95,8 +95,8 @@ const definitions: Definition[] = [
         'development',
         'Рабочие названия и подготовка',
         'Working titles and preparation',
-        'Ранние названия — Other Forms / Other Lives. Подготовлены материалы заявок на резиденцию Tabakalera и Sónar 2025. Представленные изображения описывают предполагаемую выставку; документированного публичного показа в источниках нет.',
-        'Earlier titles were Other Forms / Other Lives. Application materials were prepared for Tabakalera residency and Sónar 2025. The images describe a proposed exhibition; the sources do not document a public presentation.',
+        'Ранние названия — Other Forms / Other Lives. В 2025 году подготовлены материалы заявок для Tabakalera и Sónar. Изображения представляют концепцию выставки.',
+        'Early titles were Other Forms / Other Lives. Application materials were prepared for Tabakalera and Sónar in 2025. The images present the exhibition concept.',
       ),
     ],
   },
@@ -124,12 +124,12 @@ const definitions: Definition[] = [
       ru: [
         'Внутренний лабораторный прототип',
         'Фестивальная версия — модульная скульптура',
-        'Публичная премьера не подтверждена',
+        'Сценарий публичного показа в разработке',
       ],
       en: [
         'Internal laboratory prototype',
         'Festival version: modular sculpture',
-        'Public premiere unconfirmed',
+        'Public presentation scenario in development',
       ],
     },
     story: [
@@ -151,8 +151,8 @@ const definitions: Definition[] = [
         'laboratory',
         'Лаборатория и фестивальный проект',
         'Laboratory and festival project',
-        'Ритуальный контур отлаживался во внутренней лаборатории студии Ashram в Москве. Фестивальная версия предполагает переносную модульную скульптуру с алюминиевым каркасом и печатными сегментами. Подготовленные заявки Play Digital Art, НУР, Intervals и ARS Electronica не означают состоявшихся показов.',
-        'The ritual system was tested internally at Ashram Studio in Moscow. The festival version proposes a mobile modular sculpture with an aluminium frame and printed segments. Prepared applications to Play Digital Art, NUR, Intervals and ARS Electronica do not establish completed presentations.',
+        'Сценарий взаимодействия отлаживался во внутренней лаборатории студии Ashram в Москве. Фестивальная версия предполагает переносную модульную скульптуру с алюминиевым каркасом и печатными сегментами. Для Play Digital Art, НУР, Intervals и Ars Electronica подготовлены заявки.',
+        'The interaction scenario was developed in an internal laboratory at Ashram Studio in Moscow. A festival version proposes a portable modular sculpture with an aluminium frame and printed segments. Applications were prepared for Play Digital Art, NUR, Intervals and Ars Electronica.',
       ),
     ],
   },
@@ -208,8 +208,8 @@ const definitions: Definition[] = [
         'lineage',
         'Носимый архив внимания',
         'A wearable archive of attention',
-        'Работа продолжает предметную линию колец ODA.dream: выбранное состояние становится носимым архивом. Здесь источником служит запись ведущей групповой сессии. Масштаб группы из архивного рассказа не является измерением каждого участника; дата документирования не подменяет установленный год создания.',
-        'The work continues the object line of ODA.dream Rings: a selected state becomes a wearable archive. Here the source is the facilitator’s recording from a group session. The archived audience scale does not imply measurement of every participant; the documentation date does not substitute for a confirmed creation year.',
+        'Работа продолжает предметную линию колец ODA.dream: выбранный момент становится носимым архивом. Форма кулона основана на записи ЭЭГ ведущей групповой медитации.',
+        'The work continues the object line begun with the ODA.dream rings: a chosen moment becomes a wearable archive. The pendant’s form is based on an EEG recording of the facilitator during a group meditation.',
       ),
     ],
   },
@@ -264,8 +264,8 @@ const definitions: Definition[] = [
         'origin',
         'История заказа',
         'Commission history',
-        'Архив связывает начало линии с форумом Synergy Crypto & NFT на Бали в августе 2022 года и заказом Александры Борзых. В разговоре с Ольгой Арабовой возник вопрос о состоянии, которое хочется сохранить: ощущение ребёнка внутри и единство с ним. Канонический экземпляр изготовили балийские мастера.',
-        'The archive connects the line’s origin to the Synergy Crypto & NFT forum in Bali in August 2022 and Alexandra Borzikh’s commission. A conversation with Olga Arabova raised the question of a state worth preserving: the sense of a child within and unity with them. Balinese craftspeople fabricated the canonical piece.',
+        'Начало линии связано с форумом Synergy Crypto & NFT на Бали в августе 2022 года и заказом Александры Борзых. В разговоре с Ольгой Арабовой возник вопрос о переживании, которое хочется сохранить: ощущении ребёнка внутри и единстве с ним. Первый экземпляр изготовили балийские мастера.',
+        'The line began with Alexandra Borzikh’s commission following the Synergy Crypto & NFT Forum in Bali in August 2022. In conversation with Olga Arabova, she explored an experience she wanted to preserve: carrying her child and feeling their unity. Balinese craftspeople made the first piece.',
       ),
       part(
         'structure',
@@ -335,8 +335,8 @@ const definitions: Definition[] = [
         'line',
         'Отдельная предметная ветка',
         'A distinct object branch',
-        '«Счастье» создано как носимый и подарочный объект. В отличие от колец, «Воронки» и «4-го измерения», исходником служит выбранный символ. Тема воды позднее связана в архиве с «Культурным нейрокодом»; физические свойства воды и клинические эффекты этим художественным использованием не устанавливаются.',
-        'Happiness was created as a wearable and gift object. Unlike Rings, Funnel and Fourth Dimension, its source is a selected symbol. The archive later links the water motif with Cultural Neuro Code; this artistic use establishes neither physical properties of water nor clinical effects.',
+        '«Счастье» создано как носимый и подарочный объект. В отличие от колец, «Воронки» и «4-го измерения», его форма основана на выбранном символе. Тема воды связывает эту предметную ветку с «Культурным нейрокодом».',
+        'Happiness was created as a wearable gift. Unlike the rings, Vortex and Fourth Dimension, its form comes from a chosen symbol. The theme of water connects this object line with Cultural Neurocode.',
       ),
     ],
   },
@@ -421,16 +421,8 @@ const definitions: Definition[] = [
     media: ['archive-lighthouse'],
     relatedWorks: ['rings', 'emomandala'],
     facts: {
-      ru: [
-        'Виртуальный прототип',
-        'TouchDesigner Tower',
-        'Прототип и каталог анимаций; построенное здание не подтверждено',
-      ],
-      en: [
-        'Virtual prototype',
-        'TouchDesigner Tower',
-        'Prototype and motion catalogue; no confirmed constructed building',
-      ],
+      ru: ['Виртуальный прототип', 'TouchDesigner Tower', 'Виртуальная модель и каталог анимаций'],
+      en: ['Virtual prototype', 'TouchDesigner Tower', 'Virtual model and motion catalogue'],
     },
     story: [
       part(
@@ -488,12 +480,12 @@ const definitions: Definition[] = [
       ru: [
         'Концепция и сториборд',
         'Проектный круговой экран: диаметр 6 м, высота 3 м',
-        'Год создания и публичная премьера не подтверждены',
+        'Учебный проект о свете и взаимодействии',
       ],
       en: [
         'Concept and storyboard',
         'Designed circular screen: 6 m diameter, 3 m height',
-        'Creation year and public premiere unconfirmed',
+        'Learning project on light and interaction',
       ],
     },
     story: [
@@ -515,8 +507,8 @@ const definitions: Definition[] = [
         'archive',
         'Учебный концепт',
         'A study concept',
-        'Презентация связана с учебным модулем Contented о свете. В старом архиве встречаются написание «Посюсторонний» и дата 2008; название нормализовано по смыслу работы, а спорная дата не назначается годом создания. Сохраняются концепция, сториборд и техническая схема; публичная реализация не подтверждена.',
-        'The deck is linked to a Contented study module on light. The old archive contains the spelling “Posyustoronniy” and a 2008 date; the title is normalized to the work’s meaning, while the uncertain date is not assigned as its creation year. Concept, storyboard and technical scheme are retained; public realization is unconfirmed.',
+        'Концепт разработан в рамках учебного модуля Contented о свете. Сохранились презентация, сториборд и техническая схема теневого театра.',
+        'The concept was developed for a Contented learning module on light. A presentation, storyboard and technical scheme for the shadow theatre are retained.',
       ),
     ],
   },
@@ -558,12 +550,12 @@ const definitions: Definition[] = [
       ru: [
         'Проект конкурса ART × TECHNOLOGY, направление 6',
         'Предполагаемый контекст — общественный интерьер Сколково',
-        'Изображения — визуализации; действующая инсталляция не подтверждена',
+        'Визуализации проектной конфигурации',
       ],
       en: [
         'ART × TECHNOLOGY competition project, Direction 6',
         'Proposed context: Skolkovo public interior',
-        'Images are visualizations; an operating installation is unconfirmed',
+        'Visualisations of the proposed configuration',
       ],
     },
     story: [
@@ -585,8 +577,8 @@ const definitions: Definition[] = [
         'competition',
         'Конкурсный проект',
         'Competition project',
-        'Сохранён проект для направления 6 конкурса ART × TECHNOLOGY. Карточка результата студии фиксирует первое место 20 апреля 2026 года под названием «Мозг Сколково: Нейропортреты». Конкурсное признание не назначает статус изготовленной инсталляции: условия реализации и размещения не зафиксированы как действующая экспозиция.',
-        'A project for Direction 6 of ART × TECHNOLOGY is retained. The studio result record lists first place on 20 April 2026 under the title Brain of Skolkovo: Neuro-portraits. Competition recognition does not establish a fabricated installation: implementation and placement are not recorded as an operating exhibition.',
+        'Проект подготовлен для направления 6 конкурса ART × TECHNOLOGY. 20 апреля 2026 года работа получила первое место под названием «Мозг Сколково: Нейропортреты». Инсталляция остаётся концепцией; следующий этап — разработка её реализации и размещения.',
+        'The project was prepared for track 6 of ART × TECHNOLOGY. On 20 April 2026 it received first place under the title Skolkovo Brain: Neuroportraits. The installation remains a concept; the next stage is to develop its production and placement.',
       ),
     ],
   },
@@ -724,10 +716,10 @@ const definitions: Definition[] = [
       ),
       part(
         'context',
-        'Материалы и подтверждённый контекст',
-        'Materials and documented context',
-        'Сохранён центральный экран нейроорнамента для осетинского контекста. Карточка события Golem отмечает участие ODA.dream в мультимедийной выставке «Культурный код Северной Осетии» в Москве 27–29 октября 2025 года. Эти сведения подтверждают контекст и аудиовизуальную разработку; целостная инсталляционная версия исследовательского протокола остаётся в разработке.',
-        'A central neuro-ornament screen for the Ossetian context is retained. The Golem event card records ODA.dream’s participation in the North Ossetia Cultural Code multimedia exhibition in Moscow on 27–29 October 2025. These records establish context and audiovisual development; a complete installation version of the research protocol remains in development.',
+        'Нейроорнамент и выставка',
+        'Neuro-ornament and exhibition',
+        'ODA.dream участвовала в мультимедийной выставке «Культурный код Северной Осетии» в Москве 27–29 октября 2025 года. В материалах работы представлен центральный экран нейроорнамента. Полная инсталляционная версия исследовательского проекта остаётся в разработке.',
+        'ODA.dream participated in the North Ossetia Cultural Code multimedia exhibition in Moscow on 27–29 October 2025. The work’s materials include the central neuro-ornament screen. A full installation version of the research project remains in development.',
       ),
     ],
   },
@@ -757,12 +749,12 @@ const definitions: Definition[] = [
       ru: [
         'Работа и технологический метод имеют связанные, самостоятельные роли',
         'Визуальная форма развивается в реальном времени',
-        'Год создания отдельной работы не установлен',
+        'Индивидуальное и совместное участие',
       ],
       en: [
         'Artwork and technological method have distinct, related roles',
         'Visual form develops in real time',
-        'The artwork’s creation year is unconfirmed',
+        'Individual and shared participation',
       ],
     },
     story: [
@@ -777,15 +769,15 @@ const definitions: Definition[] = [
         'participation',
         'Работа существует как процесс',
         'The work exists as a process',
-        'Экранная композиция создаётся во времени, а не хранится как единственная финальная картинка. Формы участия варьируются от индивидуального наблюдения до совместного действия. Художественные версии и фрагменты сохраняют собственные названия и контекст; источник метода описывает считывание, маппинг и рендер отдельным слоем.',
-        'The on-screen composition is created through time rather than retained as one final image. Participation varies from individual observation to collective action. Artistic versions and fragments retain their own names and context; the method describes capture, mapping and rendering as a separate layer.',
+        'Экранная композиция создаётся во времени. Участие может быть индивидуальным или совместным; каждое действие меняет развитие образа. Разные художественные версии сохраняют собственные названия и контекст. Устройство записи и визуализации описано на странице метода.',
+        'The screen composition develops over time. Participation can be individual or shared, with each action shaping how the image unfolds. Different artistic versions retain their own titles and contexts. Recording and visualisation are described on the method page.',
       ),
       part(
         'relations',
         'Произведение и метод',
         'Artwork and method',
-        'В реестре Golem зафиксирована авторская роль Нейромандалы как технологии и работы. Художественная страница показывает её вопрос и опыт участия; технический разбор остаётся в разделе метода. MindShow, спектакли, Нейросинхронизация и предметные линии используют этот язык в самостоятельных работах.',
-        'The Golem registry records Neuromandala’s author-declared roles as technology and artwork. The artwork page presents its question and participatory experience; the technical account remains in the method section. MindShow, performances, Neurosynchronization and object lines use this language in distinct works.',
+        'Нейромандала существует как самостоятельное произведение и как метод создания других работ. Здесь раскрывается художественный опыт участия; на странице метода — устройство системы. MindShow, спектакли, Нейросинхронизация и предметные линии развивают этот язык по-своему.',
+        'Neuromandala is both an artwork in its own right and a method used to create other works. This page explores the artistic experience of participation; the method page explains the system. MindShow, stage performances, Neurosynchronization and object lines each develop this language in their own way.',
       ),
     ],
   },
@@ -796,10 +788,7 @@ const definitions: Definition[] = [
     workType: 'game',
     stage: 'concept',
     media: [],
-    mediaNote: l(
-      'Текстовый концепт; визуальные материалы не найдены в источниках.',
-      'A written concept; no visual material was found in the sources.',
-    ),
+    mediaNote: l('Работа представлена текстовой концепцией.', 'The work is presented as a written concept.'),
     summary: l(
       'Концепт серии игровых задач о том, как внимание, ожидание и иллюзии меняют воспринимаемую картину.',
       'A concept for a game series exploring how attention, expectation and illusions change what is perceived.',
@@ -815,12 +804,12 @@ const definitions: Definition[] = [
     facts: {
       ru: [
         'Серия интерактивных задач',
-        'Концепция; проведённые показы не подтверждены',
+        'Концепция игровых раундов и совместного обсуждения',
         'Образовательные и событийные применения предложены в архиве',
       ],
       en: [
         'Series of interactive tasks',
-        'Concept; completed presentations unconfirmed',
+        'Concept for game rounds and shared discussion',
         'Educational and event applications proposed in the archive',
       ],
     },
@@ -836,8 +825,8 @@ const definitions: Definition[] = [
         'round',
         'Раунд и разбор',
         'Round and reflection',
-        'Предложенная структура переключает быструю интуицию и рефлексивное мышление. После раунда участники обсуждают процесс восприятия и стратегии ответа. Архив предлагает pop-up зону, образовательный блок и командную практику; реализации конкретного сценария пока не установлены.',
-        'The proposed structure alternates fast intuition with reflective thinking. Participants discuss perception and response strategies after a round. The archive proposes a pop-up zone, educational module and group practice; realization of a specific scenario remains unconfirmed.',
+        'Предложенная структура чередует быструю интуицию и осмысленное рассмотрение. После раунда участники обсуждают восприятие и стратегии ответа. Концепция предусматривает интерактивную зону для события, образовательный блок или командную практику.',
+        'The proposed structure alternates quick intuition with considered reflection. After each round, participants discuss perception and response strategies. The concept can take the form of an interactive event area, an educational module or a team practice.',
       ),
     ],
   },
@@ -850,10 +839,7 @@ const definitions: Definition[] = [
     stage: 'concept',
     aliases: ['Путешествие', 'Journey'],
     media: [],
-    mediaNote: l(
-      'Текстовый концепт; визуальные материалы не найдены в источниках.',
-      'A written concept; no visual material was found in the sources.',
-    ),
+    mediaNote: l('Работа представлена текстовой концепцией.', 'The work is presented as a written concept.'),
     summary: l(
       'Созерцательный VR-концепт: дыхание, внимание и внутренний темп становятся принципом постепенного раскрытия среды.',
       'A contemplative VR concept: breathing, attention and internal pace become the principle for a gradually unfolding environment.',
@@ -869,12 +855,12 @@ const definitions: Definition[] = [
     facts: {
       ru: [
         'VR-концепт',
-        'Реализация и точные технические параметры не подтверждены',
+        'Сценарий и техническое устройство в разработке',
         'Предложен как самостоятельная среда и связанный модуль внимания',
       ],
       en: [
         'VR concept',
-        'Realization and precise technical parameters unconfirmed',
+        'Scenario and technical system in development',
         'Proposed as an environment and related attention module',
       ],
     },
@@ -890,8 +876,8 @@ const definitions: Definition[] = [
         'contexts',
         'Предлагаемые применения',
         'Proposed applications',
-        'Архив предлагает иммерсивную зону, созерцательную практику и связанный модуль о внимании и отношениях тела с восприятием. Конкретный сенсорный контур, устройство VR, длительность и состоявшийся показ в источнике не определены; эти параметры остаются предметом разработки.',
-        'The archive proposes an immersive zone, contemplative practice and a related module on attention and the relationship between body and perception. A specific sensor system, VR device, duration and completed presentation are not defined in the source; those parameters remain matters of development.',
+        'Концепция предусматривает иммерсивную зону, созерцательную практику и учебный модуль о внимании, теле и восприятии. Выбор датчиков, VR-оборудования и длительности сессии — задачи следующего этапа разработки.',
+        'The concept proposes an immersive area, a contemplative practice and a learning module about attention, the body and perception. Sensor selection, VR equipment and session duration are tasks for the next development stage.',
       ),
     ],
   },
@@ -916,8 +902,8 @@ export const additionalWorks: Work[] = definitions.map((row) => ({
   ],
   reviewNotes: [
     l(
-      'Параметры архивных версий уточняются для нового приглашения; неизвестные даты и условия остаются открытыми.',
-      'Archived version parameters are clarified for a new invitation; unknown dates and conditions remain open.',
+      'Условия показа и адаптации обсуждаются со студией.',
+      'Presentation and adaptation arrangements are discussed with the studio.',
     ),
   ],
   sourceRefs: [
@@ -928,8 +914,8 @@ export const additionalWorks: Work[] = definitions.map((row) => ({
   ],
   availability: l(
     row.stage === 'realized'
-      ? 'Показ, повторное изготовление или адаптация обсуждаются по задаче; текущие условия отдельно согласуются со студией.'
-      : 'Работа находится в разработке. Следующий этап и возможное участие обсуждаются по задаче.',
+      ? 'Показ, изготовление нового экземпляра или адаптация обсуждаются со студией.'
+      : 'Работа в разработке. Возможности участия и дальнейшего развития обсуждаются со студией.',
     row.stage === 'realized'
       ? 'Presentation, refabrication or adaptation are scoped for the task; current conditions are agreed with the studio.'
       : 'The work is in development. Its next stage and possible participation are scoped for the task.',

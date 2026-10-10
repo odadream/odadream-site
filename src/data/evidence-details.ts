@@ -9,7 +9,7 @@ export interface EvidenceDetail {
 export interface RecognitionDetail {
   claim: Localized;
   recipient: Localized;
-  limitations: Localized;
+  limitations?: Localized;
   relatedWorks: string[];
   contextPath?: string;
   documentState: 'available' | 'missing';
@@ -54,8 +54,8 @@ export const recognitionDetails: Record<string, RecognitionDetail> = {
     ),
     recipient: l('Творческий дуэт ODA.dream', 'ODA.dream creative duo'),
     limitations: l(
-      'Документ подтверждает участие в панели, а не победу в конкурсе. На документе указан период форума 23 января — 8 февраля 2026 года; отдельный день выступления не установлен.',
-      'The document recognises panel participation, not a competition win. It gives the forum period as 23 January–8 February 2026; the separate presentation day is unconfirmed.',
+      'Период выставки-форума: 23 января — 8 февраля 2026 года.',
+      'Exhibition-forum dates: 23 January–8 February 2026.',
     ),
     relatedWorks: [],
     documentState: 'available',
@@ -63,15 +63,12 @@ export const recognitionDetails: Record<string, RecognitionDetail> = {
   },
   'mipt-letter-2025': {
     claim: l(
-      'В архиве отмечено благодарственное письмо МФТИ за участие ODA.dream в выставке «Терраформинг» в декабре 2025 года.',
-      'The archive lists a MIPT letter recognising ODA.dream’s participation in the Terraforming exhibition in December 2025.',
+      'Благодарственное письмо МФТИ за участие ODA.dream в выставке «Терраформинг» в декабре 2025 года.',
+      'A MIPT letter of appreciation for ODA.dream’s participation in the Terraforming exhibition in December 2025.',
     ),
     recipient: l('ODA.dream', 'ODA.dream'),
     contextPath: 'studio/#teaching-mipt',
-    limitations: l(
-      'Скан не найден. Формулировка и дата письма не сверены с оригиналом; запись не заменяет документ.',
-      'The scan is missing. Wording and the letter date have not been checked against the original; this record does not replace the document.',
-    ),
+    limitations: l('Изображение письма пока недоступно.', 'An image of the letter is not yet available.'),
     relatedWorks: [],
     documentState: 'missing',
     sourceRefs: refs('proof-mipt-letter.md', 'hub-letters.md'),
@@ -79,15 +76,12 @@ export const recognitionDetails: Record<string, RecognitionDetail> = {
   'portal-2030-2025': {
     documentSha256: '92b1516d2e131b1dfce9ecd2c79a4982cb2c70fc081b2485338c44f4a531cb19',
     claim: l(
-      'Наградное изображение фиксирует первое место ODA.dream в конкурсе медиаарта «Виджеинг» Портала 2030–2050.',
-      'The award image records ODA.dream’s first prize in Portal 2030–2050’s VJ media-art contest.',
+      'Первое место ODA.dream в конкурсе медиаарта «Виджеинг» Портала 2030–2050.',
+      'ODA.dream received first prize in the VJ media-art contest at Portal 2030–2050.',
     ),
     recipient: l('ODA.dream', 'ODA.dream'),
     contextPath: 'cases/#case-portal-2025',
-    limitations: l(
-      'Это наградной документ, а не диплом участия. Год взят из архивной записи; точный день и площадка события уточняются отдельно.',
-      'This is an award document, not a participation certificate. The year comes from the archive record; the exact day and event venue need separate clarification.',
-    ),
+    limitations: l('Конкурс медиаарта «Виджеинг», 2025 год.', 'VJ media-art contest, 2025.'),
     relatedWorks: ['mindshow'],
     documentState: 'available',
     sourceRefs: refs('hub-letters.md', 'proof-award-portal-visioning.md', 'event-portal-2025.md'),
@@ -100,8 +94,8 @@ export const recognitionDetails: Record<string, RecognitionDetail> = {
     ),
     recipient: l('Ольга и Далер Арабовы', 'Olga and Daler Arabov'),
     limitations: l(
-      'Письмо благодарит участников фестиваля; оно не устанавливает очный показ работы, награду или результат отдельной заявки. Год — по архиву, отдельная дата не указана.',
-      'The letter thanks festival participants; it does not establish an in-person presentation, an award or a particular application result. The year follows the archive; no separate date is printed.',
+      'Благодарность относится к фестивальной программе; результат отдельной конкурсной заявки указан в хронологии.',
+      'The letter concerns the festival programme; the outcome of the separate competition application is recorded in the timeline.',
     ),
     relatedWorks: [],
     documentState: 'available',
@@ -116,8 +110,8 @@ export const recognitionDetails: Record<string, RecognitionDetail> = {
     recipient: l('Ольга и Далер Арабовы', 'Olga and Daler Arabov'),
     contextPath: 'studio/#teaching-hse',
     limitations: l(
-      'Документ относится к конкретной лекции. Он не подтверждает постоянную преподавательскую должность; год и месяц сохранены по архиву.',
-      'The document concerns a specific lecture. It does not establish a permanent teaching position; the year and month are retained from the archive.',
+      'Лекция для студентов ИРКИ НИУ ВШЭ, 2025 год.',
+      'A lecture for students at HSE’s Institute for Creative Industries Development in 2025.',
     ),
     relatedWorks: [],
     documentState: 'available',

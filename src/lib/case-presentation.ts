@@ -10,7 +10,7 @@ export const caseTypeLabels = {
 };
 export const participationLabels = {
   held: { ru: 'Участие состоялось', en: 'Participation took place' },
-  invited: { ru: 'Приглашение в архиве', en: 'Invitation recorded' },
+  invited: { ru: 'Приглашение', en: 'Invitation' },
   submitted: { ru: 'Заявка подана', en: 'Application submitted' },
   declined: { ru: 'Заявка отклонена', en: 'Application declined' },
   planned: { ru: 'План', en: 'Planned' },

@@ -18,7 +18,8 @@
     "stats:golem": "node scripts/sync-golem-stats.mjs",
     "migration:status": "node scripts/migration-status.mjs",
     "migration:qa": "node scripts/rehearse-candidate.mjs && node scripts/check-candidate.mjs",
-    "media:prepare": "node scripts/prepare-media.mjs"
+    "media:prepare": "node scripts/prepare-media.mjs",
+    "documents:prepare": "node scripts/prepare-reference-documents.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",

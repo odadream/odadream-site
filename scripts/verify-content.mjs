@@ -296,8 +296,7 @@ for (const series of data.eventSeries) {
 for (const item of data.recognitions) {
   for (const id of item.relatedWorks)
     if (!workIds.has(id)) errors.push(`recognition ${item.id}: missing work ${id}`);
-  if (!item.claim || !item.recipient || !item.limitations)
-    errors.push(`recognition ${item.id}: attribution missing`);
+  if (!item.claim || !item.recipient) errors.push(`recognition ${item.id}: attribution missing`);
   if (item.documentState === 'available' && !item.previewSrc)
     errors.push(`recognition ${item.id}: available document without file`);
   if (item.documentState === 'missing' && item.previewSrc)

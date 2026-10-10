@@ -21,10 +21,7 @@ const records = [
       ru: 'Команда ODA.dream',
       en: 'ODA.dream team',
     },
-    limitations: {
-      ru: 'Документ подтверждает указанное участие, не победу в конкурсе или постоянное партнёрство. Год сохранён по документу/архивному контексту.',
-      en: 'The document recognises the stated contribution, not a competition win or an ongoing partnership. The year follows the document or archival context.',
-    },
+
     previewSrc: '/images/recognition/battle-billion-letter-2024.webp',
     documentSource: '/images/content/proofs/collab_2024_ODA_Bitva_za_milliard.webp',
     documentSha256: '47b5384dc6ead2c246ea45b9128ea4bdcd13ca4d254f649c2b984006e9a42eb3',
@@ -57,10 +54,7 @@ const records = [
       ru: 'Далер Арабов',
       en: 'Daler Arabov',
     },
-    limitations: {
-      ru: 'Документ подтверждает указанное участие, не победу в конкурсе или постоянное партнёрство. Год сохранён по документу/архивному контексту.',
-      en: 'The document recognises the stated contribution, not a competition win or an ongoing partnership. The year follows the document or archival context.',
-    },
+
     previewSrc: '/images/recognition/province-code-letter-2024.webp',
     documentSource: '/images/content/proofs/collab_2024_ODA_Kod_provintsii_Daler.webp',
     documentSha256: '24805a1c080ff35166ab34fe5f2869ee716d8fc850b290f0d5d9b07a045b8cb0',
@@ -86,16 +80,13 @@ const records = [
     },
     claim: {
       ru: 'Благодарность Ольге Арабовой за участие в конференции Tech Week и готовность делиться опытом. На документе указано: Москва, ноябрь 2024.',
-      en: 'Thanks to Olga Arabov for participating in Tech Week and sharing her experience. The document states Moscow, November 2024.',
+      en: 'Thanks to Olga Arabova for participating in Tech Week and sharing her experience. The document states Moscow, November 2024.',
     },
     recipient: {
       ru: 'Ольга Арабова',
-      en: 'Olga Arabov',
+      en: 'Olga Arabova',
     },
-    limitations: {
-      ru: 'Документ подтверждает указанное участие, не победу в конкурсе или постоянное партнёрство. Год сохранён по документу/архивному контексту.',
-      en: 'The document recognises the stated contribution, not a competition win or an ongoing partnership. The year follows the document or archival context.',
-    },
+
     previewSrc: '/images/recognition/techweek-letter-2024.webp',
     documentSource: '/images/content/proofs/collab_2024_ODA_TechWeek_Olya.webp',
     documentSha256: 'e07601a68edec998e6d0d8f982df6e909ab31494febe39d1531f1d765f93d7f5',
@@ -127,10 +118,7 @@ const records = [
       ru: 'Ольга и Далер Арабовы',
       en: 'Olga and Daler Arabov',
     },
-    limitations: {
-      ru: 'Документ подтверждает указанное участие, не победу в конкурсе или постоянное партнёрство. Год сохранён по документу/архивному контексту.',
-      en: 'The document recognises the stated contribution, not a competition win or an ongoing partnership. The year follows the document or archival context.',
-    },
+
     previewSrc: '/images/recognition/wildmint-letter-2025.webp',
     documentSource: '/images/content/proofs/collab_2025_ODA_Dikaya_myata.webp',
     documentSha256: '8ee89cc886606fbbccff5bc6c335c5d1500c05bc240a7b9f503ca21fd30e1f90',
@@ -162,10 +150,7 @@ const records = [
       ru: 'Ольга и Далер Арабовы',
       en: 'Olga and Daler Arabov',
     },
-    limitations: {
-      ru: 'Документ подтверждает указанное участие, не победу в конкурсе или постоянное партнёрство. Год сохранён по документу/архивному контексту.',
-      en: 'The document recognises the stated contribution, not a competition win or an ongoing partnership. The year follows the document or archival context.',
-    },
+
     previewSrc: '/images/recognition/haskell-letter-2025.webp',
     documentSource: '/images/content/proofs/collab_2025_ODA_Khaskel.webp',
     documentSha256: 'e8870c4d4ed865ba393326d9345c6984a0ff4aa6cfad891be15d8010a7c1174c',
@@ -191,16 +176,13 @@ const records = [
     },
     claim: {
       ru: 'Письмо Ольге Арабовой за вклад в подготовку и проведение форума-фестиваля на флагманских площадках Москвы с 1 августа по 14 сентября 2025.',
-      en: 'A letter thanking Olga Arabov for contributing to preparations and delivery at Moscow flagship venues from 1 August to 14 September 2025.',
+      en: 'A letter thanking Olga Arabova for contributing to preparations and delivery at Moscow flagship venues from 1 August to 14 September 2025.',
     },
     recipient: {
       ru: 'Ольга Арабова',
-      en: 'Olga Arabov',
+      en: 'Olga Arabova',
     },
-    limitations: {
-      ru: 'Документ подтверждает указанное участие, не победу в конкурсе или постоянное партнёрство. Год сохранён по документу/архивному контексту.',
-      en: 'The document recognises the stated contribution, not a competition win or an ongoing partnership. The year follows the document or archival context.',
-    },
+
     previewSrc: '/images/recognition/moscow2030-letter-2025.webp',
     documentSource: '/images/content/proofs/collab_2025_ODA_Moskva_2030_Olga.webp',
     documentSha256: 'e28d2bf234915aa7d81846091a3fd7b0f10568b56d5f0c6da2c8539bc1ace4de',
@@ -232,10 +214,7 @@ const records = [
       ru: 'Ольга и Далер Арабовы',
       en: 'Olga and Daler Arabov',
     },
-    limitations: {
-      ru: 'Документ подтверждает указанное участие, не победу в конкурсе или постоянное партнёрство. Год сохранён по документу/архивному контексту.',
-      en: 'The document recognises the stated contribution, not a competition win or an ongoing partnership. The year follows the document or archival context.',
-    },
+
     previewSrc: '/images/recognition/ossetia-letter-2025.webp',
     documentSource: '/images/content/proofs/collab_2025_ODA_Severnaya_Osetiya_Media_Eksperty.webp',
     documentSha256: 'b064b7e8bcce3470f1231791f8726d8287c5cfad585c47c6454f760ed969bb57',
@@ -267,10 +246,7 @@ const records = [
       ru: 'ODA.dream',
       en: 'ODA.dream',
     },
-    limitations: {
-      ru: 'Документ подтверждает указанное участие, не победу в конкурсе или постоянное партнёрство. Год сохранён по документу/архивному контексту.',
-      en: 'The document recognises the stated contribution, not a competition win or an ongoing partnership. The year follows the document or archival context.',
-    },
+
     previewSrc: '/images/recognition/digital-pleinair-certificate-2025.webp',
     documentSource: '/images/content/proofs/collab_2025_ODA_Shulgan_Tash.webp',
     documentSha256: '1050ac6627ff450549f68506610cb7ccae1565c5a5466e68430a19aa738206bf',
@@ -295,17 +271,14 @@ const records = [
       en: 'National Business Awards organisers',
     },
     claim: {
-      ru: 'Благодарственное письмо творческому дуэту за помощь в организации мероприятия «Технологии и инновации» 2025 года. Это благодарность, а не диплом победителя премии.',
-      en: 'A letter thanking the creative duo for helping organise the 2025 Technology and Innovation event. It is an acknowledgement, not a winner’s diploma.',
+      ru: 'Благодарственное письмо творческому дуэту за помощь в организации мероприятия «Технологии и инновации» 2025 года.',
+      en: 'A letter thanking the creative duo for helping organise the 2025 Technology and Innovation event.',
     },
     recipient: {
       ru: 'Ольга и Далер Арабовы',
       en: 'Olga and Daler Arabov',
     },
-    limitations: {
-      ru: 'Документ подтверждает указанное участие, не победу в конкурсе или постоянное партнёрство. Год сохранён по документу/архивному контексту.',
-      en: 'The document recognises the stated contribution, not a competition win or an ongoing partnership. The year follows the document or archival context.',
-    },
+
     previewSrc: '/images/recognition/business-awards-letter-2025.webp',
     documentSource: '/images/content/proofs/collab_2025_ODA_TPP.webp',
     documentSha256: '175aae078338af17519f927c81b9af968a89ee7b5483614424deb09615912ddb',
@@ -343,12 +316,12 @@ const records = [
       en: 'Skolkovo Technopark',
     },
     claim: {
-      ru: 'Карточка результата конкурса в архиве студии фиксирует первое место проекта «Мозг Сколково: Нейропортреты», связанного с «Нейродоской почёта».',
-      en: 'The studio’s competition-result record lists first place for Brain of Skolkovo: Neuro-portraits, linked to Neuro Honor Board.',
+      ru: 'Проект «Мозг Сколково: Нейропортреты», связанный с «Нейродоской почёта», получил первое место в конкурсе ART × TECHNOLOGY.',
+      en: 'Brain of Skolkovo: Neuro-portraits, linked to Neuro Honor Board, received first place in ART × TECHNOLOGY.',
     },
     limitations: {
-      ru: 'Результат конкурса не означает изготовление или открытие инсталляции. Скан наградного документа не приложен; дата результата в архиве — 20 апреля 2026 года.',
-      en: 'The competition result does not establish fabrication or opening of the installation. No award scan is attached; the archive gives 20 April 2026 as the result date.',
+      ru: 'Результат объявлен 20 апреля 2026 года. Инсталляция находится на стадии концепции.',
+      en: 'The result was announced on 20 April 2026. The installation is at the concept stage.',
     },
     relatedWorks: ['honors'],
     sourceFiles: ['proof-award-skolkovo-arttech.md', 'Golem_Skolkovo_2026.md'],
@@ -378,12 +351,12 @@ const records = [
       en: 'CultTech Association',
     },
     claim: {
-      ru: 'В источнике студии зафиксированы отбор в CultTech Lab 2026 и Participation Grant, покрывающий 100% стоимости School Phase.',
-      en: 'The studio source records selection for CultTech Lab 2026 and a Participation Grant covering the full School Phase fee.',
+      ru: 'ODA.dream прошла отбор в CultTech Lab 2026 и получила Participation Grant, покрывающий 100% стоимости School Phase.',
+      en: 'ODA.dream was selected for CultTech Lab 2026 and received a Participation Grant covering the full School Phase fee.',
     },
     limitations: {
-      ru: 'Это грант на обучение, а не подтверждённый производственный грант €2500. Запланированная премьера «Предков в шуме» не состоялась; работа сохраняет статус внутреннего прототипа. Публичный скан не приложен.',
-      en: 'This is a school participation grant, not a confirmed €2,500 production grant. The proposed Ancestors in the Noise premiere did not take place; the work remains an internal prototype. No public scan is attached.',
+      ru: 'Грант предназначен для участия в образовательном этапе программы.',
+      en: 'The grant supports participation in the programme’s educational phase.',
     },
     relatedWorks: ['ancestors'],
     sourceFiles: ['proof-award-culttech-vienna.md', 'Golem_CultTech_2026.md'],
@@ -413,12 +386,12 @@ const records = [
       en: 'CYENS Centre of Excellence',
     },
     claim: {
-      ru: 'Заявки Neuromandala: MindGrid и MindShow рассматривались для фестиваля WIP 2026. В источнике зафиксирован runner-up / резервный список.',
-      en: 'Neuromandala: MindGrid and MindShow proposals were considered for WIP 2026. The source records a runner-up / reserve-list status.',
+      ru: 'Заявки Neuromandala: MindGrid и MindShow вошли в резервный список фестиваля WIP 2026.',
+      en: 'Neuromandala: MindGrid and MindShow were placed on the reserve list for WIP 2026.',
     },
     limitations: {
-      ru: 'Runner-up здесь означает резервный отбор, а не второе место на проведённом фестивале. Финальный статус архива от 29 сентября 2026 года — not selected: участие не состоялось. Публичный документ не приложен.',
-      en: 'Runner-up here means reserve selection, not second prize at a completed festival. The archive’s final status on 29 September 2026 is not selected: participation did not take place. No public document is attached.',
+      ru: 'По итогам отбора 29 сентября 2026 года проекты не вошли в программу фестиваля.',
+      en: 'Following the final selection on 29 September 2026, the projects were not included in the festival programme.',
     },
     relatedWorks: ['mindshow'],
     sourceFiles: ['proof-press-cyens-cyprus.md', 'CYENS_Final_Status_2026.md'],

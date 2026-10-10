@@ -360,12 +360,12 @@ export function sourceSectionsFor(
           body:
             ownerId === 'sync'
               ? {
-                  ru: 'Архивные материалы показывают развитие метода синхронизации. Они не подтверждают изготовление предложенной конфигурации «Круг синхронизации».',
-                  en: 'Archival materials show the development of the synchronization method. They do not establish fabrication of the proposed Sync Circle configuration.',
+                  ru: 'Демонстрации метода Нейросинхронизации, на котором основан инсталляционный концепт.',
+                  en: 'Demonstrations of the Neurosynchronization method on which the installation concept is based.',
                 }
               : {
-                  ru: 'Материалы из архива студии на внешних площадках. Ролики и публикации открываются у источника.',
-                  en: 'Studio archive materials on external platforms. Recordings and publications open at their source.',
+                  ru: 'Записи показов, интервью и публикации о работе.',
+                  en: 'Presentation recordings, interviews and publications about the work.',
                 },
           links,
         },

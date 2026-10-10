@@ -37,7 +37,7 @@ test('inspecting a prize image neither approves document rights nor exposes inte
   const source = { ...data, recognitions: structuredClone(data.recognitions) };
   const prize = source.recognitions.find((row) => row.id === 'portal-2030-2025');
   assert.equal(prize.kind, 'award');
-  assert.match(prize.claim.ru, /первое место/);
+  assert.match(prize.claim.ru, /первое место/i);
   assert.match(prize.documentSha256, /^[a-f0-9]{64}$/);
   prize.publication = 'published';
   prize.documentRights = 'review';

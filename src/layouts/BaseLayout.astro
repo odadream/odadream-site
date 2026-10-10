@@ -201,7 +201,11 @@ const breadcrumbSchema =
     </a>
     <header class="site-header">
       <div class="shell header-inner">
-        <a class="brand" href={`/${page.lang}/`} aria-label="ODA.dream — home">
+        <a
+          class="brand"
+          href={`/${page.lang}/`}
+          aria-label={page.lang === 'ru' ? 'ODA.dream — главная' : 'ODA.dream — home'}
+        >
           <img src="/brand/oda-logo.svg" alt="ODA.dream" width="112" height="52" />
         </a>
         <button

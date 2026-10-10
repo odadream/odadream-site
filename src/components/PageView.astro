@@ -135,14 +135,14 @@ const timeline = [...cases]
                       <button
                         type="button"
                         data-carousel-prev
-                        aria-label={ru ? 'Предыдущая работа' : 'Previous work'}
+                        aria-label={ru ? 'Предыдущий кадр' : 'Previous frame'}
                       >
                         <TechnicalMark kind="previous" />
                       </button>
                       <button
                         type="button"
                         data-carousel-next
-                        aria-label={ru ? 'Следующая работа' : 'Next work'}
+                        aria-label={ru ? 'Следующий кадр' : 'Next frame'}
                       >
                         <TechnicalMark kind="next" />
                       </button>
@@ -336,8 +336,8 @@ const timeline = [...cases]
           ) : (
             <p class="small-note">
               {ru
-                ? 'Выбранные документы с подтверждённым разрешением на публикацию.'
-                : 'Selected documents cleared for publication.'}
+                ? 'Награды, дипломы и благодарности за работы и участие в событиях.'
+                : 'Awards, certificates and letters of appreciation for works and event contributions.'}
             </p>
           )}
           <CalloutLink href={`/${lang}/recognition/`}>
@@ -534,27 +534,29 @@ const timeline = [...cases]
       <h1>{ru ? 'Документы признания' : 'Recognition archive'}</h1>
       <p class="lead">
         {ru
-          ? 'Архив отделяет награды, дипломы и благодарственные письма от списка площадок и заказчиков. Здесь показаны превью найденных документов; права на их повторную публикацию проверяются.'
-          : 'This archive distinguishes awards, diplomas and letters of appreciation from a venue or client list. Available documents have previews; re-publication rights are being reviewed.'}
+          ? 'Награды, дипломы, гранты и благодарственные письма. Каждая запись рассказывает о работе или событии, к которому относится признание.'
+          : 'Awards, certificates, grants and letters of appreciation. Each entry describes the work or event to which the recognition relates.'}
       </p>
     </section>
     <section class="section shell section-grid">
       <div class="section-label">
         <PageCode family={family} section={1} lang={lang} />
-        <span class="eyebrow">{ru ? 'Редакционный статус' : 'Editorial status'}</span>
+        <span class="eyebrow">{ru ? 'Документы' : 'Documents'}</span>
       </div>
       <div class="section-body">
         <p>
           {ru
-            ? 'Ниже — выборка из прежнего публичного архива. Откройте превью для чтения; отсутствующий скан МФТИ помечен отдельно.'
-            : 'A selection from the former public archive. Open a preview to read it; the missing MIPT scan is identified separately.'}
+            ? 'Откройте изображение, чтобы прочитать документ. Записи без изображения отмечены отдельно.'
+            : 'Open an image to read the document. Entries without an image are marked separately.'}
         </p>
         <div class="recognition-grid">
           {recognitions.map((item) => (
             <RecognitionCard item={item} lang={lang} />
           ))}
         </div>
-        <CalloutLink href={`/${lang}/cases/`}>{ru ? 'Проверяемые события' : 'Documented events'}</CalloutLink>
+        <CalloutLink href={`/${lang}/cases/`}>
+          {ru ? 'События и показы' : 'Events and presentations'}
+        </CalloutLink>
       </div>
     </section>
   </>
@@ -583,7 +585,7 @@ const timeline = [...cases]
         <section class="work-section">
           <span class="eyebrow">
             <PageCode family={family} section={1} lang={lang} /> /{' '}
-            {ru ? 'Художественная ставка' : 'Artistic question'}
+            {ru ? 'Художественный вопрос' : 'Artistic question'}
           </span>
           <h2>{work.question[lang]}</h2>
           <p>{work.summary[lang]}</p>
@@ -592,7 +594,7 @@ const timeline = [...cases]
           <span class="eyebrow">
             <PageCode family={family} section={2} lang={lang} /> / {ru ? 'Контекст' : 'Context'}
           </span>
-          <h2>{ru ? 'Подтверждённые факты' : 'Documented facts'}</h2>
+          <h2>{ru ? 'О работе' : 'About the work'}</h2>
           {work.components && (
             <>
               <h3>{ru ? 'Состав работы' : 'Components of the work'}</h3>
@@ -721,14 +723,14 @@ const timeline = [...cases]
             </a>
           </div>
         </section>
-        <div class="provenance">
+        <DevNote id={'dev-work-source-' + work.id} lang={lang} block="work-provenance">
           <strong>{ru ? 'Источник и права' : 'Source and rights'}</strong>
           <p>
             {ru
               ? 'Описание основано на материалах студии. Показ материалов, включая частные заказы, разрешён владельцем.'
               : 'Description based on studio records. Display of the materials, including private commissions, is authorized by the owner.'}
           </p>
-        </div>
+        </DevNote>
       </div>
       <aside class="work-aside">
         <RecordStamp
@@ -750,7 +752,7 @@ const timeline = [...cases]
                 ]
               : []),
             {
-              label: ru ? 'Кейсы в каталоге' : 'Catalogued cases',
+              label: ru ? 'События и показы' : 'Events and presentations',
               value: work.cases.length,
               href: '#work-context',
             },
@@ -804,7 +806,7 @@ const timeline = [...cases]
           <p>{educationOverview.story[lang]}</p>
           <RecordStamp
             wide
-            title={ru ? 'Общие архивные рамки' : 'General archival parameters'}
+            title={ru ? 'Условия проведения' : 'Delivery arrangements'}
             fields={educationOverview.conditions.map((c) => ({ label: c.label[lang], value: c.value[lang] }))}
           />
           <p>{educationOverview.scope[lang]}</p>
@@ -927,7 +929,7 @@ const timeline = [...cases]
               <h2>{ru ? 'Подготовка и условия' : 'Preparation and conditions'}</h2>
               <RecordStamp
                 wide
-                title={ru ? 'Рамка приглашения' : 'Invitation scope'}
+                title={ru ? 'Условия проведения' : 'Delivery arrangements'}
                 fields={programme.conditions.map((c) => ({ label: c.label[lang], value: c.value[lang] }))}
               />
               <p>{programme.scope[lang]}</p>
@@ -1024,7 +1026,7 @@ const timeline = [...cases]
             <span class="eyebrow">{ru ? 'Производство' : 'Production'}</span>
           </div>
           <div class="section-body">
-            <h2>{ru ? 'Студия и local production' : 'Studio and local production'}</h2>
+            <h2>{ru ? 'Студия и площадка' : 'Studio and local production'}</h2>
             <p>
               {ru
                 ? 'Собственный художественный и технический контур студии отделён от инфраструктуры события или пространства. Производство площадки не включено по умолчанию.'
@@ -1052,7 +1054,7 @@ const timeline = [...cases]
                   row.language === lang,
               )}
               lang={lang}
-              title={ru ? 'Технический обзор · 6 октября 2026' : 'Technical overview · 6 October 2026'}
+              title={ru ? 'Технический обзор · 10 октября 2026' : 'Technical overview · 10 October 2026'}
             />
           </div>
         </section>
@@ -1091,8 +1093,8 @@ const timeline = [...cases]
         )}
         <p class="small-note">
           {ru
-            ? 'Если часть условий неизвестна, обозначьте это в первом сообщении. Индивидуальные КП, бюджеты и переписка остаются в рабочем архиве.'
-            : 'If some conditions are unknown, say so in the first message. Individual proposals, budgets and correspondence remain in the working archive.'}
+            ? 'Если часть условий пока неизвестна, обозначьте это в первом сообщении — уточним их вместе.'
+            : 'If some conditions are not yet known, mention this in your first message — we will clarify them together.'}
         </p>
         <a class="button primary" href={`/${lang}/contact/`}>
           {ru ? 'Написать нам' : 'Write to us'}
@@ -1247,11 +1249,11 @@ const timeline = [...cases]
         <span class="eyebrow">{ru ? 'Подтверждение' : 'Evidence'}</span>
       </div>
       <div class="section-body">
-        <h2>{ru ? 'Проверяемый контекст' : 'Verifiable context'}</h2>
+        <h2>{ru ? 'История показов' : 'Presentation history'}</h2>
         <p>
           {ru
-            ? 'В кейсах указаны события, даты, места и роли организаций. Благодарности и цитаты не публикуются без отдельного разрешения.'
-            : 'Cases name events, dates, places and organizational roles. Letters and quotations are not published without separate permission.'}
+            ? 'Показы, лекции и лаборатории: где проходили встречи, кто участвовал и что создавала студия.'
+            : 'Presentations, lectures and laboratories: where encounters took place, who participated and what the studio created.'}
         </p>
         <CalloutLink href={`/${lang}/cases/`}>{ru ? 'Смотреть кейсы' : 'See cases'}</CalloutLink>
       </div>
@@ -1405,7 +1407,7 @@ const timeline = [...cases]
           <span class="eyebrow">
             <PageCode family={family} section={4} lang={lang} /> / {ru ? 'Основание сведений' : 'Sources'}
           </span>
-          <h2>{ru ? 'Что подтверждает запись' : 'What the record supports'}</h2>
+          <h2>{ru ? 'Материалы о событии' : 'Event documentation'}</h2>
           {oneCase.evidence.flatMap((id) => {
             const item = evidence.find((row) => row.id === id);
             return item ? [<EvidenceNote item={item} lang={lang} />] : [];
@@ -1468,8 +1470,8 @@ const timeline = [...cases]
         </p>
         <p class="small-note">
           {ru
-            ? 'Быстрый ответ — в Telegram. Адреса сверены с контактными данными старого сайта.'
-            : 'For a quick reply, use Telegram. These addresses match the previous site’s contact registry.'}
+            ? 'Напишите в Telegram или по электронной почте — как вам удобнее.'
+            : 'Get in touch by Telegram or email, whichever you prefer.'}
         </p>
         <CalloutLink href="https://t.me/odadream_info" rel="noopener noreferrer">
           t.me/odadream_info

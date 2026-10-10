@@ -97,8 +97,8 @@ const definitions = [
           en: 'Duration and conditions',
         },
         value: {
-          ru: 'Длительность, ведущие, оборудование, доступность, участие и разрешения на запись фиксируются в предложении. Архивные параметры не заменяют согласованную программу.',
-          en: 'Duration, facilitators, equipment, accessibility, participation and recording permission are fixed in the proposal. Archival parameters do not replace an agreed programme.',
+          ru: 'Длительность, ведущих, оборудование, доступность и условия записи согласуем при подготовке встречи.',
+          en: 'We agree duration, facilitators, equipment, accessibility and recording arrangements when preparing the meeting.',
         },
         state: 'per-brief',
       },
@@ -123,8 +123,8 @@ const definitions = [
       en: 'A lecture for artists, curators and interdisciplinary audiences on the perception of art.',
     },
     story: {
-      ru: 'Программа связывает теории зрительного восприятия с современной медиа-арт практикой. Обсуждаются выделение, значимость, предсказание и эстетические решения, способы говорить об отклике аудитории и этические границы влияния. Формулировки источника используются как темы обсуждения, без обещания измерить вкус человека или управлять его реакцией.',
-      en: 'The programme connects theories of visual perception with contemporary media-art practice. It discusses selection, salience, prediction, aesthetic decisions, ways to talk about audience response and the ethical limits of influence. Source claims are treated as discussion topics without promising to measure a person’s taste or control their response.',
+      ru: 'Программа связывает теории зрительного восприятия с современным медиаискусством. Обсуждаем внимание, значимость и ожидания, эстетические решения и отклик аудитории. Отдельная тема — этические границы художественного воздействия.',
+      en: 'The programme connects theories of visual perception with contemporary media art. We discuss attention, salience and expectations, aesthetic choices and audience response. A separate topic explores the ethical boundaries of artistic influence.',
     },
     topics: [
       {
@@ -157,8 +157,8 @@ const definitions = [
           en: 'Duration and conditions',
         },
         value: {
-          ru: 'Длительность, ведущие, оборудование, доступность, участие и разрешения на запись фиксируются в предложении. Архивные параметры не заменяют согласованную программу.',
-          en: 'Duration, facilitators, equipment, accessibility, participation and recording permission are fixed in the proposal. Archival parameters do not replace an agreed programme.',
+          ru: 'Длительность, ведущих, оборудование, доступность и условия записи согласуем при подготовке встречи.',
+          en: 'We agree duration, facilitators, equipment, accessibility and recording arrangements when preparing the meeting.',
         },
         state: 'per-brief',
       },
@@ -217,8 +217,8 @@ const definitions = [
           en: 'Duration and conditions',
         },
         value: {
-          ru: 'Длительность, ведущие, оборудование, доступность, участие и разрешения на запись фиксируются в предложении. Архивные параметры не заменяют согласованную программу.',
-          en: 'Duration, facilitators, equipment, accessibility, participation and recording permission are fixed in the proposal. Archival parameters do not replace an agreed programme.',
+          ru: 'Длительность, ведущих, оборудование, доступность и условия записи согласуем при подготовке встречи.',
+          en: 'We agree duration, facilitators, equipment, accessibility and recording arrangements when preparing the meeting.',
         },
         state: 'per-brief',
       },
@@ -243,8 +243,8 @@ const definitions = [
       en: 'An interactive lecture on taste, smell, texture and the role of context in food perception.',
     },
     story: {
-      ru: 'Программа разбирает различие вкуса и flavor, роль памяти, внимания и ожиданий. Короткие сенсорные задания и изменение контекста становятся материалом для группового обсуждения различий восприятия. Прикладная часть связана с проектированием событийного и гастрономического опыта. Состав заданий и обеспечение площадки согласуются отдельно.',
-      en: 'The programme explores the distinction between taste and flavour and the roles of memory, attention and expectations. Short sensory tasks and changes of context provide material for discussing differences in perception. The practical discussion concerns event and gastronomic experience design. Exercises and venue provision are agreed separately.',
+      ru: 'Программа разбирает различие между вкусом и целостным восприятием еды, роль памяти, внимания и ожиданий. Короткие сенсорные задания и изменение контекста помогают сравнивать впечатления участников. Прикладная часть посвящена проектированию гастрономического опыта и событий. Состав заданий и подготовку площадки согласуем отдельно.',
+      en: 'The programme distinguishes taste from the overall flavour experience and explores the role of memory, attention and expectations. Short sensory tasks and changes in context help participants compare impressions. The applied section looks at designing gastronomic experiences and events. We agree the tasks and venue preparation separately.',
     },
     topics: [
       {
@@ -277,8 +277,8 @@ const definitions = [
           en: 'Duration and conditions',
         },
         value: {
-          ru: 'Длительность, ведущие, оборудование, доступность, участие и разрешения на запись фиксируются в предложении. Архивные параметры не заменяют согласованную программу.',
-          en: 'Duration, facilitators, equipment, accessibility, participation and recording permission are fixed in the proposal. Archival parameters do not replace an agreed programme.',
+          ru: 'Длительность, ведущих, оборудование, доступность и условия записи согласуем при подготовке встречи.',
+          en: 'We agree duration, facilitators, equipment, accessibility and recording arrangements when preparing the meeting.',
         },
         state: 'per-brief',
       },
@@ -337,8 +337,8 @@ const definitions = [
           en: 'Duration and conditions',
         },
         value: {
-          ru: 'Длительность, ведущие, оборудование, доступность, участие и разрешения на запись фиксируются в предложении. Архивные параметры не заменяют согласованную программу.',
-          en: 'Duration, facilitators, equipment, accessibility, participation and recording permission are fixed in the proposal. Archival parameters do not replace an agreed programme.',
+          ru: 'Длительность, ведущих, оборудование, доступность и условия записи согласуем при подготовке встречи.',
+          en: 'We agree duration, facilitators, equipment, accessibility and recording arrangements when preparing the meeting.',
         },
         state: 'per-brief',
       },
@@ -359,12 +359,12 @@ const definitions = [
       en: 'Gong Theatre',
     },
     summary: {
-      ru: 'Фасилитируемая звуковая практика с живым акустическим и нейровизуальным слоями.',
-      en: 'A facilitated listening practice with live acoustic and neurovisual layers.',
+      ru: 'Звуковая практика с ведущим, живыми инструментами и нейровизуальной средой.',
+      en: 'A guided sound practice with live instruments and a neurovisual environment.',
     },
     story: {
-      ru: 'Живой гонг, обертоновые инструменты или резонансные текстуры соединяются с внимательной траекторией слушания. Визуальная интерпретация поддерживает последующую рефлексию и не используется для диагностики. Источник описывает опыт присутствия, слушания и совместного внимания; конкретный состав исполнителей, оборудование и длительность определяются при подготовке.',
-      en: 'A live gong, overtone instruments or resonant textures meet a guided listening trajectory. Visual interpretation supports reflection and is not used for diagnosis. The source describes presence, listening and shared attention; performers, equipment and duration are determined during preparation.',
+      ru: 'Живой гонг, обертоновые инструменты или резонансные звуковые фактуры направляют внимание слушателя. Нейровизуальная среда дополняет опыт присутствия и совместного слушания; после практики участники обсуждают свои впечатления. Состав исполнителей, оборудование и длительность определяем при подготовке.',
+      en: 'A live gong, overtone instruments or resonant sound textures guide the listener’s attention. A neurovisual environment complements the experience of presence and shared listening; participants discuss their impressions afterwards. Performers, equipment and duration are agreed during preparation.',
     },
     topics: [
       {
@@ -397,8 +397,8 @@ const definitions = [
           en: 'Duration and conditions',
         },
         value: {
-          ru: 'Длительность, ведущие, оборудование, доступность, участие и разрешения на запись фиксируются в предложении. Архивные параметры не заменяют согласованную программу.',
-          en: 'Duration, facilitators, equipment, accessibility, participation and recording permission are fixed in the proposal. Archival parameters do not replace an agreed programme.',
+          ru: 'Длительность, ведущих, оборудование, доступность и условия записи согласуем при подготовке встречи.',
+          en: 'We agree duration, facilitators, equipment, accessibility and recording arrangements when preparing the meeting.',
         },
         state: 'per-brief',
       },
@@ -423,8 +423,8 @@ const definitions = [
       en: 'An introduction to neural interfaces, observation of the visualization and exploration of personal experience.',
     },
     story: {
-      ru: 'Участники знакомятся с ЭЭГ-нейроинтерфейсами и наблюдают, как сигналы становятся генеративным изображением. Практика соединяется с обсуждением и созданием собственного материала. Общий архивный сценарий предполагает 1,5–3 часа и группу 10–30 человек с 14 лет; размер группы не означает одновременного измерения всех людей. Адаптации для детей 8–14 лет в источнике описаны отдельно и требуют иной подготовки.',
-      en: 'Participants are introduced to EEG interfaces and observe signals becoming generative images. Practice is combined with discussion and the creation of personal material. The general archival scenario gives 1.5–3 hours and a group of 10–30 people aged 14 and over; group size does not mean simultaneous measurement of everyone. Adaptations for children aged 8–14 are described separately and require different preparation.',
+      ru: 'Участники знакомятся с ЭЭГ-нейроинтерфейсами и наблюдают, как сигналы становятся генеративным изображением. Практика соединяется с обсуждением и созданием собственного материала. Базовый сценарий: 1,5–3 часа для группы 10–30 человек с 14 лет. Участники работают с датчиками по очереди; программа для детей 8–14 лет требует отдельной подготовки.',
+      en: 'Participants explore EEG neurointerfaces and observe how signals become generative images. Practical work is combined with discussion and creating their own material. The baseline scenario is 1.5–3 hours for 10–30 people aged 14 and over. Participants take turns using sensors; a programme for children aged 8–14 requires separate preparation.',
     },
     topics: [
       {
@@ -457,8 +457,8 @@ const definitions = [
           en: 'Duration and conditions',
         },
         value: {
-          ru: 'Длительность, ведущие, оборудование, доступность, участие и разрешения на запись фиксируются в предложении. Архивные параметры не заменяют согласованную программу.',
-          en: 'Duration, facilitators, equipment, accessibility, participation and recording permission are fixed in the proposal. Archival parameters do not replace an agreed programme.',
+          ru: 'Длительность, ведущих, оборудование, доступность и условия записи согласуем при подготовке встречи.',
+          en: 'We agree duration, facilitators, equipment, accessibility and recording arrangements when preparing the meeting.',
         },
         state: 'per-brief',
       },
@@ -483,8 +483,8 @@ const definitions = [
       en: 'A multi-day educational programme combining lectures, practice and participant-created works.',
     },
     story: {
-      ru: 'Архив описывает летнюю школу или интенсив на 2–5 дней: лекции, воркшопы и сессии создания собственных работ Нейромандалы. Это рамка программы, а не утверждение о проведённом конкретном курсе. Возраст, число встреч, оборудование, содержание и результат собственной работы участников определяются под задачу приглашения.',
-      en: 'The archive describes a summer school or a 2–5-day intensive with lectures, workshops and sessions for creating participants’ own Neuromandala works. This is a programme framework, not a claim that a specific course took place. Age, sessions, equipment, content and participant outcomes are scoped for the invitation.',
+      ru: 'Летняя школа или интенсив на 2–5 дней объединяет лекции, практикумы и создание собственных работ с Нейромандалой. Возраст аудитории, число встреч, оборудование, содержание и результат работы участников определяем под задачи программы.',
+      en: 'A summer school or two-to-five-day intensive brings together lectures, workshops and creating original works with Neuromandala. Audience age, number of sessions, equipment, content and participants’ outcomes are tailored to the programme’s aims.',
     },
     topics: [
       {
@@ -517,8 +517,8 @@ const definitions = [
           en: 'Duration and conditions',
         },
         value: {
-          ru: 'Длительность, ведущие, оборудование, доступность, участие и разрешения на запись фиксируются в предложении. Архивные параметры не заменяют согласованную программу.',
-          en: 'Duration, facilitators, equipment, accessibility, participation and recording permission are fixed in the proposal. Archival parameters do not replace an agreed programme.',
+          ru: 'Длительность, ведущих, оборудование, доступность и условия записи согласуем при подготовке встречи.',
+          en: 'We agree duration, facilitators, equipment, accessibility and recording arrangements when preparing the meeting.',
         },
         state: 'per-brief',
       },

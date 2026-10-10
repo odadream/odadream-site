@@ -998,16 +998,16 @@ export const methods: Method[] = [
         id: 'invention-application',
         title: l('Заявка на изобретение', 'Invention application'),
         body: l(
-          `Заявка на изобретение №${intellectualProperty.inventionApplication.number} подана 30 апреля 2026 года. Номер и дата подтверждены владельцем студии. Подача заявки не означает выдачу патента.`,
-          `Invention application No. ${intellectualProperty.inventionApplication.number} was filed on 30 April 2026. The number and date were confirmed by the studio owner. Filing does not establish a granted patent.`,
+          `Заявка на изобретение №${intellectualProperty.inventionApplication.number} подана 30 апреля 2026 года.`,
+          `Invention application No. ${intellectualProperty.inventionApplication.number} was filed on 30 April 2026.`,
         ),
       },
       {
         id: 'method-overview',
         title: l('Метод и художественная позиция', 'Method and artistic position'),
         body: l(
-          'Нейромандала связывает измерение, художественные правила и участие человека. Это общий технологический и художественный слой разных произведений, а не отдельное событие или универсальный пакет заказа. История показов относится к работам и конкретным кейсам. MultiSync / гиперсканирование обозначает связанный контур одновременной записи нескольких ЭЭГ-потоков и сопоставления исследовательских маркеров для коллективной визуальной, световой или звуковой среды.',
-          'Neuromandala connects measurement, artistic rules and human participation. It is a shared technological and artistic layer across works, rather than an event or a universal commission package. Presentation history belongs to artworks and specific cases. MultiSync / hyperscanning denotes a related system for simultaneously capturing several EEG streams and juxtaposing research markers for collective visual, light or sound environments.',
+          'Нейромандала соединяет измерение, художественные правила и участие человека. Её визуальный язык и технология лежат в основе разных произведений. MultiSync, или гиперсканирование, позволяет одновременно записывать несколько ЭЭГ-потоков и использовать их параметры в общей визуальной, световой или звуковой среде.',
+          'Neuromandala connects measurement, artistic rules and human participation. Its visual language and technology underpin a range of works. MultiSync, or hyperscanning, captures several EEG streams simultaneously and uses their parameters to shape a shared visual, light or sound environment.',
         ),
       },
       {
@@ -1048,8 +1048,8 @@ export const methods: Method[] = [
         id: 'render',
         title: l('Отзывчивая среда', 'Responsive environment'),
         body: l(
-          'Генеративная система меняет композицию во времени. Подготовленный видеоряд и живой отклик различаются в подписях материалов.',
-          'The generative system changes the composition over time. Captions distinguish recorded footage from a live response.',
+          'Генеративная система меняет композицию во времени, отвечая на изменения входного сигнала.',
+          'The generative system changes the composition over time in response to changes in the incoming signal.',
         ),
       },
       {
@@ -1146,8 +1146,8 @@ export const participationDetails: Record<string, ParticipationDetail> = {
         id: 'session',
         label: l('Длительность сессии', 'Session duration'),
         value: l(
-          'Источники расходятся: 7 ± 2 минуты в MindShow и около 1,5 минуты в обзоре событий. Актуальный режим уточняется.',
-          'Sources differ: 7 ± 2 minutes in MindShow and around 1.5 minutes in the events overview. The current mode needs clarification.',
+          'Длительность зависит от режима: короткая демонстрация или сессия с личным рассказом. Тайминг и смену участников согласуем для конкретного показа.',
+          'Duration depends on the mode: a short demonstration or a session with a personal narrative. We agree timing and participant changeover for each presentation.',
         ),
         state: 'conflict',
       },
@@ -1298,8 +1298,8 @@ export const participationDetails: Record<string, ParticipationDetail> = {
         id: 'talk-duration',
         label: l('Лекция', 'Talk'),
         value: l(
-          'Источники указывают 30–90 и 45–90 минут. Нижняя граница зависит от версии; длительность согласуется под программу.',
-          'Sources give 30–90 and 45–90 minutes. The lower bound depends on the version; duration is agreed for the programme.',
+          'Длительность зависит от темы и версии лекции; согласуем её с программой события.',
+          'Duration depends on the topic and lecture version; we agree it to fit the event programme.',
         ),
         state: 'conflict',
       },
@@ -1307,8 +1307,8 @@ export const participationDetails: Record<string, ParticipationDetail> = {
         id: 'workshop-duration',
         label: l('Практикум', 'Workshop'),
         value: l(
-          'Архивное описание — 1,5–3 часа; группа 10–30 человек. Это отдельная конфигурация, не тайминг лекции.',
-          'The archival description gives 1.5–3 hours and a group of 10–30 people. This is a separate configuration, not a talk duration.',
+          'Базовый сценарий: 1,5–3 часа для группы 10–30 человек. Состав практики адаптируем к аудитории.',
+          'The baseline scenario is 1.5–3 hours for a group of 10–30 people. We adapt the practical activities to the audience.',
         ),
         state: 'historical',
       },
@@ -1325,8 +1325,8 @@ export const participationDetails: Record<string, ParticipationDetail> = {
         id: 'programme',
         label: l('Лаборатория / цикл', 'Laboratory / series'),
         value: l(
-          'Программа, возраст аудитории, число встреч, оборудование и результаты согласуются отдельно. Предложенная программа не обозначается как уже проведённая.',
-          'Programme, audience age, number of sessions, equipment and outcomes are scoped separately. A proposed programme is not described as already delivered.',
+          'Тему, возраст аудитории, число встреч, оборудование и результат работы согласуем при подготовке.',
+          'We agree the topic, audience age, number of sessions, equipment and intended outcome during preparation.',
         ),
         state: 'per-brief',
       },
@@ -1484,24 +1484,24 @@ export const cooperationPages: CooperationPage[] = [
         id: 'scope',
         title: l('Состав', 'Scope'),
         body: l(
-          'Выбираем работу или формат, отмечаем неизвестные параметры и границы сторон.',
-          'Choose the work or format, identify unknown parameters and define each party’s responsibilities.',
+          'Выбираем работу или программу, уточняем параметры и распределяем задачи между студией и площадкой.',
+          'Choose a work or programme, clarify the parameters and agree the responsibilities of the studio and venue.',
         ),
       },
       {
         id: 'proposal',
         title: l('Предложение', 'Proposal'),
         body: l(
-          'Фиксируем конфигурацию, производство, сроки, стоимость и права в адресном документе. Отправленная версия сохраняется в рабочем архиве.',
-          'Fix configuration, production, schedule, cost and rights in an addressed document. The sent version remains in the working archive.',
+          'Согласуем состав проекта, производство, сроки, стоимость и права в индивидуальном предложении.',
+          'Set out the project scope, production, schedule, cost and rights in a tailored proposal.',
         ),
       },
       {
         id: 'delivery',
         title: l('Подготовка и показ', 'Preparation and presentation'),
         body: l(
-          'Согласуем монтаж, проведение, демонтаж и допустимую документацию. Результат связывается с конкретным событием, а не с обещанием в переписке.',
-          'Agree setup, delivery, teardown and permitted documentation. The outcome is linked to a specific event, not to a promise in correspondence.',
+          'Планируем монтаж, проведение и демонтаж; согласуем съёмку и использование материалов показа.',
+          'Plan setup, delivery and teardown, and agree how the presentation may be recorded and its documentation used.',
         ),
       },
     ],

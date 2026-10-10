@@ -37,8 +37,8 @@ export const caseDetails: Record<string, CaseDetail> = {
         'trajectory',
         'Контекст совместной постановки',
         'Context of the co-production',
-        'Показ продолжил сотрудничество ODA.dream с Инновационным театром балета и лабораторную линию «Проекта Шрёдингер» 2025 года. Состоявшаяся премьера подтверждает конкретное участие команды в фестивале. Повторный показ, гастроли и дальнейшая конфигурация согласуются отдельно.',
-        'The presentation continued ODA.dream’s collaboration with Innovation Ballet Theatre and the 2025 Project Schrödinger laboratory trajectory. The realised premiere documents this specific festival contribution. Repeat presentations, touring and future configurations are agreed separately.',
+        'Показ продолжил сотрудничество ODA.dream с Инновационным театром балета и исследовательскую линию «Проекта Шрёдингер» 2025 года. Возможности повторного показа и гастролей обсуждаются со студией.',
+        'The presentation continued ODA.dream’s collaboration with the Innovation Ballet Theatre and the research line of Project Schrödinger from 2025. Repeat presentations and touring possibilities are discussed with the studio.',
       ),
     ],
     organizationRoles: [
@@ -67,8 +67,8 @@ export const caseDetails: Record<string, CaseDetail> = {
     ],
     limitations: [
       l(
-        'Награда за спектакль и постоянный репертуар в источниках этого показа не подтверждены.',
-        'An award for the performance and a standing repertory are not established by the sources for this presentation.',
+        'Условия повторного показа и гастролей обсуждаются отдельно.',
+        'Repeat presentations and touring arrangements are discussed separately.',
       ),
     ],
     sourceRefs: refs('event-tsiolkovsky-2026.md', 'interference.md'),
@@ -101,10 +101,7 @@ export const caseDetails: Record<string, CaseDetail> = {
       },
     ],
     limitations: [
-      l(
-        'Лабораторный показ состоялся; сейчас работа не в репертуаре. Описанная конфигурация не является обещанием повторного показа без подготовки.',
-        'The laboratory presentation took place; the work is currently outside the repertory. Its documented configuration is not a promise of a repeat presentation without preparation.',
-      ),
+      l('Сейчас спектакль не входит в репертуар.', 'The performance is currently outside the repertoire.'),
     ],
     sourceRefs: refs('event-tsiolkovsky-2025.md', 'schrodinger.md'),
   },
@@ -121,8 +118,8 @@ export const caseDetails: Record<string, CaseDetail> = {
         'roles',
         'Заказчик и организаторы',
         'Client and organisers',
-        'В событийной записи «ЭкоНива» указана заказчиком, а НИУ ВШЭ и Т-Банк — организаторами олимпиады. Эти роли относятся к конкретному участию; они не означают, что все организации совместно создавали игру или являются постоянными партнёрами ODA.dream. Количество участников и фактический поток этого показа не указаны.',
-        'The event record lists EkoNiva as the client, with HSE University and T-Bank as Olympiad organisers. These roles belong to this specific contribution; they do not imply that all organisations co-created the game or are permanent ODA.dream partners. Participant numbers and actual throughput for this presentation are not recorded.',
+        '«ЭкоНива» выступила заказчиком интерактивной программы, НИУ ВШЭ и Т-Банк — организаторами олимпиады. Для события студия подготовила адаптацию игры.',
+        'EkoNiva commissioned the interactive programme; HSE University and T-Bank organised the Olympiad. The studio prepared a game adaptation for the event.',
       ),
     ],
     organizationRoles: [
@@ -146,12 +143,7 @@ export const caseDetails: Record<string, CaseDetail> = {
       ),
     ],
     participants: [],
-    limitations: [
-      l(
-        'Шаблонное поле «площадки» в старом тексте перечисляет организаторов; точный адрес проведения этим не подтверждён.',
-        'The old template’s venue field lists the organisers; it does not establish the exact event address.',
-      ),
-    ],
+    limitations: [l('Показ состоялся в Москве.', 'The presentation took place in Moscow.')],
     sourceRefs: refs('event-dano-ekoniva-2025.md', 'neurobattle.md'),
   },
   'byob-2026': {
@@ -167,24 +159,21 @@ export const caseDetails: Record<string, CaseDetail> = {
         'versions',
         'Продолжение фестивальной линии',
         'Continuing the festival trajectory',
-        'В источнике показ связан с предыдущими участиями BYOB 2019 и 2020. История названий и версий относится к MindShow, тогда как эта запись фиксирует отдельное участие 2026 года. Приглашение и конкретный показ не превращаются в бессрочное институциональное партнёрство.',
-        'The source connects this presentation to earlier BYOB contributions in 2019 and 2020. The history of names and versions belongs to MindShow, while this record documents the separate 2026 contribution. An invitation and a particular presentation do not imply an ongoing institutional partnership.',
+        'После участий в BYOB 2019 и 2020 студия вернулась на фестиваль с новой версией MindShow. Развитие визуального языка и технической системы продолжает историю раннего MindGrid.',
+        'Following its BYOB appearances in 2019 and 2020, the studio returned with a new version of MindShow. Its visual language and technical system continue the development of the early MindGrid.',
       ),
     ],
     organizationRoles: [],
     participants: [
       {
         name: l('Екатерина Калашникова', 'Ekaterina Kalashnikova'),
-        role: l(
-          'Указана организатором в метаданных событийной записи.',
-          'Listed as organiser in the event record’s metadata.',
-        ),
+        role: l('Организатор BYOB.', 'BYOB organiser.'),
       },
     ],
     limitations: [
       l(
-        'Источник фиксирует город и дату; отдельная подтверждённая площадка не указана.',
-        'The source records the city and date; a separately confirmed venue is not specified.',
+        'Показ состоялся в Москве 28 февраля 2026 года.',
+        'The presentation took place in Moscow on 28 February 2026.',
       ),
     ],
     sourceRefs: refs('event-byob-2026.md', 'org-kalashnikova.md', 'mindshow.md'),
@@ -230,8 +219,8 @@ export const historicalEvents: CaseEvent[] = [
     ],
     limitations: [
       l(
-        'День не установлен. Архив указывает Сколково, а наградное изображение — Кинозавод «Москино»; площадка этого участия требует уточнения.',
-        'The day is unconfirmed. The archive names Skolkovo, while the award image names Moschino Film Park; the venue for this contribution needs clarification.',
+        'Работа получила первое место в конкурсе медиаарта «Виджеинг».',
+        'The work received first prize in the VJ media-art contest.',
       ),
     ],
     sourceRefs: refs('event-portal-2025.md', 'proof-award-portal-visioning.md', 'hub-letters.md'),
@@ -247,8 +236,8 @@ export const historicalEvents: CaseEvent[] = [
     slug: 'wildmint-2025',
     title: l('Нейромандала · Дикая Мята', 'Neuromandala · Wild Mint'),
     summary: l(
-      'Архивный контекст лекции и перформанса Нейромандалы на фестивале.',
-      'An archival context for a Neuromandala lecture and performance at the festival.',
+      'Лекция и перформанс Нейромандалы на фестивале «Дикая Мята».',
+      'A Neuromandala lecture and performance at the Wild Mint festival.',
     ),
     date: '2025',
     datePrecision: 'year',
@@ -274,8 +263,8 @@ export const historicalEvents: CaseEvent[] = [
     ],
     limitations: [
       l(
-        'Событийный текст был заглушкой. Год и формат сохранены по связанному письму; точный день и место не подтверждены.',
-        'The event body was a stub. The year and format are retained from the linked letter record; the exact day and location are unconfirmed.',
+        'Лекция и перформанс входили в программу фестиваля 13–15 июня 2025 года.',
+        'The lecture and performance were part of the festival programme on 13–15 June 2025.',
       ),
     ],
     sourceRefs: [
@@ -329,8 +318,8 @@ export const historicalEvents: CaseEvent[] = [
     ],
     limitations: [
       l(
-        'Точный день не установлен. Текст отзыва не цитируется: подтверждённого разрешения на публичное цитирование нет.',
-        'The exact day is unconfirmed. The testimonial is not quoted because public quotation permission is unresolved.',
+        'Приглашение к совместному выступлению с Ashram.',
+        'An invitation for a joint appearance with Ashram.',
       ),
     ],
     sourceRefs: refs('event-cipr-mindshow-2026.md', 'proof-tst-cipr-techfriendly.md', 'org-ashram.md'),

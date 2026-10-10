@@ -153,8 +153,8 @@ export const workDetails: Record<string, WorkDetail> = {
     ],
     reviewNotes: [
       text(
-        'Показ 2026 года подтверждает состоявшуюся премьеру, но не постоянный репертуар или готовность любой гастрольной конфигурации.',
-        'The 2026 presentation documents a premiere, not a standing repertory production or the readiness of every touring configuration.',
+        'Условия повторного показа и гастрольная конфигурация обсуждаются со студией.',
+        'Repeat presentations and touring arrangements are discussed with the studio.',
       ),
     ],
     relatedWorks: ['schrodinger', 'neurosync'],
@@ -180,8 +180,8 @@ export const workDetails: Record<string, WorkDetail> = {
         'versions',
         'Одна работа, несколько конфигураций',
         'One work, several configurations',
-        'Ранние фестивальные показы использовали название MindGrid, включая BYOB 2019; позднее закрепилось MindShow. Интерактивная зона, VJ-сопровождение и самостоятельный перформанс используют общий художественный принцип, но различаются участием, оборудованием и сценическим устройством. Номер программного стека не создаёт отдельную работу.',
-        'Early festival presentations used the name MindGrid, including BYOB 2019; MindShow became the later name. An interactive station, VJ accompaniment and a standalone performance share an artistic principle but differ in participation, equipment and staging. A software version number does not create a separate artwork.',
+        'Ранние фестивальные показы, в том числе BYOB 2019, проходили под названием MindGrid; позднее закрепилось MindShow. Интерактивная зона, VJ-сопровождение и самостоятельный перформанс используют общий художественный принцип, но различаются участием, оборудованием и сценическим устройством.',
+        'Early festival presentations, including BYOB 2019, used the name MindGrid; MindShow became established later. An interactive area, VJ accompaniment and a standalone performance share an artistic principle but differ in participation, equipment and staging.',
       ),
     ],
     credits: [
@@ -192,8 +192,8 @@ export const workDetails: Record<string, WorkDetail> = {
     ],
     reviewNotes: [
       text(
-        'Визуализация не является диагностикой. Исторические тайминги и производительность разных конфигураций приведены отдельно в формате проведения.',
-        'The visualisation is not a diagnosis. Historical timing and throughput for different configurations are listed separately in the presentation format.',
+        'Визуализация — художественный опыт, а не диагностика. Длительность сессии и поток посетителей зависят от выбранной конфигурации.',
+        'The visualisation is an artistic experience, not a diagnosis. Session duration and visitor flow depend on the selected configuration.',
       ),
     ],
     relatedWorks: [],
@@ -219,8 +219,8 @@ export const workDetails: Record<string, WorkDetail> = {
         'versions',
         'Исторические имена',
         'Historical names',
-        '«Нейробитва», Neurobattle и «Нейробаттл» — исторические названия этой работы. Каноническое название — «Парадокс Успеха». Эти названия обозначают одну работу и её исторические версии. Показ на олимпиаде DANO выделен в отдельный кейс.',
-        'Neurobattle and its Russian variants are historical names for this work. Its canonical name is Paradox of Success. These names refer to one work and its historical versions. The DANO presentation is documented as a separate case.',
+        'Работа ранее называлась «Нейробитва», Neurobattle и «Нейробаттл». Сегодня она представлена как «Парадокс Успеха». На странице события можно узнать о её показе на олимпиаде DANO.',
+        'The work was previously known as Neurobattle and Neurobattl. It is now presented as Paradox of Success. The event page tells the story of its presentation at the DANO Olympiad.',
       ),
     ],
     credits: [
@@ -228,8 +228,8 @@ export const workDetails: Record<string, WorkDetail> = {
     ],
     reviewNotes: [
       text(
-        '90 секунд — архивная длительность раунда; она не включает все операции обслуживания участника и не гарантирует поток посетителей.',
-        '90 seconds is the historical round duration; it does not include every participant-handling operation or guarantee visitor throughput.',
+        'К игровому раунду добавляются настройка гарнитур, инструктаж и смена участников. Эти этапы учитываются при планировании потока посетителей.',
+        'Headset setup, briefing and participant changeover take place in addition to the game round. They are included when planning visitor flow.',
       ),
     ],
     relatedWorks: [],
@@ -248,15 +248,15 @@ export const workDetails: Record<string, WorkDetail> = {
         'second-act',
         'Акт II: «Теперь всё ясно»',
         'Act II: Now everything is clear',
-        'ODA.dream и труппа раскрывают технический контур. Визуализация ЭЭГ, озвученные ассоциации и пульсовые данные становятся материалом этюдов. В описанном показе работали четыре канала мандал и четыре пульсоканала: восемь устройств не означают восемь одновременно измеряемых ЭЭГ-участников. Сбой системы включён в партитуру как образ хрупкости эксперимента.',
-        'ODA.dream and the company reveal the technical system. EEG visualisation, spoken associations and pulse data become material for stage studies. The documented presentation used four mandala channels and four pulse channels: eight devices do not mean eight simultaneous EEG participants. A system failure is included in the score as an image of the experiment’s fragility.',
+        'ODA.dream и труппа раскрывают устройство системы. Визуализация ЭЭГ, озвученные ассоциации и пульсовые данные становятся материалом этюдов. В показе использовались четыре ЭЭГ-канала и четыре пульсоканала. Сбой системы включён в партитуру как образ хрупкости эксперимента.',
+        'ODA.dream and the company reveal how the system works. EEG visuals, spoken associations and pulse data become material for studies. The presentation used four EEG channels and four pulse channels. A system failure becomes part of the score, exposing the fragility of the experiment.',
       ),
       section(
         'history',
         'Состоявшаяся лаборатория',
         'A realised laboratory performance',
-        'Работа показана 22 мая 2025 года в Калуге в завершение фестиваля Циолковского, совместно с Инновационным театром балета. Ей предшествовали встречи и лаборатория 2024 года; следующей работой линии стала «Интерференция реальностей». Лабораторная форма не отменяет состоявшийся показ, но сейчас спектакль не находится в репертуаре.',
-        'The work was presented with Innovation Ballet Theatre on 22 May 2025 in Kaluga at the close of the Tsiolkovsky festival. It followed meetings and a laboratory in 2024; Interference of Realities became the next work in the trajectory. Its laboratory form does not erase the realised presentation, but the performance is currently outside the repertory.',
+        'Работа показана 22 мая 2025 года в Калуге в завершение фестиваля Циолковского, совместно с Инновационным театром балета. Ей предшествовали встречи и лаборатория 2024 года; следующей работой этой линии стала «Интерференция реальностей». Сейчас «Проект Шрёдингер» не входит в репертуар.',
+        'The work was presented with the Innovation Ballet Theatre on 22 May 2025 in Kaluga, at the close of the Tsiolkovsky Festival. It followed meetings and laboratory sessions in 2024; Interference of Realities became the next work in this line. Project Schrödinger is currently outside the repertoire.',
       ),
     ],
     credits: [
@@ -273,8 +273,8 @@ export const workDetails: Record<string, WorkDetail> = {
     ],
     reviewNotes: [
       text(
-        'Сценические интерпретации сигнала не подтверждают чтение тревоги, мыслей или сознания. Четыре ЭЭГ-канала и четыре пульсоканала относятся к описанному показу.',
-        'Stage interpretations of signals do not establish the reading of anxiety, thoughts or consciousness. Four EEG and four pulse channels refer to the documented presentation.',
+        'ЭЭГ и пульс становятся материалом сценической интерпретации; личные переживания раскрываются через рассказ и участие человека.',
+        'EEG and pulse data become material for stage interpretation; personal experiences emerge through each person’s account and participation.',
       ),
     ],
     relatedWorks: ['interference', 'neurosync'],
@@ -327,8 +327,8 @@ export const workDetails: Record<string, WorkDetail> = {
         'selection',
         'Поиск внутреннего отклика',
         'Finding inner resonance',
-        'Приложение предлагает меняющиеся мандалы: участник выбирает узор и палитру, с которыми ощущает связь. В архивной линии Emomandala OS этот выбор строится на генераторе p5.js и самонаблюдении, без ЭЭГ-гарнитуры. Это связанный элемент составной работы, а не ещё одно её название и не измеренный портрет эмоций.',
-        'The application offers changing mandalas: a participant selects a pattern and palette with which they feel a connection. In the archival Emomandala OS branch, this choice uses a p5.js generator and self-observation, without an EEG headset. It is a related element of the composite work, not another name for it or a measured portrait of emotions.',
+        'Приложение предлагает меняющиеся мандалы: участник выбирает узор и палитру, с которыми ощущает связь. Emomandala OS использует генератор p5.js и самонаблюдение без ЭЭГ-гарнитуры. Выбор становится отправной точкой личной истории, а не измерением эмоций.',
+        'The application offers changing mandalas: a participant chooses a pattern and palette with which they feel a connection. Emomandala OS uses a p5.js generator and self-observation without an EEG headset. The choice becomes a starting point for a personal narrative, rather than a measurement of emotions.',
       ),
       section(
         'artefact',
@@ -341,8 +341,8 @@ export const workDetails: Record<string, WorkDetail> = {
         'history',
         'Несколько элементов одной работы',
         'Several elements of one work',
-        'Линия началась в августе 2022 года на хакатоне вокруг приложения для эмоционального интеллекта. Помимо украшений появились образцы цветной лазерной гравировки совместно с исследовательской группой ИТМО. Эти процессы принадлежат истории развития; приложение, нарратив, физический объект и провенанс сохраняются как разные элементы одной работы, которые развиваются вместе.',
-        'The line began at an August 2022 hackathon around an emotional-intelligence application. Alongside jewellery, colour laser-engraving samples were made with an ITMO research group. These processes belong to its development history; the application, narrative, physical object and provenance remain distinct elements of one work that develop together.',
+        'Работа началась в августе 2022 года на хакатоне с приложения для эмоционального интеллекта. Позднее появились украшения и образцы цветной лазерной гравировки, созданные совместно с исследовательской группой ИТМО. Приложение, личная история, физический объект и запись его создания развиваются как элементы одной работы.',
+        'The work began with an emotional-intelligence application at a hackathon in August 2022. Jewellery and colour laser-engraving samples followed, made with an ITMO research group. The application, personal narrative, physical object and creation record develop as elements of one work.',
       ),
     ],
     credits: [
@@ -386,8 +386,8 @@ export const workDetails: Record<string, WorkDetail> = {
         'development',
         'Практика и инсталляционный концепт',
         'Practice and an installation concept',
-        'Нейросинхронизация — практическая линия фасилитируемых сессий. «Круг синхронизации» развивает её в отдельный инсталляционный концепт с пространственным расположением участников, общим изображением и светом. Состоявшаяся практика не подтверждает реализацию всей предложенной инсталляции.',
-        'Neurosynchronization is a practical line of facilitated sessions. Sync Circle develops it into a separate installation concept involving participants’ spatial arrangement, a shared image and lighting. Realised practice does not establish that the entire proposed installation has been built.',
+        'Нейросинхронизация — групповая практика с ведущим. На её основе развивается «Круг синхронизации»: инсталляционный концепт, в котором расположение участников, общее изображение и свет создают пространство совместного внимания.',
+        'Neurosynchronization is a facilitated group practice. Sync Circle develops this practice into an installation concept in which the participants’ arrangement, shared imagery and light create a space for shared attention.',
       ),
     ],
     credits: [
@@ -415,8 +415,8 @@ export const workDetails: Record<string, WorkDetail> = {
         'configuration',
         'Предложенная конфигурация',
         'Proposed configuration',
-        'В старом описании предложены пять–семь участников, MultiSync, TouchDesigner, проектор, аудио, LED и мебель. Сессия 25–30 минут и последующая рефлексия 10–15 минут относятся к концептуальному сценарию. Они не являются текущим райдером или подтверждённой производительностью; оборудование и сценарий предстоит проверить в разработке.',
-        'The earlier description proposes five to seven participants, MultiSync, TouchDesigner, a projector, audio, LEDs and furniture. A 25–30 minute session followed by 10–15 minutes of reflection belongs to the conceptual scenario. These are not a current rider or verified throughput; equipment and the participation scenario still require development testing.',
+        'Проектный сценарий рассчитан на пять–семь участников. Он включает MultiSync, TouchDesigner, напольную проекцию, звук и LED-свет. Предлагается сессия 25–30 минут и обсуждение 10–15 минут. Оборудование и ход участия предстоит испытать при разработке инсталляции.',
+        'The proposed scenario is for five to seven participants and uses MultiSync, TouchDesigner, floor projection, sound and LED lighting. It proposes a 25–30-minute session followed by 10–15 minutes of discussion. Equipment and participation need testing as the installation develops.',
       ),
       section(
         'interpretation',
@@ -434,8 +434,8 @@ export const workDetails: Record<string, WorkDetail> = {
     ],
     reviewNotes: [
       text(
-        'Текущая стадия — концепция. Архивное предложение адаптации не подтверждает готовность инсталляции к показу.',
-        'The current stage is concept. An archival offer of adaptation does not establish that the installation is ready to present.',
+        'Работа находится на стадии концепции; условия производства определяются при разработке.',
+        'The work is at the concept stage; production requirements will be defined during development.',
       ),
     ],
     relatedWorks: [],
@@ -459,10 +459,10 @@ export const workDetails: Record<string, WorkDetail> = {
       ),
       section(
         'laboratory',
-        'Прототип, а не состоявшаяся премьера',
-        'A prototype, not a realised premiere',
-        'Работа осталась на этапе прототипа и внутренней лаборатории с Еленой Ковылиной. Архивный текст описывает более ранние планы производства и показа; они не используются как текущий статус. Показанный материал документирует исследовательский процесс. Дальнейшее развитие потребует отдельного согласования содержания, участия и доступа к личным данным.',
-        'The work remained a prototype and internal laboratory with Elena Kovylina. The archival text describes earlier production and presentation plans; these are not used as the current status. The material shown documents a research process. Further development would require separate agreement on content, participation and access to personal data.',
+        'Лаборатория и дальнейшее развитие',
+        'Laboratory and further development',
+        'Работа осталась на этапе прототипа и внутренней лаборатории с Еленой Ковылиной. Представленные материалы показывают исследовательский процесс. Для дальнейшего развития предстоит определить сценарий участия и условия доступа к личным данным.',
+        'The work remains a prototype developed in an internal laboratory with Elena Kovylina. The materials shown document that research process. Further development requires a participation scenario and agreed access to personal data.',
       ),
     ],
     credits: [
@@ -479,8 +479,8 @@ export const workDetails: Record<string, WorkDetail> = {
     ],
     reviewNotes: [
       text(
-        'Личный архив, генетические сведения и записи участников не входят в публичную страницу. Прототип не обозначен готовой к заказу работой.',
-        'Personal archives, genetic information and participant recordings are not included on the public page. The prototype is not described as a bookable work.',
+        'Доступ к личным архивам, генетическим сведениям и записям участников требует отдельного согласия.',
+        'Access to personal archives, genetic information and participant recordings requires separate consent.',
       ),
     ],
     relatedWorks: [],

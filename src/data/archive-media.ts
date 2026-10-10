@@ -1,18 +1,26 @@
 import { archiveVideos } from './archive-videos';
 import type { Media } from './site';
 type OwnerKind = 'work' | 'case' | 'programme' | 'education';
-type Record = Pick<Media, 'id' | 'src' | 'width' | 'height' | 'representation' | 'caption' | 'archiveSource'>;
+type Record = Pick<
+  Media,
+  'id' | 'src' | 'width' | 'height' | 'representation' | 'caption' | 'archiveSource'
+> &
+  Partial<Pick<Media, 'alt'>>;
 // Visually reviewed editorial selection, not an automatic import of the old graph.
 const records: Record[] = [
   {
     id: 'archive-interference-interference-2026-02',
+    alt: {
+      ru: 'Исполнители в движении перед проекцией цифровой сетки.',
+      en: 'Performers moving in front of a projected digital grid.',
+    },
     src: '/images/archive/content/events/interference-2026/interference-2026-02.webp',
     width: 1732,
     height: 1155,
     representation: 'photograph',
     caption: {
-      ru: 'Интерференция · сценическая фотография 2',
-      en: 'Interference · performance photograph 2',
+      ru: '«Интерференция реальностей» · Калуга, 2026',
+      en: 'Interference of Realities · Kaluga, 2026',
     },
     archiveSource: {
       path: '/images/content/events/interference-2026/interference-2026-02.webp',
@@ -22,13 +30,17 @@ const records: Record[] = [
   },
   {
     id: 'archive-interference-interference-2026-03',
+    alt: {
+      ru: 'Группа танцоров перед голубой генеративной проекцией.',
+      en: 'A group of dancers in front of a blue generative projection.',
+    },
     src: '/images/archive/content/events/interference-2026/interference-2026-03.webp',
     width: 1732,
     height: 1155,
     representation: 'photograph',
     caption: {
-      ru: 'Интерференция · сценическая фотография 3',
-      en: 'Interference · performance photograph 3',
+      ru: '«Интерференция реальностей» · Калуга, 2026',
+      en: 'Interference of Realities · Kaluga, 2026',
     },
     archiveSource: {
       path: '/images/content/events/interference-2026/interference-2026-03.webp',
@@ -38,13 +50,14 @@ const records: Record[] = [
   },
   {
     id: 'archive-interference-interference-2026-04',
+    alt: { ru: 'Танцоры на сцене, освещённой красным светом.', en: 'Dancers on a stage lit in red.' },
     src: '/images/archive/content/events/interference-2026/interference-2026-04.webp',
     width: 1732,
     height: 1155,
     representation: 'photograph',
     caption: {
-      ru: 'Интерференция · сценическая фотография 4',
-      en: 'Interference · performance photograph 4',
+      ru: '«Интерференция реальностей» · Калуга, 2026',
+      en: 'Interference of Realities · Kaluga, 2026',
     },
     archiveSource: {
       path: '/images/content/events/interference-2026/interference-2026-04.webp',
@@ -54,13 +67,17 @@ const records: Record[] = [
   },
   {
     id: 'archive-interference-interference-2026-05',
+    alt: {
+      ru: 'Зрителям надевают нейроинтерфейсы в театральном зале.',
+      en: 'Audience members being fitted with neurointerfaces in the theatre.',
+    },
     src: '/images/archive/content/events/interference-2026/interference-2026-05.webp',
     width: 1732,
     height: 1155,
     representation: 'photograph',
     caption: {
-      ru: 'Интерференция · сценическая фотография 5',
-      en: 'Interference · performance photograph 5',
+      ru: '«Интерференция реальностей» · Калуга, 2026',
+      en: 'Interference of Realities · Kaluga, 2026',
     },
     archiveSource: {
       path: '/images/content/events/interference-2026/interference-2026-05.webp',
@@ -70,13 +87,17 @@ const records: Record[] = [
   },
   {
     id: 'archive-interference-interference-2026-06',
+    alt: {
+      ru: 'Зрительница говорит в микрофон из своего места в зале.',
+      en: 'An audience member speaking into a microphone from her seat.',
+    },
     src: '/images/archive/content/events/interference-2026/interference-2026-06.webp',
     width: 1732,
     height: 1155,
     representation: 'photograph',
     caption: {
-      ru: 'Интерференция · сценическая фотография 6',
-      en: 'Interference · performance photograph 6',
+      ru: '«Интерференция реальностей» · Калуга, 2026',
+      en: 'Interference of Realities · Kaluga, 2026',
     },
     archiveSource: {
       path: '/images/content/events/interference-2026/interference-2026-06.webp',
@@ -86,13 +107,17 @@ const records: Record[] = [
   },
   {
     id: 'archive-interference-interference-2026-07',
+    alt: {
+      ru: 'Исполнители и участники на сцене перед технической проекцией.',
+      en: 'Performers and participants on stage in front of a technical projection.',
+    },
     src: '/images/archive/content/events/interference-2026/interference-2026-07.webp',
     width: 1732,
     height: 1155,
     representation: 'photograph',
     caption: {
-      ru: 'Интерференция · сценическая фотография 7',
-      en: 'Interference · performance photograph 7',
+      ru: '«Интерференция реальностей» · Калуга, 2026',
+      en: 'Interference of Realities · Kaluga, 2026',
     },
     archiveSource: {
       path: '/images/content/events/interference-2026/interference-2026-07.webp',
@@ -102,13 +127,17 @@ const records: Record[] = [
   },
   {
     id: 'archive-interference-interference-2026-08',
+    alt: {
+      ru: 'Танцовщица у пола под лучами света и цифровой проекцией.',
+      en: 'A dancer close to the floor beneath light beams and a digital projection.',
+    },
     src: '/images/archive/content/events/interference-2026/interference-2026-08.webp',
     width: 1155,
     height: 1732,
     representation: 'photograph',
     caption: {
-      ru: 'Интерференция · сценическая фотография 8',
-      en: 'Interference · performance photograph 8',
+      ru: '«Интерференция реальностей» · Калуга, 2026',
+      en: 'Interference of Realities · Kaluga, 2026',
     },
     archiveSource: {
       path: '/images/content/events/interference-2026/interference-2026-08.webp',
@@ -118,13 +147,17 @@ const records: Record[] = [
   },
   {
     id: 'archive-interference-interference-2026-09',
+    alt: {
+      ru: 'Танцовщица с разведёнными руками перед проекцией.',
+      en: 'A dancer with outstretched arms in front of a projection.',
+    },
     src: '/images/archive/content/events/interference-2026/interference-2026-09.webp',
     width: 1155,
     height: 1732,
     representation: 'photograph',
     caption: {
-      ru: 'Интерференция · сценическая фотография 9',
-      en: 'Interference · performance photograph 9',
+      ru: '«Интерференция реальностей» · Калуга, 2026',
+      en: 'Interference of Realities · Kaluga, 2026',
     },
     archiveSource: {
       path: '/images/content/events/interference-2026/interference-2026-09.webp',
@@ -134,14 +167,15 @@ const records: Record[] = [
   },
   {
     id: 'archive-schrodinger-schrodinger-2025-02',
+    alt: {
+      ru: 'Участник говорит в микрофон и протягивает руку; рядом сидят зрители.',
+      en: 'A participant speaking into a microphone and reaching out, with audience members seated beside him.',
+    },
     src: '/images/archive/content/events/schrodinger-2025/schrodinger-2025-02.webp',
     width: 2560,
     height: 1706,
     representation: 'photograph',
-    caption: {
-      ru: 'Проект Шрёдингер · сценическая фотография 2',
-      en: 'Project Schrödinger · performance photograph 2',
-    },
+    caption: { ru: '«Проект Шрёдингер» · Калуга, 2025', en: 'Project Schrödinger · Kaluga, 2025' },
     archiveSource: {
       path: '/images/content/events/schrodinger-2025/schrodinger-2025-02.webp',
       sha256: '01f0e7793bdd37275bef8f8e2c741f4ef62ac22f58a12acad463524e668fbc89',
@@ -150,14 +184,12 @@ const records: Record[] = [
   },
   {
     id: 'archive-schrodinger-schrodinger-2025-03',
+    alt: { ru: 'Танцовщица в нейроинтерфейсе на сцене.', en: 'A dancer wearing a neurointerface on stage.' },
     src: '/images/archive/content/events/schrodinger-2025/schrodinger-2025-03.webp',
     width: 1706,
     height: 2560,
     representation: 'photograph',
-    caption: {
-      ru: 'Проект Шрёдингер · сценическая фотография 3',
-      en: 'Project Schrödinger · performance photograph 3',
-    },
+    caption: { ru: '«Проект Шрёдингер» · Калуга, 2025', en: 'Project Schrödinger · Kaluga, 2025' },
     archiveSource: {
       path: '/images/content/events/schrodinger-2025/schrodinger-2025-03.webp',
       sha256: '94b2d5de5ac288b576e9a38fb11a5f35adaaa829b62b65d0b3789d2226e9d368',
@@ -166,14 +198,15 @@ const records: Record[] = [
   },
   {
     id: 'archive-schrodinger-schrodinger-2025-04',
+    alt: {
+      ru: 'Нейрогарнитуры и телефоны разложены на столе.',
+      en: 'Neuroheadsets and phones laid out on a table.',
+    },
     src: '/images/archive/content/events/schrodinger-2025/schrodinger-2025-04.webp',
     width: 1706,
     height: 2560,
     representation: 'photograph',
-    caption: {
-      ru: 'Проект Шрёдингер · сценическая фотография 4',
-      en: 'Project Schrödinger · performance photograph 4',
-    },
+    caption: { ru: '«Проект Шрёдингер» · Калуга, 2025', en: 'Project Schrödinger · Kaluga, 2025' },
     archiveSource: {
       path: '/images/content/events/schrodinger-2025/schrodinger-2025-04.webp',
       sha256: '762973c7578017a1667cae2d90b1a0a82572b2ac567302aac1ac8dc9c2267179',
@@ -182,14 +215,15 @@ const records: Record[] = [
   },
   {
     id: 'archive-schrodinger-schrodinger-2025-05',
+    alt: {
+      ru: 'Исполнитель в нейроинтерфейсе под расходящимися лучами света.',
+      en: 'A performer wearing a neurointerface beneath spreading beams of light.',
+    },
     src: '/images/archive/content/events/schrodinger-2025/schrodinger-2025-05.webp',
     width: 1706,
     height: 2560,
     representation: 'photograph',
-    caption: {
-      ru: 'Проект Шрёдингер · сценическая фотография 5',
-      en: 'Project Schrödinger · performance photograph 5',
-    },
+    caption: { ru: '«Проект Шрёдингер» · Калуга, 2025', en: 'Project Schrödinger · Kaluga, 2025' },
     archiveSource: {
       path: '/images/content/events/schrodinger-2025/schrodinger-2025-05.webp',
       sha256: 'ab4548b74b10e5436002c85798d803a9f9b7199752323b42538a489dbf5ab152',
@@ -198,14 +232,15 @@ const records: Record[] = [
   },
   {
     id: 'archive-schrodinger-schrodinger-2025-06',
+    alt: {
+      ru: 'Танцоры стоят перед проекцией нескольких круговых диаграмм.',
+      en: 'Dancers standing in front of several projected circular diagrams.',
+    },
     src: '/images/archive/content/events/schrodinger-2025/schrodinger-2025-06.webp',
     width: 2560,
     height: 1706,
     representation: 'photograph',
-    caption: {
-      ru: 'Проект Шрёдингер · сценическая фотография 6',
-      en: 'Project Schrödinger · performance photograph 6',
-    },
+    caption: { ru: '«Проект Шрёдингер» · Калуга, 2025', en: 'Project Schrödinger · Kaluga, 2025' },
     archiveSource: {
       path: '/images/content/events/schrodinger-2025/schrodinger-2025-06.webp',
       sha256: 'bc82bf5215e47371e4706c88298f555b5b5843a809531086127687ce2b2ef221',
@@ -214,14 +249,15 @@ const records: Record[] = [
   },
   {
     id: 'archive-schrodinger-schrodinger-2025-07',
+    alt: {
+      ru: 'Ведущий с микрофоном на фоне технической проекции.',
+      en: 'A facilitator holding a microphone in front of a technical projection.',
+    },
     src: '/images/archive/content/events/schrodinger-2025/schrodinger-2025-07.webp',
     width: 2560,
     height: 1706,
     representation: 'photograph',
-    caption: {
-      ru: 'Проект Шрёдингер · сценическая фотография 7',
-      en: 'Project Schrödinger · performance photograph 7',
-    },
+    caption: { ru: '«Проект Шрёдингер» · Калуга, 2025', en: 'Project Schrödinger · Kaluga, 2025' },
     archiveSource: {
       path: '/images/content/events/schrodinger-2025/schrodinger-2025-07.webp',
       sha256: 'bbf42085639c8499323f54d5eaf4b62f919ac51128d4f3c4a6302093bd84b1f1',
@@ -230,14 +266,15 @@ const records: Record[] = [
   },
   {
     id: 'archive-schrodinger-schrodinger-2025-08',
+    alt: {
+      ru: 'Группа участников и танцоров под цветными лучами перед круговыми проекциями.',
+      en: 'Participants and dancers under coloured beams in front of circular projections.',
+    },
     src: '/images/archive/content/events/schrodinger-2025/schrodinger-2025-08.webp',
     width: 2560,
     height: 1706,
     representation: 'photograph',
-    caption: {
-      ru: 'Проект Шрёдингер · сценическая фотография 8',
-      en: 'Project Schrödinger · performance photograph 8',
-    },
+    caption: { ru: '«Проект Шрёдингер» · Калуга, 2025', en: 'Project Schrödinger · Kaluga, 2025' },
     archiveSource: {
       path: '/images/content/events/schrodinger-2025/schrodinger-2025-08.webp',
       sha256: '1e47a64eeff7b1bbd2f6e91f84b671b785a8e4f21dd7aa724b39cf79f1d163f1',
@@ -411,8 +448,8 @@ const records: Record[] = [
     height: 1080,
     representation: 'photograph',
     caption: {
-      ru: 'Учебная встреча · Ashram; дата не уточнена',
-      en: 'Educational encounter · Ashram; date unconfirmed',
+      ru: 'Образовательная встреча · Ashram',
+      en: 'Educational meeting · Ashram',
     },
     archiveSource: {
       path: '/images/content/lectures-ashram.webp',
@@ -427,8 +464,8 @@ const records: Record[] = [
     height: 1080,
     representation: 'photograph',
     caption: {
-      ru: 'Практическая демонстрация · ИКЦ; дата не уточнена',
-      en: 'Practical demonstration · ICC; date unconfirmed',
+      ru: 'Практическая демонстрация · ИКЦ',
+      en: 'Practical demonstration · ICC',
     },
     archiveSource: {
       path: '/images/content/lectures-ikc.webp',
@@ -443,8 +480,8 @@ const records: Record[] = [
     height: 901,
     representation: 'photograph',
     caption: {
-      ru: 'Учебное выступление · Таврида; издание события не уточнено',
-      en: 'Educational presentation · Tavrida; event edition unconfirmed',
+      ru: 'Образовательное выступление · Таврида',
+      en: 'Educational presentation · Tavrida',
     },
     archiveSource: {
       path: '/images/content/lectures-tavrida.webp',
@@ -1606,14 +1643,15 @@ const records: Record[] = [
   },
   {
     id: 'archive-theatre-my-name-tim-ashram-2024-06',
+    alt: {
+      ru: 'Участница сидит на коврике перед тремя проекциями Нейромандалы.',
+      en: 'A participant seated on a mat in front of three Neuromandala projections.',
+    },
     src: '/images/archive/content/works/theatre-my-name/tim-ashram-2024-06.webp',
     width: 1920,
     height: 1080,
     representation: 'photograph',
-    caption: {
-      ru: 'Театр Имени Меня · Ashram · архивный кадр 1',
-      en: 'Theatre of My Name · Ashram · archival photograph 1',
-    },
+    caption: { ru: '«Театр Имени Меня» · Ashram', en: 'Theatre of My Name · Ashram' },
     archiveSource: {
       path: '/images/content/works/theatre-my-name/tim-ashram-2024-06.webp',
       sha256: '2713ad4b04a51573498070a8102a7232c9df47fd62fa721d41688ab9f9aeb231',
@@ -1622,14 +1660,15 @@ const records: Record[] = [
   },
   {
     id: 'archive-theatre-my-name-tim-ashram-2024-07',
+    alt: {
+      ru: 'Две участницы сидят на ковриках перед круговыми визуализациями.',
+      en: 'Two participants seated on mats in front of circular visualisations.',
+    },
     src: '/images/archive/content/works/theatre-my-name/tim-ashram-2024-07.webp',
     width: 1080,
     height: 1920,
     representation: 'photograph',
-    caption: {
-      ru: 'Театр Имени Меня · Ashram · архивный кадр 2',
-      en: 'Theatre of My Name · Ashram · archival photograph 2',
-    },
+    caption: { ru: '«Театр Имени Меня» · Ashram', en: 'Theatre of My Name · Ashram' },
     archiveSource: {
       path: '/images/content/works/theatre-my-name/tim-ashram-2024-07.webp',
       sha256: '23c9289b1a5483e73bc48d9fff2bf50fddd70a06a3fd258bd52a5fff1059bc85',
@@ -1638,14 +1677,15 @@ const records: Record[] = [
   },
   {
     id: 'archive-theatre-my-name-tim-ashram-2025-07',
+    alt: {
+      ru: 'Участница в нейроинтерфейсе сидит перед орнаментальной проекцией.',
+      en: 'A participant wearing a neurointerface seated in front of an ornamental projection.',
+    },
     src: '/images/archive/content/works/theatre-my-name/tim-ashram-2025-07.webp',
     width: 1080,
     height: 1920,
     representation: 'photograph',
-    caption: {
-      ru: 'Театр Имени Меня · Ashram · архивный кадр 3',
-      en: 'Theatre of My Name · Ashram · archival photograph 3',
-    },
+    caption: { ru: '«Театр Имени Меня» · Ashram', en: 'Theatre of My Name · Ashram' },
     archiveSource: {
       path: '/images/content/works/theatre-my-name/tim-ashram-2025-07.webp',
       sha256: '78a3b484adf56ffd3e50bcb8127441bdb381c8fd86905d2d066864a1eb331579',
@@ -2022,7 +2062,7 @@ const imageRecords: Media[] = records.map((row) => ({
   kind: 'image',
   rights: 'cleared',
   originalAccess: 'internal',
-  alt: row.caption,
+  alt: row.alt ?? row.caption,
   credit: { ru: 'Архив ODA.dream', en: 'ODA.dream archive' },
   source: `V1 archive ${row.archiveSource!.path}; owner permission for works/private commissions and full material migration, 2026-10-05/07`,
 }));

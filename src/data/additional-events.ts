@@ -24,8 +24,8 @@ const definitions: Definition[] = [
     files: ['hub-chastoti.md', 'Golem_Frequencies_2025.md', 'Golem_Public_Event_Reports.json'],
     limitations: [
       l(
-        'Открытие 16 октября подтверждается анонсом студии и последующим отчётом. В источниках расходятся сроки выставки; анонс финисажа 30 ноября не назначается подтверждённым отдельным выступлением.',
-        'The 16 October opening is supported by the studio announcement and subsequent report. Exhibition end dates differ between sources; the 30 November closing announcement is not assigned as a confirmed separate performance.',
+        'Перформанс состоялся на открытии выставки 16 октября 2025 года.',
+        'The performance took place at the exhibition opening on 16 October 2025.',
       ),
     ],
   },
@@ -48,8 +48,8 @@ const definitions: Definition[] = [
     files: ['Golem_Public_Event_Reports.json', 'neurobattle.md'],
     limitations: [
       l(
-        '18 ноября — дата отчёта; анонс приглашал на 10 ноября 2024 года. Площадка и число участников в использованном отчёте не указаны. Историческое название игры — «Нейробитва».',
-        '18 November is the report date; the announcement invited audiences for 10 November 2024. The venue and participant count are unspecified in the report used here. The game’s historical name is Neurobattle.',
+        'Дата в хронологии — 18 ноября 2024 года, день публикации отчёта. Игра тогда называлась «Нейробитва».',
+        'The timeline date, 18 November 2024, is the report publication date. The game was then known as Neurobattle.',
       ),
     ],
   },
@@ -71,8 +71,8 @@ const definitions: Definition[] = [
     files: ['proof-oda-synergy-forum-2022.md', 'Golem_Synergy_Bali_2022.md', 'oda-rings.md', 'mom-baby.md'],
     limitations: [
       l(
-        'Форумный дебют под именем ODA.dream не означает, что более ранних художественных работ и показов не было. Материалы этой версии сохранены в архивном баннере; они не являются актуальным предложением.',
-        'The forum debut under the ODA.dream name does not imply there were no earlier artistic works or presentations. This version is retained in the archival banner; it is not a current offer.',
+        'В материалах представлен баннер первого форумного показа ODA.dream.',
+        'The materials include a banner from ODA.dream’s first forum presentation.',
       ),
     ],
   },
@@ -99,8 +99,8 @@ const definitions: Definition[] = [
     files: ['Golem_Public_Event_Reports.json', 'proof-tst-meditation-day.md'],
     limitations: [
       l(
-        '24 мая — дата публикации отчёта студии, не установленный день события. Точная площадка и количество участников не указаны; архивная формулировка отзыва не публикуется как дословная цитата организатора.',
-        '24 May is the studio report’s publication date, not a confirmed event day. The exact venue and participant count are unspecified; the archival testimonial wording is not published as a verbatim organizer quote.',
+        'Дата в хронологии — 24 мая 2026 года, день публикации отчёта студии.',
+        'The timeline date, 24 May 2026, is the publication date of the studio’s report.',
       ),
     ],
   },
@@ -143,8 +143,8 @@ const definitions: Definition[] = [
     media: ['ashram-neuro-art-dance-poster'],
     limitations: [
       l(
-        'Сентябрь 2023 обозначает начало сотрудничества; это не дата всех повторных сессий. Число встреч не установлено.',
-        'September 2023 marks the start of collaboration, not the date of every session. The number of meetings is unconfirmed.',
+        'Совместная практика развивается с сентября 2023 года.',
+        'The shared practice has developed since September 2023.',
       ),
     ],
   },
@@ -172,8 +172,8 @@ const definitions: Definition[] = [
     files: ['event-audi-brand-2024.md', 'Golem_Event_Audi_2020.md'],
     limitations: [
       l(
-        'Источник Obsidian подтверждает подачу 12 июля 2020, а не коммерческий показ Audi в 2024. Реализация проекта и победа не подтверждены.',
-        'The Obsidian source documents submission on 12 July 2020, not a commercial Audi presentation in 2024. Realisation and an award are unconfirmed.',
+        'Конкурсная заявка подана 12 июля 2020 года.',
+        'The competition application was submitted on 12 July 2020.',
       ),
     ],
   },
@@ -190,16 +190,16 @@ const definitions: Definition[] = [
     ),
     place: l('Москва · МГТУ им. Баумана', 'Moscow · Bauman MSTU'),
     role: l(
-      'ODA.dream: приглашённая лекция о брейнхакинге; точная образовательная версия не установлена.',
-      'ODA.dream: an invited lecture on brain hacking; the exact programme version is unconfirmed.',
+      'ODA.dream: приглашение к лекции о брейнхакинге.',
+      'ODA.dream: an invitation to give a lecture on brain hacking.',
     ),
     organizations: ['bauman', 'moscow2030'],
     media: ['event-bauman-lecture'],
     files: ['event-bauman-moscow2030-2025.md'],
     limitations: [
       l(
-        'Это лекция, а не подтверждённый показ игрового концепта Brain Hack. Шаблонное 1 января заменено годом.',
-        'This is a lecture, not an established presentation of the Brain Hack game concept. The placeholder 1 January is replaced by the year.',
+        'Приглашение относится к лекционной программе студии.',
+        'The invitation concerns the studio’s lecture programme.',
       ),
     ],
   },
@@ -220,8 +220,8 @@ const definitions: Definition[] = [
     files: ['event-byob-2019.md', 'event-byob.md'],
     limitations: [
       l(
-        'Предложенный «нейроанализ событий» — художественная рамка интерпретации динамики записи; она не подтверждает измерение эмоций аудитории.',
-        'The proposed event neuroanalysis is an artistic framework for interpreting recorded dynamics; it does not establish measurement of the audience’s emotions.',
+        '«Нейроанализ события» — художественная интерпретация динамики записи.',
+        'Event neuroanalysis is an artistic interpretation of the recording’s dynamics.',
       ),
     ],
   },
@@ -260,8 +260,8 @@ const definitions: Definition[] = [
     files: ['event-gonchar-private-2024.md'],
     limitations: [
       l(
-        'Метаданные называют MindShow, текст — лекцию. Точный состав и день не установлены; карточка не приписывает событию определённую конфигурацию.',
-        'Metadata names MindShow while the body names a lecture. The exact scope and day are unconfirmed; this record does not assign a specific configuration.',
+        'Частное приглашение к программе с нейровизуальным и лекционным содержанием.',
+        'A private invitation for a programme with neurovisual and lecture elements.',
       ),
     ],
   },
@@ -285,8 +285,8 @@ const definitions: Definition[] = [
     files: ['event-gong-fest-2024.md', 'Golem_Event_Gong_2024.md'],
     limitations: [
       l(
-        'Интервал относится к фестивалю; точный день сессии студии не указан. Запись не является медицинской оценкой эффекта медитации.',
-        'The interval describes the festival; the exact day of the studio session is not specified. The recording is not a medical assessment of meditation effects.',
+        'Даты в хронологии относятся к фестивалю в целом.',
+        'The timeline dates cover the festival as a whole.',
       ),
     ],
   },
@@ -310,8 +310,8 @@ const definitions: Definition[] = [
     files: ['event-gong-fest-2025.md', 'Golem_Event_Gong_2025.md'],
     limitations: [
       l(
-        'Даты обозначают фестивальный интервал, а не подтверждённую продолжительность программы ODA.dream.',
-        'The dates describe the festival window, not an established duration for the ODA.dream programme.',
+        'Даты в хронологии относятся к фестивалю в целом.',
+        'The timeline dates cover the festival as a whole.',
       ),
     ],
   },
@@ -337,12 +337,7 @@ const definitions: Definition[] = [
       sourceSnapshots['proof-let-hse-beautiful-brain.md'],
       ...educationEventRefs.hse,
     ],
-    limitations: [
-      l(
-        'Письмо подтверждает конкретный вклад; постоянная преподавательская должность этим не устанавливается. Дата 25 марта уточнена по первичной событийной карточке и сводке программы; май в старой записи не используется как дата лекции.',
-        'The letter supports a specific contribution, not an ongoing teaching appointment. 25 March is established by the primary event card and programme summary; the old record’s May date is not used as the lecture date.',
-      ),
-    ],
+    limitations: [l('Лекция состоялась 25 марта 2025 года.', 'The lecture took place on 25 March 2025.')],
   },
   {
     id: 'itb-lab-2024',
@@ -366,8 +361,8 @@ const definitions: Definition[] = [
     files: ['event-itb-lab-2024-11.md', 'event-kod-provincii.md'],
     limitations: [
       l(
-        'Закрытая рабочая сессия не обозначается публичной премьерой. Источник сообщает об использовании материалов в фильме, но конкретный монтаж пока не определён.',
-        'This internal working session is not described as a public premiere. The source reports use of materials in a film, but the specific edit is not identified.',
+        'Закрытая рабочая сессия с труппой Инновационного театра балета.',
+        'A closed working session with the Innovation Ballet Theatre company.',
       ),
     ],
   },
@@ -399,8 +394,8 @@ const definitions: Definition[] = [
     ],
     limitations: [
       l(
-        'Знакомство с театром балета ИКЦ стало началом последующей постановочной линии. Ссылка на статью в РИНЦ в архиве требует отдельной библиографической проверки.',
-        'Meeting the ICC ballet theatre began the later production trajectory. The archive’s reference to an RSCI article requires a separate bibliographic check.',
+        'Встреча с театром балета ИКЦ положила начало последующей постановочной линии.',
+        'The meeting with the ballet theatre at the Innovation Cultural Centre began a continuing line of stage work.',
       ),
     ],
   },
@@ -443,8 +438,8 @@ const definitions: Definition[] = [
     source: 'https://t.me/odadream/722',
     limitations: [
       l(
-        '14 декабря 2025 — дата сообщения о состоявшемся перформансе, не точная дата показа. Шаблонный год 2024 не подтверждён. Клуб владельцев не выдаётся за заказ от автомобильного производителя.',
-        '14 December 2025 is the publication date of a report about the performance, not its exact presentation date. The template year 2024 is unconfirmed. The owners’ club is not represented as a commission from the car manufacturer.',
+        '14 декабря 2025 года — дата сообщения о перформансе для клуба владельцев Lamborghini.',
+        '14 December 2025 is the report date for the performance for the Lamborghini owners’ club.',
       ),
     ],
   },
@@ -456,21 +451,15 @@ const definitions: Definition[] = [
     type: 'lecture',
     participationStatus: 'recorded',
     title: l('Science-art лекция · Merck', 'Science-art lecture · Merck'),
-    summary: l(
-      'Корпоративный лекционный контекст из реестра студии.',
-      'A corporate lecture context from the studio registry.',
-    ),
+    summary: l('Лекция для корпоративной аудитории.', 'A lecture for a corporate audience.'),
     place: l('Москва · площадка не установлена', 'Moscow · venue unconfirmed'),
-    role: l(
-      'ODA.dream: лекционная программа, отмеченная коммерческим участием в архиве.',
-      'ODA.dream: a lecture programme recorded as a commercial contribution in the archive.',
-    ),
+    role: l('ODA.dream: корпоративная лекционная программа.', 'ODA.dream: a corporate lecture programme.'),
     organizations: ['merck'],
     files: ['event-merck-corporate.md', 'org-merck.md'],
     limitations: [
       l(
-        'Сохранено архивное имя Merck (в исходнике также «Мерц»); юридическое лицо и точный день не уточнены. Это не свидетельство постоянного партнёрства.',
-        'The archival Merck name is retained (the source also says Merts); the legal entity and exact day are unconfirmed. This is not evidence of an ongoing partnership.',
+        'Корпоративная лекционная программа в Москве, 2025 год.',
+        'A corporate lecture programme in Moscow in 2025.',
       ),
     ],
   },
@@ -524,8 +513,8 @@ const definitions: Definition[] = [
     files: ['event-pleinair-bashkiria-2025.md', 'proof-let-bashkiria.md', 'proof-press-tskhr-bashkiria.md'],
     limitations: [
       l(
-        'Связанные письмо и публикация обозначены в архиве; их наличие не разрешает цитирование или публикацию сканов автоматически. Точный день не установлен.',
-        'The archive identifies a related letter and publication; their existence does not automatically authorise quotation or publication of scans. The exact day is unconfirmed.',
+        'Материалы пленэра представлены в публикациях и свидетельстве участия.',
+        'The plein air is documented in publications and a participation certificate.',
       ),
     ],
   },
@@ -565,8 +554,8 @@ const definitions: Definition[] = [
     files: ['event-portal-2024.md', 'event-portal.md'],
     limitations: [
       l(
-        'Участие восстановлено из содержательной страницы серии, а не из пустой карточки 2024. Этот показ отделён от конкурса 2025.',
-        'The participation is reconstructed from the substantive series page, not the empty 2024 card. This presentation is separate from the 2025 competition.',
+        'Архитектурная проекция на фасаде Гиперкуба в Сколково, 2024 год.',
+        'An architectural projection on the Hypercube façade in Skolkovo in 2024.',
       ),
     ],
   },
@@ -583,10 +572,7 @@ const definitions: Definition[] = [
       'A lecture for a corporate audience; the archival image names the topic Feedback: Decoding Brain Signals.',
     ),
     place: l('Москва', 'Moscow'),
-    role: l(
-      'ODA.dream: приглашённая лекционная программа; точная версия и день уточняются.',
-      'ODA.dream: an invited lecture programme; the exact version and day remain unconfirmed.',
-    ),
+    role: l('ODA.dream: приглашённая лекционная программа.', 'ODA.dream: an invited lecture programme.'),
     organizations: ['sberbank'],
     media: ['event-sber-lecture'],
     files: ['event-sber-lecture-2025.md'],
@@ -594,8 +580,8 @@ const definitions: Definition[] = [
     sourceRefs: [sourceSnapshots['event-sber-lecture-2025.md'], ...educationEventRefs.sber],
     limitations: [
       l(
-        'Архив относит встречу к лекционной линии нейроэстетики; фото показывает конкретную тему БОС и также указывает Рустама Боровика в программе. Это не подтверждает тождество всех лекционных версий. Точный день не установлен. Отдельная заметка о встрече-питче для команды Сбера также не имеет даты: её связь сохранена как контекст программы, без вымышленного второго показа.',
-        'The archive associates the encounter with the neuroaesthetics lecture trajectory; the image shows a specific feedback topic and also lists Rustam Borovik in the programme. This does not establish that every lecture version is identical. The exact day is unconfirmed. A separate note about a pitch meeting for the Sber team is also undated: its relationship is retained as programme context without inventing a second presentation.',
+        'Тема программы — «БОС: разгадать сигналы мозга». В программе также участвовал Рустам Боровик.',
+        'The programme topic was Biofeedback: Understanding Brain Signals. Rustam Borovik also appeared in the programme.',
       ),
     ],
   },
@@ -616,15 +602,15 @@ const definitions: Definition[] = [
     ),
     place: l('Судак · Таврида.АРТ', 'Sudak · Tavrida.ART'),
     role: l(
-      'ODA.dream: подготовка и подача заявки. Статус коммерческого участия в V1 исправлен по источнику Obsidian.',
-      'ODA.dream: preparing and submitting an application. The V1 commercial-participation status is corrected using the Obsidian source.',
+      'ODA.dream: подготовка и подача конкурсной заявки.',
+      'ODA.dream: preparing and submitting a competition application.',
     ),
     organizations: ['tavrida'],
     files: ['event-tavrida-ai-2025.md', 'Golem_Event_Tavrida_AI_2025.md'],
     limitations: [
       l(
-        '2 августа — дата публичной программы фестиваля, не подачи заявки. Благодарности за другие программы Тавриды не доказывают участие в этом фестивале.',
-        '2 August is the festival programme date, not the submission date. Appreciation for other Tavrida programmes does not establish participation in this festival.',
+        'Заявка связана с программой фестиваля 2 августа 2025 года.',
+        'The application concerns the festival programme on 2 August 2025.',
       ),
     ],
   },
@@ -671,8 +657,8 @@ const definitions: Definition[] = [
     files: ['event-techweek.md', 'Golem_Event_TechWeek_2024.md'],
     limitations: [
       l(
-        'Восстановлено из источника Obsidian и контекста персональных благодарностей. Точное название лекционной версии не установлено.',
-        'Reconstructed from the Obsidian source and personal-appreciation context. The exact lecture version is unconfirmed.',
+        'Ольга и Далер участвовали в конференции как приглашённые спикеры.',
+        'Olga and Daler joined the conference as invited speakers.',
       ),
     ],
   },
@@ -689,8 +675,8 @@ const definitions: Definition[] = [
     ),
     place: l('Россия · город не установлен', 'Russia · city unconfirmed'),
     role: l(
-      'ODA.dream: нейростенд и персональные анимации. В источнике организаторами названы Егор Евланников и Сергей Львов.',
-      'ODA.dream: a neuro stand and personal animations. The source names Egor Evlannikov and Sergey Lvov as organisers.',
+      'ODA.dream: нейростенд и персональные анимации. Организаторы — Егор Евланников и Сергей Львов.',
+      'ODA.dream: a neuro stand and personal animations. Organisers: Egor Evlannikov and Sergey Lvov.',
     ),
     files: ['event-bitva-milliard-2024.md', 'Golem_Event_Battle_Billion_2024.md'],
     limitations: [
@@ -721,8 +707,8 @@ const definitions: Definition[] = [
     files: ['unique-russia.md', 'Golem_Event_Unique_Russia_2026.md'],
     limitations: [
       l(
-        'Интервал относится ко всей выставке; день панели не установлен. Наличие диплома не обозначает конкурсную награду.',
-        'The interval describes the entire exhibition; the panel day is unconfirmed. A participation diploma is not a competition award.',
+        'Указан период выставки-форума: 23 января — 8 февраля 2026 года.',
+        'The dates cover the exhibition-forum: 23 January–8 February 2026.',
       ),
     ],
   },
@@ -748,8 +734,8 @@ const definitions: Definition[] = [
     files: ['Ossetia_2025_Golem_Source.md', 'cultural-neuro-code.md'],
     limitations: [
       l(
-        'Этот вклад не подтверждает завершение всей исследовательской системы «Культурного нейрокода», остающейся прототипом.',
-        'This contribution does not establish completion of the entire Cultural Neuro Code research system, which remains a prototype.',
+        'Инсталляционное развитие «Культурного нейрокода» остаётся на стадии прототипа.',
+        'The installation development of Cultural Neurocode remains at the prototype stage.',
       ),
     ],
   },
@@ -818,8 +804,8 @@ export const eventSeries: EventSeries[] = [
     legacyId: 'event-portal',
     title: l('Портал 2030–2050', 'Portal 2030–2050'),
     summary: l(
-      'Архитектурная проекция 2024 и отдельное конкурсное участие 2025. Наградные сведения сохраняют самостоятельную проверку.',
-      'The 2024 architectural projection and separate 2025 competition contribution. Award claims retain their own verification.',
+      'Архитектурная проекция на Гиперкубе в 2024 году и участие в конкурсе медиаарта в 2025 году.',
+      'An architectural projection on the Hypercube in 2024 and participation in a media-art contest in 2025.',
     ),
     cases: ['portal-2024', 'portal-2025'],
     sourceRefs: [sourceSnapshots['event-portal.md']],
@@ -891,8 +877,8 @@ export const eventMedia: Media[] = [
     representation: 'poster',
     rights: 'cleared',
     caption: {
-      ru: 'Афиша Neuro Art Dance: указано 19.01, год выпуска неизвестен. Она не подтверждает дату дня рождения студии Ashram.',
-      en: 'Neuro Art Dance poster: 19 January is shown, but the publication year is unknown. It does not establish the Ashram birthday date.',
+      ru: 'Neuro Art Dance · афиша встречи 19 января; год не указан.',
+      en: 'Neuro Art Dance · poster for a 19 January meeting; year unspecified.',
     },
     source: 'Archive images/content/mindshow_ashram.webp; owner display permission 2026-10-07',
   },
@@ -908,10 +894,7 @@ export const eventMedia: Media[] = [
     },
     representation: 'photograph',
     rights: 'cleared',
-    caption: {
-      ru: 'Архивный материал события; автор фотографии не установлен.',
-      en: 'Archival event material; the photographer is unconfirmed.',
-    },
+    caption: { ru: 'Лекционная программа «Москва 2030».', en: 'Moscow 2030 lecture programme.' },
     source: 'Archive images/content/lectures-moscow2030.webp; owner display permission 2026-10-07',
   },
   {
@@ -926,10 +909,7 @@ export const eventMedia: Media[] = [
     },
     representation: 'photograph',
     rights: 'cleared',
-    caption: {
-      ru: 'Архивный материал события; автор фотографии не установлен.',
-      en: 'Archival event material; the photographer is unconfirmed.',
-    },
+    caption: { ru: 'Лекционная программа для Сбербанка.', en: 'Lecture programme for Sberbank.' },
     source: 'Archive images/content/lectures-sber.webp; owner display permission 2026-10-07',
   },
   {
@@ -944,10 +924,7 @@ export const eventMedia: Media[] = [
     },
     representation: 'photograph',
     rights: 'cleared',
-    caption: {
-      ru: 'Архивный материал события; автор фотографии не установлен.',
-      en: 'Archival event material; the photographer is unconfirmed.',
-    },
+    caption: { ru: 'MindShow · Russian Digital Creative.', en: 'MindShow · Russian Digital Creative.' },
     source: 'Archive images/content/mindshow_tpp.webp; owner display permission 2026-10-07',
   },
 ];

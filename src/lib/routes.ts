@@ -27,11 +27,11 @@ export interface Page {
 }
 const copy = {
   works: {
-    en: ['Works', 'Selected works by ODA.dream: participatory performance, media art and art-research.'],
-    ru: [
-      'Работы',
-      'Избранные работы ODA.dream: партисипаторный спектакль, медиаискусство и художественное исследование.',
+    en: [
+      'Works',
+      'Works by ODA.dream: performances, stage works, installations, objects, concepts and prototypes.',
     ],
+    ru: ['Работы', 'Работы ODA.dream: перформансы, спектакли, инсталляции, объекты, концепции и прототипы.'],
   },
   education: {
     en: ['Education', 'Lectures, workshops and educational laboratories by ODA.dream.'],
@@ -67,14 +67,8 @@ const copy = {
     ],
   },
   recognition: {
-    en: [
-      'Recognition',
-      'An archive of awards, certificates and letters of appreciation, published with source and permission context.',
-    ],
-    ru: [
-      'Признания',
-      'Архив наград, сертификатов и благодарственных писем с указанием источников и разрешений на публикацию.',
-    ],
+    en: ['Recognition', 'ODA.dream awards, certificates, grants and letters of appreciation.'],
+    ru: ['Признания', 'Награды, дипломы, гранты и благодарственные письма ODA.dream.'],
   },
 } as const;
 

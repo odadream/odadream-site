@@ -57,9 +57,7 @@ const kindLabels: Record<RecognitionKind, Record<Lang, string>> = {
     <div
       class="recognition-card__missing"
       role="img"
-      aria-label={
-        lang === 'ru' ? 'Скан не найден в прежнем архиве' : 'Scan missing from the previous archive'
-      }
+      aria-label={lang === 'ru' ? 'Изображение документа недоступно' : 'Document image unavailable'}
     >
       <TechnicalMark kind="missing" />
       <small>{lang === 'ru' ? 'Скан недоступен' : 'Scan unavailable'}</small>
@@ -75,7 +73,7 @@ const kindLabels: Record<RecognitionKind, Record<Lang, string>> = {
     <p class="small-note">
       {lang === 'ru' ? 'Адресат' : 'Recipient'}: {item.recipient[lang]}
     </p>
-    <p class="small-note">{item.limitations[lang]}</p>
+    {item.limitations && <p class="small-note">{item.limitations[lang]}</p>}
     {item.contextPath && (
       <CalloutLink href={`/${lang}/${item.contextPath}`}>
         {lang === 'ru' ? 'Контекст участия' : 'Contribution context'}

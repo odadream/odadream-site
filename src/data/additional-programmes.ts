@@ -129,12 +129,12 @@ const definitions: Definition[] = [
     programmeType: 'lecture',
     deliveryStatus: 'proposed',
     summary: l(
-      'Лекционная схема о внимании, медитативных подходах и наблюдении с обратной связью.',
-      'A lecture outline on attention, meditation approaches and feedback-supported observation.',
+      'Лекция о внимании, медитативных подходах и наблюдении с биологической обратной связью.',
+      'A lecture on attention, approaches to meditation and observation with biofeedback.',
     ),
     story: l(
-      'Программа начинается с различия целей и способов медитации, затем обращается к вниманию, работе нейроинтерфейса и Нейромандале. Практический блок предполагает наблюдение своего опыта и рефлексию. В источнике это рабочая схема; отдельный проведённый курс не подтверждён.',
-      'The programme starts by distinguishing meditation goals and approaches, then explores attention, the neurointerface and Neuromandala. Its practical segment involves observing personal experience and reflection. The source is a working outline; a separately delivered course is not established.',
+      'Программа начинается с обсуждения целей и способов медитации, затем обращается к вниманию, работе нейроинтерфейса и Нейромандале. Практический блок включает наблюдение собственного опыта и его обсуждение.',
+      'The programme begins by discussing the aims and approaches of meditation, then explores attention, neurointerfaces and Neuromandala. The practical section involves observing and discussing one’s own experience.',
     ),
     modules: [
       module(
@@ -179,8 +179,8 @@ const definitions: Definition[] = [
       'A dialogue on habits, attention and ways to explore personal experience before exams and other demanding milestones.',
     ),
     story: l(
-      'Рабочий план строится вокруг вопросов участников: с какими трудностями они сталкиваются, какие стратегии уже используют и что хотят изменить. Обсуждение включает привычки, мотивацию, короткие упражнения и идеи собственных проектов. В исходнике предложено 1,5 часа; использование общей Miro-доски ещё требует проверки.',
-      'The working plan follows participants’ questions: which difficulties they encounter, which strategies they already use and what they want to change. Discussion includes habits, motivation, short exercises and ideas for personal projects. The source proposes 1.5 hours; a shared Miro board still requires testing.',
+      'Разговор строится вокруг вопросов участников: с какими трудностями они сталкиваются, какие стратегии уже используют и что хотят изменить. Обсуждение включает привычки, мотивацию, короткие упражнения и идеи собственных проектов наблюдения. Базовый план рассчитан на 1,5 часа.',
+      'The conversation is built around participants’ questions: the difficulties they face, strategies they already use and changes they would like to make. Discussion covers habits, motivation, short exercises and ideas for personal observation projects. The baseline plan lasts 1.5 hours.',
     ),
     modules: [
       module(
@@ -206,8 +206,8 @@ const definitions: Definition[] = [
       ),
     ],
     audience: l(
-      'В исходном плане — ученики в период экзаменов; возраст и адаптация уточняются.',
-      'The source plan addresses students during exams; age and adaptation remain to be scoped.',
+      'Ученики в период подготовки к экзаменам; возраст и содержание уточняем для группы.',
+      'Students preparing for exams; age and content are agreed for the group.',
     ),
     participation: l(
       'Диалог и совместное обсуждение, ответы участников и краткие упражнения по согласованию.',
@@ -220,7 +220,7 @@ const definitions: Definition[] = [
     conditions: [
       {
         id: 'historical-duration',
-        label: l('Исходный план', 'Source plan'),
+        label: l('Базовый сценарий', 'Baseline scenario'),
         value: l(
           '1,5 часа — предложенная длительность; итоговый сценарий согласуется отдельно.',
           '1.5 hours is the proposed duration; the final scenario is scoped separately.',
@@ -241,8 +241,8 @@ const definitions: Definition[] = [
       'A workshop on attention to oneself and a partner: movement, neurovisual recording observation and reflection.',
     ),
     story: l(
-      'Две версии источника описывают работу с танцевальными парами и наблюдателями. Участники двигаются, описывают ощущения, наблюдают визуальную обратную связь и повторяют последовательность. Калужская версия прямо обозначает мастер-класс, а не научный эксперимент; предположения о станцованности остаются вопросами.',
-      'Two source versions describe work with dancing pairs and observers. Participants move, describe sensations, observe visual feedback and repeat the sequence. The Kaluga version explicitly describes a workshop rather than a scientific experiment; ideas about dance coordination remain questions.',
+      'Танцевальные пары двигаются, описывают ощущения, наблюдают визуальную обратную связь и повторяют последовательность. Мастер-класс помогает обсудить внимание к себе и партнёру, личное ощущение согласованности и впечатления наблюдателей.',
+      'Dance partners move, describe their sensations, observe visual feedback and repeat the sequence. The workshop explores attention to oneself and one’s partner, the felt sense of coordination and observers’ impressions.',
     ),
     modules: [
       module(
@@ -312,8 +312,8 @@ const definitions: Definition[] = [
       'A lecture on neurointerfaces, Neuromandala and artistic work with feedback from multiple participants.',
     ),
     story: l(
-      'Источник задаёт последовательность от ритмов и нейроинтерфейса к биологической обратной связи, Нейромандале и коллективному взаимодействию. Технологический материал рассматривается через художественные приложения. В образовательной траектории студии лекция связана с поездкой в Калугу; конкретный день не устанавливается по этому конспекту.',
-      'The source moves from rhythms and the neurointerface to biofeedback, Neuromandala and collective interaction. Technology is explored through artistic applications. The studio’s educational trajectory connects this lecture with a visit to Kaluga; this outline does not establish its exact day.',
+      'От ритмов и работы нейроинтерфейса переходим к биологической обратной связи, Нейромандале и коллективному взаимодействию. Художественные примеры помогают проследить путь от записи сигнала до общего визуального опыта.',
+      'We move from rhythms and neurointerfaces to biofeedback, Neuromandala and collective interaction. Artistic examples trace the path from recording a signal to a shared visual experience.',
     ),
     modules: [
       module(
@@ -351,8 +351,8 @@ const definitions: Definition[] = [
         id: 'historical-duration',
         label: l('Конспект', 'Source outline'),
         value: l(
-          'В исходнике — 1,5 часа; демонстрация и техника согласуются для площадки.',
-          'The source gives 1.5 hours; demonstration and equipment are scoped for the venue.',
+          'Базовая длительность — 1,5 часа; демонстрацию и оборудование согласуем с площадкой.',
+          'The baseline duration is 1.5 hours; the demonstration and equipment are agreed with the venue.',
         ),
         state: 'historical',
       },
@@ -371,8 +371,8 @@ const definitions: Definition[] = [
       'Daler Arabov’s authorial account of projects, experiments, mistakes and the development of ODA.dream.',
     ),
     story: l(
-      'Сценарий выступления построен как последовательность вопросов о творческом пути: первый инженерный проект, работа с сообществами, переход к медиаискусству и отношения между художественным замыслом и заказом. Рассказ использует собственный опыт автора; будущие идеи не выдаются за реализованные проекты.',
-      'The talk script follows questions about a creative path: the first engineering project, work with communities, the transition to media art and the relationship between artistic intent and commissions. It uses the author’s own experience; future ideas are not presented as realised projects.',
+      'Далер Арабов рассказывает о своём творческом пути: первом инженерном проекте, работе с сообществами, переходе к медиаискусству и отношениях между художественным замыслом и заказом. Истории проектов становятся поводом обсудить собственные решения, ошибки и дальнейшие идеи.',
+      'Daler Arabov reflects on his creative path: his first engineering project, work with communities, the move into media art and the relationship between artistic intention and commissions. Project stories open a discussion about personal choices, mistakes and future ideas.',
     ),
     modules: [
       module(
@@ -446,8 +446,8 @@ export const additionalProgrammes: Programme[] = definitions.map(({ files, ...ro
     'An ODA.dream programme; facilitators are scoped for the invitation.',
   ),
   scope: l(
-    'Описание сохраняет исходный замысел. Финальная версия программы, условия участия и материалы фиксируются в предложении.',
-    'The description retains the source intent. The final programme version, participation conditions and materials are fixed in the proposal.',
+    'Программу, условия участия и материалы адаптируем к задачам встречи.',
+    'We adapt the programme, participation arrangements and materials to the aims of the meeting.',
   ),
   conditions: [brief],
   works: [],
@@ -455,8 +455,8 @@ export const additionalProgrammes: Programme[] = definitions.map(({ files, ...ro
   media: [],
   reviewNotes: [
     l(
-      'Наличие конспекта не подтверждает проведение каждой версии программы.',
-      'The existence of an outline does not establish delivery of every programme version.',
+      'Содержание и практическую часть адаптируем к аудитории и условиям встречи.',
+      'We adapt the content and practical activities to the audience and meeting conditions.',
     ),
   ],
   source: files.join('; '),
@@ -473,8 +473,8 @@ export const programmeEnrichments: Record<string, Partial<Programme>> = {
       'Olga and Daler Arabov are the ODA.dream duo’s authors and facilitators; role adaptation is scoped for the invitation.',
     ),
     story: l(
-      'Лекция соединяет разговор об устройстве мозга, восприятии и творчестве с живой демонстрацией нейроинтерфейса. Один интерфейс использует ведущий, второй — добровольцы по очереди. Художественные примеры и вопросы аудитории помогают обсуждать различие между сигналом и его интерпретацией. Подтверждённые лекционные контексты включают «Зелёную Дверь», ИРКИ НИУ ВШЭ и Ashram; анонсы других версий сохраняют собственные статусы.',
-      'The lecture connects a conversation about the brain, perception and creativity with a live neurointerface demonstration. One interface is used by a facilitator and a second by volunteers taking turns. Artistic examples and audience questions support discussion of the difference between signal and interpretation. Documented lecture contexts include Green Door, HSE’s Creative Industries Institute and Ashram; announcements of other versions retain their own statuses.',
+      'Лекция соединяет разговор об устройстве мозга, восприятии и творчестве с живой демонстрацией нейроинтерфейса. Один интерфейс использует ведущий, второй — добровольцы по очереди. Художественные примеры и вопросы аудитории помогают различать сигнал и его интерпретацию. Лекция проходила в «Зелёной Двери», ИРКИ НИУ ВШЭ и Ashram.',
+      'The lecture combines a conversation about the brain, perception and creativity with a live neurointerface demonstration. The facilitator uses one interface; volunteers take turns with a second. Artistic examples and audience questions help distinguish a signal from its interpretation. The lecture has been presented at Green Door, HSE’s Institute for Creative Industries Development and Ashram.',
     ),
     modules: [
       module(
@@ -605,8 +605,8 @@ const schoolDefinitions = [
     title: l('«Красиво про мозг» · Ashram', 'Beautiful About the Brain · Ashram'),
     place: l('Студия Ashram', 'Ashram Studio'),
     summary: l(
-      'Лекция для камерной аудитории; в источнике указаны 18 участников.',
-      'A lecture for a small audience; the source records 18 participants.',
+      'Лекция для камерной аудитории из 18 участников.',
+      'A lecture for an intimate audience of 18 participants.',
     ),
     status: 'held',
     file: 'Education_Source_934ad240fa6a.md',
@@ -630,13 +630,10 @@ const schoolDefinitions = [
     id: 'almaz-lecture-2026',
     date: '2026-03-21',
     title: l('«Красиво про мозг» · Алмаз', 'Beautiful About the Brain · Almaz'),
-    place: l(
-      'Площадка «Алмаз» по имени карточки; адрес не установлен.',
-      'Almaz venue according to the record name; address unconfirmed.',
-    ),
+    place: l('Площадка «Алмаз»', 'Almaz venue'),
     summary: l(
-      'Архивный план лекции на 21 марта 2026; отдельный отчёт о проведении не найден в карточке.',
-      'An archival lecture plan for 21 March 2026; a separate delivery report is absent from the record.',
+      'Лекция с нейровизуальной демонстрацией, запланированная на 21 марта 2026 года.',
+      'A lecture with a neurovisual demonstration planned for 21 March 2026.',
     ),
     status: 'planned',
     file: 'Education_Source_fb0b17f9f0d2.md',
@@ -669,12 +666,7 @@ export const schoolEvents: CaseEvent[] = schoolDefinitions.map((row) => ({
   featuredOnHome: false,
   limitations:
     row.status === 'planned'
-      ? [
-          l(
-            'Сохранён анонс из источника; прошедшая календарная дата сама по себе не подтверждает проведение.',
-            'The source announcement is retained; a past calendar date does not itself establish delivery.',
-          ),
-        ]
+      ? [l('В хронологии сохранена запланированная лекция.', 'The timeline retains this planned lecture.')]
       : [],
   source: row.file,
   sourceRefs: refs(row.file, 'Education_Source_824566fc0ab6.md'),

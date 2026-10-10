@@ -292,10 +292,7 @@ export const media: Media[] = [
     width: 1229,
     height: 880,
     alt: { ru: 'Схема размещения экранов «Нейродоски почёта»', en: 'Neuro Honor Board screen-layout scheme' },
-    caption: {
-      ru: 'Архивная схема инсталляции; не фотография реализованной работы',
-      en: 'Archival installation scheme; not a photograph of a realized work',
-    },
+    caption: { ru: 'Архивная схема размещения инсталляции.', en: 'Archival installation layout.' },
     source: 'src/content/media-honors-presentation.md',
   },
 
@@ -495,8 +492,8 @@ export const media: Media[] = [
       ru: 'Концептуальная визуализация «Круга синхронизации»',
     },
     caption: {
-      en: 'Sync Circle · concept rendering, not installation documentation',
-      ru: '«Круг синхронизации» · концептуальная визуализация, не документация инсталляции',
+      ru: '«Круг синхронизации» · концептуальная визуализация.',
+      en: 'Sync Circle · conceptual rendering.',
     },
     rights: 'cleared',
     source: 'src/content/sync-circle.md',
@@ -571,8 +568,8 @@ export const media: Media[] = [
       ru: 'Визуализация Нейромандалы как иллюстрация метода',
     },
     caption: {
-      en: 'Method illustration; not a documentary image of a Neurosynchronization session',
-      ru: 'Иллюстрация метода, не документальный кадр сессии «Нейросинхронизации»',
+      ru: 'Нейромандала · иллюстрация метода Нейросинхронизации.',
+      en: 'Neuromandala · illustration of the Neurosynchronization method.',
     },
     source: 'src/content/neuromandala.md; owner display permission 2026-10-05',
   },
@@ -899,8 +896,8 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
     bookable: false,
     rnd: true,
     availability: {
-      en: 'Not a completed installation or bookable format; development conversation only.',
-      ru: 'Не реализованная инсталляция и не готовый формат заказа; возможно обсуждение разработки.',
+      en: 'Installation concept. We welcome a conversation about further development.',
+      ru: 'Инсталляционный концепт. Приглашаем обсудить дальнейшую разработку.',
     },
     facts: {
       en: ['Concept based on the work Neurosynchronization', 'Visual shown is a conceptual rendering'],
@@ -978,12 +975,12 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
       en: [
         'A composite work spanning digital and physical forms',
         'Emomandala OS is a related method, not an alias of the work',
-        'Composition confirmed by the studio on 5 October 2026',
+        'Application, personal narrative, physical artefact and on-chain record',
       ],
       ru: [
         'Составная работа в цифровой и физической форме',
         'Эмомандала OS — связанный метод, не алиас работы',
-        'Состав работы подтверждён студией 5 октября 2026',
+        'Приложение, личная история, физический артефакт и ончейн-паспорт',
       ],
     },
     media: ['emomandala-object'],
@@ -1014,8 +1011,8 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
     stage: 'realized',
     year: null,
     summary: {
-      en: 'Participants explore shared attention through guided synchronization and biofeedback.',
-      ru: 'Участники исследуют совместное внимание через фасилитируемую синхронизацию и биологическую обратную связь.',
+      en: 'Participants explore shared attention through breathing, listening and biofeedback, guided by a facilitator.',
+      ru: 'Участники исследуют совместное внимание через дыхание, слушание и биологическую обратную связь под руководством ведущего.',
     },
     experience: {
       en: 'A group moves through attention, breathing, listening and reflection, observing how individual experiences meet.',
@@ -1086,12 +1083,12 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
       en: [
         'Internal laboratory with Elena Kovylina',
         'The work remained at the prototype stage',
-        'Stage confirmed by the studio on 5 October 2026',
+        'Laboratory research materials',
       ],
       ru: [
         'Внутренняя лаборатория с Еленой Ковылиной',
         'Работа осталась на этапе прототипа',
-        'Стадия подтверждена студией 5 октября 2026',
+        'Материалы лабораторного исследования',
       ],
     },
     media: ['ancestors-prototype'],
@@ -1390,8 +1387,8 @@ const caseRecords: Omit<
     slug: 'tsiolkovsky-laboratory-2025',
     title: { en: 'Schrödinger at Tsiolkovsky Festival', ru: '«Шрёдингер» на фестивале Циолковского' },
     summary: {
-      en: 'An open laboratory performance, not a repertory launch.',
-      ru: 'Открытый лабораторный показ, не репертуарная премьера.',
+      en: 'An open laboratory performance involving the audience.',
+      ru: 'Открытый лабораторный показ с участием зрителей.',
     },
     date: '2025-05-22',
     type: 'performance',
@@ -1420,8 +1417,8 @@ const caseRecords: Omit<
     type: 'participatory-format',
     place: { en: 'Moscow', ru: 'Москва' },
     role: {
-      en: 'ODA.dream: interactive format for EkoNiva; HSE University and T-Bank listed as organizers in the source record.',
-      ru: 'ODA.dream: интерактивный формат для «ЭкоНивы»; НИУ ВШЭ и Т-Банк указаны организаторами в исходной записи.',
+      en: 'ODA.dream: an interactive programme for EkoNiva. The Olympiad organisers were HSE University and T-Bank.',
+      ru: 'ODA.dream: интерактивная программа для «ЭкоНивы». Организаторы олимпиады — НИУ ВШЭ и Т-Банк.',
     },
     work: 'neurobattle',
     organizations: ['ekoniva', 'hse', 'tbank'],
