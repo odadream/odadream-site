@@ -3,15 +3,19 @@ import type { Lang } from '../data/site';
 interface Props {
   steps: readonly { title: Record<Lang, string>; body: Record<Lang, string> }[];
   lang: Lang;
+  /** A three-part signal flow; narrow containers read it vertically. */
+  linked?: boolean;
 }
-const { steps, lang } = Astro.props;
+const { steps, lang, linked = false } = Astro.props;
 ---
 
-<ol class="process-steps">
-  {steps.map((step) => (
-    <li>
-      <h3>{step.title[lang]}</h3>
-      <p>{step.body[lang]}</p>
-    </li>
-  ))}
-</ol>
+<div class="process-flow" data-flow={linked ? 'linked' : 'steps'}>
+  <ol class:list={['process-steps', { 'process-steps--linked': linked }]}>
+    {steps.map((step) => (
+      <li>
+        <h3>{step.title[lang]}</h3>
+        <p>{step.body[lang]}</p>
+      </li>
+    ))}
+  </ol>
+</div>

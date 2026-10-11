@@ -1,4 +1,5 @@
 ---
+import ReadingNote from './ReadingNote.astro';
 import RecordStamp from './RecordStamp.astro';
 import type { Localized, Lang } from '../data/site';
 import type { ParticipationDetail } from '../data/editorial';
@@ -43,11 +44,11 @@ const ru = lang === 'ru';
       value: condition.value[lang],
     }))}
   />
-  <p class="small-note">
+  <ReadingNote>
     {ru
       ? 'Параметры относятся к описанным версиям. Для вашего события подготовим отдельный райдер.'
       : 'These parameters refer to the versions described. We will prepare a separate rider for your event.'}
-  </p>
+  </ReadingNote>
   <RecordStamp
     title={ru ? 'Студия и площадка' : 'Studio and venue'}
     wide
@@ -60,7 +61,7 @@ const ru = lang === 'ru';
     ]}
   />
   {item.reviewNotes.map((note) => (
-    <p class="small-note">{note[lang]}</p>
+    <ReadingNote>{note[lang]}</ReadingNote>
   ))}
   <p>{item.scope[lang]}</p>
 </section>

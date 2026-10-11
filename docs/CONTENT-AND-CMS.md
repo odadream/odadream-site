@@ -242,3 +242,5 @@ MacroSection — компонент представления, не новая 
 ### Дизайн-пилот 2026-10-11
 
 Обзорные Education/Cooperation/Recognition используют MacroSection; поля Programme, Cooperation и Recognition и их источники не изменены. ProcessSteps представляет существующие title/body этапов; новый тип CMS не добавлен. MediaRegister объединяет реквизиты MediaFigure; disclosure показан только в DEV-сравнении, публичный default остаётся expanded. Статистика Education перемещена в reference-слот, на мобильном следует после каталога. Содержательные lastmod обновлены адресно для шести RU/EN обзорных страниц.
+
+Этап 4: общий MacroSection применён к обзорам H/W/E/K/C/S/M/R/N и всем Programme; DetailSection — к Work/Case без нового типа CMS. signalFlowSteps вынесен из JSX в editorial.ts для одинакового текста главной и стенда. Поля сущностей, контентный состав, якоря и связи сохранены. Lastmod обновлены для 96 затронутых канонических страниц; шесть пилотных обзоров уже имеют дату 2026-10-11.

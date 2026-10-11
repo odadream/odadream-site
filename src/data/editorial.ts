@@ -1553,3 +1553,28 @@ export const cooperationPages: CooperationPage[] = [
     publication: 'published',
   },
 ];
+
+/** The concise signal flow shared by the homepage and its design specimen. */
+export const signalFlowSteps: { title: Localized; body: Localized }[] = [
+  {
+    title: { ru: 'Сигнал', en: 'Signal' },
+    body: {
+      ru: 'Сенсор считывает ограниченный физиологический параметр, а не мысли или чувства.',
+      en: 'A sensor reads a limited physiological signal, not thoughts or feelings.',
+    },
+  },
+  {
+    title: { ru: 'Перевод', en: 'Translation' },
+    body: {
+      ru: 'Художественные правила преобразуют его в материал сцены.',
+      en: 'Artistic rules translate it into stage material.',
+    },
+  },
+  {
+    title: { ru: 'Опыт', en: 'Experience' },
+    body: {
+      ru: 'Человек наблюдает ответ среды и сам выбирает, как участвовать.',
+      en: 'The person observes the response and chooses how to participate.',
+    },
+  },
+];

@@ -49,6 +49,7 @@ figure,
 h1,
 h2,
 h3,
+h4,
 p,
 blockquote {
   margin: 0;
@@ -350,13 +351,14 @@ main:has(> .section:last-child, > .system-page) + .site-footer {
   margin-top: var(--gap-component);
 }
 .section-body {
-  --panel-surface: linear-gradient(135deg, var(--surface), var(--raised));
+  --panel-surface: var(--macro-surface-open);
   position: relative;
   isolation: isolate;
   padding: var(--panel-pad) 0;
   min-width: 0;
 }
-.section-body .section-body {
+.section-body .section-body,
+.detail-section .section-body {
   padding-block: 0;
 }
 .section-body::before {
@@ -617,9 +619,6 @@ figcaption {
   flex: 1 1 auto;
   min-width: 0;
 }
-.catalogue-label {
-  margin-block: var(--s5);
-}
 .work-card__status[data-work-stage='concept'],
 .work-card__status[data-work-stage='prototype'] {
   border-color: color-mix(in srgb, var(--alert) 42%, transparent);
@@ -739,14 +738,21 @@ figcaption {
 .work-main .lead {
   margin-top: var(--s5);
 }
-.work-main .media-figure {
+.work-main > .media-figure {
   margin-top: var(--s7);
 }
 .work-section {
   margin-top: var(--gap-block);
 }
-.work-section h2 {
-  margin-bottom: var(--s5);
+.detail-section__heading {
+  display: grid;
+  gap: var(--gap-label);
+}
+.work-section > * + * {
+  margin-block-start: var(--gap-component);
+}
+.work-section > .detail-section__heading + * {
+  margin-block-start: var(--gap-component);
 }
 .work-section p + p {
   margin-top: var(--s4);
@@ -902,23 +908,6 @@ figcaption {
   outline: 1px solid currentColor;
   outline-offset: 2px;
 }
-.method-steps {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--s5);
-  margin-block: var(--s6);
-}
-.method-steps p {
-  display: grid;
-  align-content: start;
-  gap: var(--s2);
-  color: var(--muted);
-  padding-top: var(--s4);
-  border-top: 1px solid var(--soft-line);
-}
-.method-steps strong {
-  color: var(--ink);
-}
 .timeline {
   list-style: none;
   padding: 0;
@@ -1045,10 +1034,6 @@ figcaption {
   .list-row > :nth-child(3) {
     grid-column: 2;
   }
-  .method-steps {
-    grid-template-columns: 1fr;
-    gap: var(--s4);
-  }
   .timeline li {
     grid-template-columns: max-content minmax(0, 1fr);
     gap: var(--s3);
@@ -1109,7 +1094,7 @@ figcaption {
   .work-aside > * + * {
     margin-top: 0;
   }
-  .work-main .media-figure {
+  .work-main > .media-figure {
     margin-top: var(--s5);
   }
   .breadcrumbs {
@@ -1396,9 +1381,6 @@ figcaption {
 .nm-hero .carousel-controls button:focus-visible {
   color: var(--signal-home);
 }
-.method-steps .index::before {
-  content: 'M·';
-}
 .hero-specimen {
   position: relative;
   isolation: isolate;
@@ -1487,11 +1469,6 @@ figcaption {
     padding-top: 0;
   }
 }
-
-.works-catalogue + .works-catalogue {
-  margin-top: var(--s8);
-}
-
 /* Consent overlay and preferences. */
 .analytics-consent {
   position: fixed;
@@ -1745,4 +1722,32 @@ figcaption {
 .reading-note,
 .list-row p.reading-note {
   margin-block-start: var(--gap-copy);
+}
+
+/* Connected signal flow uses container width and the scaled reading size. */
+.process-flow {
+  min-width: 0;
+  container: process-flow / inline-size;
+}
+.process-steps--linked {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.process-steps--linked > li {
+  position: relative;
+  padding-inline-end: calc(var(--mark-size) + var(--s3));
+}
+.process-steps--linked > li:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  inset-block-start: var(--s4);
+  inset-inline-end: 0;
+  color: var(--muted);
+}
+@container process-flow (max-width: 48em) {
+  .process-steps--linked {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .process-steps--linked > li:not(:last-child)::after {
+    content: '↓';
+  }
 }

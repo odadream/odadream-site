@@ -121,7 +121,8 @@ p {
 }
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: var(--sans);
   font-weight: var(--weight-heading);
   letter-spacing: -0.035em;
@@ -138,6 +139,10 @@ h2 {
 h3 {
   font-size: var(--type-h3);
   line-height: var(--leading-h3);
+}
+h4 {
+  font-size: var(--type-title-small);
+  line-height: var(--leading-summary);
 }
 .lead {
   font-size: var(--type-lead);
@@ -210,14 +215,6 @@ figcaption {
 .status {
   font-size: var(--type-note);
   letter-spacing: 0;
-}
-.method-steps p {
-  font-size: var(--type-summary);
-  line-height: var(--leading-summary);
-}
-.method-steps strong {
-  font-size: var(--type-title-small);
-  font-weight: var(--weight-heading);
 }
 .timeline p {
   font-size: var(--type-summary);
@@ -384,4 +381,8 @@ figcaption {
   font-family: var(--mono);
   font-style: var(--font-style-note);
   font-weight: 400;
+}
+
+.process-flow {
+  font-size: var(--type-summary);
 }

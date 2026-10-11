@@ -189,7 +189,7 @@ test('featured carousel, editorial links and card media follow the design gramma
   await expect(page.locator('#selected-works .work-card:not([data-work-stage="realized"])')).toHaveCount(0);
   await expect(page.locator('.recognition-card')).toHaveCount(4);
   await expect(page.locator('.work-card__identity .page-code')).toHaveCount(0);
-  await expect(page.locator('.method-steps .page-code')).toHaveCount(0);
+  await expect(page.locator('.process-steps .page-code')).toHaveCount(0);
   await expect(page.locator('.work-card__category').first()).not.toBeEmpty();
   await expect(page.locator('.recognition-card__image').first()).toHaveCSS('overflow', 'hidden');
   await expect(page.locator('.site-footer .social-icon').first()).toBeVisible();

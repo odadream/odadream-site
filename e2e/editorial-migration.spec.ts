@@ -6,7 +6,7 @@ test('method, work configurations and education and cooperation form a connected
   for (const lang of ['ru', 'en']) {
     await page.goto(`/${lang}/technology/`);
     await expect(page.locator('#method-overview')).toBeVisible();
-    await expect(page.locator('#signal-process .method-steps p')).toHaveCount(4);
+    await expect(page.locator('#signal-process .process-steps > li')).toHaveCount(4);
     await expect(page.locator('#participation .list-row')).toHaveCount(3);
     await expect(page.locator('#method-boundaries .facts li')).toHaveCount(4);
     await expect(page.locator('#visual-language video')).toHaveCount(1);

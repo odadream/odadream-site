@@ -16,6 +16,8 @@ import MindDBStamp from '../components/MindDBStamp.astro';
 import SectionRail from '../components/SectionRail.astro';
 import ReadingNote from '../components/ReadingNote.astro';
 import ProcessSteps from '../components/ProcessSteps.astro';
+import { signalFlowSteps } from '../data/editorial';
+import DetailSection from '../components/DetailSection.astro';
 import MacroSection from '../components/MacroSection.astro';
 import RecordStamp from '../components/RecordStamp.astro';
 import EditorialSections from '../components/EditorialSections.astro';
@@ -755,6 +757,18 @@ const profileTokens = [
             { label: 'Кейсы в каталоге', value: works[0].cases.length },
           ]}
         />
+        <DetailSection
+          id="detail-record-specimen"
+          kind="editorial"
+          family="D"
+          section={11}
+          lang="ru"
+          label="Рассказ в записи"
+          title={works[0].question.ru}
+          headingLevel={3}
+        >
+          <p>{works[0].summary.ru}</p>
+        </DetailSection>
         <EditorialSections sections={works[0].story.slice(0, 1)} lang="ru" anchorPrefix="system-story" />
         <h3>Записи и публикации на внешних площадках</h3>
         <EditorialSections
@@ -989,6 +1003,8 @@ const profileTokens = [
         работы.
       </p>
       <ProcessSteps steps={cooperationPages[0].process} lang="ru" />
+      <h3>Связанная схема сигнала</h3>
+      <ProcessSteps steps={signalFlowSteps} lang="ru" linked />
     </MacroSection>
     <MacroSection
       id="system-15"

@@ -1,0 +1,27 @@
+---
+import PageCode from './PageCode.astro';
+import type { PageFamily } from '../lib/page-codes';
+import type { Lang } from '../data/site';
+interface Props {
+  id: string;
+  title: string;
+  label: string;
+  family: PageFamily;
+  section: number;
+  lang: Lang;
+  kind?: 'editorial' | 'document' | 'action';
+  headingLevel?: 2 | 3;
+}
+const { id, title, label, family, section, lang, kind = 'editorial', headingLevel = 2 } = Astro.props;
+const Heading = headingLevel === 3 ? 'h3' : 'h2';
+---
+
+<section id={id} class="work-section detail-section" data-block-kind={kind} aria-labelledby={id + '-title'}>
+  <header class="detail-section__heading">
+    <span class="eyebrow">
+      <PageCode family={family} section={section} lang={lang} /> / {label}
+    </span>
+    <Heading id={id + '-title'}>{title}</Heading>
+  </header>
+  <slot />
+</section>

@@ -1,11 +1,7 @@
 /* Material precedes reference data in reading order. */
-.section--atlas > .section-body,
 .system-grid--rail > .system-content {
   grid-column: 2;
   grid-row: 1;
-}
-.section--atlas .section-body {
-  --panel-surface: none;
 }
 .section-rail {
   grid-column: 1;
@@ -52,24 +48,10 @@
   flex: none;
   color: var(--muted);
 }
-.section--method .section-body {
-  --panel-surface: var(--surface);
-}
-.method-steps.method-steps--linked > p {
-  position: relative;
-  border-top: 0;
-}
 .method-code {
   display: block;
   margin-bottom: var(--s3);
   color: var(--section-accent);
-}
-.method-steps--linked > p:not(:last-child)::after {
-  content: '→';
-  position: absolute;
-  top: var(--s4);
-  right: 0;
-  color: var(--muted);
 }
 /* Shared edges form a closed cell grid, never detached rules. */
 .record-stamp {
@@ -235,13 +217,7 @@
     --stamp-columns: 1;
   }
 }
-@media (max-width: 900px) {
-  .method-steps--linked > p:not(:last-child)::after {
-    content: '↓';
-  }
-}
 @media (max-width: 700px) {
-  .section--atlas > .section-body,
   .system-grid--rail > .system-content,
   .section-rail {
     grid-column: 1;
