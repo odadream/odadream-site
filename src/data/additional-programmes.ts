@@ -277,7 +277,7 @@ const definitions: Definition[] = [
     ),
     participation: l(
       'Две пары по очереди и группа наблюдателей в исходной калужской версии. Измерение, движение и обсуждение — отдельные части.',
-      'Two pairs taking turns and a group of observers in the source Kaluga version. Measurement, movement and discussion are distinct segments.',
+      'Two pairs taking turns and a group of observers in the Kaluga presentation. Measurement, movement and discussion are distinct segments.',
     ),
     outcome: l(
       'Рефлексия различий в парном движении и опыте наблюдения себя и партнёра.',
@@ -349,7 +349,7 @@ const definitions: Definition[] = [
     conditions: [
       {
         id: 'historical-duration',
-        label: l('Конспект', 'Source outline'),
+        label: l('Конспект программы', 'Programme outline'),
         value: l(
           'Базовая длительность — 1,5 часа; демонстрацию и оборудование согласуем с площадкой.',
           'The baseline duration is 1.5 hours; the demonstration and equipment are agreed with the venue.',

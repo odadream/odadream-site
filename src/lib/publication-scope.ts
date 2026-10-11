@@ -678,3 +678,18 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
 }
 
 export const isRealizedWork = (work: Pick<Work, 'stage'>) => work.stage === 'realized';
+
+/** IDs for local DEV markers, including images derived from permission-checked documents. */
+export function buildPublicRecordIds(scope: ReturnType<typeof createPublicationScope>) {
+  if (scope.preview) throw new Error('DEV markers require a public projection');
+  const recordIds: Record<string, Set<string>> = Object.fromEntries(
+    Object.entries(scope)
+      .filter(([, rows]) => Array.isArray(rows))
+      .map(([kind, rows]) => [kind, new Set((rows as { id: string }[]).map((row) => row.id))]),
+  );
+  for (const document of [...scope.workDocuments, ...scope.referenceDocuments])
+    (document.pageImages ?? []).forEach((_, index) =>
+      recordIds.media.add(document.id + '-page-' + (index + 1)),
+    );
+  return recordIds;
+}

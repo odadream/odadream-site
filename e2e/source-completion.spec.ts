@@ -33,8 +33,12 @@ test('external materials use shared wrapping links without loading provider play
 
 test('selection records retain final outcome and do not fabricate scans or awards', async ({ page }) => {
   await page.goto('/ru/recognition/');
-  await expect(page.locator('#recognition-cyens-reserve-2026')).toContainText('not selected');
-  await expect(page.locator('#recognition-culttech-school-grant-2026')).toContainText('грант на обучение');
+  await expect(page.locator('#recognition-cyens-reserve-2026')).toContainText(
+    'не вошли в программу фестиваля',
+  );
+  await expect(page.locator('#recognition-culttech-school-grant-2026')).toContainText(
+    '100% стоимости School Phase',
+  );
   for (const id of ['cyens-reserve-2026', 'culttech-school-grant-2026', 'skolkovo-arttech-2026'])
     await expect(page.locator(`#recognition-${id} img`)).toHaveCount(0);
 });
@@ -46,7 +50,7 @@ test('recovered meditation event exposes the primary report and explicit date li
     await page.goto(`/${lang}/cases/`);
     const row = page.locator('#case-meditation-day-2026');
     await expect(row).toContainText(
-      lang === 'ru' ? 'не установленный день события' : 'not a confirmed event day',
+      lang === 'ru' ? 'день публикации отчёта студии' : 'publication date of the studio’s report',
     );
     await expect(row.locator('a[href="https://t.me/odadream/760"]')).toBeVisible();
   }

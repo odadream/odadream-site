@@ -64,7 +64,9 @@ test('catalogue filters canonical units and language statuses without claiming i
 }) => {
   await page.goto('/editorial/');
   await expect(page.locator('[data-editorial-unit]')).toHaveCount(301);
-  await expect(page.locator('[data-editorial-progress]')).toContainText('проверено 0/301 (0%)');
+  await expect(page.locator('[data-editorial-progress]')).toContainText(
+    'авторская приёмка и проверка 0/301 (0%)',
+  );
   await page.locator('select[name=kind]').selectOption('works');
   await expect(page.locator('[data-editorial-unit]:visible')).toHaveCount(23);
   await page.locator('input[name=query]').fill('emomandala');

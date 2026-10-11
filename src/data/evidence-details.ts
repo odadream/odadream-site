@@ -89,14 +89,11 @@ export const recognitionDetails: Record<string, RecognitionDetail> = {
   'tavrida-letter-2025': {
     documentSha256: 'da56156c4bcc5e554e6a6fd6c25be87a92d1b33db673cf1706c935a50172488e',
     claim: l(
-      'Письмо адресовано Ольге и Далеру Арабовым за участие в первом фестивале искусственного интеллекта «Культурный код России» на «Таврида.АРТ».',
-      'The letter is addressed to Olga and Daler Arabov for participation in the first Cultural Code of Russia AI festival at Tavrida.ART.',
+      'В письме организаторы благодарят Ольгу и Далера Арабовых за участие в первом фестивале искусственного интеллекта «Культурный код России» на «Таврида.АРТ».',
+      'In the letter, the organisers thank Olga and Daler Arabov for participation in the first Cultural Code of Russia AI festival at Tavrida.ART.',
     ),
     recipient: l('Ольга и Далер Арабовы', 'Olga and Daler Arabov'),
-    limitations: l(
-      'Благодарность относится к фестивальной программе; результат отдельной конкурсной заявки указан в хронологии.',
-      'The letter concerns the festival programme; the outcome of the separate competition application is recorded in the timeline.',
-    ),
+
     relatedWorks: [],
     documentState: 'available',
     sourceRefs: refs('proof-let-tavrida.md', 'hub-letters.md'),

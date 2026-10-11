@@ -762,7 +762,11 @@ const baseAdditionalEvents: CaseEvent[] = definitions.map(({ files, ...row }) =>
       : organizationId === 'itb' || organizationId === 'mudro-chay'
         ? 'co-producer'
         : 'organizer',
-    description: row.role,
+    description: ['ikc', 'mipt', 'bauman'].includes(organizationId)
+      ? l('Площадка события.', 'Event venue.')
+      : organizationId === 'itb' || organizationId === 'mudro-chay'
+        ? l('Соорганизация события.', 'Co-production of the event.')
+        : l('Организация события.', 'Event organization.'),
   })),
   evidence: [],
   media: [],

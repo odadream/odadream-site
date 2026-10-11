@@ -1403,6 +1403,10 @@ const records: Record[] = [
   },
   {
     id: 'archive-lighthouse-blend-multi-1',
+    alt: {
+      ru: 'Вертикальная скульптурная форма с асимметричным треугольным каркасом.',
+      en: 'A vertical sculptural form with an asymmetrical triangular frame.',
+    },
     src: '/images/archive/content/works/lighthouse/blend-multi-1.webp',
     width: 1065,
     height: 1110,
@@ -1419,6 +1423,10 @@ const records: Record[] = [
   },
   {
     id: 'archive-lighthouse-blend-multi-2',
+    alt: {
+      ru: 'Изогнутая скульптурная форма с расширенной верхней частью и узким основанием.',
+      en: 'A curved sculptural form with a broad upper section and a narrow base.',
+    },
     src: '/images/archive/content/works/lighthouse/blend-multi-2.webp',
     width: 1065,
     height: 1110,
@@ -1531,6 +1539,10 @@ const records: Record[] = [
   },
   {
     id: 'archive-sync-sync-circle-chairs-1',
+    alt: {
+      ru: 'Кресла расположены по кругу под центральным источником света; вид сверху.',
+      en: 'Chairs arranged in a circle beneath a central light source, seen from above.',
+    },
     src: '/images/archive/content/works/sync-circle/sync-circle-chairs-1.webp',
     width: 1200,
     height: 675,
@@ -1547,6 +1559,10 @@ const records: Record[] = [
   },
   {
     id: 'archive-sync-sync-circle-chairs-2',
+    alt: {
+      ru: 'Кольцо кресел и центральная стойка в луче света; вид сбоку.',
+      en: 'A ring of chairs and a central stand in a beam of light, seen from the side.',
+    },
     src: '/images/archive/content/works/sync-circle/sync-circle-chairs-2.webp',
     width: 1200,
     height: 675,
@@ -1563,6 +1579,10 @@ const records: Record[] = [
   },
   {
     id: 'archive-sync-sync-circle-chairs-3',
+    alt: {
+      ru: 'Отдельное кресло с высокой дугообразной спинкой.',
+      en: 'A single chair with a tall curved back.',
+    },
     src: '/images/archive/content/works/sync-circle/sync-circle-chairs-3.webp',
     width: 499,
     height: 720,
@@ -1694,13 +1714,17 @@ const records: Record[] = [
   },
   {
     id: 'archive-rings-synergy-banner-preview',
+    alt: {
+      ru: 'Сюрреалистическая сцена: пара на круглой платформе среди облаков.',
+      en: 'A surreal scene: a couple on a circular platform among clouds.',
+    },
     src: '/images/archive/content/materia/oda-rings/synergy-banner-preview.webp',
     width: 1440,
     height: 1920,
-    representation: 'photograph',
+    representation: 'render',
     caption: {
-      ru: 'Архивный материал работы',
-      en: 'Archival work material',
+      ru: 'Кольца ODA.dream · свадебная композиция',
+      en: 'ODA.dream rings · wedding composition',
     },
     archiveSource: {
       path: '/images/content/materia/oda-rings/synergy-banner-preview.webp',

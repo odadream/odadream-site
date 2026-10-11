@@ -11,7 +11,9 @@ test('method, work configurations and education and cooperation form a connected
     await expect(page.locator('#method-boundaries .facts li')).toHaveCount(4);
     await expect(page.locator('#visual-language video')).toHaveCount(1);
     await page.goto(`/${lang}/works/mindshow/`);
-    await expect(page.locator('#mindshow-installation')).toContainText('7 ± 2');
+    await expect(page.locator('#mindshow-installation')).toContainText(
+      lang === 'ru' ? 'Тайминг и смену участников согласуем' : 'timing and participant changeover',
+    );
     await page.goto(`/${lang}/works/neurobattle/`);
     await expect(page.locator('#neurobattle-game')).toContainText('90');
     await page.goto(`/${lang}/education/`);

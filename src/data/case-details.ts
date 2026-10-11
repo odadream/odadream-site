@@ -129,18 +129,8 @@ export const caseDetails: Record<string, CaseDetail> = {
         'Заказчик интерактивного формата на событии.',
         'Client for the event’s interactive format.',
       ),
-      org(
-        'hse',
-        'organizer',
-        'Организатор олимпиады по метаданным события.',
-        'Olympiad organiser according to the event metadata.',
-      ),
-      org(
-        'tbank',
-        'organizer',
-        'Организатор олимпиады по метаданным события.',
-        'Olympiad organiser according to the event metadata.',
-      ),
+      org('hse', 'organizer', 'Организатор олимпиады.', 'Olympiad organiser.'),
+      org('tbank', 'organizer', 'Организатор олимпиады.', 'Olympiad organiser.'),
     ],
     participants: [],
     limitations: [l('Показ состоялся в Москве.', 'The presentation took place in Moscow.')],
@@ -312,8 +302,8 @@ export const historicalEvents: CaseEvent[] = [
       org(
         'ashram',
         'client',
-        'Указана заказчиком в метаданных; участие описано как совместное выступление.',
-        'Listed as client in the metadata; participation is described as a joint presentation.',
+        'Совместное выступление со студией ODA.dream.',
+        'A joint presentation with ODA.dream.',
       ),
     ],
     limitations: [

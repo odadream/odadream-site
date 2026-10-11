@@ -77,3 +77,15 @@ test('event relationships are reciprocal and public programmes and series respec
   const overview = createPages(publicData).find((row) => row.path === '/ru/cases/');
   for (const item of publicData.cases) assert.ok(overview.anchors.includes(`case-${item.slug}`));
 });
+
+test('event organization descriptions do not inherit the studio participation role', () => {
+  for (const event of source.cases) {
+    for (const organization of event.organizationRoles) {
+      assert.notDeepEqual(
+        organization.description,
+        event.role,
+        event.id + ': ' + organization.organizationId,
+      );
+    }
+  }
+});

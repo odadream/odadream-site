@@ -1411,8 +1411,8 @@ export const cooperationPages: CooperationPage[] = [
         id: 'production',
         title: l('Продюсерам и творческим командам', 'Producers and creative teams'),
         body: l(
-          'Совместная разработка или адаптация художественного замысла. Авторство, этапы, границы программной и пространственной работы, local production и обслуживание обсуждаются до фиксации состава проекта.',
-          'Co-develop or adapt an artistic concept. Authorship, phases, software and spatial responsibilities, local production and operation are discussed before fixing the project scope.',
+          'Совместная разработка или адаптация художественного замысла. Авторство, этапы, границы программной и пространственной работы, производство площадки и обслуживание обсуждаются до фиксации состава проекта.',
+          'Co-develop or adapt an artistic concept. Authorship, phases, software and spatial responsibilities, venue production and operation are discussed before fixing the project scope.',
         ),
         request: l(
           'Опишите концепцию, стадию, предполагаемое пространство, поток посетителей, команду и недостающую часть производства.',

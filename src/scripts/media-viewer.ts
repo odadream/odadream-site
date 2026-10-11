@@ -102,6 +102,9 @@ export function initMediaViewer() {
         : 'Image unavailable. You can move to the next item.';
   });
   video.addEventListener('error', () => {
-    if (dialog.open && !video.hidden) status.textContent = ru ? 'Видео недоступно.' : 'Video unavailable.';
+    if (dialog.open && !video.hidden)
+      status.textContent = ru
+        ? 'Видео недоступно. Закройте просмотр или выберите другой материал.'
+        : 'Video unavailable. Close the viewer or choose another item.';
   });
 }

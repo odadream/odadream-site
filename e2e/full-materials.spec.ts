@@ -32,7 +32,7 @@ test('recognition corpus preserves missing-scan qualification and readable share
     await expect(page.locator('.recognition-card img')).toHaveCount(13);
     await expect(page.locator('#recognition-mipt-letter-2025 img')).toHaveCount(0);
     await expect(page.locator('#recognition-mipt-letter-2025')).toContainText(
-      lang === 'ru' ? 'Скан не найден' : 'scan is missing',
+      lang === 'ru' ? 'Скан недоступен' : 'Scan unavailable',
     );
     const button = page.locator('#recognition-portal-2030-2025 [data-lightbox]');
     await button.click();

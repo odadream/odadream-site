@@ -10,12 +10,12 @@ const records = JSON.parse(
       `
   import { loadSiteModule } from './scripts/site-data.mjs';
   const data = await loadSiteModule();
-  console.log(JSON.stringify(data.works.map(work => ({slug:work.slug, story:work.story.length, credits:work.credits.length}))));
+  console.log(JSON.stringify(data.works.map(work => ({slug:work.slug, story:work.story.length, paragraphs:work.story.map(section => section.body), credits:work.credits.length}))));
 `,
     ],
     { encoding: 'utf8', windowsHide: true },
   ),
-) as { slug: string; story: number; credits: number }[];
+) as { slug: string; story: number; paragraphs: { ru: string; en: string }[]; credits: number }[];
 
 test('every selected work has a readable story, attributed roles and direct contact in both languages', async ({
   page,
@@ -31,8 +31,10 @@ test('every selected work has a readable story, attributed roles and direct cont
       await page.goto(`/${lang}/works/${record.slug}/`);
       await expect(page.locator('#work-story .editorial-sections > article')).toHaveCount(record.story);
       await expect(page.locator('#work-credits .list-row')).toHaveCount(record.credits);
-      for (const paragraph of await page.locator('#work-story .editorial-sections p').allTextContents())
-        expect(paragraph.trim().length).toBeGreaterThan(80);
+      const paragraphs = await page.locator('#work-story .editorial-sections p').allTextContents();
+      expect(paragraphs.map((text) => text.trim())).toEqual(
+        record.paragraphs.map((body) => body[lang as 'ru' | 'en'].trim()),
+      );
       await expect(page.locator('#work-availability .button')).toHaveAttribute('href', `/${lang}/contact/`);
       const errors = await page.evaluate(() => {
         const problems = [];

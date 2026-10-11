@@ -1,6 +1,6 @@
 import * as source from './site';
 import { publicationPlan } from './publication-plan';
-import { createPublicationScope, isRealizedWork } from '../lib/publication-scope';
+import { createPublicationScope, isRealizedWork, buildPublicRecordIds } from '../lib/publication-scope';
 
 export const preview = import.meta.env?.DEV === true;
 export const catalogue = createPublicationScope(source, publicationPlan, preview);
@@ -32,10 +32,4 @@ export const workById = (id: string) => works.find((row) => row.id === id);
 
 // Only local editorial markers use this set; no internal records are rendered in public.
 const publicProjection = preview ? createPublicationScope(source, publicationPlan, false) : undefined;
-export const publicRecordIds: Record<string, Set<string>> | undefined = publicProjection
-  ? Object.fromEntries(
-      Object.entries(publicProjection)
-        .filter(([, rows]) => Array.isArray(rows))
-        .map(([kind, rows]) => [kind, new Set((rows as { id: string }[]).map((row) => row.id))]),
-    )
-  : undefined;
+export const publicRecordIds = publicProjection ? buildPublicRecordIds(publicProjection) : undefined;

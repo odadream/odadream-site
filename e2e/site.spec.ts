@@ -142,11 +142,11 @@ test('mobile navigation, media, lightbox and contact work without horizontal ove
   }
   await expect(page.locator('.feature-slide:not([hidden]) video')).toBeVisible();
   await page.goto('/en/works/interference-of-realities/');
-  await page.getByRole('button', { name: /Enlarge: Performers/ }).click();
+  await page.locator('[data-media-id="interference-stage"] [data-lightbox]').click();
   await expect(page.locator('#lightbox')).toHaveAttribute('open', '');
   await page.keyboard.press('Escape');
   await expect(page.locator('#lightbox')).not.toHaveAttribute('open', '');
-  await expect(page.getByRole('button', { name: /Enlarge: Performers/ })).toBeFocused();
+  await expect(page.locator('[data-media-id="interference-stage"] [data-lightbox]')).toBeFocused();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBeTruthy();
   await page.goto('/en/contact/');
   await expect(page.getByRole('link', { name: 'hi@odadream.art' })).toHaveAttribute(
@@ -167,7 +167,7 @@ test('featured carousel, editorial links and card media follow the design gramma
   const activeSlide = page.locator('.feature-slide:not([hidden])');
   const firstSlideId = await activeSlide.getAttribute('data-slide-id');
   await expect(activeSlide.locator('[data-carousel-position]')).toHaveText('01 / 03');
-  await activeSlide.getByRole('button', { name: 'Следующая работа' }).click();
+  await activeSlide.getByRole('button', { name: 'Следующий кадр' }).click();
   await expect(page.locator('.feature-slide:not([hidden])')).not.toHaveAttribute(
     'data-slide-id',
     firstSlideId || '',
