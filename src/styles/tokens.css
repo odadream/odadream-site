@@ -49,6 +49,8 @@
   --measure-hero-copy: 49ch;
   --measure-hero-caption: 42ch;
   --measure-action-note: 34ch;
+  --process-step-min: calc(12rem * var(--type-scale));
+  --recognition-preview-ratio: 1 / 1;
   --programme-tile-min: calc(18rem * var(--type-scale));
   --recognition-tile-min: calc(16rem * var(--type-scale));
   --gallery-tile-min: 16rem;

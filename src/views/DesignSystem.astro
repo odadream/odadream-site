@@ -14,6 +14,7 @@ import RecognitionCard from '../components/RecognitionCard.astro';
 import StatisticsStamp from '../components/StatisticsStamp.astro';
 import MindDBStamp from '../components/MindDBStamp.astro';
 import SectionRail from '../components/SectionRail.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
 import MacroSection from '../components/MacroSection.astro';
 import RecordStamp from '../components/RecordStamp.astro';
 import EditorialSections from '../components/EditorialSections.astro';
@@ -103,6 +104,8 @@ const profileTokens = [
   ['--type-metadata', 'Дата, тип и подпись поля'],
   ['--programme-tile-min', 'Минимальная ширина образовательного предложения'],
   ['--recognition-tile-min', 'Минимальная ширина предмета признания'],
+  ['--recognition-preview-ratio', 'Кадр выбора документа; лист вписан целиком'],
+  ['--process-step-min', 'Минимальная ширина шага процесса'],
   ['--leading-body', 'Межстрочный интервал рассказа'],
   ['--leading-summary', 'Межстрочный интервал краткого описания'],
   ['--leading-metadata', 'Межстрочный интервал метаданных'],
@@ -523,10 +526,12 @@ const profileTokens = [
           Данные здесь не объясняют человека — они становятся материалом для переживания и разговора.
         </blockquote>
         <p class="caption">ODA.dream · метод студии</p>
-        <div class="gallery-demo">
-          <MediaFigure id="interference-stage" lang="ru" priority />
-          <MediaFigure id="schrodinger" lang="ru" priority />
-        </div>
+        <MediaGallery
+          id="system-media-states"
+          items={[mediaById('interference-stage')!, mediaById('schrodinger')!]}
+          lang="ru"
+          label="Документальные фотографии"
+        />
         <div class="error-sample">
           <div>
             <strong>Материал временно недоступен</strong>
@@ -893,9 +898,9 @@ const profileTokens = [
           </p>
         </div>
         <p class="small-note">
-          На телефоне нет полей: код, фоновая цифра и заметка скрыты. Статистика и паспорт следуют после
-          материала. Название раздела не повторяется на поле. Ячейки образуют замкнутую сетку с общими
-          рёбрами.
+          На телефоне фоновая цифра и заметка скрыты. MacroSection показывает адрес перед заголовком и справку
+          после материала; отдельный SectionRail сохраняет горизонтальный код. Название раздела не повторяется
+          на поле. Ячейки образуют замкнутую сетку с общими рёбрами.
         </p>
         <p class="small-note">
           Руководство для агентов: <code>docs/DESIGN-GUIDE.md</code>. Опорные примеры:{' '}
@@ -980,14 +985,7 @@ const profileTokens = [
         Поверхность отделяет схему от рассказа. Номер на поле обозначает раздел; внутри — реальные этапы
         работы.
       </p>
-      <div class="method-steps">
-        {cooperationPages[0].process.map((item) => (
-          <p>
-            <strong>{item.title.ru}</strong>
-            {item.body.ru}
-          </p>
-        ))}
-      </div>
+      <ProcessSteps steps={cooperationPages[0].process} lang="ru" />
     </MacroSection>
     <MacroSection
       id="system-15"
@@ -1009,6 +1007,14 @@ const profileTokens = [
         lang="ru"
         title="Технический обзор"
       />
+      <DevNote id="media-register-hypothesis" lang="ru">
+        DA-12 · гипотеза: сравнение открытых и раскрываемых реквизитов одного материала. Публичные галереи
+        сохраняют открытые реквизиты; вариант ниже не является принятым общим правилом.
+      </DevNote>
+      <div class="media-gallery" data-mode="tiles" id="media-register-comparison">
+        <MediaFigure id="rings" lang="ru" />
+        <MediaFigure id="rings" lang="en" register="disclosure" />
+      </div>
     </MacroSection>
     <MacroSection
       id="system-16"

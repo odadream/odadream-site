@@ -1,0 +1,30 @@
+---
+import TechnicalMark from './TechnicalMark.astro';
+import type { MediaItem } from '../lib/media-presentation';
+import type { Lang } from '../data/site';
+interface Props {
+  item: MediaItem;
+  lang: Lang;
+  disclosure?: boolean;
+}
+const { item, lang, disclosure = false } = Astro.props;
+const Wrapper = disclosure ? 'details' : 'div';
+---
+
+<Wrapper
+  class:list={{ 'media-details': disclosure }}
+  data-media-register={disclosure ? 'disclosure' : 'expanded'}
+>
+  {disclosure && <summary>{lang === 'ru' ? 'Реквизиты материала' : 'Material details'}</summary>}
+  <div class="media-register">
+    <span class="media-register__id">
+      <TechnicalMark kind="record" />
+      {item.kind === 'image' ? 'IMG' : 'VID'} / {item.id}
+    </span>
+    {item.width && item.height && (
+      <span>
+        {item.width} × {item.height} px
+      </span>
+    )}
+  </div>
+</Wrapper>

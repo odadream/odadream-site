@@ -300,6 +300,9 @@
   grid-row: 1;
   min-width: 0;
 }
+.macro-section > .section-body > .macro-section__heading + * {
+  margin-block-start: var(--gap-group);
+}
 .macro-section__reference {
   margin-block-start: var(--gap-group);
 }

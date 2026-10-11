@@ -1,5 +1,6 @@
 ---
 import DevPublicationMark from './DevPublicationMark.astro';
+import MediaRegister from './MediaRegister.astro';
 import TechnicalMark from './TechnicalMark.astro';
 import VideoPreview from './VideoPreview.astro';
 import { mediaFit, type MediaItem, type MediaFit } from '../lib/media-presentation';
@@ -13,6 +14,7 @@ interface Props {
   previewVideo?: boolean;
   lang: Lang;
   priority?: boolean;
+  register?: 'expanded' | 'disclosure';
 }
 const {
   id,
@@ -22,6 +24,7 @@ const {
   fit = 'natural',
   gallery = false,
   previewVideo = false,
+  register = 'expanded',
 } = Astro.props;
 const item = suppliedItem ?? (id ? mediaById(id) : undefined);
 const presentation = item ? mediaFit(item, fit) : 'natural';
@@ -36,17 +39,7 @@ const presentation = item ? mediaFit(item, fit) : 'natural';
     data-representation={item.representation}
   >
     <DevPublicationMark kind="media" recordId={item.id} lang={lang} />
-    <div class="media-register">
-      <span class="media-register__id">
-        <TechnicalMark kind="record" />
-        {item.kind === 'image' ? 'IMG' : 'VID'} / {item.id}
-      </span>
-      {item.width && item.height && (
-        <span>
-          {item.width} × {item.height} px
-        </span>
-      )}
-    </div>
+    {register === 'expanded' && <MediaRegister item={item} lang={lang} />}
     {item.kind === 'image' ? (
       <button
         type="button"
@@ -118,5 +111,6 @@ const presentation = item ? mediaFit(item, fit) : 'natural';
       <span>{item.caption[lang]}</span>
       {item.credit && <span class="media-credit">{item.credit[lang]}</span>}
     </figcaption>
+    {register === 'disclosure' && <MediaRegister item={item} lang={lang} disclosure />}
   </figure>
 )}

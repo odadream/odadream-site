@@ -1,0 +1,17 @@
+---
+import type { Lang } from '../data/site';
+interface Props {
+  steps: readonly { title: Record<Lang, string>; body: Record<Lang, string> }[];
+  lang: Lang;
+}
+const { steps, lang } = Astro.props;
+---
+
+<ol class="process-steps">
+  {steps.map((step) => (
+    <li>
+      <h3>{step.title[lang]}</h3>
+      <p>{step.body[lang]}</p>
+    </li>
+  ))}
+</ol>

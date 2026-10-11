@@ -17,14 +17,16 @@ const labels = {
 ---
 
 <article class="programme-card" data-programme-id={item.id}>
-  <DevPublicationMark kind="programmes" recordId={item.id} lang={lang} />
   <a class="programme-card__link" href={programmeUrl(lang, item.id)}>
-    <span class="meta">
-      {labels[item.programmeType][lang]}{' '}
-      {item.deliveryStatus === 'proposed' && (
-        <span>· {lang === 'ru' ? 'Проект программы' : 'Proposed programme'}</span>
-      )}
-    </span>
+    <div class="programme-card__meta">
+      <DevPublicationMark kind="programmes" recordId={item.id} lang={lang} />
+      <span class="meta">
+        {labels[item.programmeType][lang]}{' '}
+        {item.deliveryStatus === 'proposed' && (
+          <span>· {lang === 'ru' ? 'Проект программы' : 'Proposed programme'}</span>
+        )}
+      </span>
+    </div>
     <h3>
       <CalloutLink>{item.title[lang]}</CalloutLink>
     </h3>

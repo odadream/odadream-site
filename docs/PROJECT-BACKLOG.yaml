@@ -1117,7 +1117,7 @@ items:
     title: Исправить и сравнить типовые страницы и живой стенд
     area: design_system
     priority: P1
-    status: planned
+    status: done
     outcome: Образование, сотрудничество и признания показывают реальные режимы общей системы.
     acceptance:
       - DA-04/05/08 имеют адресное исправление; DA-12 рассмотрена как гипотеза, а не автоматически
@@ -1129,6 +1129,9 @@ items:
     depends_on:
       - DESIGN-UX-PROFILE-01
     source: docs/DESIGN-AUDIT-PLAN.md
+    notes: "2026-10-11: пилот RU/EN выполнен; треки программ, кадр скана, ProcessSteps и макроритм
+      проверены. DA-08 исправлено, DA-12 показана только как DEV-гипотеза. 90 unit, 148 E2E,
+      28 intentional skips; результаты и границы проверки в плане. Авторская приёмка не получена."
   - id: DESIGN-UX-ROLLOUT-01
     title: Распространить проверенные макроблоки по всему сайту
     area: design_system

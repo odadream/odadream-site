@@ -364,3 +364,18 @@ figcaption {
   font-size: var(--type-claim);
   line-height: var(--leading-claim);
 }
+
+.process-steps h3 {
+  font-size: var(--type-title-small);
+  line-height: var(--leading-summary);
+}
+.process-steps p {
+  font-size: var(--type-summary);
+  line-height: var(--leading-summary);
+}
+
+.media-details summary {
+  font-size: var(--type-metadata);
+  line-height: var(--leading-metadata);
+  color: var(--muted);
+}

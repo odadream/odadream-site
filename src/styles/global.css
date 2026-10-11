@@ -1196,7 +1196,8 @@ figcaption {
 .recognition-card__image,
 .recognition-card__missing {
   width: 100%;
-  height: clamp(180px, 19vw, 260px);
+  height: auto;
+  aspect-ratio: var(--recognition-preview-ratio);
   padding: var(--s2);
   display: grid;
   place-items: center;
@@ -1485,10 +1486,6 @@ figcaption {
   .section-label {
     padding-top: 0;
   }
-  .recognition-card__image,
-  .recognition-card__missing {
-    height: 220px;
-  }
 }
 
 .works-catalogue + .works-catalogue {
@@ -1539,6 +1536,32 @@ figcaption {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--programme-tile-min)), 1fr));
   gap: var(--s6);
+}
+.programme-card,
+.programme-card__meta {
+  min-width: 0;
+}
+.programme-card__meta {
+  display: grid;
+  align-content: start;
+}
+@supports (grid-template-rows: subgrid) {
+  .programme-grid > .programme-card,
+  .programme-grid > .programme-card > .programme-card__link {
+    display: grid;
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+    row-gap: var(--card-gap);
+  }
+  .programme-card__meta {
+    grid-row: 1;
+  }
+  .programme-card__link > h3 {
+    grid-row: 2;
+  }
+  .programme-card__link > p {
+    grid-row: 3;
+  }
 }
 .programme-card__link {
   display: grid;
@@ -1676,4 +1699,45 @@ figcaption {
 
 .work-card__visual[data-fit='contain'] img {
   object-fit: contain;
+}
+
+/* A sequence of real steps: aligned headings and copy, without fixed text heights. */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--process-step-min)), 1fr));
+  gap: var(--gap-component);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.process-steps > li {
+  display: grid;
+  align-content: start;
+  gap: var(--s2);
+  min-width: 0;
+  padding-top: var(--s4);
+  border-top: 1px solid var(--line);
+}
+.process-steps h3,
+.process-steps p {
+  margin: 0;
+}
+@supports (grid-template-rows: subgrid) {
+  .process-steps > li {
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+  }
+}
+
+.media-details {
+  margin-top: var(--s2);
+}
+.media-details summary {
+  display: list-item;
+  min-height: var(--tap-target);
+  align-content: center;
+  cursor: pointer;
+}
+.media-details .media-register {
+  margin-top: var(--s2);
 }

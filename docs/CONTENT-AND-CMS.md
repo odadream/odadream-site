@@ -238,3 +238,7 @@ DevNote помечает служебный текст как DEV · не пуб
 ## Представление макроблоков — 2026-10-11
 
 MacroSection — компонент представления, не новая сущность CMS. DEV-стенд D.12–D.16 показывает реальные Programme, сценарий/процесс CooperationPage и ReferenceDocument. `kind` определяет функцию поверхности, `field` — геометрию поля; записи и их канонические ID не меняются. Публичные PageView/Work/Case/Programme пока сохраняют прежнюю композицию до этапов пилота и распространения.
+
+### Дизайн-пилот 2026-10-11
+
+Обзорные Education/Cooperation/Recognition используют MacroSection; поля Programme, Cooperation и Recognition и их источники не изменены. ProcessSteps представляет существующие title/body этапов; новый тип CMS не добавлен. MediaRegister объединяет реквизиты MediaFigure; disclosure показан только в DEV-сравнении, публичный default остаётся expanded. Статистика Education перемещена в reference-слот, на мобильном следует после каталога. Содержательные lastmod обновлены адресно для шести RU/EN обзорных страниц.

@@ -363,18 +363,6 @@
   gap: var(--s4);
   margin-top: var(--s5);
 }
-.system-content .work-grid {
-  gap: var(--s5);
-}
-.gallery-demo {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--s4);
-}
-.gallery-demo .media-open img {
-  aspect-ratio: 4/3;
-  object-fit: cover;
-}
 .error-sample {
   background: var(--raised);
   border-left: 2px solid var(--danger);
@@ -515,8 +503,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .component-pair,
-  .record-grid,
-  .gallery-demo {
+  .record-grid {
     grid-template-columns: 1fr;
   }
   .error-sample {
