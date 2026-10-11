@@ -47,6 +47,21 @@ passes:
     checks: format; 88 unit; content; Astro; build and public assets; release gate;
       131 E2E passed initially, 2 failed then 8 related scenarios passed, 17
       intentional skips
+  - id: final-qa-2026-10-11
+    date: 2026-10-11
+    applied_commit: 7165c5b
+    scope: RU/EN copy, shared states, media descriptions and public/DEV separation
+    audit_items: 28
+    canonical_routes: 102
+    localized_entries: 104
+    public_media_visually_reviewed: 136
+    result: Agent QA completed; owner acceptance remains separate
+    facts: EVIDENCE-EDITORIAL-REVIEW-01 remains open, including the Tavrida source conflict
+    checks: 90 unit passed; format/content/Astro/build and publication gates passed;
+      full E2E 114 passed, 19 failed, 17 skipped; all 19 failed scenarios passed after
+      expectation updates; 12 affected scenarios passed after the document-marker fix;
+      133 distinct E2E scenarios passed overall, 17 intentional skips; 104 public
+      entries checked on desktop/mobile, both themes, no horizontal overflow
 units:
   - {"id":"referenceDocuments:technical-overview-ru","kind":"referenceDocuments","entity":"technical-overview-ru","ru":{"status":"edited","field_count":2,"baseline_sha256":"3faeab8f5c55a75535092bb3903e3c47b7cf370ca5c5827f3723b44ce5bfbd55","coverage_complete":true,"checked_at":"2026-10-10","pass_id":"autonomous-copy-2026-10-10"},"en":{"status":"edited","field_count":2,"baseline_sha256":"f32c80ced3976db25866362e707f7ebd434bfc9acdba9a484e739bce3e514daa","coverage_complete":true,"checked_at":"2026-10-10","pass_id":"autonomous-copy-2026-10-10"}}
   - {"id":"referenceDocuments:technical-overview-en","kind":"referenceDocuments","entity":"technical-overview-en","ru":{"status":"edited","field_count":2,"baseline_sha256":"3640206cbaa925bb831131fd18fc37942ea371afacab15a6e90e86bdf94010de","coverage_complete":true,"checked_at":"2026-10-10","pass_id":"autonomous-copy-2026-10-10"},"en":{"status":"edited","field_count":2,"baseline_sha256":"5f71448db26db1bebba1c7030c27644d4df7aef0c43c8120273ff3ceed901e64","coverage_complete":true,"checked_at":"2026-10-10","pass_id":"autonomous-copy-2026-10-10"}}
