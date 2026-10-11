@@ -972,6 +972,15 @@ figcaption {
 }
 /* Media viewer and legacy fallback. */
 .lightbox {
+  /* Media keeps a dark stage in either page theme; controls share its semantic palette. */
+  --ink: var(--lightbox-ink);
+  --muted: var(--lightbox-muted);
+  --surface: var(--lightbox-control-surface);
+  --line: var(--lightbox-rule);
+  --line-strong: var(--lightbox-rule);
+  --accent: var(--lightbox-ink);
+  --accent-soft: var(--hero-control-surface);
+  color-scheme: dark;
   position: fixed;
   inset: 0;
   max-width: none;

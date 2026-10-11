@@ -27,6 +27,7 @@ for (const width of [360, 797, 908, 1100, 1201, 1529]) {
         await page.evaluate(async (value) => {
           document.documentElement.dataset.theme = value;
           await document.fonts.ready;
+          await new Promise<void>((r) => requestAnimationFrame(() => requestAnimationFrame(() => r())));
         }, theme);
         const errors = await page.evaluate(() => {
           const problems: string[] = [];
@@ -66,15 +67,16 @@ for (const width of [360, 797, 908, 1100, 1201, 1529]) {
             });
           document.querySelectorAll('.section-grid, .system-grid').forEach((section) => {
             const label = section.querySelector(
-              ':scope > .section-label, :scope > .system-side > .section-label',
+              ':scope > .section-label, :scope > .system-side > .section-label, :scope > .macro-section__label > .section-label',
             );
             const heading = section.querySelector(
-              ':scope > .section-body > h2:first-child, :scope > .system-content > h2:first-child',
+              ':scope > .section-body > h2:first-child, :scope > .section-body > .macro-section__heading > h2, :scope > .system-content > h2:first-child',
             );
             if (!label || !heading) return;
             if (innerWidth > 700)
               equal(rect(label.firstElementChild!).top - rect(heading).top, 6, 'label / first heading line');
-            else if (rect(label).bottom >= rect(heading).top) problems.push('mobile label overlaps material');
+            else if (getComputedStyle(label).display !== 'none' && rect(label).bottom >= rect(heading).top)
+              problems.push('mobile label overlaps material');
           });
           return problems;
         });

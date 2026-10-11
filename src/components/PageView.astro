@@ -94,6 +94,7 @@ const timeline = [...cases]
     <div class="shell">
       <div
         class="feature-carousel nm-hero"
+        role="group"
         aria-label={ru ? 'Нейромандала: видео и данные коллекции' : 'Neuromandala: video and collection data'}
         data-carousel
       >
@@ -960,6 +961,7 @@ const timeline = [...cases]
             {programme.cases.length > 0 && (
               <div
                 class="link-row spaced-actions"
+                role="group"
                 aria-label={ru ? 'Событийный контекст программы' : 'Programme event context'}
               >
                 {programme.cases.map((id) => (

@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
 
 test('natural tiles, protected documents and large sequences keep their proportions in both themes', async ({
   page,
@@ -119,4 +120,55 @@ test('an unavailable image still offers navigation and close', async ({ page }) 
   await expect(page.locator('#lightbox img')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(page.locator('#lightbox')).not.toHaveAttribute('open');
+});
+
+test('open viewer captions and controls stay readable in either page theme, including load errors', async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/design-system/', { waitUntil: 'domcontentloaded' });
+  for (const theme of ['light', 'dark']) {
+    await page.evaluate((theme) => localStorage.setItem('oda-theme', theme), theme);
+    await page.reload({ waitUntil: 'domcontentloaded' });
+    const button = page.locator('#system-gallery-tiles [data-gallery-item]').first();
+    await button.focus();
+    await page.keyboard.press('Enter');
+    const viewer = page.getByRole('dialog');
+    await expect(viewer).toBeVisible();
+    await expect(viewer).toHaveCSS('color-scheme', 'dark');
+    await expect(viewer.locator('[data-viewer-zoom]')).toHaveCSS('color', 'rgb(243, 241, 236)');
+    const result = await new AxeBuilder({ page })
+      .include('#lightbox')
+      .withRules(['color-contrast'])
+      .analyze();
+    expect(result.violations, theme + ' open viewer').toEqual([]);
+    // Axe may classify changing media/backgrounds as incomplete: also inspect the actual composited stage.
+    const ratio = await viewer.locator('.lightbox-caption').evaluate((el) => {
+      const c = getComputedStyle(el)
+        .color.match(/[\d.]+/g)!
+        .map(Number);
+      const alpha = c[3] ?? 1;
+      // The unchanged stage/backdrop composite lies below RGB 10 in both page themes.
+      const foreground = c.slice(0, 3).map((v) => v * alpha + 10 * (1 - alpha));
+      const luminance = (rgb: number[]) =>
+        rgb
+          .map((v) => {
+            const n = v / 255;
+            return n <= 0.04045 ? n / 12.92 : ((n + 0.055) / 1.055) ** 2.4;
+          })
+          .reduce((sum, n, i) => sum + n * [0.2126, 0.7152, 0.0722][i], 0);
+      return (luminance(foreground) + 0.05) / (luminance([10, 10, 10]) + 0.05);
+    });
+    expect(ratio, theme + ' caption').toBeGreaterThanOrEqual(4.5);
+    await page.keyboard.press('Escape');
+    await expect(button).toBeFocused();
+    await button.evaluate((el) => {
+      (el as HTMLElement).dataset.src = '/missing-viewer-contrast.webp';
+    });
+    await button.click();
+    await expect(viewer.locator('.lightbox-status')).toContainText('недоступно');
+    await expect(viewer.locator('.lightbox-status')).toHaveCSS('color', 'rgb(243, 241, 236)');
+    await page.keyboard.press('Escape');
+    await expect(button).toBeFocused();
+  }
 });
