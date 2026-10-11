@@ -308,3 +308,55 @@
     break-inside: avoid;
   }
 }
+
+/* Macro roles preserve the page axes; only the process owns a surface. */
+.macro-section {
+  --macro-surface: var(--macro-surface-open);
+}
+.macro-section[data-block-kind='process'] {
+  --macro-surface: var(--macro-surface-process);
+}
+.macro-section > .section-body {
+  --panel-surface: var(--macro-surface);
+}
+.macro-section > .section-body .section-body {
+  --panel-surface: var(--macro-surface-open);
+}
+.macro-section[data-layout='rail'] > .section-body {
+  grid-column: 2;
+  grid-row: 1;
+}
+.macro-section__label {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+}
+.macro-section__reference {
+  margin-block-start: var(--gap-group);
+}
+.macro-section__code {
+  display: none;
+  margin-block-end: var(--gap-label);
+}
+.macro-section[data-field='none'] .macro-section__code {
+  display: block;
+}
+@media (max-width: 700px) {
+  .macro-section[data-layout='rail'] > .section-body,
+  .macro-section__label {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .macro-section__code {
+    display: block;
+  }
+  .macro-section .section-rail__field,
+  .macro-section .section-rail--empty,
+  .macro-section__label > .section-label,
+  .macro-section__label:not([data-has-reference]) {
+    display: none;
+  }
+  .macro-section__reference {
+    margin-block-start: 0;
+  }
+}

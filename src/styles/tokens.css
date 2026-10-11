@@ -161,6 +161,8 @@
   --type-metric: calc(24px * var(--type-scale));
   --annotation-rule: 1px;
   --stamp-surface: var(--surface);
+  --macro-surface-open: none;
+  --macro-surface-process: var(--surface);
   --stamp-columns: 2;
   --stamp-wide-columns: 4;
 }

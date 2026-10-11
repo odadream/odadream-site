@@ -1,0 +1,71 @@
+---
+import SectionRail from './SectionRail.astro';
+import PageCode from './PageCode.astro';
+import type { PageFamily } from '../lib/page-codes';
+import type { Lang } from '../data/site';
+interface Props {
+  id: string;
+  kind: 'catalogue' | 'editorial' | 'process' | 'document' | 'action';
+  title: string;
+  label: string;
+  family: PageFamily;
+  section: number;
+  lang: Lang;
+  field?: 'folio' | 'label' | 'none';
+  contained?: boolean;
+  note?: string;
+}
+const {
+  id,
+  kind,
+  title,
+  label,
+  family,
+  section,
+  lang,
+  field = 'folio',
+  contained = true,
+  note,
+} = Astro.props;
+const hasReference = Astro.slots.has('reference');
+---
+
+<section
+  id={id}
+  class:list={['section', 'macro-section', { shell: contained, 'section-grid': field !== 'none' }]}
+  data-block-kind={kind}
+  data-layout={field === 'none' ? 'wide' : 'rail'}
+  data-field={field}
+  aria-labelledby={id + '-title'}
+>
+  <div class="section-body">
+    <header class="macro-section__heading">
+      <span class="macro-section__code">
+        <PageCode family={family} section={section} lang={lang} />
+      </span>
+      <h2 id={id + '-title'}>{title}</h2>
+    </header>
+    <slot />
+  </div>
+  {field === 'folio' &&
+    (hasReference ? (
+      <SectionRail family={family} section={section} label={label} lang={lang} note={note}>
+        <slot name="reference" />
+      </SectionRail>
+    ) : (
+      <SectionRail family={family} section={section} label={label} lang={lang} note={note} />
+    ))}
+  {field === 'label' && (
+    <aside class="macro-section__label" aria-label={label} data-has-reference={hasReference || undefined}>
+      <div class="section-label">
+        <PageCode family={family} section={section} lang={lang} />
+        <span class="eyebrow">{label}</span>
+      </div>
+      {hasReference && (
+        <div class="macro-section__reference">
+          <slot name="reference" />
+        </div>
+      )}
+    </aside>
+  )}
+</section>

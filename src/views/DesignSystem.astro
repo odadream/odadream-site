@@ -14,6 +14,7 @@ import RecognitionCard from '../components/RecognitionCard.astro';
 import StatisticsStamp from '../components/StatisticsStamp.astro';
 import MindDBStamp from '../components/MindDBStamp.astro';
 import SectionRail from '../components/SectionRail.astro';
+import MacroSection from '../components/MacroSection.astro';
 import RecordStamp from '../components/RecordStamp.astro';
 import EditorialSections from '../components/EditorialSections.astro';
 import DocumentList from '../components/DocumentList.astro';
@@ -31,6 +32,7 @@ import {
   referenceDocuments,
   configurations,
   programmes,
+  cooperationPages,
 } from '../data/site';
 import { siteStats } from '../lib/site-stats';
 import { navigationFor } from '../lib/routes';
@@ -73,6 +75,11 @@ const sections = [
   ['Hero · движущееся медиа'],
   ['Свет / тьма · данные и документы'],
   ['Поля · индексы · паспорта'],
+  ['Макроблок · каталог'],
+  ['Макроблок · рассказ'],
+  ['Макроблок · процесс'],
+  ['Макроблок · документ'],
+  ['Макроблок · действие'],
 ];
 const signalFamilies = [
   ['H', 'Главная', '--signal-home'],
@@ -893,6 +900,112 @@ const profileTokens = [
         lang="ru"
       />
     </section>
+
+    <MacroSection
+      id="system-12"
+      kind="catalogue"
+      field="none"
+      contained={false}
+      family="D"
+      section={12}
+      lang="ru"
+      label="Выбор"
+      title="Каталог: выбор самостоятельного предложения"
+    >
+      <p>
+        Полная ширина нужна для сравнения записей. Открытое поле, одинаковый компонент карточки, без отдельной
+        поверхности вокруг всей подборки.
+      </p>
+      <div class="programme-grid">
+        {programmes.slice(0, 3).map((item) => (
+          <ProgrammeCard item={item} lang="ru" />
+        ))}
+      </div>
+    </MacroSection>
+    <MacroSection
+      id="system-13"
+      kind="editorial"
+      contained={false}
+      family="D"
+      section={13}
+      lang="ru"
+      label="Рассказ"
+      title="Редакционный раздел: тезис и последовательное чтение"
+    >
+      <p>
+        Большая цифра обозначает главу длинной страницы. Рассказ остаётся на открытом поле; его ширина чтения
+        не растягивается до ширины изображения.
+      </p>
+      <StatisticsStamp slot="reference" kind="works" lang="ru" />
+      <article class="list-row">
+        <div>
+          <h3>{cooperationPages[0].scenarios[0].title.ru}</h3>
+          <p>{cooperationPages[0].scenarios[0].body.ru}</p>
+          <p>{cooperationPages[0].scenarios[0].request.ru}</p>
+        </div>
+      </article>
+    </MacroSection>
+    <MacroSection
+      id="system-14"
+      kind="process"
+      contained={false}
+      family="D"
+      section={14}
+      lang="ru"
+      label="Процесс"
+      title="Процесс: поверхность объединяет связанные шаги"
+    >
+      <p>
+        Поверхность отделяет схему от рассказа. Номер на поле обозначает раздел; внутри — реальные этапы
+        работы.
+      </p>
+      <div class="method-steps">
+        {cooperationPages[0].process.map((item) => (
+          <p>
+            <strong>{item.title.ru}</strong>
+            {item.body.ru}
+          </p>
+        ))}
+      </div>
+    </MacroSection>
+    <MacroSection
+      id="system-15"
+      kind="document"
+      field="label"
+      contained={false}
+      family="D"
+      section={15}
+      lang="ru"
+      label="Документ"
+      title="Документ: собственные пропорции и реквизиты"
+    >
+      <p>
+        Для отдельного документа достаточно короткой метки. Рамка принадлежит паспорту; подложка не
+        повторяется вокруг каждой вложенной группы.
+      </p>
+      <DocumentList
+        documents={referenceDocuments.filter((document) => document.id === 'technical-overview-ru')}
+        lang="ru"
+        title="Технический обзор"
+      />
+    </MacroSection>
+    <MacroSection
+      id="system-16"
+      kind="action"
+      field="label"
+      contained={false}
+      family="D"
+      section={16}
+      lang="ru"
+      label="Действие"
+      title="Действие: понятный следующий шаг"
+    >
+      <p>
+        Контакт завершает рассказ и сохраняет его контекст. Кнопка не оформляется как самостоятельная карточка
+        произведения.
+      </p>
+      <CalloutLink href="/ru/contact/">Обсудить проект со студией</CalloutLink>
+    </MacroSection>
     <section class="section" id="dev-workspace-specimen">
       <h2>DEV · редакционная среда</h2>
       <DevNote id="dev-specimen-note" lang="ru" block="design-example">

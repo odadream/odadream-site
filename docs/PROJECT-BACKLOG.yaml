@@ -1076,7 +1076,7 @@ items:
     title: Определить функциональные макроблоки и матрицу страниц
     area: design_system
     priority: P1
-    status: planned
+    status: done
     outcome: Варианты вступления, каталога, рассказа, процесса, паспорта и действия выбираются по
       назначению контента.
     acceptance:
@@ -1089,6 +1089,9 @@ items:
     depends_on:
       - DESIGN-UX-AUDIT-01
     source: docs/DESIGN-AUDIT-PLAN.md
+    notes: "2026-10-11: матрица и MacroSection реализованы в D.12–D.16; 90 unit и 135 E2E прошли,
+      19 пропусков — мобильные повторы явных viewport-матриц. DA-02 имеет работающий образец,
+      публичное распространение остаётся в пилоте/rollout. Авторская приёмка не получена."
   - id: DESIGN-UX-PROFILE-01
     title: Согласовать семантические ряды и владение CSS
     area: design_system

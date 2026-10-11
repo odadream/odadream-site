@@ -54,7 +54,12 @@ for (const width of [360, 797, 1529, 1920]) {
           const r = rect(e),
             first = e.firstElementChild;
           if (first) same(rect(first).left, r.left, 'material axis');
-          same(r.left, rect(document.querySelector('.footer-links')!).left, 'footer / material axis');
+          const wide = e.parentElement?.matches('.macro-section[data-layout="wide"]');
+          same(
+            r.left,
+            wide ? shell.left : rect(document.querySelector('.footer-links')!).left,
+            'material axis by layout',
+          );
         });
         document.querySelectorAll('.work-main').forEach((e) => {
           same(rect(e).left, rect(document.querySelector('.footer-links')!).left, 'work / footer axis');

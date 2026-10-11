@@ -75,3 +75,7 @@ VideoPreview (2026-10-07) shares first-frame stills and one controller across he
 `CaseRow` и `case-presentation.ts` задают общий вид хронологии и смысл даты/статуса. Раздел 7 показывает учебное участие и отклонённую заявку из тех же данных, что страница событий. Галерея внутри краткого события использует общий MediaGallery; вложенная строка не создаёт ещё одну боковую колонку для метаданных.
 
 Programme: модули используют EditorialSections на подробных страницах и в разделе 11 стенда. ProgrammeCard показывает тип и отдельно proposed. Содержательное описание (`documented`) и проведение в CaseEvent — разные признаки; семейство E, ссылки и сетка общие.
+
+## Macroblock revision · 2026-10-11
+
+The shared MacroSection component defines catalogue, editorial, process, document and action roles, with folio/label/no-field layouts. DEV specimens D.12–D.16 use canonical content and existing cards/documents; only process receives a shared surface. On mobile the address precedes the heading and reference material follows the main content. Empty reference slots create no reference-data wrapper; empty fields are hidden on mobile. The page-family matrix and API are in DESIGN-GUIDE.md. Public-page rollout and the typography/rhythm revision remain separate backlog stages; these specimens are not owner acceptance.
