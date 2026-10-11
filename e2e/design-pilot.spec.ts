@@ -200,3 +200,46 @@ test('programme fallback preserves complete long titles and natural flow', async
     ).toBe(true);
   }
 });
+
+test('contextual notes have a distinct italic face while metadata stays upright', async ({
+  page,
+  isMobile,
+}) => {
+  test.skip(isMobile, 'Explicit mobile/tablet/desktop widths run once.');
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  for (const lang of ['ru', 'en']) {
+    await page.goto('/' + lang + '/cooperation/', { waitUntil: 'domcontentloaded' });
+    await page.evaluate(() => document.fonts.ready);
+    await expect(page.locator('#project-brief .section-rail__folio')).toHaveText('05');
+    for (const width of [390, 797, 1440])
+      for (const theme of ['light', 'dark']) {
+        await page.setViewportSize({ width, height: 932 });
+        const errors = await page.evaluate(async (theme) => {
+          document.documentElement.dataset.theme = theme;
+          await new Promise<void>((r) => requestAnimationFrame(() => requestAnimationFrame(() => r())));
+          const errors: string[] = [];
+          const notes = [...document.querySelectorAll<HTMLElement>('.reading-note')];
+          if (notes.length < 2) errors.push('missing reading notes');
+          for (const note of notes) {
+            const style = getComputedStyle(note);
+            if (
+              style.fontStyle !== 'italic' ||
+              parseFloat(style.fontSize) !== 12 ||
+              Math.abs(parseFloat(style.lineHeight) - 19.2) > 0.1
+            )
+              errors.push('note role');
+            if (!document.fonts.check(style.font, note.textContent!)) errors.push('italic font not loaded');
+            const previous = note.previousElementSibling!;
+            if (note.getBoundingClientRect().top - previous.getBoundingClientRect().bottom < 15)
+              errors.push('note separation');
+            if (note.getBoundingClientRect().right > innerWidth) errors.push('note overflow');
+          }
+          document.querySelectorAll('.small-note:not(.reading-note), .meta').forEach((note) => {
+            if (getComputedStyle(note).fontStyle !== 'normal') errors.push('metadata became italic');
+          });
+          return errors;
+        }, theme);
+        expect(errors, lang + ' ' + theme + ' ' + width).toEqual([]);
+      }
+  }
+});

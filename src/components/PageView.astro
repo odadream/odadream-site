@@ -13,6 +13,7 @@ import ProgrammeCard from './ProgrammeCard.astro';
 import ParticipationPanel from './ParticipationPanel.astro';
 import RecognitionCard from './RecognitionCard.astro';
 import MacroSection from './MacroSection.astro';
+import ReadingNote from './ReadingNote.astro';
 import ProcessSteps from './ProcessSteps.astro';
 import SectionRail from './SectionRail.astro';
 import RecordStamp from './RecordStamp.astro';
@@ -1002,7 +1003,7 @@ const timeline = [...cases]
               <div>
                 <h3>{item.title[lang]}</h3>
                 <p>{item.body[lang]}</p>
-                <p class="small-note">{item.request[lang]}</p>
+                <ReadingNote>{item.request[lang]}</ReadingNote>
                 <div class="link-row">
                   {item.configurationIds.map((id) => (
                     <CalloutLink href={configurationUrl(lang, id)}>
@@ -1093,7 +1094,7 @@ const timeline = [...cases]
     <MacroSection
       id="project-brief"
       kind="action"
-      field="label"
+      field={cooperation ? 'folio' : 'label'}
       family={family}
       section={cooperation ? 5 : 1}
       lang={lang}
@@ -1107,11 +1108,11 @@ const timeline = [...cases]
           ))}
         </ul>
       )}
-      <p class="small-note">
+      <ReadingNote>
         {ru
           ? 'Если часть условий пока неизвестна, обозначьте это в первом сообщении — уточним их вместе.'
           : 'If some conditions are not yet known, mention this in your first message — we will clarify them together.'}
-      </p>
+      </ReadingNote>
       <a class="button primary" href={`/${lang}/contact/`}>
         {ru ? 'Написать нам' : 'Write to us'}
       </a>

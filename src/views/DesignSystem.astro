@@ -14,6 +14,7 @@ import RecognitionCard from '../components/RecognitionCard.astro';
 import StatisticsStamp from '../components/StatisticsStamp.astro';
 import MindDBStamp from '../components/MindDBStamp.astro';
 import SectionRail from '../components/SectionRail.astro';
+import ReadingNote from '../components/ReadingNote.astro';
 import ProcessSteps from '../components/ProcessSteps.astro';
 import MacroSection from '../components/MacroSection.astro';
 import RecordStamp from '../components/RecordStamp.astro';
@@ -102,6 +103,8 @@ const profileTokens = [
   ['--type-summary', 'Общее краткое описание Work/Programme/Case'],
   ['--type-claim', 'Предмет признания, отдельно от реквизитов'],
   ['--type-metadata', 'Дата, тип и подпись поля'],
+  ['--type-note', 'Размер пояснения и вспомогательной подписи'],
+  ['--font-style-note', 'Курсив поясняющего ReadingNote; подписи остаются прямыми'],
   ['--programme-tile-min', 'Минимальная ширина образовательного предложения'],
   ['--recognition-tile-min', 'Минимальная ширина предмета признания'],
   ['--recognition-preview-ratio', 'Кадр выбора документа; лист вписан целиком'],
@@ -967,7 +970,7 @@ const profileTokens = [
         <div>
           <h3>{cooperationPages[0].scenarios[0].title.ru}</h3>
           <p>{cooperationPages[0].scenarios[0].body.ru}</p>
-          <p>{cooperationPages[0].scenarios[0].request.ru}</p>
+          <ReadingNote>{cooperationPages[0].scenarios[0].request.ru}</ReadingNote>
         </div>
       </article>
     </MacroSection>

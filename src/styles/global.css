@@ -1741,3 +1741,8 @@ figcaption {
 .media-details .media-register {
   margin-top: var(--s2);
 }
+
+.reading-note,
+.list-row p.reading-note {
+  margin-block-start: var(--gap-copy);
+}

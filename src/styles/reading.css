@@ -379,3 +379,9 @@ figcaption {
   line-height: var(--leading-metadata);
   color: var(--muted);
 }
+
+.reading-note {
+  font-family: var(--mono);
+  font-style: var(--font-style-note);
+  font-weight: 400;
+}
