@@ -11,7 +11,7 @@
   align-items: start;
 }
 .system-intro h1 {
-  max-width: 20ch;
+  max-width: var(--measure-record-title);
 }
 .system-intro .lead {
   margin-top: var(--gap-copy);
@@ -56,7 +56,6 @@
   line-height: 1.6;
 }
 .system-section {
-  padding-block: var(--section-space);
   align-items: start;
   scroll-margin-top: var(--anchor-offset);
 }
@@ -70,12 +69,12 @@
   content: '';
   position: absolute;
   z-index: -1;
-  inset: 0 calc(-1 * var(--panel-pad));
+  inset: 0 calc(-1 * var(--panel-bleed));
   background: var(--surface);
   pointer-events: none;
 }
 .system-lede {
-  max-width: 60ch;
+  max-width: var(--measure-lead);
 }
 .token-profile > summary {
   min-height: var(--tap-target);
@@ -124,7 +123,7 @@
   letter-spacing: -0.03em;
 }
 .system-theme-demo p {
-  max-width: 58ch;
+  max-width: var(--copy-measure);
   color: var(--muted);
   font-size: var(--type-annotation);
 }
@@ -280,7 +279,7 @@
   font-family: var(--sans);
   line-height: 1.12;
   letter-spacing: -0.035em;
-  max-width: 18ch;
+  max-width: var(--measure-title);
 }
 .font-proof {
   font-weight: var(--weight-heading);
@@ -366,9 +365,6 @@
 }
 .system-content .work-grid {
   gap: var(--s5);
-}
-.system-content .work-card p {
-  max-width: 50ch;
 }
 .gallery-demo {
   display: grid;

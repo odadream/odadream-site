@@ -96,6 +96,18 @@ const signalFamilies = [
 const profileTokens = [
   ['--space-unit', 'Единица пространственного ритма'],
   ['--type-scale', 'Масштаб читаемой типографики'],
+  ['--copy-measure', 'Максимальная длина строки рассказа'],
+  ['--type-body', 'Основной рассказ и смысловой список'],
+  ['--type-summary', 'Общее краткое описание Work/Programme/Case'],
+  ['--type-claim', 'Предмет признания, отдельно от реквизитов'],
+  ['--type-metadata', 'Дата, тип и подпись поля'],
+  ['--programme-tile-min', 'Минимальная ширина образовательного предложения'],
+  ['--recognition-tile-min', 'Минимальная ширина предмета признания'],
+  ['--leading-body', 'Межстрочный интервал рассказа'],
+  ['--leading-summary', 'Межстрочный интервал краткого описания'],
+  ['--leading-metadata', 'Межстрочный интервал метаданных'],
+  ['--gap-component', 'Интервал между блоками внутри раздела'],
+  ['--section-space', 'Однократный интервал перед следующей главой'],
   ['--grid-rail', 'Поле документа'],
   ['--grid-gap', 'Расстояние между полем и материалом'],
   ['--page-inset', 'Общая внешняя ось, включая полноширинное видео'],
@@ -261,12 +273,21 @@ const profileTokens = [
           </p>
         </div>
         <div class="type-row">
+          <span class="eyebrow">SUMMARY / WORK + PROGRAMME</span>
+          <p class="copy-summary">{programmes[0].summary.ru}</p>
+        </div>
+        <div class="type-row">
+          <span class="eyebrow">CLAIM / ПРЕДМЕТ ПРИЗНАНИЯ</span>
+          <p class="copy-claim">{recognitions[0].claim.ru}</p>
+        </div>
+        <div class="type-row">
           <span class="eyebrow">CYRILLIC + LATIN PROOF</span>
           <p class="font-proof">Ёж, Йога, Щука, ъ ь ы э ю я / ODA.dream · 2019–2026 · EEG → image</p>
         </div>
         <p class="small-note">
-          Кегли страницы: 32–48 px; секции: 26–42 px; основной текст: 15–16 px; метаданные: 11–12 px.
-          Межбуквенный интервал применяется к метаданным, не к абзацам.
+          Кегли страницы: 32–48 px; секции: 26–42 px; рассказ: 16 px (14 px на телефоне); краткое описание и
+          предмет признания: 14 px; пояснение: 12 px; метаданные: 11 px. Межбуквенный интервал применяется к
+          метаданным, не к абзацам.
         </p>
       </div>
     </section>
@@ -1028,9 +1049,10 @@ const profileTokens = [
       });
     };
     updateTokenReadouts();
+    window.addEventListener('resize', updateTokenReadouts);
     new MutationObserver(updateTokenReadouts).observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ['data-theme'],
+      attributeFilter: ['data-theme', 'class', 'style'],
     });
     document
       .querySelector('[data-design-lightbox]')

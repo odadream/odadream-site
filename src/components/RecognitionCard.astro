@@ -69,7 +69,7 @@ const kindLabels: Record<RecognitionKind, Record<Lang, string>> = {
   <div>
     <h3>{item.title[lang]}</h3>
     <p>{item.issuer[lang]}</p>
-    <p>{item.claim[lang]}</p>
+    <p class="recognition-card__claim">{item.claim[lang]}</p>
     <p class="small-note">
       {lang === 'ru' ? 'Адресат' : 'Recipient'}: {item.recipient[lang]}
     </p>

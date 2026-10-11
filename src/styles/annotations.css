@@ -26,9 +26,6 @@
   position: absolute;
   inset: 0 auto auto 0;
   color: var(--folio-fill);
-  font: var(--weight-folio) var(--type-folio)/0.9 var(--sans);
-  letter-spacing: -0.045em;
-  font-variant-numeric: tabular-nums;
   pointer-events: none;
   user-select: none;
 }
@@ -40,8 +37,6 @@
   transform: rotate(180deg);
   padding: 0;
   margin: 0;
-  font-size: var(--type-annotation);
-  letter-spacing: 0.04em;
 }
 .section-rail__data {
   margin-block: var(--s4);
@@ -49,12 +44,9 @@
 .section-rail__note {
   display: flex;
   gap: var(--s3);
-  max-width: 29ch;
   margin-top: auto;
   padding-block: var(--s7) var(--s5);
-  font: 400 var(--type-note)/1.7 var(--mono);
   color: var(--muted);
-  text-wrap: pretty;
 }
 .section-rail__note > .technical-mark {
   flex: none;
@@ -71,7 +63,6 @@
   display: block;
   margin-bottom: var(--s3);
   color: var(--section-accent);
-  font-size: var(--type-annotation);
 }
 .method-steps--linked > p:not(:last-child)::after {
   content: '→';
@@ -95,10 +86,7 @@
   gap: var(--s2);
   padding: var(--s3);
   border-bottom: var(--annotation-rule) solid var(--line);
-  font-size: var(--type-annotation);
   color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 .record-stamp__title > .technical-mark {
   color: var(--muted);
@@ -117,20 +105,12 @@
   background: var(--stamp-surface);
 }
 .record-stamp dt {
-  font-size: var(--type-annotation);
   color: var(--muted);
-  line-height: 1.5;
 }
 .record-stamp dd {
   margin: var(--s2) 0 0;
-  font-size: var(--type-note);
-  line-height: 1.6;
   color: var(--ink);
   overflow-wrap: anywhere;
-  font-variant-numeric: tabular-nums;
-}
-.record-stamp dd.record-stamp__metric {
-  font: 500 var(--type-metric)/1.2 var(--sans);
 }
 /* Reference data belongs to the background, not the artwork's display scale. */
 .record-stamp--reference {
@@ -144,9 +124,6 @@
 .record-stamp--reference .record-stamp__title > .technical-mark,
 .record-stamp--reference .record-stamp__more {
   color: var(--reference-ink);
-}
-.record-stamp--reference dd.record-stamp__metric {
-  font: 400 var(--type-stat)/1.35 var(--mono);
 }
 .record-stamp--reference .record-stamp__more > summary:hover {
   color: var(--ink);
@@ -170,8 +147,6 @@
   margin: 0;
   padding: var(--s3);
   border-top: var(--annotation-rule) solid var(--line);
-  font-size: var(--type-annotation);
-  line-height: 1.7;
   color: var(--muted);
 }
 .record-stamp__more {
@@ -181,7 +156,6 @@
   min-height: var(--tap-target);
   padding: var(--s3);
   cursor: pointer;
-  font-size: var(--type-annotation);
 }
 .record-stamp__more[open] > summary {
   border-bottom: var(--annotation-rule) solid var(--line);
@@ -198,7 +172,6 @@
   border: 0;
   background: none;
   color: var(--ink);
-  font: inherit;
   cursor: pointer;
   text-align: start;
 }
@@ -213,7 +186,6 @@
   color: var(--ink);
   background: var(--bg);
   border: 1px solid var(--line);
-  font: inherit;
 }
 .media-register {
   display: flex;
@@ -222,10 +194,7 @@
   gap: var(--s1) var(--s4);
   padding-block: var(--s2);
   color: var(--muted);
-  font-size: var(--type-annotation);
-  line-height: 1.5;
   overflow-wrap: anywhere;
-  font-variant-numeric: tabular-nums;
 }
 .media-register__id {
   display: inline-flex;

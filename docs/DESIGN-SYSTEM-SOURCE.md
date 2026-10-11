@@ -79,3 +79,7 @@ Programme: модули используют EditorialSections на подроб
 ## Macroblock revision · 2026-10-11
 
 The shared MacroSection component defines catalogue, editorial, process, document and action roles, with folio/label/no-field layouts. DEV specimens D.12–D.16 use canonical content and existing cards/documents; only process receives a shared surface. On mobile the address precedes the heading and reference material follows the main content. Empty reference slots create no reference-data wrapper; empty fields are hidden on mobile. The page-family matrix and API are in DESIGN-GUIDE.md. Public-page rollout and the typography/rhythm revision remain separate backlog stages; these specimens are not owner acceptance.
+
+## Reading profile · 2026-10-11
+
+Shared typography and reading measures are owned by reading.css, imported after tokens/annotation geometry. Work/Programme/Case summaries use one role; long narratives and lists use body; recognition claims use a distinct readable role above their metadata. Section spacing is applied once, with a separate closing interval and no repeated nested panel padding. The specimen exposes the new parameters and real summary/claim samples in D.02. Minimum Programme/Recognition widths scale with type-scale; the remaining WorkGrid gap exception is tracked for the pilot. Ownership-only extraction was verified separately before changing values.
