@@ -211,7 +211,13 @@ test('page codes expose localized names and participation headings scale with th
       await page.evaluate(() => document.fonts.ready);
       await page.setViewportSize({ width, height: 932 });
       await expect(
-        page.getByRole('img', {
+        page.locator('main').getByRole('img', {
+          name: lang === 'ru' ? 'Страница C, раздел 01' : 'Page C, section 01',
+          exact: true,
+        }),
+      ).toHaveCount(1);
+      await expect(
+        page.locator('.page-outline').getByRole('img', {
           name: lang === 'ru' ? 'Страница C, раздел 01' : 'Page C, section 01',
           exact: true,
         }),

@@ -214,6 +214,10 @@ const progress = { ru: editorialProgress(registry, 'ru'), en: editorialProgress(
       url.searchParams.set('lang', lang);
       history.replaceState(null, '', url);
     }
+    // DEV routes use the static page contract; restore the interactive selection from the actual URL.
+    const language = filters.elements.namedItem('language') as HTMLSelectElement;
+    const requestedLanguage = new URL(location.href).searchParams.get('lang');
+    if (requestedLanguage === 'en' || requestedLanguage === 'ru') language.value = requestedLanguage;
     filters.addEventListener('input', update);
     update();
   </script>

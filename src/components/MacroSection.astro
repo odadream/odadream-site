@@ -1,6 +1,7 @@
 ---
 import SectionRail from './SectionRail.astro';
 import PageCode from './PageCode.astro';
+import { chapterMarker } from '../lib/page-outline';
 import type { PageFamily } from '../lib/page-codes';
 import type { Lang } from '../data/site';
 interface Props {
@@ -34,6 +35,7 @@ const hasReference = Astro.slots.has('reference');
   id={id}
   class:list={['section', 'macro-section', { shell: contained, 'section-grid': field !== 'none' }]}
   data-block-kind={kind}
+  data-page-chapter={chapterMarker({ id, title, family, section })}
   data-layout={field === 'none' ? 'wide' : 'rail'}
   data-field={field}
   aria-labelledby={id + '-title'}

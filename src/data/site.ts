@@ -218,7 +218,7 @@ export interface Organization {
   source: string;
 }
 
-export type SocialPlatform = 'telegram' | 'youtube' | 'instagram' | 'dzen';
+export type SocialPlatform = 'telegram' | 'youtube' | 'instagram' | 'dzen' | 'vk';
 
 export interface SocialLink {
   id: SocialPlatform;
@@ -228,9 +228,15 @@ export interface SocialLink {
   source: string;
 }
 
-// Profile URLs recovered from the previous public site. VK remains intentionally
-// omitted until an official profile URL is confirmed (a post URL is not a profile).
+// Profile URLs recovered from the previous site and confirmed by the studio.
 export const socialLinks: SocialLink[] = [
+  {
+    id: 'vk',
+    label: 'VK',
+    href: 'https://vk.ru/odadream',
+    languages: ['ru'],
+    source: 'Owner confirmation 2026-10-12',
+  },
   {
     id: 'telegram',
     label: 'Telegram',

@@ -8,6 +8,13 @@ export default defineConfig({
   output: 'static',
   outDir: process.env.ODA_BUILD_DIR || './dist',
   devToolbar: { enabled: false },
+  vite: {
+    server: {
+      watch: {
+        ignored: ['**/.local-server/**', '**/dist/**', '**/test-results/**', '**/playwright-report/**'],
+      },
+    },
+  },
   trailingSlash: 'always',
   integrations: [
     publicationIntegration(),

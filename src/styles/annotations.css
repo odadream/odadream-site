@@ -308,3 +308,43 @@
     margin-block-start: 0;
   }
 }
+
+/* Colophon labels describe compact actions; ordinary record fields may wrap. */
+.record-stamp--colophon dl > div {
+  flex-basis: max(
+    var(--colophon-cell-min),
+    calc((100% - (var(--stamp-columns) - 1) * var(--annotation-rule)) / var(--stamp-columns))
+  );
+}
+.record-stamp--colophon dt {
+  white-space: nowrap;
+}
+.colophon-copy {
+  display: flex;
+  align-items: flex-start;
+}
+.page-outline {
+  margin-block-end: var(--gap-component);
+}
+.page-outline__title {
+  color: var(--muted);
+  margin-block-end: var(--s2);
+}
+.page-outline ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--colophon-cell-min)), 1fr));
+  gap: var(--s2) var(--s4);
+}
+.page-outline a {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s2);
+  min-height: var(--tap-target);
+  padding-block: var(--s2);
+}
+.page-outline a:hover {
+  color: var(--accent);
+}

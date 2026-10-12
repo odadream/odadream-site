@@ -1,0 +1,26 @@
+---
+import PageCode from './PageCode.astro';
+import type { PageChapter } from '../lib/page-outline';
+import type { Lang } from '../data/site';
+interface Props {
+  chapters: PageChapter[];
+  lang: Lang;
+}
+const { chapters, lang } = Astro.props;
+---
+
+{chapters.length > 0 && (
+  <nav class="page-outline" aria-label={lang === 'ru' ? 'Разделы этой страницы' : 'On this page'}>
+    <p class="page-outline__title">{lang === 'ru' ? 'На этой странице' : 'On this page'}</p>
+    <ul>
+      {chapters.map(({ id, title, family, section }) => (
+        <li>
+          <a href={'#' + id}>
+            <PageCode family={family} section={section} lang={lang} register={false} />
+            <span>{title}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}

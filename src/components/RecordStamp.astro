@@ -12,14 +12,19 @@ interface Props {
   fields: StampField[];
   wide?: boolean;
   tone?: 'document' | 'reference';
+  layout?: 'parameters' | 'colophon';
 }
-const { title, fields, wide = false, tone = 'document' } = Astro.props;
+const { title, fields, wide = false, tone = 'document', layout = 'parameters' } = Astro.props;
 ---
 
 <section
   class:list={[
     'record-stamp',
-    { 'record-stamp--wide': wide, 'record-stamp--reference': tone === 'reference' },
+    {
+      'record-stamp--wide': wide,
+      'record-stamp--reference': tone === 'reference',
+      'record-stamp--colophon': layout === 'colophon',
+    },
   ]}
   aria-label={title}
 >

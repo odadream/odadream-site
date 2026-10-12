@@ -3,6 +3,15 @@ const devOrigin = 'http://127.0.0.1:5177';
 const publicOrigin = 'http://127.0.0.1:5178';
 const isPublic = location.origin === publicOrigin;
 const ru = document.documentElement.lang !== 'en';
+const currentPath = () => location.pathname + location.search + location.hash;
+const contentLanguage = () =>
+  location.pathname === '/editorial/'
+    ? new URLSearchParams(location.search).get('lang') === 'en'
+      ? 'en'
+      : 'ru'
+    : ru
+      ? 'ru'
+      : 'en';
 const toolbar = document.createElement('nav');
 toolbar.className = 'editorial-toolbar';
 toolbar.dataset.editorialToolbar = isPublic ? 'public' : 'dev';
@@ -13,7 +22,7 @@ toolbar.append(label);
 function link(text, origin, current) {
   const a = document.createElement('a');
   a.textContent = text;
-  a.href = origin + location.pathname + location.hash;
+  a.href = origin + currentPath();
   if (current) a.setAttribute('aria-current', 'page');
   toolbar.append(a);
   return a;
@@ -21,7 +30,7 @@ function link(text, origin, current) {
 const devLink = link('DEV', devOrigin, !isPublic);
 const publicLink = link('PUBLIC', publicOrigin, isPublic);
 const registerLink = link(ru ? 'Тексты' : 'Texts', devOrigin, false);
-registerLink.href = devOrigin + '/editorial/?lang=' + (ru ? 'ru' : 'en');
+registerLink.href = devOrigin + '/editorial/?lang=' + contentLanguage();
 const output = document.createElement('output');
 output.setAttribute('aria-live', 'polite');
 const buildDetails = document.createElement('details');
@@ -35,10 +44,12 @@ refresh.type = 'button';
 refresh.dataset.editorialRefresh = '';
 refresh.textContent = ru ? 'Обновить PUBLIC' : 'Refresh PUBLIC';
 buildDetails.append(refresh);
-const style = document.createElement('link');
-style.rel = 'stylesheet';
-style.href = publicOrigin + '/__editorial/style.css';
-document.head.append(style);
+if (isPublic) {
+  const style = document.createElement('link');
+  style.rel = 'stylesheet';
+  style.href = publicOrigin + '/__editorial/style.css';
+  document.head.append(style);
+}
 document.querySelector('.site-header')?.after(toolbar);
 if (!toolbar.isConnected) document.body.prepend(toolbar);
 let state;
@@ -46,7 +57,7 @@ const openedBuild = document.querySelector('script[data-public-built-at]')?.data
 const date = (value) => new Date(value).toLocaleString(ru ? 'ru-RU' : 'en-GB');
 async function loadBuildStatus() {
   try {
-    const response = await fetch(publicOrigin + '/__editorial/status');
+    const response = await fetch(publicOrigin + '/__editorial/status', { signal: AbortSignal.timeout(4000) });
     if (!response.ok) throw new Error('Unavailable');
     state = await response.json();
     const old = isPublic && openedBuild && state.builtAt !== openedBuild;
@@ -82,20 +93,22 @@ async function loadBuildStatus() {
             : 'Build';
     refresh.disabled = state.building;
     const present = state.routes.includes(location.pathname);
-    publicLink.href = publicOrigin + (present ? location.pathname + location.hash : fallback());
+    publicLink.href = publicOrigin + (present ? currentPath() : fallback());
     publicLink.textContent = present
       ? 'PUBLIC'
       : ru
         ? 'PUBLIC · страница отсутствует → каталог'
         : 'PUBLIC · page absent → catalogue';
   } catch {
+    state = undefined;
+    buildSummary.textContent = ru ? 'PUBLIC · недоступен' : 'PUBLIC · unavailable';
     output.textContent = ru
       ? 'Сервер PUBLIC недоступен. Запусти start-local-v2.cmd.'
       : 'PUBLIC server unavailable. Run start-local-v2.cmd.';
   }
 }
 function fallback() {
-  const lang = ru ? 'ru' : 'en';
+  const lang = contentLanguage();
   const section = location.pathname.split('/')[2];
   return [
     'works',
@@ -110,10 +123,17 @@ function fallback() {
     ? '/' + lang + '/' + section + '/'
     : '/' + lang + '/';
 }
-window.addEventListener('hashchange', () => {
-  devLink.href = devOrigin + location.pathname + location.hash;
-  if (state?.routes.includes(location.pathname))
-    publicLink.href = publicOrigin + location.pathname + location.hash;
+function updateLinks() {
+  devLink.href = devOrigin + currentPath();
+  registerLink.href = devOrigin + '/editorial/?lang=' + contentLanguage();
+  if (state)
+    publicLink.href = publicOrigin + (state.routes.includes(location.pathname) ? currentPath() : fallback());
+}
+window.addEventListener('hashchange', updateLinks);
+window.addEventListener('popstate', updateLinks);
+document.addEventListener('change', (event) => {
+  if (event.target instanceof Element && event.target.matches('.editorial-filters [name="language"]'))
+    updateLinks();
 });
 publicLink.addEventListener('click', (event) => {
   if (!state?.ready) {

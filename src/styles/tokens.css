@@ -199,6 +199,8 @@
   --macro-surface-process: var(--surface);
   --stamp-columns: 2;
   --stamp-wide-columns: 4;
+  --colophon-cell-min: calc(15rem * var(--type-scale));
+  --header-row-height: 72px;
 }
 
 :root[data-section='works'] {
@@ -307,7 +309,7 @@
 @media (max-width: 700px) {
   :root {
     --stamp-wide-columns: 2;
-    --header-height: 72px;
+    --header-height: calc(var(--header-row-height) + var(--tap-target));
     --type-hero-intro: clamp(
       calc(24px * var(--type-scale)),
       calc(6vw * var(--type-scale)),

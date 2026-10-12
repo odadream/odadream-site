@@ -1,4 +1,4 @@
-import { readdir, unlink } from 'node:fs/promises';
+import { readFile, readdir, unlink } from 'node:fs/promises';
 import { resolve, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadSiteModule } from './site-data.mjs';
@@ -35,6 +35,27 @@ export default function publicationIntegration() {
         }
       },
       'astro:server:setup': ({ server }) => {
+        server.middlewares.use('/__editorial/client.js', async (req, res) => {
+          if (
+            req.headers.host !== '127.0.0.1:5177' ||
+            (req.headers.origin && req.headers.origin !== 'http://127.0.0.1:5177')
+          ) {
+            res.writeHead(403).end();
+            return;
+          }
+          if (!['GET', 'HEAD'].includes(req.method)) {
+            res.writeHead(405).end();
+            return;
+          }
+          res.setHeader('Content-Type', 'text/javascript; charset=utf-8');
+          res.setHeader('Cache-Control', 'no-store');
+          res.setHeader('X-Content-Type-Options', 'nosniff');
+          res.end(
+            req.method === 'HEAD'
+              ? ''
+              : await readFile(new URL('./editorial-client.js', import.meta.url), 'utf8'),
+          );
+        });
         server.middlewares.use('/__editorial/identity', (req, res) => {
           if (req.headers.host !== '127.0.0.1:5177' || req.headers.origin) {
             res.writeHead(403).end();

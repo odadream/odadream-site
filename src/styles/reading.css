@@ -386,3 +386,11 @@ figcaption {
 .process-flow {
   font-size: var(--type-summary);
 }
+
+.header-section,
+.page-outline a {
+  font-size: var(--type-note);
+}
+.page-outline__title {
+  font-size: var(--type-metadata);
+}

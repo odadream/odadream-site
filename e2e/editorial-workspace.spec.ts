@@ -79,3 +79,45 @@ test('catalogue filters canonical units and language statuses without claiming i
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   }
 });
+
+test('DEV access survives unavailable PUBLIC without requesting its script or stylesheet', async ({
+  page,
+  request,
+}) => {
+  const externalAssets: string[] = [];
+  page.on('request', (req) => {
+    if (req.url().startsWith(publicOrigin) && /client.js|style.css/.test(req.url()))
+      externalAssets.push(req.url());
+  });
+  await page.route(publicOrigin + '/**', (route) => route.abort());
+  await page.goto('/en/cooperation/#production-overview');
+  await expect(page.locator('[data-editorial-toolbar="dev"]')).toBeVisible();
+  await expect(page.locator('[data-editorial-toolbar] summary')).toContainText('unavailable');
+  await page.locator('[data-editorial-toolbar] summary').click();
+  await expect(page.locator('[data-editorial-toolbar] output')).toContainText('start-local-v2.cmd');
+  await expect(page.locator('[data-editorial-toolbar] a').filter({ hasText: /^Texts$/ })).toHaveAttribute(
+    'href',
+    'http://127.0.0.1:5177/editorial/?lang=en',
+  );
+  await expect(page.locator('[data-editorial-toolbar] a').filter({ hasText: /^DEV$/ })).toHaveAttribute(
+    'href',
+    'http://127.0.0.1:5177/en/cooperation/#production-overview',
+  );
+  expect(externalAssets).toEqual([]);
+  await page.goto('/editorial/?lang=en#review-home-intro');
+  const devLink = page.locator('[data-editorial-toolbar] a').filter({ hasText: /^DEV$/ });
+  await expect(devLink).toHaveAttribute('href', 'http://127.0.0.1:5177/editorial/?lang=en#review-home-intro');
+  await devLink.click();
+  await expect(page).toHaveURL('http://127.0.0.1:5177/editorial/?lang=en#review-home-intro');
+  await expect(page.locator('select[name=language]')).toHaveValue('en');
+  await page.locator('select[name=language]').selectOption('ru');
+  await expect(devLink).toHaveAttribute('href', 'http://127.0.0.1:5177/editorial/?lang=ru#review-home-intro');
+  await expect(page.locator('[data-editorial-toolbar] a').filter({ hasText: /^Тексты$/ })).toHaveAttribute(
+    'href',
+    'http://127.0.0.1:5177/editorial/?lang=ru',
+  );
+  const blocked = await request.get('http://127.0.0.1:5177/__editorial/client.js', {
+    headers: { Origin: 'https://example.com' },
+  });
+  expect(blocked.status()).toBe(403);
+});

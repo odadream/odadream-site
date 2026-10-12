@@ -23,6 +23,8 @@ import '../styles/editorial.css';
 import AnalyticsConsent from '../components/AnalyticsConsent.astro';
 import TechnicalMark from '../components/TechnicalMark.astro';
 import PageCode from '../components/PageCode.astro';
+import PageOutline from '../components/PageOutline.astro';
+import { pageChapters } from '../lib/page-outline';
 import lastmod from '../data/lastmod.json';
 import astroPackage from 'astro/package.json';
 interface Props {
@@ -45,6 +47,10 @@ const navRoot =
         ? 'education'
         : page.kind;
 const pageSection = page.family === 'D' ? 'design' : navRoot;
+const currentSection = nav.find((item) => item.route === pageSection);
+const sectionLabel = currentSection?.label ?? (page.lang === 'ru' ? 'Система' : 'System');
+const contentHtml = await Astro.slots.render('default');
+const chapters = pageChapters(contentHtml);
 const contentDate = lastmod[page.path as keyof typeof lastmod];
 const record =
   page.kind === 'work'
@@ -198,6 +204,7 @@ const breadcrumbSchema =
     )}
   </head>
   <body>
+    <div id="top" class="page-top" aria-hidden="true"></div>
     <a class="skip-link" href="#main">
       {page.lang === 'en' ? 'Skip to content' : 'К содержимому'}
     </a>
@@ -209,6 +216,14 @@ const breadcrumbSchema =
           aria-label={page.lang === 'ru' ? 'ODA.dream — главная' : 'ODA.dream — home'}
         >
           <img src="/brand/oda-logo.svg" alt="ODA.dream" width="112" height="52" />
+        </a>
+        <a
+          class="header-section"
+          href="#top"
+          aria-label={page.lang === 'ru' ? sectionLabel + ' — наверх' : sectionLabel + ' — back to top'}
+        >
+          <PageCode family={currentSection?.family ?? page.family} lang={page.lang} register={false} />
+          <span>{sectionLabel}</span>
         </a>
         <button
           class="menu-toggle"
@@ -263,9 +278,7 @@ const breadcrumbSchema =
         )}
       </div>
     </header>
-    {import.meta.env.DEV && (
-      <script is:inline type="module" src="http://127.0.0.1:5178/__editorial/client.js"></script>
-    )}
+    {import.meta.env.DEV && <script is:inline type="module" src="/__editorial/client.js"></script>}
     <main id="main">
       {preview && page.family !== 'D' && (
         <DevNote id="dev-catalogue-scope" lang={page.lang}>
@@ -283,17 +296,19 @@ const breadcrumbSchema =
           lang={page.lang}
         />
       )}
-      <slot />
+      <Fragment set:html={contentHtml} />
     </main>
     <footer class="site-footer">
       {!noindex && (
         <div class="shell site-colophon">
+          <PageOutline chapters={chapters} lang={page.lang} />
           <RecordStamp
             title={page.lang === 'ru' ? 'Выходные данные' : 'Document details'}
             wide
+            layout="colophon"
             fields={[
               {
-                label: page.lang === 'ru' ? 'Обновление содержания' : 'Content updated',
+                label: page.lang === 'ru' ? 'Обновлено' : 'Updated',
                 value: contentDate || '—',
               },
               { label: page.lang === 'ru' ? 'Движок' : 'Engine', value: `Astro ${astroPackage.version}` },
@@ -301,12 +316,17 @@ const breadcrumbSchema =
           >
             <Fragment slot="fields-after">
               <div>
-                <dt>
-                  {page.lang === 'ru'
-                    ? 'Предыдущее посещение · это устройство'
-                    : 'Previous visit · this device'}
-                </dt>
-                <dd data-previous-visit>—</dd>
+                <dt>{page.lang === 'ru' ? 'Прошлое открытие' : 'Previous visit'}</dt>
+                <dd
+                  data-previous-visit
+                  title={
+                    page.lang === 'ru'
+                      ? 'Предыдущее открытие сайта в этом браузере. Хранится локально.'
+                      : 'Previous opening of this site in this browser. Stored locally.'
+                  }
+                >
+                  —
+                </dd>
               </div>
               <div>
                 <dt>{page.lang === 'ru' ? 'Ссылка на страницу' : 'Page link'}</dt>
@@ -333,7 +353,7 @@ const breadcrumbSchema =
       <div class="shell footer-inner">
         <div>
           <small class="footer-copyright">
-            © 2018–{new Date().getFullYear()}{' '}
+            © 2019–{new Date().getFullYear()}{' '}
             <span class="footer-brand">
               ODA.dream
               <sup
@@ -359,6 +379,7 @@ const breadcrumbSchema =
         >
           <a href={`/${page.lang}/contact/`}>{page.lang === 'en' ? 'Contact' : 'Контакты'}</a>
           <a href={`/${page.lang}/studio/`}>{page.lang === 'en' ? 'Studio' : 'Студия'}</a>
+          <a href="#top">{page.lang === 'ru' ? 'Наверх ↑' : 'Back to top ↑'}</a>
           {socialLinks
             .filter((item) => item.languages.includes(page.lang))
             .map((item) => (
@@ -384,6 +405,10 @@ const breadcrumbSchema =
                       <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
                       <circle cx="12" cy="12" r="4" />
                       <circle class="social-icon__dot" cx="17.7" cy="6.7" r=".8" />
+                    </svg>
+                  ) : item.id === 'vk' ? (
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="M13.16 18.7c-8.2 0-12.88-5.63-13.08-15h4.11c.14 6.88 3.17 9.8 5.57 10.4V3.7h3.87v5.94c2.37-.25 4.86-2.96 5.7-5.94h3.87c-.64 3.67-3.33 6.38-5.24 7.5 1.91.91 4.97 3.28 6.04 7.5h-4.26c-.9-2.81-3.13-4.99-6.11-5.28v5.28h-.47Z" />
                     </svg>
                   ) : (
                     <DzenIcon />

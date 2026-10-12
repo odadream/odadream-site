@@ -9,6 +9,9 @@ html {
   scroll-behavior: smooth;
   overflow-x: clip;
 }
+.page-top {
+  scroll-margin-top: 0;
+}
 body {
   margin: 0;
   background:
@@ -1758,5 +1761,62 @@ figcaption {
   }
   .process-steps--linked > li:not(:last-child)::after {
     content: '↓';
+  }
+}
+
+/* Orientation remains visible when the full navigation collapses. */
+.header-section {
+  display: none;
+}
+.header-section:hover {
+  color: var(--accent);
+}
+.social-icon[data-social-icon='vk'] svg path {
+  fill: currentColor;
+  stroke: none;
+}
+@media (max-width: 1600px) {
+  .header-section {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s2);
+    margin-left: auto;
+    min-height: var(--tap-target);
+  }
+  .menu-toggle {
+    margin-left: 0;
+  }
+}
+@media (max-width: 700px) {
+  .header-inner {
+    display: grid;
+    grid-template-columns: 94px minmax(0, 1fr) auto auto;
+    grid-template-rows: var(--header-row-height) var(--tap-target);
+    column-gap: var(--s2);
+    row-gap: 0;
+  }
+  .header-inner > .brand {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .header-inner > .menu-toggle {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+  .header-inner > .theme-toggle {
+    grid-column: 3;
+    grid-row: 1;
+  }
+  .header-inner > .language-link {
+    grid-column: 4;
+    grid-row: 1;
+  }
+  .header-section {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin: 0;
+    align-self: stretch;
+    border-top: var(--annotation-rule) solid var(--line-soft);
   }
 }

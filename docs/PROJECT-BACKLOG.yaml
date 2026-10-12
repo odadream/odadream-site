@@ -1246,7 +1246,7 @@ items:
     title: Сделать DEV/PUBLIC и реестр текстов постоянно доступными локально
     area: editorial_tooling
     priority: P0
-    status: planned
+    status: done
     scope: global_dev
     request_kind: defect
     outcome: Остановка PUBLIC не убирает DEV-панель и вход в реестр.
@@ -1260,15 +1260,13 @@ items:
     depends_on:
       - EDITORIAL-WORKSPACE-01
     source: "Авторская обратная связь 2026-10-12: главная RU, desktop; docs/SITE-PRINCIPLES.md"
-    notes: "12.10: источники панели/реестра сохранены; панель сейчас получает client.js с 5178. При проверке оба
-      локальных сервера не отвечали. Полное окружение запущено заново; это восстановление среды, устойчивость
-      компонента ещё требует правки."
+    notes: "12.10: независимый DEV-клиент, отказ PUBLIC, приватность endpoint и сохранение языка/query/якоря проверены; реестр восстанавливает фильтр из URL. Оба сервиса запущены штатно."
 
   - id: DESIGN-PAGE-NAVIGATION-02
     title: Дать текущую страницу в шапке и автоматическое оглавление внизу
     area: design_system
     priority: P1
-    status: planned
+    status: done
     scope: global
     request_kind: approved_change
     outcome: В свёрнутом меню понятно местоположение, из конца страницы доступны все её главы.
@@ -1283,12 +1281,13 @@ items:
     depends_on:
       - DESIGN-UX-ROLLOUT-01
     source: "Авторская обратная связь 2026-10-12: главная RU, desktop; docs/SITE-PRINCIPLES.md"
+    notes: "12.10: общий текущий раздел, якорь наверх и серверный PageOutline реализованы. Все 102 канонических HTML имеют оглавление; без JS работает. Авторская приёмка отдельно."
 
   - id: DESIGN-COLOPHON-GEOMETRY-02
     title: Согласовать строки и действия выходных данных
     area: design_system
     priority: P1
-    status: planned
+    status: done
     scope: global
     request_kind: defect
     outcome: Подписи помещаются в одну строку, текст действия выровнен со значениями соседних полей.
@@ -1303,12 +1302,13 @@ items:
     depends_on:
       - DESIGN-CONTENT-LAYOUT-01
     source: "Авторская обратная связь 2026-10-12: главная RU, desktop; docs/SITE-PRINCIPLES.md"
+    notes: "12.10: layout=colophon, минимальная ширина ячейки и верхний трек копирования проверены на RU/EN, темах и type-scale 1/1.125; ручной адрес при отказе clipboard сохранён."
 
   - id: DESIGN-FOOTER-02
     title: Добавить VK, начало 2019 и переход наверх в общий футер
     area: design_system
     priority: P1
-    status: planned
+    status: done
     scope: global
     request_kind: approved_change
     outcome: Служебный футер содержит подтверждённый VK-профиль RU и верный диапазон лет.
@@ -1323,6 +1323,7 @@ items:
       - DESIGN-FOOTER-01
       - DESIGN-PAGE-NAVIGATION-02
     source: "Авторская обратная связь 2026-10-12: главная RU, desktop; docs/SITE-PRINCIPLES.md"
+    notes: "12.10: VK только RU из общего реестра, © 2019–текущий год и Наверх реализованы; проверены в общих шаблонах и контактах."
 
   - id: VIDEO-PREVIEW-RESUME-02
     title: Останавливать и продолжать превью с сохранённого кадра
