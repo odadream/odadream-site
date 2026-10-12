@@ -1,5 +1,7 @@
 # V2 quality baseline — 2026-09-22
 
+Исторические лабораторные измерения с указанной ниже датой; не описание текущих блокировок выпуска. Актуальная проверка — отчёт verify/full/release, статусы — PROJECT-BACKLOG.yaml.
+
 Audit note — 2026-09-24: the code-level audit added lazy hero video/poster attachment and moved the legacy redirect catalogue to `/legacy-map.json`. The metrics below predate these changes and are not evidence of their performance impact. A repeatable desktop/mobile measurement is tracked as `PERF-01`; do not replace this baseline until that run is complete.
 
 Current verification on 2026-09-24: 8 unit tests, content check, Astro check, static build verification, and 32 Playwright scenarios passed; 4 duplicate mobile viewport-matrix cases were intentionally skipped. The geometry matrix covered all 38 localized routes and the design stand at 360/797/1529/1920 px. Its image/video requests are blocked so the test measures layout axes without exhausting the local browser; other Playwright scenarios exercise media and document previews. This is a functional check, not a new Lighthouse measurement.

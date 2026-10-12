@@ -1,5 +1,7 @@
 # ODA.dream V5 → V2 design-system contract
 
+Provenance of the approved V5 reference. Current component semantics belong to DESIGN-GUIDE.md and token roles to DESIGN-TOKENS.md; task status belongs to PROJECT-BACKLOG.yaml. Do not append implementation logs here.
+
 Approved reference: `c82a7c7:design-lab/oda-v5-prototype/design-system.html` and its `style.css`. The V5 reference remains frozen in Git. The active, noindex specimen is `/design-system/` in this branch.
 
 The site and specimen both import `src/styles/global.css`, which imports the single semantic token source `src/styles/tokens.css`. The specimen adds `src/styles/design-system.css` only for its documentation layout. It uses the same `WorkCard`, `ProgrammeCard`, `ParticipationPanel`, `MediaFigure`, `VideoPreview`, navigation shell, links, buttons and statuses as public pages; it does not define a competing palette.
@@ -64,7 +66,7 @@ EvidenceNote показывает поддерживаемое утвержде�
 Уточнение 2026-10-06: правила текстовых строк, списков, оптической привязки метки и заполнения паспортов описаны в DESIGN-GUIDE.md; живые примеры — разделы 03 и 11 стенда. `e2e/content-layout.spec.ts` проверяет внутреннюю ширину строк, заполнение каждой строки паспорта, интервалы списков и положение меток, включая 908 px, RU/EN и обе темы. Стенд и сайт используют общий вертикальный ритм содержания. Меню сворачивается до 1200 px включительно, независимо от порогов сетки материала.
 
 
-VideoPreview (2026-10-07) shares first-frame stills and one controller across hero, work cards and the specimen. Fine-pointer desktop uses hover/keyboard focus; touch uses the single candidate nearest the viewport centre and overlapping its central 30%. Leaving the active region resets to the still. Sources load only on activation; hidden tabs, pagehide, reduced motion and Save-Data stop playback. Delayed play promises cannot revive an inactive preview. Carousel navigation is manual; full MediaFigure players retain explicit controls.
+The 2026-10-07 VideoPreview implementation is historical. The current pause/resume and hero-queue contract is in DESIGN-GUIDE.md, section «Видеобиблиотека и продолжение превью»; use the shared runtime components.
 
 2026-10-07: Education uses family E / --signal-education. The live ProgrammeCard (documented lecture and proposed laboratory) and WorkConfiguration ParticipationPanel examples are in section 11. Work conditions live with the artwork; the former Formats overview only shows LegacyNotice before returning home.
 
