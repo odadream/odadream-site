@@ -5,6 +5,7 @@ import { spawn, execFileSync } from 'node:child_process';
 import { resolve, dirname, relative, delimiter } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createConnection } from 'node:net';
+import { workspaceLock } from './workspace-storage.mjs';
 
 export const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const scopedComponents = {
@@ -278,6 +279,14 @@ async function runJob([name, entry, args], folder, plan) {
   return result;
 }
 export async function runChecks(plan) {
+  const unlock = await workspaceLock(projectRoot);
+  try {
+    return await runChecksUnlocked(plan);
+  } finally {
+    await unlock();
+  }
+}
+async function runChecksUnlocked(plan) {
   const environment = await diagnose();
   if (process.env.ODA_E2E_BASE_URL)
     throw Error('Managed checks require the verified local DEV server; unset ODA_E2E_BASE_URL.');

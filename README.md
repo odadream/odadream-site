@@ -33,6 +33,23 @@ Quick supports a small explicit component allowlist. Shared styles, routes, publ
 
 The runner verifies DEV identity before browser checks, records timings/logs under `.local-server/checks/<run>/`, and builds in that run's isolated `dist`. Changing inputs/artifact during verification fails the run. A successful run copies the tested packet to the root `dist` and verifies the copy's hash before CI can upload it. Environment files contribute to the fingerprint; their contents are never printed. Run one verification at a time. Quick narrows reading samples by affected family while preserving languages, themes, widths and profile perturbations; full/release retain all samples. These commands do not push or deploy anything themselves.
 
+## Backup, restoration and storage
+
+`npm run workspace -- backup` creates a new private snapshot under `%LOCALAPPDATA%/ODA.dream/site-v2-backups/`, outside YandexDisk. An optional new destination folder may be supplied. The snapshot includes the full history of the **current branch**, tracked/untracked working files (including deletions), root `.env*`, prepared media/text cache and OCR models. A Git bundle is used because V2 is a managed worktree whose `.git` points to the neighbouring repository. SHA-256 checks detect changes during copying and verify every restored file.
+
+Backups contain private environment values and source texts: keep them in a private local folder; never publish or commit them. Other branches/tags, staging state, dependencies, temporary builds/logs and external original sources are outside this snapshot. Source paths remain recorded by the media preparation contract; retain the original YandexDisk/Golem/media-kit sources separately. Private indexes/OCR manifests retain their original absolute paths; text files are preserved, but relocating the preparation workspace requires rebinding those indexes and checking the external originals/tools. Simply rerunning preparation may reuse an OCR manifest containing the old path. Ordinary builds use the restored checked-in derivatives directly.
+
+```text
+npm run workspace -- verify ABSOLUTE_BACKUP_FOLDER
+npm run workspace -- restore ABSOLUTE_BACKUP_FOLDER NEW_ABSOLUTE_CHECKOUT_FOLDER
+```
+
+Restore refuses an existing target, clones the bundled history into an independent repository and copies the saved working state; it never resets the original checkout. In the new checkout, use Node 22.19+/24, run `npm ci`, then `npm run check`, `npm run content:check` and `npm run build`. `npm run verify:full` additionally needs the original local servers stopped: its port identity guard deliberately rejects a server from another checkout. The recovered repository's `origin` points to the local bundle, not the production remote; remote actions require separate authorization. Local backups do not protect against loss of the whole computer.
+
+The current working checkout remains on YandexDisk. Moving daily development outside synchronization is recommended if file-loss incidents recur; restore to a new local folder, validate it, then choose which checkout owns ports 5177/5178. Do not automatically move/delete the shared V1 Git repository or the existing working files.
+
+`npm run workspace -- prune-checks` previews cleanup of **only** completed `.local-server/checks/<numeric-run>/dist` packets. Add `--apply` to remove the listed packets. Keep the two latest successful packets and the latest failed packet; preserve unfinished/unknown runs, all reports/logs, private media/OCR caches and PUBLIC-server builds. Nothing is removed automatically. Backup creation, verification and cleanup share `.local-server/maintenance.lock`, preventing overlapping operations. If interrupted, inspect the recorded PID and remove that single lock file only after confirming the process has stopped.
+
 ## Task context and sources of truth
 
 Start with **AGENTS.md**, then the current task and referenced contract. Do not load all completed plans, migration JSON and this chat's history for every edit.

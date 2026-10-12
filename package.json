@@ -16,6 +16,7 @@
     "verify:full": "node scripts/checks.mjs --mode full",
     "verify:release": "node scripts/checks.mjs --mode release",
     "doctor": "node scripts/checks.mjs --doctor",
+    "workspace": "node scripts/workspace-storage.mjs",
     "task": "node scripts/task-context.mjs",
     "audit:media": "node scripts/audit-media.mjs",
     "release:check": "node scripts/release-gate.mjs",
