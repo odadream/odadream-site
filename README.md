@@ -31,7 +31,7 @@ The Windows launchers use the bundled Codex Node when available; the terminal ma
 
 Quick supports a small explicit component allowlist. Shared styles, routes, publication logic, tools and unmapped files automatically select **full**. Markdown/backlog-only changes validate metadata without building the site. A quick result is scoped evidence, not full acceptance. Both browser projects currently use **Chromium**; mobile emulation does not prove Safari compatibility.
 
-The runner verifies DEV identity before browser checks, records timings/logs under `.local-server/checks/<run>/`, and hashes inputs and `dist`. Changing inputs/artifact during verification fails the run. Environment files contribute to the fingerprint; their contents are never printed. Run one verification at a time. CI calls the same runner; release checks build/test the artifact the existing main workflow would upload. These commands do not push or deploy anything themselves.
+The runner verifies DEV identity before browser checks, records timings/logs under `.local-server/checks/<run>/`, and builds in that run's isolated `dist`. Changing inputs/artifact during verification fails the run. A successful run copies the tested packet to the root `dist` and verifies the copy's hash before CI can upload it. Environment files contribute to the fingerprint; their contents are never printed. Run one verification at a time. Quick narrows reading samples by affected family while preserving languages, themes, widths and profile perturbations; full/release retain all samples. These commands do not push or deploy anything themselves.
 
 ## Task context and sources of truth
 

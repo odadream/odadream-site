@@ -12,6 +12,14 @@ const samples = [
   { route: 'recognition/', selector: '.recognition-card__claim', role: 'claim' },
   { route: 'works/oda-rings/', selector: '.editorial-sections article > p', role: 'body' },
 ];
+// Managed quick checks limit page families, never themes, widths or profile perturbations.
+// Full/release clear the override; ordinary direct runs retain the complete matrix.
+const requestedFamilies = (process.env.ODA_E2E_READING_FAMILIES ?? '').split(',').filter(Boolean);
+for (const family of requestedFamilies)
+  if (!samples.some((sample) => sample.route === family)) throw Error('Unknown reading family: ' + family);
+const selectedSamples = requestedFamilies.length
+  ? samples.filter((sample) => requestedFamilies.includes(sample.route))
+  : samples;
 
 for (const lang of ['ru', 'en'])
   for (const theme of ['light', 'dark']) {
@@ -24,7 +32,7 @@ for (const lang of ['ru', 'en'])
       );
       for (const width of [390, 797, 1440, 1920]) {
         await page.setViewportSize({ width, height: 932 });
-        for (const sample of samples) {
+        for (const sample of selectedSamples) {
           await page.goto('/' + lang + '/' + sample.route, { waitUntil: 'domcontentloaded' });
           await page.evaluate(() => document.fonts.ready);
           for (const scale of [1, 1.125])

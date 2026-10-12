@@ -1,4 +1,4 @@
-import { readFile, readdir, mkdir, writeFile } from 'node:fs/promises';
+import { readFile, readdir, mkdir, writeFile, rm, cp, lstat } from 'node:fs/promises';
 import { createWriteStream } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { spawn, execFileSync } from 'node:child_process';
@@ -21,6 +21,12 @@ export function planChecks(files, requested = 'quick') {
   if (!['quick', 'full', 'release', 'browser'].includes(requested)) throw Error('Unknown check mode');
   const changed = [...new Set(files.map((file) => file.replaceAll('\\', '/')))].sort();
   const browsers = new Set();
+  const readingFamilies = new Set();
+  const familyByComponent = {
+    'src/components/WorkCard.astro': 'works/',
+    'src/components/ProgrammeCard.astro': 'education/',
+    'src/components/RecognitionCard.astro': 'recognition/',
+  };
   const reasons = [];
   let docsOnly = true;
   for (const file of changed) {
@@ -33,6 +39,7 @@ export function planChecks(files, requested = 'quick') {
     docsOnly = false;
     if (scopedComponents[file]) scopedComponents[file].forEach((name) => browsers.add(`e2e/${name}.spec.ts`));
     else reasons.push('Shared or unmapped change: ' + file);
+    if (familyByComponent[file]) readingFamilies.add(familyByComponent[file]);
   }
   const effective = requested === 'quick' && reasons.length ? 'full' : requested;
   return {
@@ -42,6 +49,7 @@ export function planChecks(files, requested = 'quick') {
     reasons,
     docsOnly: effective === 'quick' && docsOnly,
     browserFiles: effective === 'quick' ? [...browsers].sort() : [],
+    readingFamilies: effective === 'quick' ? [...readingFamilies].sort() : [],
   };
 }
 
@@ -76,14 +84,14 @@ export function changedFiles(since) {
 
 export async function treeFingerprint(paths) {
   const hash = createHash('sha256');
-  async function visit(file) {
+  async function visit(file, key) {
     const absolute = resolve(projectRoot, file);
     let entries;
     try {
       entries = await readdir(absolute, { withFileTypes: true });
     } catch (error) {
       if (error.code !== 'ENOTDIR') throw error;
-      hash.update(file.replaceAll('\\', '/') + '\0');
+      hash.update(key + '\0');
       hash.update(await readFile(absolute));
       hash.update('\0');
       return;
@@ -91,10 +99,11 @@ export async function treeFingerprint(paths) {
     for (const entry of entries.sort((a, b) => a.name.localeCompare(b.name))) {
       if (entry.name === '__pycache__') continue;
       if (entry.isSymbolicLink()) throw Error('Unexpected symlink in verification input: ' + file);
-      await visit(file + '/' + entry.name);
+      await visit(file + '/' + entry.name, key + '/' + entry.name);
     }
   }
-  for (const path of [...paths].sort()) await visit(path);
+  let index = 0;
+  for (const path of [...paths].sort()) await visit(path, String(index++));
   return hash.digest('hex');
 }
 const inputPaths = [
@@ -213,7 +222,7 @@ export function jobsFor(plan) {
   if (plan.effective === 'release') jobs.push(['release', 'scripts/release-gate.mjs', []]);
   return jobs;
 }
-async function runJob([name, entry, args], folder) {
+async function runJob([name, entry, args], folder, plan) {
   if (!entry)
     args = [
       '--test',
@@ -233,7 +242,8 @@ async function runJob([name, entry, args], folder) {
     env: {
       ...process.env,
       PATH: dirname(process.execPath) + delimiter + process.env.PATH,
-      ODA_BUILD_DIR: resolve(projectRoot, 'dist'),
+      ODA_BUILD_DIR: resolve(folder, 'dist'),
+      ODA_E2E_READING_FAMILIES: plan.effective === 'quick' ? plan.readingFamilies.join(',') : '',
     },
   });
   let tail = '';
@@ -272,6 +282,7 @@ export async function runChecks(plan) {
   if (process.env.ODA_E2E_BASE_URL)
     throw Error('Managed checks require the verified local DEV server; unset ODA_E2E_BASE_URL.');
   const folder = resolve(projectRoot, '.local-server/checks', String(Date.now()));
+  const buildDirectory = relative(projectRoot, resolve(folder, 'dist')).replaceAll('\\', '/');
   await mkdir(folder, { recursive: true });
   const report = {
     ...plan,
@@ -297,17 +308,34 @@ export async function runChecks(plan) {
       report.current = job[0];
       await save();
       if (job[0] === 'browser') await devIdentity();
-      const result = await runJob(job, folder);
+      const result = await runJob(job, folder, plan);
       report.jobs.push(result);
       await save();
       if (result.code !== 0) throw Error('Check failed: ' + result.name);
       if (result.name === 'artifact')
-        report.artifact = { path: 'dist', sha256: await treeFingerprint(['dist']), inputSha256: before };
+        report.artifact = {
+          path: buildDirectory,
+          sha256: await treeFingerprint([buildDirectory]),
+          inputSha256: before,
+        };
     }
     if (before && before !== (await fingerprintInputs()))
       throw Error('Inputs changed during verification; rerun before acceptance.');
-    if (report.artifact && report.artifact.sha256 !== (await treeFingerprint(['dist'])))
+    if (report.artifact && report.artifact.sha256 !== (await treeFingerprint([buildDirectory])))
       throw Error('Artifact changed during verification.');
+    if (report.artifact) {
+      const destination = resolve(projectRoot, 'dist');
+      if (relative(projectRoot, destination) !== 'dist') throw Error('Unsafe artifact destination');
+      const existing = await lstat(destination).catch((error) => {
+        if (error.code !== 'ENOENT') throw error;
+      });
+      if (existing?.isSymbolicLink()) throw Error('Refusing to replace a linked dist directory.');
+      await rm(destination, { recursive: true, force: true });
+      await cp(resolve(projectRoot, buildDirectory), destination, { recursive: true });
+      if ((await treeFingerprint(['dist'])) !== report.artifact.sha256)
+        throw Error('Installed dist does not match the verified artifact.');
+      report.installedArtifact = { path: 'dist', sha256: report.artifact.sha256 };
+    }
     report.success = true;
   } catch (error) {
     report.error = error.message;

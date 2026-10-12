@@ -4,6 +4,7 @@ import { pathToFileURL } from 'node:url';
 import YAML from 'yaml';
 import { projectRoot } from './checks.mjs';
 import { readEditorialRegister, editorialProgress, editorialStatuses } from './editorial-register.mjs';
+import { migrationStatus } from './migration-status.mjs';
 
 export const contracts = {
   maintenance: ['README.md', 'docs/MAINTENANCE-AUDIT.md'],
@@ -131,6 +132,7 @@ async function main() {
     return;
   }
   if (args.includes('--validate')) {
+    migrationStatus(backlog);
     const registry = await readEditorialRegister(resolve(projectRoot, 'docs/EDITORIAL-REGISTER.yaml'));
     for (const paths of Object.values(contracts))
       for (const path of paths) await readFile(resolve(projectRoot, path));

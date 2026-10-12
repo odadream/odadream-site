@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { access, mkdtemp, mkdir, writeFile, rm } from 'node:fs/promises';
+import { access, mkdtemp, mkdir, writeFile, rm, cp } from 'node:fs/promises';
 import { resolve, relative, sep } from 'node:path';
 import {
   planChecks,
@@ -25,6 +25,7 @@ test('shared, infrastructure and unknown changes cannot receive a narrow green r
     assert.equal(plan.effective, 'full');
     assert.equal(plan.docsOnly, false);
     assert.deepEqual(plan.browserFiles, []);
+    assert.deepEqual(plan.readingFamilies, []);
   }
 });
 test('document changes do not require a runtime matrix; explicit full/release never narrow', () => {
@@ -50,6 +51,7 @@ test('scoped coverage combines dependent tests and every selected test exists', 
   assert.ok(plan.browserFiles.includes('e2e/work-card-layout.spec.ts'));
   assert.ok(plan.browserFiles.includes('e2e/editorial-workspace.spec.ts'));
   assert.equal(new Set(plan.browserFiles).size, plan.browserFiles.length);
+  assert.deepEqual(plan.readingFamilies, ['education/', 'recognition/', 'works/']);
   for (const file of plan.browserFiles) await access(resolve(projectRoot, file));
   assert.deepEqual(
     planChecks(['src\\components\\WorkCard.astro']).browserFiles,
@@ -83,11 +85,16 @@ test('fingerprint detects nested source changes rather than relying on a build t
   await mkdir(nested);
   const file = resolve(nested, 'source.txt');
   await writeFile(file, 'first');
-  const paths = [relative(projectRoot, folder)];
+  const paths = [relative(projectRoot, nested)];
   const before = await treeFingerprint(paths);
   assert.equal(await treeFingerprint(paths), before);
   await writeFile(file, 'second');
   assert.notEqual(await treeFingerprint(paths), before);
+  const copied = resolve(folder, 'copied');
+  await cp(nested, copied, { recursive: true });
+  assert.equal(await treeFingerprint([relative(projectRoot, copied)]), await treeFingerprint(paths));
+  await rm(resolve(copied, 'source.txt'));
+  assert.notEqual(await treeFingerprint([relative(projectRoot, copied)]), await treeFingerprint(paths));
 });
 test('runtime and identity checks reject the old checkout and unsupported Node', () => {
   assert.equal(supportedNode('v22.17.0'), false);
