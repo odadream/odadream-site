@@ -23,6 +23,8 @@ Media preparation: `npm run media:prepare` refreshes compressed WebP images and 
 
 ## Product and content decisions
 
+- [MAINTENANCE-AUDIT.md](docs/MAINTENANCE-AUDIT.md): measured maintenance costs and proposed simplification order; implementation statuses remain in PROJECT-BACKLOG.yaml.
+
 - `docs/SITE-PRINCIPLES.md`: homepage as an editorial overview with drill-down paths, language-specific social links and content/visual rules.
 - `docs/PROJECT-BACKLOG.yaml`: machine-readable backlog with stable IDs, priority, status, dependencies and acceptance criteria. Update it with the principles document when scope or decisions change.
 - [EDITORIAL-PLAN.md](docs/EDITORIAL-PLAN.md): six-stage post-migration copy audit and editing workflow; task statuses and acceptance remain in PROJECT-BACKLOG.yaml.
