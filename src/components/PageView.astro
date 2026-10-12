@@ -95,115 +95,129 @@ const timeline = [...cases]
       <div
         class="feature-carousel nm-hero"
         role="group"
-        aria-label={ru ? 'Нейромандала: видео и данные коллекции' : 'Neuromandala: video and collection data'}
+        aria-label={ru ? 'Видеобиблиотека работ ODA.dream' : 'ODA.dream work video library'}
+        data-preview-trigger
         data-carousel
       >
-        {featured.map((item, i) => {
-          const image = mediaById(item.mediaId);
-          const linkedWork = item.target.kind === 'work' ? workById(item.target.workId) : undefined;
-          const caseId = item.target.kind === 'work' ? item.target.caseId : undefined;
-          const linkedCase = caseId ? cases.find((caseItem) => caseItem.id === caseId) : undefined;
-          const mediaTitle = image?.caption[lang].split(' · ')[0];
-          const mediaDetail = image?.caption[lang].split(' · ').slice(1).join(' · ');
-          return (
-            <article
-              class="nm-slide feature-slide"
-              data-slide
-              data-preview-trigger
-              data-slide-id={item.id}
-              data-media-id={item.mediaId}
-              hidden={i !== 0}
-            >
-              <div class="nm-visual">
-                {image?.previewSrc && image.poster && (
-                  <VideoPreview
-                    class="nm-background-video"
-                    src={image.previewSrc}
-                    poster={image.poster}
-                    alt={image.alt[lang]}
-                    width={image.width}
-                    height={image.height}
-                    priority={i === 0}
-                    focusable={false}
-                  />
-                )}
-                <div class="nm-scrim" aria-hidden="true"></div>
-                <div class="nm-work-caption">
-                  <div class="carousel-controls nm-carousel-controls">
-                    <span class="eyebrow">
-                      {ru ? 'КАДР' : 'FRAME'} ·{' '}
-                      <span data-carousel-position>
-                        {String(i + 1).padStart(2, '0')} / {String(featured.length).padStart(2, '0')}
+        <div class="nm-hero__field">
+          {featured.map((item, i) => {
+            const image = mediaById(item.mediaId);
+            const linkedWork = item.target.kind === 'work' ? workById(item.target.workId) : undefined;
+            const caseId = item.target.kind === 'work' ? item.target.caseId : undefined;
+            const linkedCase = caseId ? cases.find((caseItem) => caseItem.id === caseId) : undefined;
+            const mediaTitle = image?.caption[lang].split(' · ')[0];
+            const mediaDetail = image?.caption[lang].split(' · ').slice(1).join(' · ');
+            return (
+              <article
+                class="nm-slide feature-slide"
+                data-slide
+                data-slide-id={item.id}
+                data-media-id={item.mediaId}
+                hidden={i !== 0}
+              >
+                <div class="nm-visual">
+                  {image?.previewSrc && image.poster && (
+                    <VideoPreview
+                      class="nm-background-video"
+                      src={image.previewSrc}
+                      poster={image.poster}
+                      alt={image.alt[lang]}
+                      width={image.width}
+                      height={image.height}
+                      priority={i === 0}
+                      focusable={false}
+                      loop={false}
+                    />
+                  )}
+                  <div class="nm-scrim" aria-hidden="true"></div>
+                  <div class="nm-work-caption">
+                    <div class="carousel-controls nm-carousel-controls">
+                      <span class="eyebrow">
+                        {ru ? 'КАДР' : 'FRAME'} ·{' '}
+                        <span data-carousel-position>
+                          {String(i + 1).padStart(2, '0')} / {String(featured.length).padStart(2, '0')}
+                        </span>
                       </span>
-                    </span>
-                    <div>
-                      <button
-                        type="button"
-                        data-carousel-prev
-                        aria-label={ru ? 'Предыдущий кадр' : 'Previous frame'}
-                      >
-                        <TechnicalMark kind="previous" />
-                      </button>
-                      <button
-                        type="button"
-                        data-carousel-next
-                        aria-label={ru ? 'Следующий кадр' : 'Next frame'}
-                      >
-                        <TechnicalMark kind="next" />
-                      </button>
+                      <div>
+                        <button
+                          type="button"
+                          data-carousel-prev
+                          aria-label={ru ? 'Предыдущий кадр' : 'Previous frame'}
+                        >
+                          <TechnicalMark kind="previous" />
+                        </button>
+                        <button
+                          type="button"
+                          data-carousel-next
+                          aria-label={ru ? 'Следующий кадр' : 'Next frame'}
+                        >
+                          <TechnicalMark kind="next" />
+                        </button>
+                      </div>
+                    </div>
+                    <h2>{linkedWork?.title[lang] ?? mediaTitle}</h2>
+                    {linkedWork &&
+                      (linkedWork.stage !== 'realized' || image?.representation === 'render') && (
+                        <p class="nm-caption" data-hero-stage={linkedWork.stage}>
+                          {workStageLabels[linkedWork.stage][lang]}
+                          {image?.representation === 'render'
+                            ? ru
+                              ? ' · Визуализация'
+                              : ' · Visualization'
+                            : ''}
+                        </p>
+                      )}
+                    <p>
+                      {linkedCase
+                        ? `${linkedCase.title[lang]} · ${linkedCase.date.slice(0, 4)} · ${linkedCase.place[lang]}`
+                        : mediaDetail}
+                    </p>
+                    {linkedCase && <p class="nm-caption">{mediaDetail}</p>}
+                    <div class="nm-caption-link">
+                      {item.target.kind === 'work' ? (
+                        <CalloutLink
+                          href={
+                            item.target.caseId
+                              ? caseUrl(lang, item.target.caseId)
+                              : workUrl(lang, item.target.workId)
+                          }
+                        >
+                          {item.target.caseId
+                            ? ru
+                              ? 'Работа в контексте показа'
+                              : 'Work in presentation context'
+                            : ru
+                              ? 'Страница работы'
+                              : 'Work documentation'}
+                        </CalloutLink>
+                      ) : item.target.kind === 'method' ? (
+                        <CalloutLink href={`/${lang}/technology/`}>
+                          {ru ? 'Метод Нейромандалы' : 'Neuromandala method'}
+                        </CalloutLink>
+                      ) : (
+                        <span class="nm-pending-link" role="status">
+                          {ru ? 'Архивный фрагмент' : 'Archive excerpt'}
+                        </span>
+                      )}
                     </div>
                   </div>
-                  <h2>{linkedWork?.title[lang] ?? mediaTitle}</h2>
-                  <p>
-                    {linkedCase
-                      ? `${linkedCase.title[lang]} · ${linkedCase.date.slice(0, 4)} · ${linkedCase.place[lang]}`
-                      : mediaDetail}
-                  </p>
-                  {linkedCase && <p class="nm-caption">{mediaDetail}</p>}
-                  <div class="nm-caption-link">
-                    {item.target.kind === 'work' ? (
-                      <CalloutLink
-                        href={
-                          item.target.caseId
-                            ? caseUrl(lang, item.target.caseId)
-                            : workUrl(lang, item.target.workId)
-                        }
-                      >
-                        {item.target.caseId
-                          ? ru
-                            ? 'Работа в контексте показа'
-                            : 'Work in presentation context'
-                          : ru
-                            ? 'Страница работы'
-                            : 'Work documentation'}
-                      </CalloutLink>
-                    ) : item.target.kind === 'method' ? (
-                      <CalloutLink href={`/${lang}/technology/`}>
-                        {ru ? 'Метод Нейромандалы' : 'Neuromandala method'}
-                      </CalloutLink>
-                    ) : (
-                      <span class="nm-pending-link" role="status">
-                        {ru ? 'Архивный фрагмент' : 'Archive excerpt'}
-                      </span>
-                    )}
-                  </div>
                 </div>
-              </div>
-            </article>
-          );
-        })}
-        <div class="nm-heading" id="home-intro">
-          <span class="eyebrow">
-            <PageCode family="H" section={0} lang={lang} /> / {ru ? 'НЕЙРОМАНДАЛА' : 'NEUROMANDALA'}
-          </span>
-          <h1>
-            {ru ? 'Состояние человека — художественный материал.' : 'Human state as artistic material.'}
-          </h1>
-          <p>
-            {ru
-              ? 'Художественная студия создаёт партисипаторные спектакли, инсталляции и объекты, в которых человек влияет на произведение.'
-              : 'An art studio creating participatory performances, installations and objects shaped by the people who encounter them.'}
-          </p>
+              </article>
+            );
+          })}
+          <div class="nm-heading" id="home-intro">
+            <span class="eyebrow">
+              <PageCode family="H" section={0} lang={lang} /> / {ru ? 'ГЛАВНАЯ' : 'HOME'}
+            </span>
+            <h1>
+              {ru ? 'Состояние человека — художественный материал.' : 'Human state as artistic material.'}
+            </h1>
+            <p>
+              {ru
+                ? 'Художественная студия создаёт партисипаторные спектакли, инсталляции и объекты, в которых человек влияет на произведение.'
+                : 'An art studio creating participatory performances, installations and objects shaped by the people who encounter them.'}
+            </p>
+          </div>
         </div>
         {minddbSnapshot && (
           <aside
@@ -232,7 +246,7 @@ const timeline = [...cases]
     >
       <div class="work-grid">
         {selectedWorks.map((item) => (
-          <WorkCard item={item} lang={lang} />
+          <WorkCard item={item} lang={lang} presentation="overview" />
         ))}
       </div>
       <CalloutLink href={`/${lang}/works/`}>{ru ? 'Все работы' : 'All works'}</CalloutLink>

@@ -198,8 +198,8 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
     }
     const target = row.target;
     const work = works.find((item) => item.id === target.workId);
-    if (!work || work.stage !== 'realized' || (target.caseId && !caseIds.has(target.caseId))) {
-      if (!preview) errors.push(`hero ${row.id}: target is outside the realized public packet`);
+    if (!work || (target.caseId && !caseIds.has(target.caseId))) {
+      if (!preview) errors.push(`hero ${row.id}: target is outside the public packet`);
       return false;
     }
     return true;

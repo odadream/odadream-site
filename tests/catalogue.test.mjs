@@ -16,11 +16,6 @@ test('stage determines realization independently of booking and repertoire', () 
     assert.equal(data.isRealizedWork({ ...work, stage }), false);
   assert.equal(data.realizedWorks.length + data.researchWorks.length, data.works.length);
   assert.ok(data.selectedWorks.every((item) => item.featuredOnHome && data.isRealizedWork(item)));
-  assert.ok(
-    data.publicHeroVisuals.every(
-      (item) => item.target.kind !== 'work' || data.isRealizedWork(data.workById(item.target.workId)),
-    ),
-  );
 });
 
 test('route registry gives detail records paired pages and short events catalogue anchors', () => {

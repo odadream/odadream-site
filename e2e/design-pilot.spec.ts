@@ -16,7 +16,24 @@ for (const lang of ['ru', 'en'])
           await page.evaluate(() => document.fonts.ready);
           for (const width of [390, 700, 701, 797, 908, 1440, 1920])
             for (const scale of [1, 1.125]) {
-              await page.setViewportSize({ width, height: 932 });
+              // Match the full axes audit: wait for resize dispatch, not only the CDP viewport response.
+              if (page.viewportSize()?.width !== width) {
+                await page.evaluate(() => {
+                  delete document.documentElement.dataset.qaResize;
+                  window.addEventListener(
+                    'resize',
+                    () => {
+                      document.documentElement.dataset.qaResize = String(innerWidth);
+                    },
+                    { once: true },
+                  );
+                });
+                await page.setViewportSize({ width, height: 932 });
+                await page.waitForFunction(
+                  (value) => document.documentElement.dataset.qaResize === String(value),
+                  width,
+                );
+              }
               const errors = await page.evaluate(
                 async ({ theme, scale, route }) => {
                   document.documentElement.dataset.theme = theme;

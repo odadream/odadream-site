@@ -7,9 +7,20 @@ interface Props {
   height?: number;
   priority?: boolean;
   focusable?: boolean;
+  loop?: boolean;
   class?: string;
 }
-const { src, poster, alt, width, height, priority = false, focusable = true, class: className } = Astro.props;
+const {
+  src,
+  poster,
+  alt,
+  width,
+  height,
+  priority = false,
+  focusable = true,
+  loop = true,
+  class: className,
+} = Astro.props;
 ---
 
 <span class:list={['video-preview', className]} data-video-preview tabindex={focusable ? 0 : undefined}>
@@ -22,7 +33,7 @@ const { src, poster, alt, width, height, priority = false, focusable = true, cla
     decoding="async"
     fetchpriority={priority ? 'high' : 'auto'}
   />
-  <video muted playsinline loop preload="none" poster={poster} aria-hidden="true" data-preview>
+  <video muted playsinline loop={loop} preload="none" poster={poster} aria-hidden="true" data-preview>
     <source data-src={src} type="video/mp4" />
   </video>
 </span>

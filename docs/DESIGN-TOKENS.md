@@ -108,3 +108,7 @@
 ### Дополнение 12.10.2026: ориентация и выходные данные
 
 --colophon-cell-min = 15rem × --type-scale задаёт минимальную ширину ячеек RecordStamp layout=colophon и пунктов PageOutline. Это функциональная граница однострочных подписей, не размер шрифта. --header-row-height = 72px задаёт основную мобильную строку; --header-height до 700px = --header-row-height + --tap-target. Вторая строка показывает текущий раздел, общий --anchor-offset учитывает её. Отступы оглавления используют gap-component/s2/s4; типографика note/metadata и общие сигналы PageCode.
+
+### Hero · 12.10.2026
+
+Высоты hero-height/hero-height-max/hero-height-min задают минимальное визуальное поле; рост текстовых grid-треков не ограничен. Вступление использует intro-space-start/page-inset; следующая группа — gap-component, нижний край — hero-edge-space. Mobile сохраняет свой минимум hero-visual-height, справочный паспорт находится после визуального поля. has-frame управляет видимостью кадра; is-playing — только состоянием воспроизведения. Новые цветовые/шрифтовые варианты не вводятся.

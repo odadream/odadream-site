@@ -6,7 +6,9 @@ test('realized works and R&D stay distinct across the site', async ({ page }) =>
     await expect(page.locator('#selected-works .work-card')).toHaveCount(6);
     await expect(page.locator('#selected-works .work-card:not([data-work-stage="realized"])')).toHaveCount(0);
     await expect(page.locator('.feature-slide[data-slide-id="kovylina"]')).toHaveCount(0);
-    await expect(page.locator('.feature-slide[data-slide-id="cultural-code"]')).toHaveCount(0);
+    await expect(
+      page.locator('.feature-slide[data-media-id="neuromandala-cultural-code"] [data-hero-stage]'),
+    ).toHaveAttribute('data-hero-stage', 'prototype');
     await page.goto(`/${lang}/works/`);
     await expect(page.locator('#realized-works').locator('.work-card')).toHaveCount(13);
     const research = page.locator('#research-works');

@@ -536,7 +536,7 @@ items:
     title: Собрать hero из публичной видеобиблиотеки студии
     area: media_and_content
     priority: P1
-    status: planned
+    status: done
     outcome: Первое видео случайно выбирается из всей подходящей библиотеки; активное окончание ведёт к следующему
       материалу.
     acceptance:
@@ -552,9 +552,7 @@ items:
       - Первоначальная загрузка даёт только постер и необходимый активный файл; reduced-motion/Save-Data не
         запускают автоматическое движение/переключение. Проверены случайный старт, ended, повторная активация и
         смена фокуса на desktop/touch.
-    notes: Решение 12.10 заменяет прежний ограниченный отбор Нейромандалы и ручное-only переключение. Метод
-      Нейромандалы уже имеет отдельную страницу; HOME/HERO относятся к дальнейшей редакции главной, не к
-      повторной миграции источников.
+    notes: "12.10: автоматическая PUBLIC-библиотека из семи подготовленных превью, новая случайная очередь при загрузке, active-ended и ручные стрелки. Прототипы подписаны, визуальное поле отделено от мобильной справки."
     scope: home
     request_kind: approved_change
     depends_on:
@@ -1329,7 +1327,7 @@ items:
     title: Останавливать и продолжать превью с сохранённого кадра
     area: design_system
     priority: P1
-    status: planned
+    status: done
     scope: global
     request_kind: approved_change
     outcome: Видео ведёт себя как pause/resume до перезагрузки страницы.
@@ -1345,8 +1343,7 @@ items:
     depends_on:
       - VIDEO-PREVIEW-01
     source: "Авторская обратная связь 2026-10-12: главная RU, desktop; docs/SITE-PRINCIPLES.md"
-    notes: Новый контракт заменяет reset-to-first-frame из решения 07.10; предыдущая done-задача остаётся историей
-      выполненного механизма.
+    notes: "12.10: единый контроллер сохраняет декодированный кадр/source/currentTime, один активный ролик и ограничения движения. Hover/focus/touch, late play, скрытая вкладка и Save-Data/reduced-motion проверены."
 
   - id: SITE-STATS-02
     title: Считать работы, состоявшиеся события и признания по своим категориям
@@ -1468,7 +1465,7 @@ items:
     title: Исправить H / Главная и убрать бессодержательную подпись карточки
     area: design_system
     priority: P2
-    status: planned
+    status: done
     scope: home
     request_kind: approved_change
     outcome: Главная названа Главной, а пояснения медиа сообщают нужный смысл.
@@ -1482,6 +1479,7 @@ items:
     depends_on:
       - DESIGN-CARDS-01
     source: "Авторская обратная связь 2026-10-12: главная RU, desktop; docs/SITE-PRINCIPLES.md"
+    notes: "12.10: H / ГЛАВНАЯ и HOME; WorkCard presentation=overview скрывает только общее screenshot-пояснение на главной. В каталоге пояснение сохранено, h1/вступление не переписаны."
 
   - id: DESIGN-COLOPHON-CONTENT-02
     title: Выбрать полезные выходные данные и оценить агрегат посещений

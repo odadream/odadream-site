@@ -1529,8 +1529,3 @@ export const isRealizedWork = (work: Pick<Work, 'stage'>) => work.stage === 'rea
 export const realizedWorks = works.filter(isRealizedWork);
 export const researchWorks = works.filter((work) => !isRealizedWork(work));
 export const selectedWorks = realizedWorks.filter((work) => work.featuredOnHome);
-export const publicHeroVisuals = heroVisuals.filter((item) => {
-  if (item.target.kind !== 'work') return true;
-  const work = workById(item.target.workId);
-  return work !== undefined && isRealizedWork(work);
-});

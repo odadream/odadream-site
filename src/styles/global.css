@@ -564,7 +564,7 @@ figcaption {
   pointer-events: none;
   transition: opacity var(--motion-fast);
 }
-.video-preview.is-playing > video {
+.video-preview.has-frame > video {
   opacity: 1;
 }
 .work-card__meta {
@@ -1242,24 +1242,32 @@ figcaption {
   width: 100vw;
   max-width: none;
   margin-inline: calc(50% - 50vw);
-  height: min(var(--hero-height), var(--hero-height-max));
-  min-height: var(--hero-height-min);
+  height: auto;
   overflow: hidden;
   color: var(--hero-ink);
   background: var(--hero-bg);
 }
-.nm-slide,
-.nm-slide[hidden] {
-  position: absolute;
-  inset: 0;
+.nm-hero__field {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  min-height: max(var(--hero-height-min), min(var(--hero-height), var(--hero-height-max)));
+}
+.nm-slide {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: end;
+  position: static;
   z-index: 0;
+  min-width: 0;
 }
 .nm-slide[hidden] {
   display: none;
 }
 .nm-visual {
-  position: relative;
-  height: 100%;
+  position: static;
+  height: auto;
 }
 .nm-background-video {
   position: absolute;
@@ -1279,16 +1287,18 @@ figcaption {
   object-fit: cover;
 }
 .nm-scrim {
+  pointer-events: none;
   position: absolute;
   inset: 0;
   z-index: 1;
   background: var(--hero-scrim);
 }
 .nm-heading {
-  position: absolute;
+  grid-column: 1;
+  grid-row: 1;
+  position: relative;
   z-index: 2;
-  top: var(--intro-space-start);
-  left: var(--page-inset);
+  margin: var(--intro-space-start) var(--page-inset) 0;
   max-width: min(52vw, 660px);
 }
 .nm-heading .eyebrow,
@@ -1307,10 +1317,9 @@ figcaption {
   color: var(--hero-ink-soft);
 }
 .nm-work-caption {
-  position: absolute;
+  position: relative;
   z-index: 2;
-  left: var(--page-inset);
-  bottom: var(--hero-edge-space);
+  margin: var(--gap-component) var(--page-inset) var(--hero-edge-space);
   text-shadow: var(--hero-caption-shadow);
 }
 .nm-carousel-controls {
@@ -1431,13 +1440,8 @@ figcaption {
     min-height: 0;
     max-height: none;
   }
-  .nm-slide {
-    position: relative;
-    inset: auto;
-    height: auto;
-  }
-  .nm-visual {
-    height: var(--hero-visual-height);
+  .nm-hero__field {
+    min-height: var(--hero-visual-height);
   }
   .nm-heading {
     width: calc(100% - var(--gutter) * 2);
@@ -1447,7 +1451,6 @@ figcaption {
     margin-top: var(--s4);
   }
   .nm-work-caption {
-    right: var(--page-inset);
     max-width: none;
   }
   .nm-data-panel {

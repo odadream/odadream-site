@@ -35,8 +35,20 @@ test('first-frame previews use hover on desktop and choose one central video on 
   await expect(second).toHaveClass(/is-playing/);
   await expect(first).not.toHaveClass(/is-playing/);
   await expect
-    .poll(() => first.locator('video').evaluate((v: HTMLVideoElement) => v.paused && v.currentTime === 0))
+    .poll(() => first.locator('video').evaluate((v: HTMLVideoElement) => v.paused && v.currentTime > 0))
     .toBeTruthy();
+  await expect(first).toHaveClass(/has-frame/);
+  await expect(first.locator('video')).toHaveCSS('opacity', '1');
+  const pausedAt = await first.locator('video').evaluate((v: HTMLVideoElement) => v.currentTime);
+  if (isMobile) await centre(first);
+  else {
+    await second.evaluate((node) => (node as HTMLElement).blur());
+    await first.hover();
+  }
+  await expect(first).toHaveClass(/is-playing/);
+  await expect
+    .poll(() => first.locator('video').evaluate((v: HTMLVideoElement) => v.currentTime))
+    .toBeGreaterThan(pausedAt + 0.08);
   await expect(samples.locator('video.is-playing')).toHaveCount(1);
   await page.evaluate(() => {
     (document.activeElement as HTMLElement)?.blur();

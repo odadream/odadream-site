@@ -22,24 +22,12 @@ export function initVideoPreviews() {
   let frame = 0;
   let suspended = false;
 
-  function stop(row: Row, release = false) {
+  function stop(row: Row) {
     row.version++;
     row.video.pause();
     row.root.classList.remove('is-playing');
     row.video.classList.remove('is-playing');
-    try {
-      row.video.currentTime = 0;
-    } catch {
-      /* Unloaded media keeps the poster. */
-    }
-    if (release) {
-      const source = row.video.querySelector('source');
-      if (source?.hasAttribute('src')) {
-        source.removeAttribute('src');
-        row.video.preload = 'none';
-        row.video.load();
-      }
-    }
+    // Keep the decoded frame, source and currentTime for the lifetime of this page.
   }
 
   function refresh() {
@@ -63,10 +51,14 @@ export function initVideoPreviews() {
       if (!visible) {
         row.hovered = false;
         row.focused = false;
-        if (row !== active) stop(row, true);
+        if (row !== active) stop(row);
       }
       if (!allowed || !visible) return [];
-      if (pointer.matches) return row.hovered || row.focused ? [{ row, score: -row.intent }] : [];
+      if (pointer.matches) {
+        const hovered = row.hovered || row.trigger.matches(':hover');
+        const focused = row.focused || row.trigger.contains(document.activeElement);
+        return hovered || focused ? [{ row, score: -row.intent }] : [];
+      }
       const visibleHeight = Math.min(box.bottom, innerHeight) - Math.max(box.top, 0);
       const inCentre = box.bottom > innerHeight * 0.35 && box.top < innerHeight * 0.65;
       return inCentre && visibleHeight >= Math.min(box.height, innerHeight) * 0.3
@@ -75,7 +67,7 @@ export function initVideoPreviews() {
     });
     const next = candidates.sort((a, b) => a.score - b.score)[0]?.row;
     if (next === active) return;
-    if (active) stop(active, !active.root.getClientRects().length);
+    if (active) stop(active);
     active = next;
     if (!next) return;
     const { video } = next;
@@ -95,13 +87,23 @@ export function initVideoPreviews() {
         } else if (active !== next) video.pause();
       })
       .catch(() => {
-        /* Blocked autoplay leaves the first-frame image visible. */
+        /* Blocked autoplay leaves the still representation visible. */
       });
   }
   function schedule() {
     if (!frame) frame = requestAnimationFrame(refresh);
   }
   for (const row of rows) {
+    const retainFrame = () => {
+      if (row.video.readyState >= 2) row.root.classList.add('has-frame');
+    };
+    row.video.addEventListener('loadeddata', retainFrame);
+    row.video.addEventListener('timeupdate', retainFrame);
+    row.video.addEventListener('error', () => {
+      stop(row);
+      row.root.classList.remove('has-frame');
+      if (active === row) active = undefined;
+    });
     row.trigger.addEventListener('pointerenter', () => {
       row.hovered = true;
       row.intent = ++intent;
@@ -150,5 +152,5 @@ export function initVideoPreviews() {
   reduced.addEventListener('change', refresh);
   connection?.addEventListener('change', refresh);
   schedule();
-  return { refresh };
+  return { refresh, isActive: (video: HTMLVideoElement) => active?.video === video };
 }

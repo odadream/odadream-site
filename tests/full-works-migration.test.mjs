@@ -46,10 +46,6 @@ test('remaining substantive artworks have paired direct routes, source-backed na
   assert.equal(source.works.find((row) => row.id === 'dashran').stage, 'prototype');
   assert.equal(source.works.find((row) => row.id === 'lighthouse').stage, 'prototype');
   assert.equal(source.works.find((row) => row.id === 'happiness').workType, 'object');
-  assert.ok(
-    !publicData.heroVisuals.some((row) => row.id === 'cultural-code'),
-    'R&D does not enter the homepage reel',
-  );
 });
 
 test('meaningful written concepts declare media absence without fabricated image dependencies', () => {

@@ -10,8 +10,9 @@ interface Props {
   item: Pick<Work, 'id' | 'stage' | 'media' | 'category' | 'year' | 'title' | 'summary' | 'mediaNote'>;
   lang: Lang;
   eager?: boolean;
+  presentation?: 'catalogue' | 'overview';
 }
-const { item, lang, eager = false } = Astro.props;
+const { item, lang, eager = false, presentation = 'catalogue' } = Astro.props;
 const media = mediaById(item.media[0]);
 const contain =
   media &&
@@ -53,9 +54,11 @@ const labels = {
             />
           ))}
       </span>
-      {media?.representation && labels[media.representation] && (
-        <span class="work-card__media-note">{labels[media.representation]![lang]}</span>
-      )}
+      {media?.representation &&
+        labels[media.representation] &&
+        !(presentation === 'overview' && media.representation === 'screenshot') && (
+          <span class="work-card__media-note">{labels[media.representation]![lang]}</span>
+        )}
       {!media && (
         <span class="work-card__media-note">
           {item.mediaNote?.[lang] ??

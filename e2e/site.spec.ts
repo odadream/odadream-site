@@ -95,7 +95,6 @@ test('carousel uses unframed direction marks and stops video offscreen', async (
   const before = await active.getAttribute('data-slide-id');
   await active.locator('[data-carousel-next]').click();
   expect(await active.getAttribute('data-slide-id')).not.toBe(before);
-  await expect(page.locator('.nm-slide[hidden] source[src]')).toHaveCount(0);
   await expect(active.locator('[data-carousel-next]')).toBeFocused();
   await expect
     .poll(() =>
@@ -166,13 +165,17 @@ test('featured carousel, editorial links and card media follow the design gramma
   await page.goto('/ru/');
   const activeSlide = page.locator('.feature-slide:not([hidden])');
   const firstSlideId = await activeSlide.getAttribute('data-slide-id');
-  await expect(activeSlide.locator('[data-carousel-position]')).toHaveText('01 / 03');
+  await expect(page.locator('[data-carousel]')).toHaveAttribute('data-carousel-ready', 'true');
+  const total = String(await page.locator('.feature-slide').count()).padStart(2, '0');
+  await expect(activeSlide.locator('[data-carousel-position]')).toHaveText('01 / ' + total);
   await activeSlide.getByRole('button', { name: 'Следующий кадр' }).click();
   await expect(page.locator('.feature-slide:not([hidden])')).not.toHaveAttribute(
     'data-slide-id',
     firstSlideId || '',
   );
-  await expect(page.locator('.feature-slide:not([hidden]) [data-carousel-position]')).toHaveText('02 / 03');
+  await expect(page.locator('.feature-slide:not([hidden]) [data-carousel-position]')).toHaveText(
+    '02 / ' + total,
+  );
   await expect(page.locator('header .brand img')).toHaveCount(1);
   await expect(page.locator('.feature-slide:not([hidden]) .nm-carousel-controls .eyebrow')).toContainText(
     'КАДР',
