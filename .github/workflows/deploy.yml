@@ -19,12 +19,14 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
-      - run: npm run format:check
-      - run: npm test
-      - run: npm run content:check
-      - run: npm run check
-      - run: npm run build
-      - run: npm run release:check
+      - run: npx playwright install --with-deps chromium
+      - run: npm run verify:release
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: oda-v2-release-check-results
+          path: .local-server/checks/
+          retention-days: 14
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -16,13 +16,14 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
-      - run: npm run format:check
-      - run: npm test
-      - run: npm run content:check
-      - run: npm run check
-      - run: npm run build
       - run: npx playwright install --with-deps chromium
-      - run: npm run test:e2e
+      - run: npm run verify:full
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: oda-v2-check-results
+          path: .local-server/checks/
+          retention-days: 14
       - uses: actions/upload-artifact@v4
         with:
           name: oda-v2-static-preview

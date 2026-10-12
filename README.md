@@ -1,54 +1,73 @@
-# ODA.dream V2 — editorial static site
+# ODA.dream V2
 
-Astro/TypeScript static multipage site for GitHub Pages. This is a **development branch only**. `main` keeps publishing the V1 site until content, media rights and visual acceptance are signed off. Do not point the public domain at this branch yet.
+Static bilingual Astro site. Work in `odadream-site-v2`, branch `codex/site-v2`; neighbouring React/Lotus V1 is a source archive. The public domain still serves V1. Publishing V2 requires an explicit owner request.
 
-## Local use
+## Local workspace
 
-On Windows, double-click `start-local-v2.cmd` in the project root to start or restart both local modes: DEV at `http://127.0.0.1:5177/ru/`, PUBLIC at `http://127.0.0.1:5178/ru/`, and the text register at `http://127.0.0.1:5177/editorial/`. The local toolbar switches modes while preserving the route and anchor. PUBLIC rebuilds after source changes; open “Сборка” to see its timestamp or refresh it. The previous verified build stays available during rebuilding. `scripts/start-local.mjs` checks project identity before stopping an existing server; unrelated listeners are left running. Both modes disable analytics. Node.js 22+ and installed dependencies (`npm ci`) are required; the launcher also recognizes the bundled Codex Node runtime. Logs and local builds live in ignored `.local-server/`. `npm run dev` alone starts DEV; the toolbar reports when PUBLIC is unavailable.
+Requires Node **22.19+**, preferably Node 24 as in CI, and `npm ci`. On Windows, double-click **start-local-v2.cmd** to start/restart both modes:
 
-Requires Node 22.19+ (CI uses Node 24). Run `npm ci`, then `npm run dev`. The dev server is an editorial preview with a notice and noindex; it retains review material. The production build contains only the explicit publication packet and its allowed files. Preview the English home at `/en/`, Russian home at `/ru/`, or the root legacy bridge at `/`. Run `npm run format:check`, `npm test`, `npm run content:check`, `npm run check`, `npm run build`, `npm run test:e2e` before review.
+| View | Address |
+| --- | --- |
+| DEV, including review material | http://127.0.0.1:5177/ru/ |
+| PUBLIC, actual publication projection | http://127.0.0.1:5178/ru/ |
+| Text register | http://127.0.0.1:5177/editorial/ |
+| Shared design stand | http://127.0.0.1:5177/design-system/ |
 
-Media preparation: `npm run media:prepare` refreshes compressed WebP images and PDF page galleries from typed records. `node scripts/prepare-media.mjs --archive` also prepares the read-only historical archive in the private cache. Python dependencies: `scripts/media-requirements.txt`; ordinary builds need neither Python nor OCR. Extracted/OCR text stays associated with pages in `.local-server/media-cache/index.json` and is never automatically published. Policy, OCR setup and validation are documented in [CONTENT-AND-CMS.md](docs/CONTENT-AND-CMS.md#подготовка-изображений-pdf-и-текстовых-копий).
+The local toolbar preserves route/anchor when switching modes. PUBLIC rebuilds after source changes and serves the previous verified version during rebuilding; “Сборка” shows its state. Both local modes disable analytics. The launcher checks server identity before stopping it. `npm run dev` starts only DEV.
 
-## Structure
+The Windows launchers use the bundled Codex Node when available; the terminal may use another version. **check-v2.cmd** runs checks without restarting the site. `check-v2.cmd --doctor` explains runtime, server identity and PUBLIC build state. Logs/builds stay in ignored `.local-server/`.
 
-- `src/data/publication-plan.ts`, `src/lib/publication-scope.ts`, `src/data/catalogue.ts`: versioned candidate IDs, shared publication checks, public projection and dev review mode.
-- `src/data/editorial.ts`: sourced bilingual method, format conditions and cooperation scenarios; source SHA-256 snapshots remain internal.
-- `src/data/site.ts`: typed curated works, formats, cases, evidence, people, organizations, media, localized fields, source/rights/publication metadata.
-- `src/data/legacy-map.json`: 238 explicit old-ID dispositions. Generated once from the read-only old corpus using `npm run legacy:generate -- <path-to-old-src/content>`; the build does not need the old tree.
-- `src/pages/`: generated language pages, custom 404 and noindex unresolved-ID page. The design stand lives in src/views/DesignSystem.astro and is injected only in dev. The root fetches the static `/legacy-map.json` only for an `?id=` request.
-- `src/data/lastmod.json`: page-specific editorial modification dates used by sitemap; update only when the corresponding language page materially changes.
-- `src/styles/tokens.css` and `global.css`: V5 palette/typography/spacing direction, rebuilt as a smaller component system. Fonts are self-hosted with Latin and Cyrillic subsets.
-- `public/images/content/`, `public/images/works/`, `public/images/recognition/`, and `public/video/`: curated work images, document previews and video previews. The owner authorized selected work media display on 2026-10-05. Document permissions and editorial publication remain separate; the release gate still blocks deployment.
+## One verification entry point
 
-## Product and content decisions
+| Command | Purpose |
+| --- | --- |
+| `npm run verify` | Local iteration: derive scope from staged, unstaged and untracked Git changes |
+| `npm run verify -- --plan` | Show scope without running checks |
+| `npm run verify -- --since REF` | Include committed changes since REF as well as the working tree |
+| `npm run verify -- --files src/components/WorkCard.astro` | Add explicit files to actual changes; never hide other changes |
+| `npm run verify:full` | Format, metadata, unit, content, types, fresh build/artifact and full browser matrix |
+| `npm run verify:release` | Full verification, then content/media/analytics release gate on the same artifact |
+| `npm run test:e2e` | Fresh build/artifact followed by the full browser matrix |
 
-- [MAINTENANCE-AUDIT.md](docs/MAINTENANCE-AUDIT.md): measured maintenance costs and proposed simplification order; implementation statuses remain in PROJECT-BACKLOG.yaml.
+Quick supports a small explicit component allowlist. Shared styles, routes, publication logic, tools and unmapped files automatically select **full**. Markdown/backlog-only changes validate metadata without building the site. A quick result is scoped evidence, not full acceptance. Both browser projects currently use **Chromium**; mobile emulation does not prove Safari compatibility.
 
-- `docs/SITE-PRINCIPLES.md`: homepage as an editorial overview with drill-down paths, language-specific social links and content/visual rules.
-- `docs/PROJECT-BACKLOG.yaml`: machine-readable backlog with stable IDs, priority, status, dependencies and acceptance criteria. Update it with the principles document when scope or decisions change.
-- [EDITORIAL-PLAN.md](docs/EDITORIAL-PLAN.md): six-stage post-migration copy audit and editing workflow; task statuses and acceptance remain in PROJECT-BACKLOG.yaml.
-- `docs/CONTENT-AND-CMS.md`: current static content model, what was inherited, CMS limitations, and the Golem/MindDB integration status.
-- `docs/DESIGN-SYSTEM-SOURCE.md`: V5 source and shared token/component contract.
-- `docs/DESIGN-GUIDE.md` and `docs/DESIGN-TOKENS.md`: content field semantics and parameterized visual roles; keep the live `/design-system/` examples aligned with shared components.
+The runner verifies DEV identity before browser checks, records timings/logs under `.local-server/checks/<run>/`, and hashes inputs and `dist`. Changing inputs/artifact during verification fails the run. Environment files contribute to the fingerprint; their contents are never printed. Run one verification at a time. CI calls the same runner; release checks build/test the artifact the existing main workflow would upload. These commands do not push or deploy anything themselves.
 
-The current content layer is curated and hardcoded in TypeScript; it is not an admin CMS and has no database connection. The planned move to Astro Content Collections is tracked as `CMS-01`.
+## Task context and sources of truth
 
-The V1 sources, builds and V5 snapshot are separately archived in `../odadream-site-v1-backup-2026-09-22`. The exact observed remote `origin/main` is `642bbb2` (`archive/published-site-v1.2.2`); local `main` is 20 commits ahead at `d4cb306` (`archive/site-v1.2.2`). `design/v5-approved` retains the approved prototype. Existing untracked files from the original worktree were copied there and never removed from their source.
+Start with **AGENTS.md**, then the current task and referenced contract. Do not load all completed plans, migration JSON and this chat's history for every edit.
 
-## Release gate
+| Information | Canonical source |
+| --- | --- |
+| Product/IA, page purpose and owner decisions | [SITE-PRINCIPLES.md](docs/SITE-PRINCIPLES.md) |
+| Entity fields, publication, source/media preparation | [CONTENT-AND-CMS.md](docs/CONTENT-AND-CMS.md) |
+| Component semantics and layout contracts | [DESIGN-GUIDE.md](docs/DESIGN-GUIDE.md) |
+| Token roles; actual values in `src/styles/tokens.css` | [DESIGN-TOKENS.md](docs/DESIGN-TOKENS.md) |
+| Task status, priority, dependencies, acceptance | [PROJECT-BACKLOG.yaml](docs/PROJECT-BACKLOG.yaml) |
+| Text revisions and owner review | [EDITORIAL-REGISTER.yaml](docs/EDITORIAL-REGISTER.yaml) |
+| Maintenance findings/order | [MAINTENANCE-AUDIT.md](docs/MAINTENANCE-AUDIT.md) |
 
-1. Editorial approval of both language versions and the full public corpus, organization roles, and availability claims.
-2. Apply the existing owner display permission for work media and respect later withdrawals. Resolve additional document and private-source permissions separately; access: public alone is not the approval record.
-3. Desktop/mobile visual review and keyboard/lightbox audit; then review the branch build artifact.
-4. Verify the selected publication packet, actual file rights and canonical links. Exact V1 URL preservation is not a release condition (owner decision 2026-10-07).
-5. Only after an explicit owner request: open a PR / deploy to main. Keep the previous tag/build available for rollback.
-6. After deployment: inspect canonical HTML, the bilingual obsolete-address notice, sitemap and analytics.
+`npm run task` lists unfinished tasks and calculated status counts. Focused queries:
 
-Old ?id, former /formats/ and unknown page addresses show LegacyNotice and return to the language home after 5 seconds; a manual link works immediately. There is no public runtime legacy map. The internal 238-ID manifest remains a source ledger; internal=true grants no access.
+```text
+npm run task -- MAINT-CHECKS-01
+npm run task -- --area maintenance --status planned
+npm run task -- --texts --status draft
+npm run task -- --texts --en --status revision
+npm run task -- --source neurobattle
+npm run task -- --catalogue
+```
 
-Migration review uses [MIGRATION-PLAN.md](docs/MIGRATION-PLAN.md) for the compact approved course, [PROJECT-BACKLOG.yaml](docs/PROJECT-BACKLOG.yaml) for tasks/weights, and the existing [inventory](docs/migration/INVENTORY-2026-10-05.json) for provenance and source application. Current data: 23 works, 2 work configurations, 15 educational programmes, 41 event records, 4 series and 137 media, producing 102 canonical localized routes. Conditions live with works; Education has its own catalogue/detail pages. The substantive corpus and source dispositions are transferred; live test delivery of all nine analytics events and the final completion audit passed on 2026-10-10. M0–M5 preparation is complete at 100%; final editorial/design/engine passes and M6 remain separate. Prepared owner-authorized records are published in the static packet; recognition scans have their own owner authorization; missing originals remain qualified, and MindDB privacy remains a separate gate.
+Task cards come directly from the backlog, with current dependencies and a reading list; no second task state is stored. `--source` selects one historical source ID; `--catalogue` calculates current entity/route counts. Read relevant sections of listed contracts. Ordinary changes update the task and affected contract; update product principles too when an approved product decision changes. Detailed run logs belong to verification artifacts, not every document.
 
-Migration progress is computed with `npm run migration:status` from completed deliverables within the original weighted checkpoints in the existing backlog. It separately reports fully closed stages. Current scope v2-full-content-2026-10-07.1 uses measurement revision 2026-10-08.4; all six weighted stages are complete without changing their budgets. It does not measure publication approval, final design or editorial polish. Progress/acceptance lives in the existing backlog and inventory; avoid appending turn-by-turn logs to the compact plan.
+[MIGRATION-PLAN.md](docs/MIGRATION-PLAN.md), migration inventory/deferred list, [EDITORIAL-AUDIT.md](docs/EDITORIAL-AUDIT.md), [DESIGN-AUDIT-PLAN.md](docs/DESIGN-AUDIT-PLAN.md), [QUALITY-BASELINE.md](docs/QUALITY-BASELINE.md) and [DESIGN-SYSTEM-SOURCE.md](docs/DESIGN-SYSTEM-SOURCE.md) retain historical plans, audits or provenance. They are not competing sources of current task state. The editorial workflow remains in [EDITORIAL-PLAN.md](docs/EDITORIAL-PLAN.md). Migration progress is calculated by `npm run migration:status`; it is independent of editorial/design acceptance and publication authorization.
 
-`npm run migration:qa` builds the full current publication projection in an ignored isolated copy without changing publication statuses, then checks internal links, allowed files over HTTP, representative screen/theme geometry and three repeated Lighthouse runs per scenario. It updates the current verification in the existing inventory. The real catalogue and rights are unchanged; the marked rehearsal output must never be deployed. Detailed reports stay in `.local-server/`.
+## Code and publication boundaries
+
+`src/data/site.ts` assembles typed records; `catalogue.ts`/`publication-scope.ts` produce DEV or an explicitly allowed public packet. `routes.ts` generates localized routes. Components/layouts render them; shared styles import canonical tokens. This is curated static data, not an admin CMS or live Golem/MindDB connection. Future storage changes are tracked by CMS-01.
+
+Old `?id=`, `/formats/` and unknown addresses show bilingual LegacyNotice and return home after five seconds. **There is no public runtime legacy map.** The 238-ID manifest is source provenance only. `internal=true` never grants access. PUBLIC excludes DEV tools, unapproved/internal data and physical files outside its allowlist. Passing a technical release gate does not grant owner acceptance.
+
+`npm run media:prepare` prepares compressed images, PDF page galleries and private text copies; `--archive` also processes the historical archive privately. Python requirements and the source/page/text contract are in [CONTENT-AND-CMS.md](docs/CONTENT-AND-CMS.md#подготовка-изображений-pdf-и-текстовых-копий). Ordinary builds require neither Python nor OCR. `npm run documents:prepare` updates sourced CV/overview documents. Update localized `lastmod.json` only for material page-content changes.
+
+V1 sources, builds and V5 are separately preserved in `../odadream-site-v1-backup-2026-09-22` and archive tags. `npm run migration:qa` creates an isolated, explicitly marked rehearsal; it must never be deployed. Deployment, domain changes and remote Git actions require explicit owner authorization.

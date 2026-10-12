@@ -1,5 +1,5 @@
 schema_version: 1
-updated: 2026-10-12
+updated: 2026-10-13
 maintainer: ODA.dream site team
 status_values: [ planned, in_progress, blocked, done ]
 priority_values: [ P0, P1, P2 ]
@@ -45,8 +45,9 @@ maintenance_audit:
   received: 2026-10-12
   source: docs/MAINTENANCE-AUDIT.md
   status: completed
-  implementation: proposed
-  note: Аудит обслуживаемости V2; ниже задачи предложения, не утверждение новой архитектуры.
+  implementation: in_progress
+  authorization: Владелец поручил приступить к рефакторингу; исполняется первый этап аудита.
+  note: Аудит обслуживаемости V2; изменения выполняются поэтапно с проверкой результата.
     Миграционные веса, авторская приёмка дизайна и редакторский реестр не пересчитываются.
 
 items:
@@ -54,7 +55,10 @@ items:
     title: Разделить проверки на quick, full и release с единым запуском
     area: maintenance
     priority: P0
-    status: planned
+    status: in_progress
+    progress: Единый runner quick/full/release и browser готов, полный release-прогон выполняется.
+      Scope выводится из фактических Git-изменений; shared/unknown расширяются до full. Отчёт содержит
+      commit/runtime/логи/время и SHA входов/dist; узкий режим будет замерен после первого коммита.
     outcome: Локальные изменения проверяются по риску; полная приёмка и выпуск используют свежий проверенный артефакт.
     acceptance:
       - Предложение и измеренная база — MAINTENANCE-AUDIT.md, находки 1 и 8; правила AGENTS меняются вместе с runner.
@@ -67,7 +71,10 @@ items:
     title: Сократить активные инструкции и устранить дублирование документов
     area: maintenance
     priority: P0
-    status: planned
+    status: in_progress
+    progress: README и AGENTS задают одну карту чтения и команды; task-context читает актуальные задачи,
+      тексты и отдельный source ID без второго реестра. Повторы CMS/принципов сокращены, архивные планы
+      обозначены явно; прежний текст доступен в Git 71c3218. Итоговая проверка и коммит впереди.
     outcome: У каждого правила и статуса один источник истины; архивные отчёты не становятся текущими ограничениями.
     acceptance:
       - Карта чтения и ответственности закреплена в README; найдённые противоречия исправлены без утраты решений владельца.
@@ -82,6 +89,8 @@ items:
     area: maintenance
     priority: P1
     status: planned
+    progress: Диагностика Node/корня/идентичности серверов/PUBLIC реализована в checks --doctor.
+      Проверяемая резервная копия и выбор checkout вне синхронизации остаются отдельной частью задачи.
     outcome: Диагностика объясняет runtime, серверы и свежесть PUBLIC; восстановление не зависит от синхронизатора.
     acceptance:
       - Проверяются корень V2, Node, зависимости, идентичность/порты серверов и актуальность PUBLIC без вывода секретов; E2E не принимает другой сайт на том же порту.
@@ -731,8 +740,9 @@ items:
     title: Добавить локализованные социальные каналы в контентную модель и футер
     area: localization
     priority: P2
-    status: planned
-    notes: Официальные URL Telegram, YouTube, Instagram и Дзен перенесены. Профиль VK не подтверждён; не подменять ссылкой на публикацию.
+    status: done
+    notes: Закрыто реализацией DESIGN-FOOTER-02; URL https://vk.ru/odadream подтверждён владельцем.
+      Локализованные каналы и значок VK проверяет page-orientation.spec.ts. Прежняя заметка о неподтверждённом VK устарела.
     acceptance:
       - "EN: Telegram, YouTube, Instagram."
       - "RU: Telegram, Дзен, VK, Instagram."
