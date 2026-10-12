@@ -1823,3 +1823,31 @@ figcaption {
     border-top: var(--annotation-rule) solid var(--line-soft);
   }
 }
+
+/* Event-first overview: date, narrative, action use the common list tracks. */
+.case-row--overview.list-row {
+  grid-template-columns: minmax(3.5em, auto) minmax(0, 1fr) auto;
+}
+.case-row--overview .case-row__metadata {
+  grid-column: auto;
+}
+.case-row--overview .case-row__location {
+  font-size: var(--type-metadata);
+  line-height: var(--leading-metadata);
+}
+@media (max-width: 960px) {
+  .case-row--overview.list-row {
+    grid-template-columns: minmax(3.5em, auto) minmax(0, 1fr);
+  }
+  .case-row--overview > .quiet-link {
+    grid-column: 2;
+  }
+}
+@media (max-width: 580px) {
+  .case-row--overview.list-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .case-row--overview > .quiet-link {
+    grid-column: auto;
+  }
+}

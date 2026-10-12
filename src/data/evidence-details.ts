@@ -8,6 +8,7 @@ export interface EvidenceDetail {
 }
 export interface RecognitionDetail {
   claim: Localized;
+  overviewClaim?: Localized;
   recipient: Localized;
   limitations?: Localized;
   relatedWorks: string[];
@@ -47,6 +48,10 @@ export const evidenceDetails: Record<string, EvidenceDetail> = {
 };
 export const recognitionDetails: Record<string, RecognitionDetail> = {
   'digital-art-ai-2026': {
+    overviewClaim: {
+      ru: 'За участие в дискуссии о цифровом искусстве, ИИ и авторском праве.',
+      en: 'For contributing to a discussion on digital art, AI and copyright.',
+    },
     documentSha256: '0bcc494f9036c0834768d94b06d7445e4ddf84931a193e255495239aca2e3de4',
     claim: l(
       'Диплом за участие творческого дуэта ODA.dream в панельной дискуссии о цифровом искусстве, ИИ и авторском праве на VI выставке-форуме «Уникальная Россия».',
@@ -74,6 +79,10 @@ export const recognitionDetails: Record<string, RecognitionDetail> = {
     sourceRefs: refs('proof-mipt-letter.md', 'hub-letters.md'),
   },
   'portal-2030-2025': {
+    overviewClaim: {
+      ru: 'За MindShow в конкурсе медиаарта «Виджеинг».',
+      en: 'For MindShow in the VJ media-art competition.',
+    },
     documentSha256: '92b1516d2e131b1dfce9ecd2c79a4982cb2c70fc081b2485338c44f4a531cb19',
     claim: l(
       'Первое место ODA.dream в конкурсе медиаарта «Виджеинг» Портала 2030–2050.',
@@ -87,6 +96,10 @@ export const recognitionDetails: Record<string, RecognitionDetail> = {
     sourceRefs: refs('hub-letters.md', 'proof-award-portal-visioning.md', 'event-portal-2025.md'),
   },
   'tavrida-letter-2025': {
+    overviewClaim: {
+      ru: 'За вклад в проект «Культурный код России», отмеченный организаторами.',
+      en: 'For a contribution to Cultural Code of Russia acknowledged by the organisers.',
+    },
     documentSha256: 'da56156c4bcc5e554e6a6fd6c25be87a92d1b33db673cf1706c935a50172488e',
     claim: l(
       'В письме организаторы благодарят Ольгу и Далера Арабовых за участие в первом фестивале искусственного интеллекта «Культурный код России» на «Таврида.АРТ».',
@@ -99,6 +112,10 @@ export const recognitionDetails: Record<string, RecognitionDetail> = {
     sourceRefs: refs('proof-let-tavrida.md', 'hub-letters.md'),
   },
   'hse-letter-2025': {
+    overviewClaim: {
+      ru: 'За иммерсивную лекцию «Красиво про мозг» для студентов.',
+      en: 'For the immersive Beautiful About the Brain lecture for students.',
+    },
     documentSha256: '7bd7c1f9ee42e40be7cff3a4f1d1c7f1837fa09c0b3d1350eac09d4d033d8cc9',
     claim: l(
       'Институт развития креативных индустрий НИУ ВШЭ благодарит дуэт за иммерсивную лекцию «Красиво про мозг» для студентов.',

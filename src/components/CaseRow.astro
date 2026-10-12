@@ -13,8 +13,10 @@ interface Props {
   >;
   lang: Lang;
   specimen?: boolean;
+  presentation?: 'catalogue' | 'overview';
 }
-const { item, lang, specimen = false } = Astro.props;
+const { item, lang, specimen = false, presentation = 'catalogue' } = Astro.props;
+const overview = presentation === 'overview';
 const links = [
   ...[item.work, ...(item.relatedWorks ?? [])].flatMap((id) => {
     const work = works.find((row) => row.id === id);
@@ -31,32 +33,43 @@ const links = [
 ---
 
 <article
-  class="list-row case-row"
+  class:list={['list-row case-row', { 'case-row--overview': overview }]}
   id={specimen ? undefined : `case-${item.slug}`}
   data-case-id={item.id}
   data-participation-status={item.participationStatus}
 >
   <DevPublicationMark kind="cases" recordId={item.id} lang={lang} />
   <div class="meta case-row__metadata">
-    <p>{formatCaseDate(item, lang)}</p>
-    <p>{item.place[lang]}</p>
-    <p>{caseTypeLabels[item.type][lang]}</p>
-    <p>{participationLabels[item.participationStatus][lang]}</p>
-    {item.context !== 'public' && <p>{contextLabels[item.context][lang]}</p>}
+    <p>
+      {overview
+        ? (item.dateMeaning === 'series-start' ? (lang === 'ru' ? 'С ' : 'Since ') : '') +
+          item.date.slice(0, 4)
+        : formatCaseDate(item, lang)}
+    </p>
+    {!overview && <p>{item.place[lang]}</p>}
+    {!overview && <p>{caseTypeLabels[item.type][lang]}</p>}
+    {!overview && <p>{participationLabels[item.participationStatus][lang]}</p>}
+    {!overview && item.context !== 'public' && <p>{contextLabels[item.context][lang]}</p>}
   </div>
   <div>
-    <h3>{item.title[lang]}</h3>
+    <h3>{overview ? (item.event?.title[lang] ?? item.title[lang]) : item.title[lang]}</h3>
+    {overview && (
+      <p class="meta case-row__location">
+        {[item.event?.city?.[lang], item.event?.venue?.[lang]].filter(Boolean).join(' · ') ||
+          (lang === 'ru' ? 'Место не указано' : 'Location not specified')}
+      </p>
+    )}
     <p>{item.summary[lang]}</p>
-    <p>{item.role[lang]}</p>
-    {item.source.startsWith('https://') && (
+    {!overview && <p>{item.role[lang]}</p>}
+    {!overview && item.source?.startsWith('https://') && (
       <p>
         <CalloutLink href={item.source} rel="external">
           {lang === 'ru' ? 'Источник события' : 'Event source'}
         </CalloutLink>
       </p>
     )}
-    {!item.detailPage && item.limitations.map((note) => <p class="small-note">{note[lang]}</p>)}
-    {!item.detailPage && !specimen && (
+    {!overview && !item.detailPage && item.limitations.map((note) => <p class="small-note">{note[lang]}</p>)}
+    {!overview && !item.detailPage && !specimen && (
       <MediaGallery
         id={`case-media-${item.id}`}
         items={item.media.flatMap((id) => {
@@ -74,13 +87,21 @@ const links = [
       ))}
     </div>
   </div>
-  <CalloutLink href={item.detailPage ? caseUrl(lang, item.id) : caseTargetUrl(lang, item)}>
+  <CalloutLink href={overview || item.detailPage ? caseUrl(lang, item.id) : caseTargetUrl(lang, item)}>
     {item.detailPage
       ? lang === 'ru'
-        ? 'Открыть кейс'
-        : 'Open case'
+        ? overview
+          ? 'Подробнее'
+          : 'Открыть кейс'
+        : overview
+          ? 'Explore'
+          : 'Open case'
       : lang === 'ru'
-        ? 'Материал'
-        : 'Related material'}
+        ? overview
+          ? 'Подробнее'
+          : 'Материал'
+        : overview
+          ? 'Explore'
+          : 'Related material'}
   </CalloutLink>
 </article>

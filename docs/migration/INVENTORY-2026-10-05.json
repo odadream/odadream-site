@@ -22792,6 +22792,11 @@
       "file": "Owner_IP_Confirmation_2026-10-08.md",
       "sha256": "2a387d30cfa066c91206c0e40540db11dfd73e8704e5de7fb435edaf222db018",
       "snapshot": "2026-10-08"
+    },
+    "Obsidian_Oktava_2021.md": {
+      "file": "Obsidian_Oktava_2021.md",
+      "sha256": "c10f294904d3b36f94d2db0d02fdc88bffb0761ee78506f84dde0f7d1552668e",
+      "snapshot": "2026-10-12"
     }
   },
   "currentRouting": {
@@ -29552,6 +29557,19 @@
         "sourceSha256": "2a387d30cfa066c91206c0e40540db11dfd73e8704e5de7fb435edaf222db018",
         "state": "selected-content-migrated; editorial-review-pending",
         "scope": "Public registration/filing metadata. Patent application scan kept internal; trademark certificate scan not located."
+      }
+    },
+    "Obsidian_Oktava_2021.md": {
+      "kind": "external-editorial",
+      "sourcePath": "D:/Obsidian/Chudodeystvo/События/Тула Октава 2021.md",
+      "sha256": "c10f294904d3b36f94d2db0d02fdc88bffb0761ee78506f84dde0f7d1552668e",
+      "v2Migration": {
+        "sourceSha256": "c10f294904d3b36f94d2db0d02fdc88bffb0761ee78506f84dde0f7d1552668e",
+        "targets": [
+          "CaseEvent:oktava-2021"
+        ],
+        "asOf": "2026-10-12",
+        "state": "Public event facts applied; private notes and contacts not published"
       }
     }
   },

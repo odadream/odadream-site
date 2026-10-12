@@ -190,7 +190,7 @@ test('featured carousel, editorial links and card media follow the design gramma
   await expect(page.locator('.site-nav a').first()).toHaveCSS('column-gap', '8px');
   await expect(page.locator('#selected-works .work-card')).toHaveCount(6);
   await expect(page.locator('#selected-works .work-card:not([data-work-stage="realized"])')).toHaveCount(0);
-  await expect(page.locator('.recognition-card')).toHaveCount(4);
+  await expect(page.locator('.recognition-card')).toHaveCount(7);
   await expect(page.locator('.work-card__identity .page-code')).toHaveCount(0);
   await expect(page.locator('.process-steps .page-code')).toHaveCount(0);
   await expect(page.locator('.work-card__category').first()).not.toBeEmpty();
@@ -301,8 +301,10 @@ test('homepage distinguishes catalogue scope and document previews', async ({ pa
     expect(Math.abs(metrics[0] - metrics[1])).toBeLessThan(1);
   }
   await expect(page.getByText('Работы в каталоге', { exact: true })).toBeVisible();
-  await expect(page.getByText('Папки событий · Golem', { exact: true })).toBeVisible();
-  await expect(page.getByText('Прежний перечень', { exact: true })).toBeVisible();
+  await expect(page.getByText('События в каталоге', { exact: true })).toBeVisible();
+  await expect(page.getByText('Папки событий · Golem', { exact: true })).toHaveCount(0);
+  await expect(page.getByText('Записи признаний', { exact: true })).toBeVisible();
+  await expect(page.getByText('Прежний перечень', { exact: true })).toHaveCount(0);
   await expect(page.locator('.recognition-card__image')).toHaveCount(4);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
   const trigger = page.locator('.recognition-card__image').first();
@@ -327,10 +329,10 @@ test('timeline provenance code, date, event and link stay in separate grid cells
 }) => {
   await page.setViewportSize({ width: 850, height: 912 });
   await page.goto('/ru/');
-  const rows = await page.locator('#timeline .timeline li').evaluateAll((items) =>
+  const rows = await page.locator('#timeline .case-row--overview').evaluateAll((items) =>
     items.map((item) => {
-      const date = item.querySelector('.timeline__date')!.getBoundingClientRect();
-      const description = item.querySelector('p')!.getBoundingClientRect();
+      const date = item.querySelector('.case-row__metadata')!.getBoundingClientRect();
+      const description = item.querySelector('h3')!.getBoundingClientRect();
       const link = item.querySelector('.quiet-link')!.getBoundingClientRect();
       const row = item.getBoundingClientRect();
       return {

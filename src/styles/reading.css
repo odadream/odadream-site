@@ -338,7 +338,7 @@ figcaption {
   font-size: var(--type-summary);
   line-height: var(--leading-summary);
 }
-.case-row > div:not(.case-row__metadata) > p:not(.small-note) {
+.case-row > div:not(.case-row__metadata) > p:not(.small-note):not(.meta) {
   font-size: var(--type-summary);
   line-height: var(--leading-summary);
 }

@@ -1,3 +1,4 @@
+import { eventContexts, type EventContext } from './event-contexts';
 import { sourceSectionsFor } from './archive-source-links';
 import { archiveRecognitions } from './archive-recognitions';
 import { participationDetails } from './editorial';
@@ -145,6 +146,7 @@ export interface WorkConfiguration extends ParticipationDetail {
   publication: Publication;
 }
 export interface CaseEvent extends CaseDetail {
+  event?: EventContext;
   id: string;
   legacyId?: string;
   slug: string;
@@ -1471,7 +1473,11 @@ export const cases: CaseEvent[] = [
   })),
   ...historicalEvents,
   ...additionalEvents,
-].map((row) => ({ ...row, media: [...new Set([...row.media, ...archiveMediaFor('case', row.id)])] }));
+].map((row) => ({
+  ...row,
+  event: eventContexts[row.id],
+  media: [...new Set([...row.media, ...archiveMediaFor('case', row.id)])],
+}));
 
 export const eventSeries = seriesRecords;
 export const works: Work[] = artworkRecords.map((work) => ({

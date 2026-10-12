@@ -22,6 +22,8 @@ import PageCode from './PageCode.astro';
 import TechnicalMark from './TechnicalMark.astro';
 import CalloutLink from './CalloutLink.astro';
 import StatisticsStamp from './StatisticsStamp.astro';
+import { selectHomepageEvents } from '../lib/site-stats';
+import { sortRecognitions } from '../lib/recognition-presentation';
 import {
   methods,
   cooperationPages,
@@ -77,16 +79,10 @@ const studioMembers = (studio?.people ?? []).flatMap((id) => {
   return person ? [person] : [];
 });
 const featured = publicHeroVisuals;
-const homepageRecognitions = recognitions.filter((item) => item.featuredOnHome);
-const timeline = [...cases]
-  .filter((item) => item.featuredOnHome)
-  .sort((a, b) => a.date.localeCompare(b.date))
-  .map((item) => ({
-    year: item.date.slice(0, 4),
-    en: `${item.title.en} · ${item.place.en}`,
-    ru: `${item.title.ru} · ${item.place.ru}`,
-    url: caseUrl(lang, item.id),
-  }));
+const homepageRecognitions = sortRecognitions(
+  recognitions.filter((item) => item.featuredOnHome || ['award', 'grant', 'selection'].includes(item.kind)),
+);
+const timeline = selectHomepageEvents(cases);
 ---
 
 {page.kind === 'home' && (
@@ -300,17 +296,11 @@ const timeline = [...cases]
           : 'A work changes with each encounter. Here: date, place and the studio’s role.'
       }
     >
-      <ol class="timeline">
+      <div class="timeline">
         {timeline.map((item) => (
-          <li>
-            <div class="timeline__date">
-              <span class="index">{item.year}</span>
-            </div>
-            <p>{item[lang]}</p>
-            <CalloutLink href={item.url}>{ru ? 'Подробнее' : 'Explore'}</CalloutLink>
-          </li>
+          <CaseRow item={item} lang={lang} presentation="overview" />
         ))}
-      </ol>
+      </div>
       <CalloutLink href={`/${lang}/cases/`}>{ru ? 'Опубликованные кейсы' : 'Published cases'}</CalloutLink>
       <StatisticsStamp slot="reference" kind="events" lang={lang} />
     </MacroSection>
@@ -332,7 +322,7 @@ const timeline = [...cases]
       >
         <div class="recognition-grid">
           {homepageRecognitions.map((item) => (
-            <RecognitionCard item={item} lang={lang} />
+            <RecognitionCard item={item} lang={lang} presentation="overview" />
           ))}
         </div>
         {preview ? (
@@ -563,7 +553,7 @@ const timeline = [...cases]
           : 'Open an image to read the document. Entries without an image are marked separately.'}
       </p>
       <div class="recognition-grid">
-        {recognitions.map((item) => (
+        {sortRecognitions(recognitions).map((item) => (
           <RecognitionCard item={item} lang={lang} />
         ))}
       </div>

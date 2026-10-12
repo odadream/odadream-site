@@ -12,7 +12,7 @@ const inventory = JSON.parse(readFileSync('docs/migration/INVENTORY-2026-10-05.j
 test('all 37 V1 event sources have an implemented event, merged series or evidenced empty-stub exclusion', () => {
   const events = inventory.entries.filter((row) => row.oldKind === 'event');
   assert.equal(events.length, 37);
-  assert.equal(source.cases.length, 41);
+  assert.equal(source.cases.length, 42);
   assert.equal(source.eventSeries.length, 4);
   for (const entry of events) {
     const use = entry.currentCanonicalApplication;
@@ -65,7 +65,7 @@ test('event relationships are reciprocal and public programmes and series respec
   }
   const publicData = createPublicationScope(source, publicationPlan);
   assert.deepEqual(publicData.errors, []);
-  assert.equal(publicData.cases.length, 41);
+  assert.equal(publicData.cases.length, 42);
   assert.equal(publicData.eventSeries.length, 4);
   assert.ok(!JSON.stringify(publicData.eventSeries).includes('sourceRefs'));
   const withoutEducation = createPublicationScope(source, { ...publicationPlan, programmes: [] });

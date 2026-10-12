@@ -261,7 +261,9 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
     methodId: row.methodId && methodIds.has(row.methodId) ? row.methodId : undefined,
     basedOn: row.basedOn.filter((id) => workIds.has(id)),
     relatedWorks: row.relatedWorks.filter((id) => workIds.has(id)),
-    cases: row.cases.filter((id) => caseIds.has(id)),
+    cases: row.cases.filter((id) =>
+      cases.some((item) => item.id === id && item.participationStatus === 'held'),
+    ),
     configurations: row.configurations.filter((id) => configurationIds.has(id)),
     media: row.media.filter((id) => availableMedia.has(id)),
   }));
@@ -506,6 +508,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'dateEnd',
             'dateMeaning',
             'participationStatus',
+            'event',
             'context',
             'relatedWorks',
             'relatedProgrammes',
@@ -553,6 +556,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'publication',
             'documentRights',
             'claim',
+            'overviewClaim',
             'recipient',
             'limitations',
             'documentState',

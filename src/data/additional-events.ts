@@ -7,6 +7,23 @@ type Definition = Pick<CaseEvent, 'id' | 'title' | 'summary' | 'date' | 'place' 
   Partial<CaseEvent> & { files: string[] };
 const definitions: Definition[] = [
   {
+    id: 'oktava-2021',
+    date: '2021-04-12',
+    type: 'lecture',
+    work: 'neurosync',
+    title: l('Лекция и нейросинхронизация · «Октава»', 'Lecture and neurosynchronization · Oktava'),
+    summary: l(
+      'Лекция и демонстрация синхронизации родителя и ребёнка.',
+      'A lecture and a parent–child synchronization demonstration.',
+    ),
+    place: l('Тула · творческий кластер «Октава»', 'Tula · Oktava creative cluster'),
+    role: l(
+      'ODA.dream: лекция и демонстрация «Нейросинхронизации».',
+      'ODA.dream: lecture and Neurosynchronization demonstration.',
+    ),
+    files: ['Obsidian_Oktava_2021.md'],
+  },
+  {
     id: 'frequencies-2025',
     date: '2025-10-16',
     work: 'neuromandala',

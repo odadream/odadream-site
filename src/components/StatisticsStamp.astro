@@ -1,8 +1,8 @@
 ---
-import DevNote from './DevNote.astro';
 import RecordStamp from './RecordStamp.astro';
-import { preview } from '../data/catalogue';
-import { siteStats } from '../lib/site-stats';
+import { siteStats, workStages } from '../lib/site-stats';
+import { eventGenres, eventGenreLabels } from '../lib/case-presentation';
+import { recognitionKinds, recognitionKindLabels } from '../lib/recognition-presentation';
 import { workStageLabels, type Lang } from '../data/site';
 interface Props {
   kind: 'works' | 'events' | 'recognition' | 'education';
@@ -11,136 +11,68 @@ interface Props {
 const { kind, lang } = Astro.props;
 const ru = lang === 'ru';
 const titles = {
-  education: ru ? 'Образовательные программы сайта' : 'Educational programmes on this site',
-  works: ru ? 'Каталог сайта' : 'Site catalogue',
-  events: ru ? 'События и участие' : 'Events and contributions',
+  education: ru ? 'Образовательные программы' : 'Educational programmes',
+  works: ru ? 'Каталог работ' : 'Work catalogue',
+  events: ru ? 'Состоявшиеся события' : 'Completed events',
   recognition: ru ? 'Признания' : 'Recognition',
 };
+const metric = (label: string, value: number) => ({ label, value, metric: true });
 const fields =
-  kind === 'education'
-    ? [
-        { label: ru ? 'Программы' : 'Programmes', value: siteStats.education.total, metric: true },
-        { label: ru ? 'Лекции' : 'Lectures', value: siteStats.education.lectures, metric: true },
-        { label: ru ? 'Практикумы' : 'Workshops', value: siteStats.education.workshops, metric: true },
-        {
-          label: ru ? 'Учебные лаборатории' : 'Educational laboratories',
-          value: siteStats.education.laboratories,
-          metric: true,
-        },
-      ]
-    : kind === 'works'
-      ? [
-          {
-            label: ru ? 'Работы в каталоге' : 'Catalogued works',
-            value: siteStats.works.total,
-            metric: true,
-          },
-          { label: ru ? 'Реализовано' : 'Realized', value: siteStats.works.realized, metric: true },
-          { label: 'R&D', value: siteStats.works.research, metric: true },
-          {
-            label: ru ? 'Заказ обсуждаем' : 'Commission inquiries',
-            value: siteStats.works.bookable,
-            metric: true,
-          },
-        ]
-      : kind === 'events'
+  kind === 'works'
+    ? [metric(ru ? 'Работы в каталоге' : 'Catalogued works', siteStats.works.total)]
+    : kind === 'events'
+      ? [metric(ru ? 'События в каталоге' : 'Catalogued events', siteStats.cases.total)]
+      : kind === 'recognition'
         ? [
-            {
-              label: ru ? 'События в каталоге' : 'Catalogued events',
-              value: siteStats.cases.total,
-              metric: true,
-            },
-            {
-              label: ru ? 'Участие состоялось' : 'Completed contributions',
-              value: siteStats.cases.byStatus.held ?? 0,
-              metric: true,
-            },
-            {
-              label: ru ? 'Приглашения' : 'Invitations',
-              value: siteStats.cases.byStatus.invited ?? 0,
-              metric: true,
-            },
-            {
-              label: ru ? 'Заявки' : 'Applications',
-              value: (siteStats.cases.byStatus.submitted ?? 0) + (siteStats.cases.byStatus.declined ?? 0),
-              metric: true,
-            },
-            ...(preview
-              ? [
-                  {
-                    label: ru ? 'Папки событий · Golem' : 'Event folders · Golem',
-                    value: siteStats.golemEvents.total,
-                    metric: true,
-                  },
-                  {
-                    label: ru ? 'Снимок реестра' : 'Registry snapshot',
-                    value: siteStats.golemEvents.generatedAt.slice(0, 10),
-                  },
-                ]
-              : []),
+            metric(ru ? 'Записи признаний' : 'Recognition entries', siteStats.recognitions.total),
+            ...recognitionKinds.map((key) =>
+              metric(recognitionKindLabels[key][lang], siteStats.recognitions.byKind[key]),
+            ),
           ]
-        : preview
-          ? [
-              {
-                label: ru ? 'Прежний перечень' : 'Former archive list',
-                value: siteStats.legacyRecognition.total,
-                metric: true,
-              },
-              {
-                label: ru ? 'Дипломы' : 'Diplomas',
-                value: siteStats.legacyRecognition.byKind.diploma,
-                metric: true,
-              },
-              {
-                label: ru ? 'Благодарственные письма' : 'Letters of appreciation',
-                value: siteStats.legacyRecognition.byKind.letter,
-                metric: true,
-              },
-              {
-                label: ru ? 'Подтверждения участия' : 'Participation records',
-                value: siteStats.legacyRecognition.byKind.participation,
-                metric: true,
-              },
-            ]
-          : [
-              {
-                label: ru ? 'Записи признаний' : 'Recognition entries',
-                value: siteStats.recognitions.total,
-                metric: true,
-              },
-            ];
+        : [
+            metric(ru ? 'Программы' : 'Programmes', siteStats.education.total),
+            metric(ru ? 'Лекции' : 'Lectures', siteStats.education.lectures),
+            metric(ru ? 'Практикумы' : 'Workshops', siteStats.education.workshops),
+            metric(ru ? 'Учебные лаборатории' : 'Educational laboratories', siteStats.education.laboratories),
+          ];
+const breakdown =
+  kind === 'works'
+    ? workStages.map((key) => ({ label: workStageLabels[key][lang], count: siteStats.works.byStage[key] }))
+    : kind === 'events'
+      ? eventGenres.map((key) => ({
+          label: eventGenreLabels[key][lang],
+          count: siteStats.cases.byGenre[key],
+        }))
+      : [];
 ---
 
 <RecordStamp tone="reference" title={titles[kind]} fields={fields}>
-  {kind === 'works' && (
+  {breakdown.length > 0 && (
     <details class="record-stamp__more">
-      <summary>{ru ? 'Состав по стадиям' : 'Stage breakdown'}</summary>
+      <summary>
+        {kind === 'works'
+          ? ru
+            ? 'Состав по стадиям'
+            : 'Stage breakdown'
+          : ru
+            ? 'По категориям событий'
+            : 'Event categories'}
+      </summary>
       <dl>
-        {Object.entries(siteStats.works.byStage).map(([status, count]) => (
+        {breakdown.map((row) => (
           <div>
-            <dt>{workStageLabels[status as keyof typeof workStageLabels][lang]}</dt>
-            <dd>{count}</dd>
+            <dt>{row.label}</dt>
+            <dd>{row.count}</dd>
           </div>
         ))}
       </dl>
+      {kind === 'events' && (
+        <p class="small-note">
+          {ru
+            ? 'Несколько участий в одном событии считаются один раз. Серия встреч — одна запись.'
+            : 'Multiple contributions to one event count once. A recurring programme counts as one entry.'}
+        </p>
+      )}
     </details>
-  )}
-  {kind === 'events' && preview && (
-    <DevNote id="dev-golem-count-note" lang={lang}>
-      <p>
-        {ru
-          ? 'Golem учитывает архивные папки. Это отдельная выборка, ещё не проверенные публичные кейсы.'
-          : 'Golem counts archival folders: a separate inventory, not yet reviewed public cases.'}
-      </p>
-    </DevNote>
-  )}
-  {kind === 'recognition' && preview && (
-    <DevNote id="dev-recognition-count-note" lang={lang}>
-      <p>
-        {ru
-          ? `${siteStats.recognitions.total} записей перенесены в новую модель. Права и атрибуция проверяются.`
-          : `${siteStats.recognitions.total} records are structured in the new model. Rights and attribution are under review.`}
-      </p>
-    </DevNote>
   )}
 </RecordStamp>

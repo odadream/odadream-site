@@ -5,7 +5,14 @@ test('full chronology separates contributions, education, research and applicati
 }) => {
   for (const lang of ['ru', 'en']) {
     await page.goto(`/${lang}/cases/`);
-    await expect(page.locator('.case-row')).toHaveCount(41);
+    await expect(page.locator('.case-row')).toHaveCount(42);
+    await expect(page.locator('[data-case-id="oktava-2021"]')).toHaveAttribute(
+      'data-participation-status',
+      'held',
+    );
+    await expect(page.locator('[data-case-id="oktava-2021"] .case-row__metadata')).toContainText(
+      lang === 'ru' ? '12 апреля 2021' : '12 April 2021',
+    );
     await expect(page.locator('#case-series article')).toHaveCount(4);
     await expect(page.locator('#case-research [data-case-id="tavrida-ai-2025"]')).toHaveAttribute(
       'data-participation-status',

@@ -592,6 +592,12 @@ const profileTokens = [
       <div class="system-content record-grid">
         <div class="system-span-2">
           <span class="component-title">Хронология / CaseRow</span>
+          <CaseRow
+            item={cases.find((item) => item.id === 'oktava-2021')!}
+            lang="ru"
+            presentation="overview"
+            specimen
+          />
           <CaseRow item={cases.find((item) => item.id === 'hse-2025')!} lang="ru" specimen />
           <CaseRow item={cases.find((item) => item.id === 'tavrida-ai-2025')!} lang="ru" specimen />
         </div>
@@ -731,8 +737,10 @@ const profileTokens = [
           показывает положение блока, но не нумерует отдельные карточки и не заменяет ID записи.
         </p>
         <StatisticsStamp kind="works" lang="ru" />
+        <StatisticsStamp kind="events" lang="ru" />
+        <StatisticsStamp kind="recognition" lang="ru" />
         <div class="recognition-grid">
-          <RecognitionCard item={recognitions[0]} lang="ru" />
+          <RecognitionCard item={recognitions[0]} lang="ru" presentation="overview" />
           <RecognitionCard item={recognitions[1]} lang="ru" />
           <RecognitionCard
             item={recognitions.find((row) => row.id === 'culttech-school-grant-2026')!}
@@ -741,10 +749,9 @@ const profileTokens = [
           <RecognitionCard item={recognitions.find((row) => row.id === 'cyens-reserve-2026')!} lang="ru" />
         </div>
         <p class="small-note">
-          Работы и кейсы подсчитаны из типизированных записей. В прежнем перечне признаний{' '}
-          {siteStats.legacyRecognition.total} позиций; текущий каталог содержит {siteStats.recognitions.total}{' '}
-          записей из нескольких источников. Снимок Golem описывает архивные папки событий, а не опубликованные
-          кейсы. Превью документов открываются тем же lightbox, что и другие изображения.
+          Счётчики используют текущую проекцию каталога: {siteStats.cases.total} состоявшихся событий и{' '}
+          {siteStats.recognitions.total} записей признаний. Формы участия студии отделены от категорий
+          событий. Превью открываются общим lightbox.
         </p>
       </div>
     </section>

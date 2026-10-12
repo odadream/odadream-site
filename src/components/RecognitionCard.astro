@@ -2,7 +2,8 @@
 import DevPublicationMark from './DevPublicationMark.astro';
 import TechnicalMark from './TechnicalMark.astro';
 import CalloutLink from './CalloutLink.astro';
-import type { Lang, Recognition, RecognitionKind } from '../data/site';
+import type { Lang, Recognition } from '../data/site';
+import { recognitionKindLabel } from '../lib/recognition-presentation';
 interface Props {
   item: Pick<
     Recognition,
@@ -13,6 +14,7 @@ interface Props {
     | 'year'
     | 'previewSrc'
     | 'claim'
+    | 'overviewClaim'
     | 'recipient'
     | 'limitations'
     | 'contextPath'
@@ -20,18 +22,16 @@ interface Props {
     | 'height'
   >;
   lang: Lang;
+  presentation?: 'catalogue' | 'overview';
 }
-const { item, lang } = Astro.props;
-const kindLabels: Record<RecognitionKind, Record<Lang, string>> = {
-  award: { en: 'Award', ru: 'Награда' },
-  grant: { en: 'Grant', ru: 'Грант' },
-  selection: { en: 'Selection', ru: 'Отбор' },
-  certificate: { en: 'Certificate', ru: 'Диплом' },
-  'acknowledgement-letter': { en: 'Acknowledgement', ru: 'Благодарность' },
-};
+const { item, lang, presentation = 'catalogue' } = Astro.props;
+const overview = presentation === 'overview';
 ---
 
-<article class="recognition-card" id={`recognition-${item.id}`}>
+<article
+  class:list={['recognition-card', { 'recognition-card--overview': overview }]}
+  id={`recognition-${item.id}`}
+>
   <DevPublicationMark kind="recognitions" recordId={item.id} lang={lang} />
   {item.previewSrc ? (
     <button
@@ -64,19 +64,29 @@ const kindLabels: Record<RecognitionKind, Record<Lang, string>> = {
     </div>
   )}
   <span class="meta">
-    {item.year} · {kindLabels[item.kind][lang]}
+    {item.year} · {recognitionKindLabel[item.kind][lang]}
   </span>
   <div>
     <h3>{item.title[lang]}</h3>
-    <p>{item.issuer[lang]}</p>
-    <p class="recognition-card__claim">{item.claim[lang]}</p>
-    <p class="small-note">
-      {lang === 'ru' ? 'Адресат' : 'Recipient'}: {item.recipient[lang]}
+    {!overview && <p>{item.issuer[lang]}</p>}
+    <p class="recognition-card__claim">
+      {overview ? (item.overviewClaim?.[lang] ?? item.claim[lang]) : item.claim[lang]}
     </p>
-    {item.limitations && <p class="small-note">{item.limitations[lang]}</p>}
-    {item.contextPath && (
-      <CalloutLink href={`/${lang}/${item.contextPath}`}>
-        {lang === 'ru' ? 'Контекст участия' : 'Contribution context'}
+    {!overview && (
+      <p class="small-note">
+        {lang === 'ru' ? 'Адресат' : 'Recipient'}: {item.recipient[lang]}
+      </p>
+    )}
+    {!overview && item.limitations && <p class="small-note">{item.limitations[lang]}</p>}
+    {(item.contextPath || overview) && (
+      <CalloutLink href={`/${lang}/${item.contextPath ?? `recognition/#recognition-${item.id}`}`}>
+        {item.contextPath
+          ? lang === 'ru'
+            ? 'Контекст участия'
+            : 'Contribution context'
+          : lang === 'ru'
+            ? 'Подробнее о признании'
+            : 'Recognition details'}
       </CalloutLink>
     )}
   </div>

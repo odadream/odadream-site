@@ -1,4 +1,33 @@
 import type { CaseEvent, Lang } from '../data/site';
+import type { EventGenre } from '../data/event-contexts';
+export const eventGenres: EventGenre[] = [
+  'festival',
+  'conference',
+  'forum',
+  'exhibition',
+  'school',
+  'retreat',
+  'competition',
+  'lecture',
+  'laboratory',
+  'programme',
+  'meeting',
+  'unknown',
+];
+export const eventGenreLabels: Record<EventGenre, Record<Lang, string>> = {
+  festival: { ru: 'Фестивали', en: 'Festivals' },
+  conference: { ru: 'Конференции', en: 'Conferences' },
+  forum: { ru: 'Форумы', en: 'Forums' },
+  exhibition: { ru: 'Выставки', en: 'Exhibitions' },
+  school: { ru: 'Школы', en: 'Schools' },
+  retreat: { ru: 'Ретриты', en: 'Retreats' },
+  competition: { ru: 'Конкурсы и олимпиады', en: 'Competitions' },
+  lecture: { ru: 'Лекции', en: 'Lectures' },
+  laboratory: { ru: 'Лаборатории', en: 'Laboratories' },
+  programme: { ru: 'Программы и серии встреч', en: 'Programmes and recurring sessions' },
+  meeting: { ru: 'Встречи и частные события', en: 'Meetings and private events' },
+  unknown: { ru: 'Без категории', en: 'Uncategorized' },
+};
 
 export const caseTypeLabels = {
   performance: { ru: 'Перформанс', en: 'Performance' },

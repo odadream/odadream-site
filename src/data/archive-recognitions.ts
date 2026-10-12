@@ -305,6 +305,10 @@ const records = [
     source:
       'Studio source records; owner-authorized full content migration; private correspondence/originals not published',
     id: 'skolkovo-arttech-2026',
+    overviewClaim: {
+      ru: 'За проект «Мозг Сколково: Нейропортреты».',
+      en: 'For the Skolkovo Brain: Neuro-portraits project.',
+    },
     legacyId: 'proof-award-skolkovo-arttech',
     kind: 'award',
     title: {
@@ -340,6 +344,10 @@ const records = [
     source:
       'Studio source records; owner-authorized full content migration; private correspondence/originals not published',
     id: 'culttech-school-grant-2026',
+    overviewClaim: {
+      ru: 'Грант покрывает полную стоимость образовательного этапа CultTech Lab.',
+      en: 'The grant covers the full CultTech Lab School Phase fee.',
+    },
     legacyId: 'proof-award-culttech-vienna',
     kind: 'grant',
     title: {
@@ -375,6 +383,10 @@ const records = [
     source:
       'Studio source records; owner-authorized full content migration; private correspondence/originals not published',
     id: 'cyens-reserve-2026',
+    overviewClaim: {
+      ru: 'MindGrid и MindShow вошли в резерв отбора; в программу фестиваля не включены.',
+      en: 'MindGrid and MindShow were placed on the selection reserve; neither entered the festival programme.',
+    },
     legacyId: 'proof-press-cyens-cyprus',
     kind: 'selection',
     title: {

@@ -70,6 +70,11 @@ export interface CooperationPage {
 
 // Exact bytes of dated V1 and owner-provided editorial snapshots, not current availability claims.
 export const sourceSnapshots: Record<string, SourceReference> = {
+  'Obsidian_Oktava_2021.md': {
+    file: 'Obsidian_Oktava_2021.md',
+    sha256: 'c10f294904d3b36f94d2db0d02fdc88bffb0761ee78506f84dde0f7d1552668e',
+    snapshot: '2026-10-12',
+  },
   'media-another-people-docs.md': {
     file: 'media-another-people-docs.md',
     sha256: '49eb30f6f95957874b2cffcd5b839c8cc6b6adec302eda842eb0d4e55970c64a',
