@@ -1,6 +1,7 @@
 ---
 import DevPublicationMark from './DevPublicationMark.astro';
 import MediaRegister from './MediaRegister.astro';
+import MediaCropTrigger from './MediaCropTrigger.astro';
 import TechnicalMark from './TechnicalMark.astro';
 import VideoPreview from './VideoPreview.astro';
 import { mediaFit, type MediaItem, type MediaFit } from '../lib/media-presentation';
@@ -112,5 +113,6 @@ const presentation = item ? mediaFit(item, fit) : 'natural';
       {item.credit && <span class="media-credit">{item.credit[lang]}</span>}
     </figcaption>
     {register === 'disclosure' && <MediaRegister item={item} lang={lang} disclosure />}
+    <MediaCropTrigger item={item} lang={lang} view="gallery" />
   </figure>
 )}

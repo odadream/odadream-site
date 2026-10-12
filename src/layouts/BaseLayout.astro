@@ -18,6 +18,7 @@ import { pairedPath, navigationFor, type Page } from '../lib/routes';
 import DzenIcon from '../assets/social/dzen.svg';
 import RecordStamp from '../components/RecordStamp.astro';
 import DevNote from '../components/DevNote.astro';
+import MediaCropEditor from '../components/MediaCropEditor.astro';
 import DevPublicationMark from '../components/DevPublicationMark.astro';
 import '../styles/editorial.css';
 import AnalyticsConsent from '../components/AnalyticsConsent.astro';
@@ -279,6 +280,7 @@ const breadcrumbSchema =
       </div>
     </header>
     {import.meta.env.DEV && <script is:inline type="module" src="/__editorial/client.js"></script>}
+    <MediaCropEditor lang={page.lang} />
     <main id="main">
       {preview && page.family !== 'D' && (
         <DevNote id="dev-catalogue-scope" lang={page.lang}>

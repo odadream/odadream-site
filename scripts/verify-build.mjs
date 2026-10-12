@@ -117,9 +117,14 @@ for (const path of await publicFiles(root)) {
   for (const marker of ['D:/YandexDisk/', 'D:\\YandexDisk', 'C:/Users/', 'trusted_internal'])
     if (output.includes(marker)) fail(`Internal locator in public output ${path}`);
   if (
-    ['data-dev-note', 'data-editorial-toolbar', '/__editorial/', '/editorial/'].some((marker) =>
-      output.includes(marker),
-    )
+    [
+      'data-dev-note',
+      'data-editorial-toolbar',
+      'data-dev-crop',
+      'oda.media-composition.v1',
+      '/__editorial/',
+      '/editorial/',
+    ].some((marker) => output.includes(marker))
   )
     fail('Local editorial tools included in public output ' + path);
   if (output.includes('data-editorial-preview')) fail(`Editorial preview included in public output ${path}`);

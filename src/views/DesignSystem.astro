@@ -10,6 +10,7 @@ import ProgrammeCard from '../components/ProgrammeCard.astro';
 import ParticipationPanel from '../components/ParticipationPanel.astro';
 import WorkCard from '../components/WorkCard.astro';
 import CaseRow from '../components/CaseRow.astro';
+import CollectiveFeedback from '../components/CollectiveFeedback.astro';
 import RecognitionCard from '../components/RecognitionCard.astro';
 import StatisticsStamp from '../components/StatisticsStamp.astro';
 import MindDBStamp from '../components/MindDBStamp.astro';
@@ -736,6 +737,7 @@ const profileTokens = [
           Иерархический адрес: буква семейства → номер раздела (<code>W</code>, <code>W.01</code>). Он
           показывает положение блока, но не нумерует отдельные карточки и не заменяет ID записи.
         </p>
+        <CollectiveFeedback lang="ru" id="specimen-feedback" />
         <StatisticsStamp kind="works" lang="ru" />
         <StatisticsStamp kind="events" lang="ru" />
         <StatisticsStamp kind="recognition" lang="ru" />

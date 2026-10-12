@@ -1,0 +1,120 @@
+---
+import type { Lang } from '../data/site';
+interface Props {
+  lang: Lang;
+  id: string;
+}
+const { lang, id } = Astro.props;
+const ru = lang === 'ru';
+---
+
+<figure class="collective-feedback" data-collective-feedback>
+  <svg viewBox="0 0 480 480" role="img" aria-labelledby={id + '-title ' + id + '-description'}>
+    <title
+      id={id + '-title'}
+    >{ru?'Круг коллективной биологической обратной связи':'Collective biofeedback loop'}</title>
+    <desc id={id + '-description'}>
+      {ru
+        ? 'Группа из двух и более участников. Сенсоры измеряют сигналы последовательно или одновременно. Вычислительная система переводит их в изображение, звук или движение, возвращая опыт группе.'
+        : 'Two or more participants. Sensors measure signals sequentially or simultaneously. A computing system translates them into image, sound or movement, returning the experience to the group.'}
+    </desc>
+    <defs>
+      <marker
+        id={id + '-arrow'}
+        viewBox="0 0 10 10"
+        refX="8"
+        refY="5"
+        markerWidth="7"
+        markerHeight="7"
+        orient="auto-start-reverse"
+      >
+        <path d="M1 1 L8 5 L1 9" class="collective-feedback__arrowhead" />
+      </marker>
+    </defs>
+    <g class="collective-feedback__connections" marker-end={'url(#' + id + '-arrow)'}>
+      <path d="M330 72 Q410 94 410 180" />
+      <path d="M404 300 Q382 398 340 420" />
+      <path d="M140 420 Q70 398 76 300" />
+      <path d="M76 180 Q70 94 146 72" />
+    </g>
+    <g class="collective-feedback__nodes">
+      <rect x="156" y="8" width="168" height="110" rx="8" />
+      <rect x="330" y="194" width="148" height="92" rx="8" />
+      <rect x="150" y="374" width="180" height="100" rx="8" />
+      <rect x="2" y="194" width="148" height="92" rx="8" />
+    </g>
+    <g class="collective-feedback__people" transform="translate(204 82)">
+      <circle cx="0" cy="0" r="7" />
+      <path d="M-12 24 Q-12 10 0 10 Q12 10 12 24" />
+      <circle cx="36" cy="0" r="7" />
+      <path d="M24 24 Q24 10 36 10 Q48 10 48 24" />
+      <circle cx="72" cy="0" r="7" />
+      <path d="M60 24 Q60 10 72 10 Q84 10 84 24" />
+    </g>
+    <g class="collective-feedback__labels" text-anchor="middle">
+      <text x="240" y="35">
+        {ru ? 'Группа' : 'Group'}
+      </text>
+      <text x="240" y="60">
+        {ru ? '2+ участника' : '2+ participants'}
+      </text>
+      <text x="404" y="220">
+        {ru ? 'Измерение' : 'Measurement'}
+      </text>
+      <text x="404" y="247">
+        {ru ? 'ЭЭГ · ФПГ' : 'EEG · PPG'}
+      </text>
+      <text x="404" y="274">
+        {ru ? 'движение' : 'movement'}
+      </text>
+      <text x="240" y="405">
+        {ru ? 'Вычислительная' : 'Computing'}
+      </text>
+      <text x="240" y="432">
+        {ru ? 'система' : 'system'}
+      </text>
+      <text x="240" y="459">
+        {ru ? 'обработка' : 'processing'}
+      </text>
+      <text x="76" y="220">
+        {ru ? 'Изображение' : 'Image'}
+      </text>
+      <text x="76" y="247">
+        {ru ? 'звук' : 'sound'}
+      </text>
+      <text x="76" y="274">
+        {ru ? 'движение' : 'movement'}
+      </text>
+      <text x="240" y="226">
+        {ru ? 'Совместный' : 'Shared'}
+      </text>
+      <text x="240" y="253">
+        {ru ? 'опыт' : 'experience'}
+      </text>
+    </g>
+    <g class="collective-feedback__captions" text-anchor="middle">
+      <text x="315" y="150">
+        {ru ? 'Сигнал' : 'Signal'}
+      </text>
+      <text x="305" y="335">
+        {ru ? 'Данные' : 'Data'}
+      </text>
+      <text x="170" y="335">
+        {ru ? 'Перевод' : 'Translation'}
+      </text>
+      <text x="170" y="150">
+        {ru ? 'Опыт' : 'Experience'}
+      </text>
+    </g>
+  </svg>
+  <figcaption>
+    {ru
+      ? 'Группа → измерение → вычисление → представление → группа. Измерение может идти последовательно или одновременно; набор сенсоров зависит от работы.'
+      : 'Group → measurement → computation → presentation → group. Measurement may be sequential or simultaneous; the sensors depend on the work.'}
+  </figcaption>
+  <p>
+    {ru
+      ? 'Участники исследуют собственные ощущения, восприятие окружающего и взаимодействие друг с другом.'
+      : 'Participants explore their own sensations, their perception of the surroundings and their interactions with one another.'}
+  </p>
+</figure>

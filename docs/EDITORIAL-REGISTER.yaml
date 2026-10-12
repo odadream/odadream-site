@@ -1,6 +1,6 @@
 schema_version: 1
 updated: 2026-10-12
-scope_version: editorial-2026-10-12.1
+scope_version: editorial-2026-10-12.2
 baseline_commit: d33cd03
 source_audit: docs/EDITORIAL-AUDIT.md
 status_values:
@@ -365,3 +365,5 @@ units:
   - {"id":"shared:src/components/MediaFigure.astro","kind":"shared-copy","file":"src/components/MediaFigure.astro","ru":{"status":"edited","coverage_complete":true,"checked_at":"2026-10-10","pass_id":"autonomous-copy-2026-10-10"},"en":{"status":"edited","coverage_complete":true,"checked_at":"2026-10-10","pass_id":"autonomous-copy-2026-10-10"},"baseline_file_sha256":"7b5980cce5ba1e2ab31281ece8222859c6efe31bdd2dcf9d4c93bf5429cd8a55"}
   - {"id":"shared:src/components/MediaGallery.astro","kind":"shared-copy","file":"src/components/MediaGallery.astro","ru":{"status":"edited","coverage_complete":true,"checked_at":"2026-10-10","pass_id":"autonomous-copy-2026-10-10"},"en":{"status":"edited","coverage_complete":true,"checked_at":"2026-10-10","pass_id":"autonomous-copy-2026-10-10"},"baseline_file_sha256":"dd60659374f8156798e5db0bfa6688211ee0ead0d2a16b9513cf61ca6fc92d62"}
   - {"id":"cases:oktava-2021","kind":"cases","entity":"oktava-2021","ru":{"status":"edited","field_count":7,"coverage_complete":true,"checked_at":"2026-10-12","pass_id":"homepage-event-contexts-2026-10-12"},"en":{"status":"edited","field_count":7,"coverage_complete":true,"checked_at":"2026-10-12","pass_id":"homepage-event-contexts-2026-10-12"}}
+  - {"id":"shared:src/components/CollectiveFeedback.astro","kind":"shared-copy","file":"src/components/CollectiveFeedback.astro","ru":{"status":"draft"},"en":{"status":"draft"}}
+  - {"id":"shared:src/components/MediaCropEditor.astro","kind":"shared-copy","file":"src/components/MediaCropEditor.astro","ru":{"status":"draft"},"en":{"status":"draft"}}

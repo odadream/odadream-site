@@ -8,11 +8,12 @@ import MediaFigure from './MediaFigure.astro';
 import VideoPreview from './VideoPreview.astro';
 import WorkCard from './WorkCard.astro';
 import CaseRow from './CaseRow.astro';
+import CollectiveFeedback from './CollectiveFeedback.astro';
+import MediaCropTrigger from './MediaCropTrigger.astro';
 import { caseTypeLabels, participationLabels, formatCaseDate } from '../lib/case-presentation';
 import ProgrammeCard from './ProgrammeCard.astro';
 import ParticipationPanel from './ParticipationPanel.astro';
 import RecognitionCard from './RecognitionCard.astro';
-import { signalFlowSteps } from '../data/editorial';
 import DetailSection from './DetailSection.astro';
 import MacroSection from './MacroSection.astro';
 import ReadingNote from './ReadingNote.astro';
@@ -112,6 +113,7 @@ const timeline = selectHomepageEvents(cases);
                 hidden={i !== 0}
               >
                 <div class="nm-visual">
+                  <MediaCropTrigger item={image} lang={lang} view="hero" />
                   {image?.previewSrc && image.poster && (
                     <VideoPreview
                       class="nm-background-video"
@@ -268,7 +270,7 @@ const timeline = selectHomepageEvents(cases);
           ? 'Биологическая обратная связь превращает измеряемые сигналы тела в звук, изображение или движение. Участник видит, как его состояние влияет на произведение, и может исследовать эту связь вместе с другими.'
           : 'Biofeedback translates measured bodily signals into sound, image or movement. A participant can see how their state affects the work and explore that relationship with others.'}
       </p>
-      <ProcessSteps steps={signalFlowSteps} lang={lang} linked />
+      <CollectiveFeedback lang={lang} id="home-feedback" />
       <ReadingNote>
         {ru
           ? 'Мы не ставим диагнозов и не считаем сигнал доказательством внутреннего состояния.'

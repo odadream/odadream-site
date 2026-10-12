@@ -1616,35 +1616,37 @@ figcaption {
 .media-figure[data-representation='screenshot'] .media-open:hover img {
   filter: none;
 }
-.media-figure[data-focal='top-left'] {
+:is(.media-figure, .work-card__visual)[data-focal='top-left'] {
   --media-position: left top;
 }
-.media-figure[data-focal='top'] {
+:is(.media-figure, .work-card__visual)[data-focal='top'] {
   --media-position: center top;
 }
-.media-figure[data-focal='top-right'] {
+:is(.media-figure, .work-card__visual)[data-focal='top-right'] {
   --media-position: right top;
 }
-.media-figure[data-focal='left'] {
+:is(.media-figure, .work-card__visual)[data-focal='left'] {
   --media-position: left center;
 }
-.media-figure[data-focal='center'] {
+:is(.media-figure, .work-card__visual)[data-focal='center'] {
   --media-position: center;
 }
-.media-figure[data-focal='right'] {
+:is(.media-figure, .work-card__visual)[data-focal='right'] {
   --media-position: right center;
 }
-.media-figure[data-focal='bottom-left'] {
+:is(.media-figure, .work-card__visual)[data-focal='bottom-left'] {
   --media-position: left bottom;
 }
-.media-figure[data-focal='bottom'] {
+:is(.media-figure, .work-card__visual)[data-focal='bottom'] {
   --media-position: center bottom;
 }
-.media-figure[data-focal='bottom-right'] {
+:is(.media-figure, .work-card__visual)[data-focal='bottom-right'] {
   --media-position: right bottom;
 }
 .media-figure .media-open img,
-.media-figure .media-open video {
+.media-figure .media-open video,
+.work-card__visual img,
+.work-card__visual video {
   object-position: var(--media-position);
 }
 .lightbox-stage {
@@ -1850,4 +1852,47 @@ figcaption {
   .case-row--overview > .quiet-link {
     grid-column: auto;
   }
+}
+
+/* One illustrative loop; coordinates are diagram geometry, never sensor readings. */
+.collective-feedback {
+  margin: 0;
+}
+.collective-feedback svg {
+  display: block;
+  width: 100%;
+  max-width: var(--diagram-size);
+  height: auto;
+  margin-inline: auto;
+}
+.collective-feedback__connections path,
+.collective-feedback__arrowhead,
+.collective-feedback__people {
+  fill: none;
+  stroke: var(--signal-home);
+  stroke-width: var(--diagram-line);
+}
+.collective-feedback__nodes rect {
+  fill: var(--plane-back);
+  stroke: var(--line-soft);
+  stroke-width: var(--diagram-line);
+}
+.collective-feedback__labels {
+  fill: var(--ink);
+  font-family: Manrope, sans-serif;
+  font-size: var(--diagram-label);
+}
+.collective-feedback__captions {
+  fill: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--diagram-caption);
+}
+.collective-feedback figcaption {
+  display: block;
+  max-width: var(--copy-measure);
+  margin-top: var(--gap-copy);
+}
+.collective-feedback > p {
+  margin-top: var(--gap-copy);
+  max-width: var(--copy-measure);
 }

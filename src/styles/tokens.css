@@ -330,3 +330,11 @@
     --hero-edge-space: var(--s5);
   }
 }
+
+:root {
+  /* Diagram units in a 480-unit viewBox: 20 remains readable at mobile width. */
+  --diagram-size: 30rem;
+  --diagram-line: var(--mark-stroke);
+  --diagram-label: calc(20px * var(--type-scale));
+  --diagram-caption: calc(16px * var(--type-scale));
+}

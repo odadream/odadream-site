@@ -1,5 +1,6 @@
 ---
 import DevPublicationMark from './DevPublicationMark.astro';
+import MediaCropTrigger from './MediaCropTrigger.astro';
 import CalloutLink from './CalloutLink.astro';
 import VideoPreview from './VideoPreview.astro';
 import { mediaById } from '../data/catalogue';
@@ -14,10 +15,7 @@ interface Props {
 }
 const { item, lang, eager = false, presentation = 'catalogue' } = Astro.props;
 const media = mediaById(item.media[0]);
-const contain =
-  media &&
-  (fullFrameRepresentations.has(media.representation ?? '') ||
-    (media.width && media.height && media.width < media.height));
+const contain = media && fullFrameRepresentations.has(media.representation ?? '');
 const labels = {
   illustration: { ru: 'Иллюстрация метода', en: 'Method illustration' },
   render: { ru: 'Визуализация проекта', en: 'Project visualization' },
@@ -33,7 +31,11 @@ const labels = {
   <DevPublicationMark kind="works" recordId={item.id} lang={lang} />
   <a class="work-card__link" data-preview-trigger href={workUrl(lang, item.id)}>
     <span class="work-card__media" data-media-id={media?.id}>
-      <span class="work-card__visual" data-fit={contain ? 'contain' : 'cover'}>
+      <span
+        class="work-card__visual"
+        data-fit={contain ? 'contain' : 'cover'}
+        data-focal={media?.focalPoint ?? 'center'}
+      >
         {media &&
           (media.previewSrc && media.poster ? (
             <VideoPreview
@@ -88,4 +90,5 @@ const labels = {
     </h3>
     <p>{item.summary[lang]}</p>
   </a>
+  <MediaCropTrigger item={media} lang={lang} view="card" />
 </article>

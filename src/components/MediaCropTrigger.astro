@@ -1,0 +1,27 @@
+---
+import { fullFrameRepresentations, type MediaItem } from '../lib/media-presentation';
+import type { Lang } from '../data/site';
+interface Props {
+  item?: MediaItem;
+  lang: Lang;
+  view?: 'card' | 'hero' | 'gallery';
+}
+const { item, lang, view = 'gallery' } = Astro.props;
+const editable =
+  item && !fullFrameRepresentations.has(item.representation ?? '') && (item.poster || item.kind === 'image');
+---
+
+{import.meta.env.DEV && editable && (
+  <button
+    type="button"
+    class="dev-crop-trigger"
+    data-dev-crop
+    data-crop-id={item.id}
+    data-crop-src={item.kind === 'video' ? item.poster : item.src}
+    data-crop-view={view}
+    data-crop-title={item.alt[lang]}
+    data-crop-focal={item.focalPoint ?? 'center'}
+  >
+    {lang === 'ru' ? 'DEV · кадрирование' : 'DEV · framing'}
+  </button>
+)}

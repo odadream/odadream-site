@@ -1,0 +1,119 @@
+---
+const ru = Astro.props.lang === 'ru';
+---
+
+{import.meta.env.DEV && (
+  <dialog class="dev-crop-editor" data-dev-crop-dialog aria-labelledby="crop-editor-title">
+    <form method="dialog">
+      <button class="button button--quiet" aria-label={ru ? 'Закрыть кадрирование' : 'Close framing'}>
+        {ru ? 'Закрыть' : 'Close'}
+      </button>
+    </form>
+    <h2 id="crop-editor-title">{ru ? 'Композиция материала' : 'Material composition'}</h2>
+    <p data-crop-name></p>
+    <p class="small-note">
+      {ru
+        ? 'Черновик хранится в этом DEV-браузере. Экспорт JSON предназначен для переноса в данные; PUBLIC не изменяется. Документы, схемы, афиши и кадры интерфейса не обрезаются.'
+        : 'Drafts stay in this DEV browser. Export JSON to transfer them to the data layer; PUBLIC is unchanged. Documents, diagrams, posters and interface screenshots remain whole.'}
+    </p>
+    <div class="dev-crop-controls">
+      <label>
+        {ru ? 'Представление' : 'View'}
+        <select data-crop-profile>
+          <option value="card">{ru ? 'Карточка' : 'Card'}</option>
+          <option value="hero">Hero</option>
+          <option value="gallery">{ru ? 'Галерейная обрезка' : 'Gallery crop'}</option>
+        </select>
+      </label>
+      <label>
+        {ru ? 'Настройка для' : 'Setting for'}
+        <select data-crop-viewport>
+          <option value="desktop">Desktop</option>
+          <option value="mobile">Mobile</option>
+        </select>
+      </label>
+      <label>
+        {ru ? 'Режим' : 'Mode'}
+        <select data-crop-mode>
+          <option value="point">{ru ? 'Точка внимания' : 'Focal point'}</option>
+          <option value="region">{ru ? 'Явная область' : 'Explicit region'}</option>
+        </select>
+      </label>
+    </div>
+    <div class="dev-crop-workbench">
+      <div>
+        <p>
+          {ru
+            ? 'Исходное изображение · нажмите для точки внимания'
+            : 'Original image · click to set focal point'}
+        </p>
+        <div class="dev-crop-original">
+          <img data-crop-original alt="" />
+          <span class="dev-crop-point" aria-hidden="true"></span>
+          <span class="dev-crop-region" aria-hidden="true"></span>
+        </div>
+      </div>
+      <div>
+        <div class="dev-crop-fields">
+          {['x', 'y', 'width', 'height'].map((key) => (
+            <label>
+              {key === 'width'
+                ? ru
+                  ? 'Ширина'
+                  : 'Width'
+                : key === 'height'
+                  ? ru
+                    ? 'Высота'
+                    : 'Height'
+                  : key.toUpperCase()}
+              <input type="number" min="0" max="1" step="0.01" data-crop-field={key} />
+            </label>
+          ))}
+        </div>
+        <p class="small-note">
+          {ru
+            ? 'Координаты 0–1 относятся к оригиналу. Область сохраняется целиком; при разных пропорциях рамки остаются поля. Точка внимания заполняет рамку без полей.'
+            : 'Coordinates 0–1 refer to the original. A region stays whole, with letterboxing for different frame proportions. A focal point fills the frame.'}
+        </p>
+        <p class="small-note">
+          {ru
+            ? 'Рамки — образцы пропорций. Точка применяется к DEV-обложкам; область пока сравнивается здесь и сохраняется для переноса в данные.'
+            : 'Frames are aspect-ratio samples. Focal points apply to DEV covers; regions are compared here and saved for transfer to the data layer.'}
+        </p>
+      </div>
+    </div>
+    <div class="dev-crop-comparison">
+      {['desktop', 'mobile'].map((viewport) => (
+        <figure>
+          <figcaption>{viewport}</figcaption>
+          <div class="dev-crop-frame" data-crop-frame={viewport}>
+            <div class="dev-crop-window">
+              <img alt="" />
+            </div>
+          </div>
+        </figure>
+      ))}
+    </div>
+    <p role="status" data-crop-status aria-live="polite"></p>
+    <div class="link-row">
+      <button type="button" class="button" data-crop-save>
+        {ru ? 'Сохранить черновик' : 'Save draft'}
+      </button>
+      <button type="button" class="button button--quiet" data-crop-reset>
+        {ru ? 'Сбросить эту рамку' : 'Reset this frame'}
+      </button>
+      <button type="button" class="button button--quiet" data-crop-export>
+        {ru ? 'Экспорт JSON' : 'Export JSON'}
+      </button>
+    </div>
+    <label>
+      {ru ? 'JSON для переноса в данные' : 'JSON for the data layer'}
+      <textarea data-crop-json rows="5" readonly></textarea>
+    </label>
+  </dialog>
+)}
+<script>
+  if (import.meta.env.DEV) {
+    import('../scripts/media-crop-editor').then((module) => module.initMediaCropEditor());
+  }
+</script>
