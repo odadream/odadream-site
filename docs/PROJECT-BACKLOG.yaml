@@ -61,7 +61,11 @@ items:
       Отчёт — .local-server/checks/1791894227804; snapshot SHA — 9fece8bb0fc6208e1345b049847ca56decc8191c50bc9639ee6a57d8fef30858.
       Проверены CRC пяти архивных ZIP, свежие V1/V2 snapshots и полный bundle 26 Git refs;
       квитанции — .local-server/prepublication-feedback. Providers V2 подготовлены для odadream.art,
-      действующие providers V1 сохранены. Подготовительная Linux CI выполняется до переноса/main;
+      действующие providers V1 сохранены. Linux CI на bca90df прошла — 111 unit,
+      176 browser passed / 34 skipped, 715.38 с; https://github.com/odadream/odadream-site/actions/runs/38405865064.
+      Исправлены fixture имени checkout, потеря ввода при image-load/resize в DEV-crop и ожидание CSS в reading matrix.
+      Независимый restore в папку odadream-site прошёл npm ci/types/content/production build;
+      CSS и содержимое артефакта эквивалентны после проверенного переименования единственного CSS entry.
       фактические перенос, переключение Hub, Pages и контроль на домене пока не выполнены.
     outcome: История и текущие файлы V1 сохранены; V2 получает основную папку, проверенную сборку и свои аналитику/SEO.
     acceptance:
