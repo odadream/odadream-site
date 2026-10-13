@@ -392,6 +392,19 @@ main:has(> .section:last-child, > .system-page) + .site-footer {
 .callout-link.is-drawn {
   text-decoration: none;
 }
+/* Compact text keeps its natural line box; the hit area extends into adjacent spacing. */
+:is(h1, h2, h3, h4, h5, h6, dd) a.callout-link {
+  position: relative;
+  min-height: 0;
+}
+:is(h1, h2, h3, h4, h5, h6, dd) a.callout-link::before {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  top: 50%;
+  height: max(100%, var(--tap-target));
+  transform: translateY(-50%);
+}
 a.callout-link:hover,
 a.callout-link:focus-visible,
 a:hover .callout-link,
@@ -817,7 +830,7 @@ figcaption {
 .breadcrumbs {
   display: flex;
   gap: var(--s3);
-  align-items: center;
+  align-items: baseline;
   color: var(--muted);
   margin-bottom: var(--s7);
 }
@@ -1826,9 +1839,9 @@ figcaption {
   }
 }
 
-/* Event-first overview: date, narrative, action use the common list tracks. */
+/* Event overview has one destination: the linked title in the narrative track. */
 .case-row--overview.list-row {
-  grid-template-columns: minmax(3.5em, auto) minmax(0, 1fr) auto;
+  grid-template-columns: minmax(3.5em, auto) minmax(0, 1fr);
 }
 .case-row--overview .case-row__metadata {
   grid-column: auto;
@@ -1837,20 +1850,9 @@ figcaption {
   font-size: var(--type-metadata);
   line-height: var(--leading-metadata);
 }
-@media (max-width: 960px) {
-  .case-row--overview.list-row {
-    grid-template-columns: minmax(3.5em, auto) minmax(0, 1fr);
-  }
-  .case-row--overview > .quiet-link {
-    grid-column: 2;
-  }
-}
 @media (max-width: 580px) {
   .case-row--overview.list-row {
     grid-template-columns: minmax(0, 1fr);
-  }
-  .case-row--overview > .quiet-link {
-    grid-column: auto;
   }
 }
 

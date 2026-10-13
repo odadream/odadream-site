@@ -52,7 +52,13 @@ const links = [
     {!overview && item.context !== 'public' && <p>{contextLabels[item.context][lang]}</p>}
   </div>
   <div>
-    <h3>{overview ? (item.event?.title[lang] ?? item.title[lang]) : item.title[lang]}</h3>
+    <h3>
+      {overview ? (
+        <CalloutLink href={caseUrl(lang, item.id)}>{item.event?.title[lang] ?? item.title[lang]}</CalloutLink>
+      ) : (
+        item.title[lang]
+      )}
+    </h3>
     {overview && (
       <p class="meta case-row__location">
         {[item.event?.city?.[lang], item.event?.venue?.[lang]].filter(Boolean).join(' · ') ||
@@ -81,27 +87,23 @@ const links = [
         label={lang === 'ru' ? 'Материалы события' : 'Event materials'}
       />
     )}
-    <div class="link-row spaced-actions">
-      {links.map((link) => (
-        <CalloutLink href={link.href}>{link.title}</CalloutLink>
-      ))}
-    </div>
+    {!overview && (
+      <div class="link-row spaced-actions">
+        {links.map((link) => (
+          <CalloutLink href={link.href}>{link.title}</CalloutLink>
+        ))}
+      </div>
+    )}
   </div>
-  <CalloutLink href={overview || item.detailPage ? caseUrl(lang, item.id) : caseTargetUrl(lang, item)}>
-    {item.detailPage
-      ? lang === 'ru'
-        ? overview
-          ? 'Подробнее'
-          : 'Открыть кейс'
-        : overview
-          ? 'Explore'
+  {!overview && (
+    <CalloutLink href={item.detailPage ? caseUrl(lang, item.id) : caseTargetUrl(lang, item)}>
+      {item.detailPage
+        ? lang === 'ru'
+          ? 'Открыть кейс'
           : 'Open case'
-      : lang === 'ru'
-        ? overview
-          ? 'Подробнее'
-          : 'Материал'
-        : overview
-          ? 'Explore'
+        : lang === 'ru'
+          ? 'Материал'
           : 'Related material'}
-  </CalloutLink>
+    </CalloutLink>
+  )}
 </article>

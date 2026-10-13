@@ -572,7 +572,7 @@ const timeline = selectHomepageEvents(cases);
       <span>/</span>
       <CalloutLink href={`/${lang}/works/`}>{ru ? 'Работы' : 'Works'}</CalloutLink>
       <span>/</span>
-      <span>{work.title[lang]}</span>
+      <span aria-current="page">{work.title[lang]}</span>
     </nav>
     <div class="work-layout">
       <div class="work-main">

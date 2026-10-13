@@ -156,6 +156,15 @@ h4 {
   font-size: var(--type-small);
   font-weight: var(--weight-heading);
 }
+h1 .callout-link,
+h2 .callout-link,
+h3 .callout-link,
+h4 .callout-link,
+h5 .callout-link,
+h6 .callout-link {
+  font: inherit;
+  letter-spacing: inherit;
+}
 .button {
   font-size: var(--type-note);
   font-weight: 600;

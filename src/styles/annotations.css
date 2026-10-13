@@ -111,9 +111,8 @@
   color: var(--ink);
 }
 .record-stamp a:not(.callout-link) {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--tap-target);
+  display: inline-block;
+  position: relative;
   text-decoration: underline;
   text-underline-offset: var(--link-offset);
   text-decoration-color: var(--line-strong);
@@ -149,7 +148,8 @@
   padding-block: var(--s5);
 }
 .colophon-copy {
-  min-height: var(--tap-target);
+  position: relative;
+  min-height: 0;
   padding: 0;
   border: 0;
   background: none;
@@ -161,6 +161,15 @@
   color: var(--accent);
   text-decoration: underline;
   text-underline-offset: var(--link-offset);
+}
+.record-stamp a:not(.callout-link)::before,
+.colophon-copy::before {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  top: 50%;
+  height: max(100%, var(--tap-target));
+  transform: translateY(-50%);
 }
 .colophon-url {
   width: 100%;

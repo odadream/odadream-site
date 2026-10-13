@@ -36,7 +36,8 @@ for (const theme of ['light', 'dark']) {
     });
     const folioSizes = new Map<number, Set<string>>();
     for (const route of [...routes, '/design-system/']) {
-      await page.goto(route, { waitUntil: 'domcontentloaded' });
+      // Fonts.ready before external CSS loads can resolve against an incomplete font set.
+      await page.goto(route, { waitUntil: 'load' });
       await page.evaluate(() => document.fonts.ready);
       for (const width of widths) {
         // CDP updates innerWidth before Chromium finishes dispatching resize/style invalidation.

@@ -593,6 +593,16 @@ const profileTokens = [
       <div class="system-content record-grid">
         <div class="system-span-2">
           <span class="component-title">Хронология / CaseRow</span>
+          <p class="small-note">
+            Название — единственный переход в обзоре. Однострочное и многострочное название сохраняют
+            одинаковый интервал до места; область нажатия не растягивает строку.
+          </p>
+          <CaseRow
+            item={cases.find((item) => item.id === 'tsiolkovsky-2026')!}
+            lang="ru"
+            presentation="overview"
+            specimen
+          />
           <CaseRow
             item={cases.find((item) => item.id === 'oktava-2021')!}
             lang="ru"
@@ -872,6 +882,15 @@ const profileTokens = [
             { label: 'ID', value: works[0].legacyId },
             { label: 'Кейсы', value: works[0].cases.length },
             { label: 'Смысл примера', value: 'Оставшееся поле заполняет строку без пустых реквизитов.' },
+          ]}
+        />
+        <RecordStamp
+          title="Текст и переходы / без дополнительных пустых строк"
+          fields={[
+            { label: 'Форма', value: works[0].category.ru },
+            { label: 'Стадия', value: 'Реализовано' },
+            { label: 'Документация', value: 'Страница работы', href: '/ru/works/interference-of-realities/' },
+            { label: 'Обновлено', value: '2026-10-13' },
           ]}
         />
         <dl class="notation-key">

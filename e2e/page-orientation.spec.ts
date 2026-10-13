@@ -35,12 +35,15 @@ test('shared orientation, chapter targets and compact colophon survive both lang
                 labelsFit: labels.every((node) => node.scrollWidth <= node.clientWidth),
                 copyOffset: copy.getBoundingClientRect().top - dd.getBoundingClientRect().top,
                 copyHeight: copy.getBoundingClientRect().height,
+                copyLine: parseFloat(getComputedStyle(copy).lineHeight),
+                copyTarget: parseFloat(getComputedStyle(copy, '::before').height),
               };
             });
             expect(geometry.overflow).toBe(false);
             expect(geometry.labelsFit).toBe(true);
             expect(geometry.copyOffset).toBeCloseTo(0, 0);
-            expect(geometry.copyHeight).toBeGreaterThanOrEqual(44);
+            expect(geometry.copyHeight).toBeCloseTo(geometry.copyLine, 0);
+            expect(geometry.copyTarget).toBeGreaterThanOrEqual(44);
           }
         }
         if (width <= 1600) await expect(page.locator('.header-section')).toBeVisible();

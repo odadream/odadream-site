@@ -324,9 +324,7 @@ test('homepage distinguishes catalogue scope and document previews', async ({ pa
   }
 });
 
-test('timeline provenance code, date, event and link stay in separate grid cells at tablet width', async ({
-  page,
-}) => {
+test('timeline date and linked narrative share two compact tracks at tablet width', async ({ page }) => {
   await page.setViewportSize({ width: 850, height: 912 });
   await page.goto('/ru/');
   const rows = await page.locator('#timeline .case-row--overview').evaluateAll((items) =>
@@ -338,7 +336,7 @@ test('timeline provenance code, date, event and link stay in separate grid cells
       return {
         cells: item.children.length,
         dateAndDescriptionDoNotOverlap: date.right <= description.left,
-        linkFollowsDescription: link.top >= description.bottom - 1,
+        linkBelongsToTitle: !!item.querySelector('.quiet-link')!.closest('h3'),
         descriptionFitsRow: description.right <= row.right + 1,
         linkFitsRow: link.right <= row.right + 1,
       };
@@ -346,9 +344,9 @@ test('timeline provenance code, date, event and link stay in separate grid cells
   );
   expect(rows.length).toBeGreaterThan(0);
   for (const row of rows) {
-    expect(row.cells).toBe(3);
+    expect(row.cells).toBe(2);
     expect(row.dateAndDescriptionDoNotOverlap).toBeTruthy();
-    expect(row.linkFollowsDescription).toBeTruthy();
+    expect(row.linkBelongsToTitle).toBeTruthy();
     expect(row.descriptionFitsRow).toBeTruthy();
     expect(row.linkFitsRow).toBeTruthy();
   }

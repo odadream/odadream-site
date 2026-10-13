@@ -28,21 +28,30 @@ test.skip(
 const base = 'http://127.0.0.1:5180';
 let server: ChildProcess;
 test.beforeAll(async ({ request }) => {
+  test.setTimeout(120_000);
+  let startupOutput = '';
   server = spawn(
     process.execPath,
     ['node_modules/astro/astro.js', 'preview', '--host', '127.0.0.1', '--port', '5180'],
-    { windowsHide: true, stdio: 'ignore' },
+    { windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'] },
   );
+  const recordStartup = (chunk: Buffer) => {
+    startupOutput = (startupOutput + chunk.toString()).slice(-2000);
+  };
+  server.stdout?.on('data', recordStartup);
+  server.stderr?.on('data', recordStartup);
   await expect
     .poll(
       async () => {
         try {
-          return (await request.get(`${base}/ru/`)).status();
+          if (server.exitCode !== null) throw Error(`Preview exited: ${startupOutput}`);
+          return (await request.get(`${base}/ru/`, { timeout: 2000 })).status();
         } catch {
+          if (server.exitCode !== null) throw Error(`Preview exited: ${startupOutput}`);
           return 0;
         }
       },
-      { timeout: 30_000 },
+      { timeout: 60_000, message: 'Fresh PUBLIC preview must start before artifact checks' },
     )
     .toBe(200);
 });
