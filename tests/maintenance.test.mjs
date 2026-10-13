@@ -96,13 +96,14 @@ test('fingerprint detects nested source changes rather than relying on a build t
   await rm(resolve(copied, 'source.txt'));
   assert.notEqual(await treeFingerprint([relative(projectRoot, copied)]), await treeFingerprint(paths));
 });
-test('runtime and identity checks reject the old checkout and unsupported Node', () => {
+test('runtime and identity checks reject a different checkout and unsupported Node', () => {
   assert.equal(supportedNode('v22.17.0'), false);
   assert.equal(supportedNode('v22.19.0'), true);
   assert.equal(supportedNode('v24.19.0'), true);
   assert.equal(supportedNode('not-a-version'), false);
   assert.doesNotThrow(() => assertProjectIdentity({ project: projectRoot }));
-  assert.throws(() => assertProjectIdentity({ project: resolve(projectRoot, '../odadream-site') }));
+  // The current checkout may itself be named odadream-site (CI and the planned cutover).
+  assert.throws(() => assertProjectIdentity({ project: resolve(projectRoot, '__different-checkout__') }));
   assert.throws(() => assertProjectIdentity({}));
 });
 const sample = () => ({
