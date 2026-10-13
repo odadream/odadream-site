@@ -1358,16 +1358,11 @@ export const recognitions: Recognition[] = [
 
 const caseRecords: Omit<
   CaseEvent,
-  | keyof CaseDetail
-  | 'datePrecision'
-  | 'detailPage'
-  | 'featuredOnHome'
-  | 'dateMeaning'
-  | 'participationStatus'
-  | 'context'
+  keyof CaseDetail | 'datePrecision' | 'detailPage' | 'dateMeaning' | 'participationStatus' | 'context'
 >[] = [
   {
     id: 'tsiolkovsky-2026',
+    featuredOnHome: true,
     legacyId: 'event-tsiolkovsky-2026',
     slug: 'tsiolkovsky-festival-2026',
     title: { en: 'Interference at Tsiolkovsky Festival', ru: '«Интерференция» на фестивале Циолковского' },
@@ -1391,6 +1386,7 @@ const caseRecords: Omit<
   },
   {
     id: 'tsiolkovsky-2025',
+    featuredOnHome: true,
     legacyId: 'event-tsiolkovsky-2025',
     slug: 'tsiolkovsky-laboratory-2025',
     title: { en: 'Schrödinger at Tsiolkovsky Festival', ru: '«Шрёдингер» на фестивале Циолковского' },
@@ -1414,6 +1410,7 @@ const caseRecords: Omit<
   },
   {
     id: 'dano-2025',
+    featuredOnHome: false,
     legacyId: 'event-dano-ekoniva-2025',
     slug: 'dano-2025',
     title: { en: 'Paradox of Success at DANO', ru: '«Парадокс Успеха» на DANO' },
@@ -1437,6 +1434,7 @@ const caseRecords: Omit<
   },
   {
     id: 'byob-2026',
+    featuredOnHome: false,
     legacyId: 'event-byob-2026',
     slug: 'byob-2026',
     title: { en: 'MindShow at BYOB', ru: 'MindShow на BYOB' },
@@ -1468,7 +1466,6 @@ export const cases: CaseEvent[] = [
     participationStatus: 'held' as const,
     context: 'public' as const,
     detailPage: true,
-    featuredOnHome: true,
     ...caseDetails[row.id],
   })),
   ...historicalEvents,

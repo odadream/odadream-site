@@ -57,10 +57,20 @@ test('interface screenshots stay whole and educational overview media respect th
   assert.equal(mediaFit({ representation: 'screenshot', focalPoint: 'center' }, 'crop'), 'natural');
   const withoutEducation = createPublicationScope(data, { ...publicationPlan, educationOverview: false });
   for (const id of data.educationOverview.media) {
+    if (id === 'archive-talk-workshop-lectures-tavrida') continue; // Also owned by the documented programme/event.
     assert.ok(!withoutEducation.media.some((row) => row.id === id));
     const visible = scope.media.find((row) => row.id === id);
     assert.ok(!withoutEducation.assetPaths.has(visible.src));
   }
+  const shared = 'archive-talk-workshop-lectures-tavrida';
+  assert.ok(withoutEducation.media.some((row) => row.id === shared));
+  const withoutOwners = createPublicationScope(data, {
+    ...publicationPlan,
+    educationOverview: false,
+    programmes: publicationPlan.programmes.filter((id) => id !== 'taste-brain'),
+  });
+  assert.ok(!withoutOwners.cases.some((row) => row.id === 'tavrida-gastro-2025'));
+  assert.ok(!withoutOwners.media.some((row) => row.id === shared));
   const source = structuredClone(
     Object.fromEntries(Object.entries(data).filter(([, value]) => typeof value !== 'function')),
   );

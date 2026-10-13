@@ -480,8 +480,8 @@ const records: Record[] = [
     height: 901,
     representation: 'photograph',
     caption: {
-      ru: 'Образовательное выступление · Таврида',
-      en: 'Educational presentation · Tavrida',
+      ru: '«Мозг и вкус» · арт-школа «Гастро.Юг», Таврида.Арт, июль 2025',
+      en: 'Brain and Taste · Gastro.Yug art school, Tavrida.Art, July 2025',
     },
     archiveSource: {
       path: '/images/content/lectures-tavrida.webp',

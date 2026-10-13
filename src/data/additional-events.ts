@@ -25,6 +25,7 @@ const definitions: Definition[] = [
   },
   {
     id: 'frequencies-2025',
+    featuredOnHome: true,
     date: '2025-10-16',
     work: 'neuromandala',
     title: l('Нейромандала · Частоты 6.0', 'Neuromandala · Frequencies 6.0'),
@@ -72,6 +73,7 @@ const definitions: Definition[] = [
   },
   {
     id: 'synergy-bali-2022',
+    featuredOnHome: true,
     date: '2022-08-06',
     work: 'rings',
     relatedWorks: ['mom-baby'],
@@ -222,6 +224,7 @@ const definitions: Definition[] = [
   },
   {
     id: 'byob-2019',
+    featuredOnHome: true,
     date: '2019-12-22',
     work: 'mindshow',
     title: l('MindGrid · BYOB 2019', 'MindGrid · BYOB 2019'),
@@ -554,6 +557,7 @@ const definitions: Definition[] = [
   },
   {
     id: 'portal-2024',
+    featuredOnHome: true,
     date: '2024',
     work: 'mindshow',
     relatedWorks: ['neuromandala'],
@@ -578,6 +582,7 @@ const definitions: Definition[] = [
   },
   {
     id: 'sber-2025',
+    featuredOnHome: true,
     legacyId: 'event-sber-lecture-2025',
     date: '2025',
     programme: 'neuroaesthetics-lec',
@@ -632,7 +637,37 @@ const definitions: Definition[] = [
     ],
   },
   {
+    id: 'tavrida-gastro-2025',
+    featuredOnHome: true,
+    date: '2025-07-13',
+    dateEnd: '2025-07-19',
+    dateMeaning: 'event-window',
+    participationStatus: 'held',
+    type: 'lecture',
+    programme: 'taste-brain',
+    relatedWorks: ['neurobattle', 'neuromandala'],
+    title: l('Мозг и вкус · «Гастро.Юг», Таврида.Арт', 'Brain and Taste · Gastro.Yug, Tavrida.Art'),
+    summary: l(
+      'Интерактивная лекция «Мозг и вкус: искусство осознанного восприятия» и практические занятия для участников арт-школы.',
+      'The interactive lecture Brain and Taste: The Art of Mindful Perception and practical sessions for the art school participants.',
+    ),
+    place: l('Судак · Таврида.Арт', 'Sudak · Tavrida.Art'),
+    role: l(
+      'Ольга и Далер Арабовы: авторы и ведущие лекции и мастер-классов. В программу вошли наблюдение нейросигналов и нейросостязание участников.',
+      'Olga and Daler Arabov authored and led the lecture and workshops. The programme included observing neural signals and a neurocompetition for participants.',
+    ),
+    organizations: ['tavrida'],
+    participants: [
+      { name: l('Ольга Арабова', 'Olga Arabov'), role: l('Автор и ведущая', 'Author and facilitator') },
+      { name: l('Далер Арабов', 'Daler Arabov'), role: l('Автор и ведущий', 'Author and facilitator') },
+    ],
+    media: ['archive-talk-workshop-lectures-tavrida'],
+    files: ['Obsidian_Tavrida_Gastro_2025.md'],
+    source: 'Obsidian_Tavrida_Gastro_2025.md; owner confirmation 2026-10-13',
+  },
+  {
     id: 'tpp-2025',
+    featuredOnHome: true,
     legacyId: 'event-tpp-mindshow-2025',
     date: '2025',
     work: 'mindshow',
@@ -731,6 +766,7 @@ const definitions: Definition[] = [
   },
   {
     id: 'ossetia-2025',
+    featuredOnHome: true,
     legacyId: undefined,
     date: '2025-10-27',
     dateEnd: '2025-10-29',

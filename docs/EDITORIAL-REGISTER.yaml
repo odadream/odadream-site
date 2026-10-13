@@ -1,5 +1,5 @@
 schema_version: 1
-updated: 2026-10-12
+updated: 2026-10-13
 scope_version: editorial-2026-10-12.2
 baseline_commit: d33cd03
 source_audit: docs/EDITORIAL-AUDIT.md
@@ -367,3 +367,4 @@ units:
   - {"id":"cases:oktava-2021","kind":"cases","entity":"oktava-2021","ru":{"status":"edited","field_count":7,"coverage_complete":true,"checked_at":"2026-10-12","pass_id":"homepage-event-contexts-2026-10-12"},"en":{"status":"edited","field_count":7,"coverage_complete":true,"checked_at":"2026-10-12","pass_id":"homepage-event-contexts-2026-10-12"}}
   - {"id":"shared:src/components/CollectiveFeedback.astro","kind":"shared-copy","file":"src/components/CollectiveFeedback.astro","ru":{"status":"draft"},"en":{"status":"draft"}}
   - {"id":"shared:src/components/MediaCropEditor.astro","kind":"shared-copy","file":"src/components/MediaCropEditor.astro","ru":{"status":"draft"},"en":{"status":"draft"}}
+  - {"id":"cases:tavrida-gastro-2025","kind":"cases","entity":"tavrida-gastro-2025","ru":{"status":"edited","field_count":12,"coverage_complete":true,"checked_at":"2026-10-13","pass_id":"prepublication-feedback-2026-10-13"},"en":{"status":"edited","field_count":12,"coverage_complete":true,"checked_at":"2026-10-13","pass_id":"prepublication-feedback-2026-10-13"}}

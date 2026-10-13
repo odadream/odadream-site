@@ -550,11 +550,12 @@ export const programmeEnrichments: Record<string, Partial<Programme>> = {
     ),
   },
   'taste-brain': {
+    media: ['archive-talk-workshop-lectures-tavrida'],
     outcome: l(
       'Сравнение личных сенсорных наблюдений и идей для проектирования контекста дегустации.',
       'Comparison of personal sensory observations and ideas for designing a tasting context.',
     ),
-    sourceRefs: refs('Education_Source_e3c9562b8e28.md'),
+    sourceRefs: refs('Education_Source_e3c9562b8e28.md', 'Obsidian_Tavrida_Gastro_2025.md'),
   },
   'feedback-empathy-brain': {
     authorIds: ['olga', 'daler'],

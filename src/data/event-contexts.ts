@@ -267,6 +267,14 @@ export const eventContexts: Record<string, EventContext> = {
     l('Судак', 'Sudak'),
     l('Таврида.АРТ', 'Tavrida.ART'),
   ),
+  'tavrida-gastro-2025': event(
+    'tavrida-gastro-2025',
+    'school',
+    'Арт-школа «Гастро.Юг» · Таврида.Арт',
+    'Gastro.Yug art school · Tavrida.Art',
+    l('Судак', 'Sudak'),
+    l('Академия «Меганом»', 'Meganom Academy'),
+  ),
   'tpp-2025': event(
     'tpp-2025',
     'programme',

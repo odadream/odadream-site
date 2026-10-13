@@ -1,5 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { spawn, type ChildProcess } from 'node:child_process';
+import { readFileSync } from 'node:fs';
+import { parse } from 'yaml';
+const editorialUnitCount = parse(readFileSync('docs/EDITORIAL-REGISTER.yaml', 'utf8')).units.length;
 const publicOrigin = 'http://127.0.0.1:5178';
 let owned: ChildProcess | undefined;
 test.beforeAll(async ({ request }) => {
@@ -63,9 +66,9 @@ test('catalogue filters canonical units and language statuses without claiming i
   page,
 }) => {
   await page.goto('/editorial/');
-  await expect(page.locator('[data-editorial-unit]')).toHaveCount(304);
+  await expect(page.locator('[data-editorial-unit]')).toHaveCount(editorialUnitCount);
   await expect(page.locator('[data-editorial-progress]')).toContainText(
-    'авторская приёмка и проверка 0/304 (0%)',
+    `авторская приёмка и проверка 0/${editorialUnitCount} (0%)`,
   );
   await page.locator('select[name=kind]').selectOption('works');
   await expect(page.locator('[data-editorial-unit]:visible')).toHaveCount(23);

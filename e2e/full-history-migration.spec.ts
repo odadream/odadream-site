@@ -5,7 +5,10 @@ test('full chronology separates contributions, education, research and applicati
 }) => {
   for (const lang of ['ru', 'en']) {
     await page.goto(`/${lang}/cases/`);
-    await expect(page.locator('.case-row')).toHaveCount(42);
+    await expect(page.locator('#case-tavrida-gastro-2025')).toContainText(
+      lang === 'ru' ? 'Мозг и вкус' : 'Brain and Taste',
+    );
+    await expect(page.locator('.case-row')).toHaveCount(43);
     await expect(page.locator('[data-case-id="oktava-2021"]')).toHaveAttribute(
       'data-participation-status',
       'held',

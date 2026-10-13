@@ -12,7 +12,7 @@ const inventory = JSON.parse(readFileSync('docs/migration/INVENTORY-2026-10-05.j
 test('all 37 V1 event sources have an implemented event, merged series or evidenced empty-stub exclusion', () => {
   const events = inventory.entries.filter((row) => row.oldKind === 'event');
   assert.equal(events.length, 37);
-  assert.equal(source.cases.length, 42);
+  assert.ok(source.cases.length >= 42); // Historical migration baseline; new sourced events may extend it.
   assert.equal(source.eventSeries.length, 4);
   for (const entry of events) {
     const use = entry.currentCanonicalApplication;
@@ -45,6 +45,13 @@ test('applications, festival windows and publication dates cannot masquerade as 
   assert.equal(audi.date, '2020-07-12');
   assert.equal(audi.participationStatus, 'submitted');
   assert.equal(source.cases.find((row) => row.id === 'tavrida-ai-2025').participationStatus, 'declined');
+  const gastro = source.cases.find((row) => row.id === 'tavrida-gastro-2025');
+  assert.equal(gastro.participationStatus, 'held');
+  assert.equal(gastro.date, '2025-07-13');
+  assert.equal(gastro.dateEnd, '2025-07-19');
+  assert.equal(gastro.programme, 'taste-brain');
+  assert.ok(gastro.media.includes('archive-talk-workshop-lectures-tavrida'));
+  assert.equal(gastro.sourceRefs[0].file, 'Obsidian_Tavrida_Gastro_2025.md');
   const lamborghini = source.cases.find((row) => row.id === 'lamborghini-tea');
   assert.equal(lamborghini.dateMeaning, 'reported-by');
   assert.match(formatCaseDate(lamborghini, 'en'), /^Reported by /);
@@ -65,7 +72,10 @@ test('event relationships are reciprocal and public programmes and series respec
   }
   const publicData = createPublicationScope(source, publicationPlan);
   assert.deepEqual(publicData.errors, []);
-  assert.equal(publicData.cases.length, 42);
+  assert.equal(
+    publicData.cases.length,
+    source.cases.filter((row) => publicationPlan.cases.includes(row.id)).length,
+  );
   assert.equal(publicData.eventSeries.length, 4);
   assert.ok(!JSON.stringify(publicData.eventSeries).includes('sourceRefs'));
   const withoutEducation = createPublicationScope(source, { ...publicationPlan, programmes: [] });

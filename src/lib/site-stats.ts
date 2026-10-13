@@ -31,26 +31,21 @@ export const selectHomepageEvents = <
 >(
   items: readonly T[],
 ): T[] => {
-  const events = heldEvents(items)
+  return heldEvents(items.filter((item) => item.featuredOnHome))
     .filter((item) => item.dateMeaning !== 'reported-by' && /^\d{4}(?:-|$)/.test(item.date))
     .sort(
       (a, b) =>
-        (a.date.length === 4
-          ? a.date + '-99-99'
-          : a.date.length === 7
-            ? a.date + '-99'
-            : a.date
+        // Unknown month/day is ordered after known dates within its year/month.
+        // These suffixes are sort keys only, never fabricated event dates.
+        (b.date.length === 4
+          ? b.date + '-00-00'
+          : b.date.length === 7
+            ? b.date + '-00'
+            : b.date
         ).localeCompare(
-          b.date.length === 4 ? b.date + '-99-99' : b.date.length === 7 ? b.date + '-99' : b.date,
+          a.date.length === 4 ? a.date + '-00-00' : a.date.length === 7 ? a.date + '-00' : a.date,
         ) || a.id.localeCompare(b.id),
     );
-  const years = new Set<string>();
-  return events.filter((item) => {
-    const year = item.date.slice(0, 4);
-    const first = !years.has(year);
-    years.add(year);
-    return first || item.featuredOnHome;
-  });
 };
 export const calculateSiteStats = (records: {
   works: readonly Pick<Work, 'stage' | 'bookable'>[];

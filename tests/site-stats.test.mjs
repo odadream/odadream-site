@@ -62,12 +62,19 @@ test('the public event projection carries sourced identities and work histories 
   );
   assert.equal(calculateSiteStats(reduced).cases.total, stats.cases.total - 1);
 });
-test('homepage has documented held events for every year 2019–2026, preserving 2021 source and series precision', () => {
+test('homepage contains only marked held events in reverse chronology, without padding missing years', () => {
   const rows = selectHomepageEvents(source.cases);
   assert.deepEqual(
-    [...new Set(rows.map((row) => row.date.slice(0, 4)))],
-    ['2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026'],
+    new Set(rows.map((row) => row.id)),
+    new Set(
+      source.cases
+        .filter((row) => row.featuredOnHome && row.participationStatus === 'held')
+        .map((row) => row.id),
+    ),
   );
+  assert.equal(rows[0].id, 'tsiolkovsky-2026');
+  assert.equal(rows.at(-1).id, 'byob-2019');
+  assert.ok(!rows.some((row) => row.id === 'oktava-2021' || row.id === 'dano-2025'));
   assert.ok(rows.every((row) => row.participationStatus === 'held'));
   assert.equal(
     selectHomepageEvents([
@@ -82,11 +89,20 @@ test('homepage has documented held events for every year 2019–2026, preserving
     ]).length,
     0,
   );
-  const oktava = rows.find((row) => row.id === 'oktava-2021');
-  assert.equal(oktava.date, '2021-04-12');
-  assert.equal(oktava.work, 'neurosync');
-  assert.equal(oktava.sourceRefs[0].file, 'Obsidian_Oktava_2021.md');
-  assert.equal(rows.find((row) => row.id === 'ashram-tim').dateMeaning, 'series-start');
+  const base = { ...source.cases[0], event: undefined, featuredOnHome: true };
+  const mixed = [
+    { ...base, id: 'year-only', date: '2025' },
+    { ...base, id: 'latest', date: '2026-05-16' },
+    { ...base, id: 'month-only', date: '2025-07' },
+    { ...base, id: 'known-day', date: '2025-07-13' },
+    { ...base, id: 'hidden', date: '2027-05-16', featuredOnHome: false },
+    { ...base, id: 'not-held', date: '2027-05-16', participationStatus: 'declined' },
+  ];
+  assert.deepEqual(
+    selectHomepageEvents(mixed).map((row) => row.id),
+    ['latest', 'known-day', 'month-only', 'year-only'],
+  );
+  assert.equal(mixed[0].date, '2025');
 });
 test('recognition prioritizes outcomes, then dates, and leaves selection distinct from winning', () => {
   const rows = sortRecognitions(source.recognitions);
