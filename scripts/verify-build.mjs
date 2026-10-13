@@ -66,8 +66,14 @@ for (const file of [
   'robots.txt',
   'CNAME',
   'sitemap-index.xml',
+  'sitemap.xml',
 ])
   await stat(resolve(root, file)).catch(() => fail(`Missing ${file}`));
+if (
+  (await readFile(resolve(root, 'sitemap.xml'), 'utf8')) !==
+  (await readFile(resolve(root, 'sitemap-index.xml'), 'utf8'))
+)
+  fail('Submitted sitemap address must describe the current V2 index');
 const rootHtml = await readFile(resolve(root, 'index.html'), 'utf8');
 if (!rootHtml.includes('/legacy/unavailable/?lang=') || !rootHtml.includes('https://odadream.art/en/'))
   fail('Root obsolete-address notice or canonical absent');

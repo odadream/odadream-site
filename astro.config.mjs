@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import publicationIntegration from './scripts/publication-integration.mjs';
 import lastmod from './src/data/lastmod.json' with { type: 'json' };
+import { copyFile } from 'node:fs/promises';
 
 export default defineConfig({
   site: 'https://odadream.art',
@@ -26,5 +27,14 @@ export default defineConfig({
         page !== 'https://odadream.art/',
       serialize: (item) => ({ ...item, lastmod: lastmod[new URL(item.url).pathname] }),
     }),
+    {
+      name: 'oda-sitemap-address',
+      hooks: {
+        'astro:build:done': async ({ dir }) => {
+          // Keep the submitted service address; both indexes describe the current V2 build.
+          await copyFile(new URL('sitemap-index.xml', dir), new URL('sitemap.xml', dir));
+        },
+      },
+    },
   ],
 });

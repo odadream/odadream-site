@@ -59,6 +59,17 @@ test.afterAll(() => {
   server?.kill();
 });
 
+test('submitted sitemap address serves the current V2 index and robots points to it', async ({ request }) => {
+  const alias = await request.get(base + '/sitemap.xml');
+  const index = await request.get(base + '/sitemap-index.xml');
+  expect(alias.status()).toBe(200);
+  expect(index.status()).toBe(200);
+  expect(await alias.text()).toBe(await index.text());
+  expect(await alias.text()).toContain('https://odadream.art/sitemap-0.xml');
+  const robots = await request.get(base + '/robots.txt');
+  expect(await robots.text()).toContain('Sitemap: https://odadream.art/sitemap.xml');
+});
+
 test('public artifact excludes editorial-only HTML and physical document files', async ({
   page,
   request,

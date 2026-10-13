@@ -2,9 +2,20 @@ name: Deploy approved V2 to GitHub Pages
 on:
   push:
     branches: [main]
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # Public browser identifiers for the isolated, validated V2 providers.
+    # V1 VITE_* repository variables remain available for an archived rollback.
+    env:
+      PUBLIC_ANALYTICS_ENABLED: 'true'
+      PUBLIC_ANALYTICS_DEBUG: 'false'
+      PUBLIC_GA_MEASUREMENT_ID: 'G-5LXP60T8R0'
+      PUBLIC_YANDEX_METRICA_ID: '113596895'
+      PUBLIC_ANALYTICS_AUTO_EVENTS_DISABLED: 'true'
     permissions:
       contents: read
       pages: write

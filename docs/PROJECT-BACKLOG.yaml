@@ -51,6 +51,31 @@ maintenance_audit:
     Миграционные веса, авторская приёмка дизайна и редакторский реестр не пересчитываются.
 
 items:
+  - id: RELEASE-GHPAGES-01
+    title: Подготовить проверенную замену V1 на V2 в основном checkout и GitHub Pages
+    area: maintenance
+    priority: P0
+    status: in_progress
+    progress: Локальная подготовка 13.10.2026 проверена. Release 1237.01 с — 111 unit,
+      176 browser passed / 34 skipped; production analytics и release gate прошли.
+      Отчёт — .local-server/checks/1791894227804; snapshot SHA — 9fece8bb0fc6208e1345b049847ca56decc8191c50bc9639ee6a57d8fef30858.
+      Проверены CRC пяти архивных ZIP, свежие V1/V2 snapshots и полный bundle 26 Git refs;
+      квитанции — .local-server/prepublication-feedback. Providers V2 подготовлены для odadream.art,
+      действующие providers V1 сохранены. Подготовительная Linux CI выполняется до переноса/main;
+      фактические перенос, переключение Hub, Pages и контроль на домене пока не выполнены.
+    outcome: История и текущие файлы V1 сохранены; V2 получает основную папку, проверенную сборку и свои аналитику/SEO.
+    acceptance:
+      - Архивные public/internal V1 различены; свежие снимки V1/V2 и всех refs проверены независимо.
+      - Перенос сохраняет общую .git и остальные worktree, незакоммиченные и необходимые ignored-файлы не теряются.
+      - Production workflow собирает V2 с проверенными новыми GA4/Метрикой; старые VITE variables не используются V2.
+      - Действующий sitemap.xml выдаёт актуальную карту V2; Hub получает отдельные sources новых providers с сохранением истории V1.
+      - Release на актуальном head проходит локально и в Linux CI; опубликован тот же проверенный артефакт.
+      - После прямого решения о выпуске основной checkout и origin/main содержат V2; Pages, SEO и consent проверены на домене.
+      - Порядок восстановления не требует force-push; опубликованные SHA и URL проверок записаны.
+    source: Запрос владельца 13.10.2026 о проверке готовности и сценарии замены сайта.
+    depends_on: [ MIGRATION-COMPLETE-01, ANALYTICS-MIGRATION-01, PREPUBLICATION-HOME-EVENTS-03 ]
+    reading: [ docs/RELEASE-RUNBOOK.md ]
+
   - id: PREPUBLICATION-HOME-EVENTS-03
     title: Уплотнить события и поля паспортов, выровнять навигационную цепочку
     area: design

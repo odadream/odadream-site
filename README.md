@@ -81,6 +81,8 @@ Task cards come directly from the backlog, with current dependencies and a readi
 
 ## Code and publication boundaries
 
+The checked cutover procedure, archive identities, analytics/SEO switch and rollback are in [RELEASE-RUNBOOK.md](docs/RELEASE-RUNBOOK.md); current readiness is tracked by RELEASE-GHPAGES-01 in the backlog.
+
 `src/data/site.ts` assembles typed records; `catalogue.ts`/`publication-scope.ts` produce DEV or an explicitly allowed public packet. `routes.ts` generates localized routes. Components/layouts render them; shared styles import canonical tokens. This is curated static data, not an admin CMS or live Golem/MindDB connection. Future storage changes are tracked by CMS-01.
 
 Old `?id=`, `/formats/` and unknown addresses show bilingual LegacyNotice and return home after five seconds. **There is no public runtime legacy map.** The 238-ID manifest is source provenance only. `internal=true` never grants access. PUBLIC excludes DEV tools, unapproved/internal data and physical files outside its allowlist. Passing a technical release gate does not grant owner acceptance.
