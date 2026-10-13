@@ -33,7 +33,7 @@ for (const lang of ['ru', 'en'])
       for (const width of [390, 797, 1440, 1920]) {
         await page.setViewportSize({ width, height: 932 });
         for (const sample of selectedSamples) {
-          await page.goto('/' + lang + '/' + sample.route, { waitUntil: 'domcontentloaded' });
+          await page.goto('/' + lang + '/' + sample.route, { waitUntil: 'load' });
           await page.evaluate(() => document.fonts.ready);
           for (const scale of [1, 1.125])
             for (const space of [4, 5])
@@ -158,7 +158,7 @@ for (const lang of ['ru', 'en'])
           }, sample);
           expect(independent, sample.route + ' independent roles').toEqual([]);
         }
-        await page.goto('/' + lang + '/', { waitUntil: 'domcontentloaded' });
+        await page.goto('/' + lang + '/', { waitUntil: 'load' });
         await page.evaluate(() => document.fonts.ready);
         for (const scale of [1, 1.125])
           for (const space of [4, 5])

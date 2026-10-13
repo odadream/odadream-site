@@ -70,16 +70,22 @@ export function initMediaCropEditor() {
       }
     }
   };
-  const render = () => {
+  const render = (syncFocusedField = false) => {
     if (!id) return;
     const c = current();
     mode.value = c.mode;
     for (const field of fields) {
       const name = field.dataset.cropField as 'x' | 'y' | 'width' | 'height';
       field.disabled = c.mode === 'point' && (name === 'width' || name === 'height');
-      field.value = String(
-        name === 'x' || name === 'y' ? (c.mode === 'point' ? c.point[name] : c.region[name]) : c.region[name],
-      );
+      // Image load and layout observers must not erase an edit before its change event.
+      if (syncFocusedField || document.activeElement !== field)
+        field.value = String(
+          name === 'x' || name === 'y'
+            ? c.mode === 'point'
+              ? c.point[name]
+              : c.region[name]
+            : c.region[name],
+        );
     }
     const point = q('[class="dev-crop-point"]');
     point.hidden = c.mode !== 'point';
@@ -136,9 +142,9 @@ export function initMediaCropEditor() {
     dialog.showModal();
     document.dispatchEvent(new Event('oda:media-viewer-change'));
     message('Изменения пока в черновике DEV.', 'Changes are a DEV draft.');
-    render();
+    render(true);
   });
-  original.addEventListener('load', render);
+  original.addEventListener('load', () => render());
   original.addEventListener('error', () =>
     message('Не удалось открыть исходное изображение.', 'Could not load the original image.'),
   );
@@ -150,14 +156,14 @@ export function initMediaCropEditor() {
       x: Math.min(1, Math.max(0, (event.clientX - box.left) / box.width)),
       y: Math.min(1, Math.max(0, (event.clientY - box.top) / box.height)),
     };
-    render();
+    render(true);
     message('Изменения не сохранены.', 'Changes are not saved.');
   });
-  profile.addEventListener('change', render);
-  viewport.addEventListener('change', render);
+  profile.addEventListener('change', () => render(true));
+  viewport.addEventListener('change', () => render(true));
   mode.addEventListener('change', () => {
     current().mode = mode.value as Composition['mode'];
-    render();
+    render(true);
     message('Изменения не сохранены.', 'Changes are not saved.');
   });
   for (const field of fields)
@@ -172,11 +178,11 @@ export function initMediaCropEditor() {
           'Область должна помещаться в оригинале; все координаты — от 0 до 1.',
           'The region must fit within the original; all coordinates range from 0 to 1.',
         );
-        render();
+        render(true);
         return;
       }
       drafts.media[id]![profile.value as CropView]![viewport.value as CropViewport] = c;
-      render();
+      render(true);
       message('Изменения не сохранены.', 'Changes are not saved.');
     });
   q('[data-crop-save]').addEventListener('click', () => {
@@ -195,7 +201,7 @@ export function initMediaCropEditor() {
   });
   q('[data-crop-reset]').addEventListener('click', () => {
     drafts.media[id]![profile.value as CropView]![viewport.value as CropViewport] = base();
-    render();
+    render(true);
     message('Изменения не сохранены.', 'Changes are not saved.');
   });
   q('[data-crop-export]').addEventListener('click', () => {

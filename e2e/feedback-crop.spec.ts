@@ -39,6 +39,9 @@ test('DEV framing supports focus, region, profile separation, persistence, expor
   await expect(dialog).toBeVisible();
   await dialog.locator('[data-crop-viewport]').selectOption('desktop');
   await dialog.locator('[data-crop-field="x"]').fill('0.2');
+  // A late original-image load redraws the preview while the user is still typing.
+  await dialog.locator('[data-crop-original]').evaluate((image) => image.dispatchEvent(new Event('load')));
+  await expect(dialog.locator('[data-crop-field="x"]')).toHaveValue('0.2');
   await dialog.locator('[data-crop-field="x"]').press('Tab');
   await dialog.locator('[data-crop-save]').click();
   await expect(dialog.locator('[data-crop-status]')).toContainText('сохранён');
