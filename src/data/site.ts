@@ -45,7 +45,13 @@ export interface Media {
   src: string;
   /** Preparation input retained for provenance; internal originals are excluded from dist. */
   originalAccess?: 'public' | 'internal';
-  archiveSource?: { path: string; sha256: string; sourceIds: string[]; inputPath?: string };
+  archiveSource?: {
+    path: string;
+    sha256: string;
+    sourceIds: string[];
+    inputPath?: string;
+    segment?: { start: number; duration: number };
+  };
   mobileSrc?: string;
   width?: number;
   height?: number;

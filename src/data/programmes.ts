@@ -537,6 +537,7 @@ export const programmes: Programme[] = definitions.map((row) => ({
   deliveryStatus: row.deliveryStatus as Programme['deliveryStatus'],
   publication: row.publication as Publication,
   conditions: row.conditions as ParticipationDetail['conditions'],
+  reviewNotes: [],
   scope: educationOverview.scope,
   participation:
     row.programmeType === 'lecture'

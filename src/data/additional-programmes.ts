@@ -551,6 +551,15 @@ export const programmeEnrichments: Record<string, Partial<Programme>> = {
   },
   'taste-brain': {
     media: ['archive-talk-workshop-lectures-tavrida'],
+    participation: l(
+      'Участники выполняют короткие сенсорные задания, сравнивают вкус, запах и текстуру и обсуждают, как контекст меняет впечатление от еды.',
+      'Participants try short sensory exercises, compare taste, smell and texture, and discuss how context changes their experience of food.',
+    ),
+    scope: l(
+      'Продукты для заданий и особенности питания участников обсуждаем до встречи.',
+      'We discuss ingredients for the exercises and participants’ dietary needs before the meeting.',
+    ),
+    reviewNotes: [],
     outcome: l(
       'Сравнение личных сенсорных наблюдений и идей для проектирования контекста дегустации.',
       'Comparison of personal sensory observations and ideas for designing a tasting context.',

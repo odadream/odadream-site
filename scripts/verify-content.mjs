@@ -5,8 +5,11 @@ import { loadSiteModule } from './site-data.mjs';
 import { technicalOverviewInput, cvInput } from './document-input.mjs';
 import { verifyPreparedMedia } from './verify-prepared-media.mjs';
 import { verifySourceCoverage } from './verify-source-coverage.mjs';
+import { externalMediaInput } from './media-input.mjs';
 
 const data = await loadSiteModule();
+const { preparedVideos } = await loadSiteModule('src/data/prepared-videos.ts');
+const { preparedMedia } = await loadSiteModule('src/data/prepared-media.ts');
 const { isLocalAssetPath } = await loadSiteModule('src/lib/publication-scope.ts');
 const mediaAudit = JSON.parse(await readFile('docs/media-audit.json', 'utf8'));
 const mediaDecisions = JSON.parse(await readFile('docs/media-decisions.json', 'utf8'));
@@ -350,21 +353,33 @@ for (const item of data.media) {
   if (item.originalAccess && !['public', 'internal'].includes(item.originalAccess))
     errors.push(`media ${item.id}: invalid original access`);
   if (item.archiveSource) {
-    const origin = mediaAudit.find((row) => row.path === item.archiveSource.path);
-    const input = await readFile(
-      resolve('public', (item.archiveSource.inputPath ?? item.src).slice(1)),
-    ).catch(() => undefined);
-    if (
-      !origin ||
-      origin.sha256 !== item.archiveSource.sha256 ||
-      !input ||
-      createHash('sha256').update(input).digest('hex') !== origin.sha256
-    )
-      errors.push(`media ${item.id}: archival source fingerprint drift`);
+    if (externalMediaInput(item)) {
+      // CI validates the checked-in derivative receipt; private external originals are preparation-only.
+      if (
+        !/^[a-f0-9]{64}$/.test(item.archiveSource.sha256) ||
+        (item.kind === 'video' ? preparedVideos[item.id] : preparedMedia[item.src])?.sourceSha256 !==
+          item.archiveSource.sha256 ||
+        item.originalAccess !== 'internal' ||
+        !item.source
+      )
+        errors.push(`media ${item.id}: external media preparation receipt missing`);
+    } else {
+      const origin = mediaAudit.find((row) => row.path === item.archiveSource.path);
+      const input = await readFile(
+        resolve('public', (item.archiveSource.inputPath ?? item.src).slice(1)),
+      ).catch(() => undefined);
+      if (
+        !origin ||
+        origin.sha256 !== item.archiveSource.sha256 ||
+        !input ||
+        createHash('sha256').update(input).digest('hex') !== origin.sha256
+      )
+        errors.push(`media ${item.id}: archival source fingerprint drift`);
+    }
   }
   if (item.kind === 'video' && !item.poster) errors.push(`media ${item.id}: video poster missing`);
   if (!item.src.startsWith('/')) errors.push(`media ${item.id}: source is not local`);
-  else
+  else if (!(item.kind === 'image' && externalMediaInput(item)))
     await stat(resolve('public', item.src.slice(1))).catch(() =>
       errors.push(`media ${item.id}: local asset missing`),
     );

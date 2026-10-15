@@ -1,6 +1,5 @@
 ---
 import DevPublicationMark from './DevPublicationMark.astro';
-import TechnicalMark from './TechnicalMark.astro';
 import CalloutLink from './CalloutLink.astro';
 import type { Lang, Recognition } from '../data/site';
 import { recognitionKindLabel } from '../lib/recognition-presentation';
@@ -29,7 +28,10 @@ const overview = presentation === 'overview';
 ---
 
 <article
-  class:list={['recognition-card', { 'recognition-card--overview': overview }]}
+  class:list={[
+    'recognition-card',
+    { 'recognition-card--overview': overview, 'recognition-card--text': !item.previewSrc },
+  ]}
   id={`recognition-${item.id}`}
 >
   <DevPublicationMark kind="recognitions" recordId={item.id} lang={lang} />
@@ -53,16 +55,7 @@ const overview = presentation === 'overview';
         decoding="async"
       />
     </button>
-  ) : (
-    <div
-      class="recognition-card__missing"
-      role="img"
-      aria-label={lang === 'ru' ? 'Изображение документа недоступно' : 'Document image unavailable'}
-    >
-      <TechnicalMark kind="missing" />
-      <small>{lang === 'ru' ? 'Скан недоступен' : 'Scan unavailable'}</small>
-    </div>
-  )}
+  ) : null}
   <span class="meta">
     {item.year} · {recognitionKindLabel[item.kind][lang]}
   </span>

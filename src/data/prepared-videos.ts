@@ -2,6 +2,7 @@
 export const preparedVideos = {
   'lighthouse-blended-spin': {
     sourceSha256: 'e5f76b714e9731d4f5b1f27546cb07a026ae754a37e7628d728cbe63e523201c',
+    policyVersion: 2,
     files: [
       {
         src: '/video/archive/lighthouse-blended-spin.mp4',
@@ -22,6 +23,7 @@ export const preparedVideos = {
   },
   'lighthouse-spin-twist': {
     sourceSha256: 'e23bd033d02c8d3a661b9f8bcdda7acbc464bd53f041bdc7e02822508d674938',
+    policyVersion: 2,
     files: [
       {
         src: '/video/archive/lighthouse-spin-twist.mp4',
@@ -37,6 +39,270 @@ export const preparedVideos = {
         src: '/images/archive/videos/lighthouse-spin-twist-poster.webp',
         sha256: 'b94b72163ad96a211c1f4e27c93646623adc442c1ffee6d9be932485e2d41ebd',
         bytes: 29860,
+      },
+    ],
+  },
+  'dano-game-recording': {
+    sourceSha256: '578ad928f6c45213adc00b2c7e139968526523270b6bcb137eeb906870348a43',
+    policyVersion: 2,
+    files: [
+      {
+        src: '/video/archive/dano-game-recording.mp4',
+        sha256: '033fc404ca6aeaf09fe0316e9dd282b69140d0d3c2b9e2ef3761ff452a77c5c0',
+        bytes: 13158977,
+      },
+      {
+        src: '/video/archive/dano-game-recording-preview.mp4',
+        sha256: 'f3e3d8a16e803af08937831b5f2fa8dcb483dd676cdaf48bc211742e9b5dafff',
+        bytes: 462633,
+      },
+      {
+        src: '/images/archive/videos/dano-game-recording-poster.webp',
+        sha256: '1328a2b9bc18b46bad5f2fb512ce87b799b06d8f35affac99bdaa4820d9a1942',
+        bytes: 166854,
+      },
+    ],
+  },
+  'wind-game-recording': {
+    sourceSha256: 'dbbf967bd5ebebd128d0441c729f83add8a57386fa6e19104af09c2af4eb0c3c',
+    policyVersion: 2,
+    files: [
+      {
+        src: '/video/archive/wind-game-recording.mp4',
+        sha256: 'f9555ac6989643c2f18715f0b8e4f304b67d8ee8b2e355d2ce9efe1055498f5a',
+        bytes: 1115698,
+      },
+      {
+        src: '/video/archive/wind-game-recording-preview.mp4',
+        sha256: '7f520d706312a357414789286290cf90072206ec121bac6a260188a588dde221',
+        bytes: 303077,
+      },
+      {
+        src: '/images/archive/videos/wind-game-recording-poster.webp',
+        sha256: '30d444a42bb3b070fa9b391291072d315b7be2f32e1ff85a08949968736b413d',
+        bytes: 32988,
+      },
+    ],
+  },
+  'hypercube-projection-recording': {
+    sourceSha256: '561e88351215f2aa3457f5ff670c074cebb705307a379bc97fff88524ca9ccbb',
+    policyVersion: 2,
+    files: [
+      {
+        src: '/video/archive/hypercube-projection-recording.mp4',
+        sha256: '6cbabfd1190ea0f7be291a67f33aea21d15a79e56afc4e6beb73591ee805d4d3',
+        bytes: 4439235,
+      },
+      {
+        src: '/video/archive/hypercube-projection-recording-preview.mp4',
+        sha256: 'de026e2a9d1b330005ed81270c4bf1a379dd063d1fe9415a43f7d853e36959d9',
+        bytes: 366203,
+      },
+      {
+        src: '/images/archive/videos/hypercube-projection-recording-poster.webp',
+        sha256: 'e06a4a73c5c17d76f91de9fb3af597fb7ed0f9a2ee7ed33393e1f5941ef241f4',
+        bytes: 36030,
+      },
+    ],
+  },
+  'wildmint-recording': {
+    sourceSha256: 'f23ff9eab72ddc083e238754c989e1cbd30a0a88dd8b275e029c2efeb962a88e',
+    policyVersion: 2,
+    files: [
+      {
+        src: '/video/archive/wildmint-recording.mp4',
+        sha256: 'abd7b8c9f2af6c79a14782477f0a52484008d1e25d8ce9a774948fdf8ed3ee1e',
+        bytes: 4077151,
+      },
+      {
+        src: '/video/archive/wildmint-recording-preview.mp4',
+        sha256: 'b917b6a9c1a11501f745805793a1817d6fb68facdf097446a3c2f5ea7ee59c43',
+        bytes: 364786,
+      },
+      {
+        src: '/images/archive/videos/wildmint-recording-poster.webp',
+        sha256: '5ebafadf8f039b88131927b79b843afc16a029d729c9beb84eb9295ddfceb97d',
+        bytes: 54674,
+      },
+    ],
+  },
+  'tskhr-lecture-recording': {
+    sourceSha256: 'c0ec22e93b12d4194f54e70ad97e7520947f77ed84d73a84cc385feea6d5b8a0',
+    policyVersion: 2,
+    files: [
+      {
+        src: '/video/archive/tskhr-lecture-recording.mp4',
+        sha256: '4187d033239cb31b11561be5f6f56d5aaf490c804f3348b409441b36244903a5',
+        bytes: 4103818,
+      },
+      {
+        src: '/video/archive/tskhr-lecture-recording-preview.mp4',
+        sha256: '22be2d4f3076e6353915d7e52d4f63df8b5265af8b1ccce1d28c8c25897c8fec',
+        bytes: 373240,
+      },
+      {
+        src: '/images/archive/videos/tskhr-lecture-recording-poster.webp',
+        sha256: 'd963c7134bc0a5288b1295f79bad47b55ad866471973c4137f3f967099a4427f',
+        bytes: 9302,
+      },
+    ],
+  },
+  'ikc-workshop-recording': {
+    sourceSha256: '3650b222476605ba8ad4d61e7e77928cf5e3fbc20b40e2f4d8ed88c44b77d44f',
+    policyVersion: 2,
+    files: [
+      {
+        src: '/video/archive/ikc-workshop-recording.mp4',
+        sha256: '7bf753bf4e4e5286412a4afce2a352ac7b99dd75bcc759202759e2f02b490905',
+        bytes: 3876686,
+      },
+      {
+        src: '/video/archive/ikc-workshop-recording-preview.mp4',
+        sha256: 'a9257395c1c517b9e37acb6780223d512cb0ff5408e0b06838815137fc9db875',
+        bytes: 337368,
+      },
+      {
+        src: '/images/archive/videos/ikc-workshop-recording-poster.webp',
+        sha256: '7783f55459856f12e7a10ab6abebb0d0de26a4fe67257ec411e2e6a6d6434e44',
+        bytes: 39674,
+      },
+    ],
+  },
+  'neurosync-lab-recording': {
+    sourceSha256: '6b3253cb421afbdcf751b3f07e2b4360ba640f83cd06d5b7fd0ee2e808a6fc1e',
+    policyVersion: 2,
+    segment: {
+      start: 180,
+      duration: 30,
+    },
+    files: [
+      {
+        src: '/video/archive/neurosync-lab-recording.mp4',
+        sha256: '0c8d4cbcf37c4d7c655fdf82864ddd4c725cecf291aa93e122c86bf1e07f61a3',
+        bytes: 1760116,
+      },
+      {
+        src: '/video/archive/neurosync-lab-recording-preview.mp4',
+        sha256: '81c0b9e49fa0da8347780b7e081346721da6bfe2f149df8599a45191a9b84e61',
+        bytes: 100379,
+      },
+      {
+        src: '/images/archive/videos/neurosync-lab-recording-poster.webp',
+        sha256: '66864c5c8b838ef9bff7a10353f7ff2a8b3bbd88ba69d0c1e010039c9515d7e5',
+        bytes: 112034,
+      },
+    ],
+  },
+  'mental-crystal-recording': {
+    sourceSha256: 'bb8501b42ed90b94f0ef9d0c942130968487afe518baf77eb450033cf547cf04',
+    policyVersion: 2,
+    files: [
+      {
+        src: '/video/archive/mental-crystal-recording.mp4',
+        sha256: '61e6202e21bb5541e2f22cf41d8a4716884026cbb3e6692081acb24b26bfb3ad',
+        bytes: 9928996,
+      },
+      {
+        src: '/video/archive/mental-crystal-recording-preview.mp4',
+        sha256: 'ecc04e42587cd1cfed87550b04c6595540b8b3e866e6977d75570fb670e648ce',
+        bytes: 523506,
+      },
+      {
+        src: '/images/archive/videos/mental-crystal-recording-poster.webp',
+        sha256: '87af9840109bf26d220e701cdbc96235040ef73addc5a3f3691c395591ca5b55',
+        bytes: 125950,
+      },
+    ],
+  },
+  'neuromandala-ai-recording': {
+    sourceSha256: '398d9d763e7db593840d3f572c6fe535c90cb2b00fa42b0a4e599751e797f04d',
+    policyVersion: 2,
+    segment: {
+      start: 60,
+      duration: 59.9,
+    },
+    files: [
+      {
+        src: '/video/archive/neuromandala-ai-recording.mp4',
+        sha256: 'e5732eb8898ebe6ab374be7bdf8abef58a1b16165b0e756243e3de66a48a36c7',
+        bytes: 15745749,
+      },
+      {
+        src: '/video/archive/neuromandala-ai-recording-preview.mp4',
+        sha256: '34353ad4ea6db949f0b72dfbe2612d764441eb16b5819de810595785daea4738',
+        bytes: 430656,
+      },
+      {
+        src: '/images/archive/videos/neuromandala-ai-recording-poster.webp',
+        sha256: '953fe832fc53f52be383b2dadedb13e3d8eaa4ea4e762ac8e950a46c7681146c',
+        bytes: 81370,
+      },
+    ],
+  },
+  'portal-2024-recording': {
+    sourceSha256: '39a6b32723407a201e29a96f093fe18c1d9f51c519f9d00c3a2502914d3a9470',
+    policyVersion: 2,
+    segment: {
+      start: 720,
+      duration: 30,
+    },
+    files: [
+      {
+        src: '/video/archive/portal-2024-recording.mp4',
+        sha256: '3c9fd78be006423bb3fcd0c777856c325c33f15d20a1846f316f13c38c092a18',
+        bytes: 1863072,
+      },
+      {
+        src: '/video/archive/portal-2024-recording-preview.mp4',
+        sha256: 'c8af119c3da7ff228710d66ef69812841d41d419cd8f76ac7d060e5ca7067c2e',
+        bytes: 106401,
+      },
+      {
+        src: '/images/archive/videos/portal-2024-recording-poster.webp',
+        sha256: '5aed63e7cb12fd979748696210548652e1c2dc8c0e01b5fd6154b82bc7be5f50',
+        bytes: 49638,
+      },
+    ],
+  },
+  'neuromandala-diffusion-recording': {
+    sourceSha256: 'fa283dbdd8ceaafa101920c5011f7a5e6955cda0bdacbe5f5cead7fb167b7b16',
+    policyVersion: 2,
+    files: [
+      {
+        src: '/video/archive/neuromandala-diffusion-recording.mp4',
+        sha256: 'e86d9acd2d4abf5bd30771a49b48ccbcff66c6db7eb257139eb51b278f10df42',
+        bytes: 1013889,
+      },
+      {
+        src: '/video/archive/neuromandala-diffusion-recording-preview.mp4',
+        sha256: '1cb035b7b5d3f8adc8634d6891e6d63d9c1b55faf6d7b14b260e148d7094babe',
+        bytes: 142581,
+      },
+      {
+        src: '/images/archive/videos/neuromandala-diffusion-recording-poster.webp',
+        sha256: '4c0dd3c89454ffac4033029bdd3f8a9dc4ae9ab8ad277d42ddcb8f7058ed09db',
+        bytes: 98540,
+      },
+    ],
+  },
+  'interference-trailer': {
+    sourceSha256: 'ade3c9878a90d25c35ae3f603a00d9ebd594afa8a863ebea3240a9ec55dbc8d5',
+    policyVersion: 2,
+    files: [
+      {
+        src: '/video/archive/interference-trailer.mp4',
+        sha256: 'bf5527f480bd540ddac7e5c0005d6ebdc8fc4c245e40d653ccea610caa72ea7f',
+        bytes: 24067020,
+      },
+      {
+        src: '/video/archive/interference-trailer-preview.mp4',
+        sha256: '73ca0316af66fd1a857659cbedbabe25ebcaa53ececbaa7858e3cd004ed50ac5',
+        bytes: 83693,
+      },
+      {
+        src: '/images/archive/videos/interference-trailer-poster.webp',
+        sha256: '7d4f128c08d6c7dc159de6f10fd93c97d30d8f99255f52623ffe6bc79935e7f6',
+        bytes: 117588,
       },
     ],
   },

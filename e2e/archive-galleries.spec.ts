@@ -24,3 +24,20 @@ test('archival materials appear in work, event and educational galleries with sh
     }
   }
 });
+
+test('individual programmes show their own photos and playable recordings', async ({ page }) => {
+  for (const lang of ['ru', 'en']) {
+    await page.goto(`/${lang}/education/taste-and-the-brain/`);
+    await expect(page.locator('#programme-gallery [data-lightbox]')).toHaveCount(1);
+    await page.locator('#programme-gallery [data-lightbox]').click();
+    await expect(page.locator('.lightbox[open]')).toBeVisible();
+    await page.keyboard.press('Escape');
+    await page.goto(`/${lang}/education/beautiful-about-the-brain/`);
+    const recording = page.locator('#programme-gallery [data-kind="video"]');
+    await expect(recording).toHaveCount(1);
+    await recording.click();
+    await expect(page.locator('.lightbox video')).toHaveAttribute('src', /tskhr-lecture-recording\.mp4$/);
+    await page.keyboard.press('Escape');
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  }
+});

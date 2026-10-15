@@ -1,4 +1,11 @@
 import { test, expect, type Page } from '@playwright/test';
+import * as data from '../src/data/site';
+import { publicationPlan } from '../src/data/publication-plan';
+import { createPublicationScope } from '../src/lib/publication-scope';
+import { buildHeroLibrary } from '../src/lib/hero-library';
+const expectedMediaIds = buildHeroLibrary(createPublicationScope(data, publicationPlan)).map(
+  (row: { mediaId: string }) => row.mediaId,
+);
 const active = (page: Page) => page.locator('[data-carousel] [data-slide]:not([hidden])');
 async function activate(page: Page, isMobile: boolean) {
   const preview = active(page).locator('[data-video-preview]');
@@ -20,7 +27,12 @@ test('fresh random starts cover the public library and preserve real target/stag
   await page.goto('/ru/?last');
   await expect(page.locator('[data-carousel]')).toHaveAttribute('data-carousel-ready', 'true');
   const first = await active(page).getAttribute('data-media-id');
-  await expect(page.locator('[data-slide]')).toHaveCount(7);
+  await expect(page.locator('[data-slide]')).toHaveCount(expectedMediaIds.length);
+  expect(
+    await page
+      .locator('[data-slide]')
+      .evaluateAll((nodes) => nodes.map((node) => node.getAttribute('data-media-id')).sort()),
+  ).toEqual([...expectedMediaIds].sort());
   await expect(page.locator('[data-slide] source[src]')).toHaveCount(0);
   expect(
     await page
@@ -31,7 +43,7 @@ test('fresh random starts cover the public library and preserve real target/stag
   await expect(page.locator('[data-carousel]')).toHaveAttribute('data-carousel-ready', 'true');
   expect(await active(page).getAttribute('data-media-id')).not.toBe(first);
   const media = new Set<string>();
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < expectedMediaIds.length; i++) {
     media.add((await active(page).getAttribute('data-media-id'))!);
     await expect(active(page).locator('.nm-caption-link a')).toHaveAttribute(
       'href',
@@ -39,7 +51,7 @@ test('fresh random starts cover the public library and preserve real target/stag
     );
     await active(page).locator('[data-carousel-next]').click();
   }
-  expect(media.size).toBe(7);
+  expect(media.size).toBe(expectedMediaIds.length);
   await expect(page.locator('[data-media-id="lighthouse-blended-spin"] [data-hero-stage]')).toHaveAttribute(
     'data-hero-stage',
     'prototype',

@@ -2,6 +2,18 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 import { loadSiteModule } from './site-data.mjs';
+import { externalMediaInput } from './media-input.mjs';
+
+export function videoPreparationMatches(video, proof) {
+  return (
+    !!proof &&
+    proof.sourceSha256 === video.archiveSource.sha256 &&
+    proof.policyVersion === 2 &&
+    proof.files?.length === 3 &&
+    proof.segment?.start === video.archiveSource.segment?.start &&
+    proof.segment?.duration === video.archiveSource.segment?.duration
+  );
+}
 
 export async function verifyPreparedMedia(data) {
   const { preparedMedia } = await loadSiteModule('src/data/prepared-media.ts');
@@ -10,7 +22,7 @@ export async function verifyPreparedMedia(data) {
   const { preparedVideos } = await loadSiteModule('src/data/prepared-videos.ts');
   for (const video of data.media.filter((row) => row.kind === 'video' && row.archiveSource?.inputPath)) {
     const proof = preparedVideos[video.id];
-    if (!proof || proof.sourceSha256 !== video.archiveSource.sha256 || proof.files.length !== 3)
+    if (!videoPreparationMatches(video, proof))
       errors.push(`video ${video.id}: derivatives missing or stale`);
     for (const file of proof?.files ?? []) {
       if (![video.src, video.previewSrc, video.poster].includes(file.src))
@@ -55,8 +67,20 @@ export async function verifyPreparedMedia(data) {
       if (!preparedMedia[path]) errors.push(`media ${row.id}: missing prepared image ${path}`);
   for (const [path, proof] of Object.entries(preparedMedia)) {
     if (!sourcePaths.has(path)) errors.push(`prepared media ${path}: no typed owner`);
-    const original = await readFile(resolve('public', path.slice(1))).catch(() => undefined);
-    if (!original || original.length !== proof.sourceBytes || hash(original) !== proof.sourceSha256)
+    const external = data.media.find(
+      (row) => row.src === path && row.kind === 'image' && externalMediaInput(row),
+    );
+    const original = external
+      ? undefined
+      : await readFile(resolve('public', path.slice(1))).catch(() => undefined);
+    if (
+      external
+        ? external.originalAccess !== 'internal' ||
+          proof.sourceSha256 !== external.archiveSource.sha256 ||
+          !proof.sourceBytes ||
+          proof.images.length !== 1
+        : !original || original.length !== proof.sourceBytes || hash(original) !== proof.sourceSha256
+    )
       errors.push(`prepared media ${path}: original changed; run media:prepare`);
     for (const image of proof.images) {
       if (

@@ -763,8 +763,16 @@ const profileTokens = [
         <p class="small-note">
           Счётчики используют текущую проекцию каталога: {siteStats.cases.total} состоявшихся событий и{' '}
           {siteStats.recognitions.total} записей признаний. Формы участия студии отделены от категорий
-          событий. Превью открываются общим lightbox.
+          событий. Превью открываются общим lightbox. Если скана нет, достижение оформляется текстовой
+          карточкой без пустого поля изображения.
         </p>
+        <details class="content-disclosure">
+          <summary>Справочные сведения по раскрытию</summary>
+          <p class="small-note">
+            Так оформляются второстепенные сведения: например, движок и локальная история браузера в выходных
+            данных. Дата редакции и основное действие остаются видимыми.
+          </p>
+        </details>
       </div>
     </section>
     <section class="system-grid system-section system-grid--rail" id="system-11">

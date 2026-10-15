@@ -114,13 +114,15 @@ for (const lang of ['ru', 'en'])
                   document.querySelectorAll('.recognition-card').forEach((card) => {
                     const preview = card.querySelector(
                       '.recognition-card__image, .recognition-card__missing',
-                    )!;
-                    close(rect(preview).width, rect(preview).height, 'preview ratio');
+                    );
+                    if (preview) close(rect(preview).width, rect(preview).height, 'preview ratio');
+                    else if (!card.classList.contains('recognition-card--text'))
+                      problems.push('missing recognition presentation');
                     const grid = card.parentElement!;
                     const min = 256 * scale;
                     if (rect(card).width + 1 < Math.min(rect(grid).width, min))
                       problems.push('narrow recognition');
-                    const image = preview.querySelector('img');
+                    const image = preview?.querySelector('img');
                     if (
                       image &&
                       (getComputedStyle(image).objectFit !== 'contain' ||

@@ -110,6 +110,9 @@ const timeline = selectHomepageEvents(cases);
                 data-slide
                 data-slide-id={item.id}
                 data-media-id={item.mediaId}
+                data-media-orientation={
+                  image?.width && image?.height && image.width < image.height ? 'portrait' : 'landscape'
+                }
                 hidden={i !== 0}
               >
                 <div class="nm-visual">
@@ -368,6 +371,14 @@ const timeline = selectHomepageEvents(cases);
           ? 'Обсудим показ, адаптацию готового формата или совместное исследование.'
           : 'Let’s discuss a presentation, an adapted format or a shared investigation.'}
       </p>
+      <div class="link-row spaced-actions">
+        <CalloutLink href={`/${lang}/cooperation/#cooperation-modes`}>
+          {ru ? 'Показать работу или создать новую' : 'Present a work or commission a new one'}
+        </CalloutLink>
+        <CalloutLink href={`/${lang}/education/`}>
+          {ru ? 'Пригласить лекцию или практикум' : 'Invite a lecture or workshop'}
+        </CalloutLink>
+      </div>
       <CalloutLink href={`/${lang}/contact/`}>
         {ru ? 'Связаться со студией' : 'Contact the studio'}
       </CalloutLink>
@@ -944,6 +955,16 @@ const timeline = selectHomepageEvents(cases);
               ))}
             </div>
             <p>{programme.outcome[lang]}</p>
+            <MediaGallery
+              id="programme-gallery"
+              items={programme.media.flatMap((id) => {
+                const item = mediaById(id);
+                return item ? [item] : [];
+              })}
+              lang={lang}
+              mode="tiles"
+              label={ru ? 'Материалы программы' : 'Programme media'}
+            />
           </MacroSection>
           <MacroSection
             id="programme-conditions"
@@ -960,7 +981,7 @@ const timeline = selectHomepageEvents(cases);
               title={ru ? 'Условия проведения' : 'Delivery arrangements'}
               fields={programme.conditions.map((c) => ({ label: c.label[lang], value: c.value[lang] }))}
             />
-            <p>{programme.scope[lang]}</p>
+            {programme.scope[lang] !== educationOverview?.scope[lang] && <p>{programme.scope[lang]}</p>}
             {programme.reviewNotes.map((note) => (
               <ReadingNote>{note[lang]}</ReadingNote>
             ))}

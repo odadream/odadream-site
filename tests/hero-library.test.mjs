@@ -8,7 +8,18 @@ const { buildHeroLibrary } = await loadSiteModule('src/lib/hero-library.ts');
 test('hero contains every prepared public video with an owner, including labelled research material', () => {
   const scope = createPublicationScope(data, publicationPlan);
   const library = buildHeroLibrary(scope);
-  assert.equal(library.length, 7);
+  for (const id of [
+    'dano-game-recording',
+    'wind-game-recording',
+    'hypercube-projection-recording',
+    'wildmint-recording',
+    'neurosync-lab-recording',
+  ])
+    assert.ok(
+      library.some((row) => row.mediaId === id),
+      id,
+    );
+  assert.ok(!library.some((row) => row.mediaId === 'tskhr-lecture-recording'));
   assert.equal(new Set(library.map((row) => row.mediaId)).size, library.length);
   assert.ok(library.some((row) => row.target.kind === 'work' && row.target.workId === 'lighthouse'));
   assert.ok(library.some((row) => row.target.kind === 'work' && row.target.workId === 'cultural-neuro-code'));

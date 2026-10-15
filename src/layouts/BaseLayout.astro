@@ -313,23 +313,9 @@ const breadcrumbSchema =
                 label: page.lang === 'ru' ? 'Обновлено' : 'Updated',
                 value: contentDate || '—',
               },
-              { label: page.lang === 'ru' ? 'Движок' : 'Engine', value: `Astro ${astroPackage.version}` },
             ]}
           >
             <Fragment slot="fields-after">
-              <div>
-                <dt>{page.lang === 'ru' ? 'Прошлое открытие' : 'Previous visit'}</dt>
-                <dd
-                  data-previous-visit
-                  title={
-                    page.lang === 'ru'
-                      ? 'Предыдущее открытие сайта в этом браузере. Хранится локально.'
-                      : 'Previous opening of this site in this browser. Stored locally.'
-                  }
-                >
-                  —
-                </dd>
-              </div>
               <div>
                 <dt>{page.lang === 'ru' ? 'Ссылка на страницу' : 'Page link'}</dt>
                 <dd>
@@ -350,6 +336,32 @@ const breadcrumbSchema =
               </div>
             </Fragment>
           </RecordStamp>
+          <details class="content-disclosure">
+            <summary>
+              {page.lang === 'ru'
+                ? 'Технические сведения и история браузера'
+                : 'Technical details and browser history'}
+            </summary>
+            <RecordStamp
+              title={page.lang === 'ru' ? 'Об этом просмотре' : 'About this visit'}
+              wide
+              fields={[
+                { label: page.lang === 'ru' ? 'Движок' : 'Engine', value: `Astro ${astroPackage.version}` },
+              ]}
+            >
+              <Fragment slot="fields-after">
+                <div>
+                  <dt>{page.lang === 'ru' ? 'Прошлое открытие' : 'Previous visit'}</dt>
+                  <dd data-previous-visit>—</dd>
+                </div>
+              </Fragment>
+              <p class="small-note">
+                {page.lang === 'ru'
+                  ? 'Предыдущее открытие сайта в этом браузере. Дата хранится локально; это не статистика посещаемости.'
+                  : 'The previous opening of this site in this browser. Stored locally; this is not site traffic data.'}
+              </p>
+            </RecordStamp>
+          </details>
         </div>
       )}
       <div class="shell footer-inner">

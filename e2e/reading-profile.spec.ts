@@ -54,6 +54,10 @@ for (const lang of ['ru', 'en'])
                     };
                     const nodes = [...document.querySelectorAll<HTMLElement>(sample.selector)];
                     if (!nodes.length) problems.push('missing live reading sample');
+                    // A profile mutation can request a new font instance after the page's initial ready.
+                    // Compare ch metrics only after that instance is available to both node and ruler.
+                    if (nodes[0]) await document.fonts.load(getComputedStyle(nodes[0]).font, '0');
+                    await document.fonts.ready;
                     const size = (sample.role === 'body' ? (width <= 700 ? 14 : 16) : 14) * scale;
                     const leading = sample.role === 'body' ? 1.68 : 1.6;
                     for (const node of nodes) {
@@ -65,7 +69,17 @@ for (const lang of ['ru', 'en'])
                       ruler.style.font = style.font;
                       ruler.style.width = 'var(--copy-measure)';
                       document.body.append(ruler);
-                      close(parseFloat(style.maxWidth), ruler.getBoundingClientRect().width, 'copy measure');
+                      close(
+                        parseFloat(style.maxWidth),
+                        ruler.getBoundingClientRect().width,
+                        'copy measure ' +
+                          JSON.stringify({
+                            font: style.font,
+                            family: style.fontFamily,
+                            size: style.fontSize,
+                            rulerFont: getComputedStyle(ruler).font,
+                          }),
+                      );
                       ruler.remove();
                       const range = document.createRange();
                       range.selectNodeContents(node);

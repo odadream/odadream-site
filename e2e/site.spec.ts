@@ -382,11 +382,13 @@ test('reference fields follow material on mobile; colophon retains a previous vi
     sessionStorage.removeItem('oda-previous-visit');
   });
   await page.reload();
+  await page.locator('.site-colophon > .content-disclosure > summary').click();
   await expect(page.locator('[data-previous-visit]')).toContainText('2026');
   const previous = await page.locator('[data-previous-visit]').textContent();
   await page.goto('/ru/works/');
+  await page.locator('.site-colophon > .content-disclosure > summary').click();
   await expect(page.locator('[data-previous-visit]')).toHaveText(previous!);
-  await expect(page.locator('.site-colophon > .record-stamp > dl > div')).toHaveCount(4);
+  await expect(page.locator('.site-colophon > .record-stamp > dl > div')).toHaveCount(2);
   await expect(page.locator('.site-colophon')).toContainText('Astro');
   await page.evaluate(() =>
     Object.defineProperty(navigator, 'clipboard', {

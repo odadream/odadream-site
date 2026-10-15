@@ -2430,4 +2430,82 @@ export const preparedMedia: Record<string, PreparedAsset> = {
       },
     ],
   },
+  '/images/source/owner-2026/abrau-2026-157.jpg': {
+    sourceSha256: '614b2fdb5ee6bd1c11136b26fcaac8debcaedcf210ac4f8529adf990609911b1',
+    sourceBytes: 14218395,
+    images: [
+      {
+        src: '/images/prepared/c54247cbb9c1e38757cd1dd0/image.webp',
+        width: 2000,
+        height: 1333,
+        bytes: 315732,
+        sha256: '74605ec8a7ef14632280bf97264820b7ec68b7384902fc117ee0b31c01f6813e',
+      },
+    ],
+  },
+  '/images/source/owner-2026/abrau-2026-158.jpg': {
+    sourceSha256: 'cc15b29a9f4a01daeb3bcc07dfcf57943dfc083990f566de7ec54211e73a86a1',
+    sourceBytes: 18027991,
+    images: [
+      {
+        src: '/images/prepared/f2d9e35c8b23dcec2fd226c5/image.webp',
+        width: 2000,
+        height: 1333,
+        bytes: 331718,
+        sha256: '4eec8451f17525eef66808ce81badab7fcade99825393704e0accc93c2475269',
+      },
+    ],
+  },
+  '/images/source/owner-2026/abrau-2026-166.jpg': {
+    sourceSha256: 'ab38b1a677304a34c7a6b788c58af8f660d9e9c7a143f7859ec272766c92cc7a',
+    sourceBytes: 11258847,
+    images: [
+      {
+        src: '/images/prepared/11f1bda72f731e8436848ad9/image.webp',
+        width: 1333,
+        height: 2000,
+        bytes: 254164,
+        sha256: '086ad3a59b6f09233c6ee3437f26eff49d186c0e36f53fcd388e3f9a4d99c426',
+      },
+    ],
+  },
+  '/images/source/owner-2026/abrau-2026-46.jpg': {
+    sourceSha256: '3e855a6fdc320c711053525ad3e62b23a6acf546d910247916e4f7f371a865bb',
+    sourceBytes: 10853750,
+    images: [
+      {
+        src: '/images/prepared/4cea68ad1afe66bda773ea92/image.webp',
+        width: 1333,
+        height: 2000,
+        bytes: 218510,
+        sha256: '13a02187eb036cf42cdcfe4ba4440aa7ffd4dbe3d495e2f78d2a6631e1dfaa56',
+      },
+    ],
+  },
+  '/images/source/owner-2026/abrau-2026-77.jpg': {
+    sourceSha256: '8cc01c7092ab0b49408af46a0add83b4049af7ac4ab4171d874ba1774efdf9d6',
+    sourceBytes: 11633003,
+    images: [
+      {
+        src: '/images/prepared/9899485c299cf5d30eff18ce/image.webp',
+        width: 1333,
+        height: 2000,
+        bytes: 209022,
+        sha256: '950c50f9cf56fbe7c5ae9494cd477cb730661a0405c5e033a153d9608ba67c44',
+      },
+    ],
+  },
+  '/images/source/owner-2026/schrodinger-square-poster.png': {
+    sourceSha256: 'e3bb33b2cdfdf4cb3d88f345b68a394b2dc297335a744347a5083f51941421e7',
+    sourceBytes: 10088860,
+    images: [
+      {
+        src: '/images/prepared/217720330552a095fb4283d4/image.webp',
+        width: 2245,
+        height: 2245,
+        bytes: 1174472,
+        sha256: 'c2fe5fb70f9fe995ab581d71c53c40be2add4ef6fc07828c19059bdd7e7a3669',
+      },
+    ],
+  },
 };

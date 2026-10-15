@@ -1,7 +1,9 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { loadSiteModule } from './site-data.mjs';
+import { externalMediaInput, mediaInputPath } from './media-input.mjs';
 import { prepareArchiveVideos } from './prepare-archive-videos.mjs';
 
 // Only typed, cleared records enter public. Archive preparation is strictly private.
@@ -43,11 +45,18 @@ for (const row of data.recognitions.filter((row) => row.previewSrc)) {
   );
 }
 for (const row of data.media.filter((row) => row.kind === 'image')) {
+  if (
+    externalMediaInput(row) &&
+    createHash('sha256')
+      .update(await readFile(mediaInputPath(row)))
+      .digest('hex') !== row.archiveSource.sha256
+  )
+    throw Error(`Image source changed: ${row.id}`);
   for (const href of [row.src, row.mobileSrc].filter(Boolean)) {
     addRequest(
       {
         href,
-        source: resolve('public', href.slice(1)),
+        source: mediaInputPath(row, href),
         kind: 'image',
         extractText: row.representation === 'document',
         profile: ['document', 'diagram', 'poster', 'screenshot'].includes(row.representation)

@@ -2,12 +2,59 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { loadSiteModule } from '../scripts/site-data.mjs';
+import { videoPreparationMatches } from '../scripts/verify-prepared-media.mjs';
+import { externalMediaInput } from '../scripts/media-input.mjs';
 const data = await loadSiteModule();
 const { createPublicationScope } = await loadSiteModule('src/lib/publication-scope.ts');
 const { publicationPlan } = await loadSiteModule('src/data/publication-plan.ts');
 const { mediaFit } = await loadSiteModule('src/lib/media-presentation.ts');
 const inventory = JSON.parse(await readFile('docs/migration/INVENTORY-2026-10-05.json'));
 const scope = createPublicationScope(data, publicationPlan);
+
+test('private image inputs are distinct from legacy public paths and stay outside publication data', () => {
+  assert.equal(
+    externalMediaInput({ archiveSource: { inputPath: 'D:/private/photo.jpg' } }),
+    'D:/private/photo.jpg',
+  );
+  assert.equal(
+    externalMediaInput({ archiveSource: { inputPath: '/video/archive/source/movie.mp4' } }),
+    undefined,
+  );
+  const photos = data.media.filter((row) => row.id.startsWith('abrau-2026-'));
+  assert.equal(photos.length, 5);
+  assert.ok(photos.every((row) => row.originalAccess === 'internal' && externalMediaInput(row)));
+});
+
+test('changing a selected video segment invalidates an otherwise identical preparation receipt', async () => {
+  const { preparedVideos } = await loadSiteModule('src/data/prepared-videos.ts');
+  const video = data.media.find((row) => row.id === 'neurosync-lab-recording');
+  const proof = preparedVideos[video.id];
+  assert.ok(videoPreparationMatches(video, proof));
+  const changed = structuredClone(video);
+  changed.archiveSource.segment.start = 120;
+  assert.ok(!videoPreparationMatches(changed, proof));
+  changed.archiveSource.segment = undefined;
+  assert.ok(!videoPreparationMatches(changed, proof));
+  assert.ok(!videoPreparationMatches(video, { ...proof, policyVersion: 1 }));
+});
+
+test('recovered recordings keep exact owners and exclude private input paths from PUBLIC', () => {
+  const video = scope.media.find((row) => row.id === 'tskhr-lecture-recording');
+  assert.ok(scope.programmes.find((row) => row.id === 'beautiful-brain').media.includes(video.id));
+  assert.ok(!scope.programmes.find((row) => row.id === 'neuroaesthetics-lec').media.includes(video.id));
+  assert.ok(scope.assetPaths.has(video.src));
+  assert.ok(!JSON.stringify(video).includes('YandexDisk'));
+  const hidden = createPublicationScope(data, {
+    ...publicationPlan,
+    programmes: publicationPlan.programmes.filter((id) => id !== 'beautiful-brain'),
+  });
+  assert.ok(!hidden.media.some((row) => row.id === video.id));
+  assert.ok(!hidden.assetPaths.has(video.src));
+  assert.deepEqual(data.media.find((row) => row.id === 'neurosync-lab-recording').archiveSource.segment, {
+    start: 180,
+    duration: 30,
+  });
+});
 
 test('every applied raster source has a real media record and the declared semantic owners', () => {
   const items = inventory.currentFullMediaReassessment.items.filter((row) => row.role === 'image');

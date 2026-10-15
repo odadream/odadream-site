@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { basename, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { mediaInputPath } from './media-input.mjs';
 
 const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
 function run(args) {
@@ -13,16 +14,30 @@ export async function prepareArchiveVideos(media) {
   const version = spawnSync('ffmpeg', ['-version'], { encoding: 'utf8' });
   const records = {};
   for (const row of media.filter((row) => row.kind === 'video' && row.archiveSource?.inputPath)) {
-    const input = resolve('public', row.archiveSource.inputPath.slice(1));
+    // Local originals stay outside public; legacy /video/... inputs remain supported.
+    const input = mediaInputPath(row, row.archiveSource.inputPath);
     const sourceSha256 = hash(await readFile(input));
     if (sourceSha256 !== row.archiveSource.sha256) throw Error(`Video source changed: ${row.id}`);
+    const segment = row.archiveSource.segment;
+    if (
+      segment &&
+      (!Number.isFinite(segment.start) ||
+        segment.start < 0 ||
+        !Number.isFinite(segment.duration) ||
+        segment.duration <= 0)
+    )
+      throw Error(`Invalid video segment: ${row.id}`);
+    const seek = segment ? ['-ss', String(segment.start)] : [];
+    const duration = segment ? ['-t', String(segment.duration)] : [];
     const key = hash(
       Buffer.from(
         JSON.stringify({
           sourceSha256,
           version: version.stdout.split('\n')[0],
           policy: {
-            version: 1,
+            version: 2,
+            segment,
+            audio: 'aac-96k',
             codec: 'libx264',
             pixelFormat: 'yuv420p',
             crf: 28,
@@ -42,6 +57,9 @@ export async function prepareArchiveVideos(media) {
       manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
       if (
         manifest.sourceSha256 !== sourceSha256 ||
+        manifest.policyVersion !== 2 ||
+        manifest.segment?.start !== segment?.start ||
+        manifest.segment?.duration !== segment?.duration ||
         manifest.files?.length !== files.length ||
         manifest.files.some((file) => !files.includes(file.src))
       )
@@ -54,9 +72,18 @@ export async function prepareArchiveVideos(media) {
     }
     if (!manifest) {
       run([
+        ...seek,
         '-i',
         input,
-        '-an',
+        ...duration,
+        '-map',
+        '0:v:0',
+        '-map',
+        '0:a?',
+        '-c:a',
+        'aac',
+        '-b:a',
+        '96k',
         '-c:v',
         'libx264',
         '-crf',
@@ -68,10 +95,11 @@ export async function prepareArchiveVideos(media) {
         resolve(cache, basename(row.src)),
       ]);
       run([
+        ...seek,
         '-i',
         input,
         '-t',
-        '8',
+        String(Math.min(8, segment?.duration ?? 8)),
         '-an',
         '-vf',
         "scale='min(640,iw)':-2",
@@ -86,6 +114,7 @@ export async function prepareArchiveVideos(media) {
         resolve(cache, basename(row.previewSrc)),
       ]);
       run([
+        ...seek,
         '-i',
         input,
         '-frames:v',
@@ -98,6 +127,8 @@ export async function prepareArchiveVideos(media) {
       ]);
       manifest = {
         sourceSha256,
+        policyVersion: 2,
+        ...(segment ? { segment } : {}),
         files: await Promise.all(
           files.map(async (src) => {
             const bytes = await readFile(resolve(cache, basename(src)));

@@ -1,4 +1,4 @@
-import { archiveVideos } from './archive-videos';
+import { archiveVideos, archiveVideoOwners } from './archive-videos';
 import type { Media } from './site';
 type OwnerKind = 'work' | 'case' | 'programme' | 'education';
 type Record = Pick<
@@ -1732,6 +1732,109 @@ const records: Record[] = [
       sourceIds: ['media-oda-rings-banner'],
     },
   },
+  {
+    id: 'abrau-2026-157',
+    src: '/images/source/owner-2026/abrau-2026-157.jpg',
+    width: 5246,
+    height: 3497,
+    representation: 'photograph',
+    caption: {
+      ru: 'Нейромандала · демонстрация в Abrau Club, Москва',
+      en: 'Neuromandala · demonstration at Abrau Club, Moscow',
+    },
+    archiveSource: {
+      path: 'D:/YandexDisk/_ODA2/События/26-06-16 Абрау/Абрау/AbrauResvera-157.jpg',
+      inputPath: 'D:/YandexDisk/_ODA2/События/26-06-16 Абрау/Абрау/AbrauResvera-157.jpg',
+      sha256: '614b2fdb5ee6bd1c11136b26fcaac8debcaedcf210ac4f8529adf990609911b1',
+      sourceIds: [],
+    },
+  },
+  {
+    id: 'abrau-2026-158',
+    src: '/images/source/owner-2026/abrau-2026-158.jpg',
+    width: 5692,
+    height: 3795,
+    representation: 'photograph',
+    caption: {
+      ru: 'Нейромандала · демонстрация в Abrau Club, Москва',
+      en: 'Neuromandala · demonstration at Abrau Club, Moscow',
+    },
+    archiveSource: {
+      path: 'D:/YandexDisk/_ODA2/События/26-06-16 Абрау/Абрау/AbrauResvera-158.jpg',
+      inputPath: 'D:/YandexDisk/_ODA2/События/26-06-16 Абрау/Абрау/AbrauResvera-158.jpg',
+      sha256: 'cc15b29a9f4a01daeb3bcc07dfcf57943dfc083990f566de7ec54211e73a86a1',
+      sourceIds: [],
+    },
+  },
+  {
+    id: 'abrau-2026-166',
+    src: '/images/source/owner-2026/abrau-2026-166.jpg',
+    width: 3438,
+    height: 5157,
+    representation: 'photograph',
+    caption: {
+      ru: 'Нейромандала · демонстрация в Abrau Club, Москва',
+      en: 'Neuromandala · demonstration at Abrau Club, Moscow',
+    },
+    archiveSource: {
+      path: 'D:/YandexDisk/_ODA2/События/26-06-16 Абрау/Абрау/AbrauResvera-166.jpg',
+      inputPath: 'D:/YandexDisk/_ODA2/События/26-06-16 Абрау/Абрау/AbrauResvera-166.jpg',
+      sha256: 'ab38b1a677304a34c7a6b788c58af8f660d9e9c7a143f7859ec272766c92cc7a',
+      sourceIds: [],
+    },
+  },
+  {
+    id: 'abrau-2026-46',
+    src: '/images/source/owner-2026/abrau-2026-46.jpg',
+    width: 3725,
+    height: 5588,
+    representation: 'photograph',
+    caption: {
+      ru: 'Нейромандала · демонстрация в Abrau Club, Москва',
+      en: 'Neuromandala · demonstration at Abrau Club, Moscow',
+    },
+    archiveSource: {
+      path: 'D:/YandexDisk/_ODA2/События/26-06-16 Абрау/Абрау/AbrauResvera-46.jpg',
+      inputPath: 'D:/YandexDisk/_ODA2/События/26-06-16 Абрау/Абрау/AbrauResvera-46.jpg',
+      sha256: '3e855a6fdc320c711053525ad3e62b23a6acf546d910247916e4f7f371a865bb',
+      sourceIds: [],
+    },
+  },
+  {
+    id: 'abrau-2026-77',
+    src: '/images/source/owner-2026/abrau-2026-77.jpg',
+    width: 3673,
+    height: 5510,
+    representation: 'photograph',
+    caption: {
+      ru: 'Нейромандала · демонстрация в Abrau Club, Москва',
+      en: 'Neuromandala · demonstration at Abrau Club, Moscow',
+    },
+    archiveSource: {
+      path: 'D:/YandexDisk/_ODA2/События/26-06-16 Абрау/Абрау/AbrauResvera-77.jpg',
+      inputPath: 'D:/YandexDisk/_ODA2/События/26-06-16 Абрау/Абрау/AbrauResvera-77.jpg',
+      sha256: '8cc01c7092ab0b49408af46a0add83b4049af7ac4ab4171d874ba1774efdf9d6',
+      sourceIds: [],
+    },
+  },
+  {
+    id: 'schrodinger-square-poster',
+    src: '/images/source/owner-2026/schrodinger-square-poster.png',
+    width: 2245,
+    height: 2245,
+    representation: 'poster',
+    caption: {
+      ru: 'Проект Шрёдингер · квадратная афиша',
+      en: 'Schrodinger Project · square poster',
+    },
+    archiveSource: {
+      path: 'D:/YandexDisk/_ODA2/События/25-05-22 Калуга Циалковский фест/Афиша Шредингер Квадрат v3.png',
+      inputPath:
+        'D:/YandexDisk/_ODA2/События/25-05-22 Калуга Циалковский фест/Афиша Шредингер Квадрат v3.png',
+      sha256: 'e3bb33b2cdfdf4cb3d88f345b68a394b2dc297335a744347a5083f51941421e7',
+      sourceIds: [],
+    },
+  },
 ];
 const links: { kind: OwnerKind; owner: string; media: string[] }[] = [
   {
@@ -2088,10 +2191,24 @@ const imageRecords: Media[] = records.map((row) => ({
   originalAccess: 'internal',
   alt: row.alt ?? row.caption,
   credit: { ru: 'Архив ODA.dream', en: 'ODA.dream archive' },
-  source: `V1 archive ${row.archiveSource!.path}; owner permission for works/private commissions and full material migration, 2026-10-05/07`,
+  source: row.id.startsWith('abrau-2026-')
+    ? 'https://t.me/abrau_durso_official/2879; owner-selected photographs 2026-10-15'
+    : `ODA.dream archive ${row.archiveSource!.path}; owner permission for full material migration, 2026-10-05/07/15`,
 }));
 export const archiveMedia: Media[] = [...imageRecords, ...archiveVideos];
+const ownerSelectedImages: { kind: OwnerKind; owner: string; media: string[] }[] = [
+  {
+    kind: 'work',
+    owner: 'mindshow',
+    media: ['abrau-2026-157', 'abrau-2026-158', 'abrau-2026-166', 'abrau-2026-46', 'abrau-2026-77'],
+  },
+  { kind: 'work', owner: 'schrodinger', media: ['schrodinger-square-poster'] },
+  { kind: 'case', owner: 'tsiolkovsky-2025', media: ['schrodinger-square-poster'] },
+];
 export const archiveMediaFor = (kind: OwnerKind, owner: string) => [
+  ...ownerSelectedImages
+    .filter((row) => row.kind === kind && row.owner === owner)
+    .flatMap((row) => row.media),
   ...(links.find((row) => row.kind === kind && row.owner === owner)?.media ?? []),
-  ...(kind === 'work' && owner === 'lighthouse' ? archiveVideos.map((row) => row.id) : []),
+  ...archiveVideoOwners.filter((row) => row.kind === kind && row.owner === owner).flatMap((row) => row.media),
 ];
