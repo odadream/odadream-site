@@ -65,6 +65,8 @@ export interface Media {
   representation?:
     'illustration' | 'photograph' | 'render' | 'diagram' | 'poster' | 'document' | 'screenshot';
   credit?: Localized;
+  /** Normalised object-position exported from the DEV composition editor. */
+  focalPosition?: { desktop: { x: number; y: number }; mobile?: { x: number; y: number } };
   focalPoint?:
     | 'top-left'
     | 'top'
@@ -717,7 +719,7 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
       en: ['Public presentations since 2019', 'BYOB 2026 · Moscow', 'Individual EEG and narrative input'],
       ru: ['Публичные показы с 2019 года', 'BYOB 2026 · Москва', 'Индивидуальный ввод ЭЭГ и рассказа'],
     },
-    media: ['mindshow'],
+    media: ['portal-2024-recording', 'mindshow'],
     cases: ['byob-2026', 'portal-2025', 'cipr-2026'],
     configurations: ['mindshow-installation'],
     source: 'src/content/mindshow.md',
@@ -764,7 +766,7 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
       en: ['Two players per round', 'Approx. 90-second round', 'DANO Olympiad · Moscow, 2025'],
       ru: ['Два игрока в раунде', 'Около 90 секунд на раунд', 'Олимпиада DANO · Москва, 2025'],
     },
-    media: ['neurobattle', 'neurobattle-dano'],
+    media: ['dano-game-recording', 'neurobattle', 'neurobattle-dano'],
     cases: ['dano-2025'],
     configurations: ['neurobattle-game'],
     source: 'src/content/neurobattle.md',
@@ -819,7 +821,7 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
         'Совместно с Инновационным театром балета',
       ],
     },
-    media: ['schrodinger', 'schrodinger-poster'],
+    media: ['archive-schrodinger-schrodinger-2025-06', 'schrodinger', 'schrodinger-poster'],
     cases: ['tsiolkovsky-2025'],
     configurations: [],
     source: 'src/content/schrodinger.md',
@@ -937,7 +939,7 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
     inRepertoire: false,
     bookable: false,
     rnd: false,
-    featuredOnHome: true,
+    featuredOnHome: false,
     cases: [],
     configurations: [],
     publication: 'published',
@@ -1284,18 +1286,21 @@ const recognitionRecords: Omit<Recognition, keyof RecognitionDetail>[] = [
   {
     id: 'mipt-letter-2025',
     legacyId: 'proof-mipt-letter',
-    kind: 'acknowledgement-letter',
-    year: 2025,
+    kind: 'certificate',
+    year: 2026,
     featuredOnHome: false,
-    title: { en: 'Letter of recognition', ru: 'Благодарственное письмо' },
+    title: { en: 'Terraforming · participation certificate', ru: 'Терраформинг · сертификат участника' },
     issuer: {
-      en: 'Moscow Institute of Physics and Technology',
-      ru: 'Московский физико-технический институт',
+      en: 'Creative Union of Artists of Russia',
+      ru: 'Творческий союз художников России',
     },
-    source: 'previous src/content/hub-letters.md',
-    documentSource: '/images/proofs/proof-mipt-letter.webp',
-    publication: 'review',
-    documentRights: 'review',
+    source: 'Owner-supplied Terraforming certificate, 2026-10-15; exhibition 2025-12-09 to 2026-03-31',
+    documentSource: '/images/proofs/mipt-terraforming-2026.webp',
+    publication: 'published',
+    documentRights: 'cleared',
+    previewSrc: '/images/proofs/mipt-terraforming-2026.webp',
+    width: 1191,
+    height: 1684,
   },
   {
     id: 'portal-2030-2025',

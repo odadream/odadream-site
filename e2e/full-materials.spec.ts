@@ -29,11 +29,15 @@ test('recognition corpus preserves missing-scan qualification and readable share
   for (const lang of ['ru', 'en']) {
     await page.goto(`/${lang}/recognition/`);
     await expect(page.locator('.recognition-card')).toHaveCount(17);
-    await expect(page.locator('.recognition-card img')).toHaveCount(13);
-    await expect(page.locator('#recognition-mipt-letter-2025 img')).toHaveCount(0);
-    await expect(page.locator('#recognition-mipt-letter-2025')).toHaveClass(/recognition-card--text/);
-    await expect(page.locator('#recognition-mipt-letter-2025 .recognition-card__missing')).toHaveCount(0);
-    await expect(page.locator('#recognition-mipt-letter-2025 .small-note')).not.toHaveCount(0);
+    await expect(page.locator('.recognition-card img')).toHaveCount(15);
+    await expect(page.locator('#recognition-culttech-school-grant-2026 img')).toHaveCount(0);
+    await expect(page.locator('#recognition-culttech-school-grant-2026')).toHaveClass(
+      /recognition-card--text/,
+    );
+    await expect(
+      page.locator('#recognition-culttech-school-grant-2026 .recognition-card__missing'),
+    ).toHaveCount(0);
+    await expect(page.locator('#recognition-culttech-school-grant-2026 .small-note')).not.toHaveCount(0);
     const button = page.locator('#recognition-portal-2030-2025 [data-lightbox]');
     await button.click();
     await expect(page.locator('#lightbox')).toBeVisible();

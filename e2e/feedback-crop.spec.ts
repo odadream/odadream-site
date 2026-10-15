@@ -71,5 +71,9 @@ test('DEV framing supports focus, region, profile separation, persistence, expor
   await expect(dialog.locator('[data-crop-mode]')).toHaveValue('region');
   await expect(dialog.locator('[data-crop-field="width"]')).toHaveValue('0.5');
   await page.keyboard.press('Escape');
-  await expect(page.locator('[data-work-id="mindshow"] [data-dev-crop]')).toHaveCount(0);
+  await expect(page.locator('[data-work-id="mindshow"] [data-dev-crop]')).toHaveCount(1);
+  // Documentary representations remain protected regardless of the chosen card cover.
+  await page.goto('/ru/works/project-schrodinger/');
+  await expect(page.locator('[data-media-id="schrodinger-poster"]')).toHaveCount(1);
+  await expect(page.locator('[data-media-id="schrodinger-poster"] [data-dev-crop]')).toHaveCount(0);
 });

@@ -65,10 +65,18 @@ test('gallery navigation stays within its selection, preserves attribution and r
   await page.goto('/ru/works/project-schrodinger/');
   const workButtons = page.locator('#work-gallery [data-lightbox]');
   const workCount = await workButtons.count();
-  await workButtons.first().click();
-  await expect(page.locator('.lightbox-position')).toHaveText(`1 / ${workCount}`);
+  const credited = page.locator('#work-gallery [data-lightbox][data-credit]').first();
+  const credit = await credited.getAttribute('data-credit');
+  const src = await credited.getAttribute('data-src');
+  const position =
+    (await workButtons.evaluateAll((nodes) => nodes.map((node) => node.getAttribute('data-src')))).indexOf(
+      src,
+    ) + 1;
+  expect(credit).toBeTruthy();
+  await credited.click();
+  await expect(page.locator('.lightbox-position')).toHaveText(`${position} / ${workCount}`);
   await expect(page.locator('[data-viewer-next]')).toBeVisible();
-  await expect(page.locator('.lightbox-caption')).toContainText('Арабовы');
+  await expect(page.locator('.lightbox-caption')).toContainText(credit!);
   await page.locator('[data-viewer-zoom]').click();
   await expect(page.locator('[data-viewer-zoom]')).toHaveAttribute('aria-pressed', 'true');
   const image = page.locator('#lightbox img');

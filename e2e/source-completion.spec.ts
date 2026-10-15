@@ -39,7 +39,7 @@ test('selection records retain final outcome and do not fabricate scans or award
   await expect(page.locator('#recognition-culttech-school-grant-2026')).toContainText(
     '100% стоимости School Phase',
   );
-  for (const id of ['cyens-reserve-2026', 'culttech-school-grant-2026', 'skolkovo-arttech-2026'])
+  for (const id of ['cyens-reserve-2026', 'culttech-school-grant-2026'])
     await expect(page.locator(`#recognition-${id} img`)).toHaveCount(0);
 });
 

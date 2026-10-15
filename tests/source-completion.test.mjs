@@ -39,7 +39,7 @@ test('competition, school grant and reserve selection remain distinct from reali
   assert.match(find('culttech-school-grant-2026').claim.en, /full School Phase fee/);
   assert.equal(scope.works.find((row) => row.id === 'honors').stage, 'concept');
   assert.equal(scope.works.find((row) => row.id === 'ancestors').stage, 'prototype');
-  for (const row of ['skolkovo-arttech-2026', 'culttech-school-grant-2026', 'cyens-reserve-2026'].map(find)) {
+  for (const row of ['culttech-school-grant-2026', 'cyens-reserve-2026'].map(find)) {
     assert.equal(row.previewSrc, undefined);
     assert.equal(row.documentRights, 'review');
   }

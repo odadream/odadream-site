@@ -48,10 +48,10 @@ test('English addressed budget page stays out of public assets and original down
   assert.ok(!JSON.stringify(visible).includes('selectedPages'));
 });
 
-test('recognition archive distinguishes 13 scans and explicitly qualified records without public documents without rights bypass', () => {
+test('recognition archive distinguishes 15 scans and explicitly qualified records without public documents without rights bypass', () => {
   assert.equal(scope.recognitions.length, 17);
-  assert.equal(scope.recognitions.filter((row) => row.previewSrc).length, 13);
-  const missing = scope.recognitions.find((row) => row.id === 'mipt-letter-2025');
+  assert.equal(scope.recognitions.filter((row) => row.previewSrc).length, 15);
+  const missing = scope.recognitions.find((row) => row.id === 'culttech-school-grant-2026');
   assert.equal(missing.documentState, 'missing');
   assert.equal(missing.documentRights, 'review');
   assert.equal(missing.previewSrc, undefined);

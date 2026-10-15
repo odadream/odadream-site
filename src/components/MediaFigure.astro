@@ -4,7 +4,7 @@ import MediaRegister from './MediaRegister.astro';
 import MediaCropTrigger from './MediaCropTrigger.astro';
 import TechnicalMark from './TechnicalMark.astro';
 import VideoPreview from './VideoPreview.astro';
-import { mediaFit, type MediaItem, type MediaFit } from '../lib/media-presentation';
+import { mediaFit, mediaPositionStyle, type MediaItem, type MediaFit } from '../lib/media-presentation';
 import { mediaById } from '../data/catalogue';
 import type { Lang } from '../data/site';
 interface Props {
@@ -37,6 +37,7 @@ const presentation = item ? mediaFit(item, fit) : 'natural';
     data-media-id={item.id}
     data-fit={presentation}
     data-focal={item.focalPoint ?? 'center'}
+    style={mediaPositionStyle(item)}
     data-representation={item.representation}
   >
     <DevPublicationMark kind="media" recordId={item.id} lang={lang} />

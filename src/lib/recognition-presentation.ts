@@ -27,6 +27,6 @@ export const recognitionKindLabel = {
   award: { ru: 'Награда', en: 'Award' },
   grant: { ru: 'Грант', en: 'Grant' },
   selection: { ru: 'Отбор', en: 'Selection' },
-  certificate: { ru: 'Диплом', en: 'Certificate' },
+  certificate: { ru: 'Диплом / сертификат', en: 'Certificate' },
   'acknowledgement-letter': { ru: 'Благодарность', en: 'Acknowledgement' },
 };

@@ -4,7 +4,7 @@ import MediaCropTrigger from './MediaCropTrigger.astro';
 import CalloutLink from './CalloutLink.astro';
 import VideoPreview from './VideoPreview.astro';
 import { mediaById } from '../data/catalogue';
-import { fullFrameRepresentations } from '../lib/media-presentation';
+import { fullFrameRepresentations, mediaPositionStyle } from '../lib/media-presentation';
 import { workStageLabels, type Lang, type Work } from '../data/site';
 import { workUrl } from '../lib/routes';
 interface Props {
@@ -35,6 +35,7 @@ const labels = {
         class="work-card__visual"
         data-fit={contain ? 'contain' : 'cover'}
         data-focal={media?.focalPoint ?? 'center'}
+        style={mediaPositionStyle(media)}
       >
         {media &&
           (media.previewSrc && media.poster ? (

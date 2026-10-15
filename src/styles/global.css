@@ -1640,6 +1640,10 @@ figcaption {
 .media-figure[data-representation='screenshot'] .media-open:hover img {
   filter: none;
 }
+:is(.media-figure, .work-card__visual) {
+  --media-position-desktop: var(--media-position, center);
+  --media-position-mobile: var(--media-position-desktop);
+}
 :is(.media-figure, .work-card__visual)[data-focal='top-left'] {
   --media-position: left top;
 }
@@ -1671,7 +1675,15 @@ figcaption {
 .media-figure .media-open video,
 .work-card__visual img,
 .work-card__visual video {
-  object-position: var(--media-position);
+  object-position: var(--media-position-desktop, var(--media-position));
+}
+@media (max-width: 700px) {
+  .media-figure .media-open img,
+  .media-figure .media-open video,
+  .work-card__visual img,
+  .work-card__visual video {
+    object-position: var(--media-position-mobile, var(--media-position-desktop, var(--media-position)));
+  }
 }
 .lightbox-stage {
   width: 100%;

@@ -39,7 +39,7 @@ test('remaining substantive artworks have paired direct routes, source-backed na
         routes.some((row) => row.path === `/${lang}/works/${work.slug}/`),
         id,
       );
-    assert.equal(work.featuredOnHome, false, id);
+    assert.equal(work.featuredOnHome, id === 'mom-baby', id);
   }
   assert.equal(source.works.find((row) => row.id === 'potustoronniy').year, null);
   assert.equal(source.works.find((row) => row.id === 'honors').stage, 'concept');

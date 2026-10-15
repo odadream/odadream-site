@@ -587,6 +587,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'representation',
             'credit',
             'focalPoint',
+            'focalPosition',
           ]),
         ),
         evidence: evidence.map((row) =>

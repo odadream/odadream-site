@@ -571,6 +571,19 @@ export const preparedMedia: Record<string, PreparedAsset> = {
       },
     ],
   },
+  '/images/proofs/mipt-terraforming-2026.webp': {
+    sourceSha256: 'e36d8bd7be0793eac9d750e2fc94c1f6ae18793dfbca1f6a7d6e3c20dcaddb31',
+    sourceBytes: 221232,
+    images: [
+      {
+        src: '/images/prepared/9d7e2a54dac6ed4155814a4e/image.webp',
+        width: 1191,
+        height: 1684,
+        bytes: 159180,
+        sha256: 'f9510a5beef5da2ae560d7b2c166d7d782aada09ff36660163d0010e1a8855eb',
+      },
+    ],
+  },
   '/images/recognition/portal-2025.webp': {
     sourceSha256: '92b1516d2e131b1dfce9ecd2c79a4982cb2c70fc081b2485338c44f4a531cb19',
     sourceBytes: 67242,
@@ -724,6 +737,19 @@ export const preparedMedia: Record<string, PreparedAsset> = {
         height: 1080,
         bytes: 242886,
         sha256: '293d282c6f07ee83acb6c7125e52fef845e408aacd42fcfbd944e4cc25f34299',
+      },
+    ],
+  },
+  '/images/proofs/skolkovo-arttech-2026.webp': {
+    sourceSha256: '9101abc32e3c8153235156bc3c3a07605df219d3723b671f8f472a1661655fca',
+    sourceBytes: 169690,
+    images: [
+      {
+        src: '/images/prepared/362756d76e4d463386c53e8e/image.webp',
+        width: 1463,
+        height: 1061,
+        bytes: 99402,
+        sha256: 'db9f3ca8db0c3fc84b311cf465b8eb8d036acb3a28d55d5b69fa7d6a66865899',
       },
     ],
   },

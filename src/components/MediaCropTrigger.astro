@@ -21,6 +21,10 @@ const editable =
     data-crop-view={view}
     data-crop-title={item.alt[lang]}
     data-crop-focal={item.focalPoint ?? 'center'}
+    data-crop-point-desktop={item.focalPosition ? JSON.stringify(item.focalPosition.desktop) : undefined}
+    data-crop-point-mobile={
+      item.focalPosition ? JSON.stringify(item.focalPosition.mobile ?? item.focalPosition.desktop) : undefined
+    }
   >
     {lang === 'ru' ? 'DEV · кадрирование' : 'DEV · framing'}
   </button>

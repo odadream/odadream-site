@@ -294,12 +294,12 @@ const records = [
   {
     year: 2026,
     recipient: {
-      ru: 'ODA.dream',
-      en: 'ODA.dream',
+      ru: 'Далер Арабов',
+      en: 'Daler Arabov',
     },
-    documentSource: '',
-    documentState: 'missing',
-    documentRights: 'review',
+    documentSource: '/images/proofs/skolkovo-arttech-2026.webp',
+    documentState: 'available',
+    documentRights: 'cleared',
     publication: 'published',
     featuredOnHome: false,
     source:
@@ -329,6 +329,10 @@ const records = [
     },
     relatedWorks: ['honors'],
     sourceFiles: ['proof-award-skolkovo-arttech.md', 'Golem_Skolkovo_2026.md'],
+    previewSrc: '/images/proofs/skolkovo-arttech-2026.webp',
+    width: 1463,
+    height: 1061,
+    documentSha256: '9101abc32e3c8153235156bc3c3a07605df219d3723b671f8f472a1661655fca',
   },
   {
     year: 2026,

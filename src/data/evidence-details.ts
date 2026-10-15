@@ -68,14 +68,14 @@ export const recognitionDetails: Record<string, RecognitionDetail> = {
   },
   'mipt-letter-2025': {
     claim: l(
-      'Благодарственное письмо МФТИ за участие ODA.dream в выставке «Терраформинг» в декабре 2025 года.',
-      'A MIPT letter of appreciation for ODA.dream’s participation in the Terraforming exhibition in December 2025.',
+      'Сертификат ТСХР Ольге и Далеру Арабовым за участие в выставке «Терраформинг» в галерее МФТИ, 9 декабря 2025 — 31 марта 2026.',
+      'A Creative Union of Artists of Russia certificate to Olga and Daler Arabov for participating in Terraforming at the MIPT gallery, 9 December 2025 — 31 March 2026.',
     ),
-    recipient: l('ODA.dream', 'ODA.dream'),
-    contextPath: 'studio/#teaching-mipt',
-    limitations: l('Изображение письма пока недоступно.', 'An image of the letter is not yet available.'),
+    recipient: l('Ольга и Далер Арабовы · ODA.dream', 'Olga and Daler Arabov · ODA.dream'),
+    contextPath: 'cases/#case-mipt-2025',
     relatedWorks: [],
-    documentState: 'missing',
+    documentState: 'available',
+    documentSha256: 'e36d8bd7be0793eac9d750e2fc94c1f6ae18793dfbca1f6a7d6e3c20dcaddb31',
     sourceRefs: refs('proof-mipt-letter.md', 'hub-letters.md'),
   },
   'portal-2030-2025': {

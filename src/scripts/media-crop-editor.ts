@@ -28,13 +28,21 @@ export function initMediaCropEditor() {
   }
   let id = '';
   let opener: HTMLElement | undefined;
-  const base = () => {
+  const base = (v: CropViewport = viewport.value as CropViewport, trigger = opener) => {
     const c = defaultComposition();
-    const focal = opener?.dataset.cropFocal ?? 'center';
+    const focal = trigger?.dataset.cropFocal ?? 'center';
     c.point = {
       x: focal.includes('left') ? 0 : focal.includes('right') ? 1 : 0.5,
       y: focal.includes('top') ? 0 : focal.includes('bottom') ? 1 : 0.5,
     };
+    try {
+      const point = JSON.parse(
+        (v === 'mobile' ? trigger?.dataset.cropPointMobile : trigger?.dataset.cropPointDesktop) ?? 'null',
+      );
+      if (point && validComposition({ ...c, point })) c.point = point;
+    } catch {
+      /* Invalid exported values fall back to the named focal point. */
+    }
     return c;
   };
   const get = (v: CropViewport): Composition => {
@@ -42,7 +50,7 @@ export function initMediaCropEditor() {
     const profiles = drafts.media[id];
     const p = profile.value as CropView;
     profiles[p] ??= {};
-    profiles[p]![v] ??= base();
+    profiles[p]![v] ??= base(v);
     return profiles[p]![v]!;
   };
   const current = () => get(viewport.value as CropViewport);
@@ -57,11 +65,7 @@ export function initMediaCropEditor() {
       const root = trigger.closest('.work-card, .media-figure, .nm-slide');
       const c = drafts.media[mediaId]?.[view]?.[v];
       if (!root) continue;
-      const focal = trigger.dataset.cropFocal ?? 'center';
-      const fallback = {
-        x: focal.includes('left') ? 0 : focal.includes('right') ? 1 : 0.5,
-        y: focal.includes('top') ? 0 : focal.includes('bottom') ? 1 : 0.5,
-      };
+      const fallback = base(v, trigger).point;
       for (const image of root.querySelectorAll<HTMLImageElement | HTMLVideoElement>('img,video')) {
         image.style.objectPosition =
           c?.mode === 'point'

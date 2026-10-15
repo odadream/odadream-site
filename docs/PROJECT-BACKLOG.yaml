@@ -51,6 +51,33 @@ maintenance_audit:
     Миграционные веса, авторская приёмка дизайна и редакторский реестр не пересчитываются.
 
 items:
+  - id: PRESENTATION-COVERS-05
+    title: Применить выбранные владельцем обложки, избранное и новые документы наград
+    area: content
+    priority: P1
+    status: done
+    progress: 115 unit прошли; полный browser — 177 passed, 34 skipped, один visibility-тест упал и прошёл 3 адресных повтора без изменения кода. Отчёты — .local-server/recognitions-owner/acceptance.json.
+    outcome: Главные карточки показывают выбранные материалы, кулон остаётся в кадре, награды содержат настоящие документы.
+    acceptance:
+      - Обложки MindShow, Парадокса Успеха и Шрёдингера соответствуют IDs из отклика владельца.
+      - Мама и Малыш заменяет Эмомандалу в избранном, точка кадрирования сохранена в данных для desktop и mobile.
+      - Диплом Сколково и сертификат Терраформинга доступны как изображения через общий pipeline, атрибуция соответствует документам.
+      - Проверены PUBLIC и DEV, RU/EN, desktop/mobile и полный набор проверок.
+    source: Отклик владельца 15.10.2026; docs/MEDIA-GAPS.md.
+    reading: [ docs/DESIGN-GUIDE.md, docs/MEDIA-GAPS.md ]
+
+  - id: MAINT-VISIBILITY-06
+    title: Устранить нестабильность проверки восстановления видеопревью
+    area: maintenance
+    priority: P2
+    status: planned
+    outcome: Проверка hidden/pagehide воспроизводимо отличает активное превью от потерявшего hover или видимость.
+    acceptance:
+      - Измерена причина единичного сбоя desktop visibility restoration без ослабления требований к паузе и продолжению.
+      - Исправлена синхронизация теста или runtime по воспроизведённой причине, проверены повторения и общий прогон.
+    source: Browser run 1792080517011 — один сбой; visibility-retry.log — 3 passed при неизменных входах; .local-server/recognitions-owner/acceptance.json.
+    reading: [ docs/MAINTENANCE-AUDIT.md ]
+
   - id: PRESENTATION-MEDIA-04
     title: Улучшить наглядность и маршруты по аудиту Sites
     area: design

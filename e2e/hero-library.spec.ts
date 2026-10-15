@@ -61,9 +61,7 @@ test('fresh random starts cover the public library and preserve real target/stag
     0,
   );
   await page.goto('/ru/works/');
-  await expect(page.locator('[data-work-id="mindshow"] .work-card__media-note')).toContainText(
-    'Кадр интерфейса',
-  );
+  await expect(page.locator('[data-work-id="mindshow"] .work-card__media-note')).toHaveCount(0);
 });
 test('only an active ended video advances; hidden/offscreen video stays paused and resumes its position', async ({
   page,

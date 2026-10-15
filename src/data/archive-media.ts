@@ -5,7 +5,7 @@ type Record = Pick<
   Media,
   'id' | 'src' | 'width' | 'height' | 'representation' | 'caption' | 'archiveSource'
 > &
-  Partial<Pick<Media, 'alt'>>;
+  Partial<Pick<Media, 'alt' | 'focalPosition' | 'focalPoint'>>;
 // Visually reviewed editorial selection, not an automatic import of the old graph.
 const records: Record[] = [
   {
@@ -763,6 +763,11 @@ const records: Record[] = [
   },
   {
     id: 'archive-mom-baby-photo-with-statuette',
+    focalPoint: 'center',
+    focalPosition: {
+      desktop: { x: 0.5166460432502504, y: 0.583808387467409 },
+      mobile: { x: 0.5279594602557304, y: 0.5781519289407397 },
+    },
     src: '/images/archive/content/materia/mom-baby/photo-with-statuette.webp',
     width: 699,
     height: 932,

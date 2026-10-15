@@ -26,8 +26,12 @@ test('case narratives and source claims use event roles and readable provenance 
     await page.goto(`/${lang}/recognition/`);
     await expect(page.locator('.recognition-card')).toHaveCount(17);
     await expect(page.locator('#recognition-portal-2030-2025 .recognition-card__image')).toBeVisible();
-    await expect(page.locator('#recognition-mipt-letter-2025')).toHaveClass(/recognition-card--text/);
-    await expect(page.locator('#recognition-mipt-letter-2025 .recognition-card__missing')).toHaveCount(0);
+    await expect(page.locator('#recognition-culttech-school-grant-2026')).toHaveClass(
+      /recognition-card--text/,
+    );
+    await expect(
+      page.locator('#recognition-culttech-school-grant-2026 .recognition-card__missing'),
+    ).toHaveCount(0);
     await expect(page.locator('#recognition-portal-2030-2025')).toContainText(
       lang === 'ru' ? 'Первое место' : 'First prize',
     );

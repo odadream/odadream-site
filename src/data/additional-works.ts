@@ -39,6 +39,7 @@ type Definition = Pick<
       | 'sourceRefs'
       | 'mediaNote'
       | 'methodId'
+      | 'featuredOnHome'
     >
   >;
 
@@ -233,7 +234,7 @@ const definitions: Definition[] = [
       'Две части носятся вместе; внутреннее ядро может стать самостоятельной семейной реликвией ребёнка.',
       'Two parts are worn together; the inner core can become the child’s independent family heirloom.',
     ),
-    media: ['archive-mom-baby'],
+    media: ['archive-mom-baby-photo-with-statuette', 'archive-mom-baby'],
     relatedWorks: ['rings'],
     components: {
       ru: [
@@ -282,6 +283,7 @@ const definitions: Definition[] = [
         'The two parts stay together during pregnancy; the inner part can later be passed to the child. Specific versions include a birth date and a QR link to a personal story. The line includes later pieces and an archived gift to Katya IOWA. Personal pages and source medical records are not published with the work description.',
       ),
     ],
+    featuredOnHome: true,
   },
   {
     id: 'happiness',
