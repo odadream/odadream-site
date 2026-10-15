@@ -1,6 +1,6 @@
 # ODA.dream V2
 
-Static bilingual Astro site. The primary checkout is `odadream-site`, branch `main`; `codex/site-v2-production` preserves the release preparation. The neighbouring `odadream-site-v2` worktree remains a preserved development copy. The owner authorized migration and publication at `https://odadream.art` on 15 October 2026; deployment results are recorded in [RELEASE-RUNBOOK.md](docs/RELEASE-RUNBOOK.md).
+Static bilingual Astro site, published at [odadream.art](https://odadream.art) on 15 October 2026. The primary checkout is `odadream-site`, branch `main`; `codex/site-v2-production` preserves the release preparation. The neighbouring `odadream-site-v2` worktree remains a preserved development copy. Deployment evidence and rollback are recorded in [RELEASE-RUNBOOK.md](docs/RELEASE-RUNBOOK.md).
 
 ## Local workspace
 

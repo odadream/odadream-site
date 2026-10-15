@@ -112,15 +112,18 @@ items:
     title: Подготовить проверенную замену V1 на V2 в основном checkout и GitHub Pages
     area: maintenance
     priority: P0
-    status: in_progress
-    progress: 15.10.2026 владелец поручил выполнить выпуск. Свежие V1/V2 snapshots и полный bundle проверены;
-      V1 stash 98a99f2 дополнительно сохранён независимым bundle. Основной checkout уже содержит V2,
-      общая .git и остальные worktree сохранены. Актуальный Linux CI 38774622078 на 490278c прошёл;
-      локально 115 unit, 178 browser passed / 34 skip, production analytics и release gate прошли.
-      После устранения старых файлов/дубликатов dist подтверждены неизменные входы и побайтное совпадение пакетов;
-      квитанция .local-server/cutover/release-acceptance.json, подробности в RELEASE-RUNBOOK.md.
-      В Hub добавлены отдельные V2 sources, доступ providers и независимый контрольный сбор подтверждены;
-      повреждённая прежняя база Hub сохранена и требует отдельного восстановления. Ожидаются Pages и контроль на домене.
+    status: done
+    progress: V2 опубликована 15.10.2026 на odadream.art из 57008bfa284214974f0108982ca03392381348ff;
+      https://github.com/odadream/odadream-site/actions/runs/38799063781 — success.
+      Основной checkout и origin/main содержат V2, свежие snapshots/bundles и V1 stash 98a99f2 сохранены;
+      общая .git и остальные worktree работают. Локально и в Linux прошли 115 unit, 178 browser / 34 skip,
+      production analytics и release gate; CI опубликовал пакет с проверенным совпадением SHA.
+      На домене проверены root/RU/EN, типовые страницы и 29 ресурсов, mobile/desktop, legacy/404,
+      canonical/hreflang/sitemap, HTTP/www → HTTPS, отсутствие DEV и полный consent/revocation цикл.
+      Google204/Метрика200 подтверждены браузером; агрегатные API ещё не показали контрольные события,
+      новый crawl Search Console не подтверждён. В Hub сохранены V1 sources и добавлены отдельные V2;
+      прежняя усечённая SQLite-база сохранена, её восстановление — ANALYTICS-HUB-RECOVERY-07.
+      Все квитанции и ограничения указаны в RELEASE-RUNBOOK.md и .local-server/cutover.
     outcome: История и текущие файлы V1 сохранены; V2 получает основную папку, проверенную сборку и свои аналитику/SEO.
     acceptance:
       - Архивные public/internal V1 различены; свежие снимки V1/V2 и всех refs проверены независимо.
@@ -132,6 +135,22 @@ items:
       - Порядок восстановления не требует force-push; опубликованные SHA и URL проверок записаны.
     source: Запрос владельца 13.10.2026 о проверке готовности; прямое поручение 15.10.2026 выполнить миграцию V1 → V2 и публикацию на odadream.art.
     depends_on: [ MIGRATION-COMPLETE-01, ANALYTICS-MIGRATION-01, PREPUBLICATION-HOME-EVENTS-03 ]
+    reading: [ docs/RELEASE-RUNBOOK.md ]
+
+  - id: ANALYTICS-HUB-RECOVERY-07
+    title: Восстановить рабочую историческую базу Analytics Hub после обнаруженного усечения
+    area: maintenance
+    priority: P1
+    status: planned
+    progress: При выпуске V2 обнаружено отсутствие 223 SQLite-страниц в прежней базе Hub;
+      исходные байты и SHA сохранены вне YandexDisk. В проверенных папках целой копии нет.
+      V2-only контрольная база исправна, доступ к новым providers работает; оригинал не заменён.
+    outcome: Обычный сбор Hub работает с явно зафиксированной полнотой восстановленной истории.
+    acceptance:
+      - Проверен доступный внешний backup либо восстановлена отдельная копия с явным перечнем утраченных данных.
+      - Исторический оригинал сохранён; активация проверенной рабочей базы не выдаётся за полное восстановление утраченных страниц.
+      - Оба V2 источника и прежние источники проходят контрольный сбор без повреждения базы.
+    source: Диагностика при RELEASE-GHPAGES-01 15.10.2026; приватный cutover-report в LOCALAPPDATA/oda-analytics-hub/cutover-backups/20261015-201149.
     reading: [ docs/RELEASE-RUNBOOK.md ]
 
   - id: PREPUBLICATION-HOME-EVENTS-03
