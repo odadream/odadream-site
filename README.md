@@ -1,6 +1,6 @@
 # ODA.dream V2
 
-Static bilingual Astro site. Work in `odadream-site-v2`, branch `codex/site-v2`; neighbouring React/Lotus V1 is a source archive. The public domain still serves V1. Publishing V2 requires an explicit owner request.
+Static bilingual Astro site. The primary checkout is `odadream-site`, branch `main`; `codex/site-v2-production` preserves the release preparation. The neighbouring `odadream-site-v2` worktree remains a preserved development copy. The owner authorized migration and publication at `https://odadream.art` on 15 October 2026; deployment results are recorded in [RELEASE-RUNBOOK.md](docs/RELEASE-RUNBOOK.md).
 
 ## Local workspace
 

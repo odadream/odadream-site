@@ -113,17 +113,14 @@ items:
     area: maintenance
     priority: P0
     status: in_progress
-    progress: Локальная подготовка 13.10.2026 проверена. Release 1237.01 с — 111 unit,
-      176 browser passed / 34 skipped; production analytics и release gate прошли.
-      Отчёт — .local-server/checks/1791894227804; snapshot SHA — 9fece8bb0fc6208e1345b049847ca56decc8191c50bc9639ee6a57d8fef30858.
-      Проверены CRC пяти архивных ZIP, свежие V1/V2 snapshots и полный bundle 26 Git refs;
-      квитанции — .local-server/prepublication-feedback. Providers V2 подготовлены для odadream.art,
-      действующие providers V1 сохранены. Linux CI на bca90df прошла — 111 unit,
-      176 browser passed / 34 skipped, 715.38 с; https://github.com/odadream/odadream-site/actions/runs/38405865064.
-      Исправлены fixture имени checkout, потеря ввода при image-load/resize в DEV-crop и ожидание CSS в reading matrix.
-      Независимый restore в папку odadream-site прошёл npm ci/types/content/production build;
-      CSS и содержимое артефакта эквивалентны после проверенного переименования единственного CSS entry.
-      фактические перенос, переключение Hub, Pages и контроль на домене пока не выполнены.
+    progress: 15.10.2026 владелец поручил выполнить выпуск. Свежие V1/V2 snapshots и полный bundle проверены;
+      V1 stash 98a99f2 дополнительно сохранён независимым bundle. Основной checkout уже содержит V2,
+      общая .git и остальные worktree сохранены. Актуальный Linux CI 38774622078 на 490278c прошёл;
+      локально 115 unit, 178 browser passed / 34 skip, production analytics и release gate прошли.
+      После устранения старых файлов/дубликатов dist подтверждены неизменные входы и побайтное совпадение пакетов;
+      квитанция .local-server/cutover/release-acceptance.json, подробности в RELEASE-RUNBOOK.md.
+      В Hub добавлены отдельные V2 sources, доступ providers и независимый контрольный сбор подтверждены;
+      повреждённая прежняя база Hub сохранена и требует отдельного восстановления. Ожидаются Pages и контроль на домене.
     outcome: История и текущие файлы V1 сохранены; V2 получает основную папку, проверенную сборку и свои аналитику/SEO.
     acceptance:
       - Архивные public/internal V1 различены; свежие снимки V1/V2 и всех refs проверены независимо.
@@ -133,7 +130,7 @@ items:
       - Release на актуальном head проходит локально и в Linux CI; опубликован тот же проверенный артефакт.
       - После прямого решения о выпуске основной checkout и origin/main содержат V2; Pages, SEO и consent проверены на домене.
       - Порядок восстановления не требует force-push; опубликованные SHA и URL проверок записаны.
-    source: Запрос владельца 13.10.2026 о проверке готовности и сценарии замены сайта.
+    source: Запрос владельца 13.10.2026 о проверке готовности; прямое поручение 15.10.2026 выполнить миграцию V1 → V2 и публикацию на odadream.art.
     depends_on: [ MIGRATION-COMPLETE-01, ANALYTICS-MIGRATION-01, PREPUBLICATION-HOME-EVENTS-03 ]
     reading: [ docs/RELEASE-RUNBOOK.md ]
 
