@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { loadSiteModule } from '../scripts/site-data.mjs';
-const { chapterMarker, pageChapters } = await loadSiteModule('src/lib/page-outline.ts');
+const { chapterMarker, pageChapters, caseYearLinks } = await loadSiteModule('src/lib/page-outline.ts');
 test('outline preserves rendered chapter order, Unicode and punctuation; excludes unmarked material', () => {
   const chapters = [
     { id: 'works', title: 'Работы «ODA» & <art>', family: 'H', section: 1 },
@@ -20,4 +20,21 @@ test('outline preserves rendered chapter order, Unicode and punctuation; exclude
     chapters,
   );
   assert.deepEqual(pageChapters('<main><h2>No sections</h2></main>'), []);
+});
+
+test('case year shortcuts cover the entire dated archive without duplicate years', () => {
+  const rows = [
+    { date: '2025-01-01', slug: 'older', context: 'public' },
+    { date: '2026-09-01', slug: 'application', context: 'application' },
+    { date: '2025-12-01', slug: 'newest', context: 'public' },
+    { date: '2024-03-01', slug: 'past', context: 'public' },
+    { date: '2027-01-01', slug: 'lab', context: 'laboratory' },
+  ];
+  assert.deepEqual(caseYearLinks(rows), [
+    { year: '2027', href: '#case-lab' },
+    { year: '2026', href: '#case-application' },
+    { year: '2025', href: '#case-newest' },
+    { year: '2024', href: '#case-past' },
+  ]);
+  assert.equal(rows[0].slug, 'older');
 });

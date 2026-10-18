@@ -8,6 +8,8 @@ const { createPublicationScope } = await loadSiteModule('src/lib/publication-sco
 const { createPages } = await loadSiteModule('src/lib/routes.ts');
 const { resolveLegacyRoutes } = await loadSiteModule('src/lib/legacy-routes.ts');
 const inventory = JSON.parse(await readFile('docs/migration/INVENTORY-2026-10-05.json', 'utf8'));
+const ownerInventory = JSON.parse(await readFile('docs/RECOGNITION-SOURCE-INVENTORY.json', 'utf8'));
+const allSnapshots = { ...inventory.v2SourceSnapshots, ...ownerInventory.sourceSnapshots };
 const plan = {
   version: 'fixture',
   asOf: '2026-10-06',
@@ -23,9 +25,14 @@ const plan = {
 };
 
 test('selected editorial sources retain exact dated provenance and coverage in the inventory', () => {
-  assert.deepEqual(Object.keys(data.sourceSnapshots).sort(), Object.keys(inventory.v2SourceSnapshots).sort());
+  assert.deepEqual(Object.keys(data.sourceSnapshots).sort(), Object.keys(allSnapshots).sort());
   for (const [file, snapshot] of Object.entries(data.sourceSnapshots)) {
-    assert.deepEqual(snapshot, inventory.v2SourceSnapshots[file]);
+    assert.deepEqual(snapshot, allSnapshots[file]);
+    if (ownerInventory.sourceSnapshots[file]) {
+      assert.match(file, /^OwnerRecognition\//);
+      assert.match(snapshot.sha256, /^[a-f0-9]{64}$/);
+      continue;
+    }
     const row =
       inventory.entries.find((entry) => entry.sourceFile === file) ??
       inventory.externalSourceSnapshots?.[file];
@@ -64,7 +71,7 @@ test('method and cooperation stay out of public projection until editorial appro
 
 test('work narratives retain owner decisions, real roles and source coverage', () => {
   for (const work of data.works) {
-    assert.ok(work.story.length >= 2, work.id);
+    assert.ok(work.story.length >= 1, work.id); // Sparse sourced work must not gain invented filler chapters.
     assert.ok(work.credits.length, work.id);
     assert.ok(
       work.sourceRefs.some((ref) => ref.file === `${work.legacyId}.md`),
@@ -128,9 +135,9 @@ test('studio biographies require published people and public data never includes
   assert.ok(!JSON.stringify(scope.studioPages).includes('sourceRefs'));
   assert.ok(!JSON.stringify(scope.people).includes('sourceRefs'));
   assert.ok(scope.people.every((row) => row.biography.en && row.biography.ru));
-  assert.ok(scope.studioPages[0].teaching.every((row) => row.year === 2025 && !('date' in row)));
+  assert.equal('teaching' in scope.studioPages[0], false);
   const routes = createPages(scope);
-  assert.ok(routes.find((row) => row.path === '/ru/studio/').anchors.includes('teaching-sber'));
+  assert.ok(routes.find((row) => row.path === '/ru/studio/').anchors.includes('legal'));
   const deferredRoutes = createPages(createPublicationScope({ ...data, people: [] }, packet));
   const old = [
     {

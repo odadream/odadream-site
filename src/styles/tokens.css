@@ -4,16 +4,16 @@
   --type-scale: 1;
   --weight-heading: 500;
   --weight-folio: 800;
-  --signal-works: #36c9a0;
-  --signal-home: #9dbca8;
-  --signal-education: #65bdbf;
-  --signal-cooperation: #d3a868;
-  --signal-studio: #b9a5d2;
-  --signal-cases: #cdaa70;
-  --signal-recognition: #d1aa72;
-  --signal-contact: #cda194;
-  --signal-technology: #72bec8;
-  --signal-design: #b6aaeb;
+  --signal-works: #87b5f5;
+  --signal-home: #b5b3ac;
+  --signal-education: #62c8ce;
+  --signal-cooperation: #e1a17f;
+  --signal-studio: #bd9de1;
+  --signal-cases: #df92ba;
+  --signal-recognition: #9da7e5;
+  --signal-contact: #e1a09c;
+  --signal-technology: #79b9ad;
+  --signal-design: #c3abea;
   color-scheme: dark;
   --plane-back: #111110;
   --plane-middle: #1b1a18;
@@ -33,7 +33,31 @@
   --nav-current: rgb(243 241 236 / 0.045);
   --nav-hover: rgb(243 241 236 / 0.065);
   --header-bg: var(--plane-front);
-  --header-height: 88px;
+  --header-main-height: 60px;
+  --header-logo-width: 64px;
+  --code-icon-size: 1em;
+  --code-icon-baseline: -0.12em;
+  --nav-item-gap: 0px;
+  --header-theme-min: 72px;
+  --header-menu-min: 64px;
+  --control-gap: var(--s2);
+  --control-pad: var(--s2);
+  --control-surface: var(--surface);
+  --control-border: var(--line-strong);
+  --control-type: var(--type-small);
+  --control-label-type: var(--type-note);
+  --control-leading: var(--leading-note);
+  --control-mark-size: 1em;
+  --control-select-end: calc(var(--control-pad) * 2 + var(--control-mark-size));
+  --disclosure-gap: var(--control-gap);
+  --disclosure-inset: var(--s3);
+  --portrait-measure: 30rem;
+  --texture-dot-radius: 0.85px;
+  --texture-dot-edge: 0.95px;
+  --texture-dot-step: 20px;
+  --header-nav-gap: 0px;
+  --header-height: calc(var(--header-main-height) + var(--tap-target));
+  --reading-menu-width: 26rem;
   --anchor-offset: calc(var(--header-height) + var(--s5));
   --tap-target: 44px;
   --focus-width: 2px;
@@ -50,6 +74,9 @@
   --measure-hero-caption: 42ch;
   --measure-action-note: 34ch;
   --process-step-min: calc(12rem * var(--type-scale));
+  --recognition-wall-cell-min: calc(6rem * var(--type-scale));
+  --recognition-wall-preview-height: var(--s10);
+  --recognition-wall-gap: var(--gap-copy);
   --recognition-preview-ratio: 1 / 1;
   --programme-tile-min: calc(18rem * var(--type-scale));
   --recognition-tile-min: calc(16rem * var(--type-scale));
@@ -57,8 +84,8 @@
   --gallery-crop-ratio: 4 / 3;
   --gallery-gap: var(--s5);
   --card-ratio: 1.56;
-  --card-gap: var(--s3);
-  --card-row-gap: var(--s7);
+  --card-gap: var(--s2);
+  --card-row-gap: var(--s6);
   --media-black: #080808;
   --hero-bg: #090a0c;
   --hero-ink: #f3f1ec;
@@ -86,16 +113,21 @@
   --lightbox-backdrop: rgb(0 0 0 / 0.9);
   --lightbox-ink: var(--hero-ink);
   --lightbox-muted: var(--hero-ink-soft);
-  --lightbox-control-surface: var(--media-black);
-  --lightbox-rule: var(--hero-rule);
+  --lightbox-control-surface: #252825;
+  --lightbox-control-hover: #394139;
+  --lightbox-control-gap: var(--s1);
+  --lightbox-frame-pad: var(--s4);
+  --lightbox-control-layer: 1;
+  --lightbox-zoom-limit: 4;
+  --lightbox-rule: rgb(243 241 236 / 0.7);
   --alert: #efb452;
   --danger: #df716b;
   --max: 1360px;
   --gutter: 40px;
   /* Content axes remain identical inside full-bleed media and the page shell. */
   --page-inset: max(var(--gutter), calc((100% - var(--max)) / 2));
-  --intro-space-start: var(--s8);
-  --intro-space-end: var(--s7);
+  --intro-space-start: var(--s7);
+  --intro-space-end: var(--s6);
   --hero-edge-space: var(--s6);
   --label-optical-offset: 6px;
   --s1: calc(var(--space-unit) * 1);
@@ -113,7 +145,21 @@
   --gap-component: var(--s5);
   --gap-group: var(--s6);
   --gap-block: var(--s7);
-  --section-space: calc(var(--space-unit) * 20);
+  --section-space: var(--s8);
+  --section-body-inset: var(--s4);
+  --gap-heading: var(--s5);
+  --record-date-measure: calc(12rem * var(--type-scale));
+  --status-height: calc(var(--space-unit) * 7);
+  --status-dot-size: calc(var(--space-unit) * 1.5);
+  --hero-heading-width: min(52vw, 41.25rem);
+  --hero-data-width: clamp(16.25rem, 25vw, 17.5rem);
+  --hero-controls-width: 5.5rem;
+  --portrait-min: 11.25rem;
+  --crop-handle-size: 1.125rem;
+  --record-row-inset: var(--s4);
+  --record-copy-gap: var(--s2);
+  --record-track-gap: var(--s2);
+  --record-meta-row-gap: var(--s1);
   --section-space-end: var(--section-space);
   --panel-pad: var(--s5);
   --panel-bleed: min(var(--panel-pad), var(--gutter));
@@ -124,11 +170,19 @@
   --link-offset: 0.3em;
   --link-rule-width: 1px;
   --link-mark-size: 0.8em;
+  --link-ending-size: var(--link-mark-size);
+  --link-internal-signal: var(--accent);
+  --link-external-signal: var(--accent);
+  --link-download-signal: var(--alert);
   --link-head-size: 0.32em;
   --motion-fast: 180ms ease;
   --motion-media: 700ms ease;
   --section-accent: var(--accent);
-  --texture-dot: rgb(243 241 236 / 0.035);
+  --texture-dot: rgb(243 241 236 / 0.09);
+  --texture-grain-opacity: 0.035;
+  --nav-label-gap: var(--s2);
+  --media-preview-height: 280px;
+  --media-ratio: 1;
   /* Reading roles: primary text, explanation, metadata, orientation. */
   --type-h1: clamp(
     calc(32px * var(--type-scale)),
@@ -175,7 +229,7 @@
   --type-hero-caption: var(--type-h3);
   --control-icon-size: 24px;
   --badge-inset: 1px 3px;
-  --mark-legend-size: 24px;
+  --mark-legend-size: 1em;
   --type-small: calc(13px * var(--type-scale));
   --type-note: calc(12px * var(--type-scale));
   --type-annotation: calc(11px * var(--type-scale));
@@ -183,13 +237,13 @@
   --folio-field-height: calc(var(--type-folio) * 0.95);
   --folio-fill: color-mix(in srgb, var(--ink) 5%, transparent);
   --type-stat: calc(20px * var(--type-scale));
-  --reference-surface: var(--bg);
+  --reference-surface: var(--plane-middle);
   --reference-line: var(--line-soft);
   --reference-ink: var(--muted);
-  --mark-size: 20px;
+  --mark-size: 1em;
   --mark-stroke: 1.5;
   --grid-rail: minmax(180px, 24%);
-  --grid-gap: clamp(28px, 5vw, 88px);
+  --grid-gap: clamp(28px, 3.3vw, 48px);
   --grid-columns: var(--grid-rail) minmax(0, 1fr);
   --hero-caption-shadow: 0 1px 18px rgb(0 0 0 / 0.42);
   --type-metric: calc(24px * var(--type-scale));
@@ -197,10 +251,12 @@
   --stamp-surface: var(--surface);
   --macro-surface-open: none;
   --macro-surface-process: var(--surface);
+  --stamp-gap: var(--s2);
+  --stamp-inset: var(--s1);
   --stamp-columns: 2;
   --stamp-wide-columns: 4;
   --colophon-cell-min: calc(15rem * var(--type-scale));
-  --header-row-height: 72px;
+  --header-row-height: 56px;
 }
 
 :root[data-section='works'] {
@@ -237,16 +293,16 @@
 
 :root[data-theme='light'] {
   color-scheme: light;
-  --signal-works: #126844;
-  --signal-home: #4f6b53;
-  --signal-education: #286c71;
-  --signal-cooperation: #80571c;
-  --signal-studio: #66518b;
-  --signal-cases: #765218;
-  --signal-recognition: #765218;
-  --signal-contact: #854c41;
-  --signal-technology: #286c71;
-  --signal-design: #66518b;
+  --signal-works: #325b9b;
+  --signal-home: #5b5952;
+  --signal-education: #176970;
+  --signal-cooperation: #935235;
+  --signal-studio: #765199;
+  --signal-cases: #94456c;
+  --signal-recognition: #555c96;
+  --signal-contact: #914c49;
+  --signal-technology: #306c60;
+  --signal-design: #615b9e;
   --plane-back: #e8e4db;
   --plane-middle: #f3efe6;
   --plane-front: #faf7f0;
@@ -264,7 +320,7 @@
   --alert: #815308;
   --danger: #a83e39;
   --shadow-material: 0 12px 28px rgb(61 53 40 / 0.14);
-  --texture-dot: rgb(42 38 29 / 0.065);
+  --texture-dot: rgb(42 38 29 / 0.11);
   --section-accent: var(--accent);
   --folio-fill: color-mix(in srgb, var(--ink) 5%, transparent);
 }
@@ -300,6 +356,7 @@
 /* One responsive grid profile for pages, work records and the specimen. */
 @media (max-width: 900px) {
   :root {
+    --record-date-measure: var(--s10);
     --gutter: 24px;
     --grid-rail: 160px;
     --grid-gap: var(--s6);
@@ -308,8 +365,11 @@
 }
 @media (max-width: 700px) {
   :root {
+    --hero-height-min: 560px;
+    --hero-height: 76svh;
+    --hero-height-max: 730px;
     --stamp-wide-columns: 2;
-    --header-height: calc(var(--header-row-height) + var(--tap-target));
+    --header-main-height: var(--header-row-height);
     --type-hero-intro: clamp(
       calc(24px * var(--type-scale)),
       calc(6vw * var(--type-scale)),
@@ -324,8 +384,10 @@
     --measure-hero-title: var(--measure-record-title);
     --measure-hero-copy: 40ch;
     --panel-pad: var(--s4);
-    --section-space: var(--s7);
-    --intro-space-start: var(--s7);
+    --section-space: calc(var(--space-unit) * 10);
+    --section-body-inset: var(--s3);
+    --gap-heading: var(--s4);
+    --intro-space-start: var(--s6);
     --intro-space-end: var(--s5);
     --hero-edge-space: var(--s5);
   }
@@ -337,4 +399,15 @@
   --diagram-line: var(--mark-stroke);
   --diagram-label: calc(20px * var(--type-scale));
   --diagram-caption: calc(16px * var(--type-scale));
+}
+
+.lightbox [data-link-destination] {
+  --lightbox-reference-signal: color-mix(
+    in srgb,
+    var(--nav-signal, var(--link-external-signal)) 55%,
+    var(--lightbox-ink)
+  );
+}
+.lightbox [data-link-destination='resource'] {
+  --lightbox-reference-signal: color-mix(in srgb, var(--link-download-signal) 55%, var(--lightbox-ink));
 }

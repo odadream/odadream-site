@@ -16,8 +16,10 @@ async function visit(directory, prefix) {
 }
 for (const lang of ['en', 'ru']) await visit(resolve(root, lang), `/${lang}/`);
 const { pages } = await loadSiteModule('src/lib/routes.ts');
+const { localizedCatalogueRedirects } = await loadSiteModule('src/data/catalogue-redirects.mjs');
+const redirectPaths = Object.keys(localizedCatalogueRedirects);
 const compatibilityPaths = ['/en/formats/', '/ru/formats/'];
-const expectedPaths = new Set([...pages.map((page) => page.path), ...compatibilityPaths]);
+const expectedPaths = new Set([...pages.map((page) => page.path), ...compatibilityPaths, ...redirectPaths]);
 const htmlByPath = new Map();
 for (const path of expectedPaths) if (!pagePaths.includes(path)) fail(`Missing localized page ${path}`);
 for (const path of pagePaths) if (!expectedPaths.has(path)) fail(`Unexpected localized page ${path}`);
@@ -25,7 +27,26 @@ for (const path of pagePaths) {
   const lang = path.startsWith('/ru/') ? 'ru' : 'en';
   const html = await readFile(resolve(root, path.slice(1), 'index.html'), 'utf8');
   htmlByPath.set(path, html);
-  if (!compatibilityPaths.includes(path)) validatePageCodes(html, path);
+  if (/^\/(ru|en)\/$/.test(path) && !html.includes('data-recognition-wall'))
+    fail(`Approved recognition wall missing from ${path}`);
+  for (const tag of html.matchAll(/<(?:a|span)\b[^>]*data-callout-link[^>]*>/g))
+    if (!tag[0].includes('data-link-destination=')) fail(`Unclassified callout in ${path}`);
+  if (redirectPaths.includes(path)) {
+    const destination = localizedCatalogueRedirects[path];
+    if (
+      !pages.some((page) => page.path === destination) ||
+      !html.includes(destination) ||
+      !html.includes('http-equiv="refresh"')
+    )
+      fail(`Invalid catalogue redirect ${path}`);
+    continue;
+  }
+  if (!compatibilityPaths.includes(path)) {
+    validatePageCodes(html, path);
+    if ([...html.matchAll(/id="lightbox"/g)].length !== 1) fail(`Expected one MediaViewer in ${path}`);
+    for (const role of ['lightbox-canvas', 'lightbox-info', 'lightbox-navigation'])
+      if (!html.includes(role)) fail(`Missing viewer role ${role} in ${path}`);
+  }
   for (const token of [
     `<html lang="${lang}"`,
     '<title>',
@@ -45,6 +66,13 @@ for (const path of pagePaths) {
   }
 }
 const { catalogue } = await loadSiteModule('src/data/catalogue.ts');
+if (
+  await stat(resolve(root, 'link-test/index.html')).then(
+    () => true,
+    () => false,
+  )
+)
+  fail('Link study must remain DEV-only');
 if (
   await stat(resolve(root, 'design-system/index.html')).then(
     () => true,
@@ -92,10 +120,15 @@ if (
   sitemap.includes('/legacy/') ||
   sitemap.includes('/formats/') ||
   sitemap.includes('/design-system/') ||
+  sitemap.includes('/link-test/') ||
   sitemap.includes('<loc>https://odadream.art/</loc>')
 )
   fail('Noncanonical route in sitemap');
 for (const path of pagePaths) {
+  if (redirectPaths.includes(path)) {
+    if (sitemap.includes(`<loc>https://odadream.art${path}</loc>`)) fail(`Redirect in sitemap: ${path}`);
+    continue;
+  }
   if (compatibilityPaths.includes(path)) {
     const html = await readFile(resolve(root, path.slice(1), 'index.html'), 'utf8');
     if (!html.includes('noindex,follow')) fail(`Compatibility entrance must be noindex: ${path}`);

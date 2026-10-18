@@ -76,16 +76,10 @@ const overrides = {
   'hub-team': ['/studio/#people', 'People / Люди'],
   'hub-cv': ['/studio/', 'Edited duo profile / Профиль дуэта'],
   'hub-manifesto': ['/studio/#method', 'Artistic position and ethics / Позиция и этика'],
-  'event-hse-beautiful-brain-2025': [
-    '/studio/#teaching-hse',
-    'Educational context / Образовательный контекст',
-  ],
-  'event-sber-lecture-2025': [
-    '/studio/#teaching-sber',
-    'Invited lecture context / Контекст приглашённой лекции',
-  ],
+  'event-hse-beautiful-brain-2025': ['/cases/hse-2025/', 'Educational context / Образовательный контекст'],
+  'event-sber-lecture-2025': ['/cases/sber-2025/', 'Invited lecture context / Контекст приглашённой лекции'],
   'event-mipt-terraforming-2025': [
-    '/studio/#teaching-mipt',
+    '/cases/mipt-2025/',
     'Exhibition and workshop context / Выставочный и образовательный контекст',
   ],
   'hub-events': ['/cases/', 'Cases / Кейсы'],

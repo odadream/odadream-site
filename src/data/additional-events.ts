@@ -7,6 +7,49 @@ type Definition = Pick<CaseEvent, 'id' | 'title' | 'summary' | 'date' | 'place' 
   Partial<CaseEvent> & { files: string[] };
 const definitions: Definition[] = [
   {
+    id: 'rukami-2020',
+    date: '2020-12-05',
+    dateEnd: '2020-12-06',
+    dateMeaning: 'event-window',
+    title: { ru: 'NeuroSync · Rukami', en: 'NeuroSync · Rukami' },
+    summary: {
+      ru: 'Проект NeuroSync отмечен благодарностью организаторов онлайн-фестиваля идей и технологий.',
+      en: 'Project NeuroSync received an acknowledgement from the online festival of ideas and technology.',
+    },
+    place: { ru: 'Онлайн · Великий Новгород', en: 'Online · Veliky Novgorod' },
+    role: {
+      ru: 'Историческая проектная линия NeuroSync: участие в фестивале. Документ адресован проекту; соответствие отдельной современной работе не установлено.',
+      en: 'Historical NeuroSync project: festival participation. The document names the project; no identity with a particular current work is asserted.',
+    },
+    files: ['OwnerRecognition/ODA - 2020 Руками - NeuroSync.pdf'],
+    detailPage: true,
+    limitations: [
+      {
+        ru: 'В документе указан проект NeuroSync из Москвы. Персональный сертификат Далера относится к его CV и отдельно не считается признанием ODA.dream.',
+        en: 'The document names Project NeuroSync from Moscow. Daler’s individual certificate belongs to his CV and does not count as a separate studio recognition.',
+      },
+    ],
+  },
+  {
+    id: 'national-business-awards-2025',
+    date: '2025',
+    title: {
+      ru: 'Технологии и инновации · Национальная бизнес-премия',
+      en: 'Technology and Innovation · National Business Awards',
+    },
+    summary: {
+      ru: 'Благодарность творческому дуэту ODA.dream за помощь в организации мероприятия.',
+      en: 'An acknowledgement to ODA.dream for helping organise the event.',
+    },
+    place: { ru: 'Площадка в документе не указана', en: 'Venue not stated in the document' },
+    role: {
+      ru: 'ODA.dream: помощь в организации мероприятия, подтверждённая благодарственным письмом. Конкретная работа в письме не названа.',
+      en: 'ODA.dream: organisational support confirmed by an acknowledgement letter. The document does not name a particular work.',
+    },
+    files: ['OwnerRecognition/ODA - 2025 ТПП.pdf'],
+    detailPage: true,
+  },
+  {
     id: 'oktava-2021',
     date: '2021-04-12',
     type: 'lecture',
@@ -611,16 +654,13 @@ const definitions: Definition[] = [
     id: 'tavrida-ai-2025',
     date: '2025-08-02',
     dateMeaning: 'event-window',
-    participationStatus: 'declined',
+    participationStatus: 'submitted',
     context: 'application',
     work: 'cultural-neuro-code',
-    title: l(
-      'Культурный код России · заявка на фестиваль ИИ',
-      'Cultural Code of Russia · AI festival submission',
-    ),
+    title: l('Культурный код России · фестиваль ИИ', 'Cultural Code of Russia · AI festival'),
     summary: l(
-      'Заявка ODA.dream была отклонена; участия в фестивале не было.',
-      'ODA.dream’s submission was declined; the studio did not participate in the festival.',
+      'Организаторы фестиваля ИИ поблагодарили Ольгу и Далера Арабовых за участие в проекте и работу над конкурсной заявкой.',
+      'The AI festival organisers thanked Olga and Daler Arabov for contributing to the project and preparing their submission.',
     ),
     place: l('Судак · Таврида.АРТ', 'Sudak · Tavrida.ART'),
     role: l(

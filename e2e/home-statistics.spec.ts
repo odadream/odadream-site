@@ -38,12 +38,11 @@ for (const lang of ['ru', 'en']) {
     expect(events.find((row) => row.id === 'tsiolkovsky-2026')?.title).toBe(
       lang === 'ru' ? 'Фестиваль Циолковского' : 'Tsiolkovsky Festival',
     );
-    const cards = page.locator('#recognition .recognition-card--overview');
-    await expect(cards).toHaveCount(7);
-    await expect(cards.first()).toHaveAttribute('id', 'recognition-skolkovo-arttech-2026');
-    await expect(cards.locator('.small-note')).toHaveCount(0);
-    await expect(cards.locator('.recognition-card__claim')).toHaveCount(7);
-    await expect(cards.locator('a')).toHaveCount(7);
+    const wall = page.locator('#home-recognition-wall');
+    await expect(wall.locator('figure')).toHaveCount(18);
+    await expect(wall.locator('[data-lightbox]')).toHaveCount(16);
+    await expect(wall.locator('a[href="/' + lang + '/recognition/"]')).toHaveCount(1);
+    await expect(page.locator('#recognition .recognition-card--overview')).toHaveCount(0);
     const workDetails = page.locator('.record-stamp__more').filter({
       has: page.locator('summary', { hasText: lang === 'ru' ? 'Состав по стадиям' : 'Stage breakdown' }),
     });
@@ -119,6 +118,7 @@ test('compact headings and record actions keep natural line height and usable hi
     expect(
       Math.max(...titles.map((title) => title.gap)) - Math.min(...titles.map((title) => title.gap)),
     ).toBeLessThanOrEqual(1);
+    await page.locator('.footer-document > summary').click();
     const copy = page.locator('[data-copy-page-link]');
     await copy.scrollIntoViewIfNeeded();
     const field = await copy.evaluate((button) => {

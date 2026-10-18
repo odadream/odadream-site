@@ -471,7 +471,7 @@
         "scopeVersion": "v2-full-content-2026-10-07.1",
         "state": "applied",
         "targets": [
-          "Work:brain-hack"
+          "Programme:brain-hack"
         ],
         "reason": "matching canonical legacyId",
         "sourceSha256": "adb2f3a84f0a944581cf7c4d60d3ab7cf3e1f174303ad02659646bee7c7e580c",
@@ -754,7 +754,7 @@
         "state": "merged",
         "targets": [
           "CaseEvent:korablik-2020",
-          "Work:theatre-my-name"
+          "Programme:theatre-my-name"
         ],
         "reason": "Early co-author and retreat host retained as separate roles",
         "sourceSha256": "0cf293c2a4121b44a317a25fe146f1a8cf9806cf1235ec68aa6b83fa3cd25e2e"
@@ -4707,7 +4707,7 @@
         "scopeVersion": "v2-full-content-2026-10-07.1",
         "state": "applied",
         "targets": [
-          "Programme:gong"
+          "Work:gong"
         ],
         "reason": "matching canonical legacyId",
         "sourceSha256": "8d7e6a3fdd64527a44e151fcb6195a4cd8ca0ad50579b9a8c6d45b724e19200b",
@@ -6201,7 +6201,7 @@
           "EducationOverview:talk-workshop",
           "Programme:beautiful-brain",
           "Programme:feedback-empathy-brain",
-          "Programme:gong",
+          "Work:gong",
           "Programme:neuro-laboratory",
           "Programme:neuroaesthetics-lec",
           "Programme:neuromandala-workshop",
@@ -7149,12 +7149,12 @@
           "Recognition:haskell-letter-2025",
           "Recognition:hse-letter-2025",
           "Recognition:mipt-letter-2025",
-          "Recognition:moscow2030-letter-2025",
+          "Person:olga",
           "Recognition:ossetia-letter-2025",
           "Recognition:portal-2030-2025",
-          "Recognition:province-code-letter-2024",
+          "Person:daler",
           "Recognition:tavrida-letter-2025",
-          "Recognition:techweek-letter-2024",
+          "Person:olga",
           "Recognition:wildmint-letter-2025"
         ],
         "reason": "exact source snapshot used by public record",
@@ -7373,7 +7373,7 @@
           "Work:mindshow",
           "Work:neurobattle",
           "Work:neurosync",
-          "Work:theatre-my-name"
+          "Programme:theatre-my-name"
         ],
         "reason": "Performance narratives and context-dependent participation folded into work pages/configurations",
         "sourceSha256": "178b5bbadc5fa305182344e8818d5c25b7d3fbaf357d27c94b8036f4c61d9d62"
@@ -7649,7 +7649,7 @@
           "Work:ancestors",
           "Work:emomandala",
           "Work:interference",
-          "Work:theatre-my-name"
+          "Programme:theatre-my-name"
         ],
         "reason": "Co-authorship applied in credits and event roles; no blanket list of partner logos",
         "sourceSha256": "c71d694fa45ebd31e65a2c8823721241fdef16737e85f2f7e9cfcd551e75ee8e"
@@ -8234,7 +8234,7 @@
         "scopeVersion": "v2-full-content-2026-10-07.1",
         "state": "applied",
         "targets": [
-          "Work:journey"
+          "Programme:journey"
         ],
         "reason": "matching canonical legacyId",
         "sourceSha256": "6d5b8a8886f6646cbf25ed0dce180a949f360bddde0dc71158c8ff26956fbc95",
@@ -10678,7 +10678,7 @@
         "state": "applied",
         "targets": [
           "Media:archive-theatre-my-name",
-          "Work:theatre-my-name"
+          "Programme:theatre-my-name"
         ],
         "reason": "merged: /images/content/works/theatre-my-name/tim-kod-provincii-hero-thumb.webp; external recording/publication tim-dzen-part-1",
         "sourceSha256": "e6c50dc3182640eea991a7bd862a0dbc2f6ceb55bc08f2618e805b6ab27c9b41"
@@ -13260,7 +13260,7 @@
         "state": "merged",
         "targets": [
           "CaseEvent:korablik-2020",
-          "Work:theatre-my-name"
+          "Programme:theatre-my-name"
         ],
         "reason": "Co-author and host roles retained",
         "sourceSha256": "97447e974d91fb7ac4a296b94a556358bfbe0a81c968b2873bb0a1ea44814e37"
@@ -14624,7 +14624,7 @@
         "state": "merged",
         "targets": [
           "CaseEvent:techweek-2024",
-          "Recognition:techweek-letter-2024"
+          "Person:olga"
         ],
         "reason": "Conference contribution and received letter retained",
         "sourceSha256": "ecebc4f8b47639be8b38a7c8e6d2bdd27f81296f8459e7f04e96900f575357c4"
@@ -16317,7 +16317,7 @@
         "scopeVersion": "v2-full-content-2026-10-07.1",
         "state": "applied",
         "targets": [
-          "Recognition:province-code-letter-2024"
+          "Person:daler"
         ],
         "reason": "recognition-document: /images/content/proofs/collab_2024_ODA_Kod_provintsii_Daler.webp",
         "sourceSha256": "2d17573596e1db093cae29ffdbb88c16e80feaf0ae0cbefba8f19a445d8b3b99"
@@ -16451,7 +16451,7 @@
         "scopeVersion": "v2-full-content-2026-10-07.1",
         "state": "applied",
         "targets": [
-          "Recognition:moscow2030-letter-2025"
+          "Person:olga"
         ],
         "reason": "recognition-document: /images/content/proofs/collab_2025_ODA_Moskva_2030_Olga.webp",
         "sourceSha256": "513784aa8870c357a5e95afdd8af11f3957f7e7c3f4b24d9fe26f27cfdf6e2d2"
@@ -16663,7 +16663,7 @@
         "scopeVersion": "v2-full-content-2026-10-07.1",
         "state": "applied",
         "targets": [
-          "Recognition:techweek-letter-2024"
+          "Person:olga"
         ],
         "reason": "recognition-document: /images/content/proofs/collab_2024_ODA_TechWeek_Olya.webp",
         "sourceSha256": "ec2e294491ebdf4dc79f4f8ee68f0afae634a6866e055c905dae774ad53bddf5"
@@ -18349,7 +18349,7 @@
         "targets": [
           "CaseEvent:korablik-2020",
           "Media:archive-theatre-my-name",
-          "Work:theatre-my-name"
+          "Programme:theatre-my-name"
         ],
         "reason": "matching canonical legacyId; exact source snapshot used by public record; merged: /images/content/works/theatre-my-name/tim-kod-provincii-hero-thumb.webp",
         "sourceSha256": "d68e41bb4f46e7c4457db74233f18e2bef0aa0bc472ba54cc1524b66f1bd6dd0",
@@ -33105,7 +33105,7 @@
           "mediaId": "ashram-neuro-art-dance-poster",
           "owners": [
             "case:ashram-tim",
-            "work:theatre-my-name"
+            "programme:theatre-my-name"
           ],
           "reason": "Афиша Neuro Art Dance · 19 января; год не указан",
           "reviewed": "visual and source metadata",
@@ -33453,10 +33453,10 @@
         "preparedByteMatches": [],
         "state": "source reviewed; acknowledgement/certificate applied",
         "application": {
-          "action": "recognition-document",
-          "recognitionId": "province-code-letter-2024",
-          "reason": "Визуально прочитан документ, адресованный ODA.dream/авторам; показ разрешён владельцем в составе полного переноса собственных материалов.",
-          "asOf": "2026-10-08"
+          "action": "personal-cv",
+          "reason": "Персональная благодарность перенесена в CV адресата. Исходный скан не публикуется и не увеличивает число признаний студии.",
+          "asOf": "2026-10-17",
+          "personId": "daler"
         }
       },
       {
@@ -33480,10 +33480,10 @@
         "preparedByteMatches": [],
         "state": "source reviewed; acknowledgement/certificate applied",
         "application": {
-          "action": "recognition-document",
-          "recognitionId": "techweek-letter-2024",
-          "reason": "Визуально прочитан документ, адресованный ODA.dream/авторам; показ разрешён владельцем в составе полного переноса собственных материалов.",
-          "asOf": "2026-10-08"
+          "action": "personal-cv",
+          "reason": "Персональная благодарность перенесена в CV адресата. Исходный скан не публикуется и не увеличивает число признаний студии.",
+          "asOf": "2026-10-17",
+          "personId": "olga"
         }
       },
       {
@@ -33561,10 +33561,10 @@
         "preparedByteMatches": [],
         "state": "source reviewed; acknowledgement/certificate applied",
         "application": {
-          "action": "recognition-document",
-          "recognitionId": "moscow2030-letter-2025",
-          "reason": "Визуально прочитан документ, адресованный ODA.dream/авторам; показ разрешён владельцем в составе полного переноса собственных материалов.",
-          "asOf": "2026-10-08"
+          "action": "personal-cv",
+          "reason": "Персональная благодарность перенесена в CV адресата. Исходный скан не публикуется и не увеличивает число признаний студии.",
+          "asOf": "2026-10-17",
+          "personId": "olga"
         }
       },
       {
@@ -35322,7 +35322,7 @@
           "action": "applied",
           "mediaId": "archive-theatre-my-name-tim-ashram-2024-06",
           "owners": [
-            "work:theatre-my-name",
+            "programme:theatre-my-name",
             "case:ashram-tim"
           ],
           "reason": "Театр Имени Меня · Ashram · архивный кадр 1",
@@ -35348,7 +35348,7 @@
           "action": "applied",
           "mediaId": "archive-theatre-my-name-tim-ashram-2024-07",
           "owners": [
-            "work:theatre-my-name",
+            "programme:theatre-my-name",
             "case:ashram-tim"
           ],
           "reason": "Театр Имени Меня · Ashram · архивный кадр 2",
@@ -35374,7 +35374,7 @@
           "action": "applied",
           "mediaId": "archive-theatre-my-name-tim-ashram-2025-07",
           "owners": [
-            "work:theatre-my-name",
+            "programme:theatre-my-name",
             "case:ashram-tim"
           ],
           "reason": "Театр Имени Меня · Ashram · архивный кадр 3",
@@ -35401,7 +35401,7 @@
           "mediaId": "archive-kod-provincii-2024-tim-kod-provincii-02",
           "owners": [
             "case:kod-provincii-2024",
-            "work:theatre-my-name"
+            "programme:theatre-my-name"
           ],
           "reason": "Код провинции · Театр Имени Меня",
           "reviewed": "visual and source metadata",
@@ -35456,7 +35456,7 @@
           "mediaId": "archive-theatre-my-name",
           "owners": [
             "case:kod-provincii-2024",
-            "work:theatre-my-name"
+            "programme:theatre-my-name"
           ],
           "reason": "Код провинции · сцена",
           "reviewed": "visual and source metadata",
@@ -35482,7 +35482,7 @@
           "mediaId": "archive-korablik-2020-tim-korablik-2020-archive",
           "owners": [
             "case:korablik-2020",
-            "work:theatre-my-name"
+            "programme:theatre-my-name"
           ],
           "reason": "Кораблик · архивный кадр 2020 года",
           "reviewed": "visual and source metadata",

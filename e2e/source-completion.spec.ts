@@ -13,13 +13,15 @@ test('external materials use shared wrapping links without loading provider play
   for (const width of [390, 601, 797, 1440, 1920]) {
     await page.setViewportSize({ width, height: 932 });
     for (const lang of ['ru', 'en']) {
-      await page.goto(`/${lang}/works/theatre-of-my-name/`);
+      await page.goto(`/${lang}/education/theatre-of-my-name/`);
       for (const theme of ['light', 'dark']) {
         await page.evaluate(async (theme) => {
           document.documentElement.dataset.theme = theme;
           await document.fonts.ready;
         }, theme);
-        await expect(page.locator('#work-story-external-materials .source-links a')).toHaveCount(4);
+        await expect(
+          page.locator('#programme-theatre-my-name-external-materials .source-links a'),
+        ).toHaveCount(4);
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       }
       await page.goto(`/${lang}/education/`);
@@ -49,9 +51,11 @@ test('recovered meditation event exposes the primary report and explicit date li
   for (const lang of ['ru', 'en']) {
     await page.goto(`/${lang}/cases/`);
     const row = page.locator('#case-meditation-day-2026');
-    await expect(row).toContainText(
+    await expect(row).toContainText(lang === 'ru' ? 'Описано к 24 мая 2026' : 'Reported by');
+    await row.locator('h3 a').click();
+    await expect(page.locator('main')).toContainText(
       lang === 'ru' ? 'день публикации отчёта студии' : 'publication date of the studio’s report',
     );
-    await expect(row.locator('a[href="https://t.me/odadream/760"]')).toBeVisible();
+    await expect(page.locator('main a[href="https://t.me/odadream/760"]').first()).toBeVisible();
   }
 });

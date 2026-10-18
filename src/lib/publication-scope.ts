@@ -117,6 +117,8 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
   }));
   const methodIds = ids(methods);
   const cases = select('cases', source.cases).filter((row) => {
+    // A sourced documentary event may name no particular work or programme.
+    if (!row.work && !row.method && !row.programme) return !!row.sourceRefs?.length;
     if (row.work && workIds.has(row.work)) return true;
     if (row.method && methodIds.has(row.method)) return true;
     if (row.programme && programmeIds.has(row.programme)) return true;
@@ -181,7 +183,10 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
         preview ||
         (row.contextPath?.startsWith('studio/')
           ? studioPages.length > 0
-          : cases.some((item) => row.contextPath === `cases/#case-${item.slug}`))
+          : cases.some(
+              (item) =>
+                row.contextPath === `cases/#case-${item.slug}` || row.contextPath === `cases/${item.slug}/`,
+            ))
           ? row.contextPath
           : undefined,
     }));
@@ -261,6 +266,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
     methodId: row.methodId && methodIds.has(row.methodId) ? row.methodId : undefined,
     basedOn: row.basedOn.filter((id) => workIds.has(id)),
     relatedWorks: row.relatedWorks.filter((id) => workIds.has(id)),
+    relatedProgrammes: (row.relatedProgrammes ?? []).filter((id) => programmeIds.has(id)),
     cases: row.cases.filter((id) =>
       cases.some((item) => item.id === id && item.participationStatus === 'held'),
     ),
@@ -279,6 +285,12 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
     relatedProgrammes: (row.relatedProgrammes ?? []).filter((id) => programmeIds.has(id)),
     evidence: row.evidence.filter((id) => evidenceAvailable.has(id)),
     media: row.media.filter((id) => availableMedia.has(id)),
+    workSelections: (row.workSelections ?? [])
+      .filter((selection) => workIds.has(selection.workId))
+      .map((selection) => ({
+        workId: selection.workId,
+        media: selection.media.filter((id) => row.media.includes(id) && availableMedia.has(id)),
+      })),
   }));
   const eventSeries = (source.eventSeries ?? [])
     .map((row) => ({ ...row, cases: row.cases.filter((id) => caseIds.has(id)) }))
@@ -326,6 +338,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'pages',
             'bytes',
             'pageImages',
+            'downloadLabel',
             'asOf',
           ]),
           owner: { kind: row.owner.kind, id: row.owner.id },
@@ -346,16 +359,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
           ...(row.originalAccess === 'internal' ? {} : { href: row.href }),
         })),
         studioPages: studioPages.map((row) =>
-          project(row, [
-            'id',
-            'title',
-            'summary',
-            'people',
-            'sections',
-            'teaching',
-            'materials',
-            'publication',
-          ]),
+          project(row, ['id', 'title', 'summary', 'people', 'sections', 'materials', 'publication']),
         ),
         methods: methods.map((row) =>
           project(row, [
@@ -401,6 +405,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'credits',
             'reviewNotes',
             'relatedWorks',
+            'relatedProgrammes',
             'stage',
             'workType',
             'aliases',
@@ -527,6 +532,8 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'organizations',
             'evidence',
             'media',
+            'workSelections',
+            'sourceUrl',
             'publication',
           ]),
         ),
@@ -561,6 +568,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'limitations',
             'documentState',
             'relatedWorks',
+            'event',
             'contextPath',
           ]),
           documentSource:

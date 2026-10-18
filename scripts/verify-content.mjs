@@ -70,7 +70,8 @@ function checkLocales(value, label) {
   } else for (const [key, child] of Object.entries(value)) checkLocales(child, `${label}.${key}`);
 }
 const migrationInventory = JSON.parse(await readFile('docs/migration/INVENTORY-2026-10-05.json', 'utf8'));
-const snapshots = migrationInventory.v2SourceSnapshots ?? {};
+const ownerArchive = JSON.parse(await readFile('docs/RECOGNITION-SOURCE-INVENTORY.json', 'utf8'));
+const snapshots = { ...(migrationInventory.v2SourceSnapshots ?? {}), ...ownerArchive.sourceSnapshots };
 // Explicitly registered owner-provided editorial snapshots, independent of the 238 V1 IDs.
 for (const [file, snapshot] of Object.entries(migrationInventory.externalSourceSnapshots ?? {}))
   if (
@@ -101,7 +102,7 @@ for (const name of [
   checkCollection(name, data[name]);
 for (const [file, ref] of Object.entries(data.sourceSnapshots)) {
   if (
-    !files.has(file) ||
+    !(files.has(file) || Object.hasOwn(ownerArchive.sourceSnapshots, file)) ||
     ref.file !== file ||
     !/^[a-f0-9]{64}$/.test(ref.sha256) ||
     !/^\d{4}-\d{2}-\d{2}$/.test(ref.snapshot)
@@ -159,11 +160,8 @@ for (const studio of data.studioPages) {
     if (!person?.biography || !person?.sourceRefs?.length)
       errors.push(`studio ${studio.id}: missing biography or source for ${id}`);
   }
-  for (const item of studio.teaching)
-    if (!Number.isInteger(item.year) || item.year < 1900 || item.year > 2100)
-      errors.push(`studio ${studio.id}: invalid context year`);
   for (const item of studio.materials)
-    if (!/^(works|technology|education|cooperation)\/$/.test(item.path))
+    if (!/^(works|technology|education|cooperation|cases|recognition)\/$/.test(item.path))
       errors.push(`studio ${studio.id}: invalid material destination ${item.path}`);
 }
 const workIds = ids(data.works),
@@ -252,7 +250,7 @@ for (const item of data.cases) {
   )
     errors.push(`case ${item.id}: invalid event type`);
   if (
-    [item.work, item.method, item.programme].filter(Boolean).length !== 1 ||
+    [item.work, item.method, item.programme].filter(Boolean).length > 1 ||
     (item.work && !workIds.has(item.work)) ||
     (item.programme && !programmeIds.has(item.programme)) ||
     (item.method && !data.methods.some((row) => row.id === item.method))
@@ -277,8 +275,18 @@ for (const item of data.cases) {
     if (!workIds.has(id)) errors.push(`case ${item.id}: missing related work ${id}`);
   for (const id of item.relatedProgrammes ?? [])
     if (!programmeIds.has(id)) errors.push(`case ${item.id}: missing related programme ${id}`);
-  if (item.detailPage && (!item.story.length || !item.media.length))
-    errors.push(`case ${item.id}: detail page missing narrative or media`);
+  if (item.detailPage && (!item.summary.ru || !item.summary.en || !item.role.ru || !item.role.en))
+    errors.push(`case ${item.id}: detail page missing summary or contribution`);
+  for (const selection of item.workSelections ?? []) {
+    if (
+      !workIds.has(selection.workId) ||
+      !(item.work === selection.workId || item.relatedWorks?.includes(selection.workId))
+    )
+      errors.push(`case ${item.id}: selected media has unrelated work ${selection.workId}`);
+    for (const id of selection.media)
+      if (!item.media.includes(id))
+        errors.push(`case ${item.id}: selected media ${id} is outside event gallery`);
+  }
   if (typeof item.detailPage !== 'boolean' || typeof item.featuredOnHome !== 'boolean')
     errors.push(`case ${item.id}: page or selection flag missing`);
   if (
@@ -297,6 +305,8 @@ for (const series of data.eventSeries) {
     errors.push(`series ${series.id}: missing editions`);
 }
 for (const item of data.recognitions) {
+  if (item.event && !caseIds.has(item.event))
+    errors.push(`recognition ${item.id}: unknown event ${item.event}`);
   for (const id of item.relatedWorks)
     if (!workIds.has(id)) errors.push(`recognition ${item.id}: missing work ${id}`);
   if (!item.claim || !item.recipient) errors.push(`recognition ${item.id}: attribution missing`);
@@ -483,8 +493,8 @@ for (const item of data.referenceDocuments) {
     continue;
   }
   if (
-    !['technical-overview', 'cv'].includes(item.kind) ||
-    item.pages !== (item.kind === 'cv' ? 1 : 2) ||
+    !['technical-overview', 'cv', 'legal'].includes(item.kind) ||
+    item.pages !== (item.kind === 'technical-overview' ? 2 : 1) ||
     !['en', 'ru'].includes(item.language) ||
     !/^\d{4}-\d{2}-\d{2}$/.test(item.asOf) ||
     item.year !== Number(item.asOf.slice(0, 4))
@@ -503,7 +513,10 @@ for (const item of data.referenceDocuments) {
       errors.push(`reference document ${item.id}: CV dependencies disagree with the person`);
   }
   const input = item.kind === 'cv' ? cvInput(data, item) : technicalOverviewInput(data, item.asOf);
-  if (createHash('sha256').update(JSON.stringify(input)).digest('hex') !== item.contentFingerprint)
+  if (
+    item.kind !== 'legal' &&
+    createHash('sha256').update(JSON.stringify(input)).digest('hex') !== item.contentFingerprint
+  )
     errors.push(`reference document ${item.id}: PDF is stale against current HTML facts`);
   const bytes = await readFile(resolve('public', item.href.slice(1))).catch(() => undefined);
   if (

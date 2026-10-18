@@ -44,7 +44,7 @@ test('applications, festival windows and publication dates cannot masquerade as 
   const audi = source.cases.find((row) => row.id === 'audi-application-2020');
   assert.equal(audi.date, '2020-07-12');
   assert.equal(audi.participationStatus, 'submitted');
-  assert.equal(source.cases.find((row) => row.id === 'tavrida-ai-2025').participationStatus, 'declined');
+  assert.equal(source.cases.find((row) => row.id === 'tavrida-ai-2025').participationStatus, 'submitted');
   const gastro = source.cases.find((row) => row.id === 'tavrida-gastro-2025');
   assert.equal(gastro.participationStatus, 'held');
   assert.equal(gastro.date, '2025-07-13');

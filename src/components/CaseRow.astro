@@ -1,41 +1,40 @@
 ---
 import DevPublicationMark from './DevPublicationMark.astro';
 import type { CaseEvent, Lang } from '../data/site';
-import { works, programmes, methods, mediaById } from '../data/catalogue';
-import MediaGallery from './MediaGallery.astro';
-import { caseUrl, caseTargetUrl, workUrl, programmeUrl } from '../lib/routes';
+import { caseUrl } from '../lib/routes';
 import { caseTypeLabels, participationLabels, contextLabels, formatCaseDate } from '../lib/case-presentation';
 import CalloutLink from './CalloutLink.astro';
-interface Props {
-  item: Omit<
+export interface Props {
+  item: Pick<
     CaseEvent,
-    'sourceRefs' | 'organizationRoles' | 'story' | 'participants' | 'evidence' | 'organizations'
+    | 'id'
+    | 'slug'
+    | 'title'
+    | 'summary'
+    | 'date'
+    | 'datePrecision'
+    | 'dateMeaning'
+    | 'dateEnd'
+    | 'place'
+    | 'type'
+    | 'context'
+    | 'participationStatus'
+    | 'event'
   >;
   lang: Lang;
   specimen?: boolean;
   presentation?: 'catalogue' | 'overview';
+  destinationStudy?: boolean;
 }
-const { item, lang, specimen = false, presentation = 'catalogue' } = Astro.props;
+const { item, lang, specimen = false, presentation = 'catalogue', destinationStudy = true } = Astro.props;
 const overview = presentation === 'overview';
-const links = [
-  ...[item.work, ...(item.relatedWorks ?? [])].flatMap((id) => {
-    const work = works.find((row) => row.id === id);
-    return work ? [{ href: workUrl(lang, work.id), title: work.title[lang] }] : [];
-  }),
-  ...[item.programme, ...(item.relatedProgrammes ?? [])].flatMap((id) => {
-    const programme = programmes.find((row) => row.id === id);
-    return programme ? [{ href: programmeUrl(lang, programme.id), title: programme.title[lang] }] : [];
-  }),
-  ...methods
-    .filter((row) => row.id === item.method)
-    .map((row) => ({ href: `/${lang}/technology/`, title: row.title[lang] })),
-];
 ---
 
 <article
   class:list={['list-row case-row', { 'case-row--overview': overview }]}
   id={specimen ? undefined : `case-${item.slug}`}
   data-case-id={item.id}
+  data-case-year={item.date.slice(0, 4)}
   data-participation-status={item.participationStatus}
 >
   <DevPublicationMark kind="cases" recordId={item.id} lang={lang} />
@@ -53,11 +52,9 @@ const links = [
   </div>
   <div>
     <h3>
-      {overview ? (
-        <CalloutLink href={caseUrl(lang, item.id)}>{item.event?.title[lang] ?? item.title[lang]}</CalloutLink>
-      ) : (
-        item.title[lang]
-      )}
+      <CalloutLink href={caseUrl(lang, item.id)} destinationStudy={destinationStudy}>
+        {overview ? (item.event?.title[lang] ?? item.title[lang]) : item.title[lang]}
+      </CalloutLink>
     </h3>
     {overview && (
       <p class="meta case-row__location">
@@ -66,44 +63,5 @@ const links = [
       </p>
     )}
     <p>{item.summary[lang]}</p>
-    {!overview && <p>{item.role[lang]}</p>}
-    {!overview && item.source?.startsWith('https://') && (
-      <p>
-        <CalloutLink href={item.source} rel="external">
-          {lang === 'ru' ? 'Источник события' : 'Event source'}
-        </CalloutLink>
-      </p>
-    )}
-    {!overview && !item.detailPage && item.limitations.map((note) => <p class="small-note">{note[lang]}</p>)}
-    {!overview && !item.detailPage && !specimen && (
-      <MediaGallery
-        id={`case-media-${item.id}`}
-        items={item.media.flatMap((id) => {
-          const media = mediaById(id);
-          return media ? [media] : [];
-        })}
-        lang={lang}
-        mode={item.media.length > 1 ? 'tiles' : 'sequence'}
-        label={lang === 'ru' ? 'Материалы события' : 'Event materials'}
-      />
-    )}
-    {!overview && (
-      <div class="link-row spaced-actions">
-        {links.map((link) => (
-          <CalloutLink href={link.href}>{link.title}</CalloutLink>
-        ))}
-      </div>
-    )}
   </div>
-  {!overview && (
-    <CalloutLink href={item.detailPage ? caseUrl(lang, item.id) : caseTargetUrl(lang, item)}>
-      {item.detailPage
-        ? lang === 'ru'
-          ? 'Открыть кейс'
-          : 'Open case'
-        : lang === 'ru'
-          ? 'Материал'
-          : 'Related material'}
-    </CalloutLink>
-  )}
 </article>

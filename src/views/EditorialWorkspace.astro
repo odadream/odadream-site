@@ -1,4 +1,6 @@
 ---
+import SelectControl from '../components/SelectControl.astro';
+import DisclosureHeading from '../components/DisclosureHeading.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import DevNote from '../components/DevNote.astro';
 import * as source from '../data/site';
@@ -79,36 +81,42 @@ const progress = { ru: editorialProgress(registry, 'ru'), en: editorialProgress(
     </p>
     <p data-editorial-progress data-progress={JSON.stringify(progress)} aria-live="polite"></p>
     <form class="editorial-filters" role="search" aria-label="Фильтры текстов" onsubmit="return false">
-      <label>
+      <label class="control-field">
         Язык
-        <select name="language">
-          <option value="ru" selected={initialLang === 'ru'}>
-            RU
-          </option>
-          <option value="en" selected={initialLang === 'en'}>
-            EN
-          </option>
-        </select>
+        <SelectControl>
+          <select name="language">
+            <option value="ru" selected={initialLang === 'ru'}>
+              RU
+            </option>
+            <option value="en" selected={initialLang === 'en'}>
+              EN
+            </option>
+          </select>
+        </SelectControl>
       </label>
-      <label>
+      <label class="control-field">
         Статус
-        <select name="status">
-          <option value="">Все</option>
-          {Object.entries(editorialStatuses).map(([value, title]) => (
-            <option value={value}>{title}</option>
-          ))}
-        </select>
+        <SelectControl>
+          <select name="status">
+            <option value="">Все</option>
+            {Object.entries(editorialStatuses).map(([value, title]) => (
+              <option value={value}>{title}</option>
+            ))}
+          </select>
+        </SelectControl>
       </label>
-      <label>
+      <label class="control-field">
         Тип
-        <select name="kind">
-          <option value="">Все</option>
-          {kinds.map((kind) => (
-            <option value={kind}>{kind}</option>
-          ))}
-        </select>
+        <SelectControl>
+          <select name="kind">
+            <option value="">Все</option>
+            {kinds.map((kind) => (
+              <option value={kind}>{kind}</option>
+            ))}
+          </select>
+        </SelectControl>
       </label>
-      <label>
+      <label class="control-field">
         Название / ID
         <input name="query" type="search" />
       </label>
@@ -140,7 +148,7 @@ const progress = { ru: editorialProgress(registry, 'ru'), en: editorialProgress(
             </p>
             <a href={unit.urls[lang]}>Открыть на сайте · {lang.toUpperCase()}</a>
             <details>
-              <summary>Блоки / решения</summary>
+              <DisclosureHeading>Блоки / решения</DisclosureHeading>
               {!unit[lang].blocks?.length && (
                 <p>
                   Самостоятельный проход учитывается на уровне записи. Смысловые блоки раскрываются при

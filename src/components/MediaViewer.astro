@@ -1,0 +1,68 @@
+---
+import type { Lang } from '../data/site';
+import TechnicalMark from './TechnicalMark.astro';
+import CalloutLink from './CalloutLink.astro';
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const ru = lang === 'ru';
+---
+
+<dialog id="lightbox" class="lightbox" aria-label={ru ? 'Просмотр материалов' : 'Media viewer'}>
+  <div
+    class="lightbox-stage"
+    role="region"
+    aria-label={ru ? 'Изображение: масштабирование и перемещение' : 'Media: zoom and pan'}
+  >
+    <div class="lightbox-canvas">
+      <img alt="" draggable="false" />
+    </div>
+    <video controls playsinline preload="none" hidden />
+  </div>
+  <div class="lightbox-info">
+    <p class="lightbox-caption"></p>
+    <p class="lightbox-status" role="status" hidden></p>
+  </div>
+  <div class="lightbox-navigation" role="group" aria-label={ru ? 'Управление просмотром' : 'Viewer controls'}>
+    <button
+      type="button"
+      class="button"
+      data-viewer-previous
+      hidden
+      aria-label={ru ? 'Предыдущий материал' : 'Previous item'}
+    >
+      <TechnicalMark kind="previous" />
+    </button>
+    <span class="lightbox-position" aria-live="polite"></span>
+    <button
+      type="button"
+      class="button"
+      data-viewer-next
+      hidden
+      aria-label={ru ? 'Следующий материал' : 'Next item'}
+    >
+      <TechnicalMark kind="next" />
+    </button>
+    <button
+      type="button"
+      class="button"
+      data-viewer-zoom
+      aria-pressed="false"
+      aria-label={ru ? 'Масштаб 1:1' : 'Zoom 1:1'}
+    >
+      <span>1:1</span>
+    </button>
+    <span data-viewer-details hidden>
+      <CalloutLink href={`/${lang}/recognition/`}>{ru ? 'Описание' : 'Details'}</CalloutLink>
+    </span>
+  </div>
+  <button class="lightbox-close button" type="button" aria-label={ru ? 'Закрыть просмотр' : 'Close viewer'}>
+    <TechnicalMark kind="close" />
+  </button>
+</dialog>
+
+<script>
+  import { initMediaViewer } from '../scripts/media-viewer';
+  initMediaViewer();
+</script>

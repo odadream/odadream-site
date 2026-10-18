@@ -1,0 +1,70 @@
+---
+import type { Lang } from '../data/site';
+import type { PageChapter } from '../lib/page-outline';
+import type { PageFamily } from '../lib/page-codes';
+import PageCode from './PageCode.astro';
+import PageOutline from './PageOutline.astro';
+import TechnicalMark from './TechnicalMark.astro';
+interface Props {
+  lang: Lang;
+  title: string;
+  home: boolean;
+  family: PageFamily;
+  parent?: { href: string; label: string; family: PageFamily };
+  chapters: PageChapter[];
+  years: { year: string; href: string }[];
+}
+const { lang, title, home, family, parent, chapters, years } = Astro.props;
+const ru = lang === 'ru';
+---
+
+<div class="shell reading-navigation" data-reading-navigation>
+  <nav class="reading-breadcrumbs" aria-label={ru ? 'Путь страницы' : 'Breadcrumbs'}>
+    <a class:list={['header-section', { 'reading-home--optional': parent }]} href={`/${lang}/`}>
+      <PageCode family="H" lang={lang} register={false} />
+      <span>{ru ? 'Главная' : 'Home'}</span>
+    </a>
+    {parent && (
+      <a class="reading-parent" href={parent.href}>
+        <PageCode family={parent.family} lang={lang} register={false} />
+        <span>{parent.label}</span>
+      </a>
+    )}
+    {!home && (
+      <span class="reading-page-title" aria-current="page" title={title}>
+        <PageCode family={family} lang={lang} register={false} />
+        <span>{title}</span>
+      </span>
+    )}
+  </nav>
+  {chapters.length > 0 && (
+    <details class="reading-contents">
+      <summary aria-controls="reading-contents-panel">
+        <span data-reading-code>
+          <PageCode family={family} lang={lang} register={false} />
+        </span>
+        <span data-reading-label>{ru ? 'Содержание' : 'Contents'}</span>
+        <TechnicalMark kind="down" />
+      </summary>
+      <div class="reading-contents-panel" id="reading-contents-panel">
+        <div class="shell reading-contents-inner">
+          {years.length > 0 && (
+            <nav class="reading-years" aria-label={ru ? 'Кейсы по годам' : 'Cases by year'}>
+              {years.map(({ year, href }) => (
+                <a href={href} data-reading-year={year}>
+                  {year}
+                </a>
+              ))}
+            </nav>
+          )}
+          <PageOutline chapters={chapters} lang={lang} variant="reading" />
+        </div>
+      </div>
+    </details>
+  )}
+</div>
+
+<script>
+  import { initReadingNavigation } from '../scripts/reading-navigation';
+  initReadingNavigation();
+</script>

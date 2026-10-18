@@ -16,8 +16,8 @@ const empty = {
   minddb: false,
 };
 
-test('the original core retains four detailed cases and three bounded contexts with honest date precision', () => {
-  assert.equal(data.cases.filter((row) => row.detailPage).length, 4);
+test('all events have pages while the original bounded contexts retain honest date precision', () => {
+  assert.ok(data.cases.every((row) => row.detailPage));
   const baseline = data.cases.filter((row) => ['portal-2025', 'wildmint-2025', 'cipr-2026'].includes(row.id));
   assert.equal(baseline.length, 3);
   for (const row of baseline) {
@@ -56,7 +56,7 @@ test('inspecting a prize image neither approves document rights nor exposes inte
   assert.equal(publicData.recognitions[0].contextPath, undefined);
 });
 
-test('a method context requires the published method and never creates a fictional work or standalone page', () => {
+test('a method event requires its published method, has a page and never creates a fictional work', () => {
   const source = { ...data, methods: structuredClone(data.methods), cases: structuredClone(data.cases) };
   source.cases.find((row) => row.id === 'wildmint-2025').publication = 'published';
   source.methods[0].publication = 'review';
@@ -67,7 +67,7 @@ test('a method context requires the published method and never creates a fiction
   assert.deepEqual(scope.errors, []);
   assert.equal(scope.works.length, 0);
   const pages = createPages(scope);
-  assert.ok(!pages.some((row) => row.path.includes('/cases/wildmint-2025/')));
+  assert.ok(pages.some((row) => row.path === '/ru/cases/wildmint-2025/'));
   assert.ok(pages.find((row) => row.path === '/ru/cases/').anchors.includes('case-wildmint-2025'));
   assert.ok(!JSON.stringify(scope.cases).includes('sourceRefs'));
 });

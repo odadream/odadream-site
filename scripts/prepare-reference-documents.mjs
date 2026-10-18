@@ -9,7 +9,9 @@ if (!process.argv.includes('--as-of') || !/^\d{4}-\d{2}-\d{2}$/.test(asOf))
   throw Error('Usage: node scripts/prepare-reference-documents.mjs --as-of YYYY-MM-DD');
 await mkdir('.local-server', { recursive: true });
 const data = await loadSiteModule();
-const documents = data.referenceDocuments.map((row) => ({ ...row, asOf }));
+const documents = data.referenceDocuments
+  .filter((row) => row.kind !== 'legal')
+  .map((row) => ({ ...row, asOf }));
 await writeFile(
   '.local-server/overview-input.json',
   JSON.stringify({ input: technicalOverviewInput(data, asOf) }),

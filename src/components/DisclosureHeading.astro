@@ -1,0 +1,19 @@
+---
+import { technicalPaths } from '../lib/technical-marks';
+---
+
+<summary>
+  <svg
+    class="technical-mark"
+    data-disclosure-mark
+    viewBox="0 0 24 24"
+    fill="none"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path d={technicalPaths.down} />
+  </svg>
+  <span>
+    <slot />
+  </span>
+</summary>

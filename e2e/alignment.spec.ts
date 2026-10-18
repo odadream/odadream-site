@@ -36,6 +36,7 @@ for (const theme of ['light', 'dark']) {
     });
     const folioSizes = new Map<number, Set<string>>();
     for (const route of [...routes, '/design-system/']) {
+      console.info('Axes:', theme, route);
       // Fonts.ready before external CSS loads can resolve against an incomplete font set.
       await page.goto(route, { waitUntil: 'load' });
       await page.evaluate(() => document.fonts.ready);
@@ -57,6 +58,7 @@ for (const theme of ['light', 'dark']) {
           await page.waitForFunction(
             (value) => document.documentElement.dataset.qaResize === String(value),
             width,
+            { timeout: 5000 },
           );
         }
         const errors = await page.evaluate(
@@ -104,6 +106,7 @@ for (const theme of ['light', 'dark']) {
             });
             if (document.documentElement.scrollWidth > innerWidth) problems.push('horizontal overflow');
             document.querySelectorAll('.shell').forEach((e) => {
+              if (!e.checkVisibility()) return;
               const r = rect(e);
               same(r.left, shell.left, 'shell left');
               same(r.right, shell.right, 'shell right');
@@ -115,12 +118,32 @@ for (const theme of ['light', 'dark']) {
               const wide = e.parentElement?.matches('.macro-section[data-layout="wide"]');
               same(
                 r.left,
-                wide ? shell.left : rect(document.querySelector('.footer-links')!).left,
+                wide
+                  ? shell.left
+                  : (() => {
+                      const grid = document.querySelector('.section-grid, .system-grid, .work-layout')!;
+                      const cs = getComputedStyle(grid);
+                      return (
+                        rect(grid).left +
+                        (innerWidth > 700 ? parseFloat(cs.gridTemplateColumns) + parseFloat(cs.columnGap) : 0)
+                      );
+                    })(),
                 'material axis by layout',
               );
             });
             document.querySelectorAll('.work-main').forEach((e) => {
-              same(rect(e).left, rect(document.querySelector('.footer-links')!).left, 'work / footer axis');
+              same(
+                rect(e).left,
+                (() => {
+                  const grid = document.querySelector('.section-grid, .system-grid, .work-layout')!;
+                  const cs = getComputedStyle(grid);
+                  return (
+                    rect(grid).left +
+                    (innerWidth > 700 ? parseFloat(cs.gridTemplateColumns) + parseFloat(cs.columnGap) : 0)
+                  );
+                })(),
+                'work / footer axis',
+              );
               same(rect(e).right, shell.right, 'work right edge');
             });
             const heading = document.querySelector('.nm-heading');

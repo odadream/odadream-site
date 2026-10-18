@@ -1,0 +1,74 @@
+---
+import type { Recognition, Lang } from '../data/site';
+import { sortRecognitions, recognitionKindLabel } from '../lib/recognition-presentation';
+import TechnicalMark from './TechnicalMark.astro';
+import CalloutLink from './CalloutLink.astro';
+interface Props {
+  items: readonly Pick<
+    Recognition,
+    'id' | 'kind' | 'title' | 'issuer' | 'year' | 'previewSrc' | 'width' | 'height'
+  >[];
+  lang: Lang;
+  id: string;
+}
+const { items, lang, id } = Astro.props;
+const rows = sortRecognitions(items);
+const scans = rows.filter((row) => row.previewSrc).length;
+---
+
+<div id={id} data-recognition-wall>
+  <p class="small-note">
+    {lang === 'ru'
+      ? `В базе: ${rows.length} · со сканами: ${scans}`
+      : `Records: ${rows.length} · with scans: ${scans}`}
+  </p>
+  <div
+    class="recognition-wall"
+    data-media-gallery
+    role="group"
+    aria-label={lang === 'ru' ? 'Стена признаний' : 'Recognition wall'}
+  >
+    {rows.map((item) => (
+      <figure data-recognition-id={item.id}>
+        {item.previewSrc ? (
+          <button
+            class="recognition-wall__preview"
+            type="button"
+            data-lightbox
+            data-gallery-item
+            data-src={item.previewSrc}
+            data-alt={item.title[lang]}
+            data-viewer-summary={`${item.title[lang]} · ${item.year}`}
+            data-caption={`${recognitionKindLabel[item.kind][lang]} · ${item.title[lang]} · ${item.issuer[lang]}, ${item.year}`}
+            data-details-href={`/${lang}/recognition/#recognition-${item.id}`}
+            aria-label={lang === 'ru' ? `Увеличить: ${item.title.ru}` : `Enlarge: ${item.title.en}`}
+            title={`${item.year} · ${recognitionKindLabel[item.kind][lang]} · ${item.title[lang]}`}
+          >
+            <img
+              src={item.previewSrc}
+              alt=""
+              width={item.width}
+              height={item.height}
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+        ) : (
+          <a class="recognition-wall__missing" href={`/${lang}/recognition/#recognition-${item.id}`}>
+            <TechnicalMark kind="document" />
+            <span>{item.title[lang]}</span>
+            <span class="small-note">{lang === 'ru' ? 'Без скана' : 'No scan'}</span>
+          </a>
+        )}
+        <figcaption title={`${recognitionKindLabel[item.kind][lang]} · ${item.title[lang]}`}>
+          {item.year}
+        </figcaption>
+      </figure>
+    ))}
+  </div>
+  <div class="spaced-actions">
+    <CalloutLink href={`/${lang}/recognition/`}>
+      {lang === 'ru' ? 'Архив признаний' : 'Recognition archive'}
+    </CalloutLink>
+  </div>
+</div>

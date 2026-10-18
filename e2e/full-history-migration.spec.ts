@@ -8,7 +8,7 @@ test('full chronology separates contributions, education, research and applicati
     await expect(page.locator('#case-tavrida-gastro-2025')).toContainText(
       lang === 'ru' ? 'Мозг и вкус' : 'Brain and Taste',
     );
-    await expect(page.locator('.case-row')).toHaveCount(43);
+    await expect(page.locator('.case-row')).toHaveCount(45);
     await expect(page.locator('[data-case-id="oktava-2021"]')).toHaveAttribute(
       'data-participation-status',
       'held',
@@ -17,9 +17,9 @@ test('full chronology separates contributions, education, research and applicati
       lang === 'ru' ? '12 апреля 2021' : '12 April 2021',
     );
     await expect(page.locator('#case-series article')).toHaveCount(4);
-    await expect(page.locator('#case-research [data-case-id="tavrida-ai-2025"]')).toHaveAttribute(
+    await expect(page.locator('#case-events [data-case-id="tavrida-ai-2025"]')).toHaveAttribute(
       'data-participation-status',
-      'declined',
+      'submitted',
     );
     await expect(page.locator('[data-case-id="audi-application-2020"]')).toContainText('2020');
     await expect(page.locator('[data-case-id="lamborghini-tea"] .case-row__metadata')).toContainText(
@@ -28,18 +28,16 @@ test('full chronology separates contributions, education, research and applicati
     await expect(page.locator('[data-case-id="gong-fest-2025"] .case-row__metadata')).toContainText(
       lang === 'ru' ? 'Период события' : 'Event window',
     );
+    await expect(page.locator('[data-case-id="hse-2025"] h3 a[href$="/cases/hse-2025/"]')).toHaveCount(1);
     await expect(
-      page.locator('[data-case-id="hse-2025"] a[href*="/education/beautiful-about-the-brain/"]'),
-    ).toHaveCount(2);
-    await expect(
-      page.locator('[data-case-id="kod-provincii-2024"] a[href*="/works/neurosynchronization/"]'),
+      page.locator('[data-case-id="kod-provincii-2024"] h3 a[href$="/cases/kod-provincii-2024/"]'),
     ).toHaveCount(1);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.goto(`/${lang}/education/sound-and-attention/`);
-    await expect(page.locator('a[href$="/cases/#case-gong-fest-2025"]')).toHaveCount(1);
-    await page.goto(`/${lang}/works/theatre-of-my-name/`);
-    await expect(page.locator('a[href$="/cases/#case-korablik-2020"]')).toHaveCount(1);
-    await expect(page.locator('a[href$="/cases/#case-itb-lab-2024"]')).toHaveCount(1);
+    await expect(page.locator('a[href$="/cases/gong-fest-2025/"]')).toHaveCount(1);
+    await page.goto(`/${lang}/education/theatre-of-my-name/`);
+    await expect(page.locator('a[href$="/cases/korablik-2020/"]')).toHaveCount(1);
+    await expect(page.locator('a[href$="/cases/itb-lab-2024/"]')).toHaveCount(1);
   }
 });
 
@@ -57,11 +55,10 @@ test('chronology fields stay above the narrative across both themes and all revi
           rows.every((row) => {
             const meta = row.children[0].getBoundingClientRect();
             const narrative = row.children[1].getBoundingClientRect();
-            const action = row.children[2].getBoundingClientRect();
             return (
               meta.bottom <= narrative.top + 1 &&
               narrative.width > 0 &&
-              (narrative.right <= action.left + 1 || narrative.bottom <= action.top + 1)
+              row.querySelectorAll('a').length === 1
             );
           }),
         ),

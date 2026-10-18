@@ -15,27 +15,25 @@ test('additional works expose complete pages and separate real objects from desi
       'lighthouse',
       'beyond',
       'neuro-honor-board',
-      'theatre-of-my-name',
       'cultural-neuro-code',
       'neuromandala',
-      'brain-hack',
-      'journey-to-yourself',
     ]) {
       const response = await page.goto(`/${lang}/works/${slug}/`);
       expect(response!.status()).toBe(200);
-      const minimumStoryParts =
-        slug === 'theatre-of-my-name' ? 4 : ['brain-hack', 'journey-to-yourself'].includes(slug) ? 2 : 3;
+      const minimumStoryParts = 3;
       expect(await page.locator('#work-story .editorial-sections article').count()).toBeGreaterThanOrEqual(
         minimumStoryParts,
       );
       await expect(page.locator('#work-credits .list-row').first()).toBeVisible();
-      await expect(page.locator('#site-nav [data-route="works"]')).toHaveAttribute('aria-current', 'page');
+      await expect(page.locator(`.reading-parent[href="/${lang}/works/"]`)).toBeVisible();
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     }
-    await page.goto(`/${lang}/works/`);
+    await page.goto(`/${lang}/education/`);
     for (const id of ['brain-hack', 'journey']) {
-      await expect(page.locator(`[data-work-id="${id}"] img`)).toHaveCount(0);
-      await expect(page.locator(`[data-work-id="${id}"] .work-card__media-note`)).not.toHaveText('');
+      await expect(page.locator(`[data-programme-id="${id}"] img`)).toHaveCount(0);
+      await expect(page.locator(`[data-programme-id="${id}"]`)).toContainText(
+        lang === 'ru' ? 'Проект программы' : 'Proposed programme',
+      );
     }
     await page.goto(`/${lang}/works/neuromandala/`);
     await page.locator(`main a[href="/${lang}/technology/"]`).click();

@@ -41,6 +41,7 @@ buildDetails.append(buildSummary, output);
 toolbar.append(buildDetails);
 const refresh = document.createElement('button');
 refresh.type = 'button';
+refresh.className = 'button';
 refresh.dataset.editorialRefresh = '';
 refresh.textContent = ru ? 'Обновить PUBLIC' : 'Refresh PUBLIC';
 buildDetails.append(refresh);

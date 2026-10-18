@@ -1,3 +1,4 @@
+import { recognitionSourceSnapshots } from './recognition-source-snapshots';
 import type { Localized, Publication } from './site';
 
 export interface SourceReference {
@@ -70,6 +71,7 @@ export interface CooperationPage {
 
 // Exact bytes of dated V1 and owner-provided editorial snapshots, not current availability claims.
 export const sourceSnapshots: Record<string, SourceReference> = {
+  ...recognitionSourceSnapshots,
   'Obsidian_Tavrida_Gastro_2025.md': {
     file: 'Obsidian_Tavrida_Gastro_2025.md',
     sha256: 'ace88efd7224b6e854f775ab13c8c4b005dfbbbfa05bc35688c5ba90b74a641e',
@@ -990,8 +992,19 @@ const l = (ru: string, en: string): Localized => ({ ru, en });
 
 // Registration and filing metadata confirmed by the owner on 2026-10-08; scans remain separate.
 export const intellectualProperty = {
-  trademark: { name: 'ODA.dream', number: '1237624', registeredOn: '2026-02-25' },
-  inventionApplication: { number: '2026113457/14(030103)', filedOn: '2026-04-30', status: 'filed' },
+  trademark: {
+    name: 'odadream',
+    number: '1237624',
+    priorityOn: '2026-02-25',
+    registeredOn: '2026-07-02',
+    expiresOn: '2036-02-25',
+  },
+  inventionApplication: {
+    number: '2026113457/14(030103)',
+    filedOn: '2026-04-30',
+    noticeOn: '2026-06-15',
+    status: 'substantive-examination',
+  },
 } as const;
 
 export const methods: Method[] = [
@@ -1008,8 +1021,8 @@ export const methods: Method[] = [
         id: 'invention-application',
         title: l('Заявка на изобретение', 'Invention application'),
         body: l(
-          `Заявка на изобретение №${intellectualProperty.inventionApplication.number} подана 30 апреля 2026 года.`,
-          `Invention application No. ${intellectualProperty.inventionApplication.number} was filed on 30 April 2026.`,
+          `Заявка на изобретение №${intellectualProperty.inventionApplication.number} подана 30 апреля 2026 года. Уведомление ФИПС от 15 июня 2026 года подтверждает проведение экспертизы по существу; патент не выдан.`,
+          `Invention application No. ${intellectualProperty.inventionApplication.number} was filed on 30 April 2026. A FIPS notice dated 15 June 2026 confirms substantive examination; no patent has been granted.`,
         ),
       },
       {
@@ -1449,7 +1462,9 @@ export const cooperationPages: CooperationPage[] = [
           'sound-brain',
           'taste-brain',
           'feedback-empathy-brain',
-          'gong',
+          'theatre-my-name',
+          'brain-hack',
+          'journey',
           'neuromandala-workshop',
           'neuro-laboratory',
         ],

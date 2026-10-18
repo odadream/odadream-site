@@ -23,10 +23,17 @@ for (const theme of ['light', 'dark']) {
         const visible = (node: Element | null) =>
           !!node && getComputedStyle(node).display !== 'none' && node.getBoundingClientRect().height > 0;
         const shell = document.querySelector('.header-inner')!.getBoundingClientRect();
-        const axis = document.querySelector('.footer-links')!.getBoundingClientRect();
+        const grid = document.querySelector('.section-grid, .system-grid')!;
+        const style = getComputedStyle(grid);
+        const axis = {
+          left:
+            grid.getBoundingClientRect().left +
+            (innerWidth > 700 ? parseFloat(style.gridTemplateColumns) + parseFloat(style.columnGap) : 0),
+        };
         const blocks = [...document.querySelectorAll<HTMLElement>('.macro-section')];
         if (
-          blocks.map((b) => b.dataset.blockKind).join(',') !== 'catalogue,editorial,process,document,action'
+          blocks.map((b) => b.dataset.blockKind).join(',') !==
+          'catalogue,editorial,process,document,action,editorial'
         )
           errors.push('missing macro role');
         if (document.documentElement.scrollWidth > innerWidth) errors.push('horizontal overflow');
@@ -56,7 +63,7 @@ for (const theme of ['light', 'dark']) {
             errors.push(kind + ' heading code');
           if (innerWidth <= 700) {
             if (visible(block.querySelector('.section-rail__field'))) errors.push('mobile folio is visible');
-            if (kind === 'editorial') {
+            if (block.querySelector('.section-rail__data, [data-has-reference]')) {
               if (!reference || !visible(reference)) errors.push('reference lost');
               else if (reference.getBoundingClientRect().top < bounds.bottom - 1)
                 errors.push('mobile reference overlaps material');

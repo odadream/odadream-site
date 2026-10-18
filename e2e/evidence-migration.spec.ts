@@ -14,17 +14,19 @@ test('case narratives and source claims use event roles and readable provenance 
       await expect(page.locator('#case-story .editorial-sections article')).toHaveCount(2);
       await expect(page.locator('#case-evidence .provenance')).toHaveCount(1);
       await expect(page.locator('#case-evidence')).not.toContainText('src/content/');
-      await expect(page.locator('#case-evidence .button')).toHaveAttribute('href', `/${lang}/contact/`);
     }
     await page.goto(`/${lang}/cases/`);
-    await expect(page.locator('main .case-row')).toHaveCount(43);
+    await expect(page.locator('main .case-row')).toHaveCount(45);
     await expect(page.locator('#case-portal-2025 .meta')).toContainText('2025');
     await expect(page.locator('#case-portal-2025 .meta')).not.toContainText('01-01');
-    await expect(page.locator('#case-wildmint-2025 > a')).toHaveAttribute('href', `/${lang}/technology/`);
+    await expect(page.locator('#case-wildmint-2025 h3 a')).toHaveAttribute(
+      'href',
+      `/${lang}/cases/wildmint-2025/`,
+    );
     await page.goto(`/${lang}/cases/#case-portal-2025`);
     await expect(page).toHaveURL(new RegExp(`/${lang}/cases/#case-portal-2025$`));
     await page.goto(`/${lang}/recognition/`);
-    await expect(page.locator('.recognition-card')).toHaveCount(17);
+    await expect(page.locator('.recognition-card')).toHaveCount(18);
     await expect(page.locator('#recognition-portal-2030-2025 .recognition-card__image')).toBeVisible();
     await expect(page.locator('#recognition-culttech-school-grant-2026')).toHaveClass(
       /recognition-card--text/,

@@ -9,6 +9,7 @@ export interface WorkDetail {
   credits: { name: Localized; role: Localized }[];
   reviewNotes: Localized[];
   relatedWorks: string[];
+  relatedProgrammes?: string[];
   sourceRefs: SourceReference[];
 }
 const text = (ru: string, en: string): Localized => ({ ru, en });

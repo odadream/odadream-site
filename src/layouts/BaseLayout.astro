@@ -1,4 +1,6 @@
 ---
+import DisclosureHeading from '../components/DisclosureHeading.astro';
+import MediaViewer from '../components/MediaViewer.astro';
 import '../styles/global.css';
 import '@fontsource/jetbrains-mono/latin-400.css';
 import '@fontsource/jetbrains-mono/latin-500.css';
@@ -24,10 +26,9 @@ import '../styles/editorial.css';
 import AnalyticsConsent from '../components/AnalyticsConsent.astro';
 import TechnicalMark from '../components/TechnicalMark.astro';
 import PageCode from '../components/PageCode.astro';
-import PageOutline from '../components/PageOutline.astro';
-import { pageChapters } from '../lib/page-outline';
+import ReadingNavigation from '../components/ReadingNavigation.astro';
+import { pageChapters, caseYearLinks } from '../lib/page-outline';
 import lastmod from '../data/lastmod.json';
-import astroPackage from 'astro/package.json';
 interface Props {
   page: Page;
   canonicalPath?: string;
@@ -52,6 +53,11 @@ const currentSection = nav.find((item) => item.route === pageSection);
 const sectionLabel = currentSection?.label ?? (page.lang === 'ru' ? 'Система' : 'System');
 const contentHtml = await Astro.slots.render('default');
 const chapters = pageChapters(contentHtml);
+const isHome = page.path === `/${page.lang}/`;
+const pageName = isHome ? sectionLabel : page.title.replace(' — ODA.dream', '');
+const parentSection =
+  ['work', 'programme', 'case'].includes(page.kind) && currentSection ? currentSection : undefined;
+const caseYears = page.kind === 'cases' ? caseYearLinks(cases) : [];
 const contentDate = lastmod[page.path as keyof typeof lastmod];
 const record =
   page.kind === 'work'
@@ -130,6 +136,7 @@ const breadcrumbSchema =
 <html
   lang={page.lang}
   data-section={pageSection}
+  data-page-kind={page.kind}
   data-page-family={page.family}
   data-analytics-page={canonicalPath}
   data-analytics-preview={String(preview)}
@@ -154,23 +161,11 @@ const breadcrumbSchema =
           const systemDark = matchMedia('(prefers-color-scheme: dark)').matches;
           document.documentElement.dataset.themeMode = mode;
           document.documentElement.dataset.theme = mode === 'auto' ? (systemDark ? 'dark' : 'light') : mode;
-          document
-            .querySelector('meta[name="theme-color"]')
-            ?.setAttribute(
-              'content',
-              document.documentElement.dataset.theme === 'light' ? '#faf7f0' : '#23211e',
-            );
         } catch {
           document.documentElement.dataset.themeMode = 'auto';
           document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches
             ? 'dark'
             : 'light';
-          document
-            .querySelector('meta[name="theme-color"]')
-            ?.setAttribute(
-              'content',
-              document.documentElement.dataset.theme === 'light' ? '#faf7f0' : '#23211e',
-            );
         }
       })();
     </script>
@@ -218,14 +213,22 @@ const breadcrumbSchema =
         >
           <img src="/brand/oda-logo.svg" alt="ODA.dream" width="112" height="52" />
         </a>
-        <a
-          class="header-section"
-          href="#top"
-          aria-label={page.lang === 'ru' ? sectionLabel + ' — наверх' : sectionLabel + ' — back to top'}
-        >
-          <PageCode family={currentSection?.family ?? page.family} lang={page.lang} register={false} />
-          <span>{sectionLabel}</span>
-        </a>
+        <nav class="primary-nav" aria-label={page.lang === 'ru' ? 'Основные разделы' : 'Primary sections'}>
+          {nav
+            .filter(({ route }) => route !== 'home' && route !== pageSection)
+            .map(({ label, href, route, family }) => (
+              <a href={href} data-route={route}>
+                <PageCode family={family} lang={page.lang} register={false} />
+                <span>{label}</span>
+              </a>
+            ))}
+          {import.meta.env.DEV && pageSection !== 'design' && (
+            <a href="/design-system/" data-route="design">
+              <PageCode family="D" register={false} />
+              <span>{page.lang === 'ru' ? 'Система' : 'System'}</span>
+            </a>
+          )}
+        </nav>
         <button
           class="menu-toggle"
           type="button"
@@ -233,40 +236,47 @@ const breadcrumbSchema =
           aria-controls="site-nav"
           aria-label={page.lang === 'en' ? 'Open menu' : 'Открыть меню'}
         >
-          ☰
+          <span class="menu-open-mark">
+            <TechnicalMark kind="menu" />
+          </span>
+          <span class="menu-close-mark">
+            <TechnicalMark kind="close" />
+          </span>
+          <span data-menu-label>{page.lang === 'ru' ? 'Меню' : 'Menu'}</span>
         </button>
         <nav
           id="site-nav"
           class="site-nav"
           aria-label={page.lang === 'en' ? 'Main navigation' : 'Основная навигация'}
         >
-          {nav.map(({ label, route, href, family }) => (
-            <a href={href} data-route={route} aria-current={pageSection === route ? 'page' : undefined}>
-              <PageCode family={family} lang={page.lang} register={false} />
-              {label}
-            </a>
-          ))}
-          {import.meta.env.DEV && (
-            <a
-              href="/design-system/"
-              data-route="design"
-              aria-current={pageSection === 'design' ? 'page' : undefined}
-            >
+          {nav
+            .filter(({ route }) => route !== 'home' && route !== pageSection)
+            .map(({ label, route, href, family }) => (
+              <a href={href} data-route={route}>
+                <PageCode family={family} lang={page.lang} register={false} />
+                {label}
+              </a>
+            ))}
+          {import.meta.env.DEV && pageSection !== 'design' && (
+            <a href="/design-system/" data-route="design">
               <PageCode family="D" lang={page.lang} register={false} />
               {page.lang === 'ru' ? 'Система' : 'System'}
             </a>
           )}
+          <div class="navigation-preferences">
+            <span>{page.lang === 'ru' ? 'Оформление' : 'Appearance'}</span>
+            <button
+              class="theme-toggle"
+              type="button"
+              data-theme-toggle
+              aria-label={page.lang === 'ru' ? 'Тема: автоматически' : 'Theme: automatic'}
+              title={page.lang === 'ru' ? 'Сменить тему' : 'Change theme'}
+            >
+              <TechnicalMark kind="theme" />
+              <span data-theme-label>{page.lang === 'ru' ? 'Авто' : 'Auto'}</span>
+            </button>
+          </div>
         </nav>
-        <button
-          class="theme-toggle"
-          type="button"
-          data-theme-toggle
-          aria-label={page.lang === 'ru' ? 'Тема: автоматически' : 'Theme: automatic'}
-          title={page.lang === 'ru' ? 'Сменить тему' : 'Change theme'}
-        >
-          <span aria-hidden="true">◐</span>
-          <span data-theme-label>{page.lang === 'ru' ? 'Авто' : 'Auto'}</span>
-        </button>
         {page.path !== '/ru/design-system/' && (
           <a
             class="language-link"
@@ -278,10 +288,41 @@ const breadcrumbSchema =
           </a>
         )}
       </div>
+      <ReadingNavigation
+        lang={page.lang}
+        title={pageName}
+        home={isHome}
+        family={page.family}
+        parent={parentSection}
+        chapters={chapters}
+        years={caseYears}
+      />
     </header>
     {import.meta.env.DEV && <script is:inline type="module" src="/__editorial/client.js"></script>}
+    <noscript>
+      <style>
+        .header-inner {
+          flex-wrap: wrap;
+        }
+        .primary-nav,
+        .header-inner .menu-toggle {
+          display: none !important;
+        }
+        .header-inner .language-link {
+          margin-left: auto;
+        }
+        .site-header .site-nav {
+          display: grid;
+          position: static;
+          order: 3;
+          width: 100%;
+          max-height: none;
+          box-shadow: none;
+        }
+      </style>
+    </noscript>
     <MediaCropEditor lang={page.lang} />
-    <main id="main">
+    <main id="main" data-page-code={page.family}>
       {preview && page.family !== 'D' && (
         <DevNote id="dev-catalogue-scope" lang={page.lang}>
           <p>
@@ -303,63 +344,49 @@ const breadcrumbSchema =
     <footer class="site-footer">
       {!noindex && (
         <div class="shell site-colophon">
-          <PageOutline chapters={chapters} lang={page.lang} />
-          <RecordStamp
-            title={page.lang === 'ru' ? 'Выходные данные' : 'Document details'}
-            wide
-            layout="colophon"
-            fields={[
-              {
-                label: page.lang === 'ru' ? 'Обновлено' : 'Updated',
-                value: contentDate || '—',
-              },
-            ]}
-          >
-            <Fragment slot="fields-after">
-              <div>
-                <dt>{page.lang === 'ru' ? 'Ссылка на страницу' : 'Page link'}</dt>
-                <dd>
-                  <button class="colophon-copy" type="button" data-copy-page-link>
-                    {page.lang === 'ru' ? 'Копировать ссылку' : 'Copy page link'}
-                  </button>
-                  <span role="status" data-copy-status></span>
-                  <input
-                    class="colophon-url"
-                    data-copy-fallback
-                    hidden
-                    readonly
-                    aria-label={
-                      page.lang === 'ru' ? 'Скопируйте адрес вручную' : 'Copy this address manually'
-                    }
-                  />
-                </dd>
-              </div>
-            </Fragment>
-          </RecordStamp>
-          <details class="content-disclosure">
-            <summary>
-              {page.lang === 'ru'
-                ? 'Технические сведения и история браузера'
-                : 'Technical details and browser history'}
-            </summary>
+          <nav class="footer-navigation" aria-label={page.lang === 'ru' ? 'Разделы сайта' : 'Site sections'}>
+            {nav.map(({ label, href, family, route }) => (
+              <a href={href} aria-current={pageSection === route ? 'page' : undefined}>
+                <PageCode family={family} lang={page.lang} register={false} />
+                <span>{label}</span>
+              </a>
+            ))}
+          </nav>
+          <details class="footer-document">
+            <DisclosureHeading>
+              {page.lang === 'ru' ? 'Об этой странице' : 'About this page'}
+            </DisclosureHeading>
             <RecordStamp
-              title={page.lang === 'ru' ? 'Об этом просмотре' : 'About this visit'}
+              title={page.lang === 'ru' ? 'Выходные данные' : 'Document details'}
               wide
+              layout="colophon"
               fields={[
-                { label: page.lang === 'ru' ? 'Движок' : 'Engine', value: `Astro ${astroPackage.version}` },
+                {
+                  label: page.lang === 'ru' ? 'Обновлено' : 'Updated',
+                  value: contentDate || '—',
+                },
               ]}
             >
               <Fragment slot="fields-after">
                 <div>
-                  <dt>{page.lang === 'ru' ? 'Прошлое открытие' : 'Previous visit'}</dt>
-                  <dd data-previous-visit>—</dd>
+                  <dt>{page.lang === 'ru' ? 'Ссылка на страницу' : 'Page link'}</dt>
+                  <dd>
+                    <button class="colophon-copy" type="button" data-copy-page-link>
+                      {page.lang === 'ru' ? 'Копировать ссылку' : 'Copy page link'}
+                    </button>
+                    <span role="status" data-copy-status></span>
+                    <input
+                      class="colophon-url"
+                      data-copy-fallback
+                      hidden
+                      readonly
+                      aria-label={
+                        page.lang === 'ru' ? 'Скопируйте адрес вручную' : 'Copy this address manually'
+                      }
+                    />
+                  </dd>
                 </div>
               </Fragment>
-              <p class="small-note">
-                {page.lang === 'ru'
-                  ? 'Предыдущее открытие сайта в этом браузере. Дата хранится локально; это не статистика посещаемости.'
-                  : 'The previous opening of this site in this browser. Stored locally; this is not site traffic data.'}
-              </p>
             </RecordStamp>
           </details>
         </div>
@@ -391,9 +418,10 @@ const breadcrumbSchema =
           class="footer-links"
           aria-label={page.lang === 'ru' ? 'Контакты и социальные сети' : 'Contact and social links'}
         >
-          <a href={`/${page.lang}/contact/`}>{page.lang === 'en' ? 'Contact' : 'Контакты'}</a>
-          <a href={`/${page.lang}/studio/`}>{page.lang === 'en' ? 'Studio' : 'Студия'}</a>
-          <a href="#top">{page.lang === 'ru' ? 'Наверх ↑' : 'Back to top ↑'}</a>
+          <a class="footer-top" href="#top">
+            <TechnicalMark kind="previous" />
+            {page.lang === 'ru' ? 'Наверх' : 'Back to top'}
+          </a>
           {socialLinks
             .filter((item) => item.languages.includes(page.lang))
             .map((item) => (
@@ -444,52 +472,9 @@ const breadcrumbSchema =
       </div>
     </footer>
     <AnalyticsConsent lang={page.lang} />
-    <dialog
-      id="lightbox"
-      class="lightbox"
-      aria-label={page.lang === 'en' ? 'Media viewer' : 'Просмотр материалов'}
-    >
-      <button
-        class="lightbox-close"
-        type="button"
-        aria-label={page.lang === 'en' ? 'Close viewer' : 'Закрыть просмотр'}
-      >
-        ×
-      </button>
-      <div class="lightbox-stage">
-        <img alt="" />
-        <video controls playsinline preload="none" hidden />
-      </div>
-      <p class="lightbox-status" role="status"></p>
-      <p class="lightbox-caption"></p>
-      <div class="lightbox-navigation">
-        <button
-          type="button"
-          class="button"
-          data-viewer-previous
-          hidden
-          aria-label={page.lang === 'ru' ? 'Предыдущий материал' : 'Previous item'}
-        >
-          <TechnicalMark kind="previous" />
-        </button>
-        <span class="lightbox-position" aria-live="polite"></span>
-        <button type="button" class="button" data-viewer-zoom aria-pressed="false">
-          {page.lang === 'ru' ? 'Масштаб 1:1' : 'Zoom 1:1'}
-        </button>
-        <button
-          type="button"
-          class="button"
-          data-viewer-next
-          hidden
-          aria-label={page.lang === 'ru' ? 'Следующий материал' : 'Next item'}
-        >
-          <TechnicalMark kind="next" />
-        </button>
-      </div>
-    </dialog>
+    <MediaViewer lang={page.lang} />
     <script>
       import { createAnalytics } from '../scripts/analytics';
-      import { initMediaViewer } from '../scripts/media-viewer';
       import { initVideoPreviews } from '../scripts/video-previews';
       import { initHeroCarousel } from '../scripts/hero-carousel';
       import { analyticsConfig } from '../data/analytics-config';
@@ -502,31 +487,6 @@ const breadcrumbSchema =
         preview: root.dataset.analyticsPreview === 'true',
       });
       const ru = document.documentElement.lang === 'ru';
-      const visit = document.querySelector<HTMLElement>('[data-previous-visit]');
-      if (visit) {
-        try {
-          let previous = sessionStorage.getItem('oda-previous-visit');
-          if (previous === null) {
-            previous = localStorage.getItem('oda-last-visit') || 'first';
-            sessionStorage.setItem('oda-previous-visit', previous);
-            localStorage.setItem('oda-last-visit', new Date().toISOString());
-          }
-          const date = new Date(previous);
-          visit.textContent =
-            previous === 'first'
-              ? ru
-                ? 'Первое посещение'
-                : 'First visit'
-              : Number.isNaN(date.getTime())
-                ? '—'
-                : new Intl.DateTimeFormat(ru ? 'ru-RU' : 'en-GB', {
-                    dateStyle: 'medium',
-                    timeStyle: 'short',
-                  }).format(date);
-        } catch {
-          visit.textContent = ru ? 'История посещений недоступна' : 'Visit history unavailable';
-        }
-      }
       document
         .querySelector<HTMLButtonElement>('[data-copy-page-link]')
         ?.addEventListener('click', async () => {
@@ -571,7 +531,7 @@ const breadcrumbSchema =
           .querySelector('meta[name="theme-color"]')
           ?.setAttribute(
             'content',
-            document.documentElement.dataset.theme === 'light' ? '#faf7f0' : '#23211e',
+            getComputedStyle(document.documentElement).getPropertyValue('--header-bg').trim(),
           );
       };
       updateThemeLabel();
@@ -594,18 +554,100 @@ const breadcrumbSchema =
           updateThemeLabel();
         }
       });
+      import { initDisclosures } from '../scripts/disclosures';
+      function initPriorityNavigation() {
+        const primary = document.querySelector<HTMLElement>('.primary-nav');
+        if (!primary || !nav || !menu) return;
+        const links = Array.from(primary.querySelectorAll<HTMLAnchorElement>('a'));
+        const overflow = Array.from(nav.querySelectorAll<HTMLAnchorElement>('a[data-route]'));
+        const header = primary.closest<HTMLElement>('.header-inner')!;
+        const theme = document.querySelector<HTMLButtonElement>('[data-theme-toggle]')!;
+        const preferences = nav.querySelector<HTMLElement>('.navigation-preferences')!;
+        const language = header.querySelector<HTMLElement>('.language-link');
+        function fit() {
+          if (!primary || !menu || !nav) return;
+          links.forEach((link) => {
+            link.hidden = false;
+          });
+          const navGap = parseFloat(getComputedStyle(primary).columnGap) || 0;
+          const widths = links.map((link) => link.getBoundingClientRect().width);
+          const total =
+            widths.reduce((sum, width) => sum + width, 0) + navGap * Math.max(0, links.length - 1);
+          const prefixCount = () => {
+            let used = 0,
+              count = 0;
+            for (const width of widths) {
+              if (used + width > primary.clientWidth) break;
+              used += width + navGap;
+              count++;
+            }
+            return count;
+          };
+          // Compare actual layouts. Theme never displaces a destination that could fit.
+          preferences.append(theme);
+          preferences.hidden = false;
+          menu.hidden = false;
+          const withoutTheme = prefixCount();
+          header.insertBefore(theme, language);
+          preferences.hidden = true;
+          const withTheme = prefixCount();
+          menu.hidden = true;
+          const allFit = total <= primary.clientWidth && header.scrollWidth <= header.clientWidth;
+          const themeFits =
+            allFit ||
+            (withTheme >= withoutTheme && withTheme > 0 && header.scrollWidth <= header.clientWidth);
+          if (!themeFits) {
+            preferences.append(theme);
+            preferences.hidden = false;
+          }
+          menu.hidden = allFit;
+          const count = allFit ? links.length : prefixCount();
+          links.forEach((link, index) => {
+            link.hidden = index >= count;
+          });
+          overflow.forEach((link) => {
+            link.hidden = links.some((item) => item.dataset.route === link.dataset.route && !item.hidden);
+          });
+          if (allFit) setMenuOpen(false);
+          const closedLabel = ru ? (count === 0 ? 'Меню' : 'Ещё') : count === 0 ? 'Menu' : 'More';
+          menu.dataset.closedLabel = closedLabel;
+          if (menu.getAttribute('aria-expanded') !== 'true') {
+            const label = menu.querySelector('[data-menu-label]');
+            if (label) label.textContent = closedLabel;
+          }
+        }
+        new ResizeObserver(fit).observe(header);
+        document.fonts.ready.then(fit);
+        fit();
+      }
+      function setMenuOpen(open: boolean) {
+        menu?.setAttribute('aria-expanded', String(open));
+        const text = menu?.dataset.closedLabel || (ru ? 'Ещё' : 'More');
+        const label = menu?.querySelector('[data-menu-label]');
+        if (label) label.textContent = text;
+        menu?.setAttribute(
+          'aria-label',
+          ru ? (open ? 'Закрыть меню' : 'Открыть меню') : open ? 'Close menu' : 'Open menu',
+        );
+        nav?.classList.toggle('open', open);
+      }
+      document.addEventListener('oda:contents:open', () => setMenuOpen(false));
       menu?.addEventListener('click', () => {
         const open = menu.getAttribute('aria-expanded') !== 'true';
-        menu.setAttribute('aria-expanded', String(open));
-        nav?.classList.toggle('open', open);
+        setMenuOpen(open);
+        if (open) document.dispatchEvent(new CustomEvent('oda:main-menu:open'));
       });
       document.addEventListener('keydown', (event) => {
         if (event.key !== 'Escape' || menu?.getAttribute('aria-expanded') !== 'true') return;
-        menu.setAttribute('aria-expanded', 'false');
-        nav?.classList.remove('open');
+        setMenuOpen(false);
         menu.focus();
       });
-      initMediaViewer();
+      document.addEventListener('pointerdown', (event) => {
+        if (event.target instanceof Node && !document.querySelector('.site-header')?.contains(event.target))
+          setMenuOpen(false);
+      });
+      initDisclosures();
+      initPriorityNavigation();
       const videoPreviews = initVideoPreviews();
       initHeroCarousel(videoPreviews);
     </script>

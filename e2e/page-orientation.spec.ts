@@ -6,7 +6,8 @@ test('shared orientation, chapter targets and compact colophon survive both lang
   for (const lang of ['ru', 'en']) {
     for (const path of ['', 'cooperation/', 'works/emomandala/', 'education/']) {
       await page.goto('/' + lang + '/' + path);
-      const links = page.locator('.page-outline a');
+      const links = page.locator('.reading-outline a');
+      await page.locator('.footer-document summary').click();
       expect(await links.count()).toBeGreaterThan(0);
       const chapters = await page
         .locator('main [data-page-chapter]')
@@ -46,8 +47,8 @@ test('shared orientation, chapter targets and compact colophon survive both lang
             expect(geometry.copyTarget).toBeGreaterThanOrEqual(44);
           }
         }
-        if (width <= 1600) await expect(page.locator('.header-section')).toBeVisible();
-        else await expect(page.locator('.header-section')).toBeHidden();
+        await expect(page.locator('.reading-navigation')).toBeVisible();
+        await expect(page.locator('.reading-breadcrumbs [aria-current="page"]')).toHaveCount(path ? 1 : 0);
       }
       await expect(page.locator('.footer-copyright')).toContainText('2019–' + new Date().getFullYear());
       await expect(page.locator('.footer-links [data-contact-channel="vk"]')).toHaveCount(
@@ -60,10 +61,15 @@ test('shared orientation, chapter targets and compact colophon survive both lang
         );
       await page.setViewportSize({ width: 390, height: 900 });
       await page.locator('.footer-links a[href="#top"]').click();
+      await expect(page).toHaveURL(/#top$/);
+      await page.waitForLoadState('domcontentloaded');
       await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(2);
+      await page.locator('.reading-contents summary').click();
       await links.first().click();
       await expect(page).toHaveURL(new RegExp('#' + chapters[0].id + '$'));
-      await page.locator('.header-section').click();
+      await page.locator('.footer-links a[href="#top"]').click();
+      await expect(page).toHaveURL(/#top$/);
+      await page.waitForLoadState('domcontentloaded');
       await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(2);
     }
   }

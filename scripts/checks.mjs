@@ -227,6 +227,7 @@ async function runJob([name, entry, args], folder, plan) {
   if (!entry)
     args = [
       '--test',
+      '--test-concurrency=2', // Each isolated test loads the TypeScript catalogue; bound peak memory.
       ...(await readdir(resolve(projectRoot, 'tests')))
         .filter((file) => file.endsWith('.test.mjs'))
         .sort()

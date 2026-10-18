@@ -8,7 +8,7 @@ The site and specimen both import `src/styles/global.css`, which imports the sin
 
 The shared header and expanded mobile navigation use the specimen's foreground-material plane and `--shadow-material`. Their surfaces end at a crisp edge; the subtle separation below is a blurred shadow, never an opaque or translucent gradient strip. The browser theme color matches that foreground plane in both themes.
 
-The primary navigation starts with an explicit `H Главная` / `H Home` entry linking to the language root. The brand mark remains a visual home link, but it is not the only route back to the base page.
+Home is available through the logo and persistent breadcrumb. Primary navigation shows the routes that fit; remaining routes and, when needed, the theme preference are in the expanding header. Geometry is measured, not tied to a fixed breakpoint.
 
 The `/design-system/` page also documents the full-bleed moving-image hero: the header carries the brand signature once, while the hero holds the independent epigraph, artwork-led frame, secondary work caption and restrained aggregate-data panel. Hero surfaces, scrim and heights are semantic tokens. The displayed MindDB figure is a dated, review-gated snapshot; it must not be treated as approved public data, and rhythm bars remain absent until their methodology and publication are cleared.
 
@@ -49,7 +49,7 @@ Read [DESIGN-GUIDE.md](DESIGN-GUIDE.md) for the semantic contract and reference 
 `CalloutLink.astro` рисует полки строк и финальную диагональ одним SVG-контуром; текст остаётся обычным доступным HTML. Последнее слово, один неразрывный пробел обычной ширины и место стрелки переносятся вместе. Длины берутся из браузерной раскладки и пересчитываются после загрузки шрифта, изменения ширины и темы. Общие параметры в `tokens.css`: `--link-rule-width`, `--link-offset`, `--link-mark-size`, `--link-head-size`. Цвет наследуется от контекста, hover/focus использует signal. Без JavaScript сохраняется обычное подчёркивание. Компонент без href декорирует название внутри ссылки-карточки, не создавая вложенный anchor. Отдельные технические иконки остаются `TechnicalMark`; текстовые ссылки не соединяют две независимые линии. Живые короткие и многострочные RU/EN-примеры — `/design-system/`.
 
 
-Футер — служебная навигация без стрелок и подчёркиваний: только «Контакты», «Студия» и социальные ссылки текущего языка. CAD-выноски остаются в содержании страниц. Подпись: © 2018–текущий год ODA.dream®; знак регистрации надстрочный, регистр бренда сохраняется.
+Футер показывает карту основных разделов, раскрываемые выходные данные, отдельный переход наверх и социальные ссылки. Раскрытие использует общий DisclosureHeading; контентные ссылки — CalloutLink. История предыдущего посещения удалена по решению владельца.
 
 Знак Дзена: официальный SVG https://dzen.ru/about/images/download/dzen-dark/dark-stella.svg из https://dzen.ru/about/download, получен 2026-09-25; геометрия сохранена, цвет наследует тему. Основание для ®: архивная запись `odadream-site/src/content/proof-ip-trademark.md` (Роспатент); номер свидетельства в записи отсутствует. Начало копирайта 2018 — существующая подпись проекта в AGENTS.md архива.
 
@@ -63,7 +63,7 @@ Read [DESIGN-GUIDE.md](DESIGN-GUIDE.md) for the semantic contract and reference 
 
 EvidenceNote показывает поддерживаемое утверждение и человекочитаемое происхождение; живой компонент добавлен в раздел 11. RecognitionCard показывает адресата, смысл документа и границы подтверждения, сохраняя просмотр исходного скана без визуальных преобразований. Контракты событий и документов описаны в DESIGN-GUIDE.md.
 
-Уточнение 2026-10-06: правила текстовых строк, списков, оптической привязки метки и заполнения паспортов описаны в DESIGN-GUIDE.md; живые примеры — разделы 03 и 11 стенда. `e2e/content-layout.spec.ts` проверяет внутреннюю ширину строк, заполнение каждой строки паспорта, интервалы списков и положение меток, включая 908 px, RU/EN и обе темы. Стенд и сайт используют общий вертикальный ритм содержания. Меню сворачивается до 1200 px включительно, независимо от порогов сетки материала.
+Уточнение 2026-10-06: правила текстовых строк, списков, оптической привязки метки и заполнения паспортов описаны в DESIGN-GUIDE.md; живые примеры — разделы 03 и 11 стенда. `e2e/content-layout.spec.ts` проверяет внутреннюю ширину строк, заполнение каждой строки паспорта, интервалы списков и положение меток, включая 908 px, RU/EN и обе темы. Стенд и сайт используют общий вертикальный ритм содержания. Шапка измеряет фактическое переполнение; фиксированного порога сворачивания меню нет.
 
 
 The 2026-10-07 VideoPreview implementation is historical. The current pause/resume and hero-queue contract is in DESIGN-GUIDE.md, section «Видеобиблиотека и продолжение превью»; use the shared runtime components.
@@ -74,7 +74,7 @@ The 2026-10-07 VideoPreview implementation is historical. The current pause/resu
 
 2026-10-07: WorkCard specimens now include a concept rendering and a source-backed written concept with explicit media availability; no image without src is emitted. Portrait/diagram/document covers preserve their complete content within the common card frame.
 
-`CaseRow` и `case-presentation.ts` задают общий вид хронологии и смысл даты/статуса. Раздел 7 показывает учебное участие и отклонённую заявку из тех же данных, что страница событий. Галерея внутри краткого события использует общий MediaGallery; вложенная строка не создаёт ещё одну боковую колонку для метаданных.
+`CaseRow` и `case-presentation.ts` задают общий вид хронологии и смысл даты/статуса. Раздел 7 показывает учебное участие и отклонённую заявку из тех же данных, что страница событий. CaseArchive добавляет фильтр года через общий select; в строке CaseRow остаётся один переход на страницу события. Галерея и ReadingNote располагаются внутри события и используют производственные компоненты. Выбор фотографий для Work хранится в CaseEvent.workSelections и выводится общей MediaGallery без повторного экземпляра в галерее работы.
 
 Programme: модули используют EditorialSections на подробных страницах и в разделе 11 стенда. ProgrammeCard показывает тип и отдельно proposed. Содержательное описание (`documented`) и проведение в CaseEvent — разные признаки; семейство E, ссылки и сетка общие.
 

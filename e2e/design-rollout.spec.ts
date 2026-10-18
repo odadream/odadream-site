@@ -48,12 +48,16 @@ for (const theme of ['light', 'dark']) {
               education: ['catalogue', 'editorial', 'document'],
               programme: ['editorial', 'editorial', 'document'],
               cooperation: ['editorial', 'editorial', 'document', 'process', 'action'],
-              studio: ['editorial', 'catalogue', 'editorial', 'catalogue', 'document', 'editorial'],
-              cases: ['catalogue', 'catalogue', 'catalogue'],
+              studio: ['editorial', 'editorial', 'document', 'document'],
+              cases: ['catalogue', 'catalogue'],
               recognition: ['catalogue'],
               contact: ['action'],
               work: ['editorial', 'editorial', 'editorial', 'editorial', 'action'],
-              case: ['editorial', 'editorial', 'editorial', 'document'],
+              case: (record.anchors ?? [])
+                .filter((id) =>
+                  ['case-contribution', 'case-story', 'case-context', 'case-evidence'].includes(id),
+                )
+                .map((id) => (id === 'case-evidence' ? 'document' : 'editorial')),
             };
             if (!blocks.length) errors.push('missing common sections');
             if (
@@ -82,7 +86,14 @@ for (const theme of ['light', 'dark']) {
                 Math.abs(
                   first.getBoundingClientRect().top -
                     header.getBoundingClientRect().bottom -
-                    (detail ? 24 : 32),
+                    (() => {
+                      const probe = document.createElement('div');
+                      probe.style.paddingTop = detail ? 'var(--gap-component)' : 'var(--gap-heading)';
+                      block.append(probe);
+                      const value = parseFloat(getComputedStyle(probe).paddingTop);
+                      probe.remove();
+                      return value;
+                    })(),
                 ) > 1
               )
                 errors.push('heading / material rhythm');
@@ -212,13 +223,14 @@ test('page codes expose localized names and participation headings scale with th
       await page.setViewportSize({ width, height: 932 });
       await expect(
         page.locator('main').getByRole('img', {
-          name: lang === 'ru' ? 'Страница C, раздел 01' : 'Page C, section 01',
+          name: lang === 'ru' ? 'Страница Сотрудничество, раздел 01' : 'Page Cooperation, section 01',
           exact: true,
         }),
       ).toHaveCount(1);
+      await page.locator('.reading-contents > summary').click();
       await expect(
-        page.locator('.page-outline').getByRole('img', {
-          name: lang === 'ru' ? 'Страница C, раздел 01' : 'Page C, section 01',
+        page.locator('.reading-outline').getByRole('img', {
+          name: lang === 'ru' ? 'Страница Сотрудничество, раздел 01' : 'Page Cooperation, section 01',
           exact: true,
         }),
       ).toHaveCount(1);

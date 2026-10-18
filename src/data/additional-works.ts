@@ -669,7 +669,7 @@ const definitions: Definition[] = [
     title: l('Культурный нейрокод', 'Cultural Neuro Code'),
     category: l('Исследовательская медиа-работа', 'Research-based media work'),
     workType: 'interactive-work',
-    stage: 'prototype',
+    stage: 'realized',
     summary: l(
       'Личная память, культурные формы и биологическая обратная связь соединяются в исследовательскую художественную линию.',
       'Personal memory, cultural forms and biofeedback meet in a research-based artistic line.',

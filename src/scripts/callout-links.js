@@ -23,6 +23,8 @@
     const marker = document.createElement('span');
     marker.className = 'callout-link-marker';
     marker.setAttribute('aria-hidden', 'true');
+    const destinationMark = link.querySelector('template[data-link-mark]')?.content.firstElementChild;
+    if (destinationMark) marker.append(destinationMark.cloneNode(true));
     tail.append(marker);
     content.append(tail);
     const svg = document.createElementNS(namespace, 'svg');
@@ -40,7 +42,7 @@
     const content = link.querySelector('.callout-link-content');
     if (!content || !content.getClientRects().length) return;
     const marker = content.querySelector('.callout-link-marker');
-    const svg = content.querySelector('svg');
+    const svg = content.querySelector('.callout-link-drawing');
     const origin = svg.getBoundingClientRect();
     const end = marker.getBoundingClientRect();
     const range = document.createRange();
@@ -68,6 +70,11 @@
     const point = (x, y) => `${coordinate(x - origin.left)} ${coordinate(y - origin.top)}`;
     const segments = rows.map((row, index) => {
       const y = row.bottom + baselineDelta + offset;
+      if (link.dataset.linkDestination) {
+        // TechnicalMark starts at (0,24), joining the shelf at its elbow.
+        const right = index === rows.length - 1 ? end.left : row.right;
+        return `M${point(row.left, y)} H${coordinate(right - origin.left)}`;
+      }
       if (index !== rows.length - 1) return `M${point(row.left, y)} H${coordinate(row.right - origin.left)}`;
       const x = end.left;
       const tipX = x + size;
@@ -111,6 +118,7 @@
     if (anchor && (anchor.matches('.callout-link') || anchor.querySelector('.callout-link')))
       event.preventDefault();
   });
+  document.addEventListener('oda:media-viewer-change', refresh);
   window.addEventListener('resize', refresh);
   document.fonts.ready.then(refresh);
   document.fonts.addEventListener('loadingdone', refresh);

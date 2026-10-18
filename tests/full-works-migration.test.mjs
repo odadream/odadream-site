@@ -17,11 +17,8 @@ test('remaining substantive artworks have paired direct routes, source-backed na
     'lighthouse',
     'potustoronniy',
     'honors',
-    'theatre-my-name',
     'cultural-neuro-code',
     'neuromandala',
-    'brain-hack',
-    'journey',
   ];
   const publicData = createPublicationScope(source, publicationPlan);
   assert.deepEqual(publicData.errors, []);
@@ -48,12 +45,12 @@ test('remaining substantive artworks have paired direct routes, source-backed na
   assert.equal(source.works.find((row) => row.id === 'happiness').workType, 'object');
 });
 
-test('meaningful written concepts declare media absence without fabricated image dependencies', () => {
+test('written workshop proposals retain their stage and do not fabricate image dependencies', () => {
   for (const id of ['brain-hack', 'journey']) {
-    const work = source.works.find((row) => row.id === id);
-    assert.deepEqual(work.media, []);
-    assert.ok(work.mediaNote.ru && work.mediaNote.en);
-    assert.equal(work.stage, 'concept');
+    const programme = source.programmes.find((row) => row.id === id);
+    assert.deepEqual(programme.media, []);
+    assert.ok(programme.modules.length);
+    assert.equal(programme.deliveryStatus, 'proposed');
   }
 });
 

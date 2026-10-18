@@ -17,13 +17,19 @@ test('method, work configurations and education and cooperation form a connected
     await page.goto(`/${lang}/works/neurobattle/`);
     await expect(page.locator('#neurobattle-game')).toContainText('90');
     await page.goto(`/${lang}/education/`);
-    await expect(page.locator('.programme-card')).toHaveCount(15);
-    await expect(page.locator('#site-nav [data-route="education"]')).toHaveAttribute('aria-current', 'page');
+    await expect(page.locator('.programme-card')).toHaveCount(17);
+    await expect(page.locator('#site-nav [data-route="education"]')).toHaveCount(0);
+    await expect(page.locator('.reading-breadcrumbs')).toContainText(
+      lang === 'ru' ? 'Образование' : 'Education',
+    );
     await expect(page.locator('#site-nav [data-route="formats"]')).toHaveCount(0);
     await expect(page.locator('#education-conditions .record-stamp')).toHaveCount(1);
     await page.locator('[data-programme-id="beautiful-brain"] a').click();
     await expect(page).toHaveURL(new RegExp(`/${lang}/education/beautiful-about-the-brain/$`));
-    await expect(page.locator('#site-nav [data-route="education"]')).toHaveAttribute('aria-current', 'page');
+    await expect(page.locator('#site-nav [data-route="education"]')).toHaveCount(0);
+    await expect(page.locator('.reading-breadcrumbs')).toContainText(
+      lang === 'ru' ? 'Образование' : 'Education',
+    );
     await expect(page.locator('#programme-content .facts li')).toHaveCount(3);
     await expect(page.locator('#programme-content')).not.toContainText('src/content/');
     await page.goto(`/${lang}/education/neuro-laboratory/`);

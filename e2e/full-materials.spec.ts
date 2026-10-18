@@ -28,8 +28,8 @@ test('recognition corpus preserves missing-scan qualification and readable share
 }) => {
   for (const lang of ['ru', 'en']) {
     await page.goto(`/${lang}/recognition/`);
-    await expect(page.locator('.recognition-card')).toHaveCount(17);
-    await expect(page.locator('.recognition-card img')).toHaveCount(15);
+    await expect(page.locator('.recognition-card')).toHaveCount(18);
+    await expect(page.locator('.recognition-card img')).toHaveCount(16);
     await expect(page.locator('#recognition-culttech-school-grant-2026 img')).toHaveCount(0);
     await expect(page.locator('#recognition-culttech-school-grant-2026')).toHaveClass(
       /recognition-card--text/,

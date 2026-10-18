@@ -41,6 +41,7 @@ const overview = presentation === 'overview';
       class="recognition-card__image"
       type="button"
       data-lightbox
+      data-details-href={`/${lang}/recognition/#recognition-${item.id}`}
       data-src={item.previewSrc}
       data-alt={item.title[lang]}
       data-caption={`${item.title[lang]} · ${item.issuer[lang]}, ${item.year}`}

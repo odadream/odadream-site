@@ -13,13 +13,24 @@ test('all overview sections are reachable and current in both languages, includi
         await page.goto(`/${lang}/${section}/`);
         const button = page.locator('.menu-toggle');
         if (await button.isVisible()) await button.click();
-        await expect(page.locator('#site-nav a:not([data-route="design"])')).toHaveCount(9);
-        await expect(page.locator('#site-nav [aria-current="page"]')).toHaveCount(1);
-        const link = page.locator(`#site-nav [data-route="${section}"]`);
-        await expect(link).toHaveAttribute('aria-current', 'page');
-        await link.scrollIntoViewIfNeeded();
-        await expect(link).toBeVisible();
-        await expect(link).toContainText(section === 'recognition' ? 'R' : 'M');
+        await expect(page.locator('#site-nav a:not([data-route="design"])')).toHaveCount(7);
+        await expect(page.locator('#site-nav [aria-current="page"]')).toHaveCount(0);
+        await expect(page.locator(`#site-nav [data-route="${section}"]`)).toHaveCount(0);
+        await expect(page.locator('.reading-page-title[aria-current="page"]')).toBeVisible();
+        for (const route of [
+          'works',
+          'education',
+          'cooperation',
+          'studio',
+          'cases',
+          'recognition',
+          'contact',
+          'technology',
+        ].filter((route) => route !== section)) {
+          const primary = page.locator(`.primary-nav [data-route="${route}"]`);
+          const overflow = page.locator(`#site-nav [data-route="${route}"]`);
+          expect((await primary.isVisible()) || (await overflow.isVisible()), route).toBe(true);
+        }
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
         expect(
           await page.evaluate(() => {
@@ -44,8 +55,8 @@ test('all overview sections are reachable and current in both languages, includi
     }
   }
   await page.goto('/design-system/');
-  await expect(page.locator('#site-nav [aria-current="page"]')).toHaveCount(1);
-  await expect(page.locator('#site-nav [data-route="design"]')).toHaveAttribute('aria-current', 'page');
+  await expect(page.locator('#site-nav [data-route="design"]')).toHaveCount(0);
+  await expect(page.locator('.reading-page-title')).toContainText('Дизайн-система');
 });
 
 test('rings documents use whole image pages and retain original PDFs and precise historical anchors', async ({

@@ -41,7 +41,7 @@ test('profile parameters drive typography, spacing, signals and background stati
       .first()
       .evaluate((node) => parseFloat(getComputedStyle(node).columnGap)),
   ).toBeCloseTo(gapBefore * 1.25, 1);
-  await expect(page.locator('[data-route="works"] .page-code__family')).toHaveCSS(
+  await expect(page.locator('.primary-nav [data-route="works"] .page-code__family')).toHaveCSS(
     'color',
     'rgb(120, 180, 160)',
   );
@@ -137,7 +137,7 @@ test('mobile navigation, media, lightbox and contact work without horizontal ove
   if (isMobile) {
     await page.getByRole('button', { name: 'Open menu' }).click();
     await expect(page.getByRole('navigation', { name: 'Main navigation' })).toBeVisible();
-    await page.getByRole('button', { name: 'Open menu' }).click();
+    await page.getByRole('button', { name: 'Close menu' }).click();
   }
   await expect(page.locator('.feature-slide:not([hidden]) video')).toBeVisible();
   await page.goto('/en/works/interference-of-realities/');
@@ -182,25 +182,26 @@ test('featured carousel, editorial links and card media follow the design gramma
   );
   await expect(page.locator('.nm-brand-intro')).toHaveCount(0);
   await expect(page.locator('.section-rail .page-code').first()).toHaveAttribute('data-page-code', 'H.01');
-  await expect(page.locator('.nm-heading .page-code').first()).toHaveAttribute('data-page-code', 'H');
-  await expect(page.locator('.site-nav .page-code')).toHaveCount(10);
-  await expect(page.locator('.site-nav a[data-route="home"]')).toHaveAttribute('href', '/ru/');
-  await expect(page.locator('.site-nav a[data-route="home"]')).toContainText('Главная');
+  await expect(page.locator('.nm-heading .page-code')).toHaveCount(0);
+  await expect(page.locator('.site-nav a:not([data-route="design"]) .page-code')).toHaveCount(8);
+  await expect(page.locator('.site-nav a[data-route="home"]')).toHaveCount(0);
+  await expect(page.locator('.reading-breadcrumbs')).toContainText('Главная');
   await expect(page.locator('.site-nav .page-code').first()).toHaveCSS('padding', '0px');
   await expect(page.locator('.site-nav a').first()).toHaveCSS('column-gap', '8px');
   await expect(page.locator('#selected-works .work-card')).toHaveCount(6);
   await expect(page.locator('#selected-works .work-card:not([data-work-stage="realized"])')).toHaveCount(0);
-  await expect(page.locator('.recognition-card')).toHaveCount(7);
+  await expect(page.locator('#home-recognition-wall figure')).toHaveCount(18);
   await expect(page.locator('.work-card__identity .page-code')).toHaveCount(0);
   await expect(page.locator('.process-steps .page-code')).toHaveCount(0);
   await expect(page.locator('.work-card__category').first()).not.toBeEmpty();
-  await expect(page.locator('.recognition-card__image').first()).toHaveCSS('overflow', 'hidden');
+  await expect(page.locator('#home-recognition-wall [data-lightbox]').first()).toBeVisible();
   await expect(page.locator('.site-footer .social-icon').first()).toBeVisible();
   await expect(page.locator('.work-card__link').first()).toHaveCSS('text-decoration-line', 'none');
   const visibleLink = page.locator('a.callout-link:visible').first();
   await expect(visibleLink).toHaveClass(/is-drawn/);
   await expect(visibleLink).toHaveCSS('text-decoration-line', 'none');
-  await expect(visibleLink.locator('.callout-link-drawing path')).toHaveAttribute('d', /H[\d. -]+ L/);
+  await expect(visibleLink.locator('.callout-link-drawing path')).toHaveAttribute('d', /H[\d. -]+/);
+  await expect(visibleLink.locator('.callout-link-marker .technical-mark path')).toHaveAttribute('d', /L/);
   await expect(visibleLink).toContainText('\u00a0');
   const preview = page.locator('.work-card [data-video-preview]').first();
   await expect(preview.locator('img')).toHaveAttribute('src', '/video/interference-dawn-poster.webp');
@@ -305,9 +306,9 @@ test('homepage distinguishes catalogue scope and document previews', async ({ pa
   await expect(page.getByText('Папки событий · Golem', { exact: true })).toHaveCount(0);
   await expect(page.getByText('Записи признаний', { exact: true })).toBeVisible();
   await expect(page.getByText('Прежний перечень', { exact: true })).toHaveCount(0);
-  await expect(page.locator('.recognition-card__image')).toHaveCount(5);
+  await expect(page.locator('#home-recognition-wall [data-lightbox]')).toHaveCount(16);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
-  const trigger = page.locator('.recognition-card__image').first();
+  const trigger = page.locator('#home-recognition-wall [data-lightbox]').first();
   await trigger.click();
   await expect(page.locator('#lightbox')).toHaveAttribute('open', '');
   await page.keyboard.press('Escape');
@@ -377,19 +378,9 @@ test('reference fields follow material on mobile; colophon retains a previous vi
   isMobile,
 }) => {
   await page.goto('/ru/');
-  await page.evaluate(() => {
-    localStorage.setItem('oda-last-visit', '2026-08-20T10:00:00Z');
-    sessionStorage.removeItem('oda-previous-visit');
-  });
-  await page.reload();
-  await page.locator('.site-colophon > .content-disclosure > summary').click();
-  await expect(page.locator('[data-previous-visit]')).toContainText('2026');
-  const previous = await page.locator('[data-previous-visit]').textContent();
-  await page.goto('/ru/works/');
-  await page.locator('.site-colophon > .content-disclosure > summary').click();
-  await expect(page.locator('[data-previous-visit]')).toHaveText(previous!);
-  await expect(page.locator('.site-colophon > .record-stamp > dl > div')).toHaveCount(2);
-  await expect(page.locator('.site-colophon')).toContainText('Astro');
+  await page.locator('.footer-document > summary').click();
+  await expect(page.locator('[data-previous-visit]')).toHaveCount(0);
+  await expect(page.locator('.footer-document .record-stamp > dl > div')).toHaveCount(2);
   await page.evaluate(() =>
     Object.defineProperty(navigator, 'clipboard', {
       value: {

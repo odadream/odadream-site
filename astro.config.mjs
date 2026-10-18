@@ -2,11 +2,13 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import publicationIntegration from './scripts/publication-integration.mjs';
 import lastmod from './src/data/lastmod.json' with { type: 'json' };
+import { localizedCatalogueRedirects } from './src/data/catalogue-redirects.mjs';
 import { copyFile } from 'node:fs/promises';
 
 export default defineConfig({
   site: 'https://odadream.art',
   output: 'static',
+  redirects: localizedCatalogueRedirects,
   outDir: process.env.ODA_BUILD_DIR || './dist',
   devToolbar: { enabled: false },
   vite: {
@@ -21,6 +23,7 @@ export default defineConfig({
     publicationIntegration(),
     sitemap({
       filter: (page) =>
+        !Object.hasOwn(localizedCatalogueRedirects, new URL(page).pathname) &&
         !page.includes('/legacy/') &&
         !page.includes('/design-system/') &&
         !page.endsWith('/formats/') &&

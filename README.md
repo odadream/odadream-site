@@ -33,6 +33,10 @@ Quick supports a small explicit component allowlist. Shared styles, routes, publ
 
 The runner verifies DEV identity before browser checks, records timings/logs under `.local-server/checks/<run>/`, and builds in that run's isolated `dist`. Changing inputs/artifact during verification fails the run. A successful run copies the tested packet to the root `dist` and verifies the copy's hash before CI can upload it. Environment files contribute to the fingerprint; their contents are never printed. Run one verification at a time. Quick narrows reading samples by affected family while preserving languages, themes, widths and profile perturbations; full/release retain all samples. These commands do not push or deploy anything themselves.
 
+## Design-system maintenance
+
+The mandatory interface contract lives in [AGENTS.md](AGENTS.md). [The coverage map](src/lib/design-coverage.ts) records shared components and native patterns, their reuse decisions and live inspection targets. Run `npm run design:check` for component coverage and fixed px/color/font declarations outside the canonical tokens (responsive breakpoints are structural exceptions). `npm run design:check -- --site http://127.0.0.1:5178` also inventories every sitemap route in the identified local publication. This focused check is not a full regression run or visual acceptance. Findings and propagation evidence: [DESIGN-SYSTEM-COVERAGE.md](docs/DESIGN-SYSTEM-COVERAGE.md).
+
 ## Backup, restoration and storage
 
 `npm run workspace -- backup` creates a new private snapshot under `%LOCALAPPDATA%/ODA.dream/site-v2-backups/`, outside YandexDisk. An optional new destination folder may be supplied. The snapshot includes the full history of the **current branch**, tracked/untracked working files (including deletions), root `.env*`, prepared media/text cache and OCR models. A Git bundle is used because V2 is a managed worktree whose `.git` points to the neighbouring repository. SHA-256 checks detect changes during copying and verify every restored file.

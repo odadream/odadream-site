@@ -10,6 +10,7 @@
     "format": "prettier --write src scripts tests e2e astro.config.mjs playwright.config.ts",
     "format:check": "prettier --check src scripts tests e2e astro.config.mjs playwright.config.ts",
     "test": "node --test tests/*.test.mjs",
+    "design:check": "node scripts/design-coverage.mjs",
     "content:check": "node scripts/verify-content.mjs",
     "test:e2e": "node scripts/checks.mjs --mode browser",
     "verify": "node scripts/checks.mjs --mode quick",

@@ -1,6 +1,4 @@
 .dev-note {
-  border: var(--annotation-rule) dashed var(--signal-design);
-  border-inline-start: var(--space-unit) solid var(--signal-design);
   padding: var(--s4);
   margin-block: var(--s4);
   background: var(--reference-surface);
@@ -26,7 +24,6 @@
   gap: var(--s3);
   padding: var(--s3) var(--page-inset);
   background: var(--plane-front);
-  border-bottom: var(--annotation-rule) dashed var(--signal-design);
   font-size: var(--type-small);
 }
 .editorial-toolbar a {
@@ -63,17 +60,12 @@
 }
 .editorial-filters input,
 .editorial-filters select {
-  color: var(--ink);
-  background: var(--surface);
-  border: var(--annotation-rule) solid var(--line-strong);
-  min-height: var(--tap-target);
-  padding: var(--s2);
-  max-width: 100%;
-  font: inherit;
+  width: 100%;
 }
 .editorial-unit {
-  border-top: var(--annotation-rule) solid var(--line);
-  padding-block: var(--s4);
+  background: var(--plane-middle);
+  padding: var(--s4);
+  margin-block-end: var(--s4);
   overflow-wrap: anywhere;
 }
 .editorial-unit header {
@@ -100,12 +92,6 @@
   display: none;
 }
 
-.editorial-toolbar__status summary {
-  cursor: pointer;
-  min-height: var(--tap-target);
-  display: flex;
-  align-items: center;
-}
 .editorial-toolbar__status[open] {
   flex: 1 1 100%;
 }

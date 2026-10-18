@@ -56,7 +56,8 @@ test('fresh random starts cover the public library and preserve real target/stag
     'data-hero-stage',
     'prototype',
   );
-  await expect(page.locator('.nm-heading .eyebrow')).toContainText('ГЛАВНАЯ');
+  await expect(page.locator('.nm-heading .eyebrow')).toHaveCount(0);
+  await expect(page.locator('.reading-breadcrumbs')).toContainText('Главная');
   await expect(page.locator('#selected-works [data-work-id="mindshow"] .work-card__media-note')).toHaveCount(
     0,
   );
@@ -72,7 +73,8 @@ test('only an active ended video advances; hidden/offscreen video stays paused a
   });
   await page.goto('/en/');
   await expect(page.locator('[data-carousel]')).toHaveAttribute('data-carousel-ready', 'true');
-  await expect(page.locator('.nm-heading .eyebrow')).toContainText('HOME');
+  await expect(page.locator('.nm-heading .eyebrow')).toHaveCount(0);
+  await expect(page.locator('.reading-breadcrumbs')).toContainText('Home');
   await activate(page, isMobile);
   const firstId = await active(page).getAttribute('data-slide-id');
   const first = page.locator('[data-slide-id="' + firstId + '"]');

@@ -1,5 +1,6 @@
 ---
 import { makePageCode, type PageFamily } from '../lib/page-codes';
+import TechnicalMark from './TechnicalMark.astro';
 
 interface Props {
   family: PageFamily;
@@ -20,11 +21,31 @@ const description =
       : `Page ${family}, section ${String(section).padStart(2, '0')}`;
 const suffix = code.slice(2);
 const sectionCode = suffix.slice(0, 2);
-const codeMarkup = [
-  `<span class="page-code__family">${family}</span>`,
-  sectionCode ? '<span class="page-code__separator">.</span>' : '',
-  sectionCode ? `<span class="page-code__section">${sectionCode}</span>` : '',
-].join('');
+const marks = {
+  H: 'home',
+  W: 'works',
+  E: 'education',
+  C: 'cooperation',
+  S: 'studio',
+  K: 'cases',
+  N: 'contact',
+  M: 'technology',
+  R: 'recognition',
+  D: 'design',
+} as const;
+const names = {
+  H: ['Home', 'Главная'],
+  W: ['Works', 'Работы'],
+  E: ['Education', 'Образование'],
+  C: ['Cooperation', 'Сотрудничество'],
+  S: ['Studio', 'Студия'],
+  K: ['Cases', 'Кейсы'],
+  N: ['Contact', 'Контакт'],
+  M: ['Neuromandala', 'Нейромандала'],
+  R: ['Recognition', 'Признания'],
+  D: ['Design system', 'Система дизайна'],
+};
+const accessibleDescription = description.replace(family, names[family][lang === 'ru' ? 1 : 0]);
 ---
 
 <span
@@ -32,6 +53,12 @@ const codeMarkup = [
   data-family={family}
   data-page-code={register ? code : undefined}
   role="img"
-  aria-label={description}
-  set:html={codeMarkup}
-/>
+  aria-label={accessibleDescription}
+>
+  {[
+    <span class="page-code__family">
+      <TechnicalMark kind={marks[family]} />
+    </span>,
+    sectionCode && <span class="page-code__section">{`.${sectionCode}`}</span>,
+  ]}
+</span>

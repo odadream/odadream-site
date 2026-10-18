@@ -1,0 +1,143 @@
+/** Auditable catalogue of roles, not a second component implementation. */
+export const designCoverage = [
+  {
+    role: 'Универсальный просмотрщик медиа',
+    components: ['MediaViewer'],
+    specimen: '#system-06',
+    consumer: '/ru/#recognition',
+    decision:
+      'Один dialog для изображений и видео: fit без прокрутки, подпись по центру, единая текстовая baseline управления через control-type/control-leading, счётчик между стрелками без рамок в нижней полосе, закрытие сверху справа на подложке, 1:1 и локальные pinch/pan. Геометрия содержимого рассчитывается по размеру оригинала, оформление — общие lightbox-токены. Все точки входа используют data-lightbox.',
+  },
+  {
+    role: 'Компактная стена документов признания',
+    components: ['RecognitionWall'],
+    specimen: '#system-10',
+    consumer: '/ru/#recognition',
+    decision:
+      'DEV-тест: все записи текущей проекции, целые сканы миниатюрами, текст для записей без скана. Общий media-viewer листает документы и ведёт к соответствующей записи; recognition-wall-* задают плотность.',
+  },
+  {
+    role: 'Нативный select с общим шевроном',
+    components: ['SelectControl'],
+    specimen: '#system-17',
+    consumer: '/ru/cases/',
+    decision:
+      'Общая оболочка существующего select: TechnicalMark down, резерв справа, типографика control-type. Те же поля на стенде и в редакторе; нативное управление и доступные label сохраняются.',
+  },
+  {
+    role: 'Назначение ссылки',
+    components: ['CalloutLink'],
+    specimen: '#system-04',
+    consumer: '/ru/works/',
+    decision:
+      'Утверждённая выноска 45° с TechnicalMark linkPlain/linkCircle/linkBar. Кружок — внешний origin, черта — download. Острие открытое, прежний размер. Цвет текста и выноски только на hover/focus: целевое семейство / SIGNAL / ALERT. Круг и черта увеличены на 50% внутри общего конверта 24×24; сравнение палитры — /link-test/#link-palette. Окончание ограничено шириной контейнера; длинное слово переносится внутри узкого паспорта (/en/cases/oktava-2021/). Включено для общих ссылок и названий карточек; DEV сохраняет историческое сравнение.',
+  },
+  {
+    role: 'Ориентация и действия',
+    components: ['PageCode', 'TechnicalMark', 'CalloutLink', 'ReadingNavigation', 'PageOutline'],
+    specimen: '#system-04',
+    consumer: '/ru/education/#education-conditions',
+    decision:
+      'Использовать общий baseline кода и подписи; текущий раздел — в крошках, другие переходы — в верхнем ряду. Шапка стенда — живой образец раскрытия и адаптации; копия шапки внутри главы не нужна.',
+  },
+  {
+    role: 'Композиция страницы',
+    components: ['MacroSection', 'DetailSection', 'SectionRail', 'PageView'],
+    specimen: '#system-12',
+    consumer: '/ru/works/',
+    decision:
+      'Пять функций макроблока, три режима поля. PageView только собирает их из данных; отдельного визуального языка страницы нет.',
+  },
+  {
+    role: 'Каталог и хронология',
+    components: ['WorkCard', 'ProgrammeCard', 'RecognitionCard'],
+    specimen: '#system-05',
+    consumer: '/ru/cases/',
+    decision: 'Сохранить разные сущности, объединить их ритм через card/record-токены.',
+  },
+  {
+    role: 'Архив событий',
+    components: ['CaseRow', 'CaseArchive'],
+    specimen: '#system-07',
+    consumer: '/ru/cases/',
+    decision:
+      'CaseArchive использует существующие select, metadata и summary-роли; CaseRow имеет один переход на событие. Галерея и комментарии остаются на странице события. Новый визуальный токен не нужен.',
+  },
+  {
+    role: 'Участие и процесс',
+    components: ['ParticipationPanel', 'ProcessSteps', 'CollectiveFeedback'],
+    specimen: '#system-14',
+    consumer: '/ru/education/',
+    decision:
+      'Панель участия — композиция рассказа, списка и паспорта. Заголовок новой группы отделён от связанных абзацев общим gap-copy.',
+  },
+  {
+    role: 'Паспорта и происхождение',
+    components: ['RecordStamp', 'StatisticsStamp', 'MindDBStamp', 'EvidenceNote'],
+    specimen: '#system-11',
+    consumer: '/ru/recognition/',
+    decision:
+      'Один паспорт, варианты document/reference. Доказательство выделяется поверхностью и текстом, без декоративной полосы.',
+  },
+  {
+    role: 'Рассказ, источники и раскрытия',
+    components: ['EditorialSections', 'ReadingNote', 'SourceLinks', 'DisclosureHeading'],
+    specimen: '#system-17',
+    consumer: '/ru/studio/',
+    decision:
+      'Добавлены недостающие живые источники и общий заголовок раскрытия. Это существующие текстовые роли, отдельные шрифтовые токены не нужны.',
+  },
+  {
+    role: 'Медиа и документы',
+    components: ['MediaFigure', 'MediaGallery', 'MediaRegister', 'VideoPreview', 'DocumentList'],
+    specimen: '#system-15',
+    consumer: '/ru/works/',
+    decision:
+      'Один регистр, компактное вспомогательное превью с резервированием исходных пропорций до загрузки, полный материал в просмотрщике. Колонки tiles и последовательность sequence остаются разными режимами. Lightbox использует control-surface/hover для закрытия сверху справа, control-icon-size и две нижние полосы подписи/управления; стрелки без рамок, счётчик между ними. Проверка на белом скане — /ru/#recognition; правовая производная копия и DocumentList — /ru/studio/#legal.',
+  },
+  {
+    role: 'Согласие и старый адрес',
+    components: ['AnalyticsConsent', 'LegacyNotice'],
+    specimen: '#system-06',
+    consumer: '/404.html',
+    decision:
+      'Согласие показано безопасным specimen без сохранения выбора. LegacyNotice проверяется на отдельном адресе: его таймер не должен перенаправлять стенд.',
+  },
+  {
+    role: 'Редакционная среда и кадрирование',
+    components: ['DevNote', 'DevPublicationMark', 'MediaCropEditor', 'MediaCropTrigger'],
+    specimen: '#dev-workspace-specimen',
+    consumer: '/editorial/?lang=ru',
+    decision:
+      'Служебные компоненты используют те же поверхности, поля и раскрытия. Реальный редактор кадра открывается у медиа стенда; отдельная копия диалога не нужна.',
+  },
+] as const;
+
+/** Native HTML patterns also belong to the contract, even without an Astro wrapper. */
+export const designPatterns = [
+  [
+    'Текст и заголовки',
+    'h1–h4, p, .copy-summary, .small-note',
+    '--type-*, --leading-*, --copy-measure',
+    '#system-02',
+  ],
+  ['Смысловой список', '.facts', '--gap-copy, --s3, --mark-size', '#system-03'],
+  [
+    'Хронология и биографии',
+    '.timeline, .list-row, .studio-people-layout',
+    '--record-*, --gap-component, --portrait-measure',
+    '/ru/studio/',
+  ],
+  ['Цитата', 'blockquote.quote', '--type-statement, --copy-measure', '#system-06'],
+  ['Раскрытие', 'details > summary', '--disclosure-*, --tap-target', '#system-17'],
+  ['Поле ввода', 'input, select, textarea', '--control-*, --tap-target, --focus-*', '#system-17'],
+  [
+    'Кнопка и состояние',
+    '.button, :disabled, :focus-visible, .status',
+    '--tap-target, --focus-*, --signal-*',
+    '#system-04',
+  ],
+  ['Просмотрщик и ошибки загрузки', 'dialog.lightbox', '--lightbox-*, --control-icon-size', '#system-06'],
+  ['Полноширинный hero', '.nm-hero, .nm-heading, .nm-data-panel', '--hero-*, --page-inset', '/ru/'],
+  ['Шапка и футер', '.site-header, .site-footer', '--header-*, --nav-label-gap, --gap-*', '#page-top'],
+] as const;

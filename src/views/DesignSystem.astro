@@ -1,4 +1,9 @@
 ---
+import DisclosureHeading from '../components/DisclosureHeading.astro';
+import SourceLinks from '../components/SourceLinks.astro';
+import type { PageFamily } from '../lib/page-codes';
+import { chapterMarker } from '../lib/page-outline';
+import { designCoverage, designPatterns } from '../lib/design-coverage';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import DevNote from '../components/DevNote.astro';
 import MediaGallery from '../components/MediaGallery.astro';
@@ -10,6 +15,7 @@ import ProgrammeCard from '../components/ProgrammeCard.astro';
 import ParticipationPanel from '../components/ParticipationPanel.astro';
 import WorkCard from '../components/WorkCard.astro';
 import CaseRow from '../components/CaseRow.astro';
+import CaseArchive from '../components/CaseArchive.astro';
 import CollectiveFeedback from '../components/CollectiveFeedback.astro';
 import RecognitionCard from '../components/RecognitionCard.astro';
 import StatisticsStamp from '../components/StatisticsStamp.astro';
@@ -85,6 +91,7 @@ const sections = [
   ['Макроблок · процесс'],
   ['Макроблок · документ'],
   ['Макроблок · действие'],
+  ['Покрытие · общие элементы'],
 ];
 const signalFamilies = [
   ['H', 'Главная', '--signal-home'],
@@ -100,6 +107,22 @@ const signalFamilies = [
 ];
 const profileTokens = [
   ['--space-unit', 'Единица пространственного ритма'],
+  ['--stamp-gap', 'Промежуток и расчёт ширины ячеек паспорта'],
+  ['--record-date-measure', 'Колонка даты хронологии'],
+  ['--hero-heading-width', 'Ширина заголовка полноширинного hero'],
+  ['--hero-data-width', 'Ширина панели данных hero'],
+  ['--nav-label-gap', 'Знак и подпись навигации'],
+  ['--disclosure-gap', 'Шеврон и первая строка раскрытия'],
+  ['--disclosure-inset', 'Вертикальное поле раскрытия'],
+  ['--control-pad', 'Внутреннее поле ввода'],
+  ['--control-surface', 'Поверхность ввода'],
+  ['--control-border', 'Рамка ввода'],
+  ['--header-theme-min', 'Минимальная ширина переключателя темы'],
+  ['--header-menu-min', 'Минимальная ширина меню, включая расчёт переполнения'],
+  ['--portrait-measure', 'Максимальная ширина портрета'],
+  ['--media-preview-height', 'Высота вспомогательного превью'],
+  ['--texture-dot-step', 'Шаг фоновых точек'],
+  ['--texture-grain-opacity', 'Интенсивность общей фактуры'],
   ['--type-scale', 'Масштаб читаемой типографики'],
   ['--copy-measure', 'Максимальная длина строки рассказа'],
   ['--type-body', 'Основной рассказ и смысловой список'],
@@ -116,7 +139,13 @@ const profileTokens = [
   ['--leading-summary', 'Межстрочный интервал краткого описания'],
   ['--leading-metadata', 'Межстрочный интервал метаданных'],
   ['--gap-component', 'Интервал между блоками внутри раздела'],
-  ['--section-space', 'Однократный интервал перед следующей главой'],
+  ['--section-space', 'Интервал перед следующей главой'],
+  ['--section-body-inset', 'Внутреннее поле главы, отдельно от паспорта'],
+  ['--gap-heading', 'Заголовок и его содержание'],
+  ['--card-gap', 'Связанные строки карточки'],
+  ['--card-row-gap', 'Расстояние между карточками'],
+  ['--record-row-inset', 'Внешнее поле записи хронологии'],
+  ['--record-copy-gap', 'Связанные факты одной записи'],
   ['--grid-rail', 'Поле документа'],
   ['--grid-gap', 'Расстояние между полем и материалом'],
   ['--page-inset', 'Общая внешняя ось, включая полноширинное видео'],
@@ -160,8 +189,9 @@ const profileTokens = [
       <div>
         <h1>Система, в которой работа остаётся главным событием.</h1>
         <p class="lead">
-          Рабочий стенд утверждённого визуального языка. Примеры ниже используют те же токены и компоненты,
-          что и публичные страницы. Новые паттерны главной дополняют систему, не заменяя её.
+          Живой контракт интерфейса: параметры → смысловые роли → общие компоненты → страницы. Стенд
+          использует рабочие компоненты сайта; карта покрытия в конце объясняет выбор и исключения. Дизайн
+          остаётся на авторском рассмотрении.
         </p>
         <nav class="system-index" aria-label="Разделы дизайн-системы">
           {sections.map(([label], i) => (
@@ -172,7 +202,11 @@ const profileTokens = [
       </div>
     </section>
 
-    <section class="system-grid system-section" id="system-01">
+    <section
+      class="system-grid system-section"
+      id="system-01"
+      data-page-chapter={chapterMarker({ id: 'system-01', title: sections[0][0], family: 'D', section: 1 })}
+    >
       <aside class="system-side">
         <div class="section-label">
           <PageCode family="D" section={1} lang="ru" />
@@ -186,7 +220,7 @@ const profileTokens = [
           главным визуальным акцентом.
         </p>
         <details class="token-profile">
-          <summary>Параметры стилистического профиля</summary>
+          <DisclosureHeading>Параметры стилистического профиля</DisclosureHeading>
           <p class="small-note">
             Профиль → семантическая роль → компонент. Полный реестр: docs/DESIGN-TOKENS.md. Справочные числа
             принадлежат фону; их низкий приоритет задаётся тоном и масштабом, а не нечитаемостью.
@@ -240,7 +274,7 @@ const profileTokens = [
         <div class="signal-key" aria-label="Цветовая кодировка страниц">
           {signalFamilies.map(([code, label, token]) => (
             <div class="signal-key__entry" data-signal={code}>
-              <code>{code}</code>
+              <PageCode family={code as PageFamily} lang="ru" register={false} />
               <span>{label}</span>
               <i aria-hidden="true"></i>
               <code data-css-token={token}></code>
@@ -260,7 +294,11 @@ const profileTokens = [
       </div>
     </section>
 
-    <section class="system-grid system-section" id="system-02">
+    <section
+      class="system-grid system-section"
+      id="system-02"
+      data-page-chapter={chapterMarker({ id: 'system-02', title: sections[1][0], family: 'D', section: 2 })}
+    >
       <aside class="system-side">
         <div class="section-label">
           <PageCode family="D" section={2} lang="ru" />
@@ -307,7 +345,11 @@ const profileTokens = [
       </div>
     </section>
 
-    <section class="system-grid system-section" id="system-03">
+    <section
+      class="system-grid system-section"
+      id="system-03"
+      data-page-chapter={chapterMarker({ id: 'system-03', title: sections[2][0], family: 'D', section: 3 })}
+    >
       <aside class="system-side">
         <div class="section-label">
           <PageCode family="D" section={3} lang="ru" />
@@ -323,7 +365,9 @@ const profileTokens = [
         <p>
           Метка привязана к первой строке заголовка оптически, а не к центру всей секции. Фон панели выступает
           наружу; заголовок, текст, список и паспорт начинают на одной оси. На телефоне метка предшествует
-          материалу в одном потоке.
+          материалу в одном потоке. Локальный вариант плотности: связанные строки карточки — 8 px,
+          самостоятельные карточки — 32 px; главы — 64 px на desktop и 40 px на mobile. Внутреннее поле главы
+          отделено от отступа паспорта. Разделители в меню не повторяются у каждой ссылки.
         </p>
         <article class="list-row" id="system-narrative-row">
           <div>
@@ -354,27 +398,27 @@ const profileTokens = [
         <div class="scale-list">
           <div>
             <span>LABEL</span>
-            <strong>12 px</strong>
+            <strong data-css-token="--gap-label"></strong>
           </div>
           <div>
             <span>COPY</span>
-            <strong>16 px</strong>
+            <strong data-css-token="--gap-copy"></strong>
           </div>
           <div>
             <span>GROUP</span>
-            <strong>32 px</strong>
+            <strong data-css-token="--gap-group"></strong>
           </div>
           <div>
             <span>BLOCK</span>
-            <strong>48 px</strong>
+            <strong data-css-token="--gap-block"></strong>
           </div>
           <div>
             <span>SECTION</span>
-            <strong>80 / 48 px</strong>
+            <strong data-css-token="--section-space"></strong>
           </div>
           <div>
             <span>GUTTER</span>
-            <strong>40 / 16 px</strong>
+            <strong data-css-token="--gutter"></strong>
           </div>
         </div>
         <p class="small-note">
@@ -387,10 +431,11 @@ const profileTokens = [
             <span class="eyebrow">Без линии</span> Разделы отделяет пространство.
           </p>
           <p>
-            <span class="eyebrow">Тихая линия</span> Только ряды данных и внутренние таблицы.
+            <span class="eyebrow">Группа</span> Связанные данные сближает расстояние и общая поверхность.
           </p>
           <p>
-            <span class="eyebrow">Сильная линия</span> Рамка действия или ошибки, не орнамент.
+            <span class="eyebrow">Действие</span> Рамка только у управления и состояния ошибки; не
+            разделитель.
           </p>
         </div>
         <p class="small-note">
@@ -399,7 +444,11 @@ const profileTokens = [
       </div>
     </section>
 
-    <section class="system-grid system-section" id="system-04">
+    <section
+      class="system-grid system-section"
+      id="system-04"
+      data-page-chapter={chapterMarker({ id: 'system-04', title: sections[3][0], family: 'D', section: 4 })}
+    >
       <aside class="system-side">
         <div class="section-label">
           <PageCode family="D" section={4} lang="ru" />
@@ -421,8 +470,10 @@ const profileTokens = [
           ))}
         </nav>
         <p class="small-note">
-          Все девять обзорных разделов берутся из реестра маршрутов. До 1600 px меню раскрывается кнопкой;
-          длинный список прокручивается внутри доступной высоты экрана. D / Система доступен только в dev.
+          Образец показывает полную карту из реестра маршрутов. В шапке текущий раздел остаётся в крошках,
+          другие переходы занимают доступное место; остаток раскрывается через «Ещё». Тема появляется в
+          строке, когда не вытесняет раздел. Главная доступна через логотип. Пиктограмма и цвет сохраняют
+          семейство страницы, суффикс .01 — позицию главы. Система доступна только в DEV.
         </p>
         <div class="component-pair">
           <div>
@@ -470,10 +521,21 @@ const profileTokens = [
           карточки не подчёркиваются. Одна focus-обводка действует также для summary и полей ввода; якоря
           учитывают высоту шапки. Вторичное действие имеет сплошную тихую рамку, не пунктир.
         </p>
+        <p class="small-note">
+          Живой образец навигации — шапка этого стенда: путь страницы и раскрываемое содержание остаются
+          доступны при прокрутке. Содержание раскрывает общую поверхность шапки. Активная глава отмечена
+          сигналом и подчёркиванием. Пиктограммы размером со шрифт, без рамок. Escape возвращает фокус к
+          открывшему меню элементу. На кейсах доступны годы. Название страницы и отдельные стрелки перехода в
+          раскрытии не повторяются. Оглавление и годы работают обычными якорями.
+        </p>
       </div>
     </section>
 
-    <section class="system-grid system-section" id="system-05">
+    <section
+      class="system-grid system-section"
+      id="system-05"
+      data-page-chapter={chapterMarker({ id: 'system-05', title: sections[4][0], family: 'D', section: 5 })}
+    >
       <aside class="system-side">
         <div class="section-label">
           <PageCode family="D" section={5} lang="ru" />
@@ -505,25 +567,26 @@ const profileTokens = [
           Документ — подборка целых страниц WebP с общим увеличением. Исходный PDF доступен отдельно;
           извлечённые текстовые копии остаются в служебном кеше и не публикуются автоматически.
         </p>
-        <DocumentList documents={workDocuments} lang="ru" />
         <DocumentList
-          documents={referenceDocuments.filter(
-            (row) => row.kind === 'technical-overview' && row.language === 'ru',
+          documents={workDocuments.filter((row) =>
+            ['oda-rings-drawings', 'oda-rings-banner'].includes(row.id),
           )}
           lang="ru"
-          title="Технический обзор · 10 октября 2026"
         />
-        <DocumentList
-          documents={referenceDocuments.filter((row) => row.kind === 'cv' && row.language === 'ru')}
-          lang="ru"
-          title="CV авторов"
-        />
+        <p class="small-note">
+          Здесь достаточно чертежа и баннера: оба показывают компактное превью. Многостраничный документ — в
+          главе 15; CV оформляется текстом на странице студии.
+        </p>
         <p class="component-title">Медиа + подпись + источник</p>
         <MediaFigure id="interference-stage" lang="ru" priority />
       </div>
     </section>
 
-    <section class="system-grid system-section" id="system-06">
+    <section
+      class="system-grid system-section"
+      id="system-06"
+      data-page-chapter={chapterMarker({ id: 'system-06', title: sections[5][0], family: 'D', section: 6 })}
+    >
       <aside class="system-side">
         <div class="section-label">
           <PageCode family="D" section={6} lang="ru" />
@@ -579,7 +642,11 @@ const profileTokens = [
       </div>
     </section>
 
-    <section class="system-grid system-section" id="system-07">
+    <section
+      class="system-grid system-section"
+      id="system-07"
+      data-page-chapter={chapterMarker({ id: 'system-07', title: sections[6][0], family: 'D', section: 7 })}
+    >
       <aside class="system-side">
         <div class="section-label">
           <PageCode family="D" section={7} lang="ru" />
@@ -609,20 +676,23 @@ const profileTokens = [
             presentation="overview"
             specimen
           />
-          <CaseRow item={cases.find((item) => item.id === 'hse-2025')!} lang="ru" specimen />
-          <CaseRow item={cases.find((item) => item.id === 'tavrida-ai-2025')!} lang="ru" specimen />
+          <CaseArchive
+            items={cases.filter((item) => ['hse-2025', 'tavrida-ai-2025', 'cipr-2026'].includes(item.id))}
+            lang="ru"
+            specimen
+          />
         </div>
         <article>
           <span class="component-title">Событие / показ</span>
           <h3>Интерференция реальностей</h3>
-          <dl>
-            <dt>Дата</dt>
-            <dd>16 мая 2026</dd>
-            <dt>Место</dt>
-            <dd>Инновационный культурный центр, Калуга</dd>
-            <dt>Контекст</dt>
-            <dd>«Циолковский фест»</dd>
-          </dl>
+          <RecordStamp
+            title="Параметры события"
+            fields={[
+              { label: 'Дата', value: '16 мая 2026' },
+              { label: 'Место', value: 'Инновационный культурный центр, Калуга' },
+              { label: 'Контекст', value: '«Циолковский фест»' },
+            ]}
+          />
           <CalloutLink href="/ru/cases/tsiolkovsky-festival-2026/">Кейс и источники</CalloutLink>
         </article>
         <article>
@@ -661,7 +731,11 @@ const profileTokens = [
       </div>
     </section>
 
-    <section class="system-grid system-section" id="system-08">
+    <section
+      class="system-grid system-section"
+      id="system-08"
+      data-page-chapter={chapterMarker({ id: 'system-08', title: sections[7][0], family: 'D', section: 8 })}
+    >
       <aside class="system-side">
         <div class="section-label">
           <PageCode family="D" section={8} lang="ru" />
@@ -682,12 +756,17 @@ const profileTokens = [
           </figure>
         </div>
         <p class="small-note">
-          Логотип в header: около 94 × 46 px. Свободное поле: 24 px. Контур мозга — одиночный мотив у раздела
+          Ширина логотипа в шапке: <code data-css-token="--header-logo-width"></code>. Минимальная область
+          нажатия: <code data-css-token="--tap-target"></code>. Контур мозга — одиночный мотив у раздела
           метода, а не повторяющийся фон.
         </p>
       </div>
     </section>
-    <section class="system-grid system-section" id="system-09">
+    <section
+      class="system-grid system-section"
+      id="system-09"
+      data-page-chapter={chapterMarker({ id: 'system-09', title: sections[8][0], family: 'D', section: 9 })}
+    >
       <aside class="system-side">
         <div class="section-label">
           <PageCode family="D" section={9} lang="ru" />
@@ -722,7 +801,11 @@ const profileTokens = [
         </p>
       </div>
     </section>
-    <section class="system-grid system-section" id="system-10">
+    <section
+      class="system-grid system-section"
+      id="system-10"
+      data-page-chapter={chapterMarker({ id: 'system-10', title: sections[9][0], family: 'D', section: 10 })}
+    >
       <aside class="system-side">
         <div class="section-label">
           <PageCode family="D" section={10} lang="ru" />
@@ -744,7 +827,7 @@ const profileTokens = [
           </p>
         </div>
         <p class="small-note">
-          Иерархический адрес: буква семейства → номер раздела (<code>W</code>, <code>W.01</code>). Он
+          Иерархический адрес: пиктограмма семейства → номер раздела (<code>W</code>, <code>W.01</code>). Он
           показывает положение блока, но не нумерует отдельные карточки и не заменяет ID записи.
         </p>
         <CollectiveFeedback lang="ru" id="specimen-feedback" />
@@ -767,7 +850,7 @@ const profileTokens = [
           карточкой без пустого поля изображения.
         </p>
         <details class="content-disclosure">
-          <summary>Справочные сведения по раскрытию</summary>
+          <DisclosureHeading>Справочные сведения по раскрытию</DisclosureHeading>
           <p class="small-note">
             Так оформляются второстепенные сведения: например, движок и локальная история браузера в выходных
             данных. Дата редакции и основное действие остаются видимыми.
@@ -775,7 +858,11 @@ const profileTokens = [
         </details>
       </div>
     </section>
-    <section class="system-grid system-section system-grid--rail" id="system-11">
+    <section
+      class="system-grid system-section system-grid--rail"
+      id="system-11"
+      data-page-chapter={chapterMarker({ id: 'system-11', title: sections[10][0], family: 'D', section: 11 })}
+    >
       <div class="system-content">
         <h2>Графика, у которой есть работа.</h2>
         <p>
@@ -807,21 +894,21 @@ const profileTokens = [
         <EditorialSections sections={works[0].story.slice(0, 1)} lang="ru" anchorPrefix="system-story" />
         <h3>Записи и публикации на внешних площадках</h3>
         <EditorialSections
-          sections={works
-            .find((work) => work.id === 'theatre-my-name')!
-            .story.filter((section) => section.links)}
+          sections={programmes
+            .find((programme) => programme.id === 'theatre-my-name')!
+            .modules!.filter((section) => section.links)}
           lang="ru"
           anchorPrefix="system-source"
         />
-        <h3>Карточки концептов: визуализация и доступность медиа</h3>
+        <h3>Карточки работ: визуализация и доступность медиа</h3>
         <div class="work-grid">
-          {['another-people', 'brain-hack'].map((id) => (
+          {['another-people', 'gong'].map((id) => (
             <WorkCard item={works.find((work) => work.id === id)!} lang="ru" />
           ))}
         </div>
         <h3>Программы образования и условия показа работы</h3>
         <div class="programme-grid">
-          {['beautiful-brain', 'neuro-laboratory', 'color-brain', 'dance-feedback'].map((id) => (
+          {['beautiful-brain', 'neuro-laboratory', 'theatre-my-name', 'brain-hack'].map((id) => (
             <ProgrammeCard item={programmes.find((row) => row.id === id)!} lang="ru" />
           ))}
         </div>
@@ -853,7 +940,7 @@ const profileTokens = [
           ]}
           lang="ru"
           fit="crop"
-          label="Явная обрезка фотографии; документ целиком"
+          label="Явная обрезка фотографии; документ без обрезки в компактном превью"
         />
         <h3>Gallery: large sequence / English</h3>
         <MediaGallery
@@ -961,7 +1048,7 @@ const profileTokens = [
         <p class="small-note">
           На телефоне фоновая цифра и заметка скрыты. MacroSection показывает адрес перед заголовком и справку
           после материала; отдельный SectionRail сохраняет горизонтальный код. Название раздела не повторяется
-          на поле. Ячейки образуют замкнутую сетку с общими рёбрами.
+          на поле. Поля паспорта объединяет поверхность; декоративных рёбер и полос нет.
         </p>
         <p class="small-note">
           Руководство для агентов: <code>docs/DESIGN-GUIDE.md</code>. Опорные примеры:{' '}
@@ -1059,7 +1146,7 @@ const profileTokens = [
       section={15}
       lang="ru"
       label="Документ"
-      title="Документ: собственные пропорции и реквизиты"
+      title="Документ: компактное превью, полный размер по открытию"
     >
       <p>
         Для отдельного документа достаточно короткой метки. Рамка принадлежит паспорту; подложка не
@@ -1096,12 +1183,93 @@ const profileTokens = [
       </p>
       <CalloutLink href="/ru/contact/">Обсудить проект со студией</CalloutLink>
     </MacroSection>
+    <MacroSection
+      id="system-17"
+      kind="editorial"
+      field="label"
+      contained={false}
+      family="D"
+      section={17}
+      lang="ru"
+      label="Покрытие"
+      title="Общие элементы и границы системы"
+    >
+      <p>
+        Перед добавлением нового элемента сначала выбираем готовую роль. Новая роль нужна для новой функции, а
+        не для другой страницы. Шапка, футер и просмотрщик проверяются в настоящем окружении этого стенда.
+      </p>
+      <details class="content-disclosure" id="system-disclosure">
+        <DisclosureHeading>
+          Раскрытие с длинной подписью: знак остаётся у первой строки, продолжение — под текстом
+        </DisclosureHeading>
+        <p>
+          Один серверный компонент DisclosureHeading используется в паспорте, футере, реквизитах медиа и
+          редакционном каталоге. Работает без JavaScript.
+        </p>
+        <ReadingNote>
+          Пояснение использует существующий ReadingNote, а не собственный мелкий шрифт.
+        </ReadingNote>
+      </details>
+      <SourceLinks
+        lang="ru"
+        links={works.flatMap((work) => work.story.flatMap((section) => section.links ?? [])).slice(0, 2)}
+      />
+      <div class="system-control">
+        <label>
+          Поиск в редакционном каталоге · образец
+          <input type="search" placeholder="Название или идентификатор" />
+        </label>
+        <label>
+          Язык · образец
+          <select>
+            <option>Русский</option>
+            <option>English</option>
+          </select>
+        </label>
+        <label>
+          Комментарий · образец
+          <textarea rows="2" placeholder="Пояснение к материалу"></textarea>
+        </label>
+        <ReadingNote>
+          Поля — локальные образцы без отправки. Те же правила ввода используются в редакторе и кадрировании.
+        </ReadingNote>
+      </div>
+      <details class="content-disclosure">
+        <DisclosureHeading>Нативные элементы: текст, списки, поля и состояния</DisclosureHeading>
+        <div class="coverage-list">
+          {designPatterns.map(([label, selectors, tokens, href]) => (
+            <article>
+              <h3>{label}</h3>
+              <code>{selectors}</code>
+              <p class="small-note">{tokens}</p>
+              <CalloutLink href={href}>Проверить в контексте</CalloutLink>
+            </article>
+          ))}
+        </div>
+      </details>
+      <details class="content-disclosure">
+        <DisclosureHeading>Карта компонентов: что используется и где проверять</DisclosureHeading>
+        <div class="coverage-list">
+          {designCoverage.map((group) => (
+            <article>
+              <h3>{group.role}</h3>
+              <code>{group.components.join(' · ')}</code>
+              <p>{group.decision}</p>
+              <div class="link-row">
+                <CalloutLink href={group.specimen}>Образец</CalloutLink>
+                <CalloutLink href={group.consumer}>На странице</CalloutLink>
+              </div>
+            </article>
+          ))}
+        </div>
+      </details>
+    </MacroSection>
     <section class="section" id="dev-workspace-specimen">
       <h2>DEV · редакционная среда</h2>
       <p>
         Панель DEV/PUBLIC и вход в реестр текстов загружаются самим DEV. Если PUBLIC остановлен, панель
         остаётся доступной и сообщает о запуске start-local-v2.cmd. При свёрнутом меню текущий раздел виден в
-        шапке; на телефоне он занимает отдельную строку. Оглавление внизу собирается из глав MacroSection и
+        шапке; на телефоне он занимает отдельную строку. Содержание в шапке собирается из глав MacroSection и
         DetailSection; вложенные примеры третьего уровня в него не входят.
       </p>
       <DevNote id="dev-specimen-note" lang="ru" block="design-example">

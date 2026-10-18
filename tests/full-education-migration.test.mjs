@@ -11,9 +11,9 @@ const inventory = JSON.parse(readFileSync('docs/migration/INVENTORY-2026-10-05.j
 test('the complete programme catalogue has source-backed curricula, distinct outcomes and paired routes', () => {
   const data = createPublicationScope(source, publicationPlan);
   assert.deepEqual(data.errors, []);
-  assert.equal(data.programmes.length, 15);
+  assert.equal(data.programmes.length, 17);
   const pages = createPages(data);
-  assert.equal(pages.filter((row) => row.kind === 'programme').length, 30);
+  assert.equal(pages.filter((row) => row.kind === 'programme').length, 34);
   for (const item of source.programmes) {
     assert.ok(item.topics.length && item.conditions.length && item.sourceRefs.length, item.id);
     for (const lang of ['ru', 'en']) {

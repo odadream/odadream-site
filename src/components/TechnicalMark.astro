@@ -1,17 +1,9 @@
 ---
+import { technicalPaths } from '../lib/technical-marks';
 interface Props {
-  kind: 'record' | 'note' | 'open' | 'missing' | 'flow' | 'previous' | 'next';
+  kind: keyof typeof technicalPaths;
 }
 const { kind } = Astro.props;
-const paths = {
-  record: 'M4 5h16v14H4z M4 10h16 M10 10v9',
-  note: 'M6 4v12h13 M14 11l5 5-5 5',
-  open: 'M0 21 18 3 M10 3h8v8',
-  previous: 'M20 12H4 M10 6l-6 6 6 6',
-  next: 'M4 12h16 M14 6l6 6-6 6',
-  missing: 'M5 19 19 5 M20 12a8 8 0 1 1-16 0 8 8 0 0 1 16 0',
-  flow: 'M4 12h16 M14 6l6 6-6 6',
-};
 ---
 
 <svg
@@ -22,5 +14,5 @@ const paths = {
   aria-hidden="true"
   focusable="false"
 >
-  <path d={paths[kind]} />
+  <path d={technicalPaths[kind]} />
 </svg>

@@ -1,0 +1,84 @@
+---
+import SelectControl from './SelectControl.astro';
+import CaseRow from './CaseRow.astro';
+import type { Props as CaseRowProps } from './CaseRow.astro';
+import type { Lang } from '../data/site';
+interface Props {
+  items: CaseRowProps['item'][];
+  lang: Lang;
+  specimen?: boolean;
+}
+const { items, lang, specimen = false } = Astro.props;
+const rows = [...items].sort((a, b) => b.date.localeCompare(a.date));
+const years = [...new Set(rows.map((row) => row.date.slice(0, 4)))];
+---
+
+<div data-case-archive data-specimen={specimen || undefined}>
+  <div class="link-row" data-case-filter hidden>
+    <label class="control-field">
+      <span class="meta">{lang === 'ru' ? 'Год события' : 'Event year'}</span>
+      <SelectControl>
+        <select aria-label={lang === 'ru' ? 'Год события' : 'Event year'} data-case-year-filter>
+          <option value="">{lang === 'ru' ? 'Все годы' : 'All years'}</option>
+          {years.map((year) => (
+            <option value={year}>{year}</option>
+          ))}
+        </select>
+      </SelectControl>
+    </label>
+    <p
+      class="small-note"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+      data-case-count
+      data-ru={lang === 'ru'}
+    ></p>
+  </div>
+  <div class="case-archive__rows">
+    {rows.map((item) => (
+      <CaseRow item={item} lang={lang} specimen={specimen} />
+    ))}
+  </div>
+</div>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-case-archive]').forEach((archive) => {
+    const select = archive.querySelector<HTMLSelectElement>('[data-case-year-filter]')!;
+    const status = archive.querySelector<HTMLElement>('[data-case-count]')!;
+    const rows = [...archive.querySelectorAll<HTMLElement>('[data-case-year]')];
+    const readYear = () =>
+      archive.dataset.specimen ? '' : (new URL(location.href).searchParams.get('year') ?? '');
+    const apply = (year: string) => {
+      select.value = [...select.options].some((option) => option.value === year) ? year : '';
+      for (const row of rows) row.hidden = !!select.value && row.dataset.caseYear !== select.value;
+      const visible = rows.filter((row) => !row.hidden).length;
+      status.textContent = `${status.dataset.ru === 'true' ? 'Записей' : 'Records'}: ${visible} / ${rows.length}`;
+      document.dispatchEvent(new CustomEvent('oda:cases:filtered'));
+    };
+    select.addEventListener('change', () => {
+      apply(select.value);
+      if (archive.dataset.specimen) return;
+      const url = new URL(location.href);
+      if (select.value) url.searchParams.set('year', select.value);
+      else url.searchParams.delete('year');
+      if (rows.some((row) => row.hidden && `#${row.id}` === url.hash)) url.hash = 'case-events';
+      history.pushState(null, '', url);
+    });
+    const sync = () => {
+      const target = rows.find((row) => `#${row.id}` === location.hash);
+      const year = readYear();
+      const changedYear = target && year && target.dataset.caseYear !== year;
+      apply(changedYear ? target.dataset.caseYear! : year);
+      if (changedYear && !archive.dataset.specimen) {
+        const url = new URL(location.href);
+        url.searchParams.set('year', select.value);
+        history.replaceState(null, '', url);
+      }
+      if (target) requestAnimationFrame(() => target.scrollIntoView());
+    };
+    window.addEventListener('popstate', sync);
+    window.addEventListener('hashchange', sync);
+    sync();
+    archive.querySelector<HTMLElement>('[data-case-filter]')!.hidden = false;
+  });
+</script>

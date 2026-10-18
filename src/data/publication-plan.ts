@@ -1,3 +1,4 @@
+import { auditedRecognitions } from './recognition-source-audit';
 import { additionalProgrammes } from './additional-programmes';
 import { additionalEvents } from './additional-events';
 import type { PublicationPlan } from '../lib/publication-scope';
@@ -28,11 +29,9 @@ export const publicationPlan: PublicationPlan = {
     'lighthouse',
     'potustoronniy',
     'honors',
-    'theatre-my-name',
+    'gong',
     'cultural-neuro-code',
     'neuromandala',
-    'brain-hack',
-    'journey',
   ],
   configurations: ['mindshow-installation', 'neurobattle-game'],
   programmes: [
@@ -42,7 +41,9 @@ export const publicationPlan: PublicationPlan = {
     'sound-brain',
     'taste-brain',
     'feedback-empathy-brain',
-    'gong',
+    'theatre-my-name',
+    'brain-hack',
+    'journey',
     'neuromandala-workshop',
     'neuro-laboratory',
   ],
@@ -59,6 +60,7 @@ export const publicationPlan: PublicationPlan = {
   ],
   people: ['founders', 'olga', 'daler'],
   recognitions: [
+    ...auditedRecognitions.map((row) => row.id),
     'skolkovo-arttech-2026',
     'culttech-school-grant-2026',
     'cyens-reserve-2026',
@@ -68,11 +70,8 @@ export const publicationPlan: PublicationPlan = {
     'tavrida-letter-2025',
     'hse-letter-2025',
     'battle-billion-letter-2024',
-    'province-code-letter-2024',
-    'techweek-letter-2024',
     'wildmint-letter-2025',
     'haskell-letter-2025',
-    'moscow2030-letter-2025',
     'ossetia-letter-2025',
     'digital-pleinair-certificate-2025',
     'business-awards-letter-2025',

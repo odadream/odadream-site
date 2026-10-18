@@ -5,17 +5,29 @@ import type { Lang } from '../data/site';
 interface Props {
   chapters: PageChapter[];
   lang: Lang;
+  variant?: 'footer' | 'reading';
 }
-const { chapters, lang } = Astro.props;
+const { chapters, lang, variant = 'footer' } = Astro.props;
 ---
 
 {chapters.length > 0 && (
-  <nav class="page-outline" aria-label={lang === 'ru' ? 'Разделы этой страницы' : 'On this page'}>
+  <nav
+    class={variant === 'reading' ? 'reading-outline' : 'page-outline'}
+    aria-label={
+      lang === 'ru'
+        ? variant === 'reading'
+          ? 'Содержание страницы'
+          : 'Разделы этой страницы'
+        : variant === 'reading'
+          ? 'Page contents'
+          : 'On this page'
+    }
+  >
     <p class="page-outline__title">{lang === 'ru' ? 'На этой странице' : 'On this page'}</p>
     <ul>
       {chapters.map(({ id, title, family, section }) => (
         <li>
-          <a href={'#' + id}>
+          <a href={'#' + id} data-outline-target={id}>
             <PageCode family={family} section={section} lang={lang} register={false} />
             <span>{title}</span>
           </a>

@@ -1,3 +1,4 @@
+import { caseSectionIds } from './case-sections';
 import { cases, configurations, programmes, works, catalogue } from '../data/catalogue';
 import type { Lang } from '../data/site';
 import { familyByKind, type PageFamily } from './page-codes';
@@ -169,14 +170,11 @@ export const createPages = (
               : kind === 'studio'
                 ? [
                     'people',
-                    'milestones',
                     'method',
-                    'evidence',
+                    'legal',
                     ...(records.studioPages?.length
                       ? [
-                          'teaching',
                           'materials',
-                          ...records.studioPages[0].teaching.map((row) => `teaching-${row.id}`),
                           ...records.studioPages[0].people.map((id) => `person-${id}`),
                           ...(records.referenceDocuments ?? [])
                             .filter(
@@ -190,12 +188,7 @@ export const createPages = (
                       : []),
                   ]
                 : kind === 'cases'
-                  ? [
-                      'case-events',
-                      'case-research',
-                      'case-series',
-                      ...records.cases.map((row) => `case-${row.slug}`),
-                    ]
+                  ? ['case-events', 'case-series', ...records.cases.map((row) => `case-${row.slug}`)]
                   : kind === 'recognition'
                     ? (records.recognitions ?? []).map((row) => `recognition-${row.id}`)
                     : [],
@@ -247,13 +240,7 @@ export const createPages = (
         path: `/${lang}/cases/${item.slug}/`,
         title: `${item.title[lang]} — ODA.dream`,
         description: item.summary[lang],
-        anchors: [
-          'case-contribution',
-          'case-story',
-          ...(item.media.length > 1 ? ['case-gallery'] : []),
-          'case-context',
-          'case-evidence',
-        ],
+        anchors: [...caseSectionIds(item), ...(item.media.length > 1 ? ['case-gallery'] : [])],
       })),
   ]);
 

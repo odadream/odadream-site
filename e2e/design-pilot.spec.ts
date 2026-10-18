@@ -68,7 +68,14 @@ for (const lang of ['ru', 'en'])
                     if (next)
                       close(
                         rect(next).top - rect(heading.closest('header')!).bottom,
-                        32,
+                        (() => {
+                          const probe = document.createElement('div');
+                          probe.style.paddingTop = 'var(--gap-heading)';
+                          body.append(probe);
+                          const value = parseFloat(getComputedStyle(probe).paddingTop);
+                          probe.remove();
+                          return value;
+                        })(),
                         'heading / material gap',
                       );
                     const aside = block.querySelector(':scope > aside');
@@ -169,7 +176,8 @@ test('stand uses the same card/media rules; disclosure preserves access and cred
   await details.locator('summary').focus();
   await page.keyboard.press('Enter');
   await expect(details).toHaveAttribute('open', '');
-  await expect(details).toContainText('IMG / rings');
+  await expect(details).toContainText('rings');
+  await expect(details.locator('[data-mark="image"]')).toHaveCount(1);
   await expect(details).toContainText('px');
   expect(
     await sample.evaluate((el) => {

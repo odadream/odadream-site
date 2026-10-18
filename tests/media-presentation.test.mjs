@@ -49,3 +49,9 @@ test('a gallery does not grant publication to review media outside its published
   assert.ok(poster.credit.ru.includes('Арабовы'));
   assert.ok(!JSON.stringify(poster).includes('sourceRefs'));
 });
+
+test('compact document geometry is available before lazy image decoding', async () => {
+  const { mediaPositionStyle } = await loadSiteModule('src/lib/media-presentation.ts');
+  assert.equal(mediaPositionStyle({ width: 600, height: 900 }), '--media-ratio:0.6666666666666666;');
+  assert.equal(mediaPositionStyle(undefined), undefined);
+});

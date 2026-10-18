@@ -55,19 +55,20 @@ test('studio has separate biographies, educational roles, live dossiers and exac
 }) => {
   for (const lang of ['ru', 'en']) {
     await page.goto(`/${lang}/studio/`);
-    await expect(page.locator('#people > .section-body > article.list-row')).toHaveCount(2);
+    await expect(page.locator('#people .studio-biographies > article.list-row')).toHaveCount(2);
     await expect(page.locator('#person-olga')).toContainText(
       lang === 'ru' ? 'Ольга Арабова' : 'Olga Arabova',
     );
     await expect(page.locator('#person-daler')).toContainText(
       lang === 'ru' ? 'Далер Арабов' : 'Daler Arabov',
     );
-    await expect(page.locator('#teaching .list-row')).toHaveCount(3);
-    await expect(page.locator('#materials .list-row')).toHaveCount(4);
+    await expect(page.locator('#teaching')).toHaveCount(0);
+    await expect(page.locator('#legal')).toBeVisible();
+    await expect(page.locator('#materials .list-row')).toHaveCount(5);
     await expect(page.locator('#materials a[download]')).toHaveCount(0);
-    await page.goto(`/${lang}/studio/#teaching-sber`);
-    await expect(page).toHaveURL(new RegExp(`/${lang}/studio/#teaching-sber$`));
-    await expect(page.locator('#teaching-sber')).toBeVisible();
+    await page.goto(`/${lang}/cases/sber-2025/`);
+    await expect(page).toHaveURL(new RegExp(`/${lang}/cases/sber-2025/$`));
+    await expect(page.locator('#case-contribution')).toBeVisible();
     await page.goto(`/${lang}/works/emomandala/#work-story-selection`);
     await expect(page).toHaveURL(new RegExp(`/${lang}/works/emomandala/#work-story-selection$`));
     await expect(page.locator('#work-story-selection')).toContainText('p5.js');

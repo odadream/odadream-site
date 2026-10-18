@@ -1,4 +1,10 @@
+import {
+  auditedRecognitions,
+  personalRecognitionIds,
+  recognitionCorrections,
+} from './recognition-source-audit';
 import { eventContexts, type EventContext } from './event-contexts';
+import { classifyCatalogue } from './catalogue-classification';
 import { sourceSectionsFor } from './archive-source-links';
 import { archiveRecognitions } from './archive-recognitions';
 import { participationDetails } from './editorial';
@@ -154,6 +160,9 @@ export interface WorkConfiguration extends ParticipationDetail {
   publication: Publication;
 }
 export interface CaseEvent extends CaseDetail {
+  sourceUrl?: string;
+  /** Curated subsets of this event's media, shown on the corresponding work. */
+  workSelections?: { workId: string; media: string[] }[];
   event?: EventContext;
   id: string;
   legacyId?: string;
@@ -580,14 +589,15 @@ export const media: Media[] = [
     kind: 'image',
     rights: 'cleared',
     alt: {
-      en: 'Neuromandala visualization used as a method illustration',
-      ru: 'Визуализация Нейромандалы как иллюстрация метода',
+      en: 'MindGrid · individual neuroportraits within Neuromandala',
+      ru: 'MindGrid · индивидуальные нейропортреты в составе Нейромандалы',
     },
     caption: {
-      ru: 'Нейромандала · иллюстрация метода Нейросинхронизации.',
-      en: 'Neuromandala · illustration of the Neurosynchronization method.',
+      ru: 'MindGrid · Нейромандала в форме нейропортрета.',
+      en: 'MindGrid · Neuromandala presented as a neuroportrait.',
     },
-    source: 'src/content/neuromandala.md; owner display permission 2026-10-05',
+    source:
+      'src/content/neuromandala.md; owner display permission 2026-10-05; owner MindGrid identification 2026-10-16',
   },
   ...additionalMedia,
   ...archiveMedia,
@@ -1052,7 +1062,7 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
         '«Круг синхронизации» — отдельный инсталляционный концепт на основе этой работы',
       ],
     },
-    media: ['neurosync-session'],
+    media: ['neurosync-lab-recording'],
     source: 'src/content/neurosync.md; studio confirmation 2026-10-05',
   },
   {
@@ -1365,7 +1375,10 @@ export const recognitions: Recognition[] = [
     source: row.source + '; owner authorization for full studio material migration 2026-10-05/07',
   })),
   ...archiveRecognitions,
-];
+  ...auditedRecognitions,
+]
+  .filter((row) => !personalRecognitionIds.includes(row.id))
+  .map((row) => ({ ...row, ...recognitionCorrections[row.id] }));
 
 const caseRecords: Omit<
   CaseEvent,
@@ -1469,7 +1482,7 @@ const caseRecords: Omit<
   },
 ];
 
-export const cases: CaseEvent[] = [
+const caseInventory: CaseEvent[] = [
   ...caseRecords.map((row) => ({
     ...row,
     datePrecision: 'day' as const,
@@ -1488,7 +1501,7 @@ export const cases: CaseEvent[] = [
 }));
 
 export const eventSeries = seriesRecords;
-export const works: Work[] = artworkRecords.map((work) => ({
+const workInventory: Work[] = artworkRecords.map((work) => ({
   ...work,
   story: [...work.story, ...sourceSectionsFor('work', work.id)],
   sourceRefs: sourceSectionsFor('work', work.id).length
@@ -1498,13 +1511,13 @@ export const works: Work[] = artworkRecords.map((work) => ({
   cases: [
     ...new Set([
       ...work.cases,
-      ...cases
+      ...caseInventory
         .filter((item) => item.work === work.id || item.relatedWorks?.includes(work.id))
         .map((item) => item.id),
     ]),
   ],
 }));
-export const programmes = [
+const programmeInventory = [
   ...programmeRecords.map((row) => ({
     ...row,
     ...programmeEnrichments[row.id],
@@ -1517,12 +1530,18 @@ export const programmes = [
   cases: [
     ...new Set([
       ...programme.cases,
-      ...cases
+      ...caseInventory
         .filter((item) => item.programme === programme.id || item.relatedProgrammes?.includes(programme.id))
         .map((item) => item.id),
     ]),
   ],
 }));
+
+export const { works, programmes, cases } = classifyCatalogue(
+  workInventory,
+  programmeInventory,
+  caseInventory,
+);
 
 export const people: Person[] = [
   {

@@ -5,7 +5,7 @@ test('all additional educational programmes have bilingual content, modules, out
 }, testInfo) => {
   for (const lang of ['ru', 'en']) {
     await page.goto(`/${lang}/education/`);
-    await expect(page.locator('.programme-card')).toHaveCount(15);
+    await expect(page.locator('.programme-card')).toHaveCount(17);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     for (const id of [
       'color-brain',
@@ -21,17 +21,14 @@ test('all additional educational programmes have bilingual content, modules, out
       await expect(page.locator('#programme-content .editorial-sections article')).toHaveCount(3);
       await expect(page.locator('#programme-participation p')).toHaveCount(2);
       await expect(page.locator('#programme-conditions .record-stamp')).toHaveCount(1);
-      await expect(page.locator('#site-nav [data-route="education"]')).toHaveAttribute(
-        'aria-current',
-        'page',
-      );
+      await expect(page.locator(`.reading-parent[href="/${lang}/education/"]`)).toBeVisible();
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     }
     await expect(page.locator('#programme-participation a[href$="/studio/#person-daler"]')).toHaveCount(1);
     await expect(page.locator('#programme-participation a[href$="/studio/#person-olga"]')).toHaveCount(0);
     await page.goto(`/${lang}/education/dance-feedback/`);
     await expect(page.locator('a[href$="/works/neurosynchronization/"]')).toHaveCount(1);
-    await expect(page.locator('a[href$="/cases/#case-kod-provincii-2024"]')).toHaveCount(1);
+    await expect(page.locator('a[href$="/cases/kod-provincii-2024/"]')).toHaveCount(1);
     if (lang === 'ru')
       await page.screenshot({ path: `.local-server/education-${testInfo.project.name}.png` });
   }
@@ -50,10 +47,9 @@ test('educational history preserves source dates and does not promote archived p
     'data-participation-status',
     'planned',
   );
-  await expect(
-    page.locator('[data-case-id="kod-provincii-2024"] a[href$="/education/dance-feedback/"]'),
-  ).toHaveCount(1);
+  await page.goto('/ru/cases/kod-provincii-2024/');
+  await expect(page.locator('main a[href$="/education/dance-feedback/"]')).toHaveCount(1);
   await page.goto('/ru/education/beautiful-about-the-brain/');
-  await expect(page.locator('a[href$="/cases/#case-green-door-2024"]')).toHaveCount(1);
-  await expect(page.locator('a[href$="/cases/#case-ashram-lecture-2025"]')).toHaveCount(1);
+  await expect(page.locator('a[href$="/cases/green-door-2024/"]')).toHaveCount(1);
+  await expect(page.locator('a[href$="/cases/ashram-lecture-2025/"]')).toHaveCount(1);
 });

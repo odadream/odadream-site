@@ -1,5 +1,15 @@
 import { test, expect } from '@playwright/test';
 
+test('a long destination name wraps inside narrow passport fields', async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 900 });
+  await page.goto('/en/cases/oktava-2021/');
+  await page.evaluate(() => document.fonts.ready);
+  const link = page.locator('.work-aside a[href="/en/works/neurosynchronization/"]');
+  await expect(link).toBeVisible();
+  expect(await link.evaluate((element) => element.scrollWidth <= element.clientWidth + 1)).toBe(true);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
 test('callout shelves follow text rows, spacing and theme changes', async ({ page }) => {
   await page.goto('/design-system/');
   await page.evaluate(() => document.fonts.ready);
@@ -24,8 +34,8 @@ test('callout shelves follow text rows, spacing and theme changes', async ({ pag
               range.selectNodeContents(walker.currentNode);
               for (const rect of range.getClientRects()) if (rect.width) rows.add(Math.round(rect.bottom));
             }
-            const path = element.querySelector('path')!.getAttribute('d')!;
-            return (path.match(/M/g)?.length ?? 0) - 1 === rows.size;
+            const path = element.querySelector('.callout-link-drawing path')!.getAttribute('d')!;
+            return (path.match(/M/g)?.length ?? 0) === rows.size;
           }),
         )
         .toBe(true);

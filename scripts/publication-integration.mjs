@@ -32,6 +32,10 @@ export default function publicationIntegration() {
             pattern: '/design-system/',
             entrypoint: fileURLToPath(new URL('../src/views/DesignSystem.astro', import.meta.url)),
           });
+          injectRoute({
+            pattern: '/link-test/',
+            entrypoint: fileURLToPath(new URL('../src/views/LinkStudy.astro', import.meta.url)),
+          });
         }
       },
       'astro:server:setup': ({ server }) => {

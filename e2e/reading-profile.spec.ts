@@ -96,7 +96,7 @@ for (const lang of ['ru', 'en'])
                       const style = getComputedStyle(section);
                       close(
                         parseFloat(style.paddingTop),
-                        afterIntro ? 0 : (width <= 700 ? 12 : 20) * space,
+                        afterIntro ? 0 : (width <= 700 ? 10 : 16) * space,
                         'single chapter interval',
                       );
                       if (section.nextElementSibling)

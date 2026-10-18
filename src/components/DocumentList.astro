@@ -58,7 +58,8 @@ const pageItems = (document: DocumentMetadata): MediaItem[] =>
             </div>
             {document.href && document.originalAccess !== 'internal' && (
               <CalloutLink href={document.href} target="_blank" rel="noopener">
-                {ru ? 'Исходный PDF' : 'Original PDF'} · {size(document.bytes)}
+                {document.downloadLabel?.[lang] ?? (ru ? 'Исходный PDF' : 'Original PDF')} ·{' '}
+                {size(document.bytes)}
               </CalloutLink>
             )}
           </div>

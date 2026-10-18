@@ -87,7 +87,7 @@ const labels = {
       )}
     </span>
     <h3>
-      <CalloutLink>{item.title[lang]}</CalloutLink>
+      <CalloutLink destinationHref={workUrl(lang, item.id)}>{item.title[lang]}</CalloutLink>
     </h3>
     <p>{item.summary[lang]}</p>
   </a>

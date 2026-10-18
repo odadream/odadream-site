@@ -1,0 +1,378 @@
+/* A compact masthead and one continuous expanding navigation surface. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--header-bg);
+  box-shadow: var(--shadow-material);
+  overflow-anchor: none;
+}
+.site-header .technical-mark {
+  width: 1em;
+  height: 1em;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--header-nav-gap);
+  min-height: var(--header-main-height);
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  min-height: var(--tap-target);
+  padding-inline-end: var(--nav-label-gap);
+}
+.brand img {
+  width: var(--header-logo-width);
+  height: auto;
+}
+.primary-nav {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--nav-item-gap);
+  overflow: hidden;
+}
+.primary-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: var(--tap-target);
+  flex: none;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.primary-nav a:hover,
+.language-link:hover {
+  color: var(--section-accent);
+}
+.primary-nav a[hidden],
+.site-nav a[hidden] {
+  display: none;
+}
+.header-inner .menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  gap: var(--s2);
+  min-height: var(--tap-target);
+  min-width: var(--header-menu-min);
+  padding: 0 var(--s2);
+  margin: 0;
+  color: var(--ink);
+  background: none;
+  border: 0;
+  white-space: nowrap;
+  font: inherit;
+}
+.language-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  min-width: var(--tap-target);
+  min-height: var(--tap-target);
+  color: var(--muted);
+}
+.menu-close-mark,
+.menu-toggle[aria-expanded='true'] .menu-open-mark {
+  display: none;
+}
+.menu-toggle[aria-expanded='true'] .menu-close-mark {
+  display: inline-flex;
+}
+.site-header .site-nav {
+  display: none;
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  margin: 0;
+  padding: var(--s4) var(--gutter) var(--s5);
+  background: var(--header-bg);
+  box-shadow: var(--shadow-material);
+  max-height: calc(100dvh - var(--header-height));
+  overflow-y: auto;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--colophon-cell-min)), 1fr));
+  gap: 0 var(--s5);
+}
+.site-header .site-nav.open {
+  display: grid;
+}
+.site-nav a {
+  display: flex;
+  gap: var(--s2);
+  align-items: center;
+  min-height: var(--tap-target);
+  padding: var(--s2) 0;
+  text-decoration: none;
+}
+.site-nav a[aria-current='page'] {
+  color: var(--section-accent);
+}
+.navigation-preferences {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s4) var(--s3) 0;
+  margin-top: var(--s4);
+  background: var(--plane-middle);
+  color: var(--muted);
+}
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: var(--tap-target);
+  padding: 0 var(--s2);
+  color: var(--ink);
+  background: none;
+  border: 0;
+  font: inherit;
+}
+.reading-navigation {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, min(40%, var(--reading-menu-width)));
+  align-items: center;
+  column-gap: var(--s4);
+  min-height: var(--tap-target);
+}
+.reading-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  min-width: 0;
+}
+.reading-breadcrumbs a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: var(--tap-target);
+  flex: none;
+  text-decoration: none;
+  margin: 0;
+  border: 0;
+  white-space: nowrap;
+}
+.reading-breadcrumbs > :not(:first-child)::before {
+  content: '/';
+  color: var(--muted);
+  margin-inline-end: var(--s2);
+}
+.reading-page-title {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  min-width: 0;
+}
+.reading-page-title > span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.reading-breadcrumbs a:hover {
+  color: var(--section-accent);
+}
+.reading-contents {
+  min-width: 0;
+}
+.reading-contents > summary {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: var(--tap-target);
+  cursor: pointer;
+  list-style: none;
+}
+.reading-contents > summary::-webkit-details-marker {
+  display: none;
+}
+.reading-contents > summary [data-reading-label] {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.reading-contents[open] > summary {
+  color: var(--section-accent);
+}
+.reading-contents[open] > summary > .technical-mark[data-mark='down'] {
+  transform: rotate(180deg);
+}
+.reading-contents-panel {
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  background: var(--header-bg);
+  box-shadow: var(--shadow-material);
+  max-height: calc(100dvh - var(--header-height));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.site-header:has(.reading-contents[open], .site-nav.open) {
+  box-shadow: none;
+}
+.reading-contents-inner {
+  padding-block: var(--s4) var(--s5);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s3) var(--s5);
+}
+.reading-years {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2) var(--s4);
+}
+.reading-years a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tap-target);
+  min-height: var(--tap-target);
+  text-decoration: none;
+}
+.reading-years,
+.reading-outline {
+  grid-column: 1 / -1;
+}
+.reading-outline .page-outline__title {
+  display: none;
+}
+.reading-outline ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--colophon-cell-min)), 1fr));
+  gap: 0 var(--s5);
+}
+.reading-outline a {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s2);
+  min-height: var(--tap-target);
+  padding-block: var(--s2);
+  text-decoration: none;
+}
+.reading-outline a[aria-current='location'],
+.reading-years a[aria-current='location'] {
+  color: var(--section-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+.footer-navigation {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--colophon-cell-min)), 1fr));
+  gap: var(--s2) var(--s5);
+  padding-block: var(--s5);
+}
+.footer-navigation a {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: var(--tap-target);
+  text-decoration: none;
+}
+.footer-navigation a[aria-current='page'] {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+.footer-document {
+  padding-block: var(--s2);
+}
+.footer-document > summary {
+  min-height: var(--tap-target);
+  align-content: center;
+  cursor: pointer;
+  color: var(--muted);
+}
+.footer-document > .record-stamp {
+  margin-top: var(--s3);
+}
+@media (max-width: 700px) {
+  .reading-navigation {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    column-gap: var(--s2);
+  }
+  .reading-home--optional {
+    display: none !important;
+  }
+  .reading-breadcrumbs > .reading-parent::before {
+    display: none;
+  }
+  .reading-breadcrumbs .header-section > span:last-child {
+    display: none;
+  }
+  .reading-parent > span:last-child {
+    display: none;
+  }
+  .reading-contents-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .reading-outline ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .footer-navigation {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.primary-nav,
+.site-nav,
+.menu-toggle,
+.navigation-preferences,
+.footer-navigation {
+  font-size: var(--type-note);
+}
+.header-inner .menu-toggle,
+.primary-nav a {
+  font-size: var(--type-note);
+  font-weight: 500;
+}
+.reading-contents > summary > [data-reading-code] {
+  display: inline-flex;
+}
+.reading-contents > summary > [data-reading-code]:empty {
+  display: none;
+}
+.site-footer .footer-inner p {
+  font-size: var(--type-note);
+  color: var(--muted);
+}
+@media (max-width: 700px) {
+  .site-footer .footer-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* A glyph belongs to its label; navigation destinations retain a wider interval. */
+.primary-nav a,
+.reading-breadcrumbs a,
+.reading-page-title,
+.footer-navigation a {
+  gap: var(--nav-label-gap);
+}
+
+.header-inner > .theme-toggle {
+  flex: none;
+  min-width: var(--header-theme-min);
+  font-size: var(--type-note);
+}
+.header-inner .menu-toggle[hidden],
+.navigation-preferences[hidden] {
+  display: none !important;
+}
+.reading-contents-panel,
+.site-header .site-nav {
+  background: var(--plane-front);
+}
+
+.reading-outline a > span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}

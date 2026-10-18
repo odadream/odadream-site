@@ -1,12 +1,47 @@
 ---
+import TechnicalMark from './TechnicalMark.astro';
+import { linkDestination, linkTargetFamily } from '../lib/link-destination';
 interface Props {
   href?: string;
+  destinationHref?: string;
   class?: string;
   rel?: string;
   target?: string;
+  download?: boolean;
+  /** false is reserved for the historical DEV comparison. */
+  destinationStudy?: boolean;
+  inline?: boolean;
 }
 
-const { href, class: className, rel, target } = Astro.props;
+const {
+  href,
+  destinationHref,
+  class: className,
+  rel,
+  target,
+  download,
+  destinationStudy = true,
+  inline = false,
+} = Astro.props;
+const address = href ?? destinationHref;
+const destination =
+  destinationStudy && address
+    ? linkDestination(address, Astro.url.href, Astro.site?.href ?? Astro.url.origin)
+    : undefined;
+const marks = {
+  internal: 'linkPlain',
+  external: 'linkCircle',
+  section: 'linkPlain',
+  resource: download ? 'linkBar' : 'linkPlain',
+  contact: 'linkPlain',
+} as const;
+const descriptions = {
+  internal: 'Страница этого сайта',
+  external: 'Внешний сайт',
+  section: 'Раздел этой страницы',
+  resource: download ? 'Скачать файл' : 'Открыть файл',
+  contact: 'Канал связи',
+};
 // Without href, decorate the title inside an existing card anchor.
 const Tag = href ? 'a' : 'span';
 ---
@@ -16,9 +51,24 @@ const Tag = href ? 'a' : 'span';
   href={href}
   rel={rel}
   target={target}
+  download={download}
   data-callout-link
+  data-link-destination={destination}
+  data-link-family={
+    destination && ['internal', 'section'].includes(destination) && address
+      ? linkTargetFamily(address, Astro.url.href)
+      : undefined
+  }
+  data-link-download={destination && download ? true : undefined}
+  data-link-inline={destination && inline ? true : undefined}
+  aria-description={destination ? descriptions[destination] : undefined}
 >
   <slot />
+  {destination && (
+    <template data-link-mark>
+      <TechnicalMark kind={marks[destination]} />
+    </template>
+  )}
 </Tag>
 
 <script>

@@ -28,7 +28,7 @@ const labels = {
       </span>
     </div>
     <h3>
-      <CalloutLink>{item.title[lang]}</CalloutLink>
+      <CalloutLink destinationHref={programmeUrl(lang, item.id)}>{item.title[lang]}</CalloutLink>
     </h3>
     <p>{item.summary[lang]}</p>
   </a>

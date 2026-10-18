@@ -54,7 +54,12 @@ for (const width of [360, 797, 908, 1100, 1201, 1529]) {
               equal(fields.at(-1)!.right, rect(stamp).right, 'passport row end');
               fields.forEach((field, index) => {
                 equal(field.width, fields[0].width, 'balanced passport fields');
-                if (index) equal(field.left - fields[index - 1].right, 1, 'shared passport edge');
+                if (index)
+                  equal(
+                    field.left - fields[index - 1].right,
+                    parseFloat(getComputedStyle(stamp).columnGap),
+                    'shared passport gap',
+                  );
               });
             });
           });
@@ -62,7 +67,7 @@ for (const width of [360, 797, 908, 1100, 1201, 1529]) {
             .querySelectorAll('.section-body > .facts, .system-content > .facts, .work-section > .facts')
             .forEach((list) => {
               const previous = list.previousElementSibling;
-              if (previous && rect(list).top - rect(previous).bottom < 20)
+              if (previous && rect(list).top - rect(previous).bottom < 16)
                 problems.push('heading / list gap missing');
             });
           document.querySelectorAll('.section-grid, .system-grid').forEach((section) => {

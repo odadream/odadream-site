@@ -5,17 +5,17 @@
   padding: var(--s2);
   font: inherit;
   font-size: var(--type-annotation);
-  border: 1px dashed var(--line-soft);
+  border: var(--annotation-rule) solid var(--control-border);
   background: var(--plane-back);
   color: var(--signal-design);
-  min-height: 44px;
+  min-height: var(--tap-target);
 }
 .dev-crop-editor {
   width: min(70rem, calc(100vw - var(--s4)));
   max-height: 90dvh;
   overflow: auto;
   padding: var(--s5);
-  border: 1px solid var(--line-strong);
+  border: var(--annotation-rule) solid var(--control-border);
   background: var(--bg);
   color: var(--ink);
 }
@@ -38,13 +38,6 @@
 .dev-crop-editor select,
 .dev-crop-editor textarea {
   width: 100%;
-  min-width: 0;
-  min-height: 44px;
-  padding: var(--s2);
-  font: inherit;
-  color: var(--ink);
-  background: var(--surface);
-  border: 1px solid var(--line-soft);
 }
 .dev-crop-controls,
 .dev-crop-fields,
@@ -82,16 +75,16 @@
 }
 .dev-crop-point {
   position: absolute;
-  width: 18px;
-  height: 18px;
-  border: 2px solid var(--signal-design);
+  width: var(--crop-handle-size);
+  height: var(--crop-handle-size);
+  border: var(--focus-width) solid var(--signal-design);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
 .dev-crop-region {
   position: absolute;
-  border: 2px solid var(--signal-design);
+  border: var(--focus-width) solid var(--signal-design);
   pointer-events: none;
 }
 .dev-crop-frame {
@@ -100,7 +93,7 @@
   width: 100%;
   overflow: hidden;
   background: var(--surface);
-  border: 1px solid var(--line-soft);
+  border: var(--annotation-rule) solid var(--control-border);
 }
 .dev-crop-window {
   position: relative;

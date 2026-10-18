@@ -1,0 +1,196 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CalloutLink from '../components/CalloutLink.astro';
+import CaseRow from '../components/CaseRow.astro';
+import MacroSection from '../components/MacroSection.astro';
+import ReadingNote from '../components/ReadingNote.astro';
+import PageCode from '../components/PageCode.astro';
+import { cases } from '../data/catalogue';
+import '../styles/design-system.css';
+const page = {
+  lang: 'ru' as const,
+  kind: 'home' as const,
+  family: 'D' as const,
+  path: '/link-test/',
+  title: 'Окончания ссылок — тест',
+  description: 'Локальное сравнение обозначений внутренних и внешних переходов.',
+};
+const examples = [
+  {
+    label: 'Внутри сайта · прежнее незакрашенное остриё',
+    title: 'Майнд-шоу',
+    href: '/ru/works/mindshow/',
+    download: false,
+  },
+  {
+    label: 'Внешний ресурс · кружок · SIGNAL при наведении',
+    title: 'ODA.dream в Telegram',
+    href: 'https://t.me/odadream_info',
+    download: false,
+  },
+  {
+    label: 'Скачивание · черта · ALERT при наведении',
+    title: 'Скачать CV Ольги · PDF',
+    href: '/documents/oda-dream-cv-olga-ru.pdf',
+    download: true,
+  },
+  {
+    label: 'Длинная подпись',
+    title: 'Документация премьерного показа и исследования восприятия зрителей',
+    href: '/ru/works/interference-of-realities/',
+    download: false,
+  },
+];
+---
+
+<BaseLayout page={page} noindex>
+  <section class="shell page-intro">
+    <p class="eyebrow">Локальный тест · 14</p>
+    <h1>Одна стрелка, три окончания</h1>
+    <p class="lead">Общая выноска под 45°: свободное остриё, кружок внешнего ресурса, черта скачивания.</p>
+    <ReadingNote>
+      Цвет появляется при наведении или фокусе: внутренний — по целевому разделу, внешний — SIGNAL, файл —
+      ALERT. Предварительный образец. На основных страницах экспериментальный режим не включён.
+    </ReadingNote>
+  </section>
+  <MacroSection
+    id="link-comparison"
+    kind="catalogue"
+    field="none"
+    family="D"
+    section={1}
+    lang="ru"
+    label="Сравнение"
+    title="Меняется окончание"
+  >
+    <div class="component-pair">
+      {[false, true].map((study) => (
+        <div class="coverage-list" data-link-study={study ? 'proposal' : 'current'}>
+          <h3>{study ? 'Предложение' : 'Сейчас'}</h3>
+          {examples.map((example) => (
+            <article>
+              <p class="meta">{example.label}</p>
+              <h3>
+                <CalloutLink href={example.href} download={example.download} destinationStudy={study}>
+                  {example.title}
+                </CalloutLink>
+              </h3>
+            </article>
+          ))}
+        </div>
+      ))}
+    </div>
+  </MacroSection>
+  <MacroSection
+    id="link-context"
+    kind="editorial"
+    field="none"
+    family="D"
+    section={2}
+    lang="ru"
+    label="В контексте"
+    title="Абзац и карточка события"
+  >
+    <p>
+      Внутри рассказа можно перейти к{' '}
+      <CalloutLink href="/ru/works/mindshow/" destinationStudy inline>
+        Майнд-шоу
+      </CalloutLink>{' '}
+      или открыть{' '}
+      <CalloutLink href="https://vk.ru/odadream" destinationStudy inline>
+        публикации студии во ВКонтакте
+      </CalloutLink>
+      {'. Текст сохраняет общий цвет; линия и окончание показывают тип перехода.'}
+    </p>
+    <div class="link-row">
+      <CalloutLink href="/ru/education/" destinationStudy>
+        Образование
+      </CalloutLink>
+      <CalloutLink href="/ru/cases/" destinationStudy>
+        Кейсы
+      </CalloutLink>
+      <CalloutLink href="/ru/studio/" destinationStudy>
+        Студия
+      </CalloutLink>
+    </div>
+    <CaseRow item={cases.find((row) => row.id === 'lamborghini-tea')!} lang="ru" specimen destinationStudy />
+    <p>
+      <CalloutLink href="/en/works/interference-of-realities/" destinationStudy inline>
+        Typography, imagery and the documentation of a performance
+      </CalloutLink>
+    </p>
+    <ReadingNote>
+      В покое ссылка одноцветна. При наведении и фокусе цвет получают и текст, и линия, и незакрашенная
+      стрелка. Внутренний цвет определяется разделом назначения; внешний — SIGNAL, файл — ALERT.
+    </ReadingNote>
+  </MacroSection>
+  <MacroSection
+    id="link-special"
+    kind="document"
+    field="none"
+    family="D"
+    section={3}
+    lang="ru"
+    label="Масштаб и поведение"
+    title="Открыть документ или скачать"
+  >
+    <div class="link-row">
+      <CalloutLink href="/documents/oda-dream-cv-olga-ru.pdf" destinationStudy>
+        Открыть CV · PDF
+      </CalloutLink>
+      <CalloutLink href="/documents/oda-dream-cv-olga-ru.pdf" destinationStudy download>
+        Скачать CV · PDF
+      </CalloutLink>
+      <CalloutLink href="#link-context" destinationStudy>
+        К примеру в абзаце
+      </CalloutLink>
+    </div>
+    <ReadingNote>
+      Черта означает именно скачивание: у ссылки есть download. Простое открытие PDF и переход к главе
+      сохраняют свободное остриё. Размер окончания наследуется от кегля; толщина линии общая.
+    </ReadingNote>
+  </MacroSection>
+  <MacroSection
+    id="link-palette"
+    kind="catalogue"
+    field="none"
+    family="D"
+    section={4}
+    lang="ru"
+    label="Палитра"
+    title="Разделы и базовые сигналы"
+  >
+    <div class="component-pair">
+      <div class="signal-key">
+        {(
+          [
+            ['W', 'Работы'],
+            ['K', 'Кейсы'],
+            ['E', 'Образование'],
+            ['S', 'Студия'],
+          ] as const
+        ).map(([family, label]) => (
+          <div class="signal-key__entry" data-signal={family}>
+            <PageCode family={family} lang="ru" register={false} />
+            <span>{label}</span>
+            <i aria-hidden="true"></i>
+          </div>
+        ))}
+      </div>
+      <div class="component-pair">
+        <div class="swatch swatch-accent">
+          <span>SIGNAL</span>
+          <strong>Системный сигнал</strong>
+        </div>
+        <div class="swatch swatch-alert">
+          <span>ALERT</span>
+          <strong>Внимание / файл</strong>
+        </div>
+      </div>
+    </div>
+    <ReadingNote>
+      Палитра разделов общая для навигации, кодов глав и адресных ссылок. Зелёный SIGNAL и жёлтый ALERT
+      сохраняют системное назначение. У стрелок общий конверт 24×24; увеличено только окончание.
+    </ReadingNote>
+  </MacroSection>
+</BaseLayout>

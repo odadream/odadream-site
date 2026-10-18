@@ -39,6 +39,9 @@ const presentation = item ? mediaFit(item, fit) : 'natural';
     data-focal={item.focalPoint ?? 'center'}
     style={mediaPositionStyle(item)}
     data-representation={item.representation}
+    data-preview={
+      ['document', 'diagram', 'poster'].includes(item.representation ?? '') ? 'compact' : undefined
+    }
   >
     <DevPublicationMark kind="media" recordId={item.id} lang={lang} />
     {register === 'expanded' && <MediaRegister item={item} lang={lang} />}
@@ -47,6 +50,7 @@ const presentation = item ? mediaFit(item, fit) : 'natural';
         type="button"
         class="media-open"
         data-lightbox
+        data-details-href={Astro.url.pathname}
         data-gallery-item={gallery ? '' : undefined}
         data-src={item.src}
         data-alt={item.alt[lang]}
@@ -69,7 +73,7 @@ const presentation = item ? mediaFit(item, fit) : 'natural';
           />
         </picture>
         <span class="media-open__mark">
-          <TechnicalMark kind="open" />
+          <TechnicalMark kind="expand" />
         </span>
       </button>
     ) : previewVideo && item.poster ? (
@@ -78,6 +82,7 @@ const presentation = item ? mediaFit(item, fit) : 'natural';
         class="media-open"
         data-preview-trigger
         data-lightbox
+        data-details-href={Astro.url.pathname}
         data-gallery-item={gallery ? '' : undefined}
         data-kind="video"
         data-src={item.src}
@@ -96,18 +101,36 @@ const presentation = item ? mediaFit(item, fit) : 'natural';
           focusable={false}
         />
         <span class="media-open__mark">
-          <TechnicalMark kind="open" />
+          <TechnicalMark kind="expand" />
         </span>
       </button>
     ) : (
-      <video
-        src={item.src}
-        poster={item.poster}
-        controls
-        playsinline
-        preload="none"
-        data-media-id={item.id}
-      />
+      <>
+        <video
+          src={item.src}
+          poster={item.poster}
+          controls
+          playsinline
+          preload="none"
+          data-media-id={item.id}
+        />
+        <button
+          type="button"
+          class="button"
+          data-lightbox
+          data-kind="video"
+          data-gallery-item={gallery ? '' : undefined}
+          data-src={item.src}
+          data-poster={item.poster}
+          data-alt={item.alt[lang]}
+          data-caption={item.caption[lang]}
+          data-credit={item.credit?.[lang]}
+          data-details-href={Astro.url.pathname}
+        >
+          <TechnicalMark kind="expand" />
+          {lang === 'ru' ? 'Открыть видео' : 'Open video'}
+        </button>
+      </>
     )}
     <figcaption>
       <span>{item.caption[lang]}</span>

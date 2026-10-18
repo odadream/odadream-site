@@ -1,4 +1,5 @@
 ---
+import DisclosureHeading from './DisclosureHeading.astro';
 import TechnicalMark from './TechnicalMark.astro';
 import type { MediaItem } from '../lib/media-presentation';
 import type { Lang } from '../data/site';
@@ -15,14 +16,28 @@ const Wrapper = disclosure ? 'details' : 'div';
   class:list={{ 'media-details': disclosure }}
   data-media-register={disclosure ? 'disclosure' : 'expanded'}
 >
-  {disclosure && <summary>{lang === 'ru' ? 'Реквизиты материала' : 'Material details'}</summary>}
+  {disclosure && (
+    <DisclosureHeading>{lang === 'ru' ? 'Реквизиты материала' : 'Material details'}</DisclosureHeading>
+  )}
   <div class="media-register">
     <span class="media-register__id">
-      <TechnicalMark kind="record" />
-      {item.kind === 'image' ? 'IMG' : 'VID'} / {item.id}
+      <TechnicalMark
+        kind={
+          item.kind === 'video'
+            ? 'video'
+            : item.representation === 'document'
+              ? 'document'
+              : item.representation === 'diagram'
+                ? 'diagram'
+                : 'image'
+        }
+      />
+      <span class="media-register__name" title={item.id}>
+        {item.id}
+      </span>
     </span>
     {item.width && item.height && (
-      <span>
+      <span class="media-register__dimensions">
         {item.width} × {item.height} px
       </span>
     )}

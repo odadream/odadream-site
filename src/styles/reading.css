@@ -64,6 +64,9 @@ input,
 textarea {
   font: inherit;
 }
+:is(input:not([type='checkbox']):not([type='radio']), select, textarea) {
+  font: 400 var(--control-type)/var(--control-leading) var(--mono);
+}
 p {
   max-width: var(--copy-measure);
 }
@@ -80,34 +83,36 @@ p {
 .site-nav a,
 .language-link {
   font-size: var(--type-note);
-  font-weight: 600;
+  font-weight: 500;
 }
 .page-code {
-  font: 500 var(--type-annotation)/1 var(--mono);
-  font-size: 0;
+  font: 500 var(--type-annotation)/var(--leading-metadata) var(--mono);
   font-variant-numeric: tabular-nums;
   letter-spacing: 0;
 }
 .page-code > span {
-  font-size: var(--type-annotation);
-  line-height: 1;
+  font-size: inherit;
+  line-height: inherit;
 }
 .page-code__family {
   font-weight: 600;
 }
-.site-nav .page-code {
-  font-size: 0.78em;
+nav .page-code,
+.reading-page-title .page-code,
+.reading-contents summary .page-code {
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .theme-toggle {
-  font-size: var(--type-annotation);
+  font-size: var(--type-note);
 }
 .theme-toggle span:first-child {
-  font-size: var(--type-body);
+  font-size: inherit;
   line-height: 1;
 }
 .footer-inner p {
-  font: var(--weight-heading) var(--type-title-small)/1.5 var(--sans);
+  font: 400 var(--type-note)/var(--leading-note) var(--mono);
 }
 .footer-links {
   font-size: var(--type-note);
@@ -155,6 +160,10 @@ h4 {
 .quiet-link {
   font-size: var(--type-small);
   font-weight: var(--weight-heading);
+}
+[data-link-inline] {
+  font: inherit;
+  letter-spacing: inherit;
 }
 h1 .callout-link,
 h2 .callout-link,
@@ -252,16 +261,6 @@ figcaption {
 }
 .legacy-notice {
   max-width: var(--copy-measure);
-}
-@media (max-width: 900px) {
-  .site-nav a {
-    font-size: var(--type-annotation);
-  }
-}
-@media (max-width: 1600px) {
-  .site-nav a {
-    font-size: var(--type-small);
-  }
 }
 .recognition-card__missing {
   font-size: var(--type-annotation);
@@ -402,4 +401,8 @@ figcaption {
 }
 .page-outline__title {
   font-size: var(--type-metadata);
+}
+.reading-navigation,
+.primary-nav a {
+  font-size: var(--type-note);
 }

@@ -24,7 +24,11 @@ test('natural tiles, protected documents and large sequences keep their proporti
         const failures: string[] = [];
         if (document.documentElement.scrollWidth > innerWidth) failures.push('overflow');
         document.querySelectorAll<HTMLElement>('[data-media-gallery] figure').forEach((figure) => {
-          const image = figure.querySelector<HTMLImageElement>('img')!;
+          const image = figure.querySelector<HTMLImageElement>('img');
+          if (!image) {
+            if (!figure.querySelector('video')) failures.push('missing media');
+            return;
+          }
           const box = image.getBoundingClientRect();
           if (
             figure.dataset.fit === 'natural' &&
@@ -122,7 +126,7 @@ test('an unavailable image still offers navigation and close', async ({ page }) 
       (node as HTMLElement).dataset.src = '/missing-gallery-image.webp';
     });
   await page.locator('#system-gallery-tiles [data-gallery-item]').first().click();
-  await expect(page.locator('.lightbox-status')).toContainText('недоступно');
+  await expect(page.locator('.lightbox-status')).toContainText('недоступен');
   await page.locator('[data-viewer-next]').click();
   await expect(page.locator('.lightbox-status')).toHaveText('');
   await expect(page.locator('#lightbox img')).toBeVisible();
@@ -174,7 +178,7 @@ test('open viewer captions and controls stay readable in either page theme, incl
       (el as HTMLElement).dataset.src = '/missing-viewer-contrast.webp';
     });
     await button.click();
-    await expect(viewer.locator('.lightbox-status')).toContainText('недоступно');
+    await expect(viewer.locator('.lightbox-status')).toContainText('недоступен');
     await expect(viewer.locator('.lightbox-status')).toHaveCSS('color', 'rgb(243, 241, 236)');
     await page.keyboard.press('Escape');
     await expect(button).toBeFocused();

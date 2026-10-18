@@ -2,7 +2,15 @@
 
 This branch is a clean Astro static site, not the Lotus CMS. Do not copy the old React graph, 238 legacy Markdown records or generated SVG nodes into this tree. The old sources remain read-only under the archive tag and local backup.
 
-Keep the V5 visual grammar: warm near-black, restrained green signal, JetBrains Mono for reading, Manrope for headings, disciplined spacing and lines, material before interface. The canonical tokens are in `src/styles/tokens.css`; do not add ad-hoc inline styles.
+Keep the V5 visual grammar: warm near-black, restrained green signal, JetBrains Mono for reading, Manrope for headings, disciplined spacing, material before interface. Separate groups with space or surfaces; lines belong to controls, data or errors.
+
+## Mandatory design-system contract — every interface change
+
+The entire site, including DEV tools, is parameterized by the design system. `src/styles/tokens.css` owns profile inputs and semantic roles; shared styles/components consume them. `/design-system/` demonstrates the actual production components, not independently styled imitations.
+
+Before any interface change: identify the existing role/component and reuse it. Add a semantic role or component only for a distinct uncovered need; document that decision and add a live specimen or an explicit contextual inspection link to the coverage registry in `src/lib/design-coverage.ts`. Do not add page-specific values for typography, spacing, colors, surfaces, icons or interaction geometry. Inline variables are allowed only for content data such as a media crop, never design corrections. SVG coordinates, media intrinsic dimensions and responsive breakpoints are structural data, not theme tokens.
+
+After a change: run `npm run design:check` (component coverage and unparameterized px/color/font declarations; optional `-- --site http://127.0.0.1:5178` inventories the local publication), then inspect both the specimen and real consumer pages, in light/dark themes and narrow/intermediate/wide layouts. Check icon baseline and label gap, wrapping, focus, hit area, surface hierarchy and content density. Verify that semantic parameter changes propagate to both without a second CSS edit. Keep the coverage registry, DESIGN-GUIDE and DESIGN-TOKENS consistent; do not append conflicting override rules. Owner review and publication are separate from local implementation and checks.
 
 The profile contract is in `docs/DESIGN-TOKENS.md`: profile inputs → semantic roles → components. Use `--signal-*` for both navigation and page accents, `--grid-*` for page/specimen grids, and `TechnicalMark` for technical symbols. Statistics use `RecordStamp tone="reference"`, not a raised document panel. Filled Manrope 800 folios belong only to the background.
 

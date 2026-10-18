@@ -15,7 +15,7 @@
   position: relative;
   height: var(--folio-field-height);
   flex: none;
-  margin-block: var(--panel-pad);
+  margin-block: var(--section-body-inset);
   overflow: hidden;
 }
 .section-rail__folio {
@@ -29,8 +29,9 @@
   position: absolute;
   top: 0;
   right: 0;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
+  writing-mode: horizontal-tb;
+  transform: rotate(-90deg);
+  transform-origin: bottom right;
   padding: 0;
   margin: 0;
 }
@@ -53,11 +54,11 @@
   margin-bottom: var(--s3);
   color: var(--section-accent);
 }
-/* Shared edges form a closed cell grid, never detached rules. */
+/* A shared surface groups fields; spacing determines the column geometry. */
 .record-stamp {
   min-width: 0;
   background: var(--stamp-surface);
-  border: var(--annotation-rule) solid var(--line);
+  padding: var(--stamp-inset);
 }
 .record-stamp__title {
   max-width: none;
@@ -67,7 +68,6 @@
   align-items: center;
   gap: var(--s2);
   padding: var(--s3);
-  border-bottom: var(--annotation-rule) solid var(--line);
   color: var(--muted);
 }
 .record-stamp__title > .technical-mark {
@@ -76,12 +76,12 @@
 .record-stamp dl {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--annotation-rule);
+  gap: var(--stamp-gap);
   margin: 0;
-  background: var(--line);
+  background: transparent;
 }
 .record-stamp dl > div {
-  flex: 1 1 calc((100% - (var(--stamp-columns) - 1) * var(--annotation-rule)) / var(--stamp-columns));
+  flex: 1 1 calc((100% - (var(--stamp-columns) - 1) * var(--stamp-gap)) / var(--stamp-columns));
   min-width: 0;
   padding: var(--s3);
   background: var(--stamp-surface);
@@ -127,19 +127,12 @@
   max-width: none;
   margin: 0;
   padding: var(--s3);
-  border-top: var(--annotation-rule) solid var(--line);
   color: var(--muted);
-}
-.record-stamp__more {
-  border-top: var(--annotation-rule) solid var(--line);
 }
 .record-stamp__more > summary {
   min-height: var(--tap-target);
   padding: var(--s3);
   cursor: pointer;
-}
-.record-stamp__more[open] > summary {
-  border-bottom: var(--annotation-rule) solid var(--line);
 }
 .record-stamp__more > summary:hover {
   color: var(--accent);
@@ -176,16 +169,17 @@
   min-height: var(--tap-target);
   color: var(--ink);
   background: var(--bg);
-  border: 1px solid var(--line);
+  border: var(--annotation-rule) solid var(--control-border);
 }
 .media-register {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--s1) var(--s4);
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--s2);
   padding-block: var(--s2);
   color: var(--muted);
-  overflow-wrap: anywhere;
+  min-width: 0;
 }
 .media-register__id {
   display: inline-flex;
@@ -200,8 +194,8 @@
   position: absolute;
   right: var(--s2);
   bottom: var(--s2);
-  width: 32px;
-  height: 32px;
+  width: var(--s6);
+  height: var(--s6);
   display: grid;
   place-items: center;
   color: var(--hero-ink);
@@ -286,7 +280,7 @@
   min-width: 0;
 }
 .macro-section > .section-body > .macro-section__heading + * {
-  margin-block-start: var(--gap-group);
+  margin-block-start: var(--gap-heading);
 }
 .macro-section__reference {
   margin-block-start: var(--gap-group);
@@ -322,7 +316,7 @@
 .record-stamp--colophon dl > div {
   flex-basis: max(
     var(--colophon-cell-min),
-    calc((100% - (var(--stamp-columns) - 1) * var(--annotation-rule)) / var(--stamp-columns))
+    calc((100% - (var(--stamp-columns) - 1) * var(--stamp-gap)) / var(--stamp-columns))
   );
 }
 .record-stamp--colophon dt {
@@ -356,4 +350,24 @@
 }
 .page-outline a:hover {
   color: var(--accent);
+}
+
+.media-register__id {
+  flex: 1;
+  overflow: hidden;
+}
+.media-register__name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.media-register__dimensions {
+  flex: none;
+  white-space: nowrap;
+}
+.media-register .technical-mark {
+  width: 1em;
+  height: 1em;
+  flex: none;
 }

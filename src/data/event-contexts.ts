@@ -36,6 +36,19 @@ const ashram = l('Студия Ashram', 'Ashram Studio');
 // Names and locations are drawn from the sourceRefs of each CaseEvent.
 // Missing venue/city stays absent; contribution type is a separate field.
 export const eventContexts: Record<string, EventContext> = {
+  'rukami-2020': event(
+    'rukami-2020',
+    'festival',
+    'Онлайн-фестиваль Rukami',
+    'Rukami online festival',
+    l('Великий Новгород', 'Veliky Novgorod'),
+  ),
+  'national-business-awards-2025': event(
+    'national-business-awards-2025',
+    'meeting',
+    'Национальная бизнес-премия «Технологии и инновации»',
+    'Technology and Innovation National Business Awards',
+  ),
   'tsiolkovsky-2026': event(
     'tsiolkovsky-2026',
     'festival',

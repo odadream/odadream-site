@@ -1,6 +1,7 @@
+import { personalCvSections, personalCvSources } from './personal-cv';
 import type { Localized, Person, Publication } from './site';
 import type { EditorialSection, SourceReference } from './editorial';
-import { intellectualProperty, sourceSnapshots } from './editorial';
+import { sourceSnapshots } from './editorial';
 
 export interface StudioPage {
   id: string;
@@ -8,7 +9,6 @@ export interface StudioPage {
   summary: Localized;
   people: string[];
   sections: EditorialSection[];
-  teaching: (EditorialSection & { year: number })[];
   materials: { id: string; title: Localized; body: Localized; path: string }[];
   sourceRefs: SourceReference[];
   source: string;
@@ -17,7 +17,7 @@ export interface StudioPage {
 const l = (ru: string, en: string): Localized => ({ ru, en });
 const refs = (...files: string[]) => files.map((file) => sourceSnapshots[file]);
 
-export const studioPeople: Person[] = [
+const studioPeopleRecords: Person[] = [
   {
     id: 'olga',
     name: l('Ольга Арабова', 'Olga Arabova'),
@@ -96,7 +96,15 @@ export const studioPeople: Person[] = [
   },
 ];
 
-export const studioPages: StudioPage[] = [
+export const studioPeople: Person[] = studioPeopleRecords.map((person) => ({
+  ...person,
+  cv: person.cv
+    ? { ...person.cv, sections: [...person.cv.sections, ...personalCvSections[person.id]] }
+    : undefined,
+  sourceRefs: [...(person.sourceRefs ?? []), ...personalCvSources[person.id]],
+}));
+
+const studioPageRecords: StudioPage[] = [
   {
     id: 'studio',
     title: l('Студия ODA.dream', 'ODA.dream studio'),
@@ -106,67 +114,6 @@ export const studioPages: StudioPage[] = [
     ),
     people: ['olga', 'daler'],
     sections: [
-      {
-        id: 'intellectual-property',
-        title: l('Товарный знак и изобретение', 'Trademark and invention'),
-        body: l(
-          `ODA.dream® — зарегистрированный товарный знак №${intellectualProperty.trademark.number} от 25 февраля 2026 года. Заявка на изобретение №${intellectualProperty.inventionApplication.number} подана 30 апреля 2026 года.`,
-          `ODA.dream® is registered trademark No. ${intellectualProperty.trademark.number}, dated 25 February 2026. Invention application No. ${intellectualProperty.inventionApplication.number} was filed on 30 April 2026.`,
-        ),
-      },
-      {
-        id: 'submissions',
-        title: {
-          ru: 'Заявки и результаты отбора',
-          en: 'Applications and selection outcomes',
-        },
-        body: {
-          ru: 'В 2026 году Нейромандала участвовала в заявочной кампании Prix Ars Electronica в категории Interactive Art+. Заявки MindGrid и MindShow вошли в резервный список CYENS WIP, но не прошли итоговый отбор.',
-          en: 'In 2026, Neuromandala was submitted to Prix Ars Electronica in the Interactive Art+ category. MindGrid and MindShow were placed on the CYENS WIP reserve list but were not selected for the festival.',
-        },
-      },
-      {
-        id: 'professional',
-        title: {
-          ru: 'Профессиональные связи',
-          en: 'Professional affiliations',
-        },
-        body: {
-          ru: 'Ольга и Далер — члены Творческого союза художников России: Ольга — секции научного искусства, Далер — секции мультимедиа. В проектах студия сотрудничает с художниками, исполнителями и техническими специалистами; их роли указаны на страницах работ.',
-          en: 'Olga and Daler are members of the Creative Union of Artists of Russia: Olga in the science-art section and Daler in multimedia. The studio collaborates with artists, performers and technical specialists, whose roles are credited on the work pages.',
-        },
-      },
-      {
-        id: 'press',
-        title: {
-          ru: 'Публикации и эфиры',
-          en: 'Publications and broadcasts',
-        },
-        body: {
-          ru: 'Внешние материалы о публичных проектах студии. Публикации сохраняют авторство редакций и открываются на площадке источника.',
-          en: 'External materials about the studio’s public projects. Publications retain their publishers’ authorship and open at the source.',
-        },
-        links: [
-          {
-            id: 'ntv-metro',
-            title: {
-              ru: 'НТВ · цифровой пленэр в московском метро',
-              en: 'NTV · digital plein air in the Moscow metro',
-            },
-            href: 'https://www.ntv.ru/novosti/2887676/',
-            kind: 'article',
-          },
-          {
-            id: 'tskhr-bashkiria',
-            title: {
-              ru: 'ТСХР · первый цифровой пленэр в Башкирии',
-              en: 'TSKhR · first digital plein air in Bashkiria',
-            },
-            href: 'https://tcxp.ru/news/regions/v-bashkirii-proshel-pervyy-cifrovoy-plener',
-            kind: 'article',
-          },
-        ],
-      },
       {
         id: 'position',
         title: l('Человек внутри системы', 'The person within the system'),
@@ -192,73 +139,7 @@ export const studioPages: StudioPage[] = [
         ),
       },
     ],
-    teaching: [
-      {
-        id: 'hse',
-        year: 2025,
-        title: l('«Красиво про мозг» · НИУ ВШЭ', 'Beautiful About the Brain · HSE University'),
-        body: l(
-          'В 2025 году студия была приглашена с лекцией «Красиво про мозг» в НИУ ВШЭ в Москве.',
-          'In 2025, the studio was invited to give Beautiful About the Brain at HSE University in Moscow.',
-        ),
-      },
-      {
-        id: 'sber',
-        year: 2025,
-        title: l('Science-art лекция · Сбербанк', 'Science-art lecture · Sberbank'),
-        body: l(
-          'В 2025 году студия получила приглашение провести science-art лекцию для корпоративной аудитории Сбербанка в Москве.',
-          'In 2025, the studio was invited to give a science-art lecture to a corporate audience at Sberbank in Moscow.',
-        ),
-      },
-      {
-        id: 'mipt',
-        year: 2025,
-        title: l('«Терраформинг» · МФТИ', 'Terraforming · MIPT'),
-        body: l(
-          '«Терраформинг» объединил выставку Нейромандалы и практическую образовательную программу на площадке МФТИ.',
-          'Terraforming combined a Neuromandala exhibition with a practical educational programme at MIPT.',
-        ),
-      },
-    ],
-    materials: [
-      {
-        id: 'portfolio',
-        path: 'works/',
-        title: l('Работы и их истории', 'Works and their stories'),
-        body: l(
-          'Страницы реализованных работ и отдельная подборка концепций и прототипов.',
-          'Pages for realised works and a separate selection of concepts and prototypes.',
-        ),
-      },
-      {
-        id: 'method',
-        path: 'technology/',
-        title: l('Нейромандала: метод', 'Neuromandala: the method'),
-        body: l(
-          'Сигнал, визуальный язык, участие и границы интерпретации.',
-          'Signal, visual language, participation and interpretation boundaries.',
-        ),
-      },
-      {
-        id: 'programme',
-        path: 'education/',
-        title: l('Образовательные программы', 'Educational programmes'),
-        body: l(
-          'Механика участия, базовые темы лаборатории, исторические параметры и условия подготовки.',
-          'Participation mechanics, core laboratory topics, historical parameters and preparation requirements.',
-        ),
-      },
-      {
-        id: 'brief',
-        path: 'cooperation/',
-        title: l('Сотрудничество и состав брифа', 'Cooperation and briefing'),
-        body: l(
-          'Сценарии сотрудничества, роли студии и площадки, данные для первого обращения.',
-          'Cooperation scenarios, studio and venue roles, and information for an initial inquiry.',
-        ),
-      },
-    ],
+    materials: [],
     sourceRefs: refs(
       'Owner_IP_Confirmation_2026-10-08.md',
       'Golem_Ars_2026.md',
@@ -278,3 +159,48 @@ export const studioPages: StudioPage[] = [
     publication: 'published',
   },
 ];
+
+export const studioPages: StudioPage[] = studioPageRecords.map((page) => ({
+  ...page,
+  materials: [
+    {
+      id: 'works',
+      path: 'works/',
+      title: l('Работы', 'Works'),
+      body: l('Произведения и их художественные истории.', 'Works and their artistic stories.'),
+    },
+    {
+      id: 'education',
+      path: 'education/',
+      title: l('Образование', 'Education'),
+      body: l('Лекции, практикумы и учебные программы.', 'Lectures, workshops and educational programmes.'),
+    },
+    {
+      id: 'cases',
+      path: 'cases/',
+      title: l('Кейсы и события', 'Cases and events'),
+      body: l(
+        'Даты, площадки, участники и документация состоявшихся встреч.',
+        'Dates, venues, participants and documentation of encounters.',
+      ),
+    },
+    {
+      id: 'recognition',
+      path: 'recognition/',
+      title: l('Признания', 'Recognition'),
+      body: l(
+        'Награды, благодарности и свидетельства студии; личные достижения — в CV авторов.',
+        'Studio awards, acknowledgements and certificates; personal credits belong to the authors’ CVs.',
+      ),
+    },
+    {
+      id: 'cooperation',
+      path: 'cooperation/',
+      title: l('Сотрудничество', 'Cooperation'),
+      body: l(
+        'Форматы заказа, роли и подготовка показа.',
+        'Commissioning formats, roles and presentation preparation.',
+      ),
+    },
+  ],
+}));
