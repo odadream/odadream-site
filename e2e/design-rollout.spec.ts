@@ -21,7 +21,8 @@ const records: { path: string; kind: string; family: string; anchors: string[] }
 for (const theme of ['light', 'dark']) {
   test('all canonical pages use functional macro/detail sections · ' + theme, async ({ page, isMobile }) => {
     test.skip(isMobile, 'Explicit 390/1440 widths include mobile.');
-    test.setTimeout(180_000);
+    // Two viewport widths for every record; the budget grows with the catalogue.
+    test.setTimeout(60_000 + records.length * 2_000);
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.route('**/*', (route) =>
       ['image', 'media'].includes(route.request().resourceType()) ? route.abort() : route.continue(),

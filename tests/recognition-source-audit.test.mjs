@@ -62,3 +62,10 @@ test('studio has no parallel teaching catalogue, while Tavrida credit does not a
   assert.ok(scope.recognitions.some((row) => row.id === 'tavrida-letter-2025'));
   assert.doesNotMatch(tavrida.summary.en, /final presentation|was declined|did not participate/);
 });
+
+test('the plein-air certificate does not assign a work absent from the inspected document', () => {
+  assert.deepEqual(
+    data.recognitions.find((row) => row.id === 'digital-pleinair-certificate-2025').relatedWorks,
+    [],
+  );
+});

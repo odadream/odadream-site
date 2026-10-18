@@ -274,7 +274,7 @@ export const recognitionCorrections: Record<string, Partial<Recognition>> = {
   'digital-pleinair-certificate-2025': {
     event: 'bashkiria-2025',
     contextPath: 'cases/bashkiria-2025/',
-    relatedWorks: ['cultural-neuro-code'],
+    relatedWorks: [],
     sourceRefs: [
       {
         file: 'OwnerRecognition/ODA - 2025 Шульган Таш.png',

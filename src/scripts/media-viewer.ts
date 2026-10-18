@@ -107,6 +107,7 @@ export function initMediaViewer() {
     stage.scrollTo(scroll.left, scroll.top);
   }
   function unload() {
+    zoom.disabled = true;
     resetZoom();
     video.pause();
     video.removeAttribute('src');
@@ -200,6 +201,7 @@ export function initMediaViewer() {
   image.addEventListener('load', () => {
     resetZoom();
     render();
+    zoom.disabled = false;
   });
   new ResizeObserver(() => {
     render();

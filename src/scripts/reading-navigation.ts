@@ -71,7 +71,21 @@ export function initReadingNavigation() {
   document.addEventListener('oda:cases:filtered', schedule);
   const main = document.querySelector('main');
   if (main) new ResizeObserver(schedule).observe(main);
-  void document.fonts.ready.then(schedule);
+  const initialHash = location.hash;
+  let interruptedAnchor = false;
+  const interruptAnchor = () => {
+    interruptedAnchor = true;
+  };
+  for (const event of ['wheel', 'touchstart', 'pointerdown', 'keydown'])
+    addEventListener(event, interruptAnchor, { once: true, passive: true });
+  void document.fonts.ready.then(() => {
+    requestAnimationFrame(() => {
+      // Font loading can change the height above a browser's initial fragment scroll.
+      if (initialHash && location.hash === initialHash && !interruptedAnchor)
+        document.getElementById(initialHash.slice(1))?.scrollIntoView();
+      schedule();
+    });
+  });
   details.addEventListener('toggle', () => {
     if (details.open) document.dispatchEvent(new CustomEvent('oda:contents:open'));
   });

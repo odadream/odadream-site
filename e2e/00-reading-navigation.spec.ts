@@ -3,8 +3,19 @@ import { test, expect } from '@playwright/test';
 test('a deep link keeps page context and supports chapter changes, focus and mutually exclusive menus', async ({
   page,
 }) => {
+  let releaseFonts!: () => void;
+  let fontsReady: Promise<void>;
+  await page.route('**/*.woff2', async (route) => {
+    await fontsReady;
+    await route.continue();
+  });
   for (const lang of ['ru', 'en']) {
-    await page.goto(`/${lang}/works/oda-rings/#work-story`);
+    fontsReady = new Promise<void>((resolve) => {
+      releaseFonts = resolve;
+    });
+    await page.goto(`/${lang}/works/oda-rings/#work-story`, { waitUntil: 'domcontentloaded' });
+    releaseFonts();
+    await page.evaluate(() => document.fonts.ready);
     const navigation = page.locator('[data-reading-navigation]');
     const summary = navigation.locator('summary');
     const details = navigation.locator('details');

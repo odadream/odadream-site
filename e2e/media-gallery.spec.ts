@@ -96,6 +96,38 @@ test('gallery navigation stays within its selection, preserves attribution and r
   await expect(page.locator('#lightbox')).not.toHaveAttribute('data-zoomed');
 });
 
+test('zoom waits for a new image to finish loading before applying its native size', async ({ page }) => {
+  await page.goto('/ru/works/project-schrodinger/');
+  let release!: () => void;
+  const held = new Promise<void>((resolve) => {
+    release = resolve;
+  });
+  await page.route('**/*?viewer-load-test', async (route) => {
+    await held;
+    await route.continue();
+  });
+  const button = page.locator('#work-gallery [data-lightbox][data-credit]').first();
+  await button.evaluate((element) => {
+    (element as HTMLElement).dataset.src += '?viewer-load-test';
+  });
+  await button.click();
+  const zoom = page.locator('[data-viewer-zoom]');
+  await expect(zoom).toBeDisabled();
+  release();
+  await expect(zoom).toBeEnabled();
+  await zoom.click();
+  await expect(zoom).toHaveAttribute('aria-pressed', 'true');
+  await expect
+    .poll(() =>
+      page
+        .locator('#lightbox img')
+        .evaluate((image: HTMLImageElement) =>
+          Math.abs(image.getBoundingClientRect().width - image.naturalWidth),
+        ),
+    )
+    .toBeLessThan(1);
+});
+
 test('full video uses explicit playback, stops previews and releases its source on close', async ({
   page,
 }) => {
