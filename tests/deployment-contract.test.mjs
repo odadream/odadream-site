@@ -19,7 +19,10 @@ test('Pages release activates the isolated validated V2 providers and publishes 
     Object.keys(job.env).some((key) => key.startsWith('VITE_')),
     false,
   );
-  const gate = job.steps.findIndex((step) => step.run === 'npm run verify:release');
+  const gate = job.steps.findIndex((step) => step.name === 'Verify release');
+  assert.match(job.steps[gate]?.run ?? '', /npm run verify:release/);
+  assert.match(job.steps[gate]?.run ?? '', /node scripts\/recheck-release\.mjs/);
+  assert.equal(job.steps[gate]?.env.ODA_RECHECK_RUN, '${{ inputs.recheck_run }}');
   const upload = job.steps.findIndex((step) => step.uses?.startsWith('actions/upload-pages-artifact@'));
   const deploy = job.steps.findIndex((step) => step.uses?.startsWith('actions/deploy-pages@'));
   assert.ok(gate >= 0 && upload > gate && deploy > upload);

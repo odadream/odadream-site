@@ -41,6 +41,7 @@ export function validateRecheck(report, run, changed, browserLog) {
             '.github/workflows/deploy.yml',
             'scripts/recheck-release.mjs',
             'tests/recheck-release.test.mjs',
+            'tests/deployment-contract.test.mjs',
           ].includes(file)
         ),
     )
