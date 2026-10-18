@@ -84,14 +84,16 @@ test('gallery navigation stays within its selection, preserves attribution and r
   await page.locator('[data-viewer-zoom]').click();
   await expect(page.locator('[data-viewer-zoom]')).toHaveAttribute('aria-pressed', 'true');
   const image = page.locator('#lightbox img');
-  expect(
-    await image.evaluate(
-      (img: HTMLImageElement) => Math.abs(img.getBoundingClientRect().width - img.naturalWidth) < 1,
-    ),
-  ).toBe(true);
-  expect(
-    await page.locator('.lightbox-stage').evaluate((node) => node.scrollHeight > node.clientHeight),
-  ).toBe(true);
+  await expect
+    .poll(() =>
+      image.evaluate((img: HTMLImageElement) =>
+        Math.abs(img.getBoundingClientRect().width - img.naturalWidth),
+      ),
+    )
+    .toBeLessThan(1);
+  await expect
+    .poll(() => page.locator('.lightbox-stage').evaluate((node) => node.scrollHeight > node.clientHeight))
+    .toBe(true);
   await page.locator('[data-viewer-zoom]').click();
   await expect(page.locator('#lightbox')).not.toHaveAttribute('data-zoomed');
 });
