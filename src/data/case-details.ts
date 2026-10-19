@@ -4,6 +4,8 @@ import { sourceSnapshots } from './editorial';
 import { educationEventRefs } from './additional-programmes';
 
 export interface CaseDetail {
+  /** Curated page selection; archival media ownership remains intact. First item is the cover. */
+  presentationMedia?: string[];
   story: EditorialSection[];
   organizationRoles: { organizationId: string; role: OrganizationRole; description: Localized }[];
   participants: { name: Localized; role: Localized }[];
@@ -25,21 +27,57 @@ const org = (organizationId: string, role: OrganizationRole, ru: string, en: str
 
 export const caseDetails: Record<string, CaseDetail> = {
   'tsiolkovsky-2026': {
+    presentationMedia: [
+      'archive-interference-interference-2026-poster',
+      'archive-interference-interference-2026-05',
+      'archive-interference-interference-2026-06',
+      'archive-interference-interference-2026-07',
+    ],
     story: [
+      {
+        ...section(
+          'festival',
+          'XIV «Циолковский фест» · «Горизонты»',
+          '14th Tsiolkovsky Fest · Horizons',
+          'Фестиваль современного искусства проходил в Калуге 16–23 мая 2026 года. Тема «Горизонты» объединяла современный танец, новые медиа, музыку и театр; программа исследовала пересечение науки, искусства и воображения.',
+          'The contemporary art festival took place in Kaluga on 16–23 May 2026. Its Horizons theme brought together contemporary dance, new media, music and theatre, exploring connections between science, art and imagination.',
+        ),
+        links: [
+          {
+            id: 'tsiolkovsky-official-2026',
+            title: l('Сайт фестиваля и программа 2026 года', 'Festival website and 2026 programme'),
+            href: 'https://t-fest.online/',
+            kind: 'article',
+          },
+        ],
+      },
       section(
         'presentation',
         'Открытие XIV фестиваля',
         'Opening the 14th festival',
-        '16 мая 2026 года в Инновационном культурном центре Калуги состоялась премьера «Интерференции реальностей». Спектакль открывал фестиваль Циолковского. Исполнители и зрители собирали пять сцен рядом с самостоятельной виртуальной реальностью; нейротехнологии и компьютерное зрение входили в художественно-технический контур.',
-        'Interference of Realities premiered on 16 May 2026 at Kaluga’s Innovation Cultural Centre, opening the Tsiolkovsky festival. Performers and spectators assembled five scenes alongside an independent virtual reality; neurotechnology and computer vision formed part of the artistic and technical system.',
+        'Премьера «Интерференции реальностей» состоялась 16 мая 2026 года в день открытия фестиваля. В официальной программе показ обозначен как нейроспектакль-импровизация: 19:00, зал-трансформер Инновационного культурного центра. ODA.dream участвовала в совместной постановке с Инновационным театром балета.',
+        'Interference of Realities premiered on 16 May 2026, the festival’s opening day. The official programme lists a neuroperformance-improvisation at 19:00 in the Innovation Cultural Centre’s transformer hall. ODA.dream contributed to the co-production with Innovation Ballet Theatre.',
       ),
-      section(
-        'trajectory',
-        'Контекст совместной постановки',
-        'Context of the co-production',
-        'Показ продолжил сотрудничество ODA.dream с Инновационным театром балета и исследовательскую линию «Проекта Шрёдингер» 2025 года. Возможности повторного показа и гастролей обсуждаются со студией.',
-        'The presentation continued ODA.dream’s collaboration with the Innovation Ballet Theatre and the research line of Project Schrödinger from 2025. Repeat presentations and touring possibilities are discussed with the studio.',
-      ),
+      {
+        ...section(
+          'trajectory',
+          'Спектакль и этот показ',
+          'The performance and this presentation',
+          'Здесь собран контекст калужской премьеры: дата, площадка, участие студии и материалы показа. Художественный замысел, полная команда, запись и другие материалы постановки находятся на сайте спектакля.',
+          'This page records the Kaluga premiere: its date, venue, the studio’s contribution and presentation materials. The artistic concept, full team, recording and other production materials are on the performance website.',
+        ),
+        links: [
+          {
+            id: 'interference-project-site',
+            title: l(
+              'Сайт спектакля · interference.odadream.art',
+              'Performance website · interference.odadream.art',
+            ),
+            href: 'https://interference.odadream.art/',
+            kind: 'article',
+          },
+        ],
+      },
     ],
     organizationRoles: [
       org('ikc', 'venue', 'Площадка премьеры в Калуге.', 'Premiere venue in Kaluga.'),
@@ -60,17 +98,12 @@ export const caseDetails: Record<string, CaseDetail> = {
       {
         name: l('Анна Сенатова', 'Anna Senatova'),
         role: l(
-          'Художественное руководство; остальные авторские роли указаны на странице работы.',
-          'Artistic leadership; other creative roles are credited on the work page.',
+          'Художественный руководитель фестиваля и постановки.',
+          'Artistic director of the festival and the production.',
         ),
       },
     ],
-    limitations: [
-      l(
-        'Условия повторного показа и гастролей обсуждаются отдельно.',
-        'Repeat presentations and touring arrangements are discussed separately.',
-      ),
-    ],
+    limitations: [],
     sourceRefs: refs('event-tsiolkovsky-2026.md', 'interference.md'),
   },
   'tsiolkovsky-2025': {

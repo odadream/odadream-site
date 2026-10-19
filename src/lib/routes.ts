@@ -205,11 +205,10 @@ export const createPages = (
       description: work.summary[lang],
       anchors: [
         'work-context',
-        'work-story',
-        'work-credits',
+        ...(work.projectSite ? ['work-project-site'] : ['work-story', 'work-credits']),
         'work-availability',
         ...(records.configurations ?? []).filter((row) => row.workId === work.id).map((row) => row.slug),
-        ...work.story.map((row) => `work-story-${row.id}`),
+        ...(work.projectSite ? [] : work.story.map((row) => `work-story-${row.id}`)),
         ...(records.workDocuments ?? [])
           .filter((row) => row.workId === work.id)
           .map((row) => `document-${row.id}`),
@@ -240,7 +239,10 @@ export const createPages = (
         path: `/${lang}/cases/${item.slug}/`,
         title: `${item.title[lang]} — ODA.dream`,
         description: item.summary[lang],
-        anchors: [...caseSectionIds(item), ...(item.media.length > 1 ? ['case-gallery'] : [])],
+        anchors: [
+          ...caseSectionIds(item),
+          ...((item.presentationMedia ?? item.media).length > 1 ? ['case-gallery'] : []),
+        ],
       })),
   ]);
 

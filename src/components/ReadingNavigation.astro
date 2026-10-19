@@ -25,14 +25,14 @@ const ru = lang === 'ru';
       <span>{ru ? 'Главная' : 'Home'}</span>
     </a>
     {parent && (
-      <a class="reading-parent" href={parent.href}>
+      <a class="reading-parent" href={parent.href} aria-label={parent.label} title={parent.label}>
         <PageCode family={parent.family} lang={lang} register={false} />
         <span>{parent.label}</span>
       </a>
     )}
     {!home && (
       <span class="reading-page-title" aria-current="page" title={title}>
-        <PageCode family={family} lang={lang} register={false} />
+        {!parent && <PageCode family={family} lang={lang} register={false} />}
         <span>{title}</span>
       </span>
     )}
@@ -63,8 +63,3 @@ const ru = lang === 'ru';
     </details>
   )}
 </div>
-
-<script>
-  import { initReadingNavigation } from '../scripts/reading-navigation';
-  initReadingNavigation();
-</script>

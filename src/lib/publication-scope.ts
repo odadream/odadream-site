@@ -281,6 +281,9 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
   }));
   const safeCases = cases.map((row) => ({
     ...row,
+    presentationMedia: row.presentationMedia?.filter(
+      (id) => row.media.includes(id) && availableMedia.has(id),
+    ),
     relatedWorks: (row.relatedWorks ?? []).filter((id) => workIds.has(id)),
     relatedProgrammes: (row.relatedProgrammes ?? []).filter((id) => programmeIds.has(id)),
     evidence: row.evidence.filter((id) => evidenceAvailable.has(id)),
@@ -424,6 +427,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'configurations',
             'mediaNote',
             'methodId',
+            'projectSite',
             'publication',
           ]),
         ),
@@ -527,6 +531,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'programme',
             'story',
             'organizationRoles',
+            'presentationMedia',
             'participants',
             'limitations',
             'organizations',

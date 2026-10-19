@@ -5,6 +5,8 @@ import { documentPages, type NumberedDocumentPage } from '../lib/prepared-media'
 import { archiveDocuments } from './archive-documents';
 
 export interface WorkDetail {
+  /** A dedicated project website owns the full narrative, team and media archive. */
+  projectSite?: { href: string; label: Localized; description: Localized; studioRole: Localized };
   story: EditorialSection[];
   credits: { name: Localized; role: Localized }[];
   reviewNotes: Localized[];
@@ -102,6 +104,21 @@ export const workDocuments: WorkDocument[] = [...documentRecords, ...archiveDocu
 // Selected, edited source material. The source archive is never rendered or imported at runtime.
 export const workDetails: Record<string, WorkDetail> = {
   interference: {
+    projectSite: {
+      href: 'https://interference.odadream.art/',
+      label: text(
+        'Сайт спектакля · interference.odadream.art',
+        'Performance website · interference.odadream.art',
+      ),
+      description: text(
+        'Сцены, команда, запись и фотографии — на отдельном сайте спектакля.',
+        'Scenes, the full team, recording and photographs are on the dedicated performance website.',
+      ),
+      studioRole: text(
+        'ODA.dream — художественно-технологическое решение: Ольга и Далер Арабовы.',
+        'ODA.dream — artistic and technological design by Olga and Daler Arabov.',
+      ),
+    },
     story: [
       section(
         'stage',

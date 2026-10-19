@@ -1,6 +1,14 @@
 /** Auditable catalogue of roles, not a second component implementation. */
 export const designCoverage = [
   {
+    role: 'Карточка работы с отдельным сайтом проекта',
+    components: ['CalloutLink', 'MediaFigure', 'DetailSection', 'RecordStamp'],
+    specimen: '#system-04',
+    consumer: '/ru/works/interference-of-realities/',
+    decision:
+      'Повторно используются текстовая внешняя ссылка перед обложкой, основной материал, паспорт и краткий контекст. Work.projectSite передаёт полный рассказ, команду и медиархив отдельному сайту. Новые стили и токены не требуются; содержимое и якоря сокращённой карточки согласованы.',
+  },
+  {
     role: 'Универсальный просмотрщик медиа',
     components: ['MediaViewer'],
     specimen: '#system-06',
@@ -35,10 +43,10 @@ export const designCoverage = [
   {
     role: 'Ориентация и действия',
     components: ['PageCode', 'TechnicalMark', 'CalloutLink', 'ReadingNavigation', 'PageOutline'],
-    specimen: '#system-04',
+    specimen: '#system-outline-active',
     consumer: '/ru/education/#education-conditions',
     decision:
-      'Использовать общий baseline кода и подписи; текущий раздел — в крошках, другие переходы — в верхнем ряду. Шапка стенда — живой образец раскрытия и адаптации; копия шапки внутри главы не нужна.',
+      'Использовать общий baseline кода и подписи; текущий раздел — в крошках, другие переходы — в верхнем ряду. Значок родительского раздела — ссылка с доступным названием и tap-target; текущая подробная страница — текст aria-current без повторного значка. Активная глава получает одну линию под всей группой знак/номер/текст через link-rule-width и link-offset, без отдельных текстовых подчёркиваний. Линия привязана к baseline, на уровне обычного подчёркивания. Явный образец использует производственный PageOutline рядом с обычной ссылкой.',
   },
   {
     role: 'Композиция страницы',

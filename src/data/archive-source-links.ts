@@ -337,11 +337,11 @@ export const archiveSourceLinks: OwnedSourceLink[] = [
     link: {
       id: 'interference-recording',
       title: {
-        ru: 'Запись «Интерференции реальностей»',
-        en: 'Interference of Realities recording',
+        ru: 'Сайт спектакля «Интерференция реальностей»',
+        en: 'Interference of Realities performance website',
       },
-      href: 'https://interference.odadream.art/buy',
-      kind: 'video',
+      href: 'https://interference.odadream.art/',
+      kind: 'article',
     },
   },
 ];

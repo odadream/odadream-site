@@ -161,13 +161,21 @@
 .reading-breadcrumbs > :not(:first-child)::before {
   content: '/';
   color: var(--muted);
-  margin-inline-end: var(--s2);
 }
 .reading-page-title {
   display: flex;
   align-items: center;
   gap: var(--s2);
   min-width: 0;
+}
+.reading-breadcrumbs .reading-parent {
+  position: relative;
+}
+.reading-breadcrumbs .reading-parent::after {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  inset-inline: min(0%, calc((100% - var(--tap-target)) / 2));
 }
 .reading-page-title > span:last-child {
   overflow: hidden;
@@ -259,7 +267,30 @@
   padding-block: var(--s2);
   text-decoration: none;
 }
-.reading-outline a[aria-current='location'],
+.reading-outline .page-outline__label {
+  display: inline-block;
+  position: relative;
+  min-width: 0;
+}
+.reading-outline .page-outline__label > .page-code {
+  margin-inline-end: var(--s2);
+}
+.page-outline__baseline {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: baseline;
+}
+.reading-outline a[aria-current='location'] {
+  color: var(--section-accent);
+}
+.reading-outline a[aria-current='location'] .page-outline__baseline::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  border-bottom: var(--link-rule-width) solid currentColor;
+  transform: translateY(var(--link-offset));
+}
 .reading-years a[aria-current='location'] {
   color: var(--section-accent);
   text-decoration: underline;

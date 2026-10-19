@@ -477,6 +477,7 @@ const breadcrumbSchema =
       import { createAnalytics } from '../scripts/analytics';
       import { initVideoPreviews } from '../scripts/video-previews';
       import { initHeroCarousel } from '../scripts/hero-carousel';
+      import { initReadingNavigation } from '../scripts/reading-navigation';
       import { analyticsConfig } from '../data/analytics-config';
       const root = document.documentElement;
       createAnalytics(analyticsConfig, {
@@ -648,6 +649,7 @@ const breadcrumbSchema =
       });
       initDisclosures();
       initPriorityNavigation();
+      initReadingNavigation();
       const videoPreviews = initVideoPreviews();
       initHeroCarousel(videoPreviews);
     </script>

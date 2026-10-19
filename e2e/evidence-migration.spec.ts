@@ -11,7 +11,9 @@ test('case narratives and source claims use event roles and readable provenance 
       'byob-2026',
     ]) {
       await page.goto(`/${lang}/cases/${slug}/`);
-      await expect(page.locator('#case-story .editorial-sections article')).toHaveCount(2);
+      await expect(page.locator('#case-story .editorial-sections article')).toHaveCount(
+        slug === 'tsiolkovsky-festival-2026' ? 3 : 2,
+      );
       await expect(page.locator('#case-evidence .provenance')).toHaveCount(1);
       await expect(page.locator('#case-evidence')).not.toContainText('src/content/');
     }

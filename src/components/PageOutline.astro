@@ -6,8 +6,9 @@ interface Props {
   chapters: PageChapter[];
   lang: Lang;
   variant?: 'footer' | 'reading';
+  activeId?: string;
 }
-const { chapters, lang, variant = 'footer' } = Astro.props;
+const { chapters, lang, variant = 'footer', activeId } = Astro.props;
 ---
 
 {chapters.length > 0 && (
@@ -27,9 +28,19 @@ const { chapters, lang, variant = 'footer' } = Astro.props;
     <ul>
       {chapters.map(({ id, title, family, section }) => (
         <li>
-          <a href={'#' + id} data-outline-target={id}>
-            <PageCode family={family} section={section} lang={lang} register={false} />
-            <span>{title}</span>
+          <a href={'#' + id} data-outline-target={id} aria-current={activeId === id ? 'location' : undefined}>
+            {variant === 'reading' ? (
+              <span class="page-outline__label">
+                <PageCode family={family} section={section} lang={lang} register={false} />
+                <span>{title}</span>
+                <span class="page-outline__baseline" aria-hidden="true"></span>
+              </span>
+            ) : (
+              <>
+                <PageCode family={family} section={section} lang={lang} register={false} />
+                <span>{title}</span>
+              </>
+            )}
           </a>
         </li>
       ))}

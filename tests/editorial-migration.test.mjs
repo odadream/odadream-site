@@ -10,6 +10,35 @@ const { resolveLegacyRoutes } = await loadSiteModule('src/lib/legacy-routes.ts')
 const inventory = JSON.parse(await readFile('docs/migration/INVENTORY-2026-10-05.json', 'utf8'));
 const ownerInventory = JSON.parse(await readFile('docs/RECOGNITION-SOURCE-INVENTORY.json', 'utf8'));
 const allSnapshots = { ...inventory.v2SourceSnapshots, ...ownerInventory.sourceSnapshots };
+test('dedicated project handoff survives the public projection and publishes only real chapter anchors', () => {
+  const source = { ...data, works: structuredClone(data.works) };
+  const scope = createPublicationScope(source, { ...plan, works: ['interference'] });
+  const work = scope.works.find((row) => row.id === 'interference');
+  assert.equal(work.projectSite.href, 'https://interference.odadream.art/');
+  assert.equal(work.media[0], 'archive-interference-interference-2026-02');
+  for (const lang of ['ru', 'en']) {
+    const page = createPages(scope).find((row) => row.lang === lang && row.slug === work.slug);
+    assert.ok(page.anchors.includes('work-project-site'));
+    assert.ok(page.anchors.includes('work-context'));
+    assert.ok(!page.anchors.includes('work-story'));
+    assert.ok(!page.anchors.includes('work-credits'));
+  }
+});
+test('event page selection preserves only approved owned media while leaving the source archive intact', () => {
+  const source = { ...data, cases: structuredClone(data.cases) };
+  const event = source.cases.find((row) => row.id === 'tsiolkovsky-2026');
+  event.presentationMedia.push('private-unselected-file');
+  const scope = createPublicationScope(source, {
+    ...plan,
+    works: ['interference'],
+    cases: ['tsiolkovsky-2026'],
+  });
+  const shown = scope.cases.find((row) => row.id === event.id);
+  assert.equal(shown.presentationMedia.length, 4);
+  assert.equal(shown.presentationMedia[0], 'archive-interference-interference-2026-poster');
+  assert.ok(shown.presentationMedia.every((id) => shown.media.includes(id)));
+  assert.ok(shown.media.length > shown.presentationMedia.length);
+});
 const plan = {
   version: 'fixture',
   asOf: '2026-10-06',

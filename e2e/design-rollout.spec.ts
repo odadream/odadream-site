@@ -53,7 +53,9 @@ for (const theme of ['light', 'dark']) {
               cases: ['catalogue', 'catalogue'],
               recognition: ['catalogue'],
               contact: ['action'],
-              work: ['editorial', 'editorial', 'editorial', 'editorial', 'action'],
+              work: record.anchors?.includes('work-project-site')
+                ? ['editorial', 'action']
+                : ['editorial', 'editorial', 'editorial', 'editorial', 'action'],
               case: (record.anchors ?? [])
                 .filter((id) =>
                   ['case-contribution', 'case-story', 'case-context', 'case-evidence'].includes(id),

@@ -34,6 +34,7 @@ import EvidenceNote from '../components/EvidenceNote.astro';
 import TechnicalMark from '../components/TechnicalMark.astro';
 import CalloutLink from '../components/CalloutLink.astro';
 import PageCode from '../components/PageCode.astro';
+import PageOutline from '../components/PageOutline.astro';
 import {
   recognitions,
   works,
@@ -475,6 +476,29 @@ const profileTokens = [
           строке, когда не вытесняет раздел. Главная доступна через логотип. Пиктограмма и цвет сохраняют
           семейство страницы, суффикс .01 — позицию главы. Система доступна только в DEV.
         </p>
+        <div class="section-body" id="system-outline-active">
+          <h3>Активная глава · непрерывное подчёркивание</h3>
+          <div class="reading-navigation">
+            <p>
+              <a class="editorial-link" href="#system-04">
+                Обычное подчёркивание
+              </a>
+            </p>
+            <PageOutline
+              lang="ru"
+              variant="reading"
+              activeId="system-04"
+              chapters={[
+                { id: 'system-04', title: 'Навигация и действия', family: 'D', section: 4 },
+                { id: 'system-03', title: 'Ритм и сетка', family: 'D', section: 3 },
+              ]}
+            />
+          </div>
+          <p class="small-note">
+            Та же PageOutline, что в шапке сайта. Единая линия проходит под знаком, номером и текстом на
+            уровне обычного подчёркивания; толщина и отступ задаются общими link-токенами.
+          </p>
+        </div>
         <div class="component-pair">
           <div>
             <p class="component-title">Редакционные ссылки</p>

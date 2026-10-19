@@ -10,7 +10,7 @@ const records = JSON.parse(
       `
   import { loadSiteModule } from './scripts/site-data.mjs';
   const data = await loadSiteModule();
-  console.log(JSON.stringify(data.works.map(work => ({slug:work.slug, story:work.story.length, paragraphs:work.story.map(section => section.body), credits:work.credits.length}))));
+  console.log(JSON.stringify(data.works.map(work => ({slug:work.slug, story:work.projectSite ? 0 : work.story.length, paragraphs:work.projectSite ? [] : work.story.map(section => section.body), credits:work.projectSite ? 0 : work.credits.length}))));
 `,
     ],
     { encoding: 'utf8', windowsHide: true },

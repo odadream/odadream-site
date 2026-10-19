@@ -2,6 +2,7 @@
 export function caseSectionIds(item: {
   story: readonly unknown[];
   media: readonly string[];
+  presentationMedia?: readonly string[];
   organizationRoles: readonly unknown[];
   participants: readonly unknown[];
   limitations: readonly unknown[];
@@ -14,7 +15,7 @@ export function caseSectionIds(item: {
 }) {
   return [
     'case-contribution',
-    ...(item.story.length || item.media.length > 1 ? ['case-story'] : []),
+    ...(item.story.length || (item.presentationMedia ?? item.media).length > 1 ? ['case-story'] : []),
     ...(item.organizationRoles.length ||
     item.participants.length ||
     item.limitations.length ||
