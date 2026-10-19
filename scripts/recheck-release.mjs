@@ -8,6 +8,10 @@ const browserFiles = [
   'e2e/media-gallery.spec.ts',
   'e2e/evidence-migration.spec.ts',
   'e2e/home-statistics.spec.ts',
+  'e2e/site.spec.ts',
+  'e2e/project-website.spec.ts',
+  'e2e/video-previews.spec.ts',
+  'e2e/work-card-layout.spec.ts',
 ];
 const git = (...args) => execFileSync('git', args, { encoding: 'utf8' }).trim();
 
@@ -76,7 +80,7 @@ async function main() {
   const changed = git('diff', '--name-only', report.head, 'HEAD').split('\n').filter(Boolean);
   validateRecheck(report, run, changed, browserLog);
   console.log(
-    `Reusing passed full-matrix results from ${id}; repeating viewer, recognition and homepage dependencies.`,
+    `Reusing passed full-matrix results from ${id}; repeating viewer, recognition, homepage, project gateway and card media dependencies.`,
   );
   const result = await runChecks({
     requested: 'release',

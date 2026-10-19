@@ -37,3 +37,13 @@ test('production, unrelated, incomplete and uncovered failures cannot use a focu
     ),
   );
 });
+
+test('gateway and homepage media expectations can reuse the exact unchanged production artifact', () => {
+  const gatewayLog = '  1) [desktop] › e2e/site.spec.ts:132:1 › selected cover opens viewer\n';
+  assert.doesNotThrow(() =>
+    validateRecheck(report, run, ['e2e/site.spec.ts', 'scripts/recheck-release.mjs'], gatewayLog),
+  );
+  assert.throws(() =>
+    validateRecheck(report, run, ['e2e/site.spec.ts', 'src/components/WorkCard.astro'], gatewayLog),
+  );
+});
