@@ -30,6 +30,20 @@ test('document page galleries inherit owner and rights gates without leaking ext
   assert.ok(!restricted.assetPaths.has(drawing.pageImages[0].src));
 });
 
+test('private recognition inputs verify on CI without the owner drive, but require registered source hashes', async () => {
+  const source = { ...data, recognitions: structuredClone(data.recognitions) };
+  const credit = source.recognitions.find((row) => row.documents?.some((page) => page.sourcePath));
+  const page = credit.documents.find((row) => row.sourcePath);
+  page.sourcePath = 'Z:/unavailable-owner-archive/source.pdf';
+  assert.deepEqual(await verifyPreparedMedia(source), []);
+  const validHash = page.sourceSha256;
+  page.sourceSha256 = '0'.repeat(64);
+  assert.ok((await verifyPreparedMedia(source)).some((error) => error.includes(page.src)));
+  page.sourceSha256 = validHash;
+  credit.sourceRefs = credit.sourceRefs.filter((row) => row.sha256 !== validHash);
+  assert.ok((await verifyPreparedMedia(source)).some((error) => error.includes(page.src)));
+});
+
 test('public and preview media use the same compressed image dimensions and paths', () => {
   for (const preview of [false, true]) {
     const scope = createPublicationScope(data, publicationPlan, preview);

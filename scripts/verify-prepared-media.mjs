@@ -75,6 +75,15 @@ export async function verifyPreparedMedia(data) {
       (row) => row.src === path && row.kind === 'image' && externalMediaInput(row),
     );
     const recognitionPage = recognitionPages.get(path);
+    const privateRecognition =
+      recognitionPage?.sourcePath && /^[A-Za-z]:[\\/]|^\\\\/.test(recognitionPage.sourcePath);
+    const registeredRecognitionSource =
+      privateRecognition &&
+      data.recognitions.some(
+        (row) =>
+          row.documents?.some((page) => page.src === path) &&
+          row.sourceRefs?.some((source) => source.sha256 === recognitionPage.sourceSha256),
+      );
     const original = external
       ? undefined
       : await readFile(
@@ -88,10 +97,17 @@ export async function verifyPreparedMedia(data) {
           proof.sourceSha256 !== external.archiveSource.sha256 ||
           !proof.sourceBytes ||
           proof.images.length !== 1
-        : !original ||
-          original.length !== proof.sourceBytes ||
-          hash(original) !== proof.sourceSha256 ||
-          (recognitionPage?.sourceSha256 && recognitionPage.sourceSha256 !== proof.sourceSha256)
+        : privateRecognition
+          ? !registeredRecognitionSource ||
+            !/^[a-f0-9]{64}$/.test(recognitionPage.sourceSha256 ?? '') ||
+            proof.sourceSha256 !== recognitionPage.sourceSha256 ||
+            !proof.sourceBytes ||
+            !proof.images.length ||
+            (original && (original.length !== proof.sourceBytes || hash(original) !== proof.sourceSha256))
+          : !original ||
+            original.length !== proof.sourceBytes ||
+            hash(original) !== proof.sourceSha256 ||
+            (recognitionPage?.sourceSha256 && recognitionPage.sourceSha256 !== proof.sourceSha256)
     )
       errors.push(`prepared media ${path}: original changed; run media:prepare`);
     for (const image of proof.images) {
