@@ -192,7 +192,7 @@ test('featured carousel, editorial links and card media follow the design gramma
   await expect(page.locator('.site-nav a').first()).toHaveCSS('column-gap', '8px');
   await expect(page.locator('#selected-works .work-card')).toHaveCount(6);
   await expect(page.locator('#selected-works .work-card:not([data-work-stage="realized"])')).toHaveCount(0);
-  await expect(page.locator('#home-recognition-wall figure')).toHaveCount(18);
+  await expect(page.locator('#home-recognition-wall figure')).toHaveCount(17);
   await expect(page.locator('.work-card__identity .page-code')).toHaveCount(0);
   await expect(page.locator('.process-steps .page-code')).toHaveCount(0);
   await expect(page.locator('.work-card__category').first()).not.toBeEmpty();
@@ -311,7 +311,7 @@ test('homepage distinguishes catalogue scope and document previews', async ({ pa
   await expect(page.getByText('Папки событий · Golem', { exact: true })).toHaveCount(0);
   await expect(page.getByText('Записи признаний', { exact: true })).toBeVisible();
   await expect(page.getByText('Прежний перечень', { exact: true })).toHaveCount(0);
-  await expect(page.locator('#home-recognition-wall [data-lightbox]')).toHaveCount(16);
+  await expect(page.locator('#home-recognition-wall [data-lightbox]')).toHaveCount(17);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
   const trigger = page.locator('#home-recognition-wall [data-lightbox]').first();
   await trigger.click();
