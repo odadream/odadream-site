@@ -47,3 +47,13 @@ test('gateway and homepage media expectations can reuse the exact unchanged prod
     validateRecheck(report, run, ['e2e/site.spec.ts', 'src/components/WorkCard.astro'], gatewayLog),
   );
 });
+
+test('recognition grouped-page expectations reuse only the unchanged full baseline artifact', () => {
+  const groupedLog = '  1) [desktop] › e2e/full-materials.spec.ts:26:1 › grouped recognition pages\n';
+  assert.doesNotThrow(() =>
+    validateRecheck(report, run, ['e2e/full-materials.spec.ts', 'scripts/recheck-release.mjs'], groupedLog),
+  );
+  assert.throws(() =>
+    validateRecheck(report, run, ['e2e/full-materials.spec.ts', 'src/data/site.ts'], groupedLog),
+  );
+});

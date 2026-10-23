@@ -28,7 +28,7 @@ test('case narratives and source claims use event roles and readable provenance 
     await page.goto(`/${lang}/cases/#case-portal-2025`);
     await expect(page).toHaveURL(new RegExp(`/${lang}/cases/#case-portal-2025$`));
     await page.goto(`/${lang}/recognition/`);
-    await expect(page.locator('.recognition-card')).toHaveCount(18);
+    await expect(page.locator('.recognition-card')).toHaveCount(19);
     await expect(page.locator('#recognition-portal-2030-2025 .recognition-card__image')).toBeVisible();
     await expect(page.locator('#recognition-culttech-school-grant-2026')).toHaveClass(
       /recognition-card--text/,

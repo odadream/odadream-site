@@ -7,6 +7,7 @@ import { runChecks } from './checks.mjs';
 const browserFiles = [
   'e2e/media-gallery.spec.ts',
   'e2e/evidence-migration.spec.ts',
+  'e2e/full-materials.spec.ts',
   'e2e/home-statistics.spec.ts',
   'e2e/site.spec.ts',
   'e2e/project-website.spec.ts',

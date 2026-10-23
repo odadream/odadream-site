@@ -28,8 +28,8 @@ test('recognition corpus preserves missing-scan qualification and readable share
 }) => {
   for (const lang of ['ru', 'en']) {
     await page.goto(`/${lang}/recognition/`);
-    await expect(page.locator('.recognition-card')).toHaveCount(18);
-    await expect(page.locator('.recognition-card img')).toHaveCount(16);
+    await expect(page.locator('.recognition-card')).toHaveCount(19);
+    await expect(page.locator('.recognition-card img')).toHaveCount(26);
     await expect(page.locator('#recognition-culttech-school-grant-2026 img')).toHaveCount(0);
     await expect(page.locator('#recognition-culttech-school-grant-2026')).toHaveClass(
       /recognition-card--text/,
@@ -38,12 +38,19 @@ test('recognition corpus preserves missing-scan qualification and readable share
       page.locator('#recognition-culttech-school-grant-2026 .recognition-card__missing'),
     ).toHaveCount(0);
     await expect(page.locator('#recognition-culttech-school-grant-2026 .small-note')).not.toHaveCount(0);
-    const button = page.locator('#recognition-portal-2030-2025 [data-lightbox]');
+    const button = page.locator('#recognition-portal-2030-2025 [data-lightbox]').first();
     await button.click();
     await expect(page.locator('#lightbox')).toBeVisible();
     await expect(page.locator('#lightbox img')).toHaveAttribute('src', /\/images\/prepared\//);
     await page.keyboard.press('Escape');
     await expect(button).toBeFocused();
+    const paired = page.locator('#recognition-frequencies-daler-certificate-2026 [data-lightbox]');
+    await expect(paired).toHaveCount(2);
+    await paired.first().click();
+    await expect(page.locator('.lightbox-position')).toHaveText('1 / 2');
+    await page.keyboard.press('ArrowRight');
+    await expect(page.locator('.lightbox-position')).toHaveText('2 / 2');
+    await page.keyboard.press('Escape');
   }
 });
 

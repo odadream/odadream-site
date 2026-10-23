@@ -39,8 +39,25 @@ for (const lang of ['ru', 'en']) {
       lang === 'ru' ? 'Фестиваль Циолковского' : 'Tsiolkovsky Festival',
     );
     const wall = page.locator('#home-recognition-wall');
-    await expect(wall.locator('figure')).toHaveCount(18);
-    await expect(wall.locator('[data-lightbox]')).toHaveCount(16);
+    await expect(wall.locator('figure')).toHaveCount(17);
+    await expect(wall.locator('[data-lightbox]')).toHaveCount(17);
+    const creditIds = await wall
+      .locator('figure')
+      .evaluateAll((figures) => figures.map((figure) => figure.getAttribute('data-recognition-id')));
+    expect(new Set(creditIds).size).toBe(creditIds.length);
+    await expect(wall.locator('figure img')).toHaveCount(17);
+    await expect
+      .poll(() =>
+        wall.locator('figure:visible').evaluateAll((figures) => {
+          const rows = new Map<number, number>();
+          for (const figure of figures) {
+            const top = Math.round(figure.getBoundingClientRect().top);
+            rows.set(top, (rows.get(top) ?? 0) + 1);
+          }
+          return rows.size > 0 && rows.size <= 4 && new Set(rows.values()).size === 1;
+        }),
+      )
+      .toBe(true);
     await expect(wall.locator('a[href="/' + lang + '/recognition/"]')).toHaveCount(1);
     await expect(page.locator('#recognition .recognition-card--overview')).toHaveCount(0);
     const workDetails = page.locator('.record-stamp__more').filter({
