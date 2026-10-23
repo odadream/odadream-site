@@ -118,12 +118,21 @@ def save_image(image, path, profile):
             'quality': quality, 'withinBudget': path.stat().st_size <= profile['budget']}
 
 
+def correct_document(image, request):
+    gamma = request.get('toneGamma')
+    if gamma is None:
+        return image
+    if not 0.5 <= gamma <= 1.5:
+        raise ValueError('Document gamma outside reviewed range')
+    lut = [round(255 * (value / 255) ** gamma) for value in range(256)]
+    return image.convert('RGB').point(lut * 3)
+
 def prepare(request):
     source = Path(request['source']).resolve(strict=True)
     source_sha = digest(source)
     profile_name = 'document' if request['kind'] == 'pdf' else request.get('profile', 'photograph')
     key = hashlib.sha256(json.dumps({'source': source_sha, 'kind': request['kind'],
-        'profile': profile_name, 'policy': POLICY}, sort_keys=True).encode()).hexdigest()
+        'profile': profile_name, 'policy': POLICY, **({'rotation': request['rotation']} if request.get('rotation') else {}), **({'toneGamma': request['toneGamma']} if request.get('toneGamma') else {})}, sort_keys=True).encode()).hexdigest()
     folder = CACHE / key
     manifest = folder / 'manifest.json'
     cached = None
@@ -145,7 +154,9 @@ def prepare(request):
                     scale = edge / max(page.rect.width, page.rect.height)
                     pixmap = page.get_pixmap(matrix=fitz.Matrix(scale, scale), colorspace=fitz.csRGB)
                     image = Image.frombytes('RGB', (pixmap.width, pixmap.height), pixmap.samples)
-                    images.append(save_image(image, folder / f'page-{number:03}.webp', POLICY[profile_name]))
+                    if request.get('rotation'):
+                        image = image.rotate(request['rotation'], expand=True)
+                    images.append(save_image(correct_document(image, request), folder / f'page-{number:03}.webp', POLICY[profile_name]))
                     content = page.get_text(sort=True).strip()
                     page_texts.append(content)
                     path = folder / f'page-{number:03}.txt'
@@ -159,7 +170,7 @@ def prepare(request):
             text_state = ('extracted' if all(page_texts) else 'partial' if any(page_texts) else 'needs-ocr')
         else:
             with Image.open(source) as image:
-                images.append(save_image(image, folder / 'image.webp', POLICY[profile_name]))
+                images.append(save_image(correct_document(image, request), folder / 'image.webp', POLICY[profile_name]))
         cached = {'key': key, 'policy': POLICY, 'sourceSha256': source_sha,
                   'sourceBytes': source.stat().st_size, 'images': images, 'texts': texts,
                   'textStatus': text_state}

@@ -1,7 +1,9 @@
+import { methodTechnologyMedia } from './method-technology-media';
 import {
   auditedRecognitions,
-  personalRecognitionIds,
   recognitionCorrections,
+  recognitionGroups,
+  recognitionCaptionLabels,
 } from './recognition-source-audit';
 import { eventContexts, type EventContext } from './event-contexts';
 import { classifyCatalogue } from './catalogue-classification';
@@ -200,7 +202,22 @@ export interface Evidence extends EvidenceDetail {
   permission: Rights;
 }
 export type RecognitionKind = 'award' | 'certificate' | 'acknowledgement-letter' | 'grant' | 'selection';
+export interface RecognitionDocument {
+  cover?: boolean;
+  rotation?: number;
+  toneGamma?: number;
+  id: string;
+  src: string;
+  label: Localized;
+  width?: number;
+  height?: number;
+  /** Local-only path and fingerprint used by media preparation; PUBLIC projection drops both. */
+  sourcePath?: string;
+  sourceSha256?: string;
+}
 export interface Recognition extends RecognitionDetail {
+  captionLabel?: Localized;
+  place?: number;
   id: string;
   legacyId?: string;
   kind: RecognitionKind;
@@ -212,6 +229,8 @@ export interface Recognition extends RecognitionDetail {
   source: string;
   documentSource: string;
   previewSrc?: string;
+  /** Separate files/pages that document the same event and recognition credit. */
+  documents?: RecognitionDocument[];
   publication: Publication;
   documentRights: Rights;
   width?: number;
@@ -287,6 +306,7 @@ export const socialLinks: SocialLink[] = [
 ];
 
 export const media: Media[] = [
+  ...methodTechnologyMedia,
   ...eventMedia,
   {
     id: 'schrodinger-poster',
@@ -1365,6 +1385,7 @@ const recognitionRecords: Omit<Recognition, keyof RecognitionDetail>[] = [
   },
 ];
 
+const recognitionGroupMembers = new Set(Object.values(recognitionGroups).flatMap((group) => group.memberIds));
 export const recognitions: Recognition[] = [
   ...recognitionRecords.map((row) => ({
     ...row,
@@ -1377,8 +1398,25 @@ export const recognitions: Recognition[] = [
   ...archiveRecognitions,
   ...auditedRecognitions,
 ]
-  .filter((row) => !personalRecognitionIds.includes(row.id))
-  .map((row) => ({ ...row, ...recognitionCorrections[row.id] }));
+  .filter((row) => !recognitionGroupMembers.has(row.id))
+  .map((row) => {
+    const group = recognitionGroups[row.id];
+    const { memberIds: _memberIds, ...groupData } = group ?? { memberIds: [] };
+    return {
+      ...row,
+      ...recognitionCorrections[row.id],
+      ...groupData,
+      captionLabel: recognitionCaptionLabels[row.id],
+      ...(['portal-2030-2025', 'skolkovo-arttech-2026'].includes(row.id) ? { place: 1 } : {}),
+      ...(group?.documents?.length
+        ? {
+            previewSrc: group.documents[0].src,
+            documentSource: group.documents[0].src,
+            documentState: 'available' as const,
+          }
+        : {}),
+    };
+  });
 
 const caseRecords: Omit<
   CaseEvent,

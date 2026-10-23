@@ -1,11 +1,13 @@
 ---
 import DevPublicationMark from './DevPublicationMark.astro';
+import RecognitionCaption from './RecognitionCaption.astro';
 import CalloutLink from './CalloutLink.astro';
 import type { Lang, Recognition } from '../data/site';
-import { recognitionKindLabel } from '../lib/recognition-presentation';
 interface Props {
   item: Pick<
     Recognition,
+    | 'captionLabel'
+    | 'place'
     | 'id'
     | 'kind'
     | 'title'
@@ -17,6 +19,7 @@ interface Props {
     | 'recipient'
     | 'limitations'
     | 'contextPath'
+    | 'documents'
     | 'width'
     | 'height'
   >;
@@ -25,40 +28,55 @@ interface Props {
 }
 const { item, lang, presentation = 'catalogue' } = Astro.props;
 const overview = presentation === 'overview';
+const documents = item.documents?.length
+  ? item.documents
+  : item.previewSrc
+    ? [{ id: item.id, src: item.previewSrc, label: item.title, width: item.width, height: item.height }]
+    : [];
 ---
 
 <article
   class:list={[
     'recognition-card',
-    { 'recognition-card--overview': overview, 'recognition-card--text': !item.previewSrc },
+    { 'recognition-card--overview': overview, 'recognition-card--text': documents.length === 0 },
   ]}
   id={`recognition-${item.id}`}
 >
   <DevPublicationMark kind="recognitions" recordId={item.id} lang={lang} />
-  {item.previewSrc ? (
-    <button
-      data-material-id={item.id}
-      class="recognition-card__image"
-      type="button"
-      data-lightbox
-      data-details-href={`/${lang}/recognition/#recognition-${item.id}`}
-      data-src={item.previewSrc}
-      data-alt={item.title[lang]}
-      data-caption={`${item.title[lang]} · ${item.issuer[lang]}, ${item.year}`}
-      aria-label={lang === 'ru' ? `Открыть документ: ${item.title.ru}` : `Open document: ${item.title.en}`}
-    >
-      <img
-        src={item.previewSrc}
-        alt=""
-        width={item.width}
-        height={item.height}
-        loading="lazy"
-        decoding="async"
-      />
-    </button>
-  ) : null}
+  {documents.length > 0 && (
+    <div class="recognition-card__documents" data-media-gallery>
+      {documents.map((document) => (
+        <button
+          data-material-id={item.id}
+          class="recognition-card__image"
+          type="button"
+          data-lightbox
+          data-gallery-item
+          data-details-href={`/${lang}/recognition/#recognition-${item.id}`}
+          data-src={document.src}
+          data-alt={`${document.label[lang]} · ${item.title[lang]}`}
+          data-viewer-summary={`${item.year} · ${(item.captionLabel ?? item.issuer)[lang]}${item.place ? ` · ${item.place}${lang === 'ru' ? ' место' : 'st place'}` : ''} · ${document.label[lang]}`}
+          data-caption={`${document.label[lang]} · ${item.issuer[lang]}, ${item.year}`}
+          aria-label={
+            lang === 'ru'
+              ? `Открыть: ${document.label.ru} · ${item.title.ru}`
+              : `Open: ${document.label.en} · ${item.title.en}`
+          }
+        >
+          <img
+            src={document.src}
+            alt=""
+            width={document.width}
+            height={document.height}
+            loading="lazy"
+            decoding="async"
+          />
+        </button>
+      ))}
+    </div>
+  )}
   <span class="meta">
-    {item.year} · {recognitionKindLabel[item.kind][lang]}
+    <RecognitionCaption item={item} lang={lang} />
   </span>
   <div>
     <h3>{item.title[lang]}</h3>

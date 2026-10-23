@@ -1,3 +1,4 @@
+import { methodTechnologySections, methodTechnologySources } from './method-technology';
 import { recognitionSourceSnapshots } from './recognition-source-snapshots';
 import type { Localized, Publication } from './site';
 
@@ -11,6 +12,7 @@ export interface EditorialSection {
   title: Localized;
   body: Localized;
   links?: SourceLink[];
+  media?: string[];
 }
 export interface SourceLink {
   id: string;
@@ -19,6 +21,7 @@ export interface SourceLink {
   kind: 'video' | 'audio' | 'article';
 }
 export interface Method {
+  coverMediaId?: string;
   id: string;
   legacyId: string;
   title: Localized;
@@ -72,6 +75,7 @@ export interface CooperationPage {
 // Exact bytes of dated V1 and owner-provided editorial snapshots, not current availability claims.
 export const sourceSnapshots: Record<string, SourceReference> = {
   ...recognitionSourceSnapshots,
+  ...methodTechnologySources,
   'Obsidian_Tavrida_Gastro_2025.md': {
     file: 'Obsidian_Tavrida_Gastro_2025.md',
     sha256: 'ace88efd7224b6e854f775ab13c8c4b005dfbbbfa05bc35688c5ba90b74a641e',
@@ -1016,40 +1020,8 @@ export const methods: Method[] = [
       'Нейромандала — авторская система ODA.dream: параметры биосигналов участвуют в создании изображения, звука и художественной среды. Участник наблюдает отклик и становится соавтором процесса.',
       'Neuromandala is ODA.dream’s system for using biosignal parameters to shape image, sound and an artistic environment. A participant observes its response and becomes a co-author of the process.',
     ),
-    sections: [
-      {
-        id: 'invention-application',
-        title: l('Заявка на изобретение', 'Invention application'),
-        body: l(
-          `Заявка на изобретение №${intellectualProperty.inventionApplication.number} подана 30 апреля 2026 года. Уведомление ФИПС от 15 июня 2026 года подтверждает проведение экспертизы по существу; патент не выдан.`,
-          `Invention application No. ${intellectualProperty.inventionApplication.number} was filed on 30 April 2026. A FIPS notice dated 15 June 2026 confirms substantive examination; no patent has been granted.`,
-        ),
-      },
-      {
-        id: 'method-overview',
-        title: l('Метод и художественная позиция', 'Method and artistic position'),
-        body: l(
-          'Нейромандала соединяет измерение, художественные правила и участие человека. Её визуальный язык и технология лежат в основе разных произведений. MultiSync, или гиперсканирование, позволяет одновременно записывать несколько ЭЭГ-потоков и использовать их параметры в общей визуальной, световой или звуковой среде.',
-          'Neuromandala connects measurement, artistic rules and human participation. Its visual language and technology underpin a range of works. MultiSync, or hyperscanning, captures several EEG streams simultaneously and uses their parameters to shape a shared visual, light or sound environment.',
-        ),
-      },
-      {
-        id: 'visual-language',
-        title: l('Что видно на экране', 'What appears on screen'),
-        body: l(
-          'Изменения параметров могут влиять на движение, ритм, цвет и композицию. Орнаментальные и абстрактные формы — художественный перевод, заданный конкретной конфигурацией. В некоторых версиях MindShow участник добавляет словесный рассказ, из которого развивается отдельный образный слой. Готовый видеопример показывает эту визуальную логику, а не текущий сигнал посетителя сайта.',
-          'Changes in parameters can affect movement, rhythm, colour and composition. Ornamental and abstract forms are an artistic mapping defined by a specific configuration. In some MindShow versions, the participant adds a verbal narrative that develops into a separate imagery layer. A recorded example shows this visual logic, not a live signal from the website visitor.',
-        ),
-      },
-      {
-        id: 'encounter',
-        title: l('Роль участника', 'The participant’s role'),
-        body: l(
-          'В центре работы — встреча человека с отзывчивой средой: наблюдение, внимание, рассказ и взаимодействие с другими. Участие с датчиком, роль зрителя и возможность входа без измерения определяются для каждого формата. Нейроинтерфейс — часть художественной ситуации, а не тест личности.',
-          'The work centres on an encounter with a responsive environment: observation, attention, narrative and interaction with others. Sensor participation, the audience role and participation without measurement are specified for each format. The neural interface is part of an artistic situation, not a personality test.',
-        ),
-      },
-    ],
+    coverMediaId: 'abrau-2026-157',
+    sections: methodTechnologySections,
     steps: [
       {
         id: 'signal',
@@ -1125,8 +1097,17 @@ export const methods: Method[] = [
       ],
     },
     works: ['neuromandala', 'mindshow', 'neurosync', 'interference', 'neurobattle'],
-    media: ['neuromandala-frequencies'],
+    media: [
+      'abrau-2026-157',
+      'neuromandala-frequencies',
+      'method-power-timeline',
+      'method-power-polar',
+      'method-minddb-1',
+      'method-minddb-2',
+      'method-minddb-3',
+    ],
     sourceRefs: refs(
+      ...Object.keys(methodTechnologySources),
       'Owner_IP_Confirmation_2026-10-08.md',
       'neuromandala.md',
       'multisync.md',

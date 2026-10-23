@@ -141,11 +141,13 @@ test('mobile navigation, media, lightbox and contact work without horizontal ove
   }
   await expect(page.locator('.feature-slide:not([hidden]) video')).toBeVisible();
   await page.goto('/en/works/interference-of-realities/');
-  await page.locator('[data-media-id="interference-stage"] [data-lightbox]').click();
+  await page.locator('[data-media-id="archive-interference-interference-2026-02"] [data-lightbox]').click();
   await expect(page.locator('#lightbox')).toHaveAttribute('open', '');
   await page.keyboard.press('Escape');
   await expect(page.locator('#lightbox')).not.toHaveAttribute('open', '');
-  await expect(page.locator('[data-media-id="interference-stage"] [data-lightbox]')).toBeFocused();
+  await expect(
+    page.locator('[data-media-id="archive-interference-interference-2026-02"] [data-lightbox]'),
+  ).toBeFocused();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBeTruthy();
   await page.goto('/en/contact/');
   await expect(page.getByRole('link', { name: 'hi@odadream.art' })).toHaveAttribute(
@@ -203,8 +205,11 @@ test('featured carousel, editorial links and card media follow the design gramma
   await expect(visibleLink.locator('.callout-link-drawing path')).toHaveAttribute('d', /H[\d. -]+/);
   await expect(visibleLink.locator('.callout-link-marker .technical-mark path')).toHaveAttribute('d', /L/);
   await expect(visibleLink).toContainText('\u00a0');
-  const preview = page.locator('.work-card [data-video-preview]').first();
-  await expect(preview.locator('img')).toHaveAttribute('src', '/video/interference-dawn-poster.webp');
+  const preview = page.locator('.work-card:has(a[href="/ru/works/mindshow/"]) [data-video-preview]');
+  await expect(preview.locator('img')).toHaveAttribute(
+    'src',
+    '/images/archive/videos/portal-2024-recording-poster.webp',
+  );
   if (isMobile) {
     await preview.evaluate((node) => {
       const box = node.getBoundingClientRect();

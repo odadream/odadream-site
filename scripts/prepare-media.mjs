@@ -31,18 +31,33 @@ for (const row of [...data.workDocuments, ...data.referenceDocuments]) {
     row.id,
   );
 }
-for (const row of data.recognitions.filter((row) => row.previewSrc)) {
-  addRequest(
-    {
-      href: row.previewSrc,
-      source: resolve('public', row.previewSrc.slice(1)),
-      kind: 'image',
-      profile: 'document',
-      extractText: true,
-      publish: row.documentRights === 'cleared',
-    },
-    row.id,
-  );
+for (const row of data.recognitions) {
+  const documents = row.documents?.length ? row.documents : row.previewSrc ? [{ src: row.previewSrc }] : [];
+  for (const document of documents) {
+    const source = document.sourcePath
+      ? resolve(document.sourcePath)
+      : resolve('public', document.src.slice(1));
+    if (
+      document.sourceSha256 &&
+      createHash('sha256')
+        .update(await readFile(source))
+        .digest('hex') !== document.sourceSha256
+    )
+      throw Error(`Recognition source changed: ${document.id}`);
+    addRequest(
+      {
+        href: document.src,
+        rotation: document.rotation,
+        toneGamma: document.toneGamma,
+        source,
+        kind: (document.sourcePath ?? document.src).toLowerCase().endsWith('.pdf') ? 'pdf' : 'image',
+        profile: 'document',
+        extractText: true,
+        publish: row.documentRights === 'cleared',
+      },
+      row.id,
+    );
+  }
 }
 for (const row of data.media.filter((row) => row.kind === 'image')) {
   if (

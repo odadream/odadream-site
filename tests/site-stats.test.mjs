@@ -115,3 +115,21 @@ test('recognition prioritizes outcomes, then dates, and leaves selection distinc
   assert.equal(rows[3].id, 'cyens-reserve-2026');
   assert.match(rows[3].overviewClaim.en, /neither entered/);
 });
+test('recognition statistics count a multi-document credit once, by credit kind', () => {
+  const stats = calculateSiteStats({
+    works: [],
+    cases: [],
+    programmes: [],
+    recognitions: [
+      {
+        kind: 'acknowledgement-letter',
+        featuredOnHome: true,
+        previewSrc: '/images/first-page.webp',
+        documents: [{ id: 'daler-letter' }, { id: 'olga-letter' }],
+      },
+    ],
+  });
+  assert.equal(stats.recognitions.total, 1);
+  assert.equal(stats.recognitions.withPreview, 1);
+  assert.equal(stats.recognitions.byKind['acknowledgement-letter'], 1);
+});

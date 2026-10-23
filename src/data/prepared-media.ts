@@ -475,100 +475,100 @@ export const preparedMedia: Record<string, PreparedAsset> = {
     ],
   },
   '/documents/oda-dream-technical-overview-ru.pdf': {
-    sourceSha256: 'e67c2906deb690b2c833cac10574b36faf780c911d8f97f8676a958f594adbde',
-    sourceBytes: 28657,
+    sourceSha256: '4e4d514aa0f000a9dd9a2bec0a24f90b695e3bd2bd1025c99d534883beb8cb48',
+    sourceBytes: 28650,
     sourcePages: 2,
     images: [
       {
-        src: '/images/prepared/011be6b8321d2398a00758f8/page-001.webp',
+        src: '/images/prepared/df4d41bbcf0881785199694c/page-001.webp',
         width: 1839,
         height: 2600,
-        bytes: 204086,
-        sha256: '2b82f9f274303c11a2dd2d02493bfe125fc4bec51aec59be53a2c8cc75e7dbe4',
+        bytes: 204064,
+        sha256: '960816cba0b8b4b2285eb5679610d2a1bbba26cb613628e3d8fcdd7669e21bf2',
       },
       {
-        src: '/images/prepared/011be6b8321d2398a00758f8/page-002.webp',
+        src: '/images/prepared/df4d41bbcf0881785199694c/page-002.webp',
         width: 1839,
         height: 2600,
-        bytes: 157886,
-        sha256: 'f046e514d06086683404d517ece219c95442e176de15c9213447a790cc43a986',
+        bytes: 157960,
+        sha256: '1a5e962b9f7f05870637a4fcbd948dddccd6cacc6865421580f6f0e0bb0cf7fb',
       },
     ],
   },
   '/documents/oda-dream-technical-overview-en.pdf': {
-    sourceSha256: '3814a382552e5a808319f8085317da9371c58d59e14c4f20260759b82965aab7',
-    sourceBytes: 23192,
+    sourceSha256: '6b7a8855edadcd86ab44425d71ec1caf9a9a7280e77cae9ce3a58cdd2cc0a754',
+    sourceBytes: 23191,
     sourcePages: 2,
     images: [
       {
-        src: '/images/prepared/5f83c0ec7438301287fada6d/page-001.webp',
+        src: '/images/prepared/0d7daf70586f054d209ce117/page-001.webp',
         width: 1839,
         height: 2600,
-        bytes: 209010,
-        sha256: '22b4cc8e938fb53f0a78e44c1ee59fa7f8ff048a26ec806bd4c2d941a1eb9ab4',
+        bytes: 209114,
+        sha256: '24bc2e29a97f2543321147abf988d4e687cff64f209cee01bded4800567a07d7',
       },
       {
-        src: '/images/prepared/5f83c0ec7438301287fada6d/page-002.webp',
+        src: '/images/prepared/0d7daf70586f054d209ce117/page-002.webp',
         width: 1839,
         height: 2600,
-        bytes: 149028,
-        sha256: '4ab0d247a0cd200bcd4f0e42a842667618c84e52bd3b0de3ae2f1f38390830d0',
+        bytes: 149076,
+        sha256: '8ba965ed423535034c65ba7128b1bdf483d2ecac17a9664971dc70b402c95d8b',
       },
     ],
   },
   '/documents/oda-dream-cv-olga-ru.pdf': {
-    sourceSha256: '2f36f8a4b4fe330772698116def09221e9e37e7e299802b003f4058029d88fc2',
-    sourceBytes: 26158,
+    sourceSha256: '99fabef0e4a0d7d1d8340f5b81a44b57aff6dc8766c065171525f39ba7d9999c',
+    sourceBytes: 26230,
     sourcePages: 1,
     images: [
       {
-        src: '/images/prepared/4aea50d7152daa5f6b3879dc/page-001.webp',
+        src: '/images/prepared/8d5390c008aa6fd9b6ec676a/page-001.webp',
         width: 1839,
         height: 2600,
-        bytes: 217862,
-        sha256: '1330f29fab6d56a0801d667185a446863f815cdbc2279745871f39e65b458b67',
+        bytes: 222000,
+        sha256: '072f1d20fbebebc52827e5a15c61f7cc9e13f95934297e6071a6039779e507c0',
       },
     ],
   },
   '/documents/oda-dream-cv-olga-en.pdf': {
-    sourceSha256: '9347564451bf010fceac5a172c76d73a06845412bd3f785a4f9ffe1db8f6e378',
-    sourceBytes: 21380,
+    sourceSha256: '0aed3dae1e50206a7ddf5d673804234bb9083db6624b0b6d035adc729804199e',
+    sourceBytes: 21427,
     sourcePages: 1,
     images: [
       {
-        src: '/images/prepared/cdd71a1a1bfba08f5c83e4a8/page-001.webp',
+        src: '/images/prepared/4061b2c56b55ee13d37f5407/page-001.webp',
         width: 1839,
         height: 2600,
-        bytes: 210036,
-        sha256: '6c3b7696f09aeaad49fe334a87a593f9858311e01bc8f58e50f697cdf23f799a',
+        bytes: 215038,
+        sha256: 'af00633bcbea57a05fde7940ce6244d0ae4a5fb074c8868169fc1519724c7a3a',
       },
     ],
   },
   '/documents/oda-dream-cv-daler-ru.pdf': {
-    sourceSha256: '549c2c5ac15214ec07e0e93a4428dc6bbdf44f91e0d42d3b326196957218b717',
-    sourceBytes: 26715,
+    sourceSha256: 'ddf7810161cd85ba96b5b1ecc5ea930e31ba7e2748ea8abcc281c4eac8fb0861',
+    sourceBytes: 26852,
     sourcePages: 1,
     images: [
       {
-        src: '/images/prepared/ec71d0b8e824ff7e2b68c2a4/page-001.webp',
+        src: '/images/prepared/1439fd1e6877fbf5446ed88a/page-001.webp',
         width: 1839,
         height: 2600,
-        bytes: 225826,
-        sha256: '539c931788415d62983052247a9088cd8a697dfa203165cb11edf81a67c60c72',
+        bytes: 237542,
+        sha256: '1ee45fe8fb839c78c1722646729e397dd36573b01cdbc5bd18198d43e0951688',
       },
     ],
   },
   '/documents/oda-dream-cv-daler-en.pdf': {
-    sourceSha256: '084b520c562c169a3e141924e38eedfabc69f56c1c76ad4e934f20821fbc9081',
-    sourceBytes: 21674,
+    sourceSha256: 'e77f2b06d18d5617ce0696f71d3e02d2b7dfcacf60ec6e0c4af89fc5d7a4ddee',
+    sourceBytes: 21768,
     sourcePages: 1,
     images: [
       {
-        src: '/images/prepared/6d07aa03854edda819082b95/page-001.webp',
+        src: '/images/prepared/f7b54a1209aa9a737426ed8d/page-001.webp',
         width: 1839,
         height: 2600,
-        bytes: 218602,
-        sha256: '465cadc11528ca61ea8030c6056b63e650550c7756fd99fc60568e017a17e5d5',
+        bytes: 228958,
+        sha256: '8a58371454e4d230cb3e5d3713dcee80841be61455970b7f522888368cab2e2f',
       },
     ],
   },
@@ -637,16 +637,68 @@ export const preparedMedia: Record<string, PreparedAsset> = {
       },
     ],
   },
-  '/images/recognition/battle-billion-letter-2024.webp': {
-    sourceSha256: '47b5384dc6ead2c246ea45b9128ea4bdcd13ca4d254f649c2b984006e9a42eb3',
-    sourceBytes: 75300,
+  '/images/recognition/hse-illustrated-2025.webp': {
+    sourceSha256: 'd05fecb036b45d12a5fb5576c49b6f2352a44a4c67cd7efb32439a4b5e795d63',
+    sourceBytes: 81516,
     images: [
       {
-        src: '/images/prepared/cf5237816d8a698d9c1918c5/image.webp',
-        width: 835,
+        src: '/images/prepared/53916570e7cb257e65c9449c/image.webp',
+        width: 641,
+        height: 883,
+        bytes: 72698,
+        sha256: '2ddef7150624a33a093c289ba8dbacfcc0a2320249410a9325931d94f201418a',
+      },
+    ],
+  },
+  '/images/recognition/province-code-letter-2024.webp': {
+    sourceSha256: '24805a1c080ff35166ab34fe5f2869ee716d8fc850b290f0d5d9b07a045b8cb0',
+    sourceBytes: 63198,
+    images: [
+      {
+        src: '/images/prepared/7d3dc0753f028c19ab220041/image.webp',
+        width: 810,
         height: 1080,
-        bytes: 86508,
-        sha256: '19e3c09e9ade7dc62112828d763e56f004ed8cca1c37f8bdfefeeffba5d763af',
+        bytes: 71912,
+        sha256: '1f2ad13eb15feffeec97ce98f5dc47a4913800991493055d20f7584ece1d2ae0',
+      },
+    ],
+  },
+  '/images/recognition/province-code-olga-letter-2024.webp': {
+    sourceSha256: '9509fb5b09fd079d0a9c1cb786d5496b0dff2e770a7e3a1d94641922f80ff4da',
+    sourceBytes: 193305,
+    images: [
+      {
+        src: '/images/prepared/3458277b94417be5e58a933d/image.webp',
+        width: 922,
+        height: 1280,
+        bytes: 173592,
+        sha256: 'd079fa312aa47c3faabea9a4dde8528408735477913e7cdeb16d6f7fa22315f9',
+      },
+    ],
+  },
+  '/images/recognition/techweek-letter-2024.webp': {
+    sourceSha256: '6fe088392550ebd6f2f613d02bfc8305938ed6137e1e2eaab509aae2e9d2632a',
+    sourceBytes: 1201651,
+    images: [
+      {
+        src: '/images/prepared/ec0dbe526b2b9dcf3b868bfe/page-001.webp',
+        width: 1839,
+        height: 2600,
+        bytes: 314120,
+        sha256: 'ea3b2b567c8b7ee1a3e2c3d709e5857720fd2653707bd73680900e90a64bf010',
+      },
+    ],
+  },
+  '/images/recognition/techweek-daler-letter-2024.webp': {
+    sourceSha256: 'b207e9363eacaf714963fc8f4e40d3fc05b6547c43cfe4734828a45f5cf484ee',
+    sourceBytes: 1201560,
+    images: [
+      {
+        src: '/images/prepared/cd5ef210d36c1000751b893a/page-001.webp',
+        width: 1839,
+        height: 2600,
+        bytes: 313660,
+        sha256: 'e75de9e644f5371557cdc93514a8543741806c22bcc7dd61297aa6b2465d8077',
       },
     ],
   },
@@ -676,6 +728,32 @@ export const preparedMedia: Record<string, PreparedAsset> = {
       },
     ],
   },
+  '/images/recognition/moscow2030-letter-2025.webp': {
+    sourceSha256: 'e28d2bf234915aa7d81846091a3fd7b0f10568b56d5f0c6da2c8539bc1ace4de',
+    sourceBytes: 51242,
+    images: [
+      {
+        src: '/images/prepared/f37f6ef1d0cc58926c697415/image.webp',
+        width: 762,
+        height: 1080,
+        bytes: 58592,
+        sha256: '86423dd70c6f6e2144719ccc5659916f32281cfd4fe7658112e851eed4b46fd5',
+      },
+    ],
+  },
+  '/images/recognition/moscow2030-daler-letter-2025.webp': {
+    sourceSha256: 'd06570bf751663273f183c741f7e0c37badc9ffe2fff75a011c07f9a36f8e80b',
+    sourceBytes: 1001193,
+    images: [
+      {
+        src: '/images/prepared/289907a45d7eeb8c3fb31c16/image.webp',
+        width: 1018,
+        height: 1440,
+        bytes: 112496,
+        sha256: 'dbabc2772f5a4ffc6d4629ba0161c1c6dc05edca73e17d1abf2eff9b607ab82b',
+      },
+    ],
+  },
   '/images/recognition/ossetia-letter-2025.webp': {
     sourceSha256: 'b064b7e8bcce3470f1231791f8726d8287c5cfad585c47c6454f760ed969bb57',
     sourceBytes: 53884,
@@ -686,6 +764,19 @@ export const preparedMedia: Record<string, PreparedAsset> = {
         height: 1080,
         bytes: 61978,
         sha256: '98b64178d6dbd0a0215826c71c3ce97b6810894c77593dc1e25273da0a3375c1',
+      },
+    ],
+  },
+  '/images/recognition/ossetia-communication-letter-2025.webp': {
+    sourceSha256: 'a0546c93eca5b06af918672769b68e87327ac6fc2b694f9f3c39d951de43f878',
+    sourceBytes: 99862,
+    images: [
+      {
+        src: '/images/prepared/91dbd6bace64a11c3753439a/image.webp',
+        width: 962,
+        height: 1344,
+        bytes: 86166,
+        sha256: 'de9ccba5304254d1341d4240204bea71672ccdc22eb2e31c75a867cc437e928c',
       },
     ],
   },
@@ -715,16 +806,29 @@ export const preparedMedia: Record<string, PreparedAsset> = {
       },
     ],
   },
-  '/images/recognition/skolkovo-confirmation-2026.webp': {
-    sourceSha256: '90838bda66c41d301204000994783e87dbe757acd4ad5a99eeedde7969e41368',
-    sourceBytes: 75660,
+  '/images/recognition/skolkovo-winner-2026.webp': {
+    sourceSha256: '83ad0e388f7504915678956358167f9dadfeaf22809535871ee4359bbb91df89',
+    sourceBytes: 196808,
     images: [
       {
-        src: '/images/prepared/35e4b459adb0b74b3dada25c/image.webp',
-        width: 953,
-        height: 1348,
-        bytes: 68910,
-        sha256: 'd539b4039191d4c90b8c12dd3e47d51b1d47d5fee1c86bc6549dc8c2a153bfe6',
+        src: '/images/prepared/1a37f6c7acffcc3c072fea06/image.webp',
+        width: 1463,
+        height: 1061,
+        bytes: 98244,
+        sha256: '9d5f398b537ed1e917090e7ae7f893b13ac90e7ffca7b72efaae43ecc1e3aecc',
+      },
+    ],
+  },
+  '/images/recognition/skolkovo-team-award-2026.webp': {
+    sourceSha256: '55dae696c6db1a2c903bb8b9c58505cdac501d3a0c609d8c2599f87a2297161d',
+    sourceBytes: 252169,
+    images: [
+      {
+        src: '/images/prepared/ae9a9a374fc304679dfd0e10/page-001.webp',
+        width: 1839,
+        height: 2600,
+        bytes: 169782,
+        sha256: '8267f9333719996c2953a0582fbc31d17b96c677859da6cddb99171f9d0a64d1',
       },
     ],
   },
@@ -741,6 +845,19 @@ export const preparedMedia: Record<string, PreparedAsset> = {
       },
     ],
   },
+  '/images/recognition/rukami-daler-certificate-2020.webp': {
+    sourceSha256: 'a2cdcf215903212eda6aadad49a241a436708641607160ee93e1420f38059253',
+    sourceBytes: 186549,
+    images: [
+      {
+        src: '/images/prepared/842f9bc632839efbc1881ae8/page-001.webp',
+        width: 2600,
+        height: 1839,
+        bytes: 267338,
+        sha256: 'd44c3b60e30c73fbf352f10431b266bc00480c8f5fc27352cd945d2da11042fc',
+      },
+    ],
+  },
   '/images/recognition/battle-billion-certificate-2024.webp': {
     sourceSha256: 'ba6f236014bef1e695d1912d4e7137b362fc43c40723ac68906e01346b3efb13',
     sourceBytes: 137152,
@@ -754,29 +871,107 @@ export const preparedMedia: Record<string, PreparedAsset> = {
       },
     ],
   },
-  '/images/recognition/hse-illustrated-2025.webp': {
-    sourceSha256: 'd05fecb036b45d12a5fb5576c49b6f2352a44a4c67cd7efb32439a4b5e795d63',
-    sourceBytes: 81516,
+  '/images/recognition/battle-billion-letter-2024.webp': {
+    sourceSha256: '47b5384dc6ead2c246ea45b9128ea4bdcd13ca4d254f649c2b984006e9a42eb3',
+    sourceBytes: 75300,
     images: [
       {
-        src: '/images/prepared/53916570e7cb257e65c9449c/image.webp',
-        width: 641,
-        height: 883,
-        bytes: 72698,
-        sha256: '2ddef7150624a33a093c289ba8dbacfcc0a2320249410a9325931d94f201418a',
+        src: '/images/prepared/cf5237816d8a698d9c1918c5/image.webp',
+        width: 835,
+        height: 1080,
+        bytes: 86508,
+        sha256: '19e3c09e9ade7dc62112828d763e56f004ed8cca1c37f8bdfefeeffba5d763af',
       },
     ],
   },
-  '/images/recognition/ossetia-communication-letter-2025.webp': {
-    sourceSha256: 'a0546c93eca5b06af918672769b68e87327ac6fc2b694f9f3c39d951de43f878',
-    sourceBytes: 99862,
+  '/images/recognition/frequencies-daler-certificate-2026.webp': {
+    sourceSha256: '942cf369a6b47eddbfca549e18834a93f985776bd062f717362229366250e2ab',
+    sourceBytes: 1423437,
     images: [
       {
-        src: '/images/prepared/91dbd6bace64a11c3753439a/image.webp',
-        width: 962,
-        height: 1344,
-        bytes: 86166,
-        sha256: 'de9ccba5304254d1341d4240204bea71672ccdc22eb2e31c75a867cc437e928c',
+        src: '/images/prepared/4b9f4688840aa1e9e98b158b/image.webp',
+        width: 1804,
+        height: 2559,
+        bytes: 199816,
+        sha256: '9f1e33a7f8430765477d451bb99169c29aa92de0a21b6259782fee9a4a3b6f75',
+      },
+    ],
+  },
+  '/images/recognition/frequencies-olga-certificate-2026.webp': {
+    sourceSha256: '172c2cb0dab000e31bb8a1c99f312a95800a6701843700051b3d3f00102ab93b',
+    sourceBytes: 1500211,
+    images: [
+      {
+        src: '/images/prepared/5137de093a8e72ed96c67eba/image.webp',
+        width: 1801,
+        height: 2600,
+        bytes: 201708,
+        sha256: '6a50ea69a0d38bd77e92aae8be81eebc09cd8451480e980eeb9c473602b1ff4b',
+      },
+    ],
+  },
+  '/images/source/method-technology/method-power-timeline.png': {
+    sourceSha256: 'a9b22ad3b3d2fb4cfef022c36374e2594659b11e09f555950f923e9731ada403',
+    sourceBytes: 543109,
+    images: [
+      {
+        src: '/images/prepared/5c6d70a804688694037357ff/image.webp',
+        width: 2600,
+        height: 867,
+        bytes: 150038,
+        sha256: '061d32b56af4b02c0c465b57816f49083da68187af4f182915b6efc610d95396',
+      },
+    ],
+  },
+  '/images/source/method-technology/method-power-polar.png': {
+    sourceSha256: 'b06b60c189ab10fda99cb26b28766432054bae4450dcda5872d3c12621d8c328',
+    sourceBytes: 1171514,
+    images: [
+      {
+        src: '/images/prepared/a8e867cc59fc5fde9abf7335/image.webp',
+        width: 1416,
+        height: 1416,
+        bytes: 264972,
+        sha256: '4b61c6cf9c9fe030b637c65738af4889ce2697ae0abf7dc200c9ad941db86127',
+      },
+    ],
+  },
+  '/images/source/method-technology/minddb-example-1.png': {
+    sourceSha256: '3a03bc72fb0ce99e2cccc063ac1d31817e047dfb7a8348b891f2c3614ce9efd3',
+    sourceBytes: 511329,
+    images: [
+      {
+        src: '/images/prepared/41ffca3dafe89309dbd9c0ae/image.webp',
+        width: 1200,
+        height: 1200,
+        bytes: 43978,
+        sha256: 'c29031f82e96e782c17418a9dd3965aa091bc5082657e1817b9f0089f08df5d0',
+      },
+    ],
+  },
+  '/images/source/method-technology/minddb-example-2.png': {
+    sourceSha256: '219e643056616c716228c764e3088ce46dcf64a8eb8e80231ac9d3dd2c0eea04',
+    sourceBytes: 532424,
+    images: [
+      {
+        src: '/images/prepared/b0178992ade88cee13a46f1e/image.webp',
+        width: 1200,
+        height: 1200,
+        bytes: 44910,
+        sha256: '4692070f149132468da955fe694233f44125a578c60f5d8004ffbc2e55870a4e',
+      },
+    ],
+  },
+  '/images/source/method-technology/minddb-example-3.png': {
+    sourceSha256: '7f70a9d1cf4585e8196c78e254a70547256d221d29e40032ecca0021541a836a',
+    sourceBytes: 439855,
+    images: [
+      {
+        src: '/images/prepared/f107d6c6652eb9bbf7fb83c3/image.webp',
+        width: 1200,
+        height: 1200,
+        bytes: 38302,
+        sha256: 'b6ddd94667558b36214854cf5d46a665d09d82fdaca8a7bf44345117385aaf0d',
       },
     ],
   },

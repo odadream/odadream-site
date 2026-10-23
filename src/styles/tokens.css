@@ -77,6 +77,8 @@
   --recognition-wall-cell-min: calc(6rem * var(--type-scale));
   --recognition-wall-preview-height: var(--s10);
   --recognition-wall-gap: var(--gap-copy);
+  --recognition-wall-max-rows: 4;
+  --recognition-result-ink: var(--signal-recognition);
   --recognition-preview-ratio: 1 / 1;
   --programme-tile-min: calc(18rem * var(--type-scale));
   --recognition-tile-min: calc(16rem * var(--type-scale));

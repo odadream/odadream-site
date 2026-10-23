@@ -1,0 +1,22 @@
+---
+import type { Recognition, Lang } from '../data/site';
+interface Props {
+  item: Pick<Recognition, 'year' | 'issuer' | 'captionLabel' | 'place'>;
+  lang: Lang;
+}
+const { item, lang } = Astro.props;
+---
+
+<span class="recognition-caption">
+  {item.year} · {(item.captionLabel ?? item.issuer)[lang]}
+  {item.place && (
+    <>
+      {' '}
+      ·{' '}
+      <strong class="recognition-result">
+        {item.place}
+        {lang === 'ru' ? ' место' : item.place === 1 ? 'st place' : ' place'}
+      </strong>
+    </>
+  )}
+</span>

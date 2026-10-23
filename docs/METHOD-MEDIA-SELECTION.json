@@ -1,0 +1,51 @@
+{
+  "asOf": "2026-10-23",
+  "scope": "Owner-requested explanatory anonymous image selection; no raw EEG or identity linkage is public.",
+  "minddbSources": [
+    {
+      "id": "method-minddb-1",
+      "source": "/srv/data/minddb/sessions/bundles/20240816/takes/003_20240816_092653_ch109_109/mandala.mov",
+      "sourceSha256": "5f16456f9b91084d9dddc2bf3e4e11d12289f915bb7c74195948c7e9472cceb5",
+      "frameSeconds": 90
+    },
+    {
+      "id": "method-minddb-2",
+      "source": "/srv/data/minddb/sessions/bundles/20240816/takes/002_20240816_092352_ch108_108/mandala.mov",
+      "sourceSha256": "32bcf7166e0bf946473c497dcfa619ae487a62f0b8a3b97a286d9e2d171037d5",
+      "frameSeconds": 90
+    },
+    {
+      "id": "method-minddb-3",
+      "source": "/srv/data/minddb/sessions/bundles/20240816/takes/004_20240816_092959_ch110_110/mandala.mov",
+      "sourceSha256": "8952b09e9fa242a3a99f2acc6df321fd06d3fb0341b92e4245a7f66483f95c47",
+      "frameSeconds": 90
+    }
+  ],
+  "imageInputs": [
+    {
+      "id": "method-power-timeline",
+      "source": "/images/source/method-technology/method-power-timeline.png",
+      "sha256": "a9b22ad3b3d2fb4cfef022c36374e2594659b11e09f555950f923e9731ada403"
+    },
+    {
+      "id": "method-power-polar",
+      "source": "/images/source/method-technology/method-power-polar.png",
+      "sha256": "b06b60c189ab10fda99cb26b28766432054bae4450dcda5872d3c12621d8c328"
+    },
+    {
+      "id": "method-minddb-1",
+      "source": "/images/source/method-technology/minddb-example-1.png",
+      "sha256": "3a03bc72fb0ce99e2cccc063ac1d31817e047dfb7a8348b891f2c3614ce9efd3"
+    },
+    {
+      "id": "method-minddb-2",
+      "source": "/images/source/method-technology/minddb-example-2.png",
+      "sha256": "219e643056616c716228c764e3088ce46dcf64a8eb8e80231ac9d3dd2c0eea04"
+    },
+    {
+      "id": "method-minddb-3",
+      "source": "/images/source/method-technology/minddb-example-3.png",
+      "sha256": "7f70a9d1cf4585e8196c78e254a70547256d221d29e40032ecca0021541a836a"
+    }
+  ]
+}

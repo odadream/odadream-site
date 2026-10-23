@@ -1,6 +1,14 @@
 /** Auditable catalogue of roles, not a second component implementation. */
 export const designCoverage = [
   {
+    role: 'Пояснение технологии и чтения нейромандалы',
+    components: ['MacroSection', 'MediaFigure', 'MediaGallery', 'SourceLinks'],
+    specimen: '#system-06',
+    consumer: '/ru/technology/#visual-language',
+    decision:
+      'Переиспользуются общие главы, естественные пропорции медиа, галереи и единый просмотрщик. Обложка и медиа глав заданы в Method/EditorialSection, формулы и персональные записи не публикуются; локальных стилевых исключений нет.',
+  },
+  {
     role: 'Карточка работы с отдельным сайтом проекта',
     components: ['CalloutLink', 'MediaFigure', 'DetailSection', 'RecordStamp'],
     specimen: '#system-04',
@@ -18,11 +26,11 @@ export const designCoverage = [
   },
   {
     role: 'Компактная стена документов признания',
-    components: ['RecognitionWall'],
+    components: ['RecognitionWall', 'RecognitionCaption'],
     specimen: '#system-10',
     consumer: '/ru/#recognition',
     decision:
-      'DEV-тест: все записи текущей проекции, целые сканы миниатюрами, текст для записей без скана. Общий media-viewer листает документы и ведёт к соответствующей записи; recognition-wall-* задают плотность.',
+      'PUBLIC и DEV используют тот же живой компонент: отдельные страницы документов группируются по кредиту, не дублируют счётчик, показываются отдельными миниатюрами и открывают общий просмотрщик. Стена листает все сканы; карточка архива листает страницы только своего кредита. Стена адаптирует число обложек к полным рядам, максимум recognition-wall-max-rows; главная показывает одну обложку набора и исключает записи без сканов; полные наборы и общая статистика доступны в архиве.',
   },
   {
     role: 'Нативный select с общим шевроном',

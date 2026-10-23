@@ -1,67 +1,85 @@
 ---
 import type { Recognition, Lang } from '../data/site';
 import { sortRecognitions, recognitionKindLabel } from '../lib/recognition-presentation';
-import TechnicalMark from './TechnicalMark.astro';
+import RecognitionCaption from './RecognitionCaption.astro';
 import CalloutLink from './CalloutLink.astro';
 interface Props {
   items: readonly Pick<
     Recognition,
-    'id' | 'kind' | 'title' | 'issuer' | 'year' | 'previewSrc' | 'width' | 'height'
+    | 'captionLabel'
+    | 'place'
+    | 'id'
+    | 'kind'
+    | 'title'
+    | 'issuer'
+    | 'year'
+    | 'previewSrc'
+    | 'documents'
+    | 'width'
+    | 'height'
   >[];
   lang: Lang;
   id: string;
 }
 const { items, lang, id } = Astro.props;
 const rows = sortRecognitions(items);
-const scans = rows.filter((row) => row.previewSrc).length;
+const documents = rows.flatMap((row) =>
+  row.documents?.length
+    ? [{ row, document: row.documents.find((document) => document.cover) ?? row.documents[0] }]
+    : row.previewSrc
+      ? [
+          {
+            row,
+            document: {
+              id: row.id,
+              src: row.previewSrc,
+              label: row.title,
+              width: row.width,
+              height: row.height,
+            },
+          },
+        ]
+      : [],
+);
 ---
 
 <div id={id} data-recognition-wall>
-  <p class="small-note">
-    {lang === 'ru'
-      ? `В базе: ${rows.length} · со сканами: ${scans}`
-      : `Records: ${rows.length} · with scans: ${scans}`}
-  </p>
   <div
     class="recognition-wall"
     data-media-gallery
     role="group"
     aria-label={lang === 'ru' ? 'Стена признаний' : 'Recognition wall'}
   >
-    {rows.map((item) => (
-      <figure data-recognition-id={item.id}>
-        {item.previewSrc ? (
-          <button
-            class="recognition-wall__preview"
-            type="button"
-            data-lightbox
-            data-gallery-item
-            data-src={item.previewSrc}
-            data-alt={item.title[lang]}
-            data-viewer-summary={`${item.title[lang]} · ${item.year}`}
-            data-caption={`${recognitionKindLabel[item.kind][lang]} · ${item.title[lang]} · ${item.issuer[lang]}, ${item.year}`}
-            data-details-href={`/${lang}/recognition/#recognition-${item.id}`}
-            aria-label={lang === 'ru' ? `Увеличить: ${item.title.ru}` : `Enlarge: ${item.title.en}`}
-            title={`${item.year} · ${recognitionKindLabel[item.kind][lang]} · ${item.title[lang]}`}
-          >
-            <img
-              src={item.previewSrc}
-              alt=""
-              width={item.width}
-              height={item.height}
-              loading="lazy"
-              decoding="async"
-            />
-          </button>
-        ) : (
-          <a class="recognition-wall__missing" href={`/${lang}/recognition/#recognition-${item.id}`}>
-            <TechnicalMark kind="document" />
-            <span>{item.title[lang]}</span>
-            <span class="small-note">{lang === 'ru' ? 'Без скана' : 'No scan'}</span>
-          </a>
-        )}
+    {documents.map(({ row: item, document }) => (
+      <figure data-recognition-id={item.id} data-document-id={document.id}>
+        <button
+          class="recognition-wall__preview"
+          type="button"
+          data-lightbox
+          data-gallery-item
+          data-src={document.src}
+          data-alt={`${document.label[lang]} · ${item.title[lang]}`}
+          data-viewer-summary={`${item.year} · ${(item.captionLabel ?? item.issuer)[lang]}${item.place ? ` · ${item.place}${lang === 'ru' ? ' место' : 'st place'}` : ''} · ${document.label[lang]}`}
+          data-caption={`${recognitionKindLabel[item.kind][lang]} · ${document.label[lang]} · ${item.issuer[lang]}, ${item.year}`}
+          data-details-href={`/${lang}/recognition/#recognition-${item.id}`}
+          aria-label={
+            lang === 'ru'
+              ? `Увеличить: ${document.label.ru} · ${item.title.ru}`
+              : `Enlarge: ${document.label.en} · ${item.title.en}`
+          }
+          title={`${item.year} · ${recognitionKindLabel[item.kind][lang]} · ${item.title[lang]}`}
+        >
+          <img
+            src={document.src}
+            alt=""
+            width={document.width}
+            height={document.height}
+            loading="lazy"
+            decoding="async"
+          />
+        </button>
         <figcaption title={`${recognitionKindLabel[item.kind][lang]} · ${item.title[lang]}`}>
-          {item.year}
+          <RecognitionCaption item={item} lang={lang} />
         </figcaption>
       </figure>
     ))}
@@ -72,3 +90,23 @@ const scans = rows.filter((row) => row.previewSrc).length;
     </CalloutLink>
   </div>
 </div>
+<script>
+  for (const wall of document.querySelectorAll<HTMLElement>('[data-recognition-wall] .recognition-wall')) {
+    const figures = [...wall.querySelectorAll<HTMLElement>(':scope > figure')];
+    const update = () => {
+      const style = getComputedStyle(wall);
+      const columns = style.gridTemplateColumns.split(/\s+/).filter(Boolean).length;
+      const maxRows = Math.max(1, Number(style.getPropertyValue('--recognition-wall-max-rows')) || 4);
+      const count =
+        figures.length < columns
+          ? figures.length
+          : columns * Math.min(maxRows, Math.floor(figures.length / columns));
+      figures.forEach((figure, index) => {
+        figure.hidden = index >= count;
+        figure.querySelector('button')?.toggleAttribute('data-gallery-item', index < count);
+      });
+    };
+    new ResizeObserver(update).observe(wall);
+    update();
+  }
+</script>

@@ -7,6 +7,7 @@ import MindDBStamp from './MindDBStamp.astro';
 import DevNote from './DevNote.astro';
 import EditorialSections from './EditorialSections.astro';
 import DocumentList from './DocumentList.astro';
+import SourceLinks from './SourceLinks.astro';
 import MediaGallery from './MediaGallery.astro';
 import MediaFigure from './MediaFigure.astro';
 import VideoPreview from './VideoPreview.astro';
@@ -445,6 +446,7 @@ const timeline = selectHomepageEvents(cases);
             ? 'Авторская система ODA.dream для создания художественной среды из биосигналов.'
             : 'ODA.dream’s system for creating an artistic environment from biosignals.')}
       </p>
+      {method?.coverMediaId && <MediaFigure id={method.coverMediaId} lang={lang} />}
     </section>
     {method && (
       <>
@@ -459,9 +461,26 @@ const timeline = selectHomepageEvents(cases);
             label={ru ? 'Метод' : 'Method'}
             title={section.title[lang]}
           >
-            <p>{section.body[lang]}</p>
-            {section.id === 'visual-language' &&
-              method.media.map((id) => <MediaFigure id={id} lang={lang} />)}
+            {section.body[lang].split(/\n\s*\n/).map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+            {section.media?.length && (
+              <MediaGallery
+                id={`method-${section.id}-gallery`}
+                items={section.media.flatMap((id) => {
+                  const item = mediaById(id);
+                  return item?.kind === 'image' ? [item] : [];
+                })}
+                lang={lang}
+                label={section.title[lang]}
+              />
+            )}
+            {section.media
+              ?.filter((id) => mediaById(id)?.kind === 'video')
+              .map((id) => (
+                <MediaFigure id={id} lang={lang} />
+              ))}
+            {section.links?.length && <SourceLinks links={section.links} lang={lang} />}
           </MacroSection>
         ))}
         <MacroSection
@@ -553,6 +572,7 @@ const timeline = selectHomepageEvents(cases);
           ? 'Откройте изображение, чтобы прочитать документ. Записи без изображения отмечены отдельно.'
           : 'Open an image to read the document. Entries without an image are marked separately.'}
       </p>
+      <StatisticsStamp slot="reference" kind="recognition" lang={lang} />
       <div class="recognition-grid">
         {sortRecognitions(recognitions).map((item) => (
           <RecognitionCard item={item} lang={lang} />

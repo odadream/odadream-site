@@ -314,13 +314,28 @@ for (const item of data.recognitions) {
     errors.push(`recognition ${item.id}: available document without file`);
   if (item.documentState === 'missing' && item.previewSrc)
     errors.push(`recognition ${item.id}: missing document with preview`);
-  if (item.previewSrc)
-    await readFile(resolve('public', item.previewSrc.slice(1)))
-      .then((bytes) => {
-        if (createHash('sha256').update(bytes).digest('hex') !== item.documentSha256)
-          errors.push(`recognition ${item.id}: inspected document fingerprint changed`);
-      })
-      .catch(() => errors.push(`recognition ${item.id}: preview asset missing`));
+  for (const page of item.documents ?? []) {
+    const prepared = preparedMedia[page.src]?.images[0];
+    if (!prepared) errors.push(`recognition ${item.id}: document ${page.id} has no prepared scan`);
+    else if (page.sourceSha256 && preparedMedia[page.src].sourceSha256 !== page.sourceSha256)
+      errors.push(`recognition ${item.id}: document ${page.id} source fingerprint changed`);
+  }
+  if (item.previewSrc && !item.documents?.length) {
+    const prepared = preparedMedia[item.previewSrc]?.images[0];
+    if (
+      prepared &&
+      item.documentSha256 &&
+      preparedMedia[item.previewSrc].sourceSha256 !== item.documentSha256
+    )
+      errors.push(`recognition ${item.id}: inspected document fingerprint changed`);
+    else if (!prepared)
+      await readFile(resolve('public', item.previewSrc.slice(1)))
+        .then((bytes) => {
+          if (item.documentSha256 && createHash('sha256').update(bytes).digest('hex') !== item.documentSha256)
+            errors.push(`recognition ${item.id}: inspected document fingerprint changed`);
+        })
+        .catch(() => errors.push(`recognition ${item.id}: preview asset missing`));
+  }
 }
 const golem = JSON.parse(await readFile('src/data/golem-event-summary.json', 'utf8'));
 if (golem.total !== Object.values(golem.connectionQuality).reduce((sum, n) => sum + n, 0))

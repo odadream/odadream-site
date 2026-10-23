@@ -255,6 +255,36 @@ export const recognitionSourceSnapshots = {
     sha256: 'bdfc3c144203ecada6e6abb934a0f49f0c6b24b463267449b550fc0113bb68ae',
     snapshot: '2026-10-16',
   },
+  'OwnerRecognition/ODA - 2024 Битва за миллиард ч2.pdf': {
+    file: 'OwnerRecognition/ODA - 2024 Битва за миллиард ч2.pdf',
+    sha256: 'bc354cf48ffc0167dc994f8c6c3e6c532b582d191283eb6a034eb576c6d7fa43',
+    snapshot: '2026-10-16',
+  },
+  'OwnerRecognition/ODA - 2024 Код провинции - статья.url': {
+    file: 'OwnerRecognition/ODA - 2024 Код провинции - статья.url',
+    sha256: 'eb3351d742e8f0c54817c9077062646c8e93cef26bec4322c6fc1e31b2734699',
+    snapshot: '2026-10-16',
+  },
+  'OwnerRecognition/ODA - 2025 Дикая мята.jpg': {
+    file: 'OwnerRecognition/ODA - 2025 Дикая мята.jpg',
+    sha256: '58a6e57e156c4fed979dea4375928135043266c5997cf64adc84dabaad2c3f66',
+    snapshot: '2026-10-16',
+  },
+  'OwnerRecognition/ODA - 2025 Таврида ИИ.jpg': {
+    file: 'OwnerRecognition/ODA - 2025 Таврида ИИ.jpg',
+    sha256: '978c945c3d755dab7899b45105f1c0db28515798cb1e86a0303065283189501c',
+    snapshot: '2026-10-16',
+  },
+  'OwnerRecognition/ODA - 2025 Терраформинг МФТИ.pdf': {
+    file: 'OwnerRecognition/ODA - 2025 Терраформинг МФТИ.pdf',
+    sha256: '795476dfe3a801eec45cb61876f972d575e27136ef0e6bac92ec2643b2a82929',
+    snapshot: '2026-10-16',
+  },
+  'OwnerRecognition/ODA - 2025 Хаскел.png': {
+    file: 'OwnerRecognition/ODA - 2025 Хаскел.png',
+    sha256: 'b642f455763ab857ca50c67218486d42cf605f193703769c885cbc26997fae3b',
+    snapshot: '2026-10-16',
+  },
   'OwnerRecognition/Товарный знак/1237624.eod.pdf': {
     file: 'OwnerRecognition/Товарный знак/1237624.eod.pdf',
     sha256: '2b21a9912fcc004f7744374d5f8e7eb3a1ad3a6aebe66457090a3d9c4e1c94fd',

@@ -54,8 +54,8 @@ test('English addressed budget page stays out of public assets and original down
 });
 
 test('recognition archive distinguishes studio scans and explicitly qualified records without public documents without rights bypass', () => {
-  assert.equal(scope.recognitions.length, 18);
-  assert.equal(scope.recognitions.filter((row) => row.previewSrc).length, 16);
+  assert.equal(scope.recognitions.length, 19);
+  assert.equal(scope.recognitions.filter((row) => row.previewSrc).length, 17);
   const missing = scope.recognitions.find((row) => row.id === 'culttech-school-grant-2026');
   assert.equal(missing.documentState, 'missing');
   assert.equal(missing.documentRights, 'review');

@@ -14,7 +14,9 @@ const { sections, lang, anchorPrefix } = Astro.props;
   {sections.map((section) => (
     <article id={`${anchorPrefix}-${section.id}`}>
       <h3>{section.title[lang]}</h3>
-      <p>{section.body[lang]}</p>
+      {section.body[lang].split(/\n\s*\n/).map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
       {section.links && <SourceLinks links={section.links} lang={lang} />}
     </article>
   ))}

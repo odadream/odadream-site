@@ -1167,6 +1167,11 @@ figcaption {
 .recognition-card {
   min-width: 0;
 }
+.recognition-card__documents {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: var(--s2);
+}
 .recognition-card--text {
   align-self: start;
   padding-top: var(--s3);
@@ -2106,7 +2111,7 @@ summary:hover {
 .recognition-wall {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--recognition-wall-cell-min)), 1fr));
-  align-items: end;
+  align-items: start;
   gap: var(--recognition-wall-gap);
   margin-block-start: var(--gap-copy);
 }
@@ -2147,4 +2152,10 @@ summary:hover {
   font: 400 var(--type-note)/var(--leading-note) var(--mono);
   text-decoration: none;
   overflow-wrap: anywhere;
+}
+
+.recognition-result {
+  color: var(--recognition-result-ink);
+  font-weight: 700;
+  white-space: nowrap;
 }

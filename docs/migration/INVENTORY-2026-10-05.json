@@ -7142,7 +7142,7 @@
         "targets": [
           "CaseEvent:portal-2025",
           "CaseEvent:wildmint-2025",
-          "Recognition:battle-billion-letter-2024",
+          "Recognition:battle-billion-certificate-2024",
           "Recognition:business-awards-letter-2025",
           "Recognition:digital-art-ai-2026",
           "Recognition:digital-pleinair-certificate-2025",
@@ -7850,7 +7850,7 @@
           "CaseEvent:ashram-birthday-2024",
           "CaseEvent:cipr-2026",
           "CaseEvent:meditation-day-2026",
-          "Recognition:battle-billion-letter-2024",
+          "Recognition:battle-billion-certificate-2024",
           "Recognition:tavrida-letter-2025"
         ],
         "reason": "Event context and actual document claims retained; synthesized or translated praise is not presented as a verified verbatim testimonial",
@@ -12108,7 +12108,7 @@
         "state": "merged",
         "targets": [
           "CaseEvent:battle-billion-2024",
-          "Recognition:battle-billion-letter-2024"
+          "Recognition:battle-billion-certificate-2024"
         ],
         "reason": "Forum and letter issuer retained in their specific roles",
         "sourceSha256": "0f10bef45f74e5654f43c3bd026a8bae2c8a47cf1153c66f90a10bb6f46f5bd0"
@@ -16097,7 +16097,7 @@
         "scopeVersion": "v2-full-content-2026-10-07.1",
         "state": "applied",
         "targets": [
-          "Recognition:battle-billion-letter-2024"
+          "Recognition:battle-billion-certificate-2024"
         ],
         "reason": "recognition-document: /images/content/proofs/collab_2024_ODA_Bitva_za_milliard.webp",
         "sourceSha256": "236ec06aad0e172d44792a7a3c496735e59678e69ba635a28d8a4fa479d0b633"
@@ -17675,7 +17675,7 @@
         "scopeVersion": "v2-full-content-2026-10-07.1",
         "state": "merged",
         "targets": [
-          "Recognition:battle-billion-letter-2024"
+          "Recognition:battle-billion-certificate-2024"
         ],
         "reason": "Claim follows visually read received letter; no additional invented testimonial",
         "sourceSha256": "6108503199951395363c86acf8ab7534b79a603bc6eaec6f4a58b0792ea684d1"
@@ -22802,6 +22802,31 @@
       "file": "Obsidian_Tavrida_Gastro_2025.md",
       "sha256": "ace88efd7224b6e854f775ab13c8c4b005dfbbbfa05bc35688c5ba90b74a641e",
       "snapshot": "2026-10-13"
+    },
+    "Method_Obsidian_Introduction_2026-10-23.md": {
+      "file": "Method_Obsidian_Introduction_2026-10-23.md",
+      "sha256": "a2957f19e581a386f06f7e4526accb8078842f25c2b50b059f5ab62955274d00",
+      "snapshot": "2026-10-23"
+    },
+    "Method_Obsidian_Description_2026-10-23.md": {
+      "file": "Method_Obsidian_Description_2026-10-23.md",
+      "sha256": "2359eed29b109d51f47371302a221999fe8155ff9841787b6cc9354303300702",
+      "snapshot": "2026-10-23"
+    },
+    "Method_Dzen_Reading_2026-10-23.md": {
+      "file": "Method_Dzen_Reading_2026-10-23.md",
+      "sha256": "545cc516ab62abc135df9546830f28afc5ac3624cd6fa206dbae1bf97d4334d1",
+      "snapshot": "2026-10-23"
+    },
+    "Method_Patent_Figures_2026-10-23.md": {
+      "file": "Method_Patent_Figures_2026-10-23.md",
+      "sha256": "539e2d987c97794104049146ceb3bf13649071278abafc689f4de1d93a1814b9",
+      "snapshot": "2026-10-23"
+    },
+    "Method_MindDB_Selection_2026-10-23.json": {
+      "file": "Method_MindDB_Selection_2026-10-23.json",
+      "sha256": "6ce3d46d95e835efef28f5808b768a8538c1097cc5b54c4edc5d51669920fb68",
+      "snapshot": "2026-10-23"
     }
   },
   "currentRouting": {
@@ -29589,6 +29614,86 @@
         "asOf": "2026-10-13",
         "state": "Public event facts applied; private invitation chain and contacts not published"
       }
+    },
+    "Method_Obsidian_Introduction_2026-10-23.md": {
+      "sha256": "a2957f19e581a386f06f7e4526accb8078842f25c2b50b059f5ab62955274d00",
+      "snapshot": "2026-10-23",
+      "kind": "external-editorial",
+      "sourcePath": "D:/Obsidian/Chudodeystvo/Проекты/Нейромандала/Введение в Нейромандалу.md",
+      "scope": "Public explanatory visual principles and reviewed anonymous images only; private originals, formulas and personal records excluded.",
+      "sourceFile": "Method_Obsidian_Introduction_2026-10-23.md",
+      "v2Migration": {
+        "asOf": "2026-10-23",
+        "targets": [
+          "Method:neuromandala"
+        ],
+        "sourceSha256": "a2957f19e581a386f06f7e4526accb8078842f25c2b50b059f5ab62955274d00",
+        "state": "implemented public explanatory selection"
+      }
+    },
+    "Method_Obsidian_Description_2026-10-23.md": {
+      "sha256": "2359eed29b109d51f47371302a221999fe8155ff9841787b6cc9354303300702",
+      "snapshot": "2026-10-23",
+      "kind": "external-editorial",
+      "sourcePath": "D:/Obsidian/Chudodeystvo/Проекты/Нейромандала/Нейромандала описание.md",
+      "scope": "Public explanatory visual principles and reviewed anonymous images only; private originals, formulas and personal records excluded.",
+      "sourceFile": "Method_Obsidian_Description_2026-10-23.md",
+      "v2Migration": {
+        "asOf": "2026-10-23",
+        "targets": [
+          "Method:neuromandala"
+        ],
+        "sourceSha256": "2359eed29b109d51f47371302a221999fe8155ff9841787b6cc9354303300702",
+        "state": "implemented public explanatory selection"
+      }
+    },
+    "Method_Dzen_Reading_2026-10-23.md": {
+      "sha256": "545cc516ab62abc135df9546830f28afc5ac3624cd6fa206dbae1bf97d4334d1",
+      "snapshot": "2026-10-23",
+      "kind": "external-editorial",
+      "sourcePath": "C:/Users/daler/AppData/Local/GolemDataBase/source-archives/dzen-odadream/2026-10-15/texts/Z47CgD1reSEUc43b/text.md",
+      "scope": "Public explanatory visual principles and reviewed anonymous images only; private originals, formulas and personal records excluded.",
+      "sourceFile": "Method_Dzen_Reading_2026-10-23.md",
+      "v2Migration": {
+        "asOf": "2026-10-23",
+        "targets": [
+          "Method:neuromandala"
+        ],
+        "sourceSha256": "545cc516ab62abc135df9546830f28afc5ac3624cd6fa206dbae1bf97d4334d1",
+        "state": "implemented public explanatory selection"
+      }
+    },
+    "Method_Patent_Figures_2026-10-23.md": {
+      "sha256": "539e2d987c97794104049146ceb3bf13649071278abafc689f4de1d93a1814b9",
+      "snapshot": "2026-10-23",
+      "kind": "external-editorial",
+      "sourcePath": "D:/YandexDisk/_ODA2/Software_Neo/Projects/NeuromandalaMath_v0.3/patent/5_краткое_описание_чертежей.md",
+      "scope": "Public explanatory visual principles and reviewed anonymous images only; private originals, formulas and personal records excluded.",
+      "sourceFile": "Method_Patent_Figures_2026-10-23.md",
+      "v2Migration": {
+        "asOf": "2026-10-23",
+        "targets": [
+          "Method:neuromandala"
+        ],
+        "sourceSha256": "539e2d987c97794104049146ceb3bf13649071278abafc689f4de1d93a1814b9",
+        "state": "implemented public explanatory selection"
+      }
+    },
+    "Method_MindDB_Selection_2026-10-23.json": {
+      "sha256": "6ce3d46d95e835efef28f5808b768a8538c1097cc5b54c4edc5d51669920fb68",
+      "snapshot": "2026-10-23",
+      "kind": "external-editorial",
+      "sourcePath": "D:/YandexDisk/_ODA2/Сайт/odadream-site/docs/METHOD-MEDIA-SELECTION.json",
+      "scope": "Public explanatory visual principles and reviewed anonymous images only; private originals, formulas and personal records excluded.",
+      "sourceFile": "Method_MindDB_Selection_2026-10-23.json",
+      "v2Migration": {
+        "asOf": "2026-10-23",
+        "targets": [
+          "Method:neuromandala"
+        ],
+        "sourceSha256": "6ce3d46d95e835efef28f5808b768a8538c1097cc5b54c4edc5d51669920fb68",
+        "state": "implemented public explanatory selection"
+      }
     }
   },
   "currentRedirectStrategy": {
@@ -33427,7 +33532,7 @@
         "state": "source reviewed; acknowledgement/certificate applied",
         "application": {
           "action": "recognition-document",
-          "recognitionId": "battle-billion-letter-2024",
+          "recognitionId": "battle-billion-certificate-2024",
           "reason": "Визуально прочитан документ, адресованный ODA.dream/авторам; показ разрешён владельцем в составе полного переноса собственных материалов.",
           "asOf": "2026-10-08"
         }

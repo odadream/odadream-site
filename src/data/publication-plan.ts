@@ -1,12 +1,13 @@
 import { auditedRecognitions } from './recognition-source-audit';
+import { recognitionGroups } from './recognition-source-audit';
 import { additionalProgrammes } from './additional-programmes';
 import { additionalEvents } from './additional-events';
 import type { PublicationPlan } from '../lib/publication-scope';
 
 // Candidate packet, not editorial approval. Each selected record must also be published.
 export const publicationPlan: PublicationPlan = {
-  version: 'v2-packet-2026-10-07.1',
-  asOf: '2026-10-07',
+  version: 'v2-packet-2026-10-23.1',
+  asOf: '2026-10-23',
   methods: ['neuromandala'],
   cooperationPages: ['cooperation'],
   studioPages: ['studio'],
@@ -60,7 +61,12 @@ export const publicationPlan: PublicationPlan = {
   ],
   people: ['founders', 'olga', 'daler'],
   recognitions: [
-    ...auditedRecognitions.map((row) => row.id),
+    ...auditedRecognitions
+      .filter((row) => !Object.values(recognitionGroups).some((group) => group.memberIds.includes(row.id)))
+      .map((row) => row.id),
+    'province-code-letter-2024',
+    'techweek-letter-2024',
+    'moscow2030-letter-2025',
     'skolkovo-arttech-2026',
     'culttech-school-grant-2026',
     'cyens-reserve-2026',
@@ -69,7 +75,6 @@ export const publicationPlan: PublicationPlan = {
     'portal-2030-2025',
     'tavrida-letter-2025',
     'hse-letter-2025',
-    'battle-billion-letter-2024',
     'wildmint-letter-2025',
     'haskell-letter-2025',
     'ossetia-letter-2025',

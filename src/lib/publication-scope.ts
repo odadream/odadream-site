@@ -370,6 +370,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'legacyId',
             'title',
             'summary',
+            'coverMediaId',
             'sections',
             'steps',
             'participation',
@@ -562,9 +563,12 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'kind',
             'title',
             'issuer',
+            'captionLabel',
+            'place',
             'year',
             'featuredOnHome',
             'previewSrc',
+            'documents',
             'publication',
             'documentRights',
             'claim',
@@ -643,9 +647,25 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
   const assetPaths = new Set(['/CNAME', '/robots.txt', '/brand/oda-logo.svg', '/brand/oda-brain.svg']);
   projected.recognitions = projected.recognitions.map((row) => {
     const image = row.previewSrc ? preparedMedia[row.previewSrc]?.images[0] : undefined;
+    const documents = row.documents?.map(
+      ({ sourcePath: _sourcePath, sourceSha256: _sourceSha256, ...document }) => {
+        const prepared = preparedMedia[document.src]?.images[0];
+        return prepared
+          ? { ...document, src: prepared.src, width: prepared.width, height: prepared.height }
+          : document;
+      },
+    );
+    const firstDocument = documents?.[0];
     return image
-      ? { ...row, previewSrc: image.src, documentSource: image.src, width: image.width, height: image.height }
-      : { ...row, documentSource: row.documentState === 'missing' ? '' : row.documentSource };
+      ? {
+          ...row,
+          documents,
+          previewSrc: firstDocument?.src ?? image.src,
+          documentSource: firstDocument?.src ?? image.src,
+          width: firstDocument?.width ?? image.width,
+          height: firstDocument?.height ?? image.height,
+        }
+      : { ...row, documents, documentSource: row.documentState === 'missing' ? '' : row.documentSource };
   });
   for (const row of projected.workDocuments)
     if (row.href && (!('originalAccess' in row) || row.originalAccess !== 'internal'))
@@ -660,7 +680,11 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
     for (const path of [row.src, row.mobileSrc, row.poster, row.previewSrc])
       if (path?.startsWith('/')) assetPaths.add(path);
   for (const row of projected.recognitions)
-    for (const path of [row.previewSrc, row.documentState === 'available' ? row.documentSource : undefined])
+    for (const path of [
+      row.previewSrc,
+      row.documentState === 'available' ? row.documentSource : undefined,
+      ...(row.documents ?? []).map((document) => document.src),
+    ])
       if (path?.startsWith('/')) assetPaths.add(path);
   // Use the already permission-checked dependency set; aliases never publish a deferred work.
   for (const row of media)

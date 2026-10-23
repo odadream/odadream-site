@@ -58,10 +58,14 @@ export async function verifyPreparedMedia(data) {
   const sourcePaths = new Set([
     ...documents.map((row) => row.href),
     ...data.recognitions.flatMap((row) => (row.previewSrc ? [row.previewSrc] : [])),
+    ...data.recognitions.flatMap((row) => (row.documents ?? []).map((page) => page.src)),
     ...data.media
       .filter((row) => row.kind === 'image')
       .flatMap((row) => [row.src, row.mobileSrc].filter(Boolean)),
   ]);
+  const recognitionPages = new Map(
+    data.recognitions.flatMap((row) => (row.documents ?? []).map((page) => [page.src, page])),
+  );
   for (const row of data.media.filter((row) => row.kind === 'image' && row.rights === 'cleared'))
     for (const path of [row.src, row.mobileSrc].filter(Boolean))
       if (!preparedMedia[path]) errors.push(`media ${row.id}: missing prepared image ${path}`);
@@ -70,16 +74,24 @@ export async function verifyPreparedMedia(data) {
     const external = data.media.find(
       (row) => row.src === path && row.kind === 'image' && externalMediaInput(row),
     );
+    const recognitionPage = recognitionPages.get(path);
     const original = external
       ? undefined
-      : await readFile(resolve('public', path.slice(1))).catch(() => undefined);
+      : await readFile(
+          recognitionPage?.sourcePath
+            ? resolve(recognitionPage.sourcePath)
+            : resolve('public', path.slice(1)),
+        ).catch(() => undefined);
     if (
       external
         ? external.originalAccess !== 'internal' ||
           proof.sourceSha256 !== external.archiveSource.sha256 ||
           !proof.sourceBytes ||
           proof.images.length !== 1
-        : !original || original.length !== proof.sourceBytes || hash(original) !== proof.sourceSha256
+        : !original ||
+          original.length !== proof.sourceBytes ||
+          hash(original) !== proof.sourceSha256 ||
+          (recognitionPage?.sourceSha256 && recognitionPage.sourceSha256 !== proof.sourceSha256)
     )
       errors.push(`prepared media ${path}: original changed; run media:prepare`);
     for (const image of proof.images) {

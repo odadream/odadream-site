@@ -19,8 +19,8 @@ export const personalCvSections: Record<string, EditorialSection[]> = {
         en: 'Documented personal credits',
       },
       body: {
-        ru: '2018 — благодарность за проактивное мышление и инициативу в региональных проектах; финал команды «Древо знаний» в Hackathon 2025 (конкурс 2018 года). 2021 — письмо МГТУ подтверждает выпуск 2011 года и работу в 2011–2019 годах. 2024 — благодарности спикеру Tech Week и «КОД:Провинции». 2025 — благодарность «Москва 2030» и подтверждение участия в выставке «Комиссия по трёхтысячному году».',
-        en: '2018: acknowledgement for initiative in regional projects; finalist with the Tree of Knowledge team in Hackathon 2025 (held in 2018). 2021: BMSTU letter confirms graduation in 2011 and employment in 2011–2019. 2024: speaker acknowledgements from Tech Week and Code of the Province. 2025: Moscow 2030 acknowledgement and documented participation in Commission for the Year Three Thousand.',
+        ru: '2018 — благодарность за проактивное мышление и инициативу в региональных проектах; финал команды «Древо знаний» в Hackathon 2025 (конкурс 2018 года). 2021 — письмо МГТУ подтверждает выпуск 2011 года и работу в 2011–2019 годах. Сертификат участника Rukami в рамках NeuroSync, адресные письма Tech Week и «КОД:Провинции», «Москва 2030» и справка по выставке «Комиссия по трёхтысячному году» также отражены в архиве ODA отдельными записями; персональная адресация сохранена здесь в составе CV.',
+        en: '2018: acknowledgement for initiative in regional projects; finalist with the Tree of Knowledge team in Hackathon 2025 (held in 2018). 2021: BMSTU letter confirms graduation in 2011 and employment in 2011–2019. The Rukami certificate for NeuroSync, addressee letters from Tech Week, Code of the Province and Moscow 2030, and the Commission for the Year Three Thousand participation record also appear as separate entries in the ODA archive; their personal addressees remain documented here in the CV.',
       },
     },
   ],
@@ -43,8 +43,8 @@ export const personalCvSections: Record<string, EditorialSection[]> = {
         en: 'Documented personal credits',
       },
       body: {
-        ru: '2020 — почётная грамота ИСК «ПетроИнжиниринг» за личный вклад в высокие показатели, профессионализм и преданность делу. 2024 — благодарности за выступления на Tech Week и «КОД:Провинции». 2025 — благодарность «Москва 2030» и подтверждение участия в выставке «Комиссия по трёхтысячному году». Эти персональные документы не входят в счётчик признаний ODA.dream.',
-        en: '2020: PetroEngineering certificate of honour for personal contribution, professionalism and dedication. 2024: speaker acknowledgements from Tech Week and Code of the Province. 2025: Moscow 2030 acknowledgement and documented participation in Commission for the Year Three Thousand. These personal documents are excluded from the studio recognition count.',
+        ru: '2020 — почётная грамота ИСК «ПетроИнжиниринг» за личный вклад в высокие показатели, профессионализм и преданность делу. Адресные письма Tech Week, «КОД:Провинции», «Москва 2030» и справка по выставке «Комиссия по трёхтысячному году» также представлены в архиве ODA отдельными записями; их персональная адресация сохранена в CV. Другие личные достижения и обучение остаются частью индивидуального CV.',
+        en: '2020: PetroEngineering certificate of honour for personal contribution, professionalism and dedication. Addressee letters from Tech Week, Code of the Province and Moscow 2030, plus the Commission for the Year Three Thousand participation record, also appear as separate entries in the ODA archive; their personal addressees remain documented here. Other personal achievements and training stay in the individual CV.',
       },
     },
   ],

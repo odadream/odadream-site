@@ -24,12 +24,7 @@ const fields =
     : kind === 'events'
       ? [metric(ru ? 'События в каталоге' : 'Catalogued events', siteStats.cases.total)]
       : kind === 'recognition'
-        ? [
-            metric(ru ? 'Записи признаний' : 'Recognition entries', siteStats.recognitions.total),
-            ...recognitionKinds.map((key) =>
-              metric(recognitionKindLabels[key][lang], siteStats.recognitions.byKind[key]),
-            ),
-          ]
+        ? [metric(ru ? 'Записи признаний' : 'Recognition entries', siteStats.recognitions.total)]
         : [
             metric(ru ? 'Программы' : 'Programmes', siteStats.education.total),
             metric(ru ? 'Лекции' : 'Lectures', siteStats.education.lectures),
@@ -44,7 +39,12 @@ const breakdown =
           label: eventGenreLabels[key][lang],
           count: siteStats.cases.byGenre[key],
         }))
-      : [];
+      : kind === 'recognition'
+        ? recognitionKinds.map((key) => ({
+            label: recognitionKindLabels[key][lang],
+            count: siteStats.recognitions.byKind[key],
+          }))
+        : [];
 ---
 
 <RecordStamp tone="reference" title={titles[kind]} fields={fields}>
@@ -55,9 +55,13 @@ const breakdown =
           ? ru
             ? 'Состав по стадиям'
             : 'Stage breakdown'
-          : ru
-            ? 'По категориям событий'
-            : 'Event categories'}
+          : kind === 'recognition'
+            ? ru
+              ? 'По типам признания'
+              : 'Recognition types'
+            : ru
+              ? 'По категориям событий'
+              : 'Event categories'}
       </DisclosureHeading>
       <dl>
         {breakdown.map((row) => (
