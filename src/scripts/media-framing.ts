@@ -1,26 +1,20 @@
 import '../styles/media-framing.css';
+import { parseFramingDrafts, canonicalFocus, type Framing } from '../lib/framing-drafts';
 export function initMediaFraming() {
   const root = document;
   const ru = document.documentElement.lang !== 'en';
   if (!root.querySelector('[data-study-dialog]')) return;
   const storageKey = 'oda.media-framing.v2';
-  type Framing = { x: number; y: number; fit: 'natural' | 'contain' | 'cover' };
-  let drafts: Record<string, Framing> = {};
-  try {
-    const saved = JSON.parse(localStorage.getItem(storageKey) ?? '{}');
-    for (const [id, value] of Object.entries(saved.media ?? {})) {
-      const row = value as Framing;
-      if (
-        /^[a-z0-9][a-z0-9-]*$/.test(id) &&
-        ['natural', 'contain', 'cover'].includes(row?.fit) &&
-        [row.x, row.y].every((value) => Number.isFinite(value) && value >= 0 && value <= 100)
-      )
-        drafts[id] = row;
+  const readDrafts = () => {
+    try {
+      return parseFramingDrafts(localStorage.getItem(storageKey));
+    } catch {
+      return parseFramingDrafts(null);
     }
-  } catch {
-    /* Invalid or unavailable local drafts leave canonical media intact. */
-  }
+  };
+  let drafts = readDrafts();
   let activeId = '';
+  let baselineFocus = { x: 50, y: 50 };
   const applyToGallery = () => {
     root.querySelectorAll<HTMLElement>('.media-figure[data-media-id]').forEach((figure) => {
       const draft = drafts[figure.dataset.mediaId!];
@@ -29,9 +23,8 @@ export function initMediaFraming() {
     });
   };
   // A single per-media draft also updates repeated cover instances without changing viewer originals.
-  const applyFigures = applyToGallery;
   const applyAll = () => {
-    applyFigures();
+    applyToGallery();
     root.querySelectorAll<HTMLElement>('.work-card, .nm-slide').forEach((card) => {
       const trigger = card.querySelector<HTMLElement>('[data-study-crop]');
       const draft = trigger ? drafts[trigger.dataset.name!] : undefined;
@@ -56,6 +49,11 @@ export function initMediaFraming() {
     return saved;
   };
   applyAll();
+  window.addEventListener('storage', (event) => {
+    if (event.key !== storageKey && event.key !== null) return;
+    drafts = readDrafts();
+    applyAll();
+  });
   const dialog = root.querySelector<HTMLDialogElement>('[data-study-dialog]')!;
   const original = root.querySelector<HTMLElement>('[data-study-original]')!;
   const image = original.querySelector('img')!;
@@ -84,9 +82,10 @@ export function initMediaFraming() {
         .querySelectorAll<HTMLImageElement>('[data-study-previews] img')
         .forEach((preview) => (preview.src = button.dataset.src!));
       activeId = button.dataset.name!;
+      baselineFocus = canonicalFocus(button.dataset.cropPointDesktop, button.dataset.cropFocal);
       const draft = drafts[activeId];
-      x.value = String(draft?.x ?? 50);
-      y.value = String(draft?.y ?? 50);
+      x.value = String(draft?.x ?? baselineFocus.x);
+      y.value = String(draft?.y ?? baselineFocus.y);
       fit.value = draft?.fit ?? 'natural';
       point();
       root.querySelector<HTMLElement>('[data-study-previews]')!.hidden = true;
@@ -99,7 +98,8 @@ export function initMediaFraming() {
     previews.dataset.fit = fit.value;
     previews.style.setProperty('--study-position', `${x.value}% ${y.value}%`);
     const draft = { x: Number(x.value), y: Number(y.value), fit: fit.value as Framing['fit'] };
-    if (draft.fit === 'natural' && draft.x === 50 && draft.y === 50) delete drafts[activeId];
+    if (draft.fit === 'natural' && draft.x === baselineFocus.x && draft.y === baselineFocus.y)
+      delete drafts[activeId];
     else drafts[activeId] = draft;
     const saved = persist();
     status.textContent = ru
@@ -108,8 +108,8 @@ export function initMediaFraming() {
   });
   root.querySelector('[data-study-reset]')!.addEventListener('click', () => {
     delete drafts[activeId];
-    x.value = '50';
-    y.value = '50';
+    x.value = String(baselineFocus.x);
+    y.value = String(baselineFocus.y);
     fit.value = 'natural';
     point();
     root.querySelector<HTMLElement>('[data-study-previews]')!.hidden = true;

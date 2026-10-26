@@ -15,7 +15,8 @@ import '@fontsource/manrope/latin-800.css';
 import '@fontsource/manrope/cyrillic-500.css';
 import { socialLinks } from '../data/site';
 import { intellectualProperty } from '../data/editorial';
-import { cases, mediaById, works, preview, people } from '../data/catalogue';
+import { cases, mediaById, works, programmes, methods, preview, people } from '../data/catalogue';
+import { socialImage, jsonLd } from '../lib/seo';
 import { pairedPath, navigationFor, type Page } from '../lib/routes';
 import DzenIcon from '../assets/social/dzen.svg';
 import RecordStamp from '../components/RecordStamp.astro';
@@ -65,7 +66,15 @@ const record =
     : page.kind === 'case'
       ? cases.find((item) => item.slug === page.slug)
       : undefined;
-const ogMedia = mediaById(record?.media[0] ?? 'interference-stage');
+const pageMedia =
+  page.kind === 'case'
+    ? (cases.find((item) => item.slug === page.slug)?.presentationMedia ?? record?.media)
+    : page.kind === 'programme'
+      ? programmes.find((item) => item.slug === page.slug)?.media
+      : page.kind === 'technology'
+        ? [methods.find((item) => item.id === 'neuromandala')?.coverMediaId ?? '']
+        : record?.media;
+const ogMedia = socialImage([...(pageMedia ?? []).map(mediaById), mediaById('interference-stage')]);
 const schema =
   page.kind === 'home' || page.kind === 'studio'
     ? {
@@ -194,10 +203,8 @@ const breadcrumbSchema =
       </>
     )}
     <meta name="twitter:card" content="summary_large_image" />
-    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>}
-    {breadcrumbSchema && (
-      <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
-    )}
+    {schema && <script type="application/ld+json" set:html={jsonLd(schema)}></script>}
+    {breadcrumbSchema && <script type="application/ld+json" set:html={jsonLd(breadcrumbSchema)}></script>}
   </head>
   <body>
     <div id="top" class="page-top" aria-hidden="true"></div>

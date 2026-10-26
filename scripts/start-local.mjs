@@ -86,10 +86,7 @@ try {
     return server;
   }
   start([resolve(root, 'scripts/local-public.mjs')], 'public-server');
-  start(
-    [resolve(root, 'node_modules/astro/astro.js'), 'dev', '--host', '127.0.0.1', '--port', '5177'],
-    'server',
-  );
+  start([resolve(root, 'scripts/astro-cli.mjs'), 'dev', '--host', '127.0.0.1', '--port', '5177'], 'server');
   const readyDeadline = Date.now() + 45000;
   while (true) {
     const values = await Promise.all([5177, 5178].map(identity));

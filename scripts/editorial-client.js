@@ -82,11 +82,13 @@ if (!isPublic) {
   cropExport.type = 'button';
   cropExport.className = 'button';
   cropExport.textContent = ru ? 'Экспорт настроек' : 'Export settings';
-  let cropDrafts = {};
+  let cropDrafts = Object.create(null);
   const updateCropStatus = () => {
-    cropDrafts = {};
+    cropDrafts = Object.create(null);
     try {
       const raw = JSON.parse(localStorage.getItem(cropKey) ?? '{}');
+      if (raw?.schemaVersion !== 2 || !raw.media || typeof raw.media !== 'object' || Array.isArray(raw.media))
+        throw Error('Invalid framing draft');
       for (const [id, value] of Object.entries(raw.media ?? {})) {
         if (
           /^[a-z0-9][a-z0-9-]*$/.test(id) &&

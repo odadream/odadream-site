@@ -201,7 +201,7 @@ export function jobsFor(plan) {
     ['--check', 'src', 'scripts', 'tests', 'e2e', 'astro.config.mjs', 'playwright.config.ts'],
   ];
   const build = [
-    ['build', 'node_modules/astro/astro.js', ['build']],
+    ['build', 'scripts/astro-cli.mjs', ['build']],
     ['artifact', 'scripts/verify-build.mjs', []],
   ];
   if (plan.docsOnly) return [metadata];
@@ -216,7 +216,7 @@ export function jobsFor(plan) {
     metadata,
     ['unit', null, []],
     ['content', 'scripts/verify-content.mjs', []],
-    ['types', 'node_modules/astro/astro.js', ['check']],
+    ['types', 'scripts/astro-cli.mjs', ['check']],
     ...build,
     browser,
   ];

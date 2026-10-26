@@ -44,7 +44,7 @@ async function run(args) {
     child.on('exit', (code) => (code === 0 ? resolvePromise() : reject(new Error(output))));
   });
 }
-await run([resolve(root, 'node_modules/astro/astro.js'), 'build']);
+await run([resolve(root, 'scripts/astro-cli.mjs'), 'build']);
 await run(['scripts/verify-build.mjs']);
 await writeFile(
   join(directory, 'dist/REHEARSAL-NOT-FOR-DEPLOYMENT.txt'),

@@ -270,12 +270,18 @@ export const navigationFor = (lang: Lang) =>
 export const pairedPath = (path: string, lang: Lang) => path.replace(/^\/(en|ru)\//, `/${lang}/`);
 export const pageForPath = (path: string) => pages.find((page) => page.path === path);
 export const url = (lang: Lang, path = '') => `/${lang}/${path}`;
-export const workUrl = (lang: Lang, id: string) =>
-  `/${lang}/works/${works.find((x) => x.id === id)?.slug ?? ''}/`;
-export const caseUrl = (lang: Lang, id: string) =>
-  cases.find((row) => row.id === id)?.detailPage
-    ? `/${lang}/cases/${cases.find((row) => row.id === id)!.slug}/`
-    : `/${lang}/cases/#case-${cases.find((row) => row.id === id)?.slug ?? ''}`;
+export const workUrl = (lang: Lang, id: string) => {
+  const row = works.find((row) => row.id === id);
+  return row ? `/${lang}/works/${row.slug}/` : `/${lang}/works/`;
+};
+export const caseUrl = (lang: Lang, id: string) => {
+  const row = cases.find((row) => row.id === id);
+  return !row
+    ? `/${lang}/cases/`
+    : row.detailPage
+      ? `/${lang}/cases/${row.slug}/`
+      : `/${lang}/cases/#case-${row.slug}`;
+};
 export const caseTargetUrl = (lang: Lang, item: { work?: string; method?: string; programme?: string }) =>
   item.work
     ? workUrl(lang, item.work)
@@ -288,5 +294,7 @@ export const configurationUrl = (lang: Lang, id: string) => {
     ? workUrl(lang, configuration.workId) + '#' + configuration.slug
     : `/${lang}/cooperation/`;
 };
-export const programmeUrl = (lang: Lang, id: string) =>
-  `/${lang}/education/${programmes.find((row) => row.id === id)?.slug ?? ''}/`;
+export const programmeUrl = (lang: Lang, id: string) => {
+  const row = programmes.find((row) => row.id === id);
+  return row ? `/${lang}/education/${row.slug}/` : `/${lang}/education/`;
+};

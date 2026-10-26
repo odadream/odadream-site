@@ -24,11 +24,11 @@ const ru = Astro.props.lang === 'ru';
         <div class="media-framing__fields">
           <label>
             {ru ? 'Фокус X, %' : 'Focus X, %'}{' '}
-            <input data-study-x type="range" min="0" max="100" value="50" />
+            <input data-study-x type="range" min="0" max="100" step="any" value="50" />
           </label>
           <label>
             {ru ? 'Фокус Y, %' : 'Focus Y, %'}{' '}
-            <input data-study-y type="range" min="0" max="100" value="50" />
+            <input data-study-y type="range" min="0" max="100" step="any" value="50" />
           </label>
           <label>
             {ru ? 'Поведение' : 'Fit'}{' '}

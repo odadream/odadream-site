@@ -32,7 +32,7 @@ test.beforeAll(async ({ request }) => {
   let startupOutput = '';
   server = spawn(
     process.execPath,
-    ['node_modules/astro/astro.js', 'preview', '--host', '127.0.0.1', '--port', '5180'],
+    ['scripts/astro-cli.mjs', 'preview', '--host', '127.0.0.1', '--port', '5180'],
     { windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'] },
   );
   const recordStartup = (chunk: Buffer) => {

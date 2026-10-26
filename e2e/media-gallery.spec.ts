@@ -16,6 +16,9 @@ test('natural tiles, protected documents and large sequences keep their proporti
         document.documentElement.dataset.theme = value;
       }, theme);
       const gallery = page.locator('#system-gallery-tiles');
+      const documents = page.locator('[data-document-gallery]').first();
+      const documentWidth = (await documents.locator('..').boundingBox())!.width;
+      await expect(documents).toHaveCSS('column-gap', documentWidth >= 600 ? '12px' : '8px');
       await gallery.scrollIntoViewIfNeeded();
       await gallery.locator('img').evaluateAll(async (nodes) => {
         await Promise.all(nodes.map((node) => (node as HTMLImageElement).decode().catch(() => {})));

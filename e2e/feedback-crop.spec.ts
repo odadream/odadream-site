@@ -1,4 +1,37 @@
 import { test, expect } from '@playwright/test';
+
+test('framing starts from source focus and other tabs update the visible preview', async ({
+  page,
+  context,
+}) => {
+  await page.goto('/ru/works/mom-and-baby/');
+  const trigger = page.locator('[data-crop-id="archive-mom-baby-photo-with-statuette"]').first();
+  const point = JSON.parse((await trigger.getAttribute('data-crop-point-desktop'))!);
+  await trigger.click();
+  const dialog = page.locator('[data-study-dialog]');
+  expect(Number(await dialog.locator('[data-study-x]').inputValue())).toBeCloseTo(point.x * 100, 8);
+  expect(Number(await dialog.locator('[data-study-y]').inputValue())).toBeCloseTo(point.y * 100, 8);
+  await dialog.locator('[data-study-reset]').click();
+  expect(Number(await dialog.locator('[data-study-y]').inputValue())).toBeCloseTo(point.y * 100, 8);
+  await page.keyboard.press('Escape');
+  const peer = await context.newPage();
+  await peer.goto('/ru/works/mom-and-baby/');
+  await peer.evaluate(() =>
+    localStorage.setItem(
+      'oda.media-framing.v2',
+      JSON.stringify({
+        schemaVersion: 2,
+        media: { 'archive-mom-baby-photo-with-statuette': { x: 10, y: 80, fit: 'contain' } },
+      }),
+    ),
+  );
+  const figure = page.locator('.media-figure[data-media-id="archive-mom-baby-photo-with-statuette"]').first();
+  await expect(figure).toHaveAttribute('data-dev-framing', 'contain');
+  await expect(figure.locator('img')).toHaveCSS('object-position', '10% 80%');
+  await peer.evaluate(() => localStorage.removeItem('oda.media-framing.v2'));
+  await expect(figure).toHaveAttribute('data-dev-framing', 'natural');
+  await peer.close();
+});
 test('collective feedback loop is readable and has a textual equivalent in both languages and themes', async ({
   page,
 }) => {

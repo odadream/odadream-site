@@ -2,6 +2,7 @@ import { readFile, stat, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { loadSiteModule } from './site-data.mjs';
 import { validatePageCodes } from './page-code-check.mjs';
+import { validateSeo } from './seo-check.mjs';
 
 const root = resolve(process.env.ODA_BUILD_DIR || 'dist');
 const fail = (message) => {
@@ -42,6 +43,11 @@ for (const path of pagePaths) {
     continue;
   }
   if (!compatibilityPaths.includes(path)) {
+    const socialImage = new URL(validateSeo(html, path));
+    if (socialImage.origin === 'https://odadream.art')
+      await stat(resolve(root, socialImage.pathname.slice(1))).catch(() =>
+        fail(`Missing social image in ${path}`),
+      );
     validatePageCodes(html, path);
     if ([...html.matchAll(/id="lightbox"/g)].length !== 1) fail(`Expected one MediaViewer in ${path}`);
     for (const role of ['lightbox-canvas', 'lightbox-info', 'lightbox-navigation'])
@@ -103,6 +109,7 @@ if (
 )
   fail('Submitted sitemap address must describe the current V2 index');
 const rootHtml = await readFile(resolve(root, 'index.html'), 'utf8');
+validateSeo(rootHtml, '/en/');
 if (!rootHtml.includes('/legacy/unavailable/?lang=') || !rootHtml.includes('https://odadream.art/en/'))
   fail('Root obsolete-address notice or canonical absent');
 if (
@@ -115,6 +122,14 @@ if (
 const unresolved = await readFile(resolve(root, 'legacy/unavailable/index.html'), 'utf8');
 if (!unresolved.includes('noindex,follow')) fail('Legacy unavailable must be noindex');
 const sitemap = await readFile(resolve(root, 'sitemap-0.xml'), 'utf8');
+const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+const canonicalUrls = new Set(pages.map((page) => `https://odadream.art${page.path}`));
+if (
+  sitemapUrls.length !== canonicalUrls.size ||
+  sitemapUrls.some((url) => !canonicalUrls.has(url)) ||
+  new Set(sitemapUrls).size !== sitemapUrls.length
+)
+  fail('Sitemap must contain exactly the indexable canonical routes');
 const lastmod = JSON.parse(await readFile('src/data/lastmod.json', 'utf8'));
 if (
   sitemap.includes('/legacy/') ||

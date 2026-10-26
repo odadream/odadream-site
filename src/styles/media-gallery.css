@@ -25,26 +25,28 @@
   vertical-align: var(--media-micro-symbol-offset);
 }
 .media-gallery[data-mode='tiles'] {
-  column-count: min(var(--gallery-item-count), var(--gallery-compact-columns));
-  column-gap: var(--gallery-column-gap);
+  --gallery-column-count: min(var(--gallery-item-count), var(--gallery-compact-columns));
+  --gallery-current-column-gap: var(--gallery-column-gap);
+  column-count: var(--gallery-column-count);
+  column-gap: var(--gallery-current-column-gap);
   display: block;
   column-width: auto;
   margin: 0;
 }
 @container media-gallery (min-width: 600px) {
   .media-gallery[data-mode='tiles'] {
-    column-count: min(var(--gallery-item-count), var(--gallery-columns-medium));
-    column-gap: var(--gallery-column-gap-wide);
+    --gallery-column-count: min(var(--gallery-item-count), var(--gallery-columns-medium));
+    --gallery-current-column-gap: var(--gallery-column-gap-wide);
   }
 }
 @container media-gallery (min-width: 900px) {
   .media-gallery[data-mode='tiles'] {
-    column-count: min(var(--gallery-item-count), var(--gallery-columns-wide));
+    --gallery-column-count: min(var(--gallery-item-count), var(--gallery-columns-wide));
   }
 }
 @container media-gallery (max-width: 340px) {
   .media-gallery[data-mode='tiles'] {
-    column-count: 1;
+    --gallery-column-count: 1;
   }
 }
 .media-gallery__tile {
@@ -107,29 +109,11 @@
 .media-gallery .media-figure {
   --framing-frame-ratio: var(--gallery-crop-ratio);
 }
-.media-gallery-frame {
-  --gallery-column-count: min(var(--gallery-item-count), var(--gallery-compact-columns));
-}
-@container media-gallery (min-width:600px) {
-  .media-gallery {
-    --gallery-column-count: min(var(--gallery-item-count), var(--gallery-columns-medium));
-  }
-}
-@container media-gallery (min-width:900px) {
-  .media-gallery {
-    --gallery-column-count: min(var(--gallery-item-count), var(--gallery-columns-wide));
-  }
-}
-@container media-gallery (max-width:340px) {
-  .media-gallery {
-    --gallery-column-count: 1;
-  }
-}
 .media-gallery[data-document-gallery] {
   display: grid;
   column-count: auto;
-  grid-template-columns: repeat(min(var(--gallery-item-count), var(--gallery-column-count)), minmax(0, 1fr));
-  gap: var(--gallery-item-gap) var(--gallery-column-gap);
+  grid-template-columns: repeat(var(--gallery-column-count), minmax(0, 1fr));
+  gap: var(--gallery-item-gap) var(--gallery-current-column-gap);
 }
 .media-gallery[data-document-gallery] > .media-gallery__tile {
   margin: 0;

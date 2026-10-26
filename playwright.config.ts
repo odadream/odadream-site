@@ -13,7 +13,7 @@ export default defineConfig({
   webServer: externalBaseURL
     ? undefined
     : {
-        command: 'node node_modules/astro/astro.js dev --host 127.0.0.1 --port 5177',
+        command: 'node scripts/astro-cli.mjs dev --host 127.0.0.1 --port 5177',
         url: 'http://127.0.0.1:5177/en/',
         reuseExistingServer: !process.env.CI,
         timeout: 30_000,

@@ -69,7 +69,7 @@ async function rebuild() {
     if (!forceBuild && before === acceptedFingerprint) return;
     forceBuild = false;
     const env = { ...process.env, ODA_BUILD_DIR: target, PUBLIC_ANALYTICS_ENABLED: 'false' };
-    await run(['node_modules/astro/astro.js', 'build'], env);
+    await run(['scripts/astro-cli.mjs', 'build'], env);
     await run(['scripts/verify-build.mjs'], env);
     const after = await fingerprint();
     if (before !== after) {
