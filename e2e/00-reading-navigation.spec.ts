@@ -30,12 +30,12 @@ test('a deep link keeps page context and supports chapter changes, focus and mut
     );
     await expect(navigation.locator('.reading-actions, .reading-contents-title')).toHaveCount(0);
     await page.screenshot({ path: test.info().outputPath(`navigation-${lang}.png`) });
-    const next = navigation.locator('[data-outline-target="work-credits"]');
+    const next = navigation.locator('[data-outline-target="work-availability"]');
     await next.click();
-    await expect(page).toHaveURL(/#work-credits$/);
+    await expect(page).toHaveURL(/#work-availability$/);
     await expect(details).not.toHaveAttribute('open', '');
-    await expect(page.locator('#work-credits h2')).toBeFocused();
-    await expect(summary).toContainText((await page.locator('#work-credits h2').textContent())!.trim());
+    await expect(page.locator('#work-availability h2')).toBeFocused();
+    await expect(summary).toContainText((await page.locator('#work-availability h2').textContent())!.trim());
     await summary.click();
     await page.keyboard.press('Escape');
     await expect(summary).toBeFocused();

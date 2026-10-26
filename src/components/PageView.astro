@@ -92,9 +92,49 @@ const workEventMedia = work
           .filter((selection) => selection.workId === work.id)
           .map((selection) => ({ event, media: selection.media })),
       )
-      .filter((selection) => selection.media.length)
+      .filter(
+        (selection) =>
+          selection.media.length &&
+          !(
+            selection.media.length === 1 &&
+            selection.event.media.includes(work.media[0]) &&
+            mediaById(work.media[0])?.kind === 'video'
+          ),
+      )
   : [];
-const selectedEventMediaIds = new Set(workEventMedia.flatMap((selection) => selection.media));
+const workGallery = work
+  ? [...new Set([...work.media.slice(1), ...workEventMedia.flatMap((row) => row.media)])]
+      .filter(
+        (id) =>
+          id !== work.media[0] &&
+          !cases.some(
+            (event) =>
+              mediaById(work.media[0])?.kind === 'video' &&
+              event.media.includes(work.media[0]) &&
+              event.workSelections?.some(
+                (selection) =>
+                  selection.workId === work.id &&
+                  selection.media.length === 1 &&
+                  selection.media.includes(id),
+              ),
+          ),
+      )
+      .flatMap((id) => {
+        const item = mediaById(id);
+        return item ? [item] : [];
+      })
+      .slice(0, work.projectSite ? 4 : undefined)
+  : [];
+const workNarrative = work?.story.filter((section) => section.id !== 'external-materials') ?? [];
+const workNarrativeSplit = Math.ceil(workNarrative.length / 2);
+const workHistory = work
+  ? cases
+      .filter((row) => work.cases.includes(row.id) && row.participationStatus === 'held')
+      .sort((a, b) => b.date.localeCompare(a.date))
+  : [];
+const showCredits = work
+  ? work.credits.length > 1 && work.credits.some((row) => !/^(ODA[. ]dream|ODA)$/i.test(row.name.en.trim()))
+  : false;
 const method = methods.find((item) => item.id === 'neuromandala');
 const cooperation = cooperationPages.find((item) => item.id === 'cooperation');
 const studio = studioPages.find((item) => item.id === 'studio');
@@ -603,6 +643,15 @@ const timeline = selectHomepageEvents(cases);
         ) : (
           <p class="small-note">{work.mediaNote?.[lang]}</p>
         )}
+        {workGallery.length > 0 && (
+          <MediaGallery
+            id="work-first-look"
+            items={workGallery.slice(0, 4)}
+            lang={lang}
+            compact
+            label={ru ? 'Первый взгляд' : 'First look'}
+          />
+        )}
         {!work.projectSite && (
           <DetailSection
             id="work-question"
@@ -616,14 +665,114 @@ const timeline = selectHomepageEvents(cases);
             <p>{work.summary[lang]}</p>
           </DetailSection>
         )}
+        {!work.projectSite && (
+          <>
+            <DetailSection
+              id="work-story"
+              kind="editorial"
+              family={family}
+              section={2}
+              lang={lang}
+              label={ru ? 'История и устройство' : 'Story and structure'}
+              title={ru ? 'Внутри работы' : 'Inside the work'}
+            >
+              <EditorialSections
+                sections={workNarrative.slice(0, workNarrativeSplit)}
+                presentedMedia={[...work.media, ...workGallery.map((row) => row.id)]}
+                excludeSources={[...work.media, ...workGallery.map((row) => row.id)].flatMap((id) => {
+                  const item = mediaById(id);
+                  return item ? [item.source, item.src] : [];
+                })}
+                lang={lang}
+                anchorPrefix="work-story"
+              />
+              {work.methodId && (
+                <CalloutLink href={`/${lang}/technology/`}>
+                  {ru ? 'Метод и технологический разбор' : 'Method and technological account'}
+                </CalloutLink>
+              )}
+              {workGallery.length > 4 && (
+                <MediaGallery
+                  id="work-gallery"
+                  items={workGallery.slice(4, 12)}
+                  lang={lang}
+                  compact
+                  label={ru ? 'Материалы работы' : 'Work materials'}
+                />
+              )}
+              <EditorialSections
+                sections={workNarrative.slice(workNarrativeSplit)}
+                presentedMedia={[...work.media, ...workGallery.map((row) => row.id)]}
+                excludeSources={[...work.media, ...workGallery.map((row) => row.id)].flatMap((id) => {
+                  const item = mediaById(id);
+                  return item ? [item.source, item.src] : [];
+                })}
+                lang={lang}
+                anchorPrefix="work-story"
+              />
+              <DocumentList documents={workDocuments.filter((row) => row.workId === work.id)} lang={lang} />
+              <div class="provenance">
+                {work.reviewNotes.map((note) => (
+                  <p>{note[lang]}</p>
+                ))}
+              </div>
+              {!!work.relatedProgrammes?.length && (
+                <div class="link-row spaced-actions">
+                  {work.relatedProgrammes.map((id) => (
+                    <CalloutLink href={programmeUrl(lang, id)}>
+                      {programmes.find((row) => row.id === id)?.title[lang]}
+                    </CalloutLink>
+                  ))}
+                </div>
+              )}
+              {work.relatedWorks.length > 0 && (
+                <div class="link-row spaced-actions">
+                  {work.relatedWorks.map((id) => (
+                    <CalloutLink href={workUrl(lang, id)}>{workById(id)?.title[lang]}</CalloutLink>
+                  ))}
+                </div>
+              )}
+            </DetailSection>
+          </>
+        )}
+        {showCredits && (
+          <DetailSection
+            id="work-credits"
+            kind="editorial"
+            family={family}
+            section={work.projectSite ? 1 : 3}
+            lang={lang}
+            label={ru ? 'Авторство и роли' : 'Credits and roles'}
+            title={ru ? 'Кто создаёт работу' : 'Who makes the work'}
+          >
+            <div class="credit-grid">
+              {work.credits.map((item) => (
+                <div class="list-row">
+                  <div>
+                    <h3>{item.name[lang]}</h3>
+                    <p>{item.role[lang]}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </DetailSection>
+        )}
         <DetailSection
           id="work-context"
           kind="editorial"
           family={family}
-          section={work.projectSite ? 1 : 2}
+          section={work.projectSite ? (showCredits ? 2 : 1) : showCredits ? 4 : 3}
           lang={lang}
           label={ru ? 'Контекст' : 'Context'}
-          title={ru ? 'О работе' : 'About the work'}
+          title={
+            workHistory.length
+              ? ru
+                ? 'История показов'
+                : 'Presentation history'
+              : ru
+                ? 'О работе'
+                : 'About the work'
+          }
         >
           {work.projectSite && <p>{work.projectSite.studioRole[lang]}</p>}
           {work.components && (
@@ -660,15 +809,9 @@ const timeline = selectHomepageEvents(cases);
               <li>{fact}</li>
             ))}
           </ul>
-          {work.cases.length > 0 && (
-            <div class="link-row spaced-actions">
-              {work.cases.map((id) => (
-                <CalloutLink href={caseUrl(lang, id)}>
-                  {cases.find((x) => x.id === id)?.title[lang]}
-                </CalloutLink>
-              ))}
-            </div>
-          )}
+          {workHistory.map((item) => (
+            <CaseRow item={item} lang={lang} presentation="overview" />
+          ))}
           {recognitions.some((item) => item.relatedWorks.includes(work.id)) && (
             <div class="link-row spaced-actions">
               {recognitions
@@ -682,105 +825,31 @@ const timeline = selectHomepageEvents(cases);
           )}
         </DetailSection>
         {!work.projectSite && (
-          <>
-            <DetailSection
-              id="work-story"
-              kind="editorial"
-              family={family}
-              section={3}
-              lang={lang}
-              label={ru ? 'История и устройство' : 'Story and structure'}
-              title={ru ? 'Внутри работы' : 'Inside the work'}
-            >
-              <EditorialSections sections={work.story} lang={lang} anchorPrefix="work-story" />
-              {work.methodId && (
-                <CalloutLink href={`/${lang}/technology/`}>
-                  {ru ? 'Метод и технологический разбор' : 'Method and technological account'}
-                </CalloutLink>
-              )}
-              {work.media.length > 1 && (
-                <>
-                  <h3>{ru ? 'Материалы работы' : 'Work materials'}</h3>
-                  <MediaGallery
-                    id="work-gallery"
-                    items={work.media
-                      .slice(1)
-                      .filter((id) => !selectedEventMediaIds.has(id))
-                      .flatMap((id) => {
-                        const item = mediaById(id);
-                        return item ? [item] : [];
-                      })}
-                    lang={lang}
-                    label={ru ? 'Материалы работы' : 'Work materials'}
-                  />
-                </>
-              )}
-              {workEventMedia.map((selection) => (
-                <>
-                  <h3>
-                    <CalloutLink href={caseUrl(lang, selection.event.id)}>
-                      {selection.event.title[lang]} · {formatCaseDate(selection.event, lang)}
-                    </CalloutLink>
-                  </h3>
-                  <MediaGallery
-                    id={'work-event-' + selection.event.id}
-                    items={selection.media.flatMap((id) => {
-                      const item = mediaById(id);
-                      return item ? [item] : [];
-                    })}
-                    lang={lang}
-                    label={selection.event.title[lang]}
-                  />
-                </>
-              ))}
-              <DocumentList documents={workDocuments.filter((row) => row.workId === work.id)} lang={lang} />
-              <div class="provenance">
-                {work.reviewNotes.map((note) => (
-                  <p>{note[lang]}</p>
-                ))}
-              </div>
-              {!!work.relatedProgrammes?.length && (
-                <div class="link-row spaced-actions">
-                  {work.relatedProgrammes.map((id) => (
-                    <CalloutLink href={programmeUrl(lang, id)}>
-                      {programmes.find((row) => row.id === id)?.title[lang]}
-                    </CalloutLink>
-                  ))}
-                </div>
-              )}
-              {work.relatedWorks.length > 0 && (
-                <div class="link-row spaced-actions">
-                  {work.relatedWorks.map((id) => (
-                    <CalloutLink href={workUrl(lang, id)}>{workById(id)?.title[lang]}</CalloutLink>
-                  ))}
-                </div>
-              )}
-            </DetailSection>
-            <DetailSection
-              id="work-credits"
-              kind="editorial"
-              family={family}
-              section={4}
-              lang={lang}
-              label={ru ? 'Авторство и роли' : 'Credits and roles'}
-              title={ru ? 'Кто создаёт работу' : 'Who makes the work'}
-            >
-              {work.credits.map((item) => (
-                <div class="list-row">
-                  <div>
-                    <h3>{item.name[lang]}</h3>
-                    <p>{item.role[lang]}</p>
-                  </div>
-                </div>
-              ))}
-            </DetailSection>
-          </>
+          <EditorialSections
+            sections={work.story.filter((section) => section.id === 'external-materials')}
+            lang={lang}
+            anchorPrefix="work-story"
+            presentedMedia={[...work.media, ...workGallery.map((row) => row.id)]}
+            excludeSources={[...work.media, ...workGallery.map((row) => row.id)].flatMap((id) => {
+              const item = mediaById(id);
+              return item ? [item.source, item.src] : [];
+            })}
+          />
+        )}
+        {workGallery.length > 12 && (
+          <MediaGallery
+            id="work-further-materials"
+            items={workGallery.slice(12)}
+            lang={lang}
+            compact
+            label={ru ? 'Другие материалы' : 'Further materials'}
+          />
         )}
         <DetailSection
           id="work-availability"
           kind="action"
           family={family}
-          section={work.projectSite ? 2 : 5}
+          section={work.projectSite ? (showCredits ? 3 : 2) : showCredits ? 5 : 4}
           lang={lang}
           label={ru ? 'Доступность' : 'Availability'}
           title={ru ? 'Как работать с проектом' : 'Working with the project'}
@@ -828,7 +897,7 @@ const timeline = selectHomepageEvents(cases);
               : []),
             {
               label: ru ? 'События и показы' : 'Events and presentations',
-              value: work.cases.length,
+              value: workHistory.length,
               href: '#work-context',
             },
             {
@@ -1408,6 +1477,19 @@ const timeline = selectHomepageEvents(cases);
         <h1>{oneCase.title[lang]}</h1>
         <p class="lead">{oneCase.summary[lang]}</p>
         {caseMedia[0] && <MediaFigure id={caseMedia[0]} lang={lang} priority />}
+        {caseMedia.length > 1 && (
+          <MediaGallery
+            id="case-gallery"
+            contextEventId={oneCase.id}
+            items={caseMedia.slice(1, 5).flatMap((id) => {
+              const item = mediaById(id);
+              return item ? [item] : [];
+            })}
+            lang={lang}
+            compact
+            label={ru ? 'Первый взгляд' : 'First look'}
+          />
+        )}
         <DetailSection
           id="case-contribution"
           kind="editorial"
@@ -1439,12 +1521,14 @@ const timeline = selectHomepageEvents(cases);
             title={ru ? 'О событии' : 'About the event'}
           >
             <EditorialSections sections={oneCase.story} lang={lang} anchorPrefix="case-story" />
-            {caseMedia.length > 1 && (
+            {caseMedia.length > 5 && (
               <>
                 <h3>{ru ? 'Материалы события' : 'Event materials'}</h3>
                 <MediaGallery
-                  id="case-gallery"
-                  items={caseMedia.slice(1).flatMap((id) => {
+                  id="case-gallery-continued"
+                  contextEventId={oneCase.id}
+                  compact
+                  items={caseMedia.slice(5).flatMap((id) => {
                     const item = mediaById(id);
                     return item ? [item] : [];
                   })}
@@ -1475,14 +1559,16 @@ const timeline = selectHomepageEvents(cases);
                 ))}
               </ul>
             )}
-            {oneCase.participants.map((person) => (
-              <div class="list-row">
-                <div>
-                  <h3>{person.name[lang]}</h3>
-                  <p>{person.role[lang]}</p>
+            <div class="credit-grid">
+              {oneCase.participants.map((person) => (
+                <div class="list-row">
+                  <div>
+                    <h3>{person.name[lang]}</h3>
+                    <p>{person.role[lang]}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
             {oneCase.limitations.map((note) => (
               <ReadingNote>{note[lang]}</ReadingNote>
             ))}
@@ -1512,12 +1598,32 @@ const timeline = selectHomepageEvents(cases);
                 </CalloutLink>
               </p>
             )}
-            {oneCase.evidence.flatMap((id) => {
+            {oneCase.evidence.flatMap((id, index) => {
               const item = evidence.find((row) => row.id === id);
-              return item ? [<EvidenceNote item={item} lang={lang} />] : [];
+              return item
+                ? [
+                    <EvidenceNote
+                      item={item}
+                      lang={lang}
+                      compact
+                      omitSource={
+                        item.source === oneCase.sourceUrl ||
+                        oneCase.evidence
+                          .slice(0, index)
+                          .some((id) => evidence.find((row) => row.id === id)?.source === item.source) ||
+                        caseMedia.some((id) => mediaById(id)?.source === item.source)
+                      }
+                    />,
+                  ]
+                : [];
             })}
           </DetailSection>
         )}
+        <div class="spaced-actions">
+          <CalloutLink href={`/${lang}/contact/`}>
+            {ru ? 'Обсудить похожий проект' : 'Discuss a similar project'}
+          </CalloutLink>
+        </div>
       </div>
       <aside class="work-aside">
         <RecordStamp

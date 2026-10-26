@@ -36,8 +36,8 @@ test('full chronology separates contributions, education, research and applicati
     await page.goto(`/${lang}/education/sound-and-attention/`);
     await expect(page.locator('a[href$="/cases/gong-fest-2025/"]')).toHaveCount(1);
     await page.goto(`/${lang}/education/theatre-of-my-name/`);
-    await expect(page.locator('a[href$="/cases/korablik-2020/"]')).toHaveCount(1);
-    await expect(page.locator('a[href$="/cases/itb-lab-2024/"]')).toHaveCount(1);
+    await expect(page.locator('#programme-conditions a[href$="/cases/korablik-2020/"]')).toHaveCount(1);
+    await expect(page.locator('#programme-conditions a[href$="/cases/itb-lab-2024/"]')).toHaveCount(1);
   }
 });
 

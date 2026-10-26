@@ -16,6 +16,10 @@ interface Props {
   lang: Lang;
   priority?: boolean;
   register?: 'expanded' | 'disclosure';
+  compact?: boolean;
+  showOpenMark?: boolean;
+  cropControl?: boolean;
+  viewerCaption?: string;
 }
 const {
   id,
@@ -26,6 +30,10 @@ const {
   gallery = false,
   previewVideo = false,
   register = 'expanded',
+  compact = false,
+  showOpenMark = true,
+  cropControl = true,
+  viewerCaption,
 } = Astro.props;
 const item = suppliedItem ?? (id ? mediaById(id) : undefined);
 const presentation = item ? mediaFit(item, fit) : 'natural';
@@ -44,99 +52,108 @@ const presentation = item ? mediaFit(item, fit) : 'natural';
     }
   >
     <DevPublicationMark kind="media" recordId={item.id} lang={lang} />
-    {register === 'expanded' && <MediaRegister item={item} lang={lang} />}
-    {item.kind === 'image' ? (
-      <button
-        type="button"
-        class="media-open"
-        data-lightbox
-        data-details-href={Astro.url.pathname}
-        data-gallery-item={gallery ? '' : undefined}
-        data-src={item.src}
-        data-alt={item.alt[lang]}
-        data-caption={item.caption[lang]}
-        data-credit={item.credit?.[lang]}
-        aria-label={lang === 'en' ? `Enlarge: ${item.alt.en}` : `Увеличить: ${item.alt.ru}`}
-      >
-        <picture>
-          {item.mobileSrc && !(gallery && presentation === 'natural') && (
-            <source media="(max-width: 700px)" srcset={item.mobileSrc} />
-          )}
-          <img
-            src={item.src}
-            alt={item.alt[lang]}
-            width={item.width}
-            height={item.height}
-            loading={priority ? 'eager' : 'lazy'}
-            decoding={priority ? 'sync' : 'async'}
-            fetchpriority={priority ? 'high' : 'auto'}
-          />
-        </picture>
-        <span class="media-open__mark">
-          <TechnicalMark kind="expand" />
-        </span>
-      </button>
-    ) : previewVideo && item.poster ? (
-      <button
-        type="button"
-        class="media-open"
-        data-preview-trigger
-        data-lightbox
-        data-details-href={Astro.url.pathname}
-        data-gallery-item={gallery ? '' : undefined}
-        data-kind="video"
-        data-src={item.src}
-        data-poster={item.poster}
-        data-alt={item.alt[lang]}
-        data-caption={item.caption[lang]}
-        data-credit={item.credit?.[lang]}
-        aria-label={lang === 'ru' ? `Открыть видео: ${item.alt.ru}` : `Open video: ${item.alt.en}`}
-      >
-        <VideoPreview
-          src={item.previewSrc ?? item.src}
-          poster={item.poster}
-          alt={item.alt[lang]}
-          width={item.width}
-          height={item.height}
-          focusable={false}
-        />
-        <span class="media-open__mark">
-          <TechnicalMark kind="expand" />
-        </span>
-      </button>
-    ) : (
-      <>
-        <video
-          src={item.src}
-          poster={item.poster}
-          controls
-          playsinline
-          preload="none"
-          data-media-id={item.id}
-        />
+    {!compact && register === 'expanded' && <MediaRegister item={item} lang={lang} />}
+    <div class="media-figure__visual">
+      {item.kind === 'image' ? (
         <button
           type="button"
-          class="button"
+          class="media-open"
           data-lightbox
-          data-kind="video"
+          data-details-href={Astro.url.pathname}
           data-gallery-item={gallery ? '' : undefined}
+          data-src={item.src}
+          data-alt={item.alt[lang]}
+          data-caption={viewerCaption ?? item.caption[lang]}
+          data-credit={item.credit?.[lang]}
+          aria-label={lang === 'en' ? `Enlarge: ${item.alt.en}` : `Увеличить: ${item.alt.ru}`}
+        >
+          <picture>
+            {item.mobileSrc && !(gallery && presentation === 'natural') && (
+              <source media="(max-width: 700px)" srcset={item.mobileSrc} />
+            )}
+            <img
+              src={item.src}
+              alt={item.alt[lang]}
+              width={item.width}
+              height={item.height}
+              loading={priority ? 'eager' : 'lazy'}
+              decoding={priority ? 'sync' : 'async'}
+              fetchpriority={priority ? 'high' : 'auto'}
+            />
+          </picture>
+          {showOpenMark && (
+            <span class="media-open__mark">
+              <TechnicalMark kind="expand" />
+            </span>
+          )}
+        </button>
+      ) : previewVideo && item.poster ? (
+        <button
+          type="button"
+          class="media-open"
+          data-preview-trigger
+          data-lightbox
+          data-details-href={Astro.url.pathname}
+          data-gallery-item={gallery ? '' : undefined}
+          data-kind="video"
           data-src={item.src}
           data-poster={item.poster}
           data-alt={item.alt[lang]}
-          data-caption={item.caption[lang]}
+          data-caption={viewerCaption ?? item.caption[lang]}
           data-credit={item.credit?.[lang]}
-          data-details-href={Astro.url.pathname}
+          aria-label={lang === 'ru' ? `Открыть видео: ${item.alt.ru}` : `Open video: ${item.alt.en}`}
         >
-          <TechnicalMark kind="expand" />
-          {lang === 'ru' ? 'Открыть видео' : 'Open video'}
+          <VideoPreview
+            src={item.previewSrc ?? item.src}
+            poster={item.poster}
+            alt={item.alt[lang]}
+            width={item.width}
+            height={item.height}
+            focusable={false}
+          />
+          {showOpenMark && (
+            <span class="media-open__mark">
+              <TechnicalMark kind="expand" />
+            </span>
+          )}
         </button>
-      </>
+      ) : (
+        <>
+          <video
+            src={item.src}
+            poster={item.poster}
+            controls
+            playsinline
+            preload="none"
+            data-media-id={item.id}
+          />
+          <button
+            type="button"
+            class="button"
+            data-lightbox
+            data-kind="video"
+            data-gallery-item={gallery ? '' : undefined}
+            data-src={item.src}
+            data-poster={item.poster}
+            data-alt={item.alt[lang]}
+            data-caption={viewerCaption ?? item.caption[lang]}
+            data-credit={item.credit?.[lang]}
+            data-details-href={Astro.url.pathname}
+          >
+            <TechnicalMark kind="expand" />
+            {lang === 'ru' ? 'Открыть видео' : 'Open video'}
+          </button>
+        </>
+      )}
+      {cropControl && <MediaCropTrigger item={item} lang={lang} view="gallery" />}
+    </div>
+    {!compact && (
+      <figcaption>
+        <span>{item.caption[lang]}</span>
+        {item.credit && <span class="media-credit">{item.credit[lang]}</span>}
+      </figcaption>
     )}
-    <figcaption>
-      <span>{item.caption[lang]}</span>
-      {item.credit && <span class="media-credit">{item.credit[lang]}</span>}
-    </figcaption>
-    {register === 'disclosure' && <MediaRegister item={item} lang={lang} disclosure />}
-    <MediaCropTrigger item={item} lang={lang} view="gallery" />
+    {!compact && register === 'disclosure' && <MediaRegister item={item} lang={lang} disclosure />}
+    <slot name="caption" />
   </figure>
 )}

@@ -1,0 +1,49 @@
+---
+import MediaGallery from './MediaGallery.astro';
+import { mediaById } from '../data/catalogue';
+import '../styles/gallery-study.css';
+const items = [
+  'abrau-2026-157',
+  'archive-wildmint-2025-mindshow-myata',
+  'event-tpp-mindshow',
+  'archive-mindshow-byob-2019-mindgrid',
+  'hypercube-projection-recording',
+  'wildmint-recording',
+].flatMap((id) => {
+  const item = mediaById(id);
+  return item ? [item] : [];
+});
+const titles: Record<string, string> = {
+  'abrau-2026-157': 'Демонстрация в Abrau Club',
+  'archive-wildmint-2025-mindshow-myata': 'Учебное выступление',
+  'event-tpp-mindshow': 'Нейровизуальная инсталляция',
+  'archive-mindshow-byob-2019-mindgrid': 'Mind Grid · авторское полотно',
+  'hypercube-projection-recording': 'Проекция на Гиперкубе',
+  'wildmint-recording': 'Нейровизуальная программа',
+};
+const eventTitles: Record<string, string> = {
+  'wildmint-2025': 'Дикая Мята',
+  'tpp-2025': 'Russian Digital Creative',
+  'byob-2019': 'BYOB',
+};
+---
+
+<section id="gallery-study" class="gallery-study" aria-labelledby="gallery-study-title">
+  <h2 id="gallery-study-title">Галерея · рабочий компонент</h2>
+  <p class="small-note">
+    Нажмите на фото или видео для просмотра. Та же галерея используется на страницах работ, событий и
+    образовательных программ.
+  </p>
+  <MediaGallery
+    id="gallery-study-tiles"
+    items={items}
+    lang="ru"
+    label="Образец галереи"
+    captionTitles={titles}
+    eventTitles={eventTitles}
+  />
+  <p class="small-note">
+    Год относится к событию. Полные названия, ID и кредиты доступны в просмотрщике. DEV-кадрирование
+    применяется по ID материала; локальные изменения видны в служебной панели.
+  </p>
+</section>

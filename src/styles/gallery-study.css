@@ -1,0 +1,7 @@
+.gallery-study {
+  display: flow-root;
+  padding-block-start: var(--section-space);
+}
+.gallery-study > h2 + p {
+  margin-top: var(--gap-label);
+}

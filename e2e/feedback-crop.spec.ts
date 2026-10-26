@@ -28,52 +28,40 @@ test('collective feedback loop is readable and has a textual equivalent in both 
     }
   }
 });
-test('DEV framing supports focus, region, profile separation, persistence, export and protected originals', async ({
+test('DEV framing shares one focus across cards and galleries, with original viewer intact', async ({
   page,
 }) => {
   await page.goto('/ru/works/');
   const trigger = page.locator('[data-dev-crop][data-crop-view="card"]').first();
   const mediaId = await trigger.getAttribute('data-crop-id');
   await trigger.click();
-  const dialog = page.locator('[data-dev-crop-dialog]');
+  const dialog = page.locator('[data-study-dialog]');
   await expect(dialog).toBeVisible();
-  await dialog.locator('[data-crop-viewport]').selectOption('desktop');
-  await dialog.locator('[data-crop-field="x"]').fill('0.2');
-  // A late original-image load redraws the preview while the user is still typing.
-  await dialog.locator('[data-crop-original]').evaluate((image) => image.dispatchEvent(new Event('load')));
-  await expect(dialog.locator('[data-crop-field="x"]')).toHaveValue('0.2');
-  await dialog.locator('[data-crop-field="x"]').press('Tab');
-  await dialog.locator('[data-crop-save]').click();
-  await expect(dialog.locator('[data-crop-status]')).toContainText('сохранён');
-  await page.setViewportSize({ width: 601, height: 932 });
-  await expect(dialog.locator('[data-crop-field="x"]')).toHaveValue('0.2');
-  await dialog.locator('[data-crop-profile]').selectOption('hero');
-  await expect(dialog.locator('[data-crop-field="x"]')).toHaveValue('0.5');
-  await dialog.locator('[data-crop-profile]').selectOption('card');
-  await dialog.locator('[data-crop-mode]').selectOption('region');
-  await dialog.locator('[data-crop-field="width"]').fill('0.5');
-  await dialog.locator('[data-crop-field="width"]').press('Tab');
-  await expect(dialog.locator('[data-crop-status]')).toContainText('не сохранены');
-  await dialog.locator('[data-crop-field="height"]').fill('0.5');
-  await dialog.locator('[data-crop-field="height"]').press('Tab');
-  await dialog.locator('[data-crop-save]').click();
-  const download = page.waitForEvent('download');
-  await dialog.locator('[data-crop-export]').click();
-  expect((await download).suggestedFilename()).toBe('media-composition-draft.json');
-  const data = JSON.parse(await dialog.locator('[data-crop-json]').inputValue());
-  expect(data.media[mediaId!].card.desktop.region.width).toBe(0.5);
+  await dialog.locator('[data-study-x]').press('Home');
+  await dialog.locator('[data-study-fit]').selectOption('contain');
+  await dialog.locator('[data-study-apply]').click();
+  await expect(dialog.locator('[data-study-status]')).toContainText('сохранён');
   await page.keyboard.press('Escape');
   await expect(trigger).toBeFocused();
-  await page.setViewportSize({ width: 1440, height: 932 });
+  const card = trigger.locator('..');
+  await expect(card).toHaveAttribute('data-dev-framing', 'contain');
+  await expect(card.locator('img').first()).toHaveCSS('object-position', '0% 50%');
   await page.reload();
   await trigger.click();
-  await dialog.locator('[data-crop-viewport]').selectOption('desktop');
-  await expect(dialog.locator('[data-crop-mode]')).toHaveValue('region');
-  await expect(dialog.locator('[data-crop-field="width"]')).toHaveValue('0.5');
+  await expect(dialog.locator('[data-study-x]')).toHaveValue('0');
+  await expect(dialog.locator('[data-study-fit]')).toHaveValue('contain');
+  await dialog.locator('[data-study-reset]').click();
   await page.keyboard.press('Escape');
-  await expect(page.locator('[data-work-id="mindshow"] [data-dev-crop]')).toHaveCount(1);
-  // Documentary representations remain protected regardless of the chosen card cover.
+  await expect(card).not.toHaveAttribute('data-dev-framing');
+  expect(mediaId).toBeTruthy();
   await page.goto('/ru/works/project-schrodinger/');
-  await expect(page.locator('[data-media-id="schrodinger-poster"]')).toHaveCount(1);
-  await expect(page.locator('[data-media-id="schrodinger-poster"] [data-dev-crop]')).toHaveCount(0);
+  const poster = page.locator('[data-media-id="schrodinger-poster"]');
+  await expect(poster).toHaveAttribute('data-fit', 'natural');
+  const source = await poster.locator('[data-lightbox]').getAttribute('data-src');
+  await poster.locator('[data-study-crop]').click();
+  await dialog.locator('[data-study-fit]').selectOption('contain');
+  await dialog.locator('[data-study-apply]').click();
+  await page.keyboard.press('Escape');
+  await poster.locator('[data-lightbox]').click();
+  await expect(page.locator('#lightbox img')).toHaveAttribute('src', source!);
 });

@@ -18,7 +18,7 @@ const labels = {
   class="source-links"
   aria-label={lang === 'ru' ? 'Материалы на внешних площадках' : 'Materials on external platforms'}
 >
-  {links.map((link) => (
+  {[...new Map(links.map((link) => [link.href, link])).values()].map((link) => (
     <li>
       <span class="meta">{labels[link.kind][lang]}</span>
       <CalloutLink href={link.href} rel="external">

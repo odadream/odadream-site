@@ -1,4 +1,5 @@
 export const technicalPaths = {
+  crop: 'M7 2v15h15 M2 7h15v15 M7 7h10v10',
   // One 24-unit envelope and 45-degree leader for all three endings.
   linkPlain: 'M0 24L24 0 M14.4 0H24V9.6',
   linkCircle: 'M0 24L13.757 10.243 M4.157 10.243H13.757V19.843 M24 6a6 6 0 1 1-12 0 6 6 0 0 1 12 0',
@@ -19,6 +20,7 @@ export const technicalPaths = {
   recognition: 'M12 3l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z',
   design: 'M4 4h16v16H4z M4 10h16 M10 10v10',
   theme: 'M12 3a9 9 0 1 0 0 18V3z M12 3a9 9 0 0 1 0 18',
+  settings: 'M4 6h16 M4 12h16 M4 18h16 M8 3v6 M16 9v6 M10 15v6',
   menu: 'M4 6h16 M4 12h16 M4 18h16',
   close: 'M6 6l12 12 M18 6 6 18',
   down: 'M6 9l6 6 6-6',

@@ -6,8 +6,10 @@ interface Props {
   sections: EditorialSection[];
   lang: Lang;
   anchorPrefix: string;
+  excludeSources?: string[];
+  presentedMedia?: string[];
 }
-const { sections, lang, anchorPrefix } = Astro.props;
+const { sections, lang, anchorPrefix, excludeSources = [], presentedMedia = [] } = Astro.props;
 ---
 
 <div class="editorial-sections">
@@ -17,7 +19,16 @@ const { sections, lang, anchorPrefix } = Astro.props;
       {section.body[lang].split(/\n\s*\n/).map((paragraph) => (
         <p>{paragraph}</p>
       ))}
-      {section.links && <SourceLinks links={section.links} lang={lang} />}
+      {section.links && (
+        <SourceLinks
+          links={section.links.filter(
+            (link) =>
+              !excludeSources.includes(link.href) &&
+              !(link.representedByMedia && presentedMedia.includes(link.representedByMedia)),
+          )}
+          lang={lang}
+        />
+      )}
     </article>
   ))}
 </div>

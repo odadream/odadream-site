@@ -66,6 +66,8 @@ export interface Media {
   poster?: string;
   previewSrc?: string;
   alt: Localized;
+  /** Short visual description of this frame, independent of event context and accessible alt. */
+  description?: Localized;
   caption: Localized;
   rights: Rights;
   source: string;

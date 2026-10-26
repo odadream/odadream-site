@@ -1,6 +1,37 @@
 /** Auditable catalogue of roles, not a second component implementation. */
 export const designCoverage = [
   {
+    role: 'Постоянная локальная служебная панель',
+    components: ['BaseLayout'],
+    specimen: '#dev-workspace-specimen',
+    consumer: '/design-system/#gallery-study',
+    decision:
+      'Локальный editorial-client добавляет панель внутрь sticky-шапки: понятные режимы, статус PUBLIC, справка и локальные правки медиа. Нативные details используют общие поверхности и типографику; всплывающие панели ограничены половиной viewport, Escape возвращает фокус. dev-toolbar-height учитывает один/два ряда в роли header-height и якорях; публикационный пакет панель не содержит.',
+  },
+  {
+    role: 'Общая галерея, микрометаданные и единый фокус',
+    components: [
+      'GalleryStudy',
+      'MediaGallery',
+      'MediaMicrocaption',
+      'MediaFigure',
+      'MediaCropEditor',
+      'MediaCropTrigger',
+    ],
+    specimen: '#system-gallery-study',
+    consumer: '/ru/works/mindshow/#work-first-look',
+    decision:
+      'Общий производственный компонент и его живой образец: тип и описание кадра в figcaption; contextEventId убирает повтор события внутри его страницы, вне неё показывает связь; полный ID и кредит в просмотрщике. Роль media-micro: type-metadata и leading 1.3; интервалы image/label 4, item 12, columns 8/12 через семантические роли. Контейнерная сетка 2/3/4, узкое представление 1 колонка. Клик по картинке без постоянного expand; фокус и клавиатура сохраняются. Редактор применяет один фокус и fit к превью и DEV-галерее; черновики v2 сохраняются локально по ID, счётчик и экспорт в DEV-шапке показывают ожидающие переноса настройки. PUBLIC не меняется.',
+  },
+  {
+    role: 'Визуальные островки повествования',
+    components: ['MediaGallery', 'MediaFigure', 'CaseRow', 'DetailSection'],
+    specimen: '#system-06',
+    consumer: '/ru/works/mindshow/',
+    decision:
+      'Компактная естественная плитка сохраняет две колонки на телефоне; подробности доступны в общем просмотрщике. Обложка и материалы разных выборок не повторяются; хронология обратная.',
+  },
+  {
     role: 'Пояснение технологии и чтения нейромандалы',
     components: ['MacroSection', 'MediaFigure', 'MediaGallery', 'SourceLinks'],
     specimen: '#system-06',

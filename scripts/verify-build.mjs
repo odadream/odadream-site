@@ -161,6 +161,8 @@ for (const path of await publicFiles(root)) {
       'data-editorial-toolbar',
       'data-dev-crop',
       'oda.media-composition.v1',
+      'oda.media-framing.v2',
+      'data-study-dialog',
       '/__editorial/',
       '/editorial/',
     ].some((marker) => output.includes(marker))

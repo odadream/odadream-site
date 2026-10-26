@@ -413,6 +413,16 @@ const breadcrumbSchema =
               ? 'Human state as artistic material.'
               : 'Состояние человека как художественный материал.'}
           </p>
+          <button
+            type="button"
+            class="analytics-settings-toggle"
+            data-analytics-settings
+            hidden
+            aria-expanded="false"
+          >
+            <TechnicalMark kind="settings" />
+            {page.lang === 'ru' ? 'Настройки аналитики' : 'Analytics settings'}
+          </button>
         </div>
         <nav
           class="footer-links"
@@ -460,15 +470,6 @@ const breadcrumbSchema =
               </a>
             ))}
         </nav>
-        <button
-          type="button"
-          class="analytics-settings-toggle"
-          data-analytics-settings
-          hidden
-          aria-expanded="false"
-        >
-          {page.lang === 'ru' ? 'Настройки аналитики' : 'Analytics settings'}
-        </button>
       </div>
     </footer>
     <AnalyticsConsent lang={page.lang} />

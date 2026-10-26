@@ -19,6 +19,8 @@ export interface SourceLink {
   title: Localized;
   href: string;
   kind: 'video' | 'audio' | 'article';
+  /** Local presentation of the same recording; suppress duplicate outbound links when present. */
+  representedByMedia?: string;
 }
 export interface Method {
   coverMediaId?: string;

@@ -205,7 +205,11 @@ export const createPages = (
       description: work.summary[lang],
       anchors: [
         'work-context',
-        ...(work.projectSite ? ['work-project-site'] : ['work-story', 'work-credits']),
+        ...(work.projectSite ? ['work-project-site'] : ['work-story']),
+        ...(work.credits.length > 1 &&
+        work.credits.some((row) => !/^(ODA[. ]dream|ODA)$/i.test(row.name.en.trim()))
+          ? ['work-credits']
+          : []),
         'work-availability',
         ...(records.configurations ?? []).filter((row) => row.workId === work.id).map((row) => row.slug),
         ...(work.projectSite ? [] : work.story.map((row) => `work-story-${row.id}`)),

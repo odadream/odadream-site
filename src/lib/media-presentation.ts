@@ -9,6 +9,7 @@ export type MediaItem = Pick<
   | 'poster'
   | 'previewSrc'
   | 'alt'
+  | 'description'
   | 'caption'
   | 'kind'
   | 'representation'

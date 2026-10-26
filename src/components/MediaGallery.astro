@@ -1,5 +1,7 @@
 ---
 import MediaFigure from './MediaFigure.astro';
+import MediaMicrocaption from './MediaMicrocaption.astro';
+import { galleryMetadata } from '../lib/gallery-metadata';
 import type { Lang } from '../data/site';
 import type { MediaItem, MediaFit } from '../lib/media-presentation';
 interface Props {
@@ -9,14 +11,79 @@ interface Props {
   mode?: 'tiles' | 'sequence';
   fit?: MediaFit;
   label: string;
+  compact?: boolean;
+  captionTitles?: Record<string, string>;
+  eventTitles?: Record<string, string>;
+  contextEventId?: string;
 }
-const { id, items, lang, mode = 'tiles', fit = 'natural', label } = Astro.props;
+const {
+  id,
+  items,
+  lang,
+  mode = 'tiles',
+  fit = 'natural',
+  label,
+  compact = false,
+  captionTitles = {},
+  eventTitles = {},
+  contextEventId,
+} = Astro.props;
+const seen = new Set<string>();
+const selection =
+  mode === 'tiles'
+    ? items.filter((item) => {
+        if (seen.has(item.src)) return false;
+        seen.add(item.src);
+        return true;
+      })
+    : items;
+const tiles = mode === 'tiles';
+const documents = tiles && selection.every((item) => item.representation === 'document');
 ---
 
-{items.length > 0 && (
-  <div id={id} class="media-gallery" data-media-gallery data-mode={mode} role="group" aria-label={label}>
-    {items.map((item) => (
-      <MediaFigure item={item} lang={lang} fit={fit} previewVideo gallery />
-    ))}
+{selection.length > 0 && (
+  <div class="media-gallery-frame">
+    <div
+      id={id}
+      class="media-gallery"
+      data-media-gallery
+      data-mode={mode}
+      style={`--gallery-item-count: ${selection.length}`}
+      data-compact={tiles || compact || undefined}
+      data-document-gallery={documents || undefined}
+      role="group"
+      aria-label={label}
+    >
+      {selection.map((item) => {
+        const metadata = galleryMetadata(item, lang, contextEventId);
+        const event = metadata.event
+          ? { ...metadata.event, title: eventTitles[metadata.event.id] ?? metadata.event.title }
+          : undefined;
+        return tiles ? (
+          <article class="media-gallery__tile">
+            <MediaFigure
+              item={item}
+              lang={lang}
+              fit={fit}
+              previewVideo
+              gallery
+              compact
+              showOpenMark={false}
+              viewerCaption={`${[metadata.title, item.caption[lang]].filter((value, index, values) => values.indexOf(value) === index).join(' · ')} · ID: ${item.id}`}
+            >
+              <MediaMicrocaption
+                slot="caption"
+                item={item}
+                lang={lang}
+                title={captionTitles[item.id] ?? metadata.title}
+                event={event?.href === Astro.url.pathname ? undefined : event}
+              />
+            </MediaFigure>
+          </article>
+        ) : (
+          <MediaFigure item={item} lang={lang} fit={fit} previewVideo gallery compact={compact} />
+        );
+      })}
+    </div>
   </div>
 )}

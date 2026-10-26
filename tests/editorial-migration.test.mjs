@@ -21,7 +21,7 @@ test('dedicated project handoff survives the public projection and publishes onl
     assert.ok(page.anchors.includes('work-project-site'));
     assert.ok(page.anchors.includes('work-context'));
     assert.ok(!page.anchors.includes('work-story'));
-    assert.ok(!page.anchors.includes('work-credits'));
+    assert.ok(page.anchors.includes('work-credits'));
   }
 });
 test('event page selection preserves only approved owned media while leaving the source archive intact', () => {

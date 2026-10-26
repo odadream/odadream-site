@@ -50,7 +50,8 @@ test('dedicated performance site owns the detailed story while the studio card k
           'data-media-id',
           'archive-interference-interference-2026-02',
         );
-        await expect(page.locator('#work-gallery, #work-story, #work-credits')).toHaveCount(0);
+        await expect(page.locator('#work-gallery, #work-story')).toHaveCount(0);
+        await expect(page.locator('#work-credits .credit-grid .list-row')).toHaveCount(7);
         await expect(page.locator('#work-context')).toContainText('ODA.dream');
         await expect(page.locator('#work-availability a.button')).toHaveAttribute(
           'href',

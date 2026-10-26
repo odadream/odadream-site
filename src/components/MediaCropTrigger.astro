@@ -1,5 +1,6 @@
 ---
-import { fullFrameRepresentations, type MediaItem } from '../lib/media-presentation';
+import { type MediaItem } from '../lib/media-presentation';
+import TechnicalMark from './TechnicalMark.astro';
 import type { Lang } from '../data/site';
 interface Props {
   item?: MediaItem;
@@ -7,14 +8,18 @@ interface Props {
   view?: 'card' | 'hero' | 'gallery';
 }
 const { item, lang, view = 'gallery' } = Astro.props;
-const editable =
-  item && !fullFrameRepresentations.has(item.representation ?? '') && (item.poster || item.kind === 'image');
+const editable = item && (item.poster || item.kind === 'image');
 ---
 
 {import.meta.env.DEV && editable && (
   <button
     type="button"
-    class="dev-crop-trigger"
+    class="media-crop-trigger"
+    data-study-crop
+    data-name={item.id}
+    data-src={item.kind === 'video' ? item.poster : item.src}
+    aria-label={lang === 'ru' ? `Кадрирование: ${item.id}` : `Framing: ${item.id}`}
+    title={lang === 'ru' ? 'Кадрирование' : 'Framing'}
     data-dev-crop
     data-crop-id={item.id}
     data-crop-src={item.kind === 'video' ? item.poster : item.src}
@@ -26,6 +31,6 @@ const editable =
       item.focalPosition ? JSON.stringify(item.focalPosition.mobile ?? item.focalPosition.desktop) : undefined
     }
   >
-    {lang === 'ru' ? 'DEV · кадрирование' : 'DEV · framing'}
+    <TechnicalMark kind="crop" />
   </button>
 )}

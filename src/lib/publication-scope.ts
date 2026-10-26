@@ -598,6 +598,7 @@ export function createPublicationScope(source: CatalogueSource, plan: Publicatio
             'poster',
             'previewSrc',
             'alt',
+            'description',
             'caption',
             'rights',
             'kind',

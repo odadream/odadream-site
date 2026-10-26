@@ -26,6 +26,37 @@ test.beforeAll(async ({ request }) => {
     .toBe(true);
 });
 test.afterAll(() => owned?.kill());
+
+test('service toolbar stays in the masthead and exposes clear bounded help', async ({ page }) => {
+  await page.goto('/design-system/#gallery-study');
+  const toolbar = page.locator('.site-header [data-editorial-toolbar]');
+  await expect(toolbar).toBeVisible();
+  for (const width of [320, 390, 797, 1380]) {
+    await page.setViewportSize({ width, height: 884 });
+    await page.evaluate(() => window.scrollTo(0, 1200));
+    const geometry = await toolbar.evaluate((node) => {
+      const r = node.getBoundingClientRect();
+      const h = node.closest('header')!.getBoundingClientRect();
+      return {
+        top: r.top,
+        bottom: r.bottom,
+        headerBottom: h.bottom,
+        height: r.height,
+        overflow: document.documentElement.scrollWidth > innerWidth,
+      };
+    });
+    expect(geometry.top).toBeGreaterThanOrEqual(0);
+    expect(geometry.bottom).toBeLessThanOrEqual(geometry.headerBottom + 1);
+    expect(geometry.height).toBe(width <= 900 ? 88 : 44);
+    expect(geometry.overflow).toBe(false);
+    await toolbar.locator('[data-editorial-build] summary').click();
+    await expect(toolbar.locator('[data-editorial-build]')).toHaveAttribute('open', '');
+    await expect(toolbar.locator('[data-editorial-build]')).toContainText('Эта страница не входит в PUBLIC');
+    await expect(toolbar.locator('[data-editorial-build]')).toContainText('это не обновление odadream.art');
+    await page.keyboard.press('Escape');
+    await expect(toolbar.locator('[data-editorial-build]')).not.toHaveAttribute('open', '');
+  }
+});
 test('DEV notes are marked; real PUBLIC projection excludes notes, registry and analytics', async ({
   page,
   request,
@@ -37,23 +68,18 @@ test('DEV notes are marked; real PUBLIC projection excludes notes, registry and 
   await page.goto('/ru/cases/#case-audi-application-2020');
   await expect(page.locator('[data-dev-note="dev-catalogue-scope"]')).toContainText('DEV · не публикуется');
   await expect(page.locator('[data-editorial-toolbar="dev"]')).toBeVisible();
-  await expect(page.locator('[data-editorial-toolbar] a').filter({ hasText: /^PUBLIC$/ })).toHaveAttribute(
+  await expect(page.locator('[data-editorial-mode=public]')).toHaveAttribute(
     'href',
     publicOrigin + '/ru/cases/#case-audi-application-2020',
   );
-  await page
-    .locator('[data-editorial-toolbar] a')
-    .filter({ hasText: /^PUBLIC$/ })
-    .click();
+  await page.locator('[data-editorial-mode=public]').click();
   await expect(page).toHaveURL(publicOrigin + '/ru/cases/#case-audi-application-2020');
   await expect(page.locator('[data-dev-note]')).toHaveCount(0);
   await expect(page.locator('[data-editorial-toolbar="public"]')).toBeVisible();
-  await page.locator('[data-editorial-toolbar] a').filter({ hasText: /^DEV$/ }).click();
+  await page.locator('[data-editorial-mode=dev]').click();
   await expect(page).toHaveURL('http://127.0.0.1:5177/ru/cases/#case-audi-application-2020');
   await page.goto('/design-system/');
-  await expect(
-    page.locator('[data-editorial-toolbar] a').filter({ hasText: /страница отсутствует/ }),
-  ).toHaveAttribute('href', publicOrigin + '/ru/');
+  await expect(page.locator('[data-editorial-mode=public]')).toHaveAttribute('href', publicOrigin + '/ru/');
   const endpoint = await request.get(publicOrigin + '/__editorial/status', {
     headers: { Origin: 'https://example.com' },
   });
@@ -95,27 +121,27 @@ test('DEV access survives unavailable PUBLIC without requesting its script or st
   await page.route(publicOrigin + '/**', (route) => route.abort());
   await page.goto('/en/cooperation/#production-overview');
   await expect(page.locator('[data-editorial-toolbar="dev"]')).toBeVisible();
-  await expect(page.locator('[data-editorial-toolbar] summary')).toContainText('unavailable');
-  await page.locator('[data-editorial-toolbar] summary').click();
+  await expect(page.locator('[data-editorial-build] summary')).toContainText('offline');
+  await page.locator('[data-editorial-build] summary').click();
   await expect(page.locator('[data-editorial-toolbar] output')).toContainText('start-local-v2.cmd');
-  await expect(page.locator('[data-editorial-toolbar] a').filter({ hasText: /^Texts$/ })).toHaveAttribute(
+  await expect(page.locator('[data-editorial-mode=texts]')).toHaveAttribute(
     'href',
     'http://127.0.0.1:5177/editorial/?lang=en',
   );
-  await expect(page.locator('[data-editorial-toolbar] a').filter({ hasText: /^DEV$/ })).toHaveAttribute(
+  await expect(page.locator('[data-editorial-mode=dev]')).toHaveAttribute(
     'href',
     'http://127.0.0.1:5177/en/cooperation/#production-overview',
   );
   expect(externalAssets).toEqual([]);
   await page.goto('/editorial/?lang=en#review-home-intro');
-  const devLink = page.locator('[data-editorial-toolbar] a').filter({ hasText: /^DEV$/ });
+  const devLink = page.locator('[data-editorial-mode=dev]');
   await expect(devLink).toHaveAttribute('href', 'http://127.0.0.1:5177/editorial/?lang=en#review-home-intro');
   await devLink.click();
   await expect(page).toHaveURL('http://127.0.0.1:5177/editorial/?lang=en#review-home-intro');
   await expect(page.locator('select[name=language]')).toHaveValue('en');
   await page.locator('select[name=language]').selectOption('ru');
   await expect(devLink).toHaveAttribute('href', 'http://127.0.0.1:5177/editorial/?lang=ru#review-home-intro');
-  await expect(page.locator('[data-editorial-toolbar] a').filter({ hasText: /^Тексты$/ })).toHaveAttribute(
+  await expect(page.locator('[data-editorial-mode=texts]')).toHaveAttribute(
     'href',
     'http://127.0.0.1:5177/editorial/?lang=ru',
   );

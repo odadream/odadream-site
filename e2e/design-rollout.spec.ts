@@ -18,6 +18,11 @@ const records: { path: string; kind: string; family: string; anchors: string[] }
   ),
 );
 
+const requestedFamilies = (process.env.ODA_E2E_READING_FAMILIES ?? '').split(',').filter(Boolean);
+const sampledRecords = requestedFamilies.length
+  ? records.filter((row) => requestedFamilies.some((family) => row.path.includes('/' + family)))
+  : records;
+
 for (const theme of ['light', 'dark']) {
   test('all canonical pages use functional macro/detail sections · ' + theme, async ({ page, isMobile }) => {
     test.skip(isMobile, 'Explicit 390/1440 widths include mobile.');
@@ -29,7 +34,7 @@ for (const theme of ['light', 'dark']) {
     );
     for (const width of [390, 1440]) {
       await page.setViewportSize({ width, height: 932 });
-      for (const record of records) {
+      for (const record of sampledRecords) {
         await page.goto(record.path, { waitUntil: 'domcontentloaded' });
         await page.evaluate(() => document.fonts.ready);
         const problems = await page.evaluate(
@@ -54,8 +59,14 @@ for (const theme of ['light', 'dark']) {
               recognition: ['catalogue'],
               contact: ['action'],
               work: record.anchors?.includes('work-project-site')
-                ? ['editorial', 'action']
-                : ['editorial', 'editorial', 'editorial', 'editorial', 'action'],
+                ? [...(record.anchors?.includes('work-credits') ? ['editorial'] : []), 'editorial', 'action']
+                : [
+                    'editorial',
+                    'editorial',
+                    ...(record.anchors?.includes('work-credits') ? ['editorial'] : []),
+                    'editorial',
+                    'action',
+                  ],
               case: (record.anchors ?? [])
                 .filter((id) =>
                   ['case-contribution', 'case-story', 'case-context', 'case-evidence'].includes(id),

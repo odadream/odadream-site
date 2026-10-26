@@ -3,6 +3,7 @@
 @import './annotations.css';
 @import './reading.css';
 @import './reading-navigation.css';
+@import './media-gallery.css';
 * {
   box-sizing: border-box;
 }
@@ -765,8 +766,9 @@ figcaption {
 .source-links {
   list-style: none;
   padding: 0;
-  display: grid;
-  gap: var(--gap-copy);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-component);
 }
 .source-links li {
   display: grid;
@@ -1496,6 +1498,11 @@ figcaption {
   margin-inline: 0;
 }
 .analytics-settings-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--nav-label-gap);
+  justify-content: flex-start;
+  text-align: start;
   color: var(--muted);
   background: none;
   border: 0;
@@ -1580,11 +1587,6 @@ figcaption {
   gap: var(--gap-label);
   min-width: 0;
 }
-.media-gallery[data-mode='tiles'] {
-  display: block;
-  column-width: var(--gallery-tile-min);
-  column-gap: var(--gallery-gap);
-}
 .media-gallery[data-mode='sequence'] {
   grid-template-columns: minmax(0, 1fr);
 }
@@ -1602,7 +1604,9 @@ figcaption {
   aspect-ratio: var(--gallery-crop-ratio);
   object-fit: cover;
 }
-.media-figure[data-fit='natural'] .media-open img {
+.media-figure[data-fit='natural']:not([data-dev-framing='contain'], [data-dev-framing='cover'])
+  .media-open
+  img {
   height: auto;
 }
 .media-figure[data-representation='document'] .media-open:hover img,
@@ -1960,17 +1964,12 @@ details[open] > summary > [data-disclosure-mark] {
   padding: var(--s2);
 }
 
-.media-gallery[data-mode='tiles'] > .media-figure {
-  display: inline-block;
-  width: 100%;
-  break-inside: avoid;
-  margin-block-end: var(--gallery-gap);
-  vertical-align: top;
-}
 .media-figure[data-preview='compact'] .media-open {
   background: var(--plane-middle);
 }
-.media-figure[data-preview='compact'] .media-open img {
+.media-figure[data-preview='compact']:not([data-dev-framing='contain'], [data-dev-framing='cover'])
+  .media-open
+  img {
   height: auto;
   max-height: var(--media-preview-height);
   width: min(100%, calc(var(--media-preview-height) * var(--media-ratio, 1)));
@@ -2158,4 +2157,10 @@ summary:hover {
   color: var(--recognition-result-ink);
   font-weight: 700;
   white-space: nowrap;
+}
+
+.credit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--gallery-tile-min)), 1fr));
+  gap: var(--gap-component);
 }

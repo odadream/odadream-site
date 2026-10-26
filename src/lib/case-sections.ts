@@ -15,7 +15,7 @@ export function caseSectionIds(item: {
 }) {
   return [
     'case-contribution',
-    ...(item.story.length || (item.presentationMedia ?? item.media).length > 1 ? ['case-story'] : []),
+    ...(item.story.length || (item.presentationMedia ?? item.media).length > 5 ? ['case-story'] : []),
     ...(item.organizationRoles.length ||
     item.participants.length ||
     item.limitations.length ||

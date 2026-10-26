@@ -7,6 +7,7 @@ import { designCoverage, designPatterns } from '../lib/design-coverage';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import DevNote from '../components/DevNote.astro';
 import MediaGallery from '../components/MediaGallery.astro';
+import GalleryStudy from '../components/GalleryStudy.astro';
 import type { MediaItem } from '../lib/media-presentation';
 import { mediaById } from '../data/catalogue';
 import MediaFigure from '../components/MediaFigure.astro';
@@ -182,6 +183,9 @@ const profileTokens = [
 
 <BaseLayout page={page} canonicalPath="/design-system/" noindex>
   <div class="shell system-page">
+    <div id="system-gallery-study">
+      <GalleryStudy />
+    </div>
     <section class="system-intro system-grid">
       <div class="section-label">
         <PageCode family="D" section={0} lang="ru" />
@@ -1182,10 +1186,10 @@ const profileTokens = [
         title="Технический обзор"
       />
       <DevNote id="media-register-hypothesis" lang="ru">
-        DA-12 · гипотеза: сравнение открытых и раскрываемых реквизитов одного материала. Публичные галереи
-        сохраняют открытые реквизиты; вариант ниже не является принятым общим правилом.
+        DA-12 · сравнение реквизитов отдельного материала. Плиточные галереи используют микроподписи; полные
+        реквизиты доступны в просмотрщике. Hero сохраняет развёрнутый регистр.
       </DevNote>
-      <div class="media-gallery" data-mode="tiles" id="media-register-comparison">
+      <div class="credit-grid" id="media-register-comparison">
         <MediaFigure id="rings" lang="ru" />
         <MediaFigure id="rings" lang="en" register="disclosure" />
       </div>
@@ -1291,10 +1295,13 @@ const profileTokens = [
     <section class="section" id="dev-workspace-specimen">
       <h2>DEV · редакционная среда</h2>
       <p>
-        Панель DEV/PUBLIC и вход в реестр текстов загружаются самим DEV. Если PUBLIC остановлен, панель
-        остаётся доступной и сообщает о запуске start-local-v2.cmd. При свёрнутом меню текущий раздел виден в
-        шапке; на телефоне он занимает отдельную строку. Содержание в шапке собирается из глав MacroSection и
-        DetailSection; вложенные примеры третьего уровня в него не входят.
+        Постоянная служебная панель закреплена внутри шапки: рабочая версия, проверка PUBLIC и редактура
+        текстов. Статус PUBLIC раскрывает объяснение режимов, цели перехода и состояния локальной сборки.
+        Кадрирование раскрывает список локальных правок и экспорт. Escape закрывает справку, высота шапки при
+        раскрытии не меняется. Панель и вход в реестр текстов загружаются самим DEV. Если PUBLIC остановлен,
+        панель остаётся доступной и сообщает о запуске start-local-v2.cmd. При свёрнутом меню текущий раздел
+        виден в шапке; на телефоне он занимает отдельную строку. Содержание в шапке собирается из глав
+        MacroSection и DetailSection; вложенные примеры третьего уровня в него не входят.
       </p>
       <DevNote id="dev-specimen-note" lang="ru" block="design-example">
         <p>

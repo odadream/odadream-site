@@ -16,7 +16,8 @@ for (const file of (await readdir('src/styles')).filter(
     comment.replace(/[^\n]/g, ' '),
   );
   for (const [index, line] of css.split('\n').entries()) {
-    if (line.trim().startsWith('@media')) continue;
+    // Responsive thresholds are structural in both viewport and container queries.
+    if (/^@(media|container)\b/.test(line.trim())) continue;
     if (/\d+(?:\.\d+)?px\b|#[\da-f]{3,8}\b|\brgba?\(|\bhsla?\(|font-family:(?!\s*var\()[^;]+;/i.test(line)) {
       styleLiterals.push({ file, line: index + 1, declaration: line.trim() });
     }

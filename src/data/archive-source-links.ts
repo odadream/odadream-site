@@ -76,6 +76,7 @@ export const archiveSourceLinks: OwnedSourceLink[] = [
     ownerId: 'mindshow',
     link: {
       id: 'mdsh-hypercube',
+      representedByMedia: 'hypercube-projection-recording',
       title: {
         en: 'Hypercube · Portal 2030–2050, Skolkovo',
         ru: 'Гиперкуб · Портал 2030–2050, Сколково',
@@ -102,6 +103,7 @@ export const archiveSourceLinks: OwnedSourceLink[] = [
     ownerId: 'mindshow',
     link: {
       id: 'mdsh-wildmint',
+      representedByMedia: 'wildmint-recording',
       title: {
         en: 'Wild Mint Festival',
         ru: 'Дикая Мята',

@@ -21,10 +21,12 @@ test('additional works expose complete pages and separate real objects from desi
       const response = await page.goto(`/${lang}/works/${slug}/`);
       expect(response!.status()).toBe(200);
       const minimumStoryParts = 3;
-      expect(await page.locator('#work-story .editorial-sections article').count()).toBeGreaterThanOrEqual(
+      expect(await page.locator('.work-main .editorial-sections article').count()).toBeGreaterThanOrEqual(
         minimumStoryParts,
       );
-      await expect(page.locator('#work-credits .list-row').first()).toBeVisible();
+      if (slug === 'neuro-honor-board')
+        await expect(page.locator('#work-credits .credit-grid .list-row').first()).toBeVisible();
+      else await expect(page.locator('#work-credits')).toHaveCount(0);
       await expect(page.locator(`.reading-parent[href="/${lang}/works/"]`)).toBeVisible();
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     }

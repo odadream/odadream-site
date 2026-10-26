@@ -5,11 +5,12 @@ type Record = Pick<
   Media,
   'id' | 'src' | 'width' | 'height' | 'representation' | 'caption' | 'archiveSource'
 > &
-  Partial<Pick<Media, 'alt' | 'focalPosition' | 'focalPoint'>>;
+  Partial<Pick<Media, 'alt' | 'description' | 'focalPosition' | 'focalPoint'>>;
 // Visually reviewed editorial selection, not an automatic import of the old graph.
 const records: Record[] = [
   {
     id: 'archive-interference-interference-2026-02',
+    description: { ru: 'Движение перед цифровой сеткой', en: 'Movement in front of a digital grid' },
     alt: {
       ru: 'Исполнители в движении перед проекцией цифровой сетки.',
       en: 'Performers moving in front of a projected digital grid.',
@@ -30,6 +31,10 @@ const records: Record[] = [
   },
   {
     id: 'archive-interference-interference-2026-03',
+    description: {
+      ru: 'Танец перед генеративной проекцией',
+      en: 'Dance in front of a generative projection',
+    },
     alt: {
       ru: 'Группа танцоров перед голубой генеративной проекцией.',
       en: 'A group of dancers in front of a blue generative projection.',
@@ -50,6 +55,7 @@ const records: Record[] = [
   },
   {
     id: 'archive-interference-interference-2026-04',
+    description: { ru: 'Танец в красном свете', en: 'Dance in red light' },
     alt: { ru: 'Танцоры на сцене, освещённой красным светом.', en: 'Dancers on a stage lit in red.' },
     src: '/images/archive/content/events/interference-2026/interference-2026-04.webp',
     width: 1732,
@@ -67,6 +73,7 @@ const records: Record[] = [
   },
   {
     id: 'archive-interference-interference-2026-05',
+    description: { ru: 'Подключение нейроинтерфейсов', en: 'Fitting neurointerfaces' },
     alt: {
       ru: 'Зрителям надевают нейроинтерфейсы в театральном зале.',
       en: 'Audience members being fitted with neurointerfaces in the theatre.',
@@ -87,6 +94,7 @@ const records: Record[] = [
   },
   {
     id: 'archive-interference-interference-2026-06',
+    description: { ru: 'Зрительница с микрофоном', en: 'Audience member with a microphone' },
     alt: {
       ru: 'Зрительница говорит в микрофон из своего места в зале.',
       en: 'An audience member speaking into a microphone from her seat.',
@@ -107,6 +115,7 @@ const records: Record[] = [
   },
   {
     id: 'archive-interference-interference-2026-07',
+    description: { ru: 'Исполнители и участники на сцене', en: 'Performers and participants on stage' },
     alt: {
       ru: 'Исполнители и участники на сцене перед технической проекцией.',
       en: 'Performers and participants on stage in front of a technical projection.',
@@ -127,6 +136,7 @@ const records: Record[] = [
   },
   {
     id: 'archive-interference-interference-2026-08',
+    description: { ru: 'Танец у пола в лучах света', en: 'Floor-level dance in beams of light' },
     alt: {
       ru: 'Танцовщица у пола под лучами света и цифровой проекцией.',
       en: 'A dancer close to the floor beneath light beams and a digital projection.',
@@ -147,6 +157,7 @@ const records: Record[] = [
   },
   {
     id: 'archive-interference-interference-2026-09',
+    description: { ru: 'Танцовщица перед проекцией', en: 'Dancer in front of a projection' },
     alt: {
       ru: 'Танцовщица с разведёнными руками перед проекцией.',
       en: 'A dancer with outstretched arms in front of a projection.',
