@@ -16,7 +16,8 @@ test('full chronology separates contributions, education, research and applicati
     await expect(page.locator('[data-case-id="oktava-2021"] .case-row__metadata')).toContainText(
       lang === 'ru' ? '12 апреля 2021' : '12 April 2021',
     );
-    await expect(page.locator('#case-series article')).toHaveCount(4);
+    await expect(page.locator('#case-series')).toHaveCount(0);
+    await expect(page.locator('main a[href$="/cases/byob-2019/"]')).toHaveCount(1);
     await expect(page.locator('#case-events [data-case-id="tavrida-ai-2025"]')).toHaveAttribute(
       'data-participation-status',
       'submitted',

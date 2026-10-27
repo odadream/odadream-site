@@ -1089,13 +1089,11 @@ export const methods: Method[] = [
         'Измерение не объясняет мысли, эмоции, личность или здоровье человека.',
         'Общее изображение не доказывает психологическую или физиологическую «синхронность» группы.',
         'Согласие, запись, хранение данных и выдача артефакта определяются отдельно для каждого показа.',
-        'Ритмы и численные показатели в архивном видео не являются статистикой посетителя сайта или текущей базы.',
       ],
       en: [
         'Measurement does not explain a person’s thoughts, emotions, personality or health.',
         'A shared image does not prove psychological or physiological “synchrony” in a group.',
         'Consent, recording, data retention and artefact delivery are specified for each presentation.',
-        'Rhythms and numbers in archival footage are not statistics about the website visitor or a current database.',
       ],
     },
     works: ['neuromandala', 'mindshow', 'neurosync', 'interference', 'neurobattle'],
@@ -1128,7 +1126,7 @@ export const participationDetails: Record<string, ParticipationDetail> = {
   'mindshow-installation': {
     story: l(
       'Участник входит в короткую сессию наблюдения: параметры сигнала становятся основой отзывчивого визуального поля. В версиях с нарративом добавляются ассоциации или рассказ, из которых развивается образная анимация.',
-      'A participant enters a short observation session: signal parameters become the basis of a responsive visual field. Narrative versions add associations or a story that develops into an imagery animation.',
+      'A participant enters a short observation session: signal parameters become the basis of a responsive visual field. Narrative versions add associations or a story that develops into an animated sequence.',
     ),
     participation: l(
       'Основная стендовая конфигурация рассчитана на последовательные индивидуальные сессии. Остальные посетители могут наблюдать процесс; сценическая и VJ-версии согласуются отдельно.',
@@ -1280,8 +1278,8 @@ export const participationDetails: Record<string, ParticipationDetail> = {
     topics: [],
     reviewNotes: [
       l(
-        'Параллельные точки, бюджет, брендирование и технический состав подтверждаются отдельно. Исторические названия игры сохранены как алиасы.',
-        'Parallel stations, budget, branding and technical scope are confirmed separately. Historical game names remain aliases.',
+        'Количество игровых станций, бюджет, брендирование и технический состав согласуем при подготовке события.',
+        'We agree the number of game stations, budget, branding and technical requirements when preparing the event.',
       ),
     ],
     sourceRefs: refs('neurobattle.md', 'hub-host-events.md', 'hub-collab.md'),

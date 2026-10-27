@@ -136,7 +136,7 @@ export function classifyCatalogue(workRecords: Work[], programmeRecords: Program
       'Перформанс ODA.dream с Николаем Льговским: живой звук и нейровизуальная среда.',
       'A performance by ODA.dream with Nikolay Lgovsky: live sound and a neurovisual environment.',
     ),
-    experience: gong.story,
+    experience: gong.summary,
     question: l(
       'Как живой звук и нейровизуальная среда встречаются в перформансе?',
       'How do live sound and a neurovisual environment meet in a performance?',
@@ -155,8 +155,8 @@ export function classifyCatalogue(workRecords: Work[], programmeRecords: Program
       'Presentation arrangements are discussed with the studio.',
     ),
     facts: {
-      ru: ['Существующий перформанс с Николаем Льговским'],
-      en: ['An existing performance with Nikolay Lgovsky'],
+      ru: ['Совместная работа ODA.dream и Николая Льговского'],
+      en: ['A collaboration between ODA.dream and Nikolay Lgovsky'],
     },
     story: [
       {

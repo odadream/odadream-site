@@ -12,8 +12,8 @@ const brief = {
   id: 'programme-brief',
   label: l('Условия программы', 'Programme conditions'),
   value: l(
-    'Точная длительность, возраст и размер группы, ведущие, оборудование и разрешения на запись согласуются для приглашения.',
-    'The exact duration, audience age and size, facilitators, equipment and recording permissions are scoped for the invitation.',
+    'Длительность, возраст и размер группы, ведущих, оборудование и разрешения на запись согласуем при подготовке встречи.',
+    'We agree duration, audience age and size, facilitators, equipment and recording permissions before the meeting.',
   ),
   state: 'per-brief' as const,
 };
@@ -87,8 +87,8 @@ const definitions: Definition[] = [
       'An immersive lecture on game engagement, attention and biofeedback.',
     ),
     story: l(
-      'Игра рассматривается как ситуация, в которой меняются внимание, вовлечённость и способы взаимодействия. Разговор о потоке и игровых правилах соединяется с живой демонстрацией нейроинтерфейсов. Это образовательная программа, отдельная от игрового концепта Brain Hack и «Парадокса Успеха».',
-      'Games are explored as situations that change attention, engagement and interaction strategies. A discussion of flow and game rules meets a live neurointerface demonstration. This educational programme is separate from the Brain Hack concept and Paradox of Success artwork.',
+      'Игра рассматривается как ситуация, в которой меняются внимание, вовлечённость и способы взаимодействия. Разговор о потоке и игровых правилах сопровождается демонстрацией нейроинтерфейса и обсуждением наблюдений.',
+      'Games are explored as situations that change attention, engagement and interaction strategies. A discussion of flow and game rules is accompanied by a live neurointerface demonstration and shared observation.',
     ),
     modules: [
       module(
@@ -263,8 +263,8 @@ const definitions: Definition[] = [
         'comparison',
         'Повтор и рефлексия',
         'Repetition and reflection',
-        'Повтор движения, обратная связь пары и наблюдателей. Различия обсуждаются без утверждения доказанной эффективности метода.',
-        'Repeated movement and feedback from the pair and observers. Differences are discussed without claiming established method efficacy.',
+        'Повтор движения и обратная связь пары и наблюдателей помогают сравнить впечатления и обсудить изменения во взаимодействии.',
+        'Repeating the movement and gathering feedback from the pair and observers allows participants to compare impressions and discuss changes in their interaction.',
       ),
     ],
     audience: l(
@@ -397,10 +397,7 @@ const definitions: Definition[] = [
         'Discussion of creative choices, responses to mistakes and interaction with audiences.',
       ),
     ],
-    authorsNote: l(
-      'Автор и предполагаемый ведущий — Далер Арабов. Это сольный рассказ, а не совместное авторство всех упомянутых проектов.',
-      'Author and intended speaker: Daler Arabov. This is a solo account, not a claim of sole authorship of every project mentioned.',
-    ),
+    authorsNote: l('Автор и ведущий — Далер Арабов.', 'Author and presenter: Daler Arabov.'),
     authorIds: ['daler'],
     participation: l(
       'Авторский рассказ и обсуждение; состав вопросов адаптируется к приглашению.',
@@ -439,11 +436,11 @@ export const additionalProgrammes: Programme[] = definitions.map(({ files, ...ro
   slug: row.id,
   audience: l(
     'Аудитория и адаптация определяются по задаче приглашения.',
-    'Audience and adaptation are scoped for the invitation.',
+    'We agree the audience and any adaptations before the meeting.',
   ),
   authorsNote: l(
     'Авторская программа ODA.dream; состав ведущих уточняется для приглашения.',
-    'An ODA.dream programme; facilitators are scoped for the invitation.',
+    'An ODA.dream programme. Facilitators are agreed during preparation.',
   ),
   scope: l(
     'Программу, условия участия и материалы адаптируем к задачам встречи.',
@@ -453,12 +450,7 @@ export const additionalProgrammes: Programme[] = definitions.map(({ files, ...ro
   works: [],
   cases: [],
   media: [],
-  reviewNotes: [
-    l(
-      'Содержание и практическую часть адаптируем к аудитории и условиям встречи.',
-      'We adapt the content and practical activities to the audience and meeting conditions.',
-    ),
-  ],
+  reviewNotes: [],
   source: files.join('; '),
   sourceRefs: refs(...files),
   publication: 'published',
@@ -470,11 +462,11 @@ export const programmeEnrichments: Record<string, Partial<Programme>> = {
     authorIds: ['olga', 'daler'],
     authorsNote: l(
       'Ольга и Далер Арабовы — авторы и ведущие дуэта ODA.dream; адаптация ролей согласуется для приглашения.',
-      'Olga and Daler Arabov are the ODA.dream duo’s authors and facilitators; role adaptation is scoped for the invitation.',
+      'Authors and facilitators: Olga and Daler Arabov, ODA.dream.',
     ),
     story: l(
-      'Лекция соединяет разговор об устройстве мозга, восприятии и творчестве с живой демонстрацией нейроинтерфейса. Один интерфейс использует ведущий, второй — добровольцы по очереди. Художественные примеры и вопросы аудитории помогают различать сигнал и его интерпретацию. Лекция проходила в «Зелёной Двери», ИРКИ НИУ ВШЭ и Ashram.',
-      'The lecture combines a conversation about the brain, perception and creativity with a live neurointerface demonstration. The facilitator uses one interface; volunteers take turns with a second. Artistic examples and audience questions help distinguish a signal from its interpretation. The lecture has been presented at Green Door, HSE’s Institute for Creative Industries Development and Ashram.',
+      'Лекция соединяет разговор об устройстве мозга, восприятии и творчестве с живой демонстрацией нейроинтерфейса. Один интерфейс использует ведущий, второй по очереди пробуют добровольцы. Художественные примеры и вопросы аудитории помогают различать сигнал и его интерпретацию.',
+      'The lecture combines a conversation about the brain, perception and creativity with a live neurointerface demonstration. The facilitator uses one interface; volunteers take turns with a second. Artistic examples and audience questions help distinguish a signal from its interpretation.',
     ),
     modules: [
       module(
@@ -662,8 +654,8 @@ export const schoolEvents: CaseEvent[] = schoolDefinitions.map((row) => ({
   type: 'lecture',
   place: row.place,
   role: l(
-    'ODA.dream: лекция Ольги и Далера Арабовых с нейровизуальной демонстрацией.',
-    'ODA.dream: a lecture by Olga and Daler Arabov with a neurovisual demonstration.',
+    'Лекция Ольги и Далера Арабовых с нейровизуальной демонстрацией.',
+    'A lecture by Olga and Daler Arabov with a neurovisual demonstration.',
   ),
   programme: 'beautiful-brain',
   organizations: [],
@@ -676,7 +668,12 @@ export const schoolEvents: CaseEvent[] = schoolDefinitions.map((row) => ({
   featuredOnHome: false,
   limitations:
     row.status === 'planned'
-      ? [l('В хронологии сохранена запланированная лекция.', 'The timeline retains this planned lecture.')]
+      ? [
+          l(
+            'Лекция была анонсирована; подтверждения проведения в архиве нет.',
+            'The lecture was announced; the archive does not confirm that it took place.',
+          ),
+        ]
       : [],
   source: row.file,
   sourceRefs: refs(row.file, 'Education_Source_824566fc0ab6.md'),

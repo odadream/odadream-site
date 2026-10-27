@@ -27,6 +27,7 @@ export function createAnalytics(config: AnalyticsConfig, context: AnalyticsConte
   }
   const panel = document.querySelector<HTMLElement>('[data-analytics-consent]');
   const settings = document.querySelector<HTMLButtonElement>('[data-analytics-settings]');
+  let consentFocusReturn: HTMLElement | undefined;
   const abort = new AbortController();
   let pageSent = false;
   let closed = false;
@@ -193,7 +194,14 @@ export function createAnalytics(config: AnalyticsConfig, context: AnalyticsConte
     const focused = panel?.contains(document.activeElement);
     if (panel) panel.hidden = true;
     settings?.setAttribute('aria-expanded', 'false');
-    if (focused) settings?.focus();
+    if (focused) {
+      const target = consentFocusReturn ?? document.getElementById('main');
+      if (target) {
+        if (!target.matches('a[href], button, input, select, textarea, [tabindex]')) target.tabIndex = -1;
+        target.focus({ preventScroll: true });
+      }
+    }
+    consentFocusReturn = undefined;
   }
   function setConsent(value: 'granted' | 'denied', persist = true) {
     if (closed) return;
@@ -267,6 +275,15 @@ export function createAnalytics(config: AnalyticsConfig, context: AnalyticsConte
   };
   if (debug) window.__ODA_ANALYTICS__ = api;
   if (!active) return api;
+  panel?.addEventListener(
+    'focusin',
+    (event) => {
+      const previous = event.relatedTarget;
+      if (previous instanceof HTMLElement && previous !== document.body && !panel.contains(previous))
+        consentFocusReturn = previous;
+    },
+    { signal: abort.signal },
+  );
   if (settings) settings.hidden = false;
   if (panel && consent === 'unknown') {
     panel.hidden = false;
@@ -278,7 +295,10 @@ export function createAnalytics(config: AnalyticsConfig, context: AnalyticsConte
       if (panel) {
         panel.hidden = !panel.hidden;
         settings.setAttribute('aria-expanded', String(!panel.hidden));
-        if (!panel.hidden) panel.querySelector<HTMLButtonElement>('button')?.focus();
+        if (!panel.hidden) {
+          consentFocusReturn = settings;
+          panel.querySelector<HTMLButtonElement>('button')?.focus({ preventScroll: true });
+        }
       }
     },
     { signal: abort.signal },

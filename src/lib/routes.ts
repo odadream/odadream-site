@@ -59,11 +59,11 @@ const copy = {
   },
   technology: {
     en: [
-      'Neuromandala',
+      'Neuromandala technology',
       'How ODA.dream turns biosignals into material for participatory art — and what those signals cannot tell us.',
     ],
     ru: [
-      'Нейромандала',
+      'Технология Нейромандалы',
       'Как ODA.dream превращает биосигналы в материал партисипаторного искусства — и чего эти сигналы не могут рассказать о человеке.',
     ],
   },
@@ -188,7 +188,7 @@ export const createPages = (
                       : []),
                   ]
                 : kind === 'cases'
-                  ? ['case-events', 'case-series', ...records.cases.map((row) => `case-${row.slug}`)]
+                  ? ['case-events', ...records.cases.map((row) => `case-${row.slug}`)]
                   : kind === 'recognition'
                     ? (records.recognitions ?? []).map((row) => `recognition-${row.id}`)
                     : [],
@@ -264,7 +264,15 @@ export const navigationFor = (lang: Lang) =>
       href: page.path,
       family: page.family,
       label:
-        page.kind === 'home' ? (lang === 'ru' ? 'Главная' : 'Home') : page.title.replace(/ — ODA.dream$/, ''),
+        page.kind === 'home'
+          ? lang === 'ru'
+            ? 'Главная'
+            : 'Home'
+          : page.kind === 'technology'
+            ? lang === 'ru'
+              ? 'Нейромандала'
+              : 'Neuromandala'
+            : page.title.replace(/ — ODA.dream$/, ''),
     }));
 
 export const pairedPath = (path: string, lang: Lang) => path.replace(/^\/(en|ru)\//, `/${lang}/`);

@@ -937,8 +937,8 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
       ru: 'Участники располагаются по кругу, а общее визуальное поле реагирует на меняющиеся сигналы ЭЭГ.',
     },
     question: {
-      en: 'What forms might shared attention take without claiming to measure human connection itself?',
-      ru: 'Какую форму может принять совместное внимание, не претендуя на измерение человеческой близости?',
+      en: 'What spatial forms might shared attention take?',
+      ru: 'Какую пространственную форму может принять совместное внимание?',
     },
     inRepertoire: false,
     bookable: false,
@@ -1022,12 +1022,12 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
     facts: {
       en: [
         'A composite work spanning digital and physical forms',
-        'Emomandala OS is a related method, not an alias of the work',
+
         'Application, personal narrative, physical artefact and on-chain record',
       ],
       ru: [
         'Составная работа в цифровой и физической форме',
-        'Эмомандала OS — связанный метод, не алиас работы',
+
         'Приложение, личная история, физический артефакт и ончейн-паспорт',
       ],
     },
@@ -1438,8 +1438,8 @@ const caseRecords: Omit<
     type: 'performance',
     place: { en: 'Kaluga · Innovation Cultural Center', ru: 'Калуга · Инновационный культурный центр' },
     role: {
-      en: 'ODA.dream: artistic and technological design; co-production with Innovation Ballet Theatre.',
-      ru: 'ODA.dream: художественно-технологическое решение; совместная постановка с Инновационным театром балета.',
+      en: 'Artistic and technological design; co-production with Innovation Ballet Theatre.',
+      ru: 'Художественно-технологическое решение; совместная постановка с Инновационным театром балета.',
     },
     work: 'interference',
     organizations: ['ikc', 'itb', 'neiry'],
@@ -1462,8 +1462,8 @@ const caseRecords: Omit<
     type: 'performance',
     place: { en: 'Kaluga · Innovation Cultural Center', ru: 'Калуга · Инновационный культурный центр' },
     role: {
-      en: 'ODA.dream: art and technology in collaboration with Innovation Ballet Theatre.',
-      ru: 'ODA.dream: художественная и технологическая работа совместно с Инновационным театром балета.',
+      en: 'Art and technology in collaboration with Innovation Ballet Theatre.',
+      ru: 'Художественная и технологическая работа совместно с Инновационным театром балета.',
     },
     work: 'schrodinger',
     organizations: ['ikc', 'itb'],
@@ -1486,8 +1486,8 @@ const caseRecords: Omit<
     type: 'participatory-format',
     place: { en: 'Moscow', ru: 'Москва' },
     role: {
-      en: 'ODA.dream: an interactive programme for EkoNiva. The Olympiad organisers were HSE University and T-Bank.',
-      ru: 'ODA.dream: интерактивная программа для «ЭкоНивы». Организаторы олимпиады — НИУ ВШЭ и Т-Банк.',
+      en: 'An interactive programme for EkoNiva. The Olympiad organisers were HSE University and T-Bank.',
+      ru: 'Интерактивная программа для «ЭкоНивы». Организаторы олимпиады — НИУ ВШЭ и Т-Банк.',
     },
     work: 'neurobattle',
     organizations: ['ekoniva', 'hse', 'tbank'],
@@ -1510,8 +1510,8 @@ const caseRecords: Omit<
     type: 'presentation',
     place: { en: 'Moscow', ru: 'Москва' },
     role: {
-      en: 'ODA.dream: invited presentation of MindShow.',
-      ru: 'ODA.dream: приглашённый показ MindShow.',
+      en: 'Invited presentation of MindShow.',
+      ru: 'Приглашённый показ MindShow.',
     },
     work: 'mindshow',
     organizations: [],

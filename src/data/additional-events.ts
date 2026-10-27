@@ -18,17 +18,12 @@ const definitions: Definition[] = [
     },
     place: { ru: 'Онлайн · Великий Новгород', en: 'Online · Veliky Novgorod' },
     role: {
-      ru: 'Историческая проектная линия NeuroSync: участие в фестивале. Документ адресован проекту; соответствие отдельной современной работе не установлено.',
-      en: 'Historical NeuroSync project: festival participation. The document names the project; no identity with a particular current work is asserted.',
+      ru: 'Участие проекта NeuroSync в онлайн-фестивале идей и технологий.',
+      en: 'Participation by project NeuroSync in the online festival of ideas and technology.',
     },
     files: ['OwnerRecognition/ODA - 2020 Руками - NeuroSync.pdf'],
     detailPage: true,
-    limitations: [
-      {
-        ru: 'В документе указан проект NeuroSync из Москвы. Персональный сертификат Далера относится к его CV и отдельно не считается признанием ODA.dream.',
-        en: 'The document names Project NeuroSync from Moscow. Daler’s individual certificate belongs to his CV and does not count as a separate studio recognition.',
-      },
-    ],
+    limitations: [],
   },
   {
     id: 'national-business-awards-2025',
@@ -43,8 +38,8 @@ const definitions: Definition[] = [
     },
     place: { ru: 'Площадка в документе не указана', en: 'Venue not stated in the document' },
     role: {
-      ru: 'ODA.dream: помощь в организации мероприятия, подтверждённая благодарственным письмом. Конкретная работа в письме не названа.',
-      en: 'ODA.dream: organisational support confirmed by an acknowledgement letter. The document does not name a particular work.',
+      ru: 'Помощь в организации мероприятия.',
+      en: 'Organisational support for the event.',
     },
     files: ['OwnerRecognition/ODA - 2025 ТПП.pdf'],
     detailPage: true,
@@ -60,10 +55,7 @@ const definitions: Definition[] = [
       'A lecture and a parent–child synchronization demonstration.',
     ),
     place: l('Тула · творческий кластер «Октава»', 'Tula · Oktava creative cluster'),
-    role: l(
-      'ODA.dream: лекция и демонстрация «Нейросинхронизации».',
-      'ODA.dream: lecture and Neurosynchronization demonstration.',
-    ),
+    role: l('Лекция и демонстрация «Нейросинхронизации».', 'Lecture and Neurosynchronization demonstration.'),
     files: ['Obsidian_Oktava_2021.md'],
   },
   {
@@ -78,17 +70,12 @@ const definitions: Definition[] = [
     ),
     place: l('Москва · Галерея на Песчаной', 'Moscow · Gallery on Peschanaya'),
     role: l(
-      'ODA.dream: художественная система, запись и участие посетителей. Сергей Страхов указан автором видеоотчёта.',
-      'ODA.dream: artistic system, recording and visitor participation. Sergey Strakhov is credited with the video report.',
+      'Художественная система, запись и участие посетителей. Сергей Страхов указан автором видеоотчёта.',
+      'Artistic system, recording and visitor participation. Sergey Strakhov is credited with the video report.',
     ),
     source: 'https://t.me/odadream/708',
     files: ['hub-chastoti.md', 'Golem_Frequencies_2025.md', 'Golem_Public_Event_Reports.json'],
-    limitations: [
-      l(
-        'Перформанс состоялся на открытии выставки 16 октября 2025 года.',
-        'The performance took place at the exhibition opening on 16 October 2025.',
-      ),
-    ],
+    limitations: [],
   },
   {
     id: 'wind-of-change-2024',
@@ -102,8 +89,8 @@ const definitions: Definition[] = [
     ),
     place: l('Площадка не уточнена', 'Venue unspecified'),
     role: l(
-      'ODA.dream: нейроигры и разговор об эмпатии; дети и родители участвовали в парных игровых сессиях.',
-      'ODA.dream: neuro-games and a conversation about empathy; children and parents joined paired game sessions.',
+      'Нейроигры и разговор об эмпатии; дети и родители участвовали в парных игровых сессиях.',
+      'Neuro-games and a conversation about empathy; children and parents joined paired game sessions.',
     ),
     source: 'https://t.me/odadream/475',
     files: ['Golem_Public_Event_Reports.json', 'neurobattle.md'],
@@ -127,8 +114,8 @@ const definitions: Definition[] = [
     ),
     place: l('Бали · Synergy Crypto & NFT Forum', 'Bali · Synergy Crypto & NFT Forum'),
     role: l(
-      'ODA.dream: авторский показ истории колец и материальных объектов; диалог с Александрой Борзых стал исходным контекстом вложенного кулона.',
-      'ODA.dream: presenting the ring story and material objects; the conversation with Alexandra Borzikh became the origin context for the nested pendant.',
+      'Авторский показ истории колец и материальных объектов; диалог с Александрой Борзых стал исходным контекстом вложенного кулона.',
+      'Presenting the ring story and material objects; the conversation with Alexandra Borzikh became the origin context for the nested pendant.',
     ),
     files: ['proof-oda-synergy-forum-2022.md', 'Golem_Synergy_Bali_2022.md', 'oda-rings.md', 'mom-baby.md'],
     limitations: [
@@ -154,8 +141,8 @@ const definitions: Definition[] = [
     ),
     place: l('Площадка не уточнена', 'Venue unspecified'),
     role: l(
-      'ODA.dream: запись и визуализация нейросигнала. Натали Осман — ведущая медитации и приглашающая сторона.',
-      'ODA.dream: recording and visualizing the neural signal. Natali Osman led the meditation and invited the studio.',
+      'Запись и визуализация нейросигнала. Натали Осман — ведущая медитации и приглашающая сторона.',
+      'Recording and visualizing the neural signal. Natali Osman led the meditation and invited the studio.',
     ),
     source: 'https://t.me/odadream/760',
     files: ['Golem_Public_Event_Reports.json', 'proof-tst-meditation-day.md'],
@@ -178,8 +165,8 @@ const definitions: Definition[] = [
     ),
     place: l('Москва · студия Ashram', 'Moscow · Ashram Studio'),
     role: l(
-      'ODA.dream: подготовка и проведение MindShow для студии Ashram.',
-      'ODA.dream: preparing and presenting MindShow for Ashram Studio.',
+      'Подготовка и проведение MindShow для студии Ashram.',
+      'Preparing and presenting MindShow for Ashram Studio.',
     ),
     organizations: ['ashram'],
     files: ['event-ashram-birthday-2024.md', 'Golem_Event_Ashram_2024.md'],
@@ -197,18 +184,13 @@ const definitions: Definition[] = [
     ),
     place: l('Москва · студия Ashram', 'Moscow · Ashram Studio'),
     role: l(
-      'ODA.dream: художественный протокол, нейровизуальная система и фасилитация. Натали Осман — принимающая сторона.',
-      'ODA.dream: artistic protocol, neurovisual system and facilitation. Natali Osman hosted the sessions.',
+      'Художественный протокол, нейровизуальная система и фасилитация. Натали Осман — принимающая сторона.',
+      'Artistic protocol, neurovisual system and facilitation. Natali Osman hosted the sessions.',
     ),
     organizations: ['ashram'],
     files: ['event-ashram-tim.md', 'org-ashram.md'],
     media: ['ashram-neuro-art-dance-poster'],
-    limitations: [
-      l(
-        'Совместная практика развивается с сентября 2023 года.',
-        'The shared practice has developed since September 2023.',
-      ),
-    ],
+    limitations: [],
   },
   {
     id: 'audi-application-2020',
@@ -227,17 +209,12 @@ const definitions: Definition[] = [
     ),
     place: l('Москва · концепция для Audi City Moscow', 'Moscow · concept for Audi City Moscow'),
     role: l(
-      'ODA.dream: конкурсная заявка с интерактивной инсталляцией на тему «Пограничность».',
-      'ODA.dream: a competition submission for an interactive installation on the theme of liminality.',
+      'Конкурсная заявка с интерактивной инсталляцией на тему «Пограничность».',
+      'A competition submission for an interactive installation on the theme of liminality.',
     ),
     organizations: ['audi'],
     files: ['event-audi-brand-2024.md', 'Golem_Event_Audi_2020.md'],
-    limitations: [
-      l(
-        'Конкурсная заявка подана 12 июля 2020 года.',
-        'The competition application was submitted on 12 July 2020.',
-      ),
-    ],
+    limitations: [],
   },
   {
     id: 'bauman-2025',
@@ -251,19 +228,11 @@ const definitions: Definition[] = [
       'An archival lecture invitation in the Moscow 2030 context.',
     ),
     place: l('Москва · МГТУ им. Баумана', 'Moscow · Bauman MSTU'),
-    role: l(
-      'ODA.dream: приглашение к лекции о брейнхакинге.',
-      'ODA.dream: an invitation to give a lecture on brain hacking.',
-    ),
+    role: l('Приглашение к лекции о брейнхакинге.', 'An invitation to give a lecture on brain hacking.'),
     organizations: ['bauman', 'moscow2030'],
     media: ['event-bauman-lecture'],
     files: ['event-bauman-moscow2030-2025.md'],
-    limitations: [
-      l(
-        'Приглашение относится к лекционной программе студии.',
-        'The invitation concerns the studio’s lecture programme.',
-      ),
-    ],
+    limitations: [],
   },
   {
     id: 'byob-2019',
@@ -277,8 +246,8 @@ const definitions: Definition[] = [
     ),
     place: l('Москва · BYOB', 'Moscow · BYOB'),
     role: l(
-      'ODA.dream: живая ЭЭГ-визуализация под историческим именем MindGrid. Екатерина Калашникова — организатор.',
-      'ODA.dream: live EEG visualisation under the historical MindGrid name. Ekaterina Kalashnikova organised the event.',
+      'Живая ЭЭГ-визуализация под историческим именем MindGrid. Екатерина Калашникова — организатор.',
+      'Live EEG visualisation under the historical MindGrid name. Ekaterina Kalashnikova organised the event.',
     ),
     files: ['event-byob-2019.md', 'event-byob.md'],
     limitations: [
@@ -299,8 +268,8 @@ const definitions: Definition[] = [
     ),
     place: l('Москва · BYOB', 'Moscow · BYOB'),
     role: l(
-      'ODA.dream: групповая запись и генеративная визуализация. Екатерина Калашникова — организатор.',
-      'ODA.dream: group recording and generative visualisation. Ekaterina Kalashnikova organised the event.',
+      'Групповая запись и генеративная визуализация. Екатерина Калашникова — организатор.',
+      'Group recording and generative visualisation. Ekaterina Kalashnikova organised the event.',
     ),
     files: ['event-byob-2020.md', 'event-byob.md', 'multisync.md'],
   },
@@ -317,16 +286,11 @@ const definitions: Definition[] = [
     ),
     place: l('Москва', 'Moscow'),
     role: l(
-      'ODA.dream: приглашённая программа; запись связывает её с MindShow.',
-      'ODA.dream: an invited programme, linked to MindShow in the record.',
+      'Приглашённая программа; запись связывает её с MindShow.',
+      'An invited programme, linked to MindShow in the record.',
     ),
     files: ['event-gonchar-private-2024.md'],
-    limitations: [
-      l(
-        'Частное приглашение к программе с нейровизуальным и лекционным содержанием.',
-        'A private invitation for a programme with neurovisual and lecture elements.',
-      ),
-    ],
+    limitations: [],
   },
   {
     id: 'gong-fest-2024',
@@ -342,8 +306,8 @@ const definitions: Definition[] = [
     ),
     place: l('Сергиев Посад', 'Sergiev Posad'),
     role: l(
-      'ODA.dream: нейровизуальная запись в звуковой практике. Николай Льговский и Центр гонг-медитации — организаторы.',
-      'ODA.dream: neurovisual recording within a sound practice. Nikolay Lgovsky and the Gong Meditation Centre organised the festival.',
+      'Нейровизуальная запись в звуковой практике. Николай Льговский и Центр гонг-медитации — организаторы.',
+      'Neurovisual recording within a sound practice. Nikolay Lgovsky and the Gong Meditation Centre organised the festival.',
     ),
     files: ['event-gong-fest-2024.md', 'Golem_Event_Gong_2024.md'],
     limitations: [
@@ -367,16 +331,11 @@ const definitions: Definition[] = [
     ),
     place: l('Сергиев Посад · этнопарк «Кочевник»', 'Sergiev Posad · Kochevnik ethnopark'),
     role: l(
-      'ODA.dream: лекция «Звук и мозг» и перформанс; организатор — Николай Льговский, оборудование предоставил шатёр AUM.',
-      'ODA.dream: Sound and Brain lecture and performance; Nikolay Lgovsky organised the festival and the AUM tent provided equipment.',
+      'Лекция «Звук и мозг» и перформанс; организатор — Николай Льговский, оборудование предоставил шатёр AUM.',
+      'Sound and Brain lecture and performance; Nikolay Lgovsky organised the festival and the AUM tent provided equipment.',
     ),
     files: ['event-gong-fest-2025.md', 'Golem_Event_Gong_2025.md'],
-    limitations: [
-      l(
-        'Даты в хронологии относятся к фестивалю в целом.',
-        'The timeline dates cover the festival as a whole.',
-      ),
-    ],
+    limitations: [],
   },
   {
     id: 'hse-2025',
@@ -389,10 +348,7 @@ const definitions: Definition[] = [
       'An immersive lecture for second- and third-year students at HSE’s Creative Industries Institute, Media Startup Launch and Management programme.',
     ),
     place: l('Москва · НИУ ВШЭ', 'Moscow · HSE University'),
-    role: l(
-      'ODA.dream: приглашённые авторы и ведущие лекции.',
-      'ODA.dream: invited lecture authors and facilitators.',
-    ),
+    role: l('Приглашённые авторы и ведущие лекции.', 'Invited lecture authors and facilitators.'),
     organizations: ['hse'],
     files: ['event-hse-beautiful-brain-2025.md', 'proof-let-hse-beautiful-brain.md'],
     sourceRefs: [
@@ -400,7 +356,7 @@ const definitions: Definition[] = [
       sourceSnapshots['proof-let-hse-beautiful-brain.md'],
       ...educationEventRefs.hse,
     ],
-    limitations: [l('Лекция состоялась 25 марта 2025 года.', 'The lecture took place on 25 March 2025.')],
+    limitations: [],
   },
   {
     id: 'itb-lab-2024',
@@ -417,8 +373,8 @@ const definitions: Definition[] = [
     ),
     place: l('Калуга · Инновационный культурный центр', 'Kaluga · Innovation Cultural Centre'),
     role: l(
-      'ODA.dream: нейровизуальная система и протоколы участия; Ксения Голыжбина организовала лабораторию с театром балета.',
-      'ODA.dream: neurovisual system and participation protocols; Ksenia Golyzhibina organised the laboratory with the ballet theatre.',
+      'Нейровизуальная система и протоколы участия; Ксения Голыжбина организовала лабораторию с театром балета.',
+      'Neurovisual system and participation protocols; Ksenia Golyzhibina organised the laboratory with the ballet theatre.',
     ),
     organizations: ['ikc', 'itb'],
     files: ['event-itb-lab-2024-11.md', 'event-kod-provincii.md'],
@@ -446,8 +402,8 @@ const definitions: Definition[] = [
     ),
     place: l('Калужская область', 'Kaluga region'),
     role: l(
-      'ODA.dream: лекция и два перформанса. Организаторы — Ксения Голыжбина и Елена Панасенко.',
-      'ODA.dream: a lecture and two performances. Ksenia Golyzhibina and Elena Panasenko organised the conference.',
+      'Лекция и два перформанса. Организаторы — Ксения Голыжбина и Елена Панасенко.',
+      'A lecture and two performances. Ksenia Golyzhibina and Elena Panasenko organised the conference.',
     ),
     files: ['event-kod-provincii.md', 'event-tsiolkovsky.md'],
     sourceRefs: [
@@ -493,8 +449,8 @@ const definitions: Definition[] = [
     ),
     place: l('Место не установлено', 'Location unconfirmed'),
     role: l(
-      'ODA.dream: версия Нейромандалы для перформанса, подготовленного вместе с «Мудро Чай».',
-      'ODA.dream: a Neuromandala version for a performance prepared with Mudro Chay.',
+      'Версия Нейромандалы для перформанса, подготовленного вместе с «Мудро Чай».',
+      'A Neuromandala version for a performance prepared with Mudro Chay.',
     ),
     organizations: ['mudro-chay'],
     files: ['event-lamborghini-brand-2024.md', 'Golem_Telegram_Lamborghini.json'],
@@ -516,15 +472,10 @@ const definitions: Definition[] = [
     title: l('Science-art лекция · Merck', 'Science-art lecture · Merck'),
     summary: l('Лекция для корпоративной аудитории.', 'A lecture for a corporate audience.'),
     place: l('Москва · площадка не установлена', 'Moscow · venue unconfirmed'),
-    role: l('ODA.dream: корпоративная лекционная программа.', 'ODA.dream: a corporate lecture programme.'),
+    role: l('Корпоративная лекционная программа.', 'A corporate lecture programme.'),
     organizations: ['merck'],
     files: ['event-merck-corporate.md', 'org-merck.md'],
-    limitations: [
-      l(
-        'Корпоративная лекционная программа в Москве, 2025 год.',
-        'A corporate lecture programme in Moscow in 2025.',
-      ),
-    ],
+    limitations: [],
   },
   {
     id: 'mipt-2025',
@@ -540,8 +491,8 @@ const definitions: Definition[] = [
     ),
     place: l('МФТИ · выставка «Терраформинг»', 'MIPT · Terraforming exhibition'),
     role: l(
-      'ODA.dream: нейроинтерфейсы, генеративная визуализация и аудиовизуальный перформанс; Екатерина Капица указана куратором приглашения.',
-      'ODA.dream: neurointerfaces, generative visuals and audiovisual performance; Ekaterina Kapitsa is identified as the inviting curator.',
+      'Нейроинтерфейсы, генеративная визуализация и аудиовизуальный перформанс; Екатерина Капица указана куратором приглашения.',
+      'Neurointerfaces, generative visuals and audiovisual performance; Ekaterina Kapitsa is identified as the inviting curator.',
     ),
     organizations: ['mipt'],
     media: ['neuromandala-terra'],
@@ -551,12 +502,7 @@ const definitions: Definition[] = [
       'proof-mipt-letter.md',
       'hub-education.md',
     ],
-    limitations: [
-      l(
-        'Нейромандала — художественное преобразование сигнала. Цвета и ритмы не являются однозначным измерением эмоций; личный массив исходных записей не публикуется.',
-        'Neuromandala is an artistic transformation of signal. Colours and rhythms do not uniquely measure emotions; the personal source-recording dataset is not published.',
-      ),
-    ],
+    limitations: [],
   },
   {
     id: 'bashkiria-2025',
@@ -570,16 +516,11 @@ const definitions: Definition[] = [
     ),
     place: l('Шульган-Таш · Башкортостан', 'Shulgan-Tash · Bashkortostan'),
     role: l(
-      'ODA.dream: нейровизуальная практика в пленэрном контексте.',
-      'ODA.dream: neurovisual practice within the plein-air context.',
+      'Нейровизуальная практика в пленэрном контексте.',
+      'Neurovisual practice within the plein-air context.',
     ),
     files: ['event-pleinair-bashkiria-2025.md', 'proof-let-bashkiria.md', 'proof-press-tskhr-bashkiria.md'],
-    limitations: [
-      l(
-        'Материалы пленэра представлены в публикациях и свидетельстве участия.',
-        'The plein air is documented in publications and a participation certificate.',
-      ),
-    ],
+    limitations: [],
   },
   {
     id: 'metro-2024',
@@ -593,8 +534,8 @@ const definitions: Definition[] = [
     ),
     place: l('Москва · станция «Фонвизинская»', 'Moscow · Fonvizinskaya station'),
     role: l(
-      'ODA.dream: участие в цифровом пленэре; архив связывает событие с сюжетом НТВ.',
-      'ODA.dream: participation in a digital plein-air; the archive links the event to an NTV report.',
+      'Участие в цифровом пленэре; архив связывает событие с сюжетом НТВ.',
+      'Participation in a digital plein-air; the archive links the event to an NTV report.',
     ),
     files: ['event-pleinair-metro-2024.md', 'proof-press-ntv-metro.md'],
   },
@@ -611,17 +552,12 @@ const definitions: Definition[] = [
     ),
     place: l('Сколково · Гиперкуб', 'Skolkovo · Hypercube'),
     role: l(
-      'ODA.dream: визуальная система MindShow / Нейромандала для крупной архитектурной проекции.',
-      'ODA.dream: a MindShow / Neuromandala visual system for a large architectural projection.',
+      'Визуальная система MindShow / Нейромандала для крупной архитектурной проекции.',
+      'A MindShow / Neuromandala visual system for a large architectural projection.',
     ),
     organizations: ['moscow2030'],
     files: ['event-portal-2024.md', 'event-portal.md'],
-    limitations: [
-      l(
-        'Архитектурная проекция на фасаде Гиперкуба в Сколково, 2024 год.',
-        'An architectural projection on the Hypercube façade in Skolkovo in 2024.',
-      ),
-    ],
+    limitations: [],
   },
   {
     id: 'sber-2025',
@@ -637,7 +573,7 @@ const definitions: Definition[] = [
       'A lecture for a corporate audience; the archival image names the topic Feedback: Decoding Brain Signals.',
     ),
     place: l('Москва', 'Moscow'),
-    role: l('ODA.dream: приглашённая лекционная программа.', 'ODA.dream: an invited lecture programme.'),
+    role: l('Приглашённая лекционная программа.', 'An invited lecture programme.'),
     organizations: ['sberbank'],
     media: ['event-sber-lecture'],
     files: ['event-sber-lecture-2025.md'],
@@ -663,10 +599,7 @@ const definitions: Definition[] = [
       'The AI festival organisers thanked Olga and Daler Arabov for contributing to the project and preparing their submission.',
     ),
     place: l('Судак · Таврида.АРТ', 'Sudak · Tavrida.ART'),
-    role: l(
-      'ODA.dream: подготовка и подача конкурсной заявки.',
-      'ODA.dream: preparing and submitting a competition application.',
-    ),
+    role: l('Подготовка и подача конкурсной заявки.', 'Preparing and submitting a competition application.'),
     organizations: ['tavrida'],
     files: ['event-tavrida-ai-2025.md', 'Golem_Event_Tavrida_AI_2025.md'],
     limitations: [
@@ -721,10 +654,7 @@ const definitions: Definition[] = [
       'Москва · ТПП РФ по архивной записи',
       'Moscow · Russian Chamber of Commerce according to the archive',
     ),
-    role: l(
-      'ODA.dream: экспертное приглашение с MindShow.',
-      'ODA.dream: an expert invitation with MindShow.',
-    ),
+    role: l('Экспертное приглашение с MindShow.', 'An expert invitation with MindShow.'),
     organizations: ['cci'],
     media: ['event-tpp-mindshow'],
     files: ['event-tpp-mindshow-2025.md'],
@@ -742,17 +672,12 @@ const definitions: Definition[] = [
     ),
     place: l('Москва', 'Moscow'),
     role: l(
-      'ODA.dream: приглашённые спикеры; организатор — Корпорация Синергия.',
-      'ODA.dream: invited speakers; Synergy Corporation organised the conference.',
+      'Приглашённые спикеры; организатор — Корпорация Синергия.',
+      'Invited speakers; Synergy Corporation organised the conference.',
     ),
     organizations: ['synergy'],
     files: ['event-techweek.md', 'Golem_Event_TechWeek_2024.md'],
-    limitations: [
-      l(
-        'Ольга и Далер участвовали в конференции как приглашённые спикеры.',
-        'Olga and Daler joined the conference as invited speakers.',
-      ),
-    ],
+    limitations: [],
   },
   {
     id: 'battle-billion-2024',
@@ -767,8 +692,8 @@ const definitions: Definition[] = [
     ),
     place: l('Россия · город не установлен', 'Russia · city unconfirmed'),
     role: l(
-      'ODA.dream: нейростенд и персональные анимации. Организаторы — Егор Евланников и Сергей Львов.',
-      'ODA.dream: a neuro stand and personal animations. Organisers: Egor Evlannikov and Sergey Lvov.',
+      'Нейростенд и персональные анимации. Организаторы — Егор Евланников и Сергей Львов.',
+      'A neuro stand and personal animations. Organisers: Egor Evlannikov and Sergey Lvov.',
     ),
     files: ['event-bitva-milliard-2024.md', 'Golem_Event_Battle_Billion_2024.md'],
     limitations: [
@@ -793,8 +718,8 @@ const definitions: Definition[] = [
     ),
     place: l('Москва · Гостиный двор', 'Moscow · Gostiny Dvor'),
     role: l(
-      'ODA.dream: участие в дискуссии блока «Креативные индустрии» выставки-форума.',
-      'ODA.dream: participation in the exhibition forum’s Creative Industries discussion.',
+      'Участие в дискуссии блока «Креативные индустрии» выставки-форума.',
+      'Participation in the exhibition forum’s Creative Industries discussion.',
     ),
     files: ['unique-russia.md', 'Golem_Event_Unique_Russia_2026.md'],
     limitations: [
@@ -819,18 +744,13 @@ const definitions: Definition[] = [
     ),
     place: l('Москва', 'Moscow'),
     role: l(
-      'ODA.dream: вклад в организацию и проведение выставки; МАМЭ и Центр межкультурной коммуникации — организаторы.',
-      'ODA.dream: a contribution to organising and presenting the exhibition; the Media Experts Association and the Intercultural Communication Centre were the organisers.',
+      'Вклад в организацию и проведение выставки; МАМЭ и Центр межкультурной коммуникации — организаторы.',
+      'A contribution to organising and presenting the exhibition; the Media Experts Association and the Intercultural Communication Centre were the organisers.',
     ),
     organizations: ['mame', 'communication-centre'],
     media: ['neuromandala-cultural-code'],
     files: ['Ossetia_2025_Golem_Source.md', 'cultural-neuro-code.md'],
-    limitations: [
-      l(
-        'Инсталляционное развитие «Культурного нейрокода» остаётся на стадии прототипа.',
-        'The installation development of Cultural Neurocode remains at the prototype stage.',
-      ),
-    ],
+    limitations: [],
   },
 ];
 

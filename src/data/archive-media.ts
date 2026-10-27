@@ -1750,6 +1750,10 @@ const records: Record[] = [
   },
   {
     id: 'abrau-2026-157',
+    description: {
+      ru: 'Демонстрация Нейромандалы перед группой участников',
+      en: 'Neuromandala demonstration for a group of participants',
+    },
     src: '/images/source/owner-2026/abrau-2026-157.jpg',
     width: 5246,
     height: 3497,
@@ -1767,6 +1771,7 @@ const records: Record[] = [
   },
   {
     id: 'abrau-2026-158',
+    description: { ru: 'Обсуждение нейропортретов на экране', en: 'Discussing on-screen neuroportraits' },
     src: '/images/source/owner-2026/abrau-2026-158.jpg',
     width: 5692,
     height: 3795,
@@ -1784,6 +1789,7 @@ const records: Record[] = [
   },
   {
     id: 'abrau-2026-166',
+    description: { ru: 'Участница с нейроинтерфейсом', en: 'A participant wearing a neurointerface' },
     src: '/images/source/owner-2026/abrau-2026-166.jpg',
     width: 3438,
     height: 5157,
@@ -1801,6 +1807,10 @@ const records: Record[] = [
   },
   {
     id: 'abrau-2026-46',
+    description: {
+      ru: 'Подготовка участницы к записи сигнала',
+      en: 'Preparing a participant for signal recording',
+    },
     src: '/images/source/owner-2026/abrau-2026-46.jpg',
     width: 3725,
     height: 5588,
@@ -1818,6 +1828,10 @@ const records: Record[] = [
   },
   {
     id: 'abrau-2026-77',
+    description: {
+      ru: 'Установка нейроинтерфейса перед демонстрацией',
+      en: 'Fitting a neurointerface before the demonstration',
+    },
     src: '/images/source/owner-2026/abrau-2026-77.jpg',
     width: 3673,
     height: 5510,

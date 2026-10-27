@@ -24,7 +24,7 @@ const metadata = (document: Props['documents'][number]) =>
     document.year ?? (ru ? 'Год не указан' : 'Year unspecified'),
     'WebP',
     document.language.toUpperCase(),
-    `${document.pageImages?.length === document.pages ? document.pages : `${document.pageImages?.length ?? 0}/${document.pages}`} ${ru ? 'стр.' : 'pp.'}`,
+    `${document.pageImages?.length === document.pages ? document.pages : `${document.pageImages?.length ?? 0}/${document.pages}`} ${ru ? 'стр.' : document.pages === 1 ? 'p.' : 'pp.'}`,
     size((document.pageImages ?? []).reduce((total, page) => total + page.bytes, 0)),
   ].join(' · ');
 const pageItems = (document: DocumentMetadata): MediaItem[] =>

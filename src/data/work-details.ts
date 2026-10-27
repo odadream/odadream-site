@@ -194,13 +194,6 @@ export const workDetails: Record<string, WorkDetail> = {
         'В версиях с текстовыми и визуальными ИИ-слоями участник описывает увиденные образы. Его слова и параметрический видеоряд становятся материалом для последовательности сцен и аудиовизуальной сборки. Результаты нескольких участников могут показываться вместе. Состав этих слоёв зависит от версии; выдача и хранение личного цифрового результата согласуются для конкретного показа.',
         'In versions with text and visual AI layers, participants describe the images they perceive. Their words and the parametric video become material for a sequence of scenes and an audiovisual composition. Several participants’ results may be shown together. These layers depend on the version; delivery and storage of a personal digital result are agreed for each presentation.',
       ),
-      section(
-        'versions',
-        'Одна работа, несколько конфигураций',
-        'One work, several configurations',
-        'Ранние фестивальные показы, в том числе BYOB 2019, проходили под названием MindGrid; позднее закрепилось MindShow. Интерактивная зона, VJ-сопровождение и самостоятельный перформанс используют общий художественный принцип, но различаются участием, оборудованием и сценическим устройством.',
-        'Early festival presentations, including BYOB 2019, used the name MindGrid; MindShow became established later. An interactive area, VJ accompaniment and a standalone performance share an artistic principle but differ in participation, equipment and staging.',
-      ),
     ],
     credits: [
       studio(
@@ -208,12 +201,7 @@ export const workDetails: Record<string, WorkDetail> = {
         'Concept, neuroreactive environment and facilitation',
       ),
     ],
-    reviewNotes: [
-      text(
-        'Визуализация — художественный опыт, а не диагностика. Длительность сессии и поток посетителей зависят от выбранной конфигурации.',
-        'The visualisation is an artistic experience, not a diagnosis. Session duration and visitor flow depend on the selected configuration.',
-      ),
-    ],
+    reviewNotes: [],
     relatedWorks: [],
     sourceRefs: refs('mindshow.md'),
   },
@@ -233,23 +221,11 @@ export const workDetails: Record<string, WorkDetail> = {
         'Механика осваивается во время короткого раунда. Зрители видят движение общего объекта, обсуждают стратегии и могут вступать в следующий поединок. Отдельные дуэли или турнирная последовательность меняют организацию участия; настройка гарнитур, инструктаж и смена игроков остаются частью проведения.',
         'The mechanics are learned during a short round. Spectators watch the shared object move, discuss strategies and may join the next duel. Individual matches or a tournament sequence change the organisation of participation; headset fitting, briefing and player changes remain part of delivery.',
       ),
-      section(
-        'versions',
-        'Исторические имена',
-        'Historical names',
-        'Работа ранее называлась «Нейробитва», Neurobattle и «Нейробаттл». Сегодня она представлена как «Парадокс Успеха». На странице события можно узнать о её показе на олимпиаде DANO.',
-        'The work was previously known as Neurobattle and Neurobattl. It is now presented as Paradox of Success. The event page tells the story of its presentation at the DANO Olympiad.',
-      ),
     ],
     credits: [
       studio('Концепция, авторское ПО и проведение игры', 'Concept, custom software and game delivery'),
     ],
-    reviewNotes: [
-      text(
-        'К игровому раунду добавляются настройка гарнитур, инструктаж и смена участников. Эти этапы учитываются при планировании потока посетителей.',
-        'Headset setup, briefing and participant changeover take place in addition to the game round. They are included when planning visitor flow.',
-      ),
-    ],
+    reviewNotes: [],
     relatedWorks: [],
     sourceRefs: refs('neurobattle.md'),
   },
@@ -311,8 +287,8 @@ export const workDetails: Record<string, WorkDetail> = {
         'dream',
         'Мечта как авторская история',
         'A dream as an authored story',
-        'Во время записи и изготовления авторы представляли общее будущее: море, тепло и ребёнка. Позднее поездка на Бали и семейные фотографии стали для них возвращением к этому образу. Эта связь рассказывается как личная интерпретация и память; нейросигнал не считается носителем предсказания или причиной последующих событий.',
-        'During recording and making, the authors imagined a shared future: the sea, warmth and a child. Their later journey to Bali and family photographs became, for them, a return to that image. This relationship is told as personal interpretation and memory; the neural signal is not treated as a prediction or as the cause of subsequent events.',
+        'Во время записи и изготовления авторы представляли общее будущее: море, тепло и ребёнка. Позднее поездка на Бали и семейные фотографии стали для них возвращением к этому образу. В авторском рассказе кольца соединяют первоначальный замысел с памятью о прожитом.',
+        'During recording and making, the authors imagined a shared future: the sea, warmth and a child. Their later journey to Bali and family photographs became, for them, a return to that image. In their account, the rings connect the original intention with memories of a life together.',
       ),
       section(
         'history',
@@ -330,12 +306,7 @@ export const workDetails: Record<string, WorkDetail> = {
         'Concept, personal story and participation in making',
       ),
     ],
-    reviewNotes: [
-      text(
-        'Мечта и её позднейшее узнавание — авторский нарратив. Запись ЭЭГ и материальная гравировка описываются отдельно от него.',
-        'The dream and its later recognition are the authors’ narrative. EEG recording and physical engraving are described separately from it.',
-      ),
-    ],
+    reviewNotes: [],
     relatedWorks: ['emomandala'],
     sourceRefs: refs('oda-rings.md', 'media-oda-rings-story.md'),
   },
@@ -440,8 +411,8 @@ export const workDetails: Record<string, WorkDetail> = {
         'interpretation',
         'Связь на экране и связь между людьми',
         'A screen connection and a human connection',
-        'Цветные линии показывают результат выбранного алгоритма сопоставления сигналов. Художественная метафора общего внимания не означает, что система измеряет согласие, близость или единую мысль группы. Изображение на карточке обозначено концептуальной визуализацией; обсуждать можно дальнейшую разработку, а не заказ готового показа.',
-        'Coloured lines show the result of a chosen signal-comparison algorithm. The artistic metaphor of shared attention does not mean the system measures agreement, closeness or a group’s shared thought. The card image is identified as a conceptual rendering; inquiries concern further development, not a ready-made presentation.',
+        'Цветные линии сопоставляют изменения сигналов участников. Их сближение и расхождение создают подвижный рисунок связей — художественную метафору общего внимания. Этот рисунок не измеряет согласие, близость или общую мысль группы.',
+        'Coloured lines compare changes in participants’ signals. Their convergence and divergence create a shifting pattern of connections: an artistic metaphor for shared attention. The pattern does not measure agreement, closeness or a shared group thought.',
       ),
     ],
     credits: [

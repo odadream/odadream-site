@@ -375,10 +375,7 @@ export const recognitionCorrections: Record<string, Partial<Recognition>> = {
       recognitionSourceSnapshots['OwnerRecognition/ODA - 2025 Таврида ИИ.jpg'],
       recognitionSourceSnapshots['OwnerRecognition/ODA - 2025 Таврида ИИ.pdf'],
     ],
-    limitations: {
-      ru: 'Благодарственное письмо участника не является наградой конкурса.',
-      en: 'The participant acknowledgement is not a competition award.',
-    },
+    limitations: undefined,
   },
   'hse-letter-2025': {
     event: 'hse-2025',
@@ -450,10 +447,7 @@ export const recognitionCorrections: Record<string, Partial<Recognition>> = {
   'business-awards-letter-2025': {
     event: 'national-business-awards-2025',
     contextPath: 'cases/national-business-awards-2025/',
-    limitations: {
-      ru: 'Письмо подтверждает помощь в организации Национальной бизнес-премии. Файл назван «ТПП», но сам документ не подтверждает тождество с кейсом Russian Digital Creative; связь с ним не назначена.',
-      en: 'The letter confirms support for the National Business Awards. Its filename mentions the Chamber of Commerce, but the document does not establish that this was the Russian Digital Creative event; no such link is assigned.',
-    },
+    limitations: undefined,
     sourceRefs: [
       {
         file: 'OwnerRecognition/ODA - 2025 ТПП.pdf',

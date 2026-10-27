@@ -82,7 +82,7 @@ const definitions = [
     ],
     audience: {
       ru: 'Аудитория и адаптация определяются по задаче программы',
-      en: 'Audience and adaptation are scoped for the programme',
+      en: 'The audience and any adaptations are agreed for each programme.',
     },
     authorsNote: {
       ru: 'Авторская программа ODA.dream. Состав ведущих согласуется для конкретного приглашения.',
@@ -202,7 +202,7 @@ const definitions = [
     ],
     audience: {
       ru: 'Аудитория и адаптация определяются по задаче программы',
-      en: 'Audience and adaptation are scoped for the programme',
+      en: 'The audience and any adaptations are agreed for each programme.',
     },
     authorsNote: {
       ru: 'Авторская программа ODA.dream. Состав ведущих согласуется для конкретного приглашения.',
@@ -262,7 +262,7 @@ const definitions = [
     ],
     audience: {
       ru: 'Аудитория и адаптация определяются по задаче программы',
-      en: 'Audience and adaptation are scoped for the programme',
+      en: 'The audience and any adaptations are agreed for each programme.',
     },
     authorsNote: {
       ru: 'Авторская программа ODA.dream. Состав ведущих согласуется для конкретного приглашения.',
@@ -322,7 +322,7 @@ const definitions = [
     ],
     audience: {
       ru: 'Аудитория и адаптация определяются по задаче программы',
-      en: 'Audience and adaptation are scoped for the programme',
+      en: 'The audience and any adaptations are agreed for each programme.',
     },
     authorsNote: {
       ru: 'Авторская программа ODA.dream. Состав ведущих согласуется для конкретного приглашения.',
@@ -382,7 +382,7 @@ const definitions = [
     ],
     audience: {
       ru: 'Аудитория и адаптация определяются по задаче программы',
-      en: 'Audience and adaptation are scoped for the programme',
+      en: 'The audience and any adaptations are agreed for each programme.',
     },
     authorsNote: {
       ru: 'Авторская программа ODA.dream. Состав ведущих согласуется для конкретного приглашения.',
@@ -502,7 +502,7 @@ const definitions = [
     ],
     audience: {
       ru: 'Аудитория и адаптация определяются по задаче программы',
-      en: 'Audience and adaptation are scoped for the programme',
+      en: 'The audience and any adaptations are agreed for each programme.',
     },
     authorsNote: {
       ru: 'Авторская программа ODA.dream. Состав ведущих согласуется для конкретного приглашения.',

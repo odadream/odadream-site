@@ -61,10 +61,10 @@ export const caseDetails: Record<string, CaseDetail> = {
       {
         ...section(
           'trajectory',
-          'Спектакль и этот показ',
-          'The performance and this presentation',
-          'Здесь собран контекст калужской премьеры: дата, площадка, участие студии и материалы показа. Художественный замысел, полная команда, запись и другие материалы постановки находятся на сайте спектакля.',
-          'This page records the Kaluga premiere: its date, venue, the studio’s contribution and presentation materials. The artistic concept, full team, recording and other production materials are on the performance website.',
+          'Материалы спектакля',
+          'Performance materials',
+          'Полная запись, художественная концепция и состав команды представлены на сайте спектакля.',
+          'The performance website presents the full recording, artistic concept and production team.',
         ),
         links: [
           {
@@ -119,8 +119,8 @@ export const caseDetails: Record<string, CaseDetail> = {
         'participation',
         'Приглашение и со-постановка',
         'Invitation and co-staging',
-        'Архив связывает участие с приглашением Анны Сенатовой и совместной постановкой с Инновационным театром балета. ODA.dream обеспечивала свой художественно-технологический контур и ведение лаборатории. Четыре ЭЭГ-канала и четыре пульсоканала описывают этот показ, а не универсальную производительность всех работ студии.',
-        'The archive links participation to an invitation from Anna Senatova and co-staging with Innovation Ballet Theatre. ODA.dream provided its artistic and technological system and laboratory facilitation. Four EEG and four pulse channels describe this presentation, not a universal capacity for all studio works.',
+        'Показ состоялся по приглашению Анны Сенатовой в совместной постановке с Инновационным театром балета. ODA.dream обеспечивала художественно-технологическую систему и ведение лаборатории. В этой конфигурации использовались четыре ЭЭГ-канала и четыре пульсоканала.',
+        'The presentation followed an invitation from Anna Senatova and was co-staged with Innovation Ballet Theatre. ODA.dream provided the artistic and technological system and laboratory facilitation. This configuration used four EEG channels and four pulse channels.',
       ),
     ],
     organizationRoles: [
@@ -213,8 +213,8 @@ export const historicalEvents: CaseEvent[] = [
     slug: 'portal-2025',
     title: l('MindShow · Портал 2030–2050', 'MindShow · Portal 2030–2050'),
     summary: l(
-      'Конкурсный контекст MindShow; результат выделен в наградную запись.',
-      'A competition context for MindShow; the result has a separate award record.',
+      'Участие MindShow в конкурсе медиаарта «Виджеинг» Портала 2030–2050.',
+      'MindShow in the VJ media-art competition at Portal 2030–2050.',
     ),
     date: '2025',
     datePrecision: 'year',
@@ -222,10 +222,7 @@ export const historicalEvents: CaseEvent[] = [
     featuredOnHome: false,
     type: 'presentation',
     place: l('Москва · площадка уточняется', 'Moscow · venue unconfirmed'),
-    role: l(
-      'ODA.dream: работа на конкурсе медиаарта «Виджеинг».',
-      'ODA.dream: work in the VJ media-art competition.',
-    ),
+    role: l('Работа на конкурсе медиаарта «Виджеинг».', 'Work in the VJ media-art competition.'),
     work: 'mindshow',
     organizations: ['moscow2030'],
     evidence: [],
@@ -240,12 +237,7 @@ export const historicalEvents: CaseEvent[] = [
         'Organisational context for the competition.',
       ),
     ],
-    limitations: [
-      l(
-        'Работа получила первое место в конкурсе медиаарта «Виджеинг».',
-        'The work received first prize in the VJ media-art contest.',
-      ),
-    ],
+    limitations: [],
     sourceRefs: refs('event-portal-2025.md', 'proof-award-portal-visioning.md', 'hub-letters.md'),
     source: 'src/content/event-portal-2025.md; proof-award-portal-visioning.md',
     publication: 'published',
@@ -268,7 +260,7 @@ export const historicalEvents: CaseEvent[] = [
     featuredOnHome: false,
     type: 'presentation',
     place: l('Фестиваль «Дикая Мята» · место уточняется', 'Wild Mint festival · location unconfirmed'),
-    role: l('ODA.dream: приглашённые лекция и перформанс.', 'ODA.dream: invited lecture and performance.'),
+    role: l('Приглашённые лекция и перформанс.', 'Invited lecture and performance.'),
     method: 'neuromandala',
     relatedProgrammes: ['beautiful-brain'],
     organizations: ['wildmint'],
@@ -316,8 +308,8 @@ export const historicalEvents: CaseEvent[] = [
     type: 'presentation',
     place: l('Нижний Новгород', 'Nizhny Novgorod'),
     role: l(
-      'ODA.dream: совместное выступление со студией Ashram / Натали Осман.',
-      'ODA.dream: a joint presentation with Ashram Studio / Natali Osman.',
+      'Приглашение к совместному выступлению со студией Ashram и Натали Осман.',
+      'An invitation for a joint appearance with Ashram Studio and Natali Osman.',
     ),
     work: 'mindshow',
     organizations: ['cipr', 'ashram'],

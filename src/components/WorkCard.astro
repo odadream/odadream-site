@@ -62,14 +62,6 @@ const labels = {
         !(presentation === 'overview' && media.representation === 'screenshot') && (
           <span class="work-card__media-note">{labels[media.representation]![lang]}</span>
         )}
-      {!media && (
-        <span class="work-card__media-note">
-          {item.mediaNote?.[lang] ??
-            (lang === 'ru'
-              ? 'Визуальный материал пока не опубликован.'
-              : 'Visual material is not published yet.')}
-        </span>
-      )}
     </span>
     <span class="meta work-card__meta">
       <span class="work-card__identity">

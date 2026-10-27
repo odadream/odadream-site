@@ -23,8 +23,8 @@ const studioPeopleRecords: Person[] = [
     name: l('Ольга Арабова', 'Olga Arabova'),
     role: l('Междисциплинарная художница и фасилитатор', 'Interdisciplinary artist and facilitator'),
     biography: l(
-      'Работает с телесным вниманием, коммуникацией и опытом участника. В ODA.dream связывает художественный замысел с фасилитацией: знакомством с форматом, взаимодействием группы и разбором пережитого. Участвует в разработке образовательных и партисипаторных работ.',
-      'Works with embodied attention, communication and participant experience. Within ODA.dream, she connects artistic concepts with facilitation: introducing a format, supporting group interaction and reflecting on the experience. She contributes to educational and participatory works.',
+      'Междисциплинарная художница и соосновательница ODA.dream. Разрабатывает партисипаторные работы и образовательные программы, соединяя художественный замысел с опытом участника.',
+      'Interdisciplinary artist and co-founder of ODA.dream. Develops participatory works and educational programmes, connecting artistic concepts with the participant’s experience.',
     ),
     cv: {
       sections: [
@@ -61,8 +61,8 @@ const studioPeopleRecords: Person[] = [
     name: l('Далер Арабов', 'Daler Arabov'),
     role: l('Медиахудожник, инженер и проектировщик систем', 'Media artist, engineer and system designer'),
     biography: l(
-      'Создаёт системы реального времени, генеративные среды и взаимодействия с нейроинтерфейсами. В ODA.dream соединяет художественный визуальный язык с архитектурой сенсоров и авторского ПО, подготовкой сценической или выставочной конфигурации и её работой во время показа.',
-      'Creates real-time systems, generative environments and interactions with neurointerfaces. Within ODA.dream, he connects an artistic visual language with sensor and custom-software architecture, the preparation of stage or exhibition configurations and their operation during a presentation.',
+      'Медиахудожник и инженер, сооснователь ODA.dream. Соединяет художественный замысел с разработкой интерактивных систем — от прототипа до сценического и выставочного показа.',
+      'Media artist, engineer and co-founder of ODA.dream. Connects artistic concepts with interactive-system development, from prototypes to stage and exhibition presentations.',
     ),
     cv: {
       sections: [
@@ -126,8 +126,8 @@ const studioPageRecords: StudioPage[] = [
         id: 'ethics',
         title: l('Согласие и интерпретация', 'Consent and interpretation'),
         body: l(
-          'Сигналы не используются для медицинских или психологических выводов о человеке. Для каждого показа определяются добровольность участия, работа с записью, хранение данных и доступ к результату. Личная история, измерение и художественная метафора различаются; устройство не получает права объяснять участника вместо него самого.',
-          'Signals are not used to make medical or psychological judgments about a person. Voluntary participation, recording, data retention and access to results are defined for each presentation. Personal accounts, measurements and artistic metaphors remain distinct; a device does not speak on a participant’s behalf.',
+          'Участие добровольно. До показа согласуются запись, хранение данных и доступ к результатам. Личный рассказ участника, измерение и художественная интерпретация рассматриваются раздельно; сигналы не используются для медицинских или психологических заключений.',
+          'Participation is voluntary. Recording, data retention and access to results are agreed before each presentation. A participant’s account, measurements and artistic interpretation remain distinct; signals are not used to make medical or psychological judgments.',
         ),
       },
       {

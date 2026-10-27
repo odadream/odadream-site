@@ -38,7 +38,6 @@ import {
   workDocuments,
   referenceDocuments,
   cases,
-  eventSeries,
   evidence,
   configurations,
   programmes,
@@ -429,8 +428,8 @@ const timeline = selectHomepageEvents(cases);
       <h1>{ru ? 'Работы' : 'Works'}</h1>
       <p class="lead">
         {ru
-          ? 'Произведения, лаборатории и объекты. Работа — это художественная идея и её история; формат заказа описан отдельно.'
-          : 'Artworks, laboratories and objects. A work has its own artistic history; bookable configurations are described separately.'}
+          ? 'Инсталляции, перформансы и объекты на пересечении искусства, восприятия и технологий. От первых опытов и эскизов до выставочных и сценических работ.'
+          : 'Installations, performances and objects at the intersection of art, perception and technology. From early experiments and sketches to exhibitions and stage works.'}
       </p>
     </section>
     <MacroSection
@@ -562,7 +561,7 @@ const timeline = selectHomepageEvents(cases);
           section={method.sections.length + 3}
           lang={lang}
           label={ru ? 'Границы' : 'Boundaries'}
-          title={ru ? 'Измерение — не объяснение' : 'Measurement is not explanation'}
+          title={ru ? 'Границы интерпретации' : 'Limits of interpretation'}
         >
           <ul class="facts">
             {method.limitations[lang].map((text) => (
@@ -638,11 +637,7 @@ const timeline = selectHomepageEvents(cases);
             <p class="small-note">{work.projectSite.description[lang]}</p>
           </div>
         )}
-        {work.media.length ? (
-          <MediaFigure id={work.media[0]} lang={lang} priority />
-        ) : (
-          <p class="small-note">{work.mediaNote?.[lang]}</p>
-        )}
+        {work.media.length ? <MediaFigure id={work.media[0]} lang={lang} priority /> : null}
         {workGallery.length > 0 && (
           <MediaGallery
             id="work-first-look"
@@ -711,11 +706,13 @@ const timeline = selectHomepageEvents(cases);
                 anchorPrefix="work-story"
               />
               <DocumentList documents={workDocuments.filter((row) => row.workId === work.id)} lang={lang} />
-              <div class="provenance">
-                {work.reviewNotes.map((note) => (
-                  <p>{note[lang]}</p>
-                ))}
-              </div>
+              {work.reviewNotes.length > 0 && (
+                <div class="provenance">
+                  {work.reviewNotes.map((note) => (
+                    <p>{note[lang]}</p>
+                  ))}
+                </div>
+              )}
               {!!work.relatedProgrammes?.length && (
                 <div class="link-row spaced-actions">
                   {work.relatedProgrammes.map((id) => (
@@ -804,11 +801,13 @@ const timeline = selectHomepageEvents(cases);
             </p>
           )}
 
-          <ul class="facts">
-            {work.facts[lang].map((fact) => (
-              <li>{fact}</li>
-            ))}
-          </ul>
+          {!workHistory.length && work.facts[lang].length > 0 && (
+            <ul class="facts">
+              {work.facts[lang].map((fact) => (
+                <li>{fact}</li>
+              ))}
+            </ul>
+          )}
           {workHistory.map((item) => (
             <CaseRow item={item} lang={lang} presentation="overview" />
           ))}
@@ -858,7 +857,7 @@ const timeline = selectHomepageEvents(cases);
           {configurations
             .filter((item) => item.workId === work.id)
             .map((item) => (
-              <ParticipationPanel item={item} lang={lang} anchor={item.slug} />
+              <ParticipationPanel item={item} lang={lang} anchor={item.slug} embedded />
             ))}
 
           <div class="link-row spaced-actions">
@@ -1015,11 +1014,13 @@ const timeline = selectHomepageEvents(cases);
             title={ru ? 'Вопрос и ход программы' : 'Question and programme'}
           >
             <p>{programme.story[lang]}</p>
-            <ul class="facts">
-              {programme.topics.map((topic) => (
-                <li>{topic[lang]}</li>
-              ))}
-            </ul>
+            {!programme.modules?.length && (
+              <ul class="facts">
+                {programme.topics.map((topic) => (
+                  <li>{topic[lang]}</li>
+                ))}
+              </ul>
+            )}
             {programme.modules?.length && (
               <EditorialSections
                 sections={programme.modules}
@@ -1049,7 +1050,9 @@ const timeline = selectHomepageEvents(cases);
             label={ru ? 'Участие' : 'Participation'}
             title={ru ? 'Практика и результат' : 'Practice and outcome'}
           >
-            <p>{programme.participation[lang]}</p>
+            {programme.participation[lang] !== programme.story[lang] && (
+              <p>{programme.participation[lang]}</p>
+            )}
             <div class="link-row spaced-actions">
               {(programme.authorIds ?? []).map((id) => (
                 <CalloutLink href={`/${lang}/studio/#person-${id}`}>
@@ -1087,7 +1090,9 @@ const timeline = selectHomepageEvents(cases);
               title={ru ? 'Условия проведения' : 'Delivery arrangements'}
               fields={programme.conditions.map((c) => ({ label: c.label[lang], value: c.value[lang] }))}
             />
-            {programme.scope[lang] !== educationOverview?.scope[lang] && <p>{programme.scope[lang]}</p>}
+            {!programme.conditions.length && programme.scope[lang] !== educationOverview?.scope[lang] && (
+              <p>{programme.scope[lang]}</p>
+            )}
             {programme.reviewNotes.map((note) => (
               <ReadingNote>{note[lang]}</ReadingNote>
             ))}
@@ -1211,7 +1216,7 @@ const timeline = selectHomepageEvents(cases);
                 row.owner.kind === 'cooperation' && row.owner.id === cooperation.id && row.language === lang,
             )}
             lang={lang}
-            title={ru ? 'Технический обзор · 10 октября 2026' : 'Technical overview · 10 October 2026'}
+            title={ru ? 'Технический обзор' : 'Technical overview'}
           />
         </MacroSection>
         <MacroSection
@@ -1326,7 +1331,9 @@ const timeline = selectHomepageEvents(cases);
                         <CalloutLink href={row.href!} target="_blank" rel="noopener">
                           {ru ? 'Скачать CV · PDF' : 'Download CV · PDF'}
                         </CalloutLink>
-                        <p class="small-note">{[row.asOf, '·', row.pages, ru ? 'стр.' : 'pp.'].join(' ')}</p>
+                        <p class="small-note">
+                          {[row.asOf, '·', row.pages, ru ? 'стр.' : row.pages === 1 ? 'p.' : 'pp.'].join(' ')}
+                        </p>
                       </div>
                     ))}
                 </div>
@@ -1348,8 +1355,8 @@ const timeline = selectHomepageEvents(cases);
     >
       <p>
         {ru
-          ? 'Сигналы в работах используются как материал для художественного взаимодействия, а не для медицинских или психологических выводов. Для каждого показа отдельно определяются согласие участников, хранение данных, права на изображение и документацию.'
-          : 'Signals in our work become material for artistic interaction, not medical or psychological claims. Consent, data retention, image rights and documentation terms are established for each presentation.'}
+          ? 'Художественная практика студии строится на внимании к участнику, открытом диалоге и ответственном обращении с данными.'
+          : 'The studio’s artistic practice is grounded in attention to participants, open dialogue and responsible handling of data.'}
       </p>
       {studio && <EditorialSections sections={studio.sections} lang={lang} anchorPrefix="studio-method" />}
       <div class="link-row">
@@ -1375,8 +1382,8 @@ const timeline = selectHomepageEvents(cases);
         >
           <p>
             {ru
-              ? 'Товарный знак защищает обозначение студии; это правовая регистрация, а не художественная награда.'
-              : 'The trademark protects the studio’s name; it is a legal registration, not an artistic award.'}
+              ? 'Товарный знак закрепляет правовую охрану названия студии.'
+              : 'The trademark provides legal protection for the studio’s name.'}
           </p>
           <DocumentList
             documents={referenceDocuments.filter(
@@ -1387,8 +1394,8 @@ const timeline = selectHomepageEvents(cases);
           />
           <p class="small-note">
             {ru
-              ? 'Заявка на изобретение №2026113457/14(030103) подана 30 апреля 2026 года. Уведомление ФИПС от 15 июня 2026 года подтверждает проведение экспертизы по существу. Патент пока не выдан; переписка и технические материалы заявки не публикуются.'
-              : 'Invention application No. 2026113457/14(030103) was filed on 30 April 2026. A FIPS notice dated 15 June 2026 confirms substantive examination. No patent has yet been granted; correspondence and technical application materials remain private.'}
+              ? 'Заявка на изобретение №2026113457/14(030103) подана 30 апреля 2026 года. Уведомление ФИПС от 15 июня 2026 года подтверждает проведение экспертизы по существу. Патент пока не выдан.'
+              : 'Invention application No. 2026113457/14(030103) was filed on 30 April 2026. A FIPS notice dated 15 June 2026 confirms substantive examination. No patent has yet been granted.'}
           </p>
         </MacroSection>
         <MacroSection
@@ -1441,32 +1448,6 @@ const timeline = selectHomepageEvents(cases);
     >
       <StatisticsStamp slot="reference" kind="events" lang={lang} />
       <CaseArchive items={cases} lang={lang} />
-    </MacroSection>
-    <MacroSection
-      id="case-series"
-      kind="catalogue"
-      field="folio"
-      family={family}
-      section={2}
-      lang={lang}
-      label={ru ? 'Серии' : 'Series'}
-      title={ru ? 'Повторяющиеся линии' : 'Recurring trajectories'}
-    >
-      {eventSeries.map((series) => (
-        <article class="list-row" id={`series-${series.id}`}>
-          <div>
-            <h3>{series.title[lang]}</h3>
-            <p>{series.summary[lang]}</p>
-            <div class="link-row spaced-actions">
-              {series.cases.map((id) => (
-                <CalloutLink href={caseUrl(lang, id)}>
-                  {cases.find((item) => item.id === id)?.title[lang]}
-                </CalloutLink>
-              ))}
-            </div>
-          </div>
-        </article>
-      ))}
     </MacroSection>
   </>
 )}

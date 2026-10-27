@@ -1,7 +1,19 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { loadSiteModule } from '../scripts/site-data.mjs';
-const { mediaFitScale, mediaZoomPosition } = await loadSiteModule('src/lib/media-viewport.ts');
+const { mediaFitScale, mediaZoomPosition, mediaSwipeDirection } =
+  await loadSiteModule('src/lib/media-viewport.ts');
+
+test('swipe requires a deliberate horizontal movement within the configured duration', () => {
+  const swipe = (dx, dy, ms) => mediaSwipeDirection(dx, dy, ms, 44, 700, 1.25);
+  assert.equal(swipe(-80, 12, 250), 1);
+  assert.equal(swipe(80, -12, 250), -1);
+  assert.equal(swipe(43, 0, 200), 0);
+  assert.equal(swipe(50, 40, 200), 0);
+  assert.equal(swipe(10, 100, 200), 0);
+  assert.equal(swipe(-80, 0, 701), 0);
+  assert.equal(swipe(-80, 0, -1), 0);
+});
 
 test('portrait, landscape and small sources fit both dimensions without unnecessary upscaling', () => {
   assert.equal(mediaFitScale(1000, 2000, 400, 600), 0.3);

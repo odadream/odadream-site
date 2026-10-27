@@ -17,15 +17,17 @@ interface Props {
   > & { id: string; title: Localized; summary: Localized; scope: Localized };
   lang: Lang;
   anchor?: string;
+  /** The work page already tells the artistic story; retain only presentation logistics here. */
+  embedded?: boolean;
 }
-const { item, lang, anchor } = Astro.props;
+const { item, lang, anchor, embedded = false } = Astro.props;
 const ru = lang === 'ru';
 ---
 
 <section class="participation-panel" id={anchor} data-participation-id={item.id}>
   <h3>{item.title[lang]}</h3>
-  <p>{item.summary[lang]}</p>
-  <p>{item.story[lang]}</p>
+  {!embedded && <p>{item.summary[lang]}</p>}
+  {!embedded && <p>{item.story[lang]}</p>}
   <h4>{ru ? 'Участие и результат' : 'Participation and outcome'}</h4>
   <p>{item.participation[lang]}</p>
   <p>{item.outcome[lang]}</p>

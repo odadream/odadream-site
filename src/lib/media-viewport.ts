@@ -3,6 +3,20 @@ export function mediaFitScale(width: number, height: number, viewportWidth: numb
   return Math.min(1, viewportWidth / width, viewportHeight / height);
 }
 
+/** Horizontal navigation is deliberately separate from free pan and two-finger zoom. */
+export function mediaSwipeDirection(
+  dx: number,
+  dy: number,
+  elapsed: number,
+  distance: number,
+  duration: number,
+  bias: number,
+) {
+  if (elapsed < 0 || elapsed > duration || Math.abs(dx) < distance || Math.abs(dx) <= Math.abs(dy) * bias)
+    return 0;
+  return dx < 0 ? 1 : -1;
+}
+
 interface ViewportZoom {
   width: number;
   height: number;

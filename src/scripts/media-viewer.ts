@@ -1,4 +1,4 @@
-import { mediaFitScale, mediaZoomPosition } from '../lib/media-viewport';
+import { mediaFitScale, mediaZoomPosition, mediaSwipeDirection } from '../lib/media-viewport';
 import { linkDestination, linkTargetFamily } from '../lib/link-destination';
 import { technicalPaths } from '../lib/technical-marks';
 
@@ -26,6 +26,7 @@ export function initMediaViewer() {
   let fitted = true;
   const pointers = new Map<number, { x: number; y: number }>();
   let pinch: { distance: number; x: number; y: number } | undefined;
+  let swipe: { id: number; x: number; y: number; started: number } | undefined;
   const notify = () => document.dispatchEvent(new Event('oda:media-viewer-change'));
   const fitScale = () =>
     mediaFitScale(
@@ -60,6 +61,7 @@ export function initMediaViewer() {
     fitted = true;
     pointers.clear();
     pinch = undefined;
+    swipe = undefined;
     dialog!.removeAttribute('data-panning');
     dialog!.removeAttribute('data-zoomed');
     zoom.setAttribute('aria-pressed', 'false');
@@ -221,6 +223,9 @@ export function initMediaViewer() {
     if (image.hidden || (event.pointerType !== 'touch' && (fitted || event.button !== 0))) return;
     pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
     stage.setPointerCapture(event.pointerId);
+    if (event.pointerType === 'touch' && fitted && pointers.size === 1)
+      swipe = { id: event.pointerId, x: event.clientX, y: event.clientY, started: event.timeStamp };
+    if (pointers.size > 1) swipe = undefined;
     if (pointers.size === 2) pinch = pinchState();
     if (!fitted) dialog!.setAttribute('data-panning', '');
   });
@@ -240,6 +245,26 @@ export function initMediaViewer() {
     }
   });
   const release = (event: PointerEvent) => {
+    const gesture = swipe;
+    swipe = undefined;
+    if (
+      event.type === 'pointerup' &&
+      gesture?.id === event.pointerId &&
+      fitted &&
+      pointers.size === 1 &&
+      items.length > 1
+    ) {
+      const style = getComputedStyle(dialog!);
+      const direction = mediaSwipeDirection(
+        event.clientX - gesture.x,
+        event.clientY - gesture.y,
+        event.timeStamp - gesture.started,
+        parseFloat(style.getPropertyValue('--lightbox-swipe-distance')),
+        parseFloat(style.getPropertyValue('--lightbox-swipe-duration')),
+        parseFloat(style.getPropertyValue('--lightbox-swipe-bias')),
+      );
+      if (direction) show(direction);
+    }
     pointers.delete(event.pointerId);
     pinch = pointers.size >= 2 ? pinchState() : undefined;
     if (!pointers.size) dialog!.removeAttribute('data-panning');

@@ -71,13 +71,13 @@ test('ODA-prefixed files stay in ODA credits, personal-prefix achievements stay 
     const cv = scope.people.find((row) => row.id === id).cv;
     assert.match(
       cv.sections.find((row) => row.id === 'personal-credits').body.en,
-      /entries in the ODA archive|appear as separate entries in the ODA archive/,
+      /Tech Week.*Code of the Province.*Moscow 2030.*Commission for the Year Three Thousand/,
     );
   }
   assert.match(
     data.people.find((row) => row.id === 'olga').cv.sections.find((row) => row.id === 'documented-training')
       .body.en,
-    /not an ICF ACC credential/,
+    /preparation for ICF ACC certification/,
   );
 });
 

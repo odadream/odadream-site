@@ -8,8 +8,8 @@ export const personalCvSections: Record<string, EditorialSection[]> = {
         en: 'Additional training',
       },
       body: {
-        ru: '2014 — MATLAB Fundamentals, практикум дизайна интерьера БВШД, эксплуатация лазерного оборудования. 2016 — LPKF Rapid Prototyping и основы виброиспытаний Brüel & Kjær; MTCNA получен в 2016 году (исторический сертификат со сроком действия три года). 2018 — семинары KAIZEN по производственным потокам, решению проблем и Lean Foundation.',
-        en: '2014: MATLAB Fundamentals, an interior-design workshop at BHSAD and laser-equipment training. 2016: LPKF Rapid Prototyping and Brüel & Kjær vibration testing; MTCNA awarded in 2016 (historical, valid for three years). 2018: KAIZEN seminars in production flow, structured problem solving and Lean Foundation.',
+        ru: '2014 — MATLAB Fundamentals, практикум дизайна интерьера БВШД, эксплуатация лазерного оборудования. 2016 — LPKF Rapid Prototyping и основы виброиспытаний Brüel & Kjær; MTCNA получен в 2016 году (срок действия сертификата — три года). 2018 — семинары KAIZEN по производственным потокам, решению проблем и Lean Foundation.',
+        en: '2014: MATLAB Fundamentals, an interior-design workshop at BHSAD and laser-equipment training. 2016: LPKF Rapid Prototyping and Brüel & Kjær vibration testing; MTCNA awarded in 2016 (certificate valid for three years). 2018: KAIZEN seminars in production flow, structured problem solving and Lean Foundation.',
       },
     },
     {
@@ -19,8 +19,8 @@ export const personalCvSections: Record<string, EditorialSection[]> = {
         en: 'Documented personal credits',
       },
       body: {
-        ru: '2018 — благодарность за проактивное мышление и инициативу в региональных проектах; финал команды «Древо знаний» в Hackathon 2025 (конкурс 2018 года). 2021 — письмо МГТУ подтверждает выпуск 2011 года и работу в 2011–2019 годах. Сертификат участника Rukami в рамках NeuroSync, адресные письма Tech Week и «КОД:Провинции», «Москва 2030» и справка по выставке «Комиссия по трёхтысячному году» также отражены в архиве ODA отдельными записями; персональная адресация сохранена здесь в составе CV.',
-        en: '2018: acknowledgement for initiative in regional projects; finalist with the Tree of Knowledge team in Hackathon 2025 (held in 2018). 2021: BMSTU letter confirms graduation in 2011 and employment in 2011–2019. The Rukami certificate for NeuroSync, addressee letters from Tech Week, Code of the Province and Moscow 2030, and the Commission for the Year Three Thousand participation record also appear as separate entries in the ODA archive; their personal addressees remain documented here in the CV.',
+        ru: '2018 — благодарность за инициативу в региональных проектах; финал команды «Древо знаний» в Hackathon 2025 (конкурс 2018 года). 2021 — письмо МГТУ о выпуске 2011 года и работе в 2011–2019 годах. Сертификат участника Rukami в рамках NeuroSync; благодарственные письма за выступления на Tech Week и «КОД:Провинции», участие в форуме «Москва 2030»; справка участника выставки «Комиссия по трёхтысячному году».',
+        en: '2018: acknowledgement for initiative in regional projects; finalist with the Tree of Knowledge team in Hackathon 2025 (held in 2018). 2021: BMSTU letter recording graduation in 2011 and employment in 2011–2019. NeuroSync participant certificate from Rukami; letters of appreciation for speaking at Tech Week and Code of the Province, contributing to Moscow 2030, and a record of participation in the Commission for the Year Three Thousand exhibition.',
       },
     },
   ],
@@ -32,8 +32,8 @@ export const personalCvSections: Record<string, EditorialSection[]> = {
         en: 'Additional training',
       },
       body: {
-        ru: '2014 — «Практикум управления проектами», 32 часа. 2016 — диплом курса аргентинского танго Dana Frigoli. 2018 — семинар «Экспериментальная анатомия. Культура телесности», 24 часа, ИППиП. 2021 — «Аджилити коучинг», 190 часов, включая 20 часов менторинга; документ подтверждает обучение для подготовки к сертификации, а не присвоение ICF ACC.',
-        en: '2014: Project Management Workshop, 32 hours. 2016: Dana Frigoli Argentine tango course diploma. 2018: Experimental Anatomy: Culture of Embodiment, a 24-hour IPPiP seminar. 2021: Agility Coaching, 190 hours including 20 hours of mentoring; the document confirms preparatory training, not an ICF ACC credential.',
+        ru: '2014 — «Практикум управления проектами», 32 часа. 2016 — курс аргентинского танго Dana Frigoli. 2018 — семинар «Экспериментальная анатомия. Культура телесности», 24 часа, ИППиП. 2021 — «Аджилити коучинг», 190 часов, включая 20 часов менторинга, в рамках подготовки к сертификации ICF ACC.',
+        en: '2014: Project Management Workshop, 32 hours. 2016: Dana Frigoli Argentine tango course. 2018: Experimental Anatomy: Culture of Embodiment, a 24-hour IPPiP seminar. 2021: Agility Coaching, 190 hours including 20 hours of mentoring, as preparation for ICF ACC certification.',
       },
     },
     {
@@ -43,8 +43,8 @@ export const personalCvSections: Record<string, EditorialSection[]> = {
         en: 'Documented personal credits',
       },
       body: {
-        ru: '2020 — почётная грамота ИСК «ПетроИнжиниринг» за личный вклад в высокие показатели, профессионализм и преданность делу. Адресные письма Tech Week, «КОД:Провинции», «Москва 2030» и справка по выставке «Комиссия по трёхтысячному году» также представлены в архиве ODA отдельными записями; их персональная адресация сохранена в CV. Другие личные достижения и обучение остаются частью индивидуального CV.',
-        en: '2020: PetroEngineering certificate of honour for personal contribution, professionalism and dedication. Addressee letters from Tech Week, Code of the Province and Moscow 2030, plus the Commission for the Year Three Thousand participation record, also appear as separate entries in the ODA archive; their personal addressees remain documented here. Other personal achievements and training stay in the individual CV.',
+        ru: '2020 — почётная грамота ИСК «ПетроИнжиниринг» за личный вклад, профессионализм и преданность делу. Благодарственные письма за выступления на Tech Week и «КОД:Провинции», участие в форуме «Москва 2030»; справка участника выставки «Комиссия по трёхтысячному году».',
+        en: '2020: PetroEngineering certificate of honour for personal contribution, professionalism and dedication. Letters of appreciation for speaking at Tech Week and Code of the Province, contributing to Moscow 2030, and a record of participation in the Commission for the Year Three Thousand exhibition.',
       },
     },
   ],

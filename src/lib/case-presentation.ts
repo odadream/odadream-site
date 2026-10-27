@@ -42,7 +42,7 @@ export const participationLabels = {
   invited: { ru: 'Приглашение', en: 'Invitation' },
   submitted: { ru: 'Заявка подана', en: 'Application submitted' },
   declined: { ru: 'Заявка отклонена', en: 'Application declined' },
-  planned: { ru: 'План', en: 'Planned' },
+  planned: { ru: 'Анонс', en: 'Announced' },
   recorded: { ru: 'Архивная запись', en: 'Archival record' },
 };
 export const contextLabels = {

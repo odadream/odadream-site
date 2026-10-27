@@ -126,6 +126,9 @@
   --lightbox-frame-pad: var(--s4);
   --lightbox-control-layer: 1;
   --lightbox-zoom-limit: 4;
+  --lightbox-swipe-distance: var(--tap-target);
+  --lightbox-swipe-duration: 700ms;
+  --lightbox-swipe-bias: 1.25;
   --lightbox-rule: rgb(243 241 236 / 0.7);
   --alert: #efb452;
   --danger: #df716b;

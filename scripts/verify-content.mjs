@@ -188,8 +188,9 @@ for (const hero of data.heroVisuals) {
     errors.push(`hero ${hero.id}: missing work`);
 }
 for (const work of data.works) {
-  if (!work.story?.length || !work.credits?.length || !work.reviewNotes?.length)
-    errors.push(`work ${work.id}: narrative, credits or interpretation boundaries missing`);
+  // Interpretation can be explained in the story itself; do not require a second disclaimer.
+  if (!work.story?.length || !work.credits?.length || !Array.isArray(work.reviewNotes))
+    errors.push(`work ${work.id}: narrative, credits or review-note field missing`);
   const storyIds = new Set();
   for (const section of work.story ?? []) {
     if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(section.id) || storyIds.has(section.id))
