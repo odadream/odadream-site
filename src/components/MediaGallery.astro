@@ -69,6 +69,7 @@ const documents = tiles && selection.every((item) => item.representation === 'do
               gallery
               compact
               showOpenMark={false}
+              detailsHref={event?.href === Astro.url.pathname ? undefined : event?.href}
               viewerCaption={`${[metadata.title, item.caption[lang]].filter((value, index, values) => values.indexOf(value) === index).join(' · ')} · ID: ${item.id}`}
             >
               <MediaMicrocaption

@@ -92,6 +92,18 @@ export function initReadingNavigation() {
   document.addEventListener('oda:main-menu:open', () => {
     details.open = false;
   });
+  document.addEventListener('oda:workspace:open', () => {
+    details.open = false;
+  });
+  document.addEventListener('focusin', (event) => {
+    if (event.target instanceof Node && !details.contains(event.target)) details.open = false;
+  });
+  details.querySelector('summary')?.addEventListener('keydown', (event) => {
+    if (event.key !== 'ArrowDown') return;
+    event.preventDefault();
+    details.open = true;
+    details.querySelector<HTMLAnchorElement>('.reading-contents-panel a')?.focus();
+  });
   document.addEventListener('click', (event) => {
     const element = event.target;
     if (!(element instanceof Element)) return;

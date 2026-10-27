@@ -59,6 +59,8 @@ test('gallery study retains metadata, image opening and one applied focal point'
   );
   for (const [width, columns] of [
     [320, 1],
+    [360, 2],
+    [375, 2],
     [390, 2],
     [797, 3],
     [1380, 4],

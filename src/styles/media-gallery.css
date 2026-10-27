@@ -44,7 +44,7 @@
     --gallery-column-count: min(var(--gallery-item-count), var(--gallery-columns-wide));
   }
 }
-@container media-gallery (max-width: 340px) {
+@container media-gallery (max-width: 300px) {
   .media-gallery[data-mode='tiles'] {
     --gallery-column-count: 1;
   }

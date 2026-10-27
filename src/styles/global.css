@@ -948,14 +948,6 @@ figcaption {
 .contact-address {
   word-break: break-word;
 }
-.contact-address a {
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
-  text-decoration-color: var(--accent);
-}
-.contact-address a:hover {
-  color: var(--accent);
-}
 .case-meta {
   display: flex;
   gap: var(--s5);

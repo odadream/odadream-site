@@ -20,6 +20,8 @@ interface Props {
   showOpenMark?: boolean;
   cropControl?: boolean;
   viewerCaption?: string;
+  /** An explicit context destination, never an implicit link back to the open page. */
+  detailsHref?: string;
 }
 const {
   id,
@@ -34,6 +36,7 @@ const {
   showOpenMark = true,
   cropControl = true,
   viewerCaption,
+  detailsHref,
 } = Astro.props;
 const item = suppliedItem ?? (id ? mediaById(id) : undefined);
 const presentation = item ? mediaFit(item, fit) : 'natural';
@@ -59,7 +62,7 @@ const presentation = item ? mediaFit(item, fit) : 'natural';
           type="button"
           class="media-open"
           data-lightbox
-          data-details-href={Astro.url.pathname}
+          data-details-href={detailsHref}
           data-gallery-item={gallery ? '' : undefined}
           data-src={item.src}
           data-alt={item.alt[lang]}
@@ -93,7 +96,7 @@ const presentation = item ? mediaFit(item, fit) : 'natural';
           class="media-open"
           data-preview-trigger
           data-lightbox
-          data-details-href={Astro.url.pathname}
+          data-details-href={detailsHref}
           data-gallery-item={gallery ? '' : undefined}
           data-kind="video"
           data-src={item.src}
@@ -138,7 +141,7 @@ const presentation = item ? mediaFit(item, fit) : 'natural';
             data-alt={item.alt[lang]}
             data-caption={viewerCaption ?? item.caption[lang]}
             data-credit={item.credit?.[lang]}
-            data-details-href={Astro.url.pathname}
+            data-details-href={detailsHref}
           >
             <TechnicalMark kind="expand" />
             {lang === 'ru' ? 'Открыть видео' : 'Open video'}

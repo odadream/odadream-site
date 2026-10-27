@@ -152,11 +152,19 @@ document.querySelector('.site-header')?.append(toolbar);
 if (!toolbar.isConnected) document.body.prepend(toolbar);
 toolbar.querySelectorAll('details').forEach((details) => {
   details.addEventListener('toggle', () => {
-    if (details.open)
+    if (details.open) {
+      document.dispatchEvent(new CustomEvent('oda:workspace:open'));
       toolbar.querySelectorAll('details').forEach((other) => {
         if (other !== details) other.open = false;
       });
+    }
   });
+});
+const closeTools = () => toolbar.querySelectorAll('details').forEach((details) => (details.open = false));
+document.addEventListener('oda:contents:open', closeTools);
+document.addEventListener('oda:main-menu:open', closeTools);
+document.addEventListener('focusin', (event) => {
+  if (!toolbar.contains(event.target)) closeTools();
 });
 document.addEventListener('keydown', (event) => {
   if (event.key !== 'Escape') return;

@@ -641,6 +641,19 @@ const breadcrumbSchema =
         nav?.classList.toggle('open', open);
       }
       document.addEventListener('oda:contents:open', () => setMenuOpen(false));
+      document.addEventListener('oda:workspace:open', () => setMenuOpen(false));
+      // A non-modal navigation surface must not cover the next keyboard destination.
+      document.addEventListener('focusin', (event) => {
+        if (event.target instanceof Node && !document.querySelector('.site-header')?.contains(event.target))
+          setMenuOpen(false);
+      });
+      menu?.addEventListener('keydown', (event) => {
+        if (event.key !== 'ArrowDown') return;
+        event.preventDefault();
+        setMenuOpen(true);
+        document.dispatchEvent(new CustomEvent('oda:main-menu:open'));
+        nav?.querySelector<HTMLAnchorElement>('a:not([hidden])')?.focus();
+      });
       menu?.addEventListener('click', () => {
         const open = menu.getAttribute('aria-expanded') !== 'true';
         setMenuOpen(open);
