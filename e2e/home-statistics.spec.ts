@@ -23,7 +23,7 @@ for (const lang of ['ru', 'en']) {
       rows.map((row) => ({
         id: row.getAttribute('data-case-id'),
         status: row.getAttribute('data-participation-status'),
-        year: row.querySelector('.case-row__metadata')?.textContent,
+        year: row.querySelector('.case-row__year')?.textContent,
         title: row.querySelector('h3')?.textContent?.trim(),
       })),
     );

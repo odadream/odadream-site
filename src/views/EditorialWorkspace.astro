@@ -80,7 +80,12 @@ const progress = { ru: editorialProgress(registry, 'ru'), en: editorialProgress(
       готовность учитывается отдельно.
     </p>
     <p data-editorial-progress data-progress={JSON.stringify(progress)} aria-live="polite"></p>
-    <form class="editorial-filters" role="search" aria-label="Фильтры текстов" onsubmit="return false">
+    <form
+      class="editorial-filters control-row"
+      role="search"
+      aria-label="Фильтры текстов"
+      onsubmit="return false"
+    >
       <label class="control-field">
         Язык
         <SelectControl>

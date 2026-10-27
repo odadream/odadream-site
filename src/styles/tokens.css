@@ -40,10 +40,20 @@
   --nav-item-gap: 0px;
   --header-theme-min: 72px;
   --header-menu-min: 64px;
+  --chronology-year-measure: 4ch;
+  --chronology-column-gap: var(--s4);
+  --chronology-row-gap: var(--s5);
+  --chronology-copy-gap: var(--s1);
+  --chronology-surround-gap: var(--gap-heading);
+  --control-label-gap: var(--s1);
+  --control-group-gap: var(--gap-copy);
+  --control-choice-size: calc(1rem * var(--type-scale));
+  --control-accent: var(--accent);
+  --control-error: var(--danger);
   --control-gap: var(--s2);
   --control-pad: var(--s2);
   --control-surface: var(--surface);
-  --control-border: var(--line-strong);
+  --control-border: var(--dim);
   --control-type: var(--type-small);
   --control-label-type: var(--type-note);
   --control-leading: var(--leading-note);
@@ -437,4 +447,16 @@
 }
 .lightbox [data-link-destination='resource'] {
   --lightbox-reference-signal: color-mix(in srgb, var(--link-download-signal) 55%, var(--lightbox-ink));
+}
+
+@media (max-width: 580px) {
+  :root {
+    --chronology-column-gap: var(--s3);
+    --chronology-row-gap: var(--s4);
+  }
+}
+@media (pointer: coarse) {
+  :root {
+    --control-type: calc(1rem * var(--type-scale));
+  }
 }

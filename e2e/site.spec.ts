@@ -335,7 +335,7 @@ test('timeline date and linked narrative share two compact tracks at tablet widt
   await page.goto('/ru/');
   const rows = await page.locator('#timeline .case-row--overview').evaluateAll((items) =>
     items.map((item) => {
-      const date = item.querySelector('.case-row__metadata')!.getBoundingClientRect();
+      const date = item.querySelector('.case-row__year')!.getBoundingClientRect();
       const description = item.querySelector('h3')!.getBoundingClientRect();
       const link = item.querySelector('.quiet-link')!.getBoundingClientRect();
       const row = item.getBoundingClientRect();

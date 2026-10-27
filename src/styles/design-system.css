@@ -500,13 +500,7 @@
 }
 
 .system-control {
-  display: grid;
-  gap: var(--gap-label);
   max-width: var(--copy-measure);
-}
-.system-control > label {
-  display: grid;
-  gap: var(--control-gap);
 }
 .coverage-list {
   display: grid;

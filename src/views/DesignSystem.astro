@@ -16,6 +16,8 @@ import ProgrammeCard from '../components/ProgrammeCard.astro';
 import ParticipationPanel from '../components/ParticipationPanel.astro';
 import WorkCard from '../components/WorkCard.astro';
 import CaseRow from '../components/CaseRow.astro';
+import Chronology from '../components/Chronology.astro';
+import SelectControl from '../components/SelectControl.astro';
 import CaseArchive from '../components/CaseArchive.astro';
 import CollectiveFeedback from '../components/CollectiveFeedback.astro';
 import RecognitionCard from '../components/RecognitionCard.astro';
@@ -110,7 +112,15 @@ const signalFamilies = [
 const profileTokens = [
   ['--space-unit', 'Единица пространственного ритма'],
   ['--stamp-gap', 'Промежуток и расчёт ширины ячеек паспорта'],
-  ['--record-date-measure', 'Колонка даты хронологии'],
+  ['--chronology-year-measure', 'Узкая ось года'],
+  ['--chronology-column-gap', 'Год и название события'],
+  ['--chronology-row-gap', 'Интервал между событиями'],
+  ['--chronology-copy-gap', 'Название, метаданные и описание'],
+  ['--chronology-surround-gap', 'Хронология и соседние блоки'],
+  ['--control-label-gap', 'Метка и поле ввода'],
+  ['--control-group-gap', 'Интервал между полями'],
+  ['--control-choice-size', 'Нативный checkbox/radio'],
+  ['--record-date-measure', 'Колонка даты документной строки'],
   ['--hero-heading-width', 'Ширина заголовка полноширинного hero'],
   ['--hero-data-width', 'Ширина панели данных hero'],
   ['--nav-label-gap', 'Знак и подпись навигации'],
@@ -146,8 +156,8 @@ const profileTokens = [
   ['--gap-heading', 'Заголовок и его содержание'],
   ['--card-gap', 'Связанные строки карточки'],
   ['--card-row-gap', 'Расстояние между карточками'],
-  ['--record-row-inset', 'Внешнее поле записи хронологии'],
-  ['--record-copy-gap', 'Связанные факты одной записи'],
+  ['--record-row-inset', 'Внешнее поле документной строки'],
+  ['--record-copy-gap', 'Связанные факты документной строки'],
   ['--grid-rail', 'Поле документа'],
   ['--grid-gap', 'Расстояние между полем и материалом'],
   ['--page-inset', 'Общая внешняя ось, включая полноширинное видео'],
@@ -695,23 +705,27 @@ const profileTokens = [
       </aside>
       <div class="system-content record-grid">
         <div class="system-span-2">
-          <span class="component-title">Хронология / CaseRow</span>
+          <span class="component-title" id="system-chronology">
+            Хронология / CaseRow
+          </span>
           <p class="small-note">
             Название — единственный переход в обзоре. Однострочное и многострочное название сохраняют
             одинаковый интервал до места; область нажатия не растягивает строку.
           </p>
-          <CaseRow
-            item={cases.find((item) => item.id === 'tsiolkovsky-2026')!}
-            lang="ru"
-            presentation="overview"
-            specimen
-          />
-          <CaseRow
-            item={cases.find((item) => item.id === 'oktava-2021')!}
-            lang="ru"
-            presentation="overview"
-            specimen
-          />
+          <Chronology>
+            <CaseRow
+              item={cases.find((item) => item.id === 'tsiolkovsky-2026')!}
+              lang="ru"
+              presentation="overview"
+              specimen
+            />
+            <CaseRow
+              item={cases.find((item) => item.id === 'oktava-2021')!}
+              lang="ru"
+              presentation="overview"
+              specimen
+            />
+          </Chronology>
           <CaseArchive
             items={cases.filter((item) => ['hse-2025', 'tavrida-ai-2025', 'cipr-2026'].includes(item.id))}
             lang="ru"
@@ -1252,21 +1266,82 @@ const profileTokens = [
         lang="ru"
         links={works.flatMap((work) => work.story.flatMap((section) => section.links ?? [])).slice(0, 2)}
       />
-      <div class="system-control">
-        <label>
-          Поиск в редакционном каталоге · образец
-          <input type="search" placeholder="Название или идентификатор" />
+      <div class="system-control control-group" id="system-controls">
+        <label class="control-field">
+          <span id="control-search-label">Поиск в редакционном каталоге · образец</span>
+          <input
+            type="search"
+            placeholder="Название или идентификатор"
+            aria-labelledby="control-search-label"
+            aria-describedby="control-search-hint"
+          />
+          <span class="control-hint" id="control-search-hint">
+            Например, название работы или события.
+          </span>
         </label>
-        <label>
+        <label class="control-field">
           Язык · образец
-          <select>
-            <option>Русский</option>
-            <option>English</option>
-          </select>
+          <SelectControl>
+            {' '}
+            <select>
+              <option>Русский</option>
+              <option>English</option>
+            </select>
+          </SelectControl>
         </label>
-        <label>
+        <label class="control-field">
           Комментарий · образец
           <textarea rows="2" placeholder="Пояснение к материалу"></textarea>
+        </label>
+        <label class="control-field">
+          <span id="control-id-label">Идентификатор · ошибка</span>
+          <input
+            value="mind show"
+            aria-labelledby="control-id-label"
+            aria-invalid="true"
+            aria-describedby="control-error-example"
+          />
+          <span class="control-error" id="control-error-example">
+            Используйте латиницу и дефис.
+          </span>
+        </label>
+        <label class="control-field">
+          Недоступное поле
+          <input value="Только для редактора" disabled />
+        </label>
+        <label class="control-field">
+          Только чтение
+          <input value="mindshow" readonly />
+        </label>
+        <fieldset class="control-group">
+          <legend>Выбор материалов · образец</legend>
+          <label class="control-choice">
+            <input type="checkbox" checked />
+            Фотографии
+          </label>
+          <label class="control-choice">
+            <input type="checkbox" />
+            Видео и записи выступлений
+          </label>
+          <label class="control-choice">
+            <input type="checkbox" disabled />
+            Материалы на проверке
+          </label>
+        </fieldset>
+        <fieldset class="control-group">
+          <legend>Порядок · образец</legend>
+          <label class="control-choice">
+            <input type="radio" name="control-order" value="new" checked />
+            Сначала новые
+          </label>
+          <label class="control-choice">
+            <input type="radio" name="control-order" value="old" />
+            Сначала ранние
+          </label>
+        </fieldset>
+        <label class="control-field">
+          Фокус · образец
+          <input type="range" min="0" max="100" value="50" />
         </label>
         <ReadingNote>
           Поля — локальные образцы без отправки. Те же правила ввода используются в редакторе и кадрировании.

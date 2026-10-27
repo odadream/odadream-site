@@ -13,6 +13,7 @@ import MediaFigure from './MediaFigure.astro';
 import VideoPreview from './VideoPreview.astro';
 import WorkCard from './WorkCard.astro';
 import CaseRow from './CaseRow.astro';
+import Chronology from './Chronology.astro';
 import CaseArchive from './CaseArchive.astro';
 import CollectiveFeedback from './CollectiveFeedback.astro';
 import MediaCropTrigger from './MediaCropTrigger.astro';
@@ -360,11 +361,11 @@ const timeline = selectHomepageEvents(cases);
           : 'A work changes with each encounter. Here: date, place and the studio’s role.'
       }
     >
-      <div class="timeline">
+      <Chronology>
         {timeline.map((item) => (
           <CaseRow item={item} lang={lang} presentation="overview" />
         ))}
-      </div>
+      </Chronology>
       <CalloutLink href={`/${lang}/cases/`}>{ru ? 'Опубликованные кейсы' : 'Published cases'}</CalloutLink>
       <StatisticsStamp slot="reference" kind="events" lang={lang} />
     </MacroSection>
@@ -808,9 +809,13 @@ const timeline = selectHomepageEvents(cases);
               ))}
             </ul>
           )}
-          {workHistory.map((item) => (
-            <CaseRow item={item} lang={lang} presentation="overview" />
-          ))}
+          {workHistory.length > 0 && (
+            <Chronology>
+              {workHistory.map((item) => (
+                <CaseRow item={item} lang={lang} presentation="overview" />
+              ))}
+            </Chronology>
+          )}
           {recognitions.some((item) => item.relatedWorks.includes(work.id)) && (
             <div class="link-row spaced-actions">
               {recognitions

@@ -1,6 +1,7 @@
 ---
 import SelectControl from './SelectControl.astro';
 import CaseRow from './CaseRow.astro';
+import Chronology from './Chronology.astro';
 import type { Props as CaseRowProps } from './CaseRow.astro';
 import type { Lang } from '../data/site';
 interface Props {
@@ -14,7 +15,7 @@ const years = [...new Set(rows.map((row) => row.date.slice(0, 4)))];
 ---
 
 <div data-case-archive data-specimen={specimen || undefined}>
-  <div class="link-row" data-case-filter hidden>
+  <div class="control-row" data-case-filter hidden>
     <label class="control-field">
       <span class="meta">{lang === 'ru' ? 'Год события' : 'Event year'}</span>
       <SelectControl>
@@ -35,11 +36,11 @@ const years = [...new Set(rows.map((row) => row.date.slice(0, 4)))];
       data-ru={lang === 'ru'}
     ></p>
   </div>
-  <div class="case-archive__rows">
+  <Chronology>
     {rows.map((item) => (
       <CaseRow item={item} lang={lang} specimen={specimen} />
     ))}
-  </div>
+  </Chronology>
 </div>
 <script>
   document.querySelectorAll<HTMLElement>('[data-case-archive]').forEach((archive) => {

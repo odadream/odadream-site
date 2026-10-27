@@ -6,7 +6,7 @@ const samples = [
   { route: 'works/', selector: '.work-card__link > p', role: 'summary' },
   {
     route: 'cases/',
-    selector: '.case-row > div:not(.case-row__metadata) > p:not(.small-note)',
+    selector: '.case-row__body > p:not(.small-note):not(.meta)',
     role: 'summary',
   },
   { route: 'recognition/', selector: '.recognition-card__claim', role: 'claim' },

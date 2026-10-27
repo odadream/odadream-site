@@ -1,6 +1,22 @@
 /** Auditable catalogue of roles, not a second component implementation. */
 export const designCoverage = [
   {
+    role: 'Единый ритм хронологии',
+    components: ['Chronology', 'CaseRow'],
+    specimen: '#system-chronology',
+    consumer: '/ru/works/mindshow/#work-context',
+    decision:
+      'Chronology владеет интервалом между событиями; CaseRow сохраняет две оси и первую baseline года и названия на всех ширинах. Внешний интервал наследует gap-heading. Поля, группы и состояния используют control-*; нативные checkbox/radio сохраняют платформенные клавиатуру и индикацию. Полный живой образец ввода — #system-controls, SelectControl используется также в фильтрах и DEV-кадрировании.',
+  },
+  {
+    role: 'Нативные поля, выбор и состояния ввода',
+    components: ['SelectControl'],
+    specimen: '#system-controls',
+    consumer: '/ru/cases/#case-events',
+    decision:
+      'control-field/control-group/control-choice задают размеры, отступы и отношения метки, поля, подсказки, ошибки и группы. Нативные checkbox/radio и range сохраняют клавиатуру; SelectControl один для фильтров, стенда и DEV-кадрирования. Размер и signal/error происходят из общих control-* и тематических цветов.',
+  },
+  {
     role: 'Основной контактный адрес',
     components: ['CalloutLink'],
     specimen: '#system-contact-action',
@@ -104,10 +120,10 @@ export const designCoverage = [
       'Пять функций макроблока, три режима поля. PageView только собирает их из данных; отдельного визуального языка страницы нет.',
   },
   {
-    role: 'Каталог и хронология',
+    role: 'Карточки каталогов',
     components: ['WorkCard', 'ProgrammeCard', 'RecognitionCard'],
     specimen: '#system-05',
-    consumer: '/ru/cases/',
+    consumer: '/ru/works/',
     decision: 'Сохранить разные сущности, объединить их ритм через card/record-токены.',
   },
   {
@@ -116,7 +132,7 @@ export const designCoverage = [
     specimen: '#system-07',
     consumer: '/ru/cases/',
     decision:
-      'CaseArchive использует существующие select, metadata и summary-роли; CaseRow имеет один переход на событие. Галерея и комментарии остаются на странице события. Новый визуальный токен не нужен.',
+      'CaseArchive использует существующие select, metadata и summary-роли; CaseRow имеет один переход на событие. Галерея и комментарии остаются на странице события. Ритм строк принадлежит Chronology; общие chronology-* заменяют независимые отступы страниц.',
   },
   {
     role: 'Участие и процесс',
@@ -179,13 +195,18 @@ export const designPatterns = [
   ['Смысловой список', '.facts', '--gap-copy, --s3, --mark-size', '#system-03'],
   [
     'Хронология и биографии',
-    '.timeline, .list-row, .studio-people-layout',
-    '--record-*, --gap-component, --portrait-measure',
+    '.chronology, .case-row, .list-row, .studio-people-layout',
+    '--chronology-*, --record-*, --portrait-measure',
     '/ru/studio/',
   ],
   ['Цитата', 'blockquote.quote', '--type-statement, --copy-measure', '#system-06'],
   ['Раскрытие', 'details > summary', '--disclosure-*, --tap-target', '#system-17'],
-  ['Поле ввода', 'input, select, textarea', '--control-*, --tap-target, --focus-*', '#system-17'],
+  [
+    'Поле ввода',
+    'input, select, textarea, .control-field, .control-choice',
+    '--control-*, --tap-target, --focus-*',
+    '#system-controls',
+  ],
   [
     'Кнопка и состояние',
     '.button, :disabled, :focus-visible, .status',

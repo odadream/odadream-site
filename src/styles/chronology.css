@@ -1,0 +1,62 @@
+/* Chronology owns internal rhythm; its page owns the section boundary. */
+.chronology {
+  display: grid;
+  gap: var(--chronology-row-gap);
+  margin: 0;
+  padding: 0;
+}
+:is(.section-body, .work-section, [data-case-archive]) > .chronology:not(:first-child) {
+  margin-block-start: var(--chronology-surround-gap);
+}
+:is(.section-body, .work-section) > .chronology + * {
+  margin-block-start: var(--chronology-surround-gap);
+}
+.case-row {
+  display: grid;
+  grid-template-columns: var(--chronology-year-measure) minmax(0, 1fr);
+  align-items: first baseline;
+  column-gap: var(--chronology-column-gap);
+  padding: 0;
+  font-size: var(--type-metadata);
+}
+.case-row > * {
+  min-width: 0;
+  margin: 0;
+}
+.case-row > .dev-note {
+  grid-column: 1 / -1;
+}
+.case-row h3 {
+  font-size: var(--type-list-title);
+  line-height: var(--leading-h3);
+}
+.case-row__year {
+  white-space: nowrap;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+.case-row .case-row__body > * + * {
+  margin-block-start: var(--chronology-copy-gap);
+}
+.case-row__body > p:not(.meta) {
+  color: var(--muted);
+  font-size: var(--type-summary);
+  line-height: var(--leading-summary);
+}
+.case-row .meta {
+  font-size: var(--type-metadata);
+  line-height: var(--leading-metadata);
+}
+.case-row__metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1) var(--s2);
+}
+.case-row__metadata > p {
+  margin: 0;
+}
+
+/* Inline-block links otherwise expose their last line as the heading baseline. */
+.case-row h3 :is(.callout-link, .callout-link-content) {
+  baseline-source: first;
+}

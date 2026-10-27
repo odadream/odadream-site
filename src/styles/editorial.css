@@ -138,14 +138,7 @@
   padding-block: var(--s7);
 }
 .editorial-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--s4);
   margin-block: var(--s5);
-}
-.editorial-filters label {
-  display: grid;
-  gap: var(--s2);
 }
 .editorial-filters input,
 .editorial-filters select {

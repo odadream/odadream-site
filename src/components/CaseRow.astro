@@ -31,31 +31,32 @@ const overview = presentation === 'overview';
 ---
 
 <article
-  class:list={['list-row case-row', { 'case-row--overview': overview }]}
+  class:list={['case-row', { 'case-row--overview': overview }]}
   id={specimen ? undefined : `case-${item.slug}`}
   data-case-id={item.id}
   data-case-year={item.date.slice(0, 4)}
   data-participation-status={item.participationStatus}
 >
   <DevPublicationMark kind="cases" recordId={item.id} lang={lang} />
-  <div class="meta case-row__metadata">
-    <p>
-      {overview
-        ? (item.dateMeaning === 'series-start' ? (lang === 'ru' ? 'С ' : 'Since ') : '') +
-          item.date.slice(0, 4)
-        : formatCaseDate(item, lang)}
-    </p>
-    {!overview && <p>{item.place[lang]}</p>}
-    {!overview && <p>{caseTypeLabels[item.type][lang]}</p>}
-    {!overview && <p>{participationLabels[item.participationStatus][lang]}</p>}
-    {!overview && item.context !== 'public' && <p>{contextLabels[item.context][lang]}</p>}
-  </div>
-  <div>
+  <p class="meta case-row__year">{item.date.slice(0, 4)}</p>
+  <div class="case-row__body">
     <h3>
       <CalloutLink href={caseUrl(lang, item.id)} destinationStudy={destinationStudy}>
         {overview ? (item.event?.title[lang] ?? item.title[lang]) : item.title[lang]}
       </CalloutLink>
     </h3>
+    {!overview && (
+      <div class="meta case-row__metadata">
+        <p>{formatCaseDate(item, lang)}</p>
+        <p>{item.place[lang]}</p>
+        <p>{caseTypeLabels[item.type][lang]}</p>
+        <p>{participationLabels[item.participationStatus][lang]}</p>
+        {item.context !== 'public' && <p>{contextLabels[item.context][lang]}</p>}
+      </div>
+    )}
+    {overview && item.dateMeaning === 'series-start' && (
+      <p class="meta">{lang === 'ru' ? 'Начало серии' : 'Series began'}</p>
+    )}
     {overview && (
       <p class="meta case-row__location">
         {[item.event?.city?.[lang], item.event?.venue?.[lang]].filter(Boolean).join(' · ') ||

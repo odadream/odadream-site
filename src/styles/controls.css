@@ -1,0 +1,85 @@
+/* Native semantics, shared geometry: the same fields in production and specimens. */
+.control-field > :is(input, textarea, .select-control) {
+  width: 100%;
+}
+.control-field :is(input, select, textarea)::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+:where(input, select, textarea)[aria-invalid='true'] {
+  border-color: var(--control-error);
+}
+:where(input, select, textarea):disabled {
+  color: var(--muted);
+  background: var(--control-surface);
+  cursor: not-allowed;
+}
+:where(input, textarea)[readonly] {
+  background: transparent;
+}
+textarea {
+  resize: vertical;
+}
+.control-hint,
+.control-error {
+  font-size: var(--control-label-type);
+  line-height: var(--control-leading);
+}
+.control-hint {
+  color: var(--muted);
+}
+.control-error {
+  color: var(--control-error);
+}
+.control-group {
+  display: grid;
+  gap: var(--control-group-gap);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.control-group > legend {
+  padding: 0;
+  margin-block-end: var(--control-label-gap);
+  font-size: var(--control-label-type);
+}
+.control-choice {
+  display: flex;
+  align-items: baseline;
+  gap: var(--control-gap);
+  min-height: var(--tap-target);
+  padding-block: var(--control-pad);
+  font: 400 var(--control-type)/var(--control-leading) var(--mono);
+  cursor: pointer;
+}
+.control-choice > input {
+  flex: none;
+  width: var(--control-choice-size);
+  height: var(--control-choice-size);
+  margin: 0;
+  accent-color: var(--control-accent);
+}
+.control-choice:has(input:disabled) {
+  color: var(--muted);
+  cursor: not-allowed;
+}
+input[type='range'] {
+  display: block;
+  width: 100%;
+  min-height: var(--tap-target);
+  margin: 0;
+  padding: 0;
+  accent-color: var(--control-accent);
+}
+
+.control-group:has(> .control-choice) {
+  gap: 0;
+}
+
+.control-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: last baseline;
+  gap: var(--control-group-gap);
+}

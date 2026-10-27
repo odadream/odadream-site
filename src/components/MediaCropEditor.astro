@@ -1,4 +1,5 @@
 ---
+import SelectControl from './SelectControl.astro';
 const ru = Astro.props.lang === 'ru';
 ---
 
@@ -22,23 +23,25 @@ const ru = Astro.props.lang === 'ru';
       </div>
       <div class="media-framing__settings">
         <div class="media-framing__fields">
-          <label>
+          <label class="control-field">
             {ru ? 'Фокус X, %' : 'Focus X, %'}{' '}
             <input data-study-x type="range" min="0" max="100" step="any" value="50" />
           </label>
-          <label>
+          <label class="control-field">
             {ru ? 'Фокус Y, %' : 'Focus Y, %'}{' '}
             <input data-study-y type="range" min="0" max="100" step="any" value="50" />
           </label>
-          <label>
+          <label class="control-field">
             {ru ? 'Поведение' : 'Fit'}{' '}
-            <select data-study-fit>
-              <option value="natural">{ru ? 'Исходные пропорции' : 'Natural proportions'}</option>
-              <option value="contain">{ru ? 'Вписать целиком' : 'Fit whole image'}</option>
-              <option value="cover" selected>
-                {ru ? 'Заполнить с обрезкой' : 'Fill and crop'}
-              </option>
-            </select>
+            <SelectControl>
+              <select data-study-fit>
+                <option value="natural">{ru ? 'Исходные пропорции' : 'Natural proportions'}</option>
+                <option value="contain">{ru ? 'Вписать целиком' : 'Fit whole image'}</option>
+                <option value="cover" selected>
+                  {ru ? 'Заполнить с обрезкой' : 'Fill and crop'}
+                </option>
+              </select>
+            </SelectControl>
           </label>
         </div>
         <p class="small-note">

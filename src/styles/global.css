@@ -4,6 +4,8 @@
 @import './reading.css';
 @import './reading-navigation.css';
 @import './media-gallery.css';
+@import './chronology.css';
+@import './controls.css';
 * {
   box-sizing: border-box;
 }
@@ -675,43 +677,8 @@ figcaption {
 .list-row > .quiet-link {
   white-space: nowrap;
 }
-.case-row.list-row {
-  grid-template-columns: minmax(0, 1fr);
-  row-gap: var(--record-track-gap);
-}
-.case-row > div:not(.case-row__metadata) > * + * {
-  margin-top: var(--record-copy-gap);
-}
-.case-row > div:not(.case-row__metadata) > :is(.media-gallery, .link-row) {
-  margin-top: var(--gap-copy);
-}
-.case-archive__rows {
-  margin-block-start: var(--gap-group);
-}
-[data-case-filter] {
-  align-items: end;
-  gap: var(--gap-copy);
-}
-[data-case-filter] label {
-  display: grid;
-  gap: var(--gap-label);
-}
 [data-case-filter] p {
   margin: 0;
-}
-.case-row__metadata {
-  grid-column: 1 / -1;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--record-meta-row-gap) var(--gap-copy);
-}
-.case-row .case-row__metadata > p {
-  margin: 0;
-}
-@media (max-width: 580px) {
-  .case-row.list-row {
-    grid-template-columns: minmax(0, 1fr);
-  }
 }
 .work-layout {
   display: grid;
@@ -904,27 +871,6 @@ figcaption {
   outline: var(--focus-width) solid currentColor;
   outline-offset: var(--focus-offset);
 }
-.timeline {
-  list-style: none;
-  padding: 0;
-  margin: var(--s6) 0;
-}
-.timeline li {
-  display: grid;
-  grid-template-columns: max-content minmax(0, 1fr) auto;
-  align-items: baseline;
-  gap: var(--s5);
-  padding-block: var(--s4);
-}
-.timeline__date {
-  display: flex;
-  align-items: baseline;
-  gap: var(--s2);
-  white-space: nowrap;
-}
-.timeline p {
-  min-width: 0;
-}
 .acknowledgements {
   color: var(--muted);
 }
@@ -1055,14 +1001,6 @@ figcaption {
   }
   .list-row > :nth-child(3) {
     grid-column: 2;
-  }
-  .timeline li {
-    grid-template-columns: max-content minmax(0, 1fr);
-    gap: var(--s3);
-  }
-  .timeline .quiet-link {
-    grid-column: 2;
-    justify-self: start;
   }
 }
 @media (max-width: 700px) {
@@ -1824,23 +1762,6 @@ figcaption {
   stroke: none;
 }
 
-/* Event overview has one destination: the linked title in the narrative track. */
-.case-row--overview.list-row {
-  grid-template-columns: minmax(3.5em, auto) minmax(0, 1fr);
-}
-.case-row--overview .case-row__metadata {
-  grid-column: auto;
-}
-.case-row--overview .case-row__location {
-  font-size: var(--type-metadata);
-  line-height: var(--leading-metadata);
-}
-@media (max-width: 580px) {
-  .case-row--overview.list-row {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
 /* One illustrative loop; coordinates are diagram geometry, never sensor readings. */
 .collective-feedback {
   margin: 0;
@@ -2048,7 +1969,7 @@ a:has(> .page-code[data-family='D']),
 }
 
 /* Input controls share one role across specimens and DEV tools. */
-:where(input:not([type='checkbox']):not([type='radio']), select, textarea) {
+:where(input:not([type='checkbox']):not([type='radio']):not([type='range']), select, textarea) {
   min-width: 0;
   max-width: 100%;
   min-height: var(--tap-target);
@@ -2094,7 +2015,8 @@ summary:hover {
 }
 .control-field {
   display: grid;
-  gap: var(--control-gap);
+  gap: var(--control-label-gap);
+  min-width: 0;
   font: 400 var(--control-label-type)/var(--control-leading) var(--mono);
 }
 

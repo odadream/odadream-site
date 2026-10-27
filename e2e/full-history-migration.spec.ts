@@ -42,7 +42,7 @@ test('full chronology separates contributions, education, research and applicati
   }
 });
 
-test('chronology fields stay above the narrative across both themes and all review widths', async ({
+test('chronology year stays beside the narrative across both themes and all review widths', async ({
   page,
 }, testInfo) => {
   await page.goto('/ru/cases/');
@@ -57,9 +57,7 @@ test('chronology fields stay above the narrative across both themes and all revi
             const meta = row.children[0].getBoundingClientRect();
             const narrative = row.children[1].getBoundingClientRect();
             return (
-              meta.bottom <= narrative.top + 1 &&
-              narrative.width > 0 &&
-              row.querySelectorAll('a').length === 1
+              meta.right <= narrative.left && narrative.width > 0 && row.querySelectorAll('a').length === 1
             );
           }),
         ),
