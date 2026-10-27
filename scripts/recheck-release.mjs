@@ -13,8 +13,23 @@ const browserFiles = [
   'e2e/project-website.spec.ts',
   'e2e/video-previews.spec.ts',
   'e2e/work-card-layout.spec.ts',
+  'e2e/cv-documents.spec.ts',
+  'e2e/design-rollout.spec.ts',
+  'e2e/editorial-migration.spec.ts',
 ];
 const git = (...args) => execFileSync('git', args, { encoding: 'utf8' }).trim();
+
+/** The full baseline retains passing tests; repeat every failed or edited allowed test file. */
+export function affectedBrowserFiles(changed, browserLog) {
+  return [
+    ...new Set([
+      ...changed.filter((file) => browserFiles.includes(file)),
+      ...[...browserLog.matchAll(/^\s+\d+\) \[(?:desktop|mobile)\] › (e2e\/[^:]+\.spec\.ts):/gm)].map(
+        (match) => match[1],
+      ),
+    ]),
+  ].sort();
+}
 
 /** Reuse a full run only for test-only fixes; production changes always require the full matrix. */
 export function validateRecheck(report, run, changed, browserLog) {
@@ -80,8 +95,9 @@ async function main() {
   if (git('merge-base', report.head, 'HEAD') !== report.head) throw Error('Baseline is not an ancestor.');
   const changed = git('diff', '--name-only', report.head, 'HEAD').split('\n').filter(Boolean);
   validateRecheck(report, run, changed, browserLog);
+  const affected = affectedBrowserFiles(changed, browserLog);
   console.log(
-    `Reusing passed full-matrix results from ${id}; repeating viewer, recognition, homepage, project gateway and card media dependencies.`,
+    `Reusing passed full-matrix results from ${id}; repeating failed and edited browser files: ${affected.join(', ')}.`,
   );
   const result = await runChecks({
     requested: 'release',
@@ -89,7 +105,7 @@ async function main() {
     changed,
     reasons: [],
     docsOnly: false,
-    browserFiles,
+    browserFiles: affected,
     readingFamilies: [],
   });
   if (result.artifact.sha256 !== report.artifact.sha256)
@@ -102,7 +118,7 @@ async function main() {
         baselineHead: report.head,
         head: git('rev-parse', 'HEAD'),
         artifactSha256: result.artifact.sha256,
-        browserFiles,
+        browserFiles: affected,
         success: true,
       },
       null,

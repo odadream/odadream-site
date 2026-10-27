@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { validateRecheck } from '../scripts/recheck-release.mjs';
+import { validateRecheck, affectedBrowserFiles } from '../scripts/recheck-release.mjs';
 
 const report = {
   requested: 'release',
@@ -56,4 +56,17 @@ test('recognition grouped-page expectations reuse only the unchanged full baseli
   assert.throws(() =>
     validateRecheck(report, run, ['e2e/full-materials.spec.ts', 'src/data/site.ts'], groupedLog),
   );
+});
+
+test('editorial corrections repeat all failed and edited files while production changes remain forbidden', () => {
+  const failed =
+    '  1) [desktop] › e2e/design-rollout.spec.ts:27:3 › sections\n  2) [mobile] › e2e/cv-documents.spec.ts:5:1 › PDF\n';
+  const changed = ['e2e/editorial-migration.spec.ts', 'scripts/recheck-release.mjs'];
+  assert.doesNotThrow(() => validateRecheck(report, run, changed, failed));
+  assert.deepEqual(affectedBrowserFiles(changed, failed), [
+    'e2e/cv-documents.spec.ts',
+    'e2e/design-rollout.spec.ts',
+    'e2e/editorial-migration.spec.ts',
+  ]);
+  assert.throws(() => validateRecheck(report, run, [...changed, 'src/components/PageView.astro'], failed));
 });

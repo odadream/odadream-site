@@ -8,7 +8,8 @@ test('method, work configurations and education and cooperation form a connected
     await expect(page.locator('#method-overview')).toBeVisible();
     await expect(page.locator('#signal-process .process-steps > li')).toHaveCount(4);
     await expect(page.locator('#participation .list-row')).toHaveCount(3);
-    await expect(page.locator('#method-boundaries .facts li')).toHaveCount(4);
+    await expect(page.locator('#method-boundaries .facts li')).toHaveCount(3);
+    await expect(page.locator('#method-boundaries')).toContainText(lang === 'ru' ? 'Согласие' : 'Consent');
     await expect(page.locator('#visual-language video')).toHaveCount(1);
     await page.goto(`/${lang}/works/mindshow/`);
     await expect(page.locator('#mindshow-installation')).toContainText(
@@ -30,7 +31,8 @@ test('method, work configurations and education and cooperation form a connected
     await expect(page.locator('.reading-breadcrumbs')).toContainText(
       lang === 'ru' ? 'Образование' : 'Education',
     );
-    await expect(page.locator('#programme-content .facts li')).toHaveCount(3);
+    await expect(page.locator('#programme-content .facts li')).toHaveCount(0);
+    await expect(page.locator('#programme-content .editorial-sections h3')).toHaveCount(3);
     await expect(page.locator('#programme-content')).not.toContainText('src/content/');
     await page.goto(`/${lang}/education/neuro-laboratory/`);
     await expect(page.locator('.page-intro .meta')).toContainText(lang === 'ru' ? 'Проект' : 'Proposed');

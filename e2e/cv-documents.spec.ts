@@ -10,7 +10,7 @@ test('both biographies expose a dated CV in the page language with matching PDF 
     await page.goto(`/${lang}/studio/#people`);
     for (const person of ['olga', 'daler']) {
       const row = page.locator(`#document-cv-${person}-${lang}`);
-      await expect(row).toContainText(lang === 'ru' ? '1 стр.' : '1 pp.');
+      await expect(row).toContainText(lang === 'ru' ? '1 стр.' : '1 p.');
       await expect(page.locator(`#document-cv-${person}-${lang === 'ru' ? 'en' : 'ru'}`)).toHaveCount(0);
       const path = `/documents/oda-dream-cv-${person}-${lang}.pdf`;
       await expect(row.locator('a')).toHaveAttribute('href', path);

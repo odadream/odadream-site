@@ -55,7 +55,7 @@ for (const theme of ['light', 'dark']) {
               programme: ['editorial', 'editorial', 'document'],
               cooperation: ['editorial', 'editorial', 'document', 'process', 'action'],
               studio: ['editorial', 'editorial', 'document', 'document'],
-              cases: ['catalogue', 'catalogue'],
+              cases: ['catalogue'],
               recognition: ['catalogue'],
               contact: ['action'],
               work: record.anchors?.includes('work-project-site')
