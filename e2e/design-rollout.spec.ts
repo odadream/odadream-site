@@ -102,7 +102,11 @@ for (const theme of ['light', 'dark']) {
                     header.getBoundingClientRect().bottom -
                     (() => {
                       const probe = document.createElement('div');
-                      probe.style.paddingTop = detail ? 'var(--gap-component)' : 'var(--gap-heading)';
+                      probe.style.paddingTop = first.classList.contains('chronology')
+                        ? 'var(--chronology-surround-gap)'
+                        : detail
+                          ? 'var(--gap-component)'
+                          : 'var(--gap-heading)';
                       block.append(probe);
                       const value = parseFloat(getComputedStyle(probe).paddingTop);
                       probe.remove();
