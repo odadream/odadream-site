@@ -1,5 +1,5 @@
 schema_version: 1
-updated: 2026-10-27
+updated: 2026-10-30
 maintainer: ODA.dream site team
 status_values: [planned, in_progress, blocked, done]
 priority_values: [P0, P1, P2]
@@ -56,7 +56,7 @@ items:
     title: Унифицировать компактную хронологию и систему элементов ввода
     area: design_system
     priority: P1
-    status: in_progress
+    status: done
     outcome: Общая хронология с корректной baseline и плотностью; согласованные поля, select, checkbox и состояния во всех темах и контекстах.
     acceptance:
       - Хронология главной, работ, архива и стенда использует общие компоненты, типографику, интервалы и горизонтальные оси.
@@ -66,6 +66,8 @@ items:
       - Параметры распространяются на стенд и реальные страницы; design:check и зависимые проверки успешны.
     source: Поручение владельца 27.10.2026 о системных отступах хронологии, baseline года и оформлении интерактивных элементов.
     reading: [docs/DESIGN-GUIDE.md, docs/DESIGN-TOKENS.md, docs/SITE-PRINCIPLES.md]
+
+    verification: '30.10.2026: release 41015537847 успешен; повторены только design-rollout/evidence-migration после полного baseline 40505975228; SHA сборки совпадает. RU/EN главная, MindShow и архив проверены на production.'
 
   - id: EDITORIAL-GESTURES-27
     title: Исправить свайпы, согласие и провести сквозную редактуру сайта
