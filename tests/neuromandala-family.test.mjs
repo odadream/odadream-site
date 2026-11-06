@@ -16,3 +16,22 @@ test('Neuromandala names, historical media and hero entrances keep distinct artw
   assert.equal(data.cases.find((event) => event.id === 'byob-2019').work, grid.id);
   assert.equal(data.cases.find((event) => event.id === 'byob-2020').work, 'neurosync');
 });
+
+test('editorial and publication catalogues share the owner work hierarchy', async () => {
+  const { publicationPlan } = await loadSiteModule('src/data/publication-plan.ts');
+  const { createPublicationScope } = await loadSiteModule('src/lib/publication-scope.ts');
+  const expected = [
+    'interference',
+    'mindshow',
+    'neuromandala',
+    'schrodinger',
+    'neurobattle',
+    'cultural-neuro-code',
+    'neurosync',
+  ];
+  for (const catalogue of [data, createPublicationScope(data, publicationPlan)])
+    assert.deepEqual(
+      catalogue.works.slice(0, 7).map((work) => work.id),
+      expected,
+    );
+});

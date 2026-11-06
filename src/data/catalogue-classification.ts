@@ -5,7 +5,7 @@ import type { Programme } from './programmes';
 // this is the single canonical classification boundary, before publication/counting.
 export const educationalWorkIds = ['theatre-my-name', 'brain-hack', 'journey'];
 const l = (ru: string, en: string): Localized => ({ ru, en });
-const workPriority = [
+export const workPriority = [
   'interference',
   'mindshow',
   'neuromandala',
@@ -14,6 +14,10 @@ const workPriority = [
   'cultural-neuro-code',
   'neurosync',
 ];
+export const workRank = (id: string) => {
+  const index = workPriority.indexOf(id);
+  return index < 0 ? workPriority.length : index;
+};
 const lectureEvents = ['bauman-2025', 'sber-2025', 'gonchar-2024'];
 const reassignedEvents = ['byob-2019', 'byob-2020', ...lectureEvents];
 const mindGridMedia = [
@@ -262,10 +266,6 @@ export function classifyCatalogue(workRecords: Work[], programmeRecords: Program
       ]),
     }),
   );
-  works.sort(
-    (a, b) =>
-      (workPriority.includes(a.id) ? workPriority.indexOf(a.id) : 100) -
-      (workPriority.includes(b.id) ? workPriority.indexOf(b.id) : 100),
-  );
+  works.sort((a, b) => workRank(a.id) - workRank(b.id));
   return { works, programmes, cases };
 }

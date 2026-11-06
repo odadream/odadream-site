@@ -1,3 +1,4 @@
+import { workRank } from './catalogue-classification';
 import { auditedRecognitions } from './recognition-source-audit';
 import { recognitionGroups } from './recognition-source-audit';
 import { additionalProgrammes } from './additional-programmes';
@@ -33,7 +34,7 @@ export const publicationPlan: PublicationPlan = {
     'gong',
     'cultural-neuro-code',
     'neuromandala',
-  ],
+  ].sort((a, b) => workRank(a) - workRank(b)),
   configurations: ['mindshow-installation', 'neurobattle-game'],
   programmes: [
     ...additionalProgrammes.map((row) => row.id),
