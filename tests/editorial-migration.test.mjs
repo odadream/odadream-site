@@ -114,7 +114,8 @@ test('work narratives retain owner decisions, real roles and source coverage', (
     data.works.find((w) => w.id === 'schrodinger').story[1].body.ru,
     /четыре ЭЭГ-канала.*четыре пульсоканала/,
   );
-  assert.ok(data.works.find((w) => w.id === 'mindshow').aliases.includes('MindGrid'));
+  assert.ok(!data.works.find((w) => w.id === 'mindshow').aliases.includes('MindGrid'));
+  assert.equal(data.works.find((w) => w.id === 'neuromandala').title.en, 'Neuromandala: MindGrid');
   assert.equal(data.works.filter((w) => w.legacyId === 'emomandala-os').length, 0);
 });
 
