@@ -40,7 +40,9 @@ test('additional works expose complete pages and separate real objects from desi
     await page.goto(`/${lang}/works/neuromandala/`);
     await page.locator(`main a[href="/${lang}/technology/"]`).click();
     await expect(page.locator('#method-overview')).toContainText('MultiSync');
-    await page.locator(`main a[href="/${lang}/works/neuromandala/"]`).click();
-    await expect(page.locator('h1')).toHaveText(lang === 'ru' ? 'Нейромандала' : 'Neuromandala');
+    await page.locator(`#works-and-practices a[href="/${lang}/works/neuromandala/"]`).click();
+    await expect(page.locator('h1')).toHaveText(
+      lang === 'ru' ? 'Нейромандала: MindGrid' : 'Neuromandala: MindGrid',
+    );
   }
 });

@@ -5,6 +5,8 @@ import { pathToFileURL } from 'node:url';
 import { runChecks } from './checks.mjs';
 
 const browserFiles = [
+  'e2e/full-works-migration.spec.ts',
+  'e2e/reading-profile.spec.ts',
   'e2e/media-gallery.spec.ts',
   'e2e/evidence-migration.spec.ts',
   'e2e/full-materials.spec.ts',
