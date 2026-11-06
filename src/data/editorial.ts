@@ -1098,6 +1098,7 @@ export const methods: Method[] = [
     },
     works: ['neuromandala', 'mindshow', 'neurosync', 'interference', 'neurobattle'],
     media: [
+      ...methodTechnologySections.flatMap((section) => section.media ?? []),
       'abrau-2026-157',
       'neuromandala-frequencies',
       'method-power-timeline',
