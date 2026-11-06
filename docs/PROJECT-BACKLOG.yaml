@@ -1,5 +1,5 @@
 schema_version: 1
-updated: 2026-10-30
+updated: 2026-11-06
 maintainer: ODA.dream site team
 status_values: [planned, in_progress, blocked, done]
 priority_values: [P0, P1, P2]
@@ -56,11 +56,13 @@ items:
     title: Уточнить семейство Нейромандалы и принадлежность визуальных материалов
     area: content
     priority: P1
-    status: in_progress
+    status: done
     acceptance:
       - Имена MindShow и MindGrid, порядок работ и подборки соответствуют решению владельца.
       - Обзор технологии показывает разные работы, этапы ЭЭГ и используемые нейроинтерфейсы.
     source: Уточнение владельца 06.11.2026.
+
+    verification: '06.11.2026: 160 unit и 227 browser проверок пройдены (39 пропущены по матрице); release 42183988491 успешен. Публичные RU/EN проверены отдельно: первые семь работ, галереи, графики и устройства. Приоритет общий для DEV/PUBLIC; исторический псевдоним и hero-переход исправлены.'
 
   - id: DESIGN-CHRONOLOGY-CONTROLS-27
     title: Унифицировать компактную хронологию и систему элементов ввода
