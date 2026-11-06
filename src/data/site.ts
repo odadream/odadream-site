@@ -634,7 +634,7 @@ export const heroVisuals: HeroVisual[] = [
   {
     id: 'frequencies',
     mediaId: 'neuromandala-frequencies',
-    target: { kind: 'work', workId: 'mindshow' },
+    target: { kind: 'work', workId: 'neuromandala' },
   },
   {
     id: 'mindshow',
@@ -759,7 +759,7 @@ const workRecords: Omit<Work, keyof WorkDetail>[] = [
     stage: 'realized',
     year: null,
     workType: 'installation',
-    aliases: ['MindGrid', 'Майнд-шоу'],
+    aliases: ['Майнд-шоу'],
     basedOn: [],
     featuredOnHome: true,
   },
