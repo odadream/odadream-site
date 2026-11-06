@@ -5,6 +5,32 @@ import type { Programme } from './programmes';
 // this is the single canonical classification boundary, before publication/counting.
 export const educationalWorkIds = ['theatre-my-name', 'brain-hack', 'journey'];
 const l = (ru: string, en: string): Localized => ({ ru, en });
+const workPriority = [
+  'interference',
+  'mindshow',
+  'neuromandala',
+  'schrodinger',
+  'neurobattle',
+  'cultural-neuro-code',
+  'neurosync',
+];
+const lectureEvents = ['bauman-2025', 'sber-2025', 'gonchar-2024'];
+const reassignedEvents = ['byob-2019', 'byob-2020', ...lectureEvents];
+const mindGridMedia = [
+  'archive-mindshow-byob-2019-mindgrid',
+  'abrau-2026-157',
+  'abrau-2026-158',
+  'abrau-2026-166',
+  'abrau-2026-46',
+  'abrau-2026-77',
+];
+const otherMindShowMedia = [
+  ...mindGridMedia,
+  'archive-byob-2020-projection-pentagon',
+  'archive-gonchar-2024-lectures-gonchar',
+  'event-bauman-lecture',
+  'event-sber-lecture',
+];
 const unique = (items: string[]) => [...new Set(items)];
 
 export function classifyCatalogue(workRecords: Work[], programmeRecords: Programme[], events: CaseEvent[]) {
@@ -14,17 +40,30 @@ export function classifyCatalogue(workRecords: Work[], programmeRecords: Program
   const cases: CaseEvent[] = events.map((row) => ({
     ...row,
     detailPage: true,
+    method: ['byob-2019', 'byob-2020'].includes(row.id) ? undefined : row.method,
     sourceUrl: row.source.startsWith('https://') ? row.source : undefined,
     workSelections:
       row.id === 'portal-2024'
         ? [{ workId: 'mindshow', media: ['archive-portal-2024-mindshow-portal'] }]
-        : row.workSelections,
+        : row.workSelections?.map((selection) => ({
+            ...selection,
+            media:
+              selection.workId === 'mindshow'
+                ? selection.media.filter((id) => !otherMindShowMedia.includes(id))
+                : selection.media,
+          })),
     work:
-      row.work && educationalWorkIds.includes(row.work)
-        ? undefined
-        : row.programme === 'gong'
-          ? 'gong'
-          : row.work,
+      row.id === 'byob-2019'
+        ? 'neuromandala'
+        : row.id === 'byob-2020'
+          ? 'neurosync'
+          : lectureEvents.includes(row.id)
+            ? undefined
+            : row.work && educationalWorkIds.includes(row.work)
+              ? undefined
+              : row.programme === 'gong'
+                ? 'gong'
+                : row.work,
     programme:
       row.work && educationalWorkIds.includes(row.work)
         ? row.work
@@ -32,7 +71,9 @@ export function classifyCatalogue(workRecords: Work[], programmeRecords: Program
           ? undefined
           : row.programme,
     relatedWorks: unique([
-      ...(row.relatedWorks ?? []).filter((id) => !educationalWorkIds.includes(id)),
+      ...(row.relatedWorks ?? []).filter(
+        (id) => !educationalWorkIds.includes(id) && !(id === 'mindshow' && reassignedEvents.includes(row.id)),
+      ),
       ...(row.relatedProgrammes?.includes('gong') ? ['gong'] : []),
     ]),
     relatedProgrammes: unique([
@@ -193,23 +234,38 @@ export function classifyCatalogue(workRecords: Work[], programmeRecords: Program
   const works = [...workRecords.filter((row) => !educationalWorkIds.includes(row.id)), gongWork].map(
     (row) => ({
       ...row,
+      title:
+        row.id === 'mindshow'
+          ? l('Нейромандала: MindShow', 'Neuromandala: MindShow')
+          : row.id === 'neuromandala'
+            ? l('Нейромандала: MindGrid', 'Neuromandala: MindGrid')
+            : row.title,
       relatedWorks: row.relatedWorks.filter((id) => !educationalWorkIds.includes(id)),
       media:
         row.id === 'neuromandala'
-          ? unique([...row.media, 'neurosync-session'])
-          : row.media.filter((id) => id !== 'neurosync-session'),
+          ? unique([...row.media, ...mindGridMedia, 'neurosync-session'])
+          : row.id === 'mindshow'
+            ? row.media.filter((id) => !otherMindShowMedia.includes(id))
+            : row.id === 'neurosync'
+              ? unique([...row.media, 'archive-byob-2020-projection-pentagon'])
+              : row.media.filter((id) => id !== 'neurosync-session'),
       relatedProgrammes: educationalWorkIds.filter(
         (id) =>
           row.relatedWorks.includes(id) ||
           programmes.some((programme) => programme.id === id && programme.works.includes(row.id)),
       ),
       cases: unique([
-        ...row.cases,
+        ...row.cases.filter((id) => !(row.id === 'mindshow' && reassignedEvents.includes(id))),
         ...cases
           .filter((event) => event.work === row.id || event.relatedWorks?.includes(row.id))
           .map((event) => event.id),
       ]),
     }),
+  );
+  works.sort(
+    (a, b) =>
+      (workPriority.includes(a.id) ? workPriority.indexOf(a.id) : 100) -
+      (workPriority.includes(b.id) ? workPriority.indexOf(b.id) : 100),
   );
   return { works, programmes, cases };
 }

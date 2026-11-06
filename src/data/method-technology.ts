@@ -12,13 +12,49 @@ export const methodTechnologySections: EditorialSection[] = [
     ),
   },
   {
+    id: 'works-and-practices',
+    title: l('Одна технология — разные произведения', 'One technology, different artworks'),
+    body: l(
+      'Нейромандала — технология и общее имя семейства работ ODA.dream. В MindGrid она представлена нейропортретами и коллективным полем; в MindShow становится разворачивающейся аудиовизуальной композицией. Нейросинхронизация исследует совместное внимание, а сценические работы включают биосигналы в отношения исполнителей, зрителей и изображения.',
+      'Neuromandala is both a technology and the umbrella name for a family of ODA.dream works. MindGrid presents neuroportraits and a collective visual field; MindShow develops an audiovisual composition. Neurosynchronization explores shared attention, while stage works bring biosignals into the relationship between performers, audiences and images.',
+    ),
+    media: [
+      'archive-mindshow-byob-2019-mindgrid',
+      'abrau-2026-158',
+      'neuromandala-mindshow',
+      'archive-byob-2020-projection-pentagon',
+      'archive-interference-interference-2026-02',
+      'archive-schrodinger-schrodinger-2025-06',
+    ],
+    links: [
+      {
+        id: 'technology-mindgrid',
+        kind: 'article',
+        title: l('Нейромандала: MindGrid', 'Neuromandala: MindGrid'),
+        href: 'https://odadream.art/ru/works/neuromandala/',
+      },
+      {
+        id: 'technology-mindshow',
+        kind: 'article',
+        title: l('Нейромандала: MindShow', 'Neuromandala: MindShow'),
+        href: 'https://odadream.art/ru/works/mindshow/',
+      },
+      {
+        id: 'technology-neurosync',
+        kind: 'article',
+        title: l('Нейросинхронизация', 'Neurosynchronization'),
+        href: 'https://odadream.art/ru/works/neurosynchronization/',
+      },
+    ],
+  },
+  {
     id: 'signal-and-power',
     title: l('Четыре ритма и их мощность', 'Four rhythms and their power'),
     body: l(
       'ЭЭГ содержит колебания разных частот. В показанных версиях мандалы выделены четыре диапазона: тета, альфа, бета и гамма — от более медленных к более быстрым. Они присутствуют одновременно.\n\nДля каждого диапазона оценивается мощность: насколько выражен его вклад в записанный сигнал за некоторый интервал времени. Мощность ритма и частота колебаний — разные величины: большая мощность не означает более быстрый ритм. На линейном графике ниже видно, как вклад каждого диапазона меняется во времени.',
       'EEG contains oscillations at different frequencies. The versions shown use four bands: theta, alpha, beta and gamma, ordered from slower to faster. They coexist.\n\nPower is estimated for each band: how strongly it contributes to the recorded signal over a time interval. Rhythm power and oscillation frequency are different quantities: higher power does not mean a faster rhythm. The linear plot below shows how the contribution of each band changes over time.',
     ),
-    media: ['method-power-timeline'],
+    media: ['method-raw-eeg', 'method-filtered-rhythms', 'method-power-timeline'],
   },
   {
     id: 'visual-language',
@@ -53,6 +89,35 @@ export const methodTechnologySections: EditorialSection[] = [
       'Участник наблюдает, как рисунок меняется рядом с его собственным опытом: вниманием, дыханием, движением или закрыванием глаз. Совпадение изменения линии с ощущением — повод для наблюдения, а не доказательство причины. На сигнал влияют контакт датчиков, движения глаз и мышц. Поэтому отдельный всплеск или цвет нельзя прочитать как конкретную мысль, эмоцию или диагноз. В художественной ситуации ценен сам диалог с отзывчивой средой; участие без датчика и роль зрителя определяются форматом работы.',
       'The participant observes how the drawing changes alongside their experience: attention, breathing, movement or closing their eyes. A line changing alongside a sensation invites observation; it does not establish a cause. Sensor contact, eye movements and muscles affect the signal. A single spike or colour therefore cannot be read as a particular thought, emotion or diagnosis. In the artwork, the dialogue with a responsive environment matters; participation without a sensor and the audience role depend on the format.',
     ),
+  },
+  {
+    id: 'neurointerfaces',
+    title: l('Используемые нейроинтерфейсы', 'EEG interfaces we use'),
+    body: l(
+      'В работах и практиках студии используются Muse Headband первого поколения, Muse 2, Muse S, NeuroPlay и Neiry Pro. Нейроинтерфейс регистрирует сигнал; художественную композицию и способ её развития задаёт Нейромандала. Выбор устройства зависит от произведения, условий площадки и сценария участия. Фотографии показывают работу с нейроинтерфейсами в контексте показов и встреч.',
+      'The studio uses the first-generation Muse Headband, Muse 2, Muse S, NeuroPlay and Neiry Pro across its artworks and practices. The interface records a signal; Neuromandala defines the artistic composition and how it develops. Device choice depends on the artwork, venue conditions and participation format. The photographs show EEG interfaces in the context of presentations and encounters.',
+    ),
+    media: ['abrau-2026-46', 'event-tpp-mindshow'],
+    links: [
+      {
+        id: 'muse-manufacturer',
+        kind: 'article',
+        title: l('Muse · производитель', 'Muse · manufacturer'),
+        href: 'https://choosemuse.com/',
+      },
+      {
+        id: 'neuroplay-manufacturer',
+        kind: 'article',
+        title: l('NeuroPlay · производитель', 'NeuroPlay · manufacturer'),
+        href: 'https://neuroplay.ru/',
+      },
+      {
+        id: 'neiry-manufacturer',
+        kind: 'article',
+        title: l('Neiry · производитель', 'Neiry · manufacturer'),
+        href: 'https://neiry.ru/products',
+      },
+    ],
   },
   {
     id: 'invention-application',

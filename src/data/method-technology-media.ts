@@ -1,6 +1,38 @@
 import type { Media } from './site';
 export const methodTechnologyMedia: Media[] = [
   {
+    id: 'method-raw-eeg',
+    src: '/images/source/method-technology/F01A_raw_eeg.png',
+    kind: 'image',
+    representation: 'diagram',
+    originalAccess: 'internal',
+    rights: 'cleared',
+    width: 3000,
+    height: 2400,
+    alt: { ru: 'Исходная ЭЭГ', en: 'Raw EEG' },
+    caption: {
+      ru: 'Исходная ЭЭГ · иллюстрация из материалов заявки',
+      en: 'Raw EEG · illustration from the application materials',
+    },
+    source: 'Owner publication instruction 2026-11-06; patent figures/F01A_raw_eeg.png',
+  },
+  {
+    id: 'method-filtered-rhythms',
+    src: '/images/source/method-technology/F02A_spectral_decomposition.png',
+    kind: 'image',
+    representation: 'diagram',
+    originalAccess: 'internal',
+    rights: 'cleared',
+    width: 3000,
+    height: 3000,
+    alt: { ru: 'Выделение частотных составляющих', en: 'Frequency-band decomposition' },
+    caption: {
+      ru: 'Выделение частотных составляющих · иллюстрация из материалов заявки',
+      en: 'Frequency-band decomposition · illustration from the application materials',
+    },
+    source: 'Owner publication instruction 2026-11-06; patent figures/F02A_spectral_decomposition.png',
+  },
+  {
     id: 'method-power-timeline',
     src: '/images/source/method-technology/method-power-timeline.png',
     kind: 'image',

@@ -2229,7 +2229,7 @@ export const archiveMedia: Media[] = [...imageRecords, ...archiveVideos];
 const ownerSelectedImages: { kind: OwnerKind; owner: string; media: string[] }[] = [
   {
     kind: 'work',
-    owner: 'mindshow',
+    owner: 'neuromandala',
     media: ['abrau-2026-157', 'abrau-2026-158', 'abrau-2026-166', 'abrau-2026-46', 'abrau-2026-77'],
   },
   { kind: 'work', owner: 'schrodinger', media: ['schrodinger-square-poster'] },

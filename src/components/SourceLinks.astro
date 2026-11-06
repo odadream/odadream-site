@@ -20,8 +20,13 @@ const labels = {
 >
   {[...new Map(links.map((link) => [link.href, link])).values()].map((link) => (
     <li>
-      <span class="meta">{labels[link.kind][lang]}</span>
-      <CalloutLink href={link.href} rel="external">
+      <span class="meta">
+        {link.href.includes('/works/') ? (lang === 'ru' ? 'Работа' : 'Work') : labels[link.kind][lang]}
+      </span>
+      <CalloutLink
+        href={link.href.replace(/^https:\/\/odadream\.art/, '').replace(/^\/(ru|en)\//, `/${lang}/`)}
+        rel={link.href.startsWith('https://') ? 'external' : undefined}
+      >
         {link.title[lang]}
       </CalloutLink>
     </li>
